@@ -1,12 +1,20 @@
 package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class PhotoComment extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8159360430336434144L;
+    public transient /* synthetic */ FieldHolder $fh;
     public long author_id;
     public String author_name;
     public long comment_id;
@@ -21,9 +29,24 @@ public class PhotoComment extends com.kwad.sdk.core.response.a.a implements com.
     public long user_id;
     public String user_sex;
 
+    public PhotoComment() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.kwad.sdk.core.response.a.a
     public void parseJson(@Nullable JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.subCommentCount = jSONObject.optLong("subCommentCount");
@@ -43,20 +66,25 @@ public class PhotoComment extends com.kwad.sdk.core.response.a.a implements com.
 
     @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "subCommentCount", this.subCommentCount);
-        o.a(jSONObject, "hot", this.hot);
-        o.a(jSONObject, "likedCount", this.likedCount);
-        o.a(jSONObject, "time", this.time);
-        o.a(jSONObject, "timestamp", this.timestamp);
-        o.a(jSONObject, "content", this.content);
-        o.a(jSONObject, "photo_id", this.photo_id);
-        o.a(jSONObject, "author_id", this.author_id);
-        o.a(jSONObject, "user_id", this.user_id);
-        o.a(jSONObject, "user_sex", this.user_sex);
-        o.a(jSONObject, "comment_id", this.comment_id);
-        o.a(jSONObject, "headurl", this.headurl);
-        o.a(jSONObject, "author_name", this.author_name);
-        return jSONObject;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            o.a(jSONObject, "subCommentCount", this.subCommentCount);
+            o.a(jSONObject, "hot", this.hot);
+            o.a(jSONObject, "likedCount", this.likedCount);
+            o.a(jSONObject, "time", this.time);
+            o.a(jSONObject, "timestamp", this.timestamp);
+            o.a(jSONObject, "content", this.content);
+            o.a(jSONObject, "photo_id", this.photo_id);
+            o.a(jSONObject, "author_id", this.author_id);
+            o.a(jSONObject, "user_id", this.user_id);
+            o.a(jSONObject, "user_sex", this.user_sex);
+            o.a(jSONObject, "comment_id", this.comment_id);
+            o.a(jSONObject, "headurl", this.headurl);
+            o.a(jSONObject, "author_name", this.author_name);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -13,31 +13,31 @@ import java.util.LinkedHashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38765a;
+    public String f40528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38766b;
+    public String f40529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38767c;
+    public String f40530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38768d;
+    public String f40531d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38769e;
+    public String f40532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38770f;
+    public String f40533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38771g;
+    public String f40534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38772h;
+    public String f40535h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f38773i;
+    public String f40536i;
     public String j;
     public String k;
     public String l;
@@ -47,39 +47,39 @@ public class a {
     public String p;
 
     public a(Context context) {
-        this.f38765a = "https://api-push.meizu.com/garcia/api/client/";
-        this.f38766b = this.f38765a + "message/registerPush";
-        this.f38767c = this.f38765a + "message/unRegisterPush";
-        this.f38768d = this.f38765a + "advance/unRegisterPush";
-        this.f38769e = this.f38765a + "message/getRegisterSwitch";
-        this.f38770f = this.f38765a + "message/changeRegisterSwitch";
-        this.f38771g = this.f38765a + "message/changeAllSwitch";
-        this.f38772h = this.f38765a + "message/subscribeTags";
-        this.f38773i = this.f38765a + "message/unSubscribeTags";
-        this.j = this.f38765a + "message/unSubAllTags";
-        this.k = this.f38765a + "message/getSubTags";
-        this.l = this.f38765a + "message/subscribeAlias";
-        this.m = this.f38765a + "message/unSubscribeAlias";
-        this.n = this.f38765a + "message/getSubAlias";
-        this.o = this.f38765a + "log/upload";
-        this.p = this.f38765a + "advance/changeRegisterSwitch";
+        this.f40528a = "https://api-push.meizu.com/garcia/api/client/";
+        this.f40529b = this.f40528a + "message/registerPush";
+        this.f40530c = this.f40528a + "message/unRegisterPush";
+        this.f40531d = this.f40528a + "advance/unRegisterPush";
+        this.f40532e = this.f40528a + "message/getRegisterSwitch";
+        this.f40533f = this.f40528a + "message/changeRegisterSwitch";
+        this.f40534g = this.f40528a + "message/changeAllSwitch";
+        this.f40535h = this.f40528a + "message/subscribeTags";
+        this.f40536i = this.f40528a + "message/unSubscribeTags";
+        this.j = this.f40528a + "message/unSubAllTags";
+        this.k = this.f40528a + "message/getSubTags";
+        this.l = this.f40528a + "message/subscribeAlias";
+        this.m = this.f40528a + "message/unSubscribeAlias";
+        this.n = this.f40528a + "message/getSubAlias";
+        this.o = this.f40528a + "log/upload";
+        this.p = this.f40528a + "advance/changeRegisterSwitch";
         com.meizu.cloud.pushsdk.b.a.a();
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
-            this.f38765a = "https://api-push.in.meizu.com/garcia/api/client/";
-            this.f38766b = this.f38765a + "message/registerPush";
-            this.f38767c = this.f38765a + "message/unRegisterPush";
-            this.f38768d = this.f38765a + "advance/unRegisterPush";
-            this.f38769e = this.f38765a + "message/getRegisterSwitch";
-            this.f38770f = this.f38765a + "message/changeRegisterSwitch";
-            this.f38771g = this.f38765a + "message/changeAllSwitch";
-            this.f38772h = this.f38765a + "message/subscribeTags";
-            this.f38773i = this.f38765a + "message/unSubscribeTags";
-            this.j = this.f38765a + "message/unSubAllTags";
-            this.k = this.f38765a + "message/getSubTags";
-            this.l = this.f38765a + "message/subscribeAlias";
-            this.m = this.f38765a + "message/unSubscribeAlias";
-            this.n = this.f38765a + "message/getSubAlias";
-            this.p = this.f38765a + "advance/changeRegisterSwitch";
+            this.f40528a = "https://api-push.in.meizu.com/garcia/api/client/";
+            this.f40529b = this.f40528a + "message/registerPush";
+            this.f40530c = this.f40528a + "message/unRegisterPush";
+            this.f40531d = this.f40528a + "advance/unRegisterPush";
+            this.f40532e = this.f40528a + "message/getRegisterSwitch";
+            this.f40533f = this.f40528a + "message/changeRegisterSwitch";
+            this.f40534g = this.f40528a + "message/changeAllSwitch";
+            this.f40535h = this.f40528a + "message/subscribeTags";
+            this.f40536i = this.f40528a + "message/unSubscribeTags";
+            this.j = this.f40528a + "message/unSubAllTags";
+            this.k = this.f40528a + "message/getSubTags";
+            this.l = this.f40528a + "message/subscribeAlias";
+            this.m = this.f40528a + "message/unSubscribeAlias";
+            this.n = this.f40528a + "message/getSubAlias";
+            this.p = this.f40528a + "advance/changeRegisterSwitch";
         }
     }
 
@@ -90,8 +90,8 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "register post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.b(this.f38766b).a(linkedHashMap2).a().a();
+        d.h.a.a.a.d("PushAPI", "register post map " + linkedHashMap2);
+        return com.meizu.cloud.pushsdk.b.a.b(this.f40529b).a(linkedHashMap2).a().a();
     }
 
     public c a(String str, String str2, String str3, int i2, boolean z) {
@@ -103,8 +103,8 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", this.f38770f + " switchPush post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.b(this.f38770f).a(linkedHashMap2).a().a();
+        d.h.a.a.a.d("PushAPI", this.f40533f + " switchPush post map " + linkedHashMap2);
+        return com.meizu.cloud.pushsdk.b.a.b(this.f40533f).a(linkedHashMap2).a().a();
     }
 
     public c<String> a(String str, String str2, String str3, File file) {
@@ -117,7 +117,7 @@ public class a {
         if (!TextUtils.isEmpty(str3)) {
             linkedHashMap2.put("errorMsg", str3);
         }
-        d.j.a.a.a.d("PushAPI", "uploadLogFile post map " + linkedHashMap2);
+        d.h.a.a.a.d("PushAPI", "uploadLogFile post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.c(this.o).a(linkedHashMap2).a(ZeusCrashHandler.LOG_FILE_NAME, file).a().a();
     }
 
@@ -129,8 +129,8 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.b(this.f38772h).a(linkedHashMap2).a().a();
+        d.h.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        return com.meizu.cloud.pushsdk.b.a.b(this.f40535h).a(linkedHashMap2).a().a();
     }
 
     public c a(String str, String str2, String str3, boolean z) {
@@ -141,8 +141,8 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", this.f38771g + " switchPush post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.b(this.f38771g).a(linkedHashMap2).a().a();
+        d.h.a.a.a.d("PushAPI", this.f40534g + " switchPush post map " + linkedHashMap2);
+        return com.meizu.cloud.pushsdk.b.a.b(this.f40534g).a(linkedHashMap2).a().a();
     }
 
     public c b(String str, String str2, String str3) {
@@ -152,8 +152,8 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "unregister post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.a(this.f38767c).a(linkedHashMap2).a().a();
+        d.h.a.a.a.d("PushAPI", "unregister post map " + linkedHashMap2);
+        return com.meizu.cloud.pushsdk.b.a.a(this.f40530c).a(linkedHashMap2).a().a();
     }
 
     public c b(String str, String str2, String str3, String str4) {
@@ -164,8 +164,8 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.b(this.f38773i).a(linkedHashMap2).a().a();
+        d.h.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        return com.meizu.cloud.pushsdk.b.a.b(this.f40536i).a(linkedHashMap2).a().a();
     }
 
     public c c(String str, String str2, String str3) {
@@ -175,8 +175,8 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "checkPush post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.a(this.f38769e).a(linkedHashMap2).a().a();
+        d.h.a.a.a.d("PushAPI", "checkPush post map " + linkedHashMap2);
+        return com.meizu.cloud.pushsdk.b.a.a(this.f40532e).a(linkedHashMap2).a().a();
     }
 
     public c c(String str, String str2, String str3, String str4) {
@@ -188,7 +188,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        d.h.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.l).a(linkedHashMap2).a().a();
     }
 
@@ -199,7 +199,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "subScribeAllTags post map " + linkedHashMap2);
+        d.h.a.a.a.d("PushAPI", "subScribeAllTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.j).a(linkedHashMap2).a().a();
     }
 
@@ -211,7 +211,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
+        d.h.a.a.a.d("PushAPI", "subScribeTags post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.b(this.m).a(linkedHashMap2).a().a();
     }
 
@@ -222,7 +222,7 @@ public class a {
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
-        d.j.a.a.a.d("PushAPI", "checkPush post map " + linkedHashMap2);
+        d.h.a.a.a.d("PushAPI", "checkPush post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.a(this.k).a(linkedHashMap2).a().a();
     }
 }

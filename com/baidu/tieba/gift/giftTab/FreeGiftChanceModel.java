@@ -2,84 +2,155 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16166e;
+    public int f16302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16167f;
+    public b f16303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16168g;
+    public d.a.c.c.g.a f16304g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
-        public a(int i2, int i3) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FreeGiftChanceModel f16305a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(FreeGiftChanceModel freeGiftChanceModel, int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {freeGiftChanceModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16305a = freeGiftChanceModel;
         }
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    FreeGiftChanceModel.this.f16166e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.f16305a.f16302e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    FreeGiftChanceModel.this.f16166e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.f16305a.f16302e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (FreeGiftChanceModel.this.f16167f != null) {
-                    FreeGiftChanceModel.this.f16167f.a(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.f16166e);
+                if (this.f16305a.f16303f != null) {
+                    this.f16305a.f16303f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f16305a.f16302e);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(int i2, String str, int i3);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FreeGiftChanceModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.f16168g = new a(CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f16304g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
 
     public void A(b bVar) {
-        this.f16167f = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.f16303f = bVar;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void registerListener() {
-        registerListener(this.f16168g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            registerListener(this.f16304g);
+        }
     }
 
     public final void registerTask() {
-        d.a.o0.e3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-        d.a.o0.e3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d.a.s0.h3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            d.a.s0.h3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+        }
     }
 
     public void z(String str) {
-        FreeGiftChanceRequest freeGiftChanceRequest = new FreeGiftChanceRequest();
-        freeGiftChanceRequest.setFrom(str);
-        sendMessage(freeGiftChanceRequest);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            FreeGiftChanceRequest freeGiftChanceRequest = new FreeGiftChanceRequest();
+            freeGiftChanceRequest.setFrom(str);
+            sendMessage(freeGiftChanceRequest);
+        }
     }
 }

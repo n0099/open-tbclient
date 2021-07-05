@@ -5,155 +5,225 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.o0.j2.i.d.a;
-import d.a.o0.j2.i.d.b;
+import d.a.s0.m2.i.d.a;
+import d.a.s0.m2.i.d.b;
 import java.util.List;
 import tbclient.User;
 /* loaded from: classes5.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f20030f;
+    public a f20179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f20031g;
+    public b f20180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f20032h;
+    public long f20181h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f20033i = false;
-    public d.a.o0.j2.e.a j;
+    public boolean f20182i;
+    public d.a.s0.m2.e.a j;
+
+    public PersonCenterMainTabFragment() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f20182i = false;
+    }
 
     public static PersonCenterMainTabFragment M0(long j, boolean z) {
-        PersonCenterMainTabFragment personCenterMainTabFragment = new PersonCenterMainTabFragment();
-        Bundle bundle = new Bundle();
-        bundle.putLong("uid", j);
-        bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, z);
-        personCenterMainTabFragment.setArguments(bundle);
-        return personCenterMainTabFragment;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            PersonCenterMainTabFragment personCenterMainTabFragment = new PersonCenterMainTabFragment();
+            Bundle bundle = new Bundle();
+            bundle.putLong("uid", j);
+            bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, z);
+            personCenterMainTabFragment.setArguments(bundle);
+            return personCenterMainTabFragment;
+        }
+        return (PersonCenterMainTabFragment) invokeCommon.objValue;
     }
 
     public void E0() {
-        if (this.f20030f == null || !isAdded()) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f20179f != null && isAdded()) {
+            this.f20179f.k();
         }
-        this.f20030f.k();
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void G0(boolean z) {
-        E0();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            E0();
+        }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public int H0() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public boolean I0() {
-        return this.f20033i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20182i : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void K0(User user) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, user) == null) {
+        }
     }
 
     public final void L0(Bundle bundle) {
-        if (bundle != null) {
-            this.f20032h = bundle.getLong("uid");
-            this.f20033i = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
-            return;
-        }
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            this.f20032h = arguments.getLong("uid");
-            this.f20033i = arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            if (bundle != null) {
+                this.f20181h = bundle.getLong("uid");
+                this.f20182i = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
+                return;
+            }
+            Bundle arguments = getArguments();
+            if (arguments != null) {
+                this.f20181h = arguments.getLong("uid");
+                this.f20182i = arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
+            }
         }
     }
 
-    public final void N0(d.a.o0.j2.e.a aVar) {
-        if (this.f20030f == null || this.f20031g == null || aVar == null) {
+    public final void N0(d.a.s0.m2.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || this.f20179f == null || this.f20180g == null || aVar == null) {
             return;
         }
-        List<n> b2 = d.a.o0.j2.i.c.a.b(aVar.h());
+        List<n> b2 = d.a.s0.m2.i.c.a.b(aVar.h());
         if (!ListUtils.isEmpty(b2)) {
-            this.f20030f.r(R.string.person_center_tab_main_footer_text);
+            this.f20179f.r(R.string.person_center_tab_main_footer_text);
         }
-        this.f20030f.n(b2);
-        this.f20031g.m(aVar);
-        this.f20031g.n(ListUtils.isEmpty(b2), I0());
+        this.f20179f.n(b2);
+        this.f20180g.m(aVar);
+        this.f20180g.n(ListUtils.isEmpty(b2), I0());
     }
 
-    public void O0(d.a.o0.j2.e.a aVar) {
-        if (aVar != null && this.f20030f != null && isAdded()) {
-            N0(aVar);
-        } else if (aVar != null) {
-            this.j = aVar;
+    public void O0(d.a.s0.m2.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            if (aVar != null && this.f20179f != null && isAdded()) {
+                N0(aVar);
+            } else if (aVar != null) {
+                this.j = aVar;
+            }
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        a aVar = this.f20030f;
-        if (aVar != null) {
-            aVar.i(i2);
-        }
-        b bVar = this.f20031g;
-        if (bVar != null) {
-            bVar.r(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            a aVar = this.f20179f;
+            if (aVar != null) {
+                aVar.i(i2);
+            }
+            b bVar = this.f20180g;
+            if (bVar != null) {
+                bVar.r(i2);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        L0(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onCreate(bundle);
+            L0(bundle);
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        a aVar = new a(getPageContext(), inflate, this);
-        this.f20030f = aVar;
-        aVar.m(1011);
-        b bVar = new b(getPageContext(), this.f20033i);
-        this.f20031g = bVar;
-        this.f20030f.d(bVar.o());
-        return inflate;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
+            a aVar = new a(getPageContext(), inflate, this);
+            this.f20179f = aVar;
+            aVar.m(1011);
+            b bVar = new b(getPageContext(), this.f20182i);
+            this.f20180g = bVar;
+            this.f20179f.d(bVar.o());
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        super.onDestroy();
-        a aVar = this.f20030f;
-        if (aVar != null) {
-            aVar.j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onDestroy();
+            a aVar = this.f20179f;
+            if (aVar != null) {
+                aVar.j();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
-        d.a.o0.j2.e.a aVar;
-        super.onResume();
-        if (this.f20030f == null || this.f20031g == null || (aVar = this.j) == null) {
-            return;
+        d.a.s0.m2.e.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onResume();
+            if (this.f20179f == null || this.f20180g == null || (aVar = this.j) == null) {
+                return;
+            }
+            N0(aVar);
+            this.j = null;
         }
-        N0(aVar);
-        this.j = null;
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putLong("uid", this.f20032h);
-        bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.f20033i);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putLong("uid", this.f20181h);
+            bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.f20182i);
+        }
     }
 }

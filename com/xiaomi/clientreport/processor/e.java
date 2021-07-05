@@ -2,6 +2,10 @@ package com.xiaomi.clientreport.processor;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.push.y;
 import java.io.BufferedReader;
@@ -16,60 +20,71 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static PerfClientReport a(PerfClientReport perfClientReport, String str) {
-        long[] m67a;
-        if (perfClientReport == null || (m67a = m67a(str)) == null) {
-            return null;
+        InterceptResult invokeLL;
+        long[] m81a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, perfClientReport, str)) == null) {
+            if (perfClientReport == null || (m81a = m81a(str)) == null) {
+                return null;
+            }
+            perfClientReport.perfCounts = m81a[0];
+            perfClientReport.perfLatencies = m81a[1];
+            return perfClientReport;
         }
-        perfClientReport.perfCounts = m67a[0];
-        perfClientReport.perfLatencies = m67a[1];
-        return perfClientReport;
+        return (PerfClientReport) invokeLL.objValue;
     }
 
     public static PerfClientReport a(String str) {
-        PerfClientReport perfClientReport = null;
-        try {
-            String[] m68a = m68a(str);
-            if (m68a == null || m68a.length < 4 || TextUtils.isEmpty(m68a[0]) || TextUtils.isEmpty(m68a[1]) || TextUtils.isEmpty(m68a[2]) || TextUtils.isEmpty(m68a[3])) {
-                return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PerfClientReport perfClientReport = null;
+            try {
+                String[] m82a = m82a(str);
+                if (m82a == null || m82a.length < 4 || TextUtils.isEmpty(m82a[0]) || TextUtils.isEmpty(m82a[1]) || TextUtils.isEmpty(m82a[2]) || TextUtils.isEmpty(m82a[3])) {
+                    return null;
+                }
+                perfClientReport = PerfClientReport.getBlankInstance();
+                perfClientReport.production = Integer.parseInt(m82a[0]);
+                perfClientReport.clientInterfaceId = m82a[1];
+                perfClientReport.reportType = Integer.parseInt(m82a[2]);
+                perfClientReport.code = Integer.parseInt(m82a[3]);
+                return perfClientReport;
+            } catch (Exception unused) {
+                com.xiaomi.channel.commonutils.logger.b.c("parse per key error");
+                return perfClientReport;
             }
-            perfClientReport = PerfClientReport.getBlankInstance();
-            perfClientReport.production = Integer.parseInt(m68a[0]);
-            perfClientReport.clientInterfaceId = m68a[1];
-            perfClientReport.reportType = Integer.parseInt(m68a[2]);
-            perfClientReport.code = Integer.parseInt(m68a[3]);
-            return perfClientReport;
-        } catch (Exception unused) {
-            com.xiaomi.channel.commonutils.logger.b.c("parse per key error");
-            return perfClientReport;
         }
+        return (PerfClientReport) invokeL.objValue;
     }
 
     public static String a(PerfClientReport perfClientReport) {
-        return perfClientReport.production + "#" + perfClientReport.clientInterfaceId + "#" + perfClientReport.reportType + "#" + perfClientReport.code;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, perfClientReport)) == null) {
+            return perfClientReport.production + "#" + perfClientReport.clientInterfaceId + "#" + perfClientReport.reportType + "#" + perfClientReport.code;
+        }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0022 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0022 */
-    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.HashMap, java.util.HashMap<java.lang.String, java.lang.String> */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v12, types: [int] */
-    /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v15, types: [java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r1v16 */
-    /* JADX WARN: Type inference failed for: r3v2, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r4v0, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r5v9, types: [java.lang.Object] */
     /* renamed from: a  reason: collision with other method in class */
-    public static HashMap<String, String> m66a(String str) {
-        HashMap hashMap = new HashMap();
+    public static HashMap<String, String> m80a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return (HashMap) invokeL.objValue;
+        }
+        HashMap<String, String> hashMap = new HashMap<>();
         if (TextUtils.isEmpty(str) || !new File(str).exists()) {
             return hashMap;
         }
-        BufferedReader bufferedReader = 0;
+        BufferedReader bufferedReader = null;
         try {
             try {
                 BufferedReader bufferedReader2 = new BufferedReader(new FileReader(str));
@@ -80,14 +95,8 @@ public class e {
                             break;
                         }
                         String[] split = readLine.split("%%%");
-                        bufferedReader = split.length;
-                        if (bufferedReader >= 2) {
-                            bufferedReader = 0;
-                            bufferedReader = 0;
-                            if (!TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
-                                bufferedReader = split[0];
-                                hashMap.put(bufferedReader, split[1]);
-                            }
+                        if (split.length >= 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
+                            hashMap.put(split[0], split[1]);
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -103,27 +112,27 @@ public class e {
                     }
                 }
                 y.a(bufferedReader2);
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e3) {
+                e = e3;
             }
-        } catch (Exception e3) {
-            e = e3;
+            return hashMap;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return hashMap;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x009b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x009d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:69:0x00db */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x00d5, code lost:
-        if (r1 != null) goto L50;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x009f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x00a1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:0x00df */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x00d9, code lost:
+        if (r1 != null) goto L52;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x00de  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x00f4  */
-    /* JADX WARN: Type inference failed for: r4v10, types: [java.io.Closeable, java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r4v11 */
-    /* JADX WARN: Type inference failed for: r4v6 */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00e2  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x00f8  */
+    /* JADX WARN: Type inference failed for: r4v10 */
+    /* JADX WARN: Type inference failed for: r4v11, types: [java.io.Closeable, java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r4v12 */
     /* JADX WARN: Type inference failed for: r4v7 */
     /* JADX WARN: Type inference failed for: r4v8 */
     /* JADX WARN: Type inference failed for: r4v9 */
@@ -131,140 +140,158 @@ public class e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static List<String> a(Context context, String str) {
+        InterceptResult invokeLL;
         File file;
         RandomAccessFile randomAccessFile;
         RandomAccessFile randomAccessFile2;
         PerfClientReport a2;
-        ArrayList arrayList = new ArrayList();
-        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
-            return arrayList;
-        }
-        FileLock fileLock = null;
-        try {
-            file = new File(str + ".lock");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (TextUtils.isEmpty(str) || !new File(str).exists()) {
+                return arrayList;
+            }
+            FileLock fileLock = null;
             try {
-                y.m629a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
+                file = new File(str + ".lock");
                 try {
-                    FileLock lock = randomAccessFile.getChannel().lock();
+                    y.m643a(file);
+                    randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
-                        randomAccessFile2 = new BufferedReader(new FileReader(str));
-                        while (true) {
-                            try {
-                                String readLine = randomAccessFile2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                String[] split = readLine.split("%%%");
-                                if (split.length >= 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1]) && (a2 = a(a(split[0]), split[1])) != null) {
-                                    arrayList.add(a2.toJsonString());
-                                }
-                            } catch (Exception e2) {
-                                e = e2;
-                                fileLock = lock;
-                                randomAccessFile2 = randomAccessFile2;
+                        FileLock lock = randomAccessFile.getChannel().lock();
+                        try {
+                            randomAccessFile2 = new BufferedReader(new FileReader(str));
+                            while (true) {
                                 try {
-                                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                                    if (fileLock != null) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e3) {
-                                            com.xiaomi.channel.commonutils.logger.b.a(e3);
-                                        }
+                                    String readLine = randomAccessFile2.readLine();
+                                    if (readLine == null) {
+                                        break;
                                     }
-                                    y.a(randomAccessFile);
-                                    y.a(randomAccessFile2);
-                                } catch (Throwable th) {
-                                    th = th;
-                                    if (fileLock != null && fileLock.isValid()) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e4) {
-                                            com.xiaomi.channel.commonutils.logger.b.a(e4);
+                                    String[] split = readLine.split("%%%");
+                                    if (split.length >= 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1]) && (a2 = a(a(split[0]), split[1])) != null) {
+                                        arrayList.add(a2.toJsonString());
+                                    }
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    fileLock = lock;
+                                    randomAccessFile2 = randomAccessFile2;
+                                    try {
+                                        com.xiaomi.channel.commonutils.logger.b.a(e);
+                                        if (fileLock != null) {
+                                            try {
+                                                fileLock.release();
+                                            } catch (IOException e3) {
+                                                com.xiaomi.channel.commonutils.logger.b.a(e3);
+                                            }
                                         }
+                                        y.a(randomAccessFile);
+                                        y.a(randomAccessFile2);
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        if (fileLock != null && fileLock.isValid()) {
+                                            try {
+                                                fileLock.release();
+                                            } catch (IOException e4) {
+                                                com.xiaomi.channel.commonutils.logger.b.a(e4);
+                                            }
+                                        }
+                                        y.a(randomAccessFile);
+                                        y.a(randomAccessFile2);
+                                        if (file != null) {
+                                            file.delete();
+                                        }
+                                        throw th;
+                                    }
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    fileLock = lock;
+                                    if (fileLock != null) {
                                     }
                                     y.a(randomAccessFile);
                                     y.a(randomAccessFile2);
                                     if (file != null) {
-                                        file.delete();
                                     }
                                     throw th;
                                 }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                fileLock = lock;
-                                if (fileLock != null) {
-                                }
-                                y.a(randomAccessFile);
-                                y.a(randomAccessFile2);
-                                if (file != null) {
-                                }
-                                throw th;
                             }
-                        }
-                        if (lock != null && lock.isValid()) {
-                            try {
-                                lock.release();
-                            } catch (IOException e5) {
-                                com.xiaomi.channel.commonutils.logger.b.a(e5);
+                            if (lock != null && lock.isValid()) {
+                                try {
+                                    lock.release();
+                                } catch (IOException e5) {
+                                    com.xiaomi.channel.commonutils.logger.b.a(e5);
+                                }
                             }
+                            y.a(randomAccessFile);
+                            y.a((Closeable) randomAccessFile2);
+                        } catch (Exception e6) {
+                            e = e6;
+                            randomAccessFile2 = 0;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            randomAccessFile2 = 0;
                         }
-                        y.a(randomAccessFile);
-                        y.a((Closeable) randomAccessFile2);
-                    } catch (Exception e6) {
-                        e = e6;
-                        randomAccessFile2 = 0;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        randomAccessFile2 = 0;
+                    } catch (Exception e7) {
+                        e = e7;
+                        randomAccessFile2 = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        randomAccessFile2 = null;
                     }
-                } catch (Exception e7) {
-                    e = e7;
-                    randomAccessFile2 = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    randomAccessFile2 = null;
+                } catch (Exception e8) {
+                    e = e8;
+                    randomAccessFile = null;
+                    randomAccessFile2 = randomAccessFile;
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    if (fileLock != null && fileLock.isValid()) {
+                        fileLock.release();
+                    }
+                    y.a(randomAccessFile);
+                    y.a(randomAccessFile2);
+                } catch (Throwable th5) {
+                    th = th5;
+                    randomAccessFile = null;
+                    randomAccessFile2 = randomAccessFile;
+                    if (fileLock != null) {
+                        fileLock.release();
+                    }
+                    y.a(randomAccessFile);
+                    y.a(randomAccessFile2);
+                    if (file != null) {
+                    }
+                    throw th;
                 }
-            } catch (Exception e8) {
-                e = e8;
+            } catch (Exception e9) {
+                e = e9;
+                file = null;
                 randomAccessFile = null;
-                randomAccessFile2 = randomAccessFile;
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                if (fileLock != null && fileLock.isValid()) {
-                    fileLock.release();
-                }
-                y.a(randomAccessFile);
-                y.a(randomAccessFile2);
-            } catch (Throwable th5) {
-                th = th5;
+            } catch (Throwable th6) {
+                th = th6;
+                file = null;
                 randomAccessFile = null;
-                randomAccessFile2 = randomAccessFile;
-                if (fileLock != null) {
-                    fileLock.release();
-                }
-                y.a(randomAccessFile);
-                y.a(randomAccessFile2);
-                if (file != null) {
-                }
-                throw th;
             }
-        } catch (Exception e9) {
-            e = e9;
-            file = null;
-            randomAccessFile = null;
-        } catch (Throwable th6) {
-            th = th6;
-            file = null;
-            randomAccessFile = null;
+            file.delete();
+            return arrayList;
         }
-        file.delete();
-        return arrayList;
+        return (List) invokeLL.objValue;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0071 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
     public static void a(String str, HashMap<String, String> hashMap) {
-        BufferedWriter bufferedWriter;
+        ?? r1;
         Throwable th;
+        BufferedWriter bufferedWriter;
         Exception e2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r1 = interceptable;
+            if (r1.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, hashMap) != null) {
+                return;
+            }
+        }
         if (TextUtils.isEmpty(str) || hashMap == null || hashMap.size() == 0) {
             return;
         }
@@ -273,8 +300,8 @@ public class e {
             file.delete();
         }
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file));
             try {
+                bufferedWriter = new BufferedWriter(new FileWriter(file));
                 try {
                     for (String str2 : hashMap.keySet()) {
                         bufferedWriter.write(str2 + "%%%" + hashMap.get(str2));
@@ -287,16 +314,16 @@ public class e {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                y.a(bufferedWriter);
+                y.a((Closeable) r1);
                 throw th;
             }
         } catch (Exception e4) {
             bufferedWriter = null;
             e2 = e4;
         } catch (Throwable th3) {
-            bufferedWriter = null;
+            r1 = 0;
             th = th3;
-            y.a(bufferedWriter);
+            y.a((Closeable) r1);
             throw th;
         }
         y.a(bufferedWriter);
@@ -305,31 +332,32 @@ public class e {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE] complete} */
     public static void a(String str, com.xiaomi.clientreport.data.a[] aVarArr) {
         RandomAccessFile randomAccessFile;
-        if (aVarArr == null || aVarArr.length <= 0 || TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, aVarArr) == null) || aVarArr == null || aVarArr.length <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         FileLock fileLock = null;
         try {
             File file = new File(str + ".lock");
-            y.m629a(file);
+            y.m643a(file);
             randomAccessFile = new RandomAccessFile(file, "rw");
         } catch (Throwable unused) {
             randomAccessFile = null;
         }
         try {
             fileLock = randomAccessFile.getChannel().lock();
-            HashMap<String, String> m66a = m66a(str);
+            HashMap<String, String> m80a = m80a(str);
             for (com.xiaomi.clientreport.data.a aVar : aVarArr) {
                 if (aVar != null) {
                     String a2 = a((PerfClientReport) aVar);
                     long j = ((PerfClientReport) aVar).perfCounts;
                     long j2 = ((PerfClientReport) aVar).perfLatencies;
                     if (!TextUtils.isEmpty(a2) && j > 0 && j2 >= 0) {
-                        a(m66a, a2, j, j2);
+                        a(m80a, a2, j, j2);
                     }
                 }
             }
-            a(str, m66a);
+            a(str, m80a);
             if (fileLock != null && fileLock.isValid()) {
                 try {
                     fileLock.release();
@@ -369,46 +397,59 @@ public class e {
 
     public static void a(HashMap<String, String> hashMap, String str, long j, long j2) {
         StringBuilder sb;
-        String str2 = hashMap.get(str);
-        if (TextUtils.isEmpty(str2)) {
-            sb = new StringBuilder();
-        } else {
-            long[] m67a = m67a(str2);
-            if (m67a == null || m67a[0] <= 0 || m67a[1] < 0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{hashMap, str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            String str2 = hashMap.get(str);
+            if (TextUtils.isEmpty(str2)) {
                 sb = new StringBuilder();
             } else {
-                j += m67a[0];
-                j2 += m67a[1];
-                sb = new StringBuilder();
+                long[] m81a = m81a(str2);
+                if (m81a == null || m81a[0] <= 0 || m81a[1] < 0) {
+                    sb = new StringBuilder();
+                } else {
+                    j += m81a[0];
+                    j2 += m81a[1];
+                    sb = new StringBuilder();
+                }
             }
-        }
-        sb.append(j);
-        sb.append("#");
-        sb.append(j2);
-        hashMap.put(str, sb.toString());
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static long[] m67a(String str) {
-        long[] jArr = new long[2];
-        try {
-            String[] split = str.split("#");
-            if (split.length >= 2) {
-                jArr[0] = Long.parseLong(split[0].trim());
-                jArr[1] = Long.parseLong(split[1].trim());
-            }
-            return jArr;
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.a(e2);
-            return null;
+            sb.append(j);
+            sb.append("#");
+            sb.append(j2);
+            hashMap.put(str, sb.toString());
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String[] m68a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    public static long[] m81a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            long[] jArr = new long[2];
+            try {
+                String[] split = str.split("#");
+                if (split.length >= 2) {
+                    jArr[0] = Long.parseLong(split[0].trim());
+                    jArr[1] = Long.parseLong(split[1].trim());
+                }
+                return jArr;
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
+                return null;
+            }
         }
-        return str.split("#");
+        return (long[]) invokeL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static String[] m82a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return str.split("#");
+        }
+        return (String[]) invokeL.objValue;
     }
 }

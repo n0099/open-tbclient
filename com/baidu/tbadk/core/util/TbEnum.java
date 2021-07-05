@@ -1,9 +1,17 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes3.dex */
-public abstract class TbEnum {
 
-    /* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public abstract class TbEnum {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
     public static class BroadcastType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String BROADCAST_CREATE_GROUP = "com.baidu.tieba.broadcast.create_group";
         public static final String BROADCAST_EDIT_GROUP = "com.baidu.tieba.broadcast.edit_group";
         public static final String BROADCAST_FORUM_CHANGED = "com.baidu.tieba.broadcast.forum_changed";
@@ -23,39 +31,119 @@ public abstract class TbEnum {
         public static final String BROADCAST_WEBSOCKET_DATA = "com.baidu.adp.socket.data";
         public static final String BROADCAST_WEBSOCKET_OPDN = "com.baidu.adp.socket.open";
         public static final String BROADCAST_WEBSOCKET_SEND_DATA = "com.baidu.adp.socket.send_data";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public BroadcastType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ChatInputStatus {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String INPUT_DRAFT_KEY = "input_draft";
         public static final String INPUT_STATUS_KEY = "input_status";
         public static final String INPUT_STATUS_TEXT = "input_text";
         public static final String INPUT_STATUS_VOICE = "input_voice";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public ChatInputStatus() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ChatType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP_MODE = 0;
         public static final int PERSONAL_MODE = 1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public ChatType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CreateGroupSource {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String FROM_BAR_GROUP = "bargp";
         public static final String FROM_MY_GROUP = "mygp";
         public static final String FROM_NEAR_GROUP = "neargp";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public CreateGroupSource() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CustomGroupId {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String GROUP_UPDATE = "-1002";
         public static final String GROUP_VALIDATION = "-1003";
         public static final String OFFICIAL_MERGE = "-1000";
         public static final String STRANGE_MERGE = "-1001";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public CustomGroupId() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CustomGroupType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP = 1;
         public static final int GROUP_UPDATE = -3;
         public static final int GROUP_VALIDATION = -4;
@@ -70,20 +158,52 @@ public abstract class TbEnum {
         public static final int YY_BROADCAST = 8;
         public static final int YY_IMEI = 7;
         public static final int YY_UID = 6;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public CustomGroupType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class GroupInfoSource {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String FROM_FORUM_GROUP_HOT = "forumgroup_hot";
         public static final String FROM_FORUM_GROUP_OFFICIAL = "forumgroup_official";
         public static final String FROM_FORUM_GROUP_RECOMMEND = "forumgroup_recommend";
         public static final String FROM_GROUP_TALK = "grouptalk";
         public static final String FROM_INVITE_TALK = "invitetalk";
         public static final String FROM_USER_GROUP = "usergroup";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupInfoSource() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class GroupType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int FORUM_FRIEND_GROUP = 3;
         public static final int GROUP_TYPE_NOTIFY = 8;
         public static final int OFFICIAL_CHAT = 30;
@@ -95,17 +215,49 @@ public abstract class TbEnum {
         public static final int YY_BROADCAST_NOTIFY = 12;
         public static final int YY_IMEI_NOTIFY = 11;
         public static final int YY_UID_NOTIFY = 10;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgContentSubType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final short FRS_SUB_TYPE_EXTRA_SHARE = 4;
         public static final short MSG_SUB_TYPE_EXTRA_SHARE = 1;
         public static final short MSG_TOPIC_TYPE_EXTRA_SHARE = 5;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public MsgContentSubType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgContentType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_CONTENT_TYPE_ACTIVITY = 6;
         public static final short MSG_CONTENT_TYPE_BIG_EMOTION = 4;
         public static final short MSG_CONTENT_TYPE_EXTRA = 9;
@@ -121,41 +273,121 @@ public abstract class TbEnum {
         public static final short MSG_TOPIC_UPDATE = 12;
         public static final short MSG_UNSHOW_OPERATER_ACCOUNT = 99;
         public static final short MSG_UNSHOW_SYSTEM = 22;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public MsgContentType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgStatus {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_STATUS_MY_SENDFAIL = 2;
         public static final short MSG_STATUS_MY_SENDING = 1;
         public static final short MSG_STATUS_MY_SENDSUCC = 3;
         public static final short MSG_STATUS_MY_UNKNOW = 0;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public MsgStatus() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgVoiceStatus {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int VOICE_STATUS_DOWNLOADING = 2;
         public static final int VOICE_STATUS_PLAYING = 3;
         public static final int VOICE_STATUS_WAITING = 1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public MsgVoiceStatus() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ParamKey {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String CHAT_MODE = "chat_mode";
         public static final String GID = "gid";
         public static final String GROUP = "group";
         public static final String USER = "user";
         public static final String USE_MOTU = "use_motu";
         public static final String VTAG = "vtag";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public ParamKey() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ResourceType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int BIGIMAGE = 1;
         public static final int SMALLIMAGE = 0;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public ResourceType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class SystemMessage {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String EVENT_ID_ADD_FRIEND = "406";
         public static final String EVENT_ID_APPLY_ADD_FRIEND = "410";
         public static final String EVENT_ID_APPLY_FRIEND = "401";
@@ -195,5 +427,34 @@ public abstract class TbEnum {
         public static final String KEY_USER_MSG = "userMsg";
         public static final String KEY_USER_MSG_CONTENT = "userMsgContent";
         public static final String KEY_USER_NAME = "userName";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public SystemMessage() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public TbEnum() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

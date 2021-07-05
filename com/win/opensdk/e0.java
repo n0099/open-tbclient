@@ -2,24 +2,46 @@ package com.win.opensdk;
 
 import android.os.Handler;
 import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class e0 implements l0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f40816a;
+    public final /* synthetic */ View f42559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i0 f40817b;
+    public final /* synthetic */ i0 f42560b;
 
     public e0(i0 i0Var, View view) {
-        this.f40817b = i0Var;
-        this.f40816a = view;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i0Var, view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42560b = i0Var;
+        this.f42559a = view;
     }
 
     @Override // com.win.opensdk.l0
     public void a() {
-        if (this.f40816a != null) {
-            new Handler().postDelayed(new d0(this), this.f40817b.f40838c.getSpet());
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42559a == null) {
+            return;
         }
+        new Handler().postDelayed(new d0(this), this.f42560b.f42581c.getSpet());
     }
 }

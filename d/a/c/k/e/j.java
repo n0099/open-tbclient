@@ -1,82 +1,143 @@
 package d.a.c.k.e;
-/* loaded from: classes.dex */
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class j {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f43069a = 8.0f;
+    public float f44878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f43070b = 15.0f;
+    public float f44879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f43071c = 4.0f;
+    public float f44880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f43072d = 60.0f;
+    public float f44881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43073e = 150;
+    public int f44882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43074f = 150;
+    public int f44883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43075g = 500;
+    public int f44884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f43076h = 0.4f;
+    public float f44885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f43077i = 1.0f;
-    public float j = 20.0f;
-    public float k = 10.0f;
-    public int l = 360;
+    public float f44886i;
+    public float j;
+    public float k;
+    public int l;
+
+    public j() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44878a = 8.0f;
+        this.f44879b = 15.0f;
+        this.f44880c = 4.0f;
+        this.f44881d = 60.0f;
+        this.f44882e = 150;
+        this.f44883f = 150;
+        this.f44884g = 500;
+        this.f44885h = 0.4f;
+        this.f44886i = 1.0f;
+        this.j = 20.0f;
+        this.k = 10.0f;
+        this.l = 360;
+    }
 
     public int a() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : invokeV.intValue;
     }
 
     public float b() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.floatValue;
     }
 
     public float c() {
-        return this.f43070b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44879b : invokeV.floatValue;
     }
 
     public int d() {
-        return this.f43074f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44883f : invokeV.intValue;
     }
 
     public float e() {
-        return this.f43076h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44885h : invokeV.floatValue;
     }
 
     public float f() {
-        return this.f43071c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f44880c : invokeV.floatValue;
     }
 
     public float g() {
-        return this.f43072d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44881d : invokeV.floatValue;
     }
 
     public int h() {
-        return this.f43075g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44884g : invokeV.intValue;
     }
 
     public float i() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.floatValue;
     }
 
     public float j() {
-        return this.f43069a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f44878a : invokeV.floatValue;
     }
 
     public int k() {
-        return this.f43073e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44882e : invokeV.intValue;
     }
 
     public float l() {
-        return this.f43077i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f44886i : invokeV.floatValue;
     }
 }

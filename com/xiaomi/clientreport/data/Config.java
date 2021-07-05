@@ -2,15 +2,23 @@ package com.xiaomi.clientreport.data;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Config {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_EVENT_ENCRYPTED = true;
     public static final long DEFAULT_EVENT_UPLOAD_FREQUENCY = 86400;
     public static final boolean DEFAULT_EVENT_UPLOAD_SWITCH_OPEN = false;
     public static final long DEFAULT_MAX_FILE_LENGTH = 1048576;
     public static final long DEFAULT_PERF_UPLOAD_FREQUENCY = 86400;
     public static final boolean DEFAULT_PERF_UPLOAD_SWITCH_OPEN = false;
+    public transient /* synthetic */ FieldHolder $fh;
     public String mAESKey;
     public boolean mEventEncrypted;
     public long mEventUploadFrequency;
@@ -19,57 +27,130 @@ public class Config {
     public long mPerfUploadFrequency;
     public boolean mPerfUploadSwitchOpen;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
-        public int mEventEncrypted = -1;
-        public int mEventUploadSwitchOpen = -1;
-        public int mPerfUploadSwitchOpen = -1;
-        public String mAESKey = null;
-        public long mMaxFileLength = -1;
-        public long mEventUploadFrequency = -1;
-        public long mPerfUploadFrequency = -1;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String mAESKey;
+        public int mEventEncrypted;
+        public long mEventUploadFrequency;
+        public int mEventUploadSwitchOpen;
+        public long mMaxFileLength;
+        public long mPerfUploadFrequency;
+        public int mPerfUploadSwitchOpen;
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mEventEncrypted = -1;
+            this.mEventUploadSwitchOpen = -1;
+            this.mPerfUploadSwitchOpen = -1;
+            this.mAESKey = null;
+            this.mMaxFileLength = -1L;
+            this.mEventUploadFrequency = -1L;
+            this.mPerfUploadFrequency = -1L;
+        }
 
         public Config build(Context context) {
-            return new Config(context, this);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new Config(context, this, null) : (Config) invokeL.objValue;
         }
 
         public Builder setAESKey(String str) {
-            this.mAESKey = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.mAESKey = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setEventEncrypted(boolean z) {
-            this.mEventEncrypted = z ? 1 : 0;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.mEventEncrypted = z ? 1 : 0;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder setEventUploadFrequency(long j) {
-            this.mEventUploadFrequency = j;
-            return this;
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.mEventUploadFrequency = j;
+                return this;
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         public Builder setEventUploadSwitchOpen(boolean z) {
-            this.mEventUploadSwitchOpen = z ? 1 : 0;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.mEventUploadSwitchOpen = z ? 1 : 0;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder setMaxFileLength(long j) {
-            this.mMaxFileLength = j;
-            return this;
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.mMaxFileLength = j;
+                return this;
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         public Builder setPerfUploadFrequency(long j) {
-            this.mPerfUploadFrequency = j;
-            return this;
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.mPerfUploadFrequency = j;
+                return this;
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         public Builder setPerfUploadSwitchOpen(boolean z) {
-            this.mPerfUploadSwitchOpen = z ? 1 : 0;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.mPerfUploadSwitchOpen = z ? 1 : 0;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
     }
 
     public Config() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mEventEncrypted = true;
         this.mEventUploadSwitchOpen = false;
         this.mPerfUploadSwitchOpen = false;
@@ -79,6 +160,20 @@ public class Config {
     }
 
     public Config(Context context, Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mEventEncrypted = true;
         this.mEventUploadSwitchOpen = false;
         this.mPerfUploadSwitchOpen = false;
@@ -115,39 +210,64 @@ public class Config {
         }
     }
 
+    public /* synthetic */ Config(Context context, Builder builder, b bVar) {
+        this(context, builder);
+    }
+
     public static Config defaultConfig(Context context) {
-        return getBuilder().setEventEncrypted(true).setAESKey(bq.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? getBuilder().setEventEncrypted(true).setAESKey(bq.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context) : (Config) invokeL.objValue;
     }
 
     public static Builder getBuilder() {
-        return new Builder();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new Builder() : (Builder) invokeV.objValue;
     }
 
     public long getEventUploadFrequency() {
-        return this.mEventUploadFrequency;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mEventUploadFrequency : invokeV.longValue;
     }
 
     public long getMaxFileLength() {
-        return this.mMaxFileLength;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMaxFileLength : invokeV.longValue;
     }
 
     public long getPerfUploadFrequency() {
-        return this.mPerfUploadFrequency;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPerfUploadFrequency : invokeV.longValue;
     }
 
     public boolean isEventEncrypted() {
-        return this.mEventEncrypted;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mEventEncrypted : invokeV.booleanValue;
     }
 
     public boolean isEventUploadSwitchOpen() {
-        return this.mEventUploadSwitchOpen;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mEventUploadSwitchOpen : invokeV.booleanValue;
     }
 
     public boolean isPerfUploadSwitchOpen() {
-        return this.mPerfUploadSwitchOpen;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPerfUploadSwitchOpen : invokeV.booleanValue;
     }
 
     public String toString() {
-        return "Config{mEventEncrypted=" + this.mEventEncrypted + ", mAESKey='" + this.mAESKey + "', mMaxFileLength=" + this.mMaxFileLength + ", mEventUploadSwitchOpen=" + this.mEventUploadSwitchOpen + ", mPerfUploadSwitchOpen=" + this.mPerfUploadSwitchOpen + ", mEventUploadFrequency=" + this.mEventUploadFrequency + ", mPerfUploadFrequency=" + this.mPerfUploadFrequency + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "Config{mEventEncrypted=" + this.mEventEncrypted + ", mAESKey='" + this.mAESKey + "', mMaxFileLength=" + this.mMaxFileLength + ", mEventUploadSwitchOpen=" + this.mEventUploadSwitchOpen + ", mPerfUploadSwitchOpen=" + this.mPerfUploadSwitchOpen + ", mEventUploadFrequency=" + this.mEventUploadFrequency + ", mPerfUploadFrequency=" + this.mPerfUploadFrequency + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

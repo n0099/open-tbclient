@@ -1,53 +1,72 @@
 package com.xiaomi.push.service;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hf;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public /* synthetic */ class bq {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f41897a;
+    public static final /* synthetic */ int[] f43640a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1071163511, "Lcom/xiaomi/push/service/bq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1071163511, "Lcom/xiaomi/push/service/bq;");
+                return;
+            }
+        }
         int[] iArr = new int[hf.values().length];
-        f41897a = iArr;
+        f43640a = iArr;
         try {
-            iArr[hf.Registration.ordinal()] = 1;
+            iArr[hf.f43236a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f41897a[hf.UnRegistration.ordinal()] = 2;
+            f43640a[hf.f43237b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f41897a[hf.Subscription.ordinal()] = 3;
+            f43640a[hf.f43238c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f41897a[hf.UnSubscription.ordinal()] = 4;
+            f43640a[hf.f43239d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f41897a[hf.SendMessage.ordinal()] = 5;
+            f43640a[hf.f43240e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f41897a[hf.AckMessage.ordinal()] = 6;
+            f43640a[hf.f43241f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f41897a[hf.SetConfig.ordinal()] = 7;
+            f43640a[hf.f43242g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f41897a[hf.ReportFeedback.ordinal()] = 8;
+            f43640a[hf.f43243h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f41897a[hf.Notification.ordinal()] = 9;
+            f43640a[hf.f43244i.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f41897a[hf.Command.ordinal()] = 10;
+            f43640a[hf.j.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
     }

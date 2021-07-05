@@ -12,65 +12,161 @@ import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.imageProblem.util.CDNProblemUploader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Static {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageTask f17804a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
-            if (customMessage != null) {
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data != null && data.f17808a != null && data.f17808a.f17821e != null) {
-                        String str = "";
-                        boolean z = false;
-                        if (data.f17815h == null) {
-                            if (data.f17809b < data.f17808a.f17821e.size()) {
-                                ArrayList<String> arrayList = data.f17808a.f17821e.get(data.f17809b);
-                                if (arrayList.size() > 0) {
-                                    str = arrayList.get(0);
+    public static CustomMessageTask f17930a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(516822155, "Lcom/baidu/tieba/imageProblem/cdnOptimize/Static;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(516822155, "Lcom/baidu/tieba/imageProblem/cdnOptimize/Static;");
+                return;
+            }
+        }
+        f17930a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
+                    if (customMessage != null) {
+                        try {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            TbCDNTachometerService.CustomMsgData data = customMessage.getData();
+                            if (data != null && data.f17934a != null && data.f17934a.f17947e != null) {
+                                String str = "";
+                                boolean z = false;
+                                if (data.f17941h == null) {
+                                    if (data.f17935b < data.f17934a.f17947e.size()) {
+                                        ArrayList<String> arrayList = data.f17934a.f17947e.get(data.f17935b);
+                                        if (arrayList.size() > 0) {
+                                            str = arrayList.get(0);
+                                        }
+                                    }
+                                } else if (data.f17941h.length() > 0) {
+                                    str = data.f17941h;
+                                    z = true;
+                                }
+                                if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
+                                    data.f17936c = data.f17939f.getTestImageData(data.f17934a.f17945c, str, data.f17934a.f17949g, data.f17934a.f17946d, data.f17940g);
+                                    data.f17937d = System.currentTimeMillis() - currentTimeMillis;
+                                    data.f17938e = str;
+                                    if (z) {
+                                        data.f17941h = str;
+                                    }
+                                    return new CustomResponsedMessage<>(2017000, data);
                                 }
                             }
-                        } else if (data.f17815h.length() > 0) {
-                            str = data.f17815h;
-                            z = true;
-                        }
-                        if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                            data.f17810c = data.f17813f.getTestImageData(data.f17808a.f17819c, str, data.f17808a.f17823g, data.f17808a.f17820d, data.f17814g);
-                            data.f17811d = System.currentTimeMillis() - currentTimeMillis;
-                            data.f17812e = str;
-                            if (z) {
-                                data.f17815h = str;
-                            }
-                            return new CustomResponsedMessage<>(2017000, data);
+                            return null;
+                        } catch (Exception e2) {
+                            BdLog.e(e2);
                         }
                     }
                     return null;
-                } catch (Exception e2) {
-                    BdLog.e(e2);
+                }
+                return (CustomResponsedMessage) invokeL.objValue;
+            }
+        });
+        new CustomMessageTask(2016101, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
-            return null;
-        }
-    });
 
-    static {
-        new CustomMessageTask(2016101, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ICDNProblemUploader> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(2016101, CDNProblemUploader.getInstance());
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016101, CDNProblemUploader.getInstance()) : (CustomResponsedMessage) invokeL.objValue;
             }
         }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         new CustomMessageTask(2016102, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ICDNIPDirectConnect> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(2016102, CDNIPDirectConnect.getInstance());
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016102, CDNIPDirectConnect.getInstance()) : (CustomResponsedMessage) invokeL.objValue;
             }
         }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        f17804a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        f17804a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        f17930a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        f17930a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+    }
+
+    public Static() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 }

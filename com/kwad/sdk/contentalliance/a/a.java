@@ -1,5 +1,5 @@
 package com.kwad.sdk.contentalliance.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void j();
 

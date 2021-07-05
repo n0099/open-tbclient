@@ -12,6 +12,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,14 +26,22 @@ import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerAuto;
 import com.baidu.tieba.flutter.plugin.imagePicker.PostAsyncTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.kwai.video.player.PlayerPostEvent;
-import d.a.n0.z0.q;
-import d.a.o0.n0.a.d.e;
+import d.a.r0.z0.q;
+import d.a.s0.q0.a.d.e;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostImagePicker {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION = "com.tieba.action.ImagePickerPlugin";
     public static String barId = null;
     public static BroadcastReciver broadcastReciver = null;
@@ -40,62 +49,38 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
     public static boolean isEditHeadImage = false;
     public static boolean onlyNeedImageUrl = false;
     public static double scaleRate = 1.0d;
-    public PostAsyncTask.PostCallback callback = new PostAsyncTask.PostCallback() { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.2
-        @Override // com.baidu.tieba.flutter.plugin.imagePicker.PostAsyncTask.PostCallback
-        public void onFailure(PostAsyncTask.ResultData resultData) {
-            if (resultData == null) {
-                return;
-            }
-            ImagePickerPlugin.this.notifyFlutter(resultData.error_code, resultData.error_msg, resultData.url);
-        }
+    public transient /* synthetic */ FieldHolder $fh;
+    public PostAsyncTask.PostCallback callback;
+    public CustomMessageListener mAlbumResultListener;
 
-        @Override // com.baidu.tieba.flutter.plugin.imagePicker.PostAsyncTask.PostCallback
-        public void onSuccess(PostAsyncTask.ResultData resultData) {
-            if (resultData == null) {
-                return;
-            }
-            ImagePickerPlugin.this.notifyFlutter(resultData.error_code, "提交成功，我们会尽快完成审核", resultData.url);
-        }
-    };
-    public CustomMessageListener mAlbumResultListener = new CustomMessageListener(2921464) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Intent intent;
-            String stringExtra;
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921464 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Intent) || (stringExtra = (intent = (Intent) customResponsedMessage.getData()).getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
-                return;
-            }
-            WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
-            writeImagesInfo.parseJson(stringExtra);
-            writeImagesInfo.updateQuality();
-            if (ListUtils.isEmpty(writeImagesInfo.getChosedFiles())) {
-                return;
-            }
-            if (ImagePickerPlugin.isEditHeadImage) {
-                EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
-                editHeadActivityConfig.setWaterMaskType(3);
-                editHeadActivityConfig.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
-                editHeadActivityConfig.setNeedPaste(true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editHeadActivityConfig));
-                return;
-            }
-            EditHeadActivityConfig editHeadActivityConfig2 = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
-            editHeadActivityConfig2.setWaterMaskType(3);
-            editHeadActivityConfig2.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
-            editHeadActivityConfig2.setNeedPaste(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editHeadActivityConfig2));
-        }
-    };
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class BroadcastReciver extends BroadcastReceiver {
-        public BroadcastReciver() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImagePickerPlugin this$0;
+
+        public BroadcastReciver(ImagePickerPlugin imagePickerPlugin) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imagePickerPlugin};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = imagePickerPlugin;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent != null && "com.tieba.action.ImagePickerPlugin".equals(intent.getAction())) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && "com.tieba.action.ImagePickerPlugin".equals(intent.getAction())) {
                 if (intent.getBooleanExtra("isHeadImage", false)) {
                     if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001380));
@@ -109,27 +94,183 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 }
                 String originPic = photoUrlData.getOriginPic();
                 if (ImagePickerPlugin.onlyNeedImageUrl) {
-                    ImagePickerPlugin.this.notifyFlutter(0, "", originPic);
+                    this.this$0.notifyFlutter(0, "", originPic);
                 } else {
-                    new PostAsyncTask(originPic, ImagePickerPlugin.barId, ImagePickerPlugin.this.callback).execute(new String[0]);
+                    new PostAsyncTask(originPic, ImagePickerPlugin.barId, this.this$0.callback).execute(new String[0]);
                 }
             }
         }
     }
 
-    private void downloadImage(String str) {
-        if (currentActivity == null || str == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1977894688, "Lcom/baidu/tieba/flutter/plugin/imagePicker/ImagePickerPlugin;")) == null) {
             return;
         }
-        q qVar = new q(currentActivity, str, new q.a() { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.1
-            @Override // d.a.n0.z0.q.a
-            public void onError(int i2, String str2) {
-                ImagePickerPlugin.this.notifyFlutter(i2, str2, "");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1977894688, "Lcom/baidu/tieba/flutter/plugin/imagePicker/ImagePickerPlugin;");
+        }
+    }
+
+    public ImagePickerPlugin() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.callback = new PostAsyncTask.PostCallback(this) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImagePickerPlugin this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
             }
 
-            @Override // d.a.n0.z0.q.a
+            @Override // com.baidu.tieba.flutter.plugin.imagePicker.PostAsyncTask.PostCallback
+            public void onFailure(PostAsyncTask.ResultData resultData) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, resultData) == null) || resultData == null) {
+                    return;
+                }
+                this.this$0.notifyFlutter(resultData.error_code, resultData.error_msg, resultData.url);
+            }
+
+            @Override // com.baidu.tieba.flutter.plugin.imagePicker.PostAsyncTask.PostCallback
+            public void onSuccess(PostAsyncTask.ResultData resultData) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resultData) == null) || resultData == null) {
+                    return;
+                }
+                this.this$0.notifyFlutter(resultData.error_code, "提交成功，我们会尽快完成审核", resultData.url);
+            }
+        };
+        this.mAlbumResultListener = new CustomMessageListener(this, 2921464) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImagePickerPlugin this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Intent intent;
+                String stringExtra;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921464 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Intent) || (stringExtra = (intent = (Intent) customResponsedMessage.getData()).getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
+                    return;
+                }
+                WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
+                writeImagesInfo.parseJson(stringExtra);
+                writeImagesInfo.updateQuality();
+                if (ListUtils.isEmpty(writeImagesInfo.getChosedFiles())) {
+                    return;
+                }
+                if (ImagePickerPlugin.isEditHeadImage) {
+                    EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                    editHeadActivityConfig.setWaterMaskType(3);
+                    editHeadActivityConfig.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
+                    editHeadActivityConfig.setNeedPaste(true);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editHeadActivityConfig));
+                    return;
+                }
+                EditHeadActivityConfig editHeadActivityConfig2 = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                editHeadActivityConfig2.setWaterMaskType(3);
+                editHeadActivityConfig2.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
+                editHeadActivityConfig2.setNeedPaste(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editHeadActivityConfig2));
+            }
+        };
+    }
+
+    private void downloadImage(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65545, this, str) == null) || currentActivity == null || str == null) {
+            return;
+        }
+        q qVar = new q(currentActivity, str, new q.a(this) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImagePickerPlugin this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // d.a.r0.z0.q.a
+            public void onError(int i2, String str2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
+                    this.this$0.notifyFlutter(i2, str2, "");
+                }
+            }
+
+            @Override // d.a.r0.z0.q.a
             public void onSuccess(String str2) {
-                ImagePickerPlugin.this.notifyFlutter(0, "保存成功！", "");
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
+                    this.this$0.notifyFlutter(0, "保存成功！", "");
+                }
             }
         });
         qVar.o(false);
@@ -139,137 +280,167 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyFlutter(int i2, String str, String str2) {
-        HashMap hashMap = new HashMap();
-        if (!TextUtils.isEmpty(str2)) {
-            hashMap.put("imgUrl", str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65546, this, i2, str, str2) == null) {
+            HashMap hashMap = new HashMap();
+            if (!TextUtils.isEmpty(str2)) {
+                hashMap.put("imgUrl", str2);
+            }
+            hashMap.put("msg", str);
+            hashMap.put("errorcode", String.valueOf(i2));
+            HashMap hashMap2 = new HashMap();
+            if (onlyNeedImageUrl) {
+                hashMap2.put("uniqueKey", "kUpDateBaHeadNSNotificationBarBroadcast");
+            } else {
+                hashMap2.put("uniqueKey", "kUpDateBaHeadNSNotification");
+            }
+            hashMap2.put("data", hashMap);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921542, hashMap2));
         }
-        hashMap.put("msg", str);
-        hashMap.put("errorcode", String.valueOf(i2));
-        HashMap hashMap2 = new HashMap();
-        if (onlyNeedImageUrl) {
-            hashMap2.put("uniqueKey", "kUpDateBaHeadNSNotificationBarBroadcast");
-        } else {
-            hashMap2.put("uniqueKey", "kUpDateBaHeadNSNotification");
-        }
-        hashMap2.put("data", hashMap);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921542, hashMap2));
     }
 
     private void registerBroadcastReciver() {
-        try {
-            broadcastReciver = new BroadcastReciver();
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.tieba.action.ImagePickerPlugin");
-            TbadkCoreApplication.getInst().registerReceiver(broadcastReciver, intentFilter);
-        } catch (Exception e2) {
-            BdLog.e(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            try {
+                broadcastReciver = new BroadcastReciver(this);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("com.tieba.action.ImagePickerPlugin");
+                TbadkCoreApplication.getInst().registerReceiver(broadcastReciver, intentFilter);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
         }
     }
 
     private void unRegisterBroadcastReciver() {
-        try {
-            if (broadcastReciver != null) {
-                TbadkCoreApplication.getInst().unregisterReceiver(broadcastReciver);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            try {
+                if (broadcastReciver != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(broadcastReciver);
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
-        } catch (Exception e2) {
-            BdLog.e(e2);
         }
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerAuto.HostImagePicker
     public void chosePhotoLibrary(ImagePickerAuto.HostParam hostParam) {
-        getPhoto(hostParam);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hostParam) == null) {
+            getPhoto(hostParam);
+        }
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerAuto.HostImagePicker
     public void editUserPortrait() {
-        currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-        permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        if (permissionJudgePolicy.startRequestPermission(currentActivity)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+            permissionJudgePolicy.clearRequestPermissionList();
+            permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (permissionJudgePolicy.startRequestPermission(currentActivity)) {
+                return;
+            }
+            isEditHeadImage = true;
+            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
+            albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
+            albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
+            albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+            albumActivityConfig.setResourceType(2);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
         }
-        isEditHeadImage = true;
-        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
-        albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
-        albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
-        albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-        albumActivityConfig.setResourceType(2);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
     }
 
     public void getPhoto(ImagePickerAuto.HostParam hostParam) {
-        currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-        permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        if (permissionJudgePolicy.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
-            if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-                BdToast.c(currentActivity, "请到设置-隐私-照片开启照片权限").q();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hostParam) == null) {
+            currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+            permissionJudgePolicy.clearRequestPermissionList();
+            permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (permissionJudgePolicy.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
+                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                    BdToast.c(currentActivity, "请到设置-隐私-照片开启照片权限").q();
+                }
+                PreferenceUtils.setBoolean("imagepicker_tost_show", true);
+                return;
             }
-            PreferenceUtils.setBoolean("imagepicker_tost_show", true);
-            return;
+            onlyNeedImageUrl = false;
+            barId = null;
+            scaleRate = 1.0d;
+            isEditHeadImage = false;
+            if (hostParam.getOnlyNeedImageUrl() != null) {
+                onlyNeedImageUrl = hostParam.getOnlyNeedImageUrl().booleanValue();
+            }
+            if (onlyNeedImageUrl) {
+                scaleRate = 0.5625d;
+            }
+            if (hostParam.getBarId() != null) {
+                barId = hostParam.getBarId();
+            }
+            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
+            albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
+            albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+            albumActivityConfig.setCanEditImage(false);
+            albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
+            albumActivityConfig.setResourceType(2);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
         }
-        onlyNeedImageUrl = false;
-        barId = null;
-        scaleRate = 1.0d;
-        isEditHeadImage = false;
-        if (hostParam.getOnlyNeedImageUrl() != null) {
-            onlyNeedImageUrl = hostParam.getOnlyNeedImageUrl().booleanValue();
-        }
-        if (onlyNeedImageUrl) {
-            scaleRate = 0.5625d;
-        }
-        if (hostParam.getBarId() != null) {
-            barId = hostParam.getBarId();
-        }
-        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
-        albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
-        albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-        albumActivityConfig.setCanEditImage(false);
-        albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
-        albumActivityConfig.setResourceType(2);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        e.e(flutterPluginBinding.getBinaryMessenger(), this);
-        MessageManager.getInstance().registerListener(this.mAlbumResultListener);
-        registerBroadcastReciver();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, flutterPluginBinding) == null) {
+            e.e(flutterPluginBinding.getBinaryMessenger(), this);
+            MessageManager.getInstance().registerListener(this.mAlbumResultListener);
+            registerBroadcastReciver();
+        }
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        unRegisterBroadcastReciver();
-        MessageManager.getInstance().unRegisterListener(this.mAlbumResultListener);
-        e.e(flutterPluginBinding.getBinaryMessenger(), null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
+            unRegisterBroadcastReciver();
+            MessageManager.getInstance().unRegisterListener(this.mAlbumResultListener);
+            e.e(flutterPluginBinding.getBinaryMessenger(), null);
+        }
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerAuto.HostImagePicker
     public void savePhoto(ImagePickerAuto.HostParam hostParam) {
-        currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-        permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        if (permissionJudgePolicy.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
-            if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-                BdToast.c(currentActivity, "请到设置-隐私-照片开启照片权限").q();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hostParam) == null) {
+            currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+            permissionJudgePolicy.clearRequestPermissionList();
+            permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (permissionJudgePolicy.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
+                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                    BdToast.c(currentActivity, "请到设置-隐私-照片开启照片权限").q();
+                }
+                PreferenceUtils.setBoolean("imagepicker_tost_show", true);
+                return;
             }
-            PreferenceUtils.setBoolean("imagepicker_tost_show", true);
-            return;
+            onlyNeedImageUrl = false;
+            isEditHeadImage = false;
+            if (hostParam.getOnlyNeedImageUrl() != null) {
+                onlyNeedImageUrl = hostParam.getOnlyNeedImageUrl().booleanValue();
+            }
+            downloadImage(hostParam.getAvatar());
         }
-        onlyNeedImageUrl = false;
-        isEditHeadImage = false;
-        if (hostParam.getOnlyNeedImageUrl() != null) {
-            onlyNeedImageUrl = hostParam.getOnlyNeedImageUrl().booleanValue();
-        }
-        downloadImage(hostParam.getAvatar());
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerAuto.HostImagePicker
     public void takePhoto(ImagePickerAuto.HostParam hostParam) {
-        getPhoto(hostParam);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, hostParam) == null) {
+            getPhoto(hostParam);
+        }
     }
 }

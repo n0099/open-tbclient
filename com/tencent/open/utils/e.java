@@ -1,33 +1,53 @@
 package com.tencent.open.utils;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 /* loaded from: classes7.dex */
 public final class e {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f40249a;
+    public static Context f41992a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static final Context a() {
-        Context context = f40249a;
-        if (context == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context context = f41992a;
+            if (context == null) {
+                return null;
+            }
+            return context;
         }
-        return context;
+        return (Context) invokeV.objValue;
     }
 
     public static final String b() {
-        return a() == null ? "" : a().getPackageName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a() == null ? "" : a().getPackageName() : (String) invokeV.objValue;
     }
 
     public static final File c() {
-        if (a() == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a() == null) {
+                return null;
+            }
+            return a().getFilesDir();
         }
-        return a().getFilesDir();
+        return (File) invokeV.objValue;
     }
 
     public static final void a(Context context) {
-        f40249a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            f41992a = context;
+        }
     }
 }

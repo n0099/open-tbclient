@@ -10,110 +10,226 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import d.o.a.d.f.c;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.adhost.R;
+import d.l.a.d.b.c;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class AppDetailInfoActivity extends Activity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f39570a;
+    public ImageView f41309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f39571b;
+    public TextView f41310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f39572c;
+    public LinearLayout f41311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RecyclerView f39573d;
+    public RecyclerView f41312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f39574e;
+    public long f41313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39575f;
+    public long f41314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Pair<String, String>> f39576g;
+    public List<Pair<String, String>> f41315g;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AppDetailInfoActivity f41316e;
+
+        public a(AppDetailInfoActivity appDetailInfoActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {appDetailInfoActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f41316e = appDetailInfoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.o.a.d.f.f.c.c("lp_app_detail_click_close", AppDetailInfoActivity.this.f39575f);
-            AppDetailInfoActivity.this.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                d.l.a.d.b.e.c.c("lp_app_detail_click_close", this.f41316e.f41314f);
+                this.f41316e.finish();
+            }
         }
     }
 
     /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AppDetailInfoActivity f41317e;
+
+        public b(AppDetailInfoActivity appDetailInfoActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {appDetailInfoActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f41317e = appDetailInfoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.o.a.d.f.f.c.c("lp_app_detail_click_download", AppDetailInfoActivity.this.f39575f);
-            d.o.a.d.f.f.b.a().i(AppDetailInfoActivity.this.f39575f);
-            d.o.a.e.a.d.q(AppDetailInfoActivity.this);
-            d.o.a.e.a.d.q(d.o.a.d.f.f.b.a().h());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                d.l.a.d.b.e.c.c("lp_app_detail_click_download", this.f41317e.f41314f);
+                d.l.a.d.b.e.b.a().i(this.f41317e.f41314f);
+                d.l.a.e.a.d.q(this.f41317e);
+                d.l.a.e.a.d.q(d.l.a.d.b.e.b.a().h());
+            }
         }
     }
 
     /* loaded from: classes7.dex */
     public class c extends RecyclerView.Adapter<Object> {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AppDetailInfoActivity f41318a;
+
+        public c(AppDetailInfoActivity appDetailInfoActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {appDetailInfoActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f41318a = appDetailInfoActivity;
         }
 
         public /* synthetic */ c(AppDetailInfoActivity appDetailInfoActivity, a aVar) {
-            this();
+            this(appDetailInfoActivity);
+        }
+    }
+
+    public AppDetailInfoActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     private void b() {
-        this.f39570a = (ImageView) findViewById(d.o.a.d.b.iv_detail_back);
-        this.f39571b = (TextView) findViewById(d.o.a.d.b.tv_empty);
-        this.f39573d = (RecyclerView) findViewById(d.o.a.d.b.permission_list);
-        this.f39572c = (LinearLayout) findViewById(d.o.a.d.b.ll_download);
-        if (this.f39576g.isEmpty()) {
-            this.f39573d.setVisibility(8);
-            this.f39571b.setVisibility(0);
-        } else {
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-            linearLayoutManager.setOrientation(1);
-            this.f39573d.setLayoutManager(linearLayoutManager);
-            this.f39573d.setAdapter(new c(this, null));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            this.f41309a = (ImageView) findViewById(R.id.iv_detail_back);
+            this.f41310b = (TextView) findViewById(R.id.tv_empty);
+            this.f41312d = (RecyclerView) findViewById(R.id.permission_list);
+            this.f41311c = (LinearLayout) findViewById(R.id.ll_download);
+            if (this.f41315g.isEmpty()) {
+                this.f41312d.setVisibility(8);
+                this.f41310b.setVisibility(0);
+            } else {
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+                linearLayoutManager.setOrientation(1);
+                this.f41312d.setLayoutManager(linearLayoutManager);
+                this.f41312d.setAdapter(new c(this, null));
+            }
+            this.f41309a.setOnClickListener(new a(this));
+            this.f41311c.setOnClickListener(new b(this));
         }
-        this.f39570a.setOnClickListener(new a());
-        this.f39572c.setOnClickListener(new b());
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        d.o.a.d.f.f.c.c("lp_app_detail_click_close", this.f39575f);
-        super.onBackPressed();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d.l.a.d.b.e.c.c("lp_app_detail_click_close", this.f41314f);
+            super.onBackPressed();
+        }
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(d.o.a.d.c.ttdownloader_activity_app_detail_info);
-        a();
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.ttdownloader_activity_app_detail_info);
+            if (a()) {
+                b();
+            } else {
+                d.l.a.e.a.d.q(this);
+            }
+        }
     }
 
     public static void a(Activity activity, long j) {
-        Intent intent = new Intent(activity, AppDetailInfoActivity.class);
-        intent.putExtra("app_info_id", j);
-        activity.startActivity(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65538, null, activity, j) == null) {
+            Intent intent = new Intent(activity, AppDetailInfoActivity.class);
+            intent.putExtra("app_info_id", j);
+            activity.startActivity(intent);
+        }
     }
 
-    private void a() {
-        this.f39574e = getIntent().getLongExtra("app_info_id", 0L);
-        c.C1929c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(this.f39574e);
-        this.f39575f = a2.f70627b;
-        this.f39576g = a2.f70632g;
+    private boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            this.f41313e = getIntent().getLongExtra("app_info_id", 0L);
+            c.C2049c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(this.f41313e);
+            if (a2 == null) {
+                return false;
+            }
+            this.f41314f = a2.f74203b;
+            this.f41315g = a2.f74208g;
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

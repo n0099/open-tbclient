@@ -4,101 +4,175 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.UUID;
 /* loaded from: classes7.dex */
 public class m {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34783a = g();
+    public static String f36546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f34784b = 0;
+    public static long f36547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f34785c;
+    public static Context f36548c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-615486124, "Lcom/kwad/sdk/core/report/m;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-615486124, "Lcom/kwad/sdk/core/report/m;");
+                return;
+            }
+        }
+        f36546a = g();
+        f36547b = 0L;
+    }
 
     public static String a() {
-        com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
-        String g2 = g();
-        f34783a = g2;
-        return g2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
+            String g2 = g();
+            f36546a = g2;
+            return g2;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void a(Context context) {
-        f34785c = context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            f36548c = context;
+        }
     }
 
     @WorkerThread
     public static boolean a(Context context, long j) {
-        if (context != null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_seq", 0).edit();
-            edit.putLong(IAdRequestParam.SEQ, j);
-            return edit.commit();
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, context, j)) == null) {
+            if (context != null) {
+                SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_seq", 0).edit();
+                edit.putLong(IAdRequestParam.SEQ, j);
+                return edit.commit();
+            }
+            return false;
         }
-        return false;
+        return invokeLJ.booleanValue;
     }
 
     @WorkerThread
     public static long b(Context context) {
+        InterceptResult invokeL;
         SharedPreferences sharedPreferences;
-        if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_seq", 0)) == null) {
-            return 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_seq", 0)) == null) {
+                return 0L;
+            }
+            return sharedPreferences.getLong(IAdRequestParam.SEQ, 1L);
         }
-        return sharedPreferences.getLong(IAdRequestParam.SEQ, 1L);
+        return invokeL.longValue;
     }
 
     public static String b() {
-        return f34783a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f36546a : (String) invokeV.objValue;
     }
 
     @WorkerThread
     public static boolean b(Context context, long j) {
-        if (context != null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_mplogseq", 0).edit();
-            edit.putLong(IAdRequestParam.SEQ, j);
-            return edit.commit();
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, context, j)) == null) {
+            if (context != null) {
+                SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_mplogseq", 0).edit();
+                edit.putLong(IAdRequestParam.SEQ, j);
+                return edit.commit();
+            }
+            return false;
         }
-        return false;
+        return invokeLJ.booleanValue;
     }
 
     @WorkerThread
     public static long c() {
-        long b2 = b(f34785c);
-        a(f34785c, 1 + b2);
-        return b2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            long b2 = b(f36548c);
+            a(f36548c, 1 + b2);
+            return b2;
+        }
+        return invokeV.longValue;
     }
 
     @WorkerThread
     public static long c(Context context) {
+        InterceptResult invokeL;
         SharedPreferences sharedPreferences;
-        if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_mplogseq", 0)) == null) {
-            return 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_mplogseq", 0)) == null) {
+                return 0L;
+            }
+            return sharedPreferences.getLong(IAdRequestParam.SEQ, 1L);
         }
-        return sharedPreferences.getLong(IAdRequestParam.SEQ, 1L);
+        return invokeL.longValue;
     }
 
     @WorkerThread
     public static synchronized long d() {
+        InterceptResult invokeV;
         long c2;
-        synchronized (m.class) {
-            c2 = c(f34785c);
-            b(f34785c, 1 + c2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            synchronized (m.class) {
+                c2 = c(f36548c);
+                b(f36548c, 1 + c2);
+            }
+            return c2;
         }
-        return c2;
+        return invokeV.longValue;
     }
 
     public static long e() {
-        com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateListId");
-        long currentTimeMillis = System.currentTimeMillis();
-        f34784b = currentTimeMillis;
-        return currentTimeMillis;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateListId");
+            long currentTimeMillis = System.currentTimeMillis();
+            f36547b = currentTimeMillis;
+            return currentTimeMillis;
+        }
+        return invokeV.longValue;
     }
 
     public static long f() {
-        return f34784b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f36547b : invokeV.longValue;
     }
 
     public static String g() {
-        return UUID.randomUUID().toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
     }
 }

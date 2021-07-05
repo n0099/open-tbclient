@@ -1,17 +1,40 @@
 package com.facebook.animated.gif;
 
 import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes6.dex */
 public class GifFrame implements AnimatedImageFrame {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @DoNotStrip
     public long mNativeContext;
 
     @DoNotStrip
     public GifFrame(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mNativeContext = j;
     }
 
@@ -50,52 +73,77 @@ public class GifFrame implements AnimatedImageFrame {
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public void dispose() {
-        nativeDispose();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            nativeDispose();
+        }
     }
 
     public void finalize() {
-        nativeFinalize();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            nativeFinalize();
+        }
     }
 
     public int getDisposalMode() {
-        return nativeGetDisposalMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? nativeGetDisposalMode() : invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getDurationMs() {
-        return nativeGetDurationMs();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? nativeGetDurationMs() : invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getHeight() {
-        return nativeGetHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? nativeGetHeight() : invokeV.intValue;
     }
 
     public int getTransparentPixelColor() {
-        return nativeGetTransparentPixelColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? nativeGetTransparentPixelColor() : invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getWidth() {
-        return nativeGetWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? nativeGetWidth() : invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getXOffset() {
-        return nativeGetXOffset();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? nativeGetXOffset() : invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getYOffset() {
-        return nativeGetYOffset();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? nativeGetYOffset() : invokeV.intValue;
     }
 
     public boolean hasTransparency() {
-        return nativeHasTransparency();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? nativeHasTransparency() : invokeV.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public void renderFrame(int i2, int i3, Bitmap bitmap) {
-        nativeRenderFrame(i2, i3, bitmap);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048586, this, i2, i3, bitmap) == null) {
+            nativeRenderFrame(i2, i3, bitmap);
+        }
     }
 }

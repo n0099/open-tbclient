@@ -2,6 +2,13 @@ package com.kwad.sdk.core.imageloader.core;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptions;
 import com.kwad.sdk.core.imageloader.core.assist.FailReason;
 import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
@@ -25,6 +32,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
     public static final String ERROR_POST_PROCESSOR_NULL = "Post-processor returned null [%s]";
     public static final String ERROR_PRE_PROCESSOR_NULL = "Pre-processor returned null [%s]";
@@ -46,6 +54,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     public static final String LOG_TASK_INTERRUPTED = "Task was interrupted [%s]";
     public static final String LOG_WAITING_FOR_IMAGE_LOADED = "Image already is loading. Waiting... [%s]";
     public static final String LOG_WAITING_FOR_RESUME = "ImageLoader is paused. Waiting...  [%s]";
+    public transient /* synthetic */ FieldHolder $fh;
     public final ImageLoaderConfiguration configuration;
     public final ImageDecoder decoder;
     public final ImageDownloader downloader;
@@ -54,7 +63,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     public final ImageAware imageAware;
     public final ImageLoadingInfo imageLoadingInfo;
     public final ImageLoadingListener listener;
-    public LoadedFrom loadedFrom = LoadedFrom.NETWORK;
+    public LoadedFrom loadedFrom;
     public final String memoryCacheKey;
     public final ImageDownloader networkDeniedDownloader;
     public final DisplayImageOptions options;
@@ -66,28 +75,62 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
 
     /* loaded from: classes7.dex */
     public static class FireCancelEventRunnable implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<LoadAndDisplayImageTask> weakReference;
 
         public FireCancelEventRunnable(LoadAndDisplayImageTask loadAndDisplayImageTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loadAndDisplayImageTask};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.weakReference = new WeakReference<>(loadAndDisplayImageTask);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            LoadAndDisplayImageTask loadAndDisplayImageTask = this.weakReference.get();
-            if (loadAndDisplayImageTask != null) {
-                loadAndDisplayImageTask.listener.onLoadingCancelled(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView());
+            LoadAndDisplayImageTask loadAndDisplayImageTask;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (loadAndDisplayImageTask = this.weakReference.get()) == null) {
+                return;
             }
+            loadAndDisplayImageTask.listener.onLoadingCancelled(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView());
         }
     }
 
     /* loaded from: classes7.dex */
     public static class FireFailEventRunnable implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Throwable failCause;
         public final FailReason.FailType failType;
         public WeakReference<LoadAndDisplayImageTask> weakReference;
 
         public FireFailEventRunnable(LoadAndDisplayImageTask loadAndDisplayImageTask, FailReason.FailType failType, Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loadAndDisplayImageTask, failType, th};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.weakReference = new WeakReference<>(loadAndDisplayImageTask);
             this.failCause = th;
             this.failType = failType;
@@ -95,23 +138,59 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
 
         @Override // java.lang.Runnable
         public void run() {
-            LoadAndDisplayImageTask loadAndDisplayImageTask = this.weakReference.get();
-            if (loadAndDisplayImageTask != null) {
-                if (loadAndDisplayImageTask.options.shouldShowImageOnFail()) {
-                    loadAndDisplayImageTask.imageAware.setImageDrawable(loadAndDisplayImageTask.options.getImageOnFail(loadAndDisplayImageTask.configuration.resources));
-                }
-                loadAndDisplayImageTask.listener.onLoadingFailed(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), new FailReason(this.failType, this.failCause));
+            LoadAndDisplayImageTask loadAndDisplayImageTask;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (loadAndDisplayImageTask = this.weakReference.get()) == null) {
+                return;
             }
+            if (loadAndDisplayImageTask.options.shouldShowImageOnFail()) {
+                loadAndDisplayImageTask.imageAware.setImageDrawable(loadAndDisplayImageTask.options.getImageOnFail(loadAndDisplayImageTask.configuration.resources));
+            }
+            loadAndDisplayImageTask.listener.onLoadingFailed(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), new FailReason(this.failType, this.failCause));
         }
     }
 
     /* loaded from: classes7.dex */
     public class TaskCancelledException extends Exception {
-        public TaskCancelledException() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LoadAndDisplayImageTask this$0;
+
+        public TaskCancelledException(LoadAndDisplayImageTask loadAndDisplayImageTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loadAndDisplayImageTask};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = loadAndDisplayImageTask;
         }
     }
 
     public LoadAndDisplayImageTask(ImageLoaderEngine imageLoaderEngine, ImageLoadingInfo imageLoadingInfo, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageLoaderEngine, imageLoadingInfo, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.loadedFrom = LoadedFrom.NETWORK;
         this.engine = imageLoaderEngine;
         this.imageLoadingInfo = imageLoadingInfo;
         this.handler = handler;
@@ -133,183 +212,274 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     private void checkTaskInterrupted() {
-        if (isTaskInterrupted()) {
-            throw new TaskCancelledException();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isTaskInterrupted()) {
+            throw new TaskCancelledException(this);
         }
     }
 
     private void checkTaskNotActual() {
-        checkViewCollected();
-        checkViewReused();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            checkViewCollected();
+            checkViewReused();
+        }
     }
 
     private void checkViewCollected() {
-        if (isViewCollected()) {
-            throw new TaskCancelledException();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && isViewCollected()) {
+            throw new TaskCancelledException(this);
         }
     }
 
     private void checkViewReused() {
-        if (isViewReused()) {
-            throw new TaskCancelledException();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && isViewReused()) {
+            throw new TaskCancelledException(this);
         }
     }
 
     private DecodedResult decodeImage(String str) {
-        return this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, str, this.uri, this.targetSize, this.imageAware.getScaleType(), getDownloader(), this.options, this.listener));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, str, this.uri, this.targetSize, this.imageAware.getScaleType(), getDownloader(), this.options, this.listener)) : (DecodedResult) invokeL.objValue;
     }
 
     private boolean delayIfNeed() {
-        if (this.options.shouldDelayBeforeLoading()) {
-            L.d(LOG_DELAY_BEFORE_LOADING, Integer.valueOf(this.options.getDelayBeforeLoading()), this.memoryCacheKey);
-            try {
-                Thread.sleep(this.options.getDelayBeforeLoading());
-                return isTaskNotActual();
-            } catch (InterruptedException unused) {
-                L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
-                return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            if (this.options.shouldDelayBeforeLoading()) {
+                L.d(LOG_DELAY_BEFORE_LOADING, Integer.valueOf(this.options.getDelayBeforeLoading()), this.memoryCacheKey);
+                try {
+                    Thread.sleep(this.options.getDelayBeforeLoading());
+                    return isTaskNotActual();
+                } catch (InterruptedException unused) {
+                    L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private boolean downloadImage() {
-        InputStream stream = getDownloader().getStream(this.uri, this.options.getExtraForDownloader());
-        if (stream == null) {
-            L.e("No stream for image [%s]", this.memoryCacheKey);
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            InputStream stream = getDownloader().getStream(this.uri, this.options.getExtraForDownloader());
+            if (stream == null) {
+                L.e("No stream for image [%s]", this.memoryCacheKey);
+                return false;
+            }
+            try {
+                return this.configuration.diskCache.save(this.uri, stream, this);
+            } finally {
+                IoUtils.closeSilently(stream);
+            }
         }
-        try {
-            return this.configuration.diskCache.save(this.uri, stream, this);
-        } finally {
-            IoUtils.closeSilently(stream);
-        }
+        return invokeV.booleanValue;
     }
 
     private void fireCancelEvent() {
-        if (this.syncLoading || isTaskInterrupted()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.syncLoading || isTaskInterrupted()) {
             return;
         }
         runTask(new FireCancelEventRunnable(this), false, this.handler, this.engine);
     }
 
     private void fireFailEvent(FailReason.FailType failType, Throwable th) {
-        if (this.syncLoading || isTaskInterrupted() || isTaskNotActual()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65546, this, failType, th) == null) || this.syncLoading || isTaskInterrupted() || isTaskNotActual()) {
             return;
         }
         runTask(new FireFailEventRunnable(this, failType, th), false, this.handler, this.engine);
     }
 
-    private boolean fireProgressEvent(final int i2, final int i3) {
-        if (isTaskInterrupted() || isTaskNotActual()) {
-            return false;
-        }
-        if (this.progressListener != null) {
-            runTask(new Runnable() { // from class: com.kwad.sdk.core.imageloader.core.LoadAndDisplayImageTask.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    LoadAndDisplayImageTask loadAndDisplayImageTask = LoadAndDisplayImageTask.this;
-                    loadAndDisplayImageTask.progressListener.onProgressUpdate(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), i2, i3);
-                }
-            }, false, this.handler, this.engine);
+    private boolean fireProgressEvent(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65547, this, i2, i3)) == null) {
+            if (isTaskInterrupted() || isTaskNotActual()) {
+                return false;
+            }
+            if (this.progressListener != null) {
+                runTask(new Runnable(this, i2, i3) { // from class: com.kwad.sdk.core.imageloader.core.LoadAndDisplayImageTask.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LoadAndDisplayImageTask this$0;
+                    public final /* synthetic */ int val$current;
+                    public final /* synthetic */ int val$total;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$current = i2;
+                        this.val$total = i3;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            LoadAndDisplayImageTask loadAndDisplayImageTask = this.this$0;
+                            loadAndDisplayImageTask.progressListener.onProgressUpdate(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView(), this.val$current, this.val$total);
+                        }
+                    }
+                }, false, this.handler, this.engine);
+                return true;
+            }
             return true;
         }
-        return true;
+        return invokeII.booleanValue;
     }
 
     private ImageDownloader getDownloader() {
-        return this.engine.isNetworkDenied() ? this.networkDeniedDownloader : this.engine.isSlowNetwork() ? this.slowNetworkDownloader : this.downloader;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? this.engine.isNetworkDenied() ? this.networkDeniedDownloader : this.engine.isSlowNetwork() ? this.slowNetworkDownloader : this.downloader : (ImageDownloader) invokeV.objValue;
     }
 
     private boolean isTaskInterrupted() {
-        if (Thread.interrupted()) {
-            L.d(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            if (Thread.interrupted()) {
+                L.d(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private boolean isTaskNotActual() {
-        return isViewCollected() || isViewReused();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? isViewCollected() || isViewReused() : invokeV.booleanValue;
     }
 
     private boolean isViewCollected() {
-        if (this.imageAware.isCollected()) {
-            L.d("ImageAware was collected by GC. Task is cancelled. [%s]", this.memoryCacheKey);
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            if (this.imageAware.isCollected()) {
+                L.d("ImageAware was collected by GC. Task is cancelled. [%s]", this.memoryCacheKey);
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private boolean isViewReused() {
-        if (!this.memoryCacheKey.equals(this.engine.getLoadingUriForView(this.imageAware))) {
-            L.d("ImageAware is reused for another image. Task is cancelled. [%s]", this.memoryCacheKey);
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            if (!this.memoryCacheKey.equals(this.engine.getLoadingUriForView(this.imageAware))) {
+                L.d("ImageAware is reused for another image. Task is cancelled. [%s]", this.memoryCacheKey);
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private boolean resizeAndSaveImage(int i2, int i3) {
-        File file = this.configuration.diskCache.get(this.uri);
-        if (file == null || !file.exists()) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65553, this, i2, i3)) == null) {
+            File file = this.configuration.diskCache.get(this.uri);
+            if (file == null || !file.exists()) {
+                return false;
+            }
+            DecodedResult decode = this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, ImageDownloader.Scheme.FILE.wrap(file.getAbsolutePath()), this.uri, new ImageSize(i2, i3), ViewScaleType.FIT_INSIDE, getDownloader(), new DisplayImageOptions.Builder().cloneFrom(this.options).imageScaleType(ImageScaleType.IN_SAMPLE_INT).build(), this.listener));
+            Bitmap bitmap = decode != null ? decode.mBitmap : null;
+            if (bitmap != null && this.configuration.processorForDiskCache != null) {
+                L.d(LOG_PROCESS_IMAGE_BEFORE_CACHE_ON_DISK, this.memoryCacheKey);
+                bitmap = this.configuration.processorForDiskCache.process(bitmap);
+                if (bitmap == null) {
+                    L.e(ERROR_PROCESSOR_FOR_DISK_CACHE_NULL, this.memoryCacheKey);
+                }
+            }
+            if (bitmap != null) {
+                boolean save = this.configuration.diskCache.save(this.uri, bitmap);
+                bitmap.recycle();
+                return save;
+            }
             return false;
         }
-        DecodedResult decode = this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, ImageDownloader.Scheme.FILE.wrap(file.getAbsolutePath()), this.uri, new ImageSize(i2, i3), ViewScaleType.FIT_INSIDE, getDownloader(), new DisplayImageOptions.Builder().cloneFrom(this.options).imageScaleType(ImageScaleType.IN_SAMPLE_INT).build(), this.listener));
-        Bitmap bitmap = decode != null ? decode.mBitmap : null;
-        if (bitmap != null && this.configuration.processorForDiskCache != null) {
-            L.d(LOG_PROCESS_IMAGE_BEFORE_CACHE_ON_DISK, this.memoryCacheKey);
-            bitmap = this.configuration.processorForDiskCache.process(bitmap);
-            if (bitmap == null) {
-                L.e(ERROR_PROCESSOR_FOR_DISK_CACHE_NULL, this.memoryCacheKey);
-            }
-        }
-        if (bitmap != null) {
-            boolean save = this.configuration.diskCache.save(this.uri, bitmap);
-            bitmap.recycle();
-            return save;
-        }
-        return false;
+        return invokeII.booleanValue;
     }
 
     public static void runTask(Runnable runnable, boolean z, Handler handler, ImageLoaderEngine imageLoaderEngine) {
-        if (z) {
-            runnable.run();
-        } else if (handler == null) {
-            imageLoaderEngine.fireCallback(runnable);
-        } else {
-            handler.post(runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{runnable, Boolean.valueOf(z), handler, imageLoaderEngine}) == null) {
+            if (z) {
+                runnable.run();
+            } else if (handler == null) {
+                imageLoaderEngine.fireCallback(runnable);
+            } else {
+                handler.post(runnable);
+            }
         }
     }
 
     private boolean tryCacheImageOnDisk() {
-        L.d(LOG_CACHE_IMAGE_ON_DISK, this.memoryCacheKey);
-        try {
-            boolean downloadImage = downloadImage();
-            if (downloadImage) {
-                int i2 = this.configuration.maxImageWidthForDiskCache;
-                int i3 = this.configuration.maxImageHeightForDiskCache;
-                if (i2 > 0 || i3 > 0) {
-                    L.d(LOG_RESIZE_CACHED_IMAGE_FILE, this.memoryCacheKey);
-                    resizeAndSaveImage(i2, i3);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
+            L.d(LOG_CACHE_IMAGE_ON_DISK, this.memoryCacheKey);
+            try {
+                boolean downloadImage = downloadImage();
+                if (downloadImage) {
+                    int i2 = this.configuration.maxImageWidthForDiskCache;
+                    int i3 = this.configuration.maxImageHeightForDiskCache;
+                    if (i2 > 0 || i3 > 0) {
+                        L.d(LOG_RESIZE_CACHED_IMAGE_FILE, this.memoryCacheKey);
+                        resizeAndSaveImage(i2, i3);
+                    }
                 }
+                return downloadImage;
+            } catch (IOException e2) {
+                L.e(e2);
+                return false;
             }
-            return downloadImage;
-        } catch (IOException e2) {
-            L.e(e2);
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0047, code lost:
-        if (r1.isDecoded() == false) goto L11;
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x004b, code lost:
+        if (r1.isDecoded() == false) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private DecodedResult tryLoadBitmap() {
+        InterceptResult invokeV;
         DecodedResult decodedResult;
         FailReason.FailType failType;
         File file;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65556, this)) != null) {
+            return (DecodedResult) invokeV.objValue;
+        }
         DecodedResult decodedResult2 = null;
         try {
             try {
@@ -381,41 +551,51 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     private boolean waitIfPaused() {
-        AtomicBoolean pause = this.engine.getPause();
-        if (pause.get()) {
-            synchronized (this.engine.getPauseLock()) {
-                if (pause.get()) {
-                    L.d(LOG_WAITING_FOR_RESUME, this.memoryCacheKey);
-                    try {
-                        this.engine.getPauseLock().wait();
-                        L.d(LOG_RESUME_AFTER_PAUSE, this.memoryCacheKey);
-                    } catch (InterruptedException unused) {
-                        L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
-                        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            AtomicBoolean pause = this.engine.getPause();
+            if (pause.get()) {
+                synchronized (this.engine.getPauseLock()) {
+                    if (pause.get()) {
+                        L.d(LOG_WAITING_FOR_RESUME, this.memoryCacheKey);
+                        try {
+                            this.engine.getPauseLock().wait();
+                            L.d(LOG_RESUME_AFTER_PAUSE, this.memoryCacheKey);
+                        } catch (InterruptedException unused) {
+                            L.e(LOG_TASK_INTERRUPTED, this.memoryCacheKey);
+                            return true;
+                        }
                     }
                 }
             }
+            return isTaskNotActual();
         }
-        return isTaskNotActual();
+        return invokeV.booleanValue;
     }
 
     public String getLoadingUri() {
-        return this.uri;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.uri : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.imageloader.utils.IoUtils.CopyListener
     public boolean onBytesCopied(int i2, int i3) {
-        return this.syncLoading || fireProgressEvent(i2, i3);
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) ? this.syncLoading || fireProgressEvent(i2, i3) : invokeII.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00e4 A[Catch: all -> 0x0111, TaskCancelledException -> 0x0113, Merged into TryCatch #0 {all -> 0x0111, TaskCancelledException -> 0x0113, blocks: (B:12:0x0033, B:14:0x0042, B:17:0x0049, B:36:0x00c1, B:38:0x00c9, B:40:0x00e4, B:41:0x00ef, B:18:0x0059, B:20:0x005f, B:23:0x0067, B:25:0x0075, B:27:0x0084, B:28:0x0092, B:30:0x0096, B:32:0x00a3, B:34:0x00ab, B:48:0x0113), top: B:53:0x0033 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00e8 A[Catch: all -> 0x0115, TaskCancelledException -> 0x0117, Merged into TryCatch #0 {all -> 0x0115, TaskCancelledException -> 0x0117, blocks: (B:14:0x0037, B:16:0x0046, B:19:0x004d, B:38:0x00c5, B:40:0x00cd, B:42:0x00e8, B:43:0x00f3, B:20:0x005d, B:22:0x0063, B:25:0x006b, B:27:0x0079, B:29:0x0088, B:30:0x0096, B:32:0x009a, B:34:0x00a7, B:36:0x00af, B:50:0x0117), top: B:58:0x0037 }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
         Bitmap process;
-        if (waitIfPaused() || delayIfNeed()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || waitIfPaused() || delayIfNeed()) {
             return;
         }
         ReentrantLock reentrantLock = this.imageLoadingInfo.loadFromUriLock;

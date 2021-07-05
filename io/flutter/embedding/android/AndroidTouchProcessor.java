@@ -4,19 +4,27 @@ import android.os.Build;
 import android.view.InputDevice;
 import android.view.MotionEvent;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AndroidTouchProcessor {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES_PER_FIELD = 8;
     public static final int POINTER_DATA_FIELD_COUNT = 28;
     public static final int POINTER_DATA_FLAG_BATCHED = 1;
     public static final int _POINTER_BUTTON_PRIMARY = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final FlutterRenderer renderer;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public @interface PointerChange {
         public static final int ADD = 1;
         public static final int CANCEL = 0;
@@ -27,7 +35,7 @@ public class AndroidTouchProcessor {
         public static final int UP = 6;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public @interface PointerDeviceKind {
         public static final int INVERTED_STYLUS = 3;
         public static final int MOUSE = 1;
@@ -36,7 +44,7 @@ public class AndroidTouchProcessor {
         public static final int UNKNOWN = 4;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public @interface PointerSignalKind {
         public static final int NONE = 0;
         public static final int SCROLL = 1;
@@ -44,6 +52,20 @@ public class AndroidTouchProcessor {
     }
 
     public AndroidTouchProcessor(@NonNull FlutterRenderer flutterRenderer) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flutterRenderer};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.renderer = flutterRenderer;
     }
 
@@ -52,7 +74,8 @@ public class AndroidTouchProcessor {
         double d2;
         double d3;
         InputDevice.MotionRange motionRange;
-        if (i3 == -1) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{motionEvent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), byteBuffer}) == null) || i3 == -1) {
             return;
         }
         int pointerDeviceTypeForToolType = getPointerDeviceTypeForToolType(motionEvent.getToolType(i2));
@@ -121,87 +144,107 @@ public class AndroidTouchProcessor {
 
     @PointerChange
     private int getPointerChangeForAction(int i2) {
-        if (i2 == 0) {
-            return 4;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
+            if (i2 == 0) {
+                return 4;
+            }
+            if (i2 == 1) {
+                return 6;
+            }
+            if (i2 == 5) {
+                return 4;
+            }
+            if (i2 == 6) {
+                return 6;
+            }
+            if (i2 == 2) {
+                return 5;
+            }
+            if (i2 == 7) {
+                return 3;
+            }
+            if (i2 == 3) {
+                return 0;
+            }
+            return i2 == 8 ? 3 : -1;
         }
-        if (i2 == 1) {
-            return 6;
-        }
-        if (i2 == 5) {
-            return 4;
-        }
-        if (i2 == 6) {
-            return 6;
-        }
-        if (i2 == 2) {
-            return 5;
-        }
-        if (i2 == 7) {
-            return 3;
-        }
-        if (i2 == 3) {
-            return 0;
-        }
-        return i2 == 8 ? 3 : -1;
+        return invokeI.intValue;
     }
 
     @PointerDeviceKind
     private int getPointerDeviceTypeForToolType(int i2) {
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    return i2 != 4 ? 4 : 3;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        return i2 != 4 ? 4 : 3;
+                    }
+                    return 1;
                 }
-                return 1;
+                return 2;
             }
-            return 2;
+            return 0;
         }
-        return 0;
+        return invokeI.intValue;
     }
 
     public boolean onGenericMotionEvent(@NonNull MotionEvent motionEvent) {
-        boolean z = Build.VERSION.SDK_INT >= 18 && motionEvent.isFromSource(2);
-        boolean z2 = motionEvent.getActionMasked() == 7 || motionEvent.getActionMasked() == 8;
-        if (z && z2) {
-            int pointerChangeForAction = getPointerChangeForAction(motionEvent.getActionMasked());
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(motionEvent.getPointerCount() * 28 * 8);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            boolean z = Build.VERSION.SDK_INT >= 18 && motionEvent.isFromSource(2);
+            boolean z2 = motionEvent.getActionMasked() == 7 || motionEvent.getActionMasked() == 8;
+            if (z && z2) {
+                int pointerChangeForAction = getPointerChangeForAction(motionEvent.getActionMasked());
+                ByteBuffer allocateDirect = ByteBuffer.allocateDirect(motionEvent.getPointerCount() * 28 * 8);
+                allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
+                addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
+                if (allocateDirect.position() % 224 == 0) {
+                    this.renderer.dispatchPointerDataPacket(allocateDirect, allocateDirect.position());
+                    return true;
+                }
+                throw new AssertionError("Packet position is not on field boundary.");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int pointerCount = motionEvent.getPointerCount();
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(pointerCount * 28 * 8);
             allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
-            addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
+            int actionMasked = motionEvent.getActionMasked();
+            int pointerChangeForAction = getPointerChangeForAction(motionEvent.getActionMasked());
+            boolean z = actionMasked == 0 || actionMasked == 5;
+            boolean z2 = !z && (actionMasked == 1 || actionMasked == 6);
+            if (z) {
+                addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
+            } else if (z2) {
+                for (int i2 = 0; i2 < pointerCount; i2++) {
+                    if (i2 != motionEvent.getActionIndex() && motionEvent.getToolType(i2) == 1) {
+                        addPointerForIndex(motionEvent, i2, 5, 1, allocateDirect);
+                    }
+                }
+                addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
+            } else {
+                for (int i3 = 0; i3 < pointerCount; i3++) {
+                    addPointerForIndex(motionEvent, i3, pointerChangeForAction, 0, allocateDirect);
+                }
+            }
             if (allocateDirect.position() % 224 == 0) {
                 this.renderer.dispatchPointerDataPacket(allocateDirect, allocateDirect.position());
                 return true;
             }
-            throw new AssertionError("Packet position is not on field boundary.");
+            throw new AssertionError("Packet position is not on field boundary");
         }
-        return false;
-    }
-
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        int pointerCount = motionEvent.getPointerCount();
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(pointerCount * 28 * 8);
-        allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
-        int actionMasked = motionEvent.getActionMasked();
-        int pointerChangeForAction = getPointerChangeForAction(motionEvent.getActionMasked());
-        boolean z = actionMasked == 0 || actionMasked == 5;
-        boolean z2 = !z && (actionMasked == 1 || actionMasked == 6);
-        if (z) {
-            addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
-        } else if (z2) {
-            for (int i2 = 0; i2 < pointerCount; i2++) {
-                if (i2 != motionEvent.getActionIndex() && motionEvent.getToolType(i2) == 1) {
-                    addPointerForIndex(motionEvent, i2, 5, 1, allocateDirect);
-                }
-            }
-            addPointerForIndex(motionEvent, motionEvent.getActionIndex(), pointerChangeForAction, 0, allocateDirect);
-        } else {
-            for (int i3 = 0; i3 < pointerCount; i3++) {
-                addPointerForIndex(motionEvent, i3, pointerChangeForAction, 0, allocateDirect);
-            }
-        }
-        if (allocateDirect.position() % 224 == 0) {
-            this.renderer.dispatchPointerDataPacket(allocateDirect, allocateDirect.position());
-            return true;
-        }
-        throw new AssertionError("Packet position is not on field boundary");
+        return invokeL.booleanValue;
     }
 }

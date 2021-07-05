@@ -1,174 +1,270 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.NativeApp;
 import tbclient.PbContent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbRichTextCommInfo extends OrmObject {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int NATIVE_APP_TYPE = 1;
     public static final int TYPE_LINK = 1;
     public static final int TYPE_VIDEO = 5;
     public static final int URL_VALIDITY_INVALID = 1;
     public static final int URL_VALIDITY_NORMAL = 0;
     public static final int URL_VALIDITY_VALID = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13394e;
+    public String f13479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13395f;
+    public String f13480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13396g;
+    public String f13481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13397h;
+    public String f13482h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13398i;
-    public String j;
+    public int f13483i;
+    public int j;
     public String k;
-    public int l;
+    public String l;
+    public int m;
 
     public TbRichTextCommInfo() {
-        this.f13394e = null;
-        this.f13395f = null;
-        this.f13396g = null;
-        this.f13397h = 0;
-        this.l = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13479e = null;
+        this.f13480f = null;
+        this.f13481g = null;
+        this.f13482h = null;
+        this.f13483i = 0;
+        this.m = 0;
     }
 
     public void A() {
-        String str = this.f13394e;
-        if (str != null) {
-            this.f13394e = str.replaceAll("\n", "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String str = this.f13479e;
+            if (str != null) {
+                this.f13479e = str.replaceAll("\n", "");
+            }
+            String str2 = this.f13480f;
+            if (str2 != null) {
+                this.f13480f = str2.replaceAll("\n", "");
+            }
         }
-        String str2 = this.f13395f;
-        if (str2 != null) {
-            this.f13395f = str2.replaceAll("\n", "");
-        }
+    }
+
+    public String getItemForumName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13482h : (String) invokeV.objValue;
     }
 
     public String getLink() {
-        return this.f13395f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13480f : (String) invokeV.objValue;
     }
 
     public String getText() {
-        return this.f13394e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13479e : (String) invokeV.objValue;
     }
 
     public void setLink(String str) {
-        this.f13395f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f13480f = str;
+        }
     }
 
     public void setText(String str) {
-        this.f13394e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f13479e = str;
+        }
     }
 
     public int w() {
-        return this.f13398i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.intValue;
     }
 
     public String x() {
-        return this.f13396g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13481g : (String) invokeV.objValue;
     }
 
     public String y() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : (String) invokeV.objValue;
     }
 
     public int z() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.m : invokeV.intValue;
     }
 
     public TbRichTextCommInfo(JSONObject jSONObject) {
-        this.f13394e = null;
-        this.f13395f = null;
-        this.f13396g = null;
-        this.f13397h = 0;
-        this.l = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f13479e = null;
+        this.f13480f = null;
+        this.f13481g = null;
+        this.f13482h = null;
+        this.f13483i = 0;
+        this.m = 0;
         if (jSONObject == null) {
             return;
         }
-        this.f13394e = jSONObject.optString("text");
-        this.f13395f = jSONObject.optString("link");
-        this.f13396g = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
-        this.f13397h = jSONObject.optInt("type", 0);
-        this.l = jSONObject.optInt("url_type", 0);
+        this.f13479e = jSONObject.optString("text");
+        this.f13480f = jSONObject.optString("link");
+        this.f13481g = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
+        this.f13483i = jSONObject.optInt("type", 0);
+        this.m = jSONObject.optInt("url_type", 0);
         int optInt = jSONObject.optInt("is_native_app", 0);
-        this.f13398i = optInt;
+        this.j = optInt;
         if (optInt != 1) {
             return;
         }
         if (jSONObject.optJSONObject("native_app") == null) {
-            this.f13398i = 0;
+            this.j = 0;
             return;
         }
-        this.j = jSONObject.optString("jump_and");
-        this.k = jSONObject.optString("download_and");
-        if (!TextUtils.isEmpty(this.j) && !TextUtils.isEmpty(this.k)) {
-            int i2 = this.f13397h;
-            if (i2 == 1) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13395f;
-            } else if (i2 == 5) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13394e;
+        this.k = jSONObject.optString("jump_and");
+        this.l = jSONObject.optString("download_and");
+        if (!TextUtils.isEmpty(this.k) && !TextUtils.isEmpty(this.l)) {
+            int i4 = this.f13483i;
+            if (i4 == 1) {
+                this.k += ";download_url:" + this.l + ";web_play_url:" + this.f13480f;
+            } else if (i4 == 5) {
+                this.k += ";download_url:" + this.l + ";web_play_url:" + this.f13479e;
             }
-            this.j += ";is_native_app=1";
+            this.k += ";is_native_app=1";
             return;
         }
-        this.f13398i = 0;
+        this.j = 0;
     }
 
     public TbRichTextCommInfo(PbContent pbContent) {
-        this.f13394e = null;
-        this.f13395f = null;
-        this.f13396g = null;
-        this.f13397h = 0;
-        this.l = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbContent};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f13479e = null;
+        this.f13480f = null;
+        this.f13481g = null;
+        this.f13482h = null;
+        this.f13483i = 0;
+        this.m = 0;
         if (pbContent == null) {
             return;
         }
-        this.f13394e = pbContent.text;
-        this.f13395f = pbContent.link;
-        this.f13397h = pbContent.type.intValue();
-        this.f13396g = pbContent.item_id + "";
-        this.l = pbContent.url_type.intValue();
+        this.f13479e = pbContent.text;
+        this.f13480f = pbContent.link;
+        this.f13483i = pbContent.type.intValue();
+        this.f13481g = pbContent.item_id + "";
+        this.f13482h = pbContent.item_forum_name;
+        this.m = pbContent.url_type.intValue();
         int intValue = pbContent.is_native_app.intValue();
-        this.f13398i = intValue;
+        this.j = intValue;
         if (intValue != 1) {
             return;
         }
         NativeApp nativeApp = pbContent.native_app;
         if (nativeApp == null) {
-            this.f13398i = 0;
+            this.j = 0;
             return;
         }
         String str = nativeApp.jump_and;
-        this.j = str;
-        this.k = nativeApp.download_and;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.k)) {
-            int i2 = this.f13397h;
-            if (i2 == 1) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13395f;
-            } else if (i2 == 5) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13394e;
+        this.k = str;
+        this.l = nativeApp.download_and;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.l)) {
+            int i4 = this.f13483i;
+            if (i4 == 1) {
+                this.k += ";download_url:" + this.l + ";web_play_url:" + this.f13480f;
+            } else if (i4 == 5) {
+                this.k += ";download_url:" + this.l + ";web_play_url:" + this.f13479e;
             }
-            this.j += ";is_native_app=1";
+            this.k += ";is_native_app=1";
             return;
         }
-        this.f13398i = 0;
+        this.j = 0;
     }
 
     public TbRichTextCommInfo(String str, String str2) {
-        this.f13394e = null;
-        this.f13395f = null;
-        this.f13396g = null;
-        this.f13397h = 0;
-        this.l = 0;
-        this.f13394e = str;
-        this.f13395f = str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f13479e = null;
+        this.f13480f = null;
+        this.f13481g = null;
+        this.f13482h = null;
+        this.f13483i = 0;
+        this.m = 0;
+        this.f13479e = str;
+        this.f13480f = str2;
     }
 }

@@ -16,6 +16,8 @@ public interface TTAdManager {
 
     String getSDKVersion();
 
+    int getThemeStatus();
+
     @Deprecated
     TTAdManager isUseTextureView(boolean z);
 
@@ -64,6 +66,8 @@ public interface TTAdManager {
 
     @Deprecated
     TTAdManager setTTSecAbs(TTSecAbs tTSecAbs);
+
+    void setThemeStatus(int i2);
 
     @Deprecated
     TTAdManager setTitleBarTheme(int i2);

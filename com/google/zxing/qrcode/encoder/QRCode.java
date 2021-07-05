@@ -1,79 +1,136 @@
 package com.google.zxing.qrcode.encoder;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Mode;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class QRCode {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int NUM_MASK_PATTERNS = 8;
+    public transient /* synthetic */ FieldHolder $fh;
     public ErrorCorrectionLevel ecLevel;
-    public int maskPattern = -1;
+    public int maskPattern;
     public ByteMatrix matrix;
     public Mode mode;
     public Version version;
 
+    public QRCode() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.maskPattern = -1;
+    }
+
     public static boolean isValidMaskPattern(int i2) {
-        return i2 >= 0 && i2 < 8;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? i2 >= 0 && i2 < 8 : invokeI.booleanValue;
     }
 
     public ErrorCorrectionLevel getECLevel() {
-        return this.ecLevel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.ecLevel : (ErrorCorrectionLevel) invokeV.objValue;
     }
 
     public int getMaskPattern() {
-        return this.maskPattern;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.maskPattern : invokeV.intValue;
     }
 
     public ByteMatrix getMatrix() {
-        return this.matrix;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.matrix : (ByteMatrix) invokeV.objValue;
     }
 
     public Mode getMode() {
-        return this.mode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mode : (Mode) invokeV.objValue;
     }
 
     public Version getVersion() {
-        return this.version;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.version : (Version) invokeV.objValue;
     }
 
     public void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {
-        this.ecLevel = errorCorrectionLevel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, errorCorrectionLevel) == null) {
+            this.ecLevel = errorCorrectionLevel;
+        }
     }
 
     public void setMaskPattern(int i2) {
-        this.maskPattern = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.maskPattern = i2;
+        }
     }
 
     public void setMatrix(ByteMatrix byteMatrix) {
-        this.matrix = byteMatrix;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, byteMatrix) == null) {
+            this.matrix = byteMatrix;
+        }
     }
 
     public void setMode(Mode mode) {
-        this.mode = mode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mode) == null) {
+            this.mode = mode;
+        }
     }
 
     public void setVersion(Version version) {
-        this.version = version;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, version) == null) {
+            this.version = version;
+        }
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder(200);
-        sb.append("<<\n");
-        sb.append(" mode: ");
-        sb.append(this.mode);
-        sb.append("\n ecLevel: ");
-        sb.append(this.ecLevel);
-        sb.append("\n version: ");
-        sb.append(this.version);
-        sb.append("\n maskPattern: ");
-        sb.append(this.maskPattern);
-        if (this.matrix == null) {
-            sb.append("\n matrix: null\n");
-        } else {
-            sb.append("\n matrix:\n");
-            sb.append(this.matrix);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            StringBuilder sb = new StringBuilder(200);
+            sb.append("<<\n");
+            sb.append(" mode: ");
+            sb.append(this.mode);
+            sb.append("\n ecLevel: ");
+            sb.append(this.ecLevel);
+            sb.append("\n version: ");
+            sb.append(this.version);
+            sb.append("\n maskPattern: ");
+            sb.append(this.maskPattern);
+            if (this.matrix == null) {
+                sb.append("\n matrix: null\n");
+            } else {
+                sb.append("\n matrix:\n");
+                sb.append(this.matrix);
+            }
+            sb.append(">>\n");
+            return sb.toString();
         }
-        sb.append(">>\n");
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 }

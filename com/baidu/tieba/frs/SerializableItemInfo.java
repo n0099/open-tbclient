@@ -1,13 +1,22 @@
 package com.baidu.tieba.frs;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SerializableItemInfo implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL = "all";
+    public transient /* synthetic */ FieldHolder $fh;
     public double averageScore;
     public String brief;
     public double icon_size;
@@ -19,82 +28,152 @@ public class SerializableItemInfo implements Serializable {
     public List<String> tags;
 
     public SerializableItemInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public double getAverageScore() {
-        return this.averageScore;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.averageScore : invokeV.doubleValue;
     }
 
     public String getBrief() {
-        return this.brief;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.brief : (String) invokeV.objValue;
     }
 
     public double getIconSize() {
-        return this.icon_size;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.icon_size : invokeV.doubleValue;
     }
 
     public String getIcon_url() {
-        return this.icon_url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.icon_url : (String) invokeV.objValue;
     }
 
     public Integer getId() {
-        return this.id;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.id : (Integer) invokeV.objValue;
     }
 
     public int getIsSchool() {
-        return this.isSchool;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isSchool : invokeV.intValue;
     }
 
     public String getName() {
-        return this.name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
     public SerializableItemTableInfo getScore() {
-        return this.score;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.score : (SerializableItemTableInfo) invokeV.objValue;
     }
 
     public List<String> getTags() {
-        return this.tags;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.tags : (List) invokeV.objValue;
     }
 
     public void setAverageScore(double d2) {
-        this.averageScore = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.averageScore = d2;
+        }
     }
 
     public void setBrief(String str) {
-        this.brief = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.brief = str;
+        }
     }
 
     public void setIconSize(double d2) {
-        this.icon_size = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.icon_size = d2;
+        }
     }
 
     public void setIcon_url(String str) {
-        this.icon_url = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.icon_url = str;
+        }
     }
 
     public void setId(Integer num) {
-        this.id = num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, num) == null) {
+            this.id = num;
+        }
     }
 
     public void setIsSchool(int i2) {
-        this.isSchool = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.isSchool = i2;
+        }
     }
 
     public void setName(String str) {
-        this.name = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.name = str;
+        }
     }
 
     public void setScore(SerializableItemTableInfo serializableItemTableInfo) {
-        this.score = serializableItemTableInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, serializableItemTableInfo) == null) {
+            this.score = serializableItemTableInfo;
+        }
     }
 
     public void setTags(List<String> list) {
-        this.tags = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
+            this.tags = list;
+        }
     }
 
     public SerializableItemInfo(ItemInfo itemInfo) {
         List<ItemPoint> list;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {itemInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (itemInfo == null) {
             return;
         }

@@ -1,37 +1,44 @@
 package d.a.c.e.n;
-/* loaded from: classes.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
     public String C;
     public String D;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42491a;
+    public String f44300a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42492b;
+    public String f44301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42493c;
+    public String f44302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42494d;
+    public String f44303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42495e;
+    public String f44304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42496f;
+    public String f44305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42497g;
+    public String f44306g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42498h;
+    public String f44307h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f42499i;
+    public String f44308i;
     public String j;
     public String k;
     public String l;
@@ -49,4 +56,18 @@ public class c {
     public String x;
     public String y;
     public String z;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

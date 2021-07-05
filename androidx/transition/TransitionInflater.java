@@ -13,51 +13,103 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.collection.ArrayMap;
 import androidx.core.content.res.TypedArrayUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class TransitionInflater {
+    public static /* synthetic */ Interceptable $ic;
+    public static final ArrayMap<String, Constructor<?>> CONSTRUCTORS;
+    public static final Class<?>[] CONSTRUCTOR_SIGNATURE;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
-    public static final Class<?>[] CONSTRUCTOR_SIGNATURE = {Context.class, AttributeSet.class};
-    public static final ArrayMap<String, Constructor<?>> CONSTRUCTORS = new ArrayMap<>();
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1310351803, "Landroidx/transition/TransitionInflater;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1310351803, "Landroidx/transition/TransitionInflater;");
+                return;
+            }
+        }
+        CONSTRUCTOR_SIGNATURE = new Class[]{Context.class, AttributeSet.class};
+        CONSTRUCTORS = new ArrayMap<>();
+    }
 
     public TransitionInflater(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
     }
 
     private Object createCustom(AttributeSet attributeSet, Class<?> cls, String str) {
+        InterceptResult invokeLLL;
         Object newInstance;
         Class<? extends U> asSubclass;
-        String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
-        if (attributeValue != null) {
-            try {
-                synchronized (CONSTRUCTORS) {
-                    Constructor<?> constructor = CONSTRUCTORS.get(attributeValue);
-                    if (constructor == null && (asSubclass = Class.forName(attributeValue, false, this.mContext.getClassLoader()).asSubclass(cls)) != 0) {
-                        constructor = asSubclass.getConstructor(CONSTRUCTOR_SIGNATURE);
-                        constructor.setAccessible(true);
-                        CONSTRUCTORS.put(attributeValue, constructor);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, attributeSet, cls, str)) == null) {
+            String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
+            if (attributeValue != null) {
+                try {
+                    synchronized (CONSTRUCTORS) {
+                        Constructor<?> constructor = CONSTRUCTORS.get(attributeValue);
+                        if (constructor == null && (asSubclass = Class.forName(attributeValue, false, this.mContext.getClassLoader()).asSubclass(cls)) != 0) {
+                            constructor = asSubclass.getConstructor(CONSTRUCTOR_SIGNATURE);
+                            constructor.setAccessible(true);
+                            CONSTRUCTORS.put(attributeValue, constructor);
+                        }
+                        newInstance = constructor.newInstance(this.mContext, attributeSet);
                     }
-                    newInstance = constructor.newInstance(this.mContext, attributeSet);
+                    return newInstance;
+                } catch (Exception e2) {
+                    throw new InflateException("Could not instantiate " + cls + " class " + attributeValue, e2);
                 }
-                return newInstance;
-            } catch (Exception e2) {
-                throw new InflateException("Could not instantiate " + cls + " class " + attributeValue, e2);
             }
+            throw new InflateException(str + " tag must have a 'class' attribute");
         }
-        throw new InflateException(str + " tag must have a 'class' attribute");
+        return invokeLLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x017d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0181, code lost:
         return r3;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private Transition createTransitionFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65539, this, xmlPullParser, attributeSet, transition)) != null) {
+            return (Transition) invokeLLL.objValue;
+        }
         int depth = xmlPullParser.getDepth();
         TransitionSet transitionSet = transition instanceof TransitionSet ? (TransitionSet) transition : null;
         loop0: while (true) {
@@ -129,39 +181,50 @@ public class TransitionInflater {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
         return r1;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private TransitionManager createTransitionManagerFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, ViewGroup viewGroup) throws XmlPullParserException, IOException {
-        int depth = xmlPullParser.getDepth();
-        TransitionManager transitionManager = null;
-        while (true) {
-            int next = xmlPullParser.next();
-            if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
-                if (next == 2) {
-                    String name = xmlPullParser.getName();
-                    if (name.equals("transitionManager")) {
-                        transitionManager = new TransitionManager();
-                    } else if (!name.equals(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION) || transitionManager == null) {
-                        break;
-                    } else {
-                        loadTransition(attributeSet, xmlPullParser, viewGroup, transitionManager);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, xmlPullParser, attributeSet, viewGroup)) == null) {
+            int depth = xmlPullParser.getDepth();
+            TransitionManager transitionManager = null;
+            while (true) {
+                int next = xmlPullParser.next();
+                if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                    if (next == 2) {
+                        String name = xmlPullParser.getName();
+                        if (name.equals("transitionManager")) {
+                            transitionManager = new TransitionManager();
+                        } else if (!name.equals(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION) || transitionManager == null) {
+                            break;
+                        } else {
+                            loadTransition(attributeSet, xmlPullParser, viewGroup, transitionManager);
+                        }
                     }
                 }
             }
+            throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
         }
-        throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
+        return (TransitionManager) invokeLLL.objValue;
     }
 
     public static TransitionInflater from(Context context) {
-        return new TransitionInflater(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? new TransitionInflater(context) : (TransitionInflater) invokeL.objValue;
     }
 
     @SuppressLint({"RestrictedApi"})
     private void getTargetIds(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, xmlPullParser, attributeSet, transition) != null) {
+            return;
+        }
         int depth = xmlPullParser.getDepth();
         while (true) {
             int next = xmlPullParser.next();
@@ -216,55 +279,68 @@ public class TransitionInflater {
     @SuppressLint({"RestrictedApi"})
     private void loadTransition(AttributeSet attributeSet, XmlPullParser xmlPullParser, ViewGroup viewGroup, TransitionManager transitionManager) throws Resources.NotFoundException {
         Transition inflateTransition;
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_MANAGER);
-        int namedResourceId = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, AnimatedStateListDrawableCompat.ELEMENT_TRANSITION, 2, -1);
-        int namedResourceId2 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "fromScene", 0, -1);
-        Scene sceneForLayout = namedResourceId2 < 0 ? null : Scene.getSceneForLayout(viewGroup, namedResourceId2, this.mContext);
-        int namedResourceId3 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "toScene", 1, -1);
-        Scene sceneForLayout2 = namedResourceId3 >= 0 ? Scene.getSceneForLayout(viewGroup, namedResourceId3, this.mContext) : null;
-        if (namedResourceId >= 0 && (inflateTransition = inflateTransition(namedResourceId)) != null) {
-            if (sceneForLayout2 == null) {
-                throw new RuntimeException("No toScene for transition ID " + namedResourceId);
-            } else if (sceneForLayout == null) {
-                transitionManager.setTransition(sceneForLayout2, inflateTransition);
-            } else {
-                transitionManager.setTransition(sceneForLayout, sceneForLayout2, inflateTransition);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65543, this, attributeSet, xmlPullParser, viewGroup, transitionManager) == null) {
+            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_MANAGER);
+            int namedResourceId = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, AnimatedStateListDrawableCompat.ELEMENT_TRANSITION, 2, -1);
+            int namedResourceId2 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "fromScene", 0, -1);
+            Scene sceneForLayout = namedResourceId2 < 0 ? null : Scene.getSceneForLayout(viewGroup, namedResourceId2, this.mContext);
+            int namedResourceId3 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "toScene", 1, -1);
+            Scene sceneForLayout2 = namedResourceId3 >= 0 ? Scene.getSceneForLayout(viewGroup, namedResourceId3, this.mContext) : null;
+            if (namedResourceId >= 0 && (inflateTransition = inflateTransition(namedResourceId)) != null) {
+                if (sceneForLayout2 == null) {
+                    throw new RuntimeException("No toScene for transition ID " + namedResourceId);
+                } else if (sceneForLayout == null) {
+                    transitionManager.setTransition(sceneForLayout2, inflateTransition);
+                } else {
+                    transitionManager.setTransition(sceneForLayout, sceneForLayout2, inflateTransition);
+                }
             }
+            obtainStyledAttributes.recycle();
         }
-        obtainStyledAttributes.recycle();
     }
 
     public Transition inflateTransition(int i2) {
-        XmlResourceParser xml = this.mContext.getResources().getXml(i2);
-        try {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            XmlResourceParser xml = this.mContext.getResources().getXml(i2);
             try {
-                return createTransitionFromXml(xml, Xml.asAttributeSet(xml), null);
-            } catch (IOException e2) {
-                throw new InflateException(xml.getPositionDescription() + ": " + e2.getMessage(), e2);
-            } catch (XmlPullParserException e3) {
-                throw new InflateException(e3.getMessage(), e3);
+                try {
+                    return createTransitionFromXml(xml, Xml.asAttributeSet(xml), null);
+                } catch (IOException e2) {
+                    throw new InflateException(xml.getPositionDescription() + ": " + e2.getMessage(), e2);
+                } catch (XmlPullParserException e3) {
+                    throw new InflateException(e3.getMessage(), e3);
+                }
+            } finally {
+                xml.close();
             }
-        } finally {
-            xml.close();
         }
+        return (Transition) invokeI.objValue;
     }
 
     public TransitionManager inflateTransitionManager(int i2, ViewGroup viewGroup) {
-        XmlResourceParser xml = this.mContext.getResources().getXml(i2);
-        try {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, viewGroup)) == null) {
+            XmlResourceParser xml = this.mContext.getResources().getXml(i2);
             try {
-                return createTransitionManagerFromXml(xml, Xml.asAttributeSet(xml), viewGroup);
-            } catch (IOException e2) {
-                InflateException inflateException = new InflateException(xml.getPositionDescription() + ": " + e2.getMessage());
-                inflateException.initCause(e2);
-                throw inflateException;
-            } catch (XmlPullParserException e3) {
-                InflateException inflateException2 = new InflateException(e3.getMessage());
-                inflateException2.initCause(e3);
-                throw inflateException2;
+                try {
+                    return createTransitionManagerFromXml(xml, Xml.asAttributeSet(xml), viewGroup);
+                } catch (IOException e2) {
+                    InflateException inflateException = new InflateException(xml.getPositionDescription() + ": " + e2.getMessage());
+                    inflateException.initCause(e2);
+                    throw inflateException;
+                } catch (XmlPullParserException e3) {
+                    InflateException inflateException2 = new InflateException(e3.getMessage());
+                    inflateException2.initCause(e3);
+                    throw inflateException2;
+                }
+            } finally {
+                xml.close();
             }
-        } finally {
-            xml.close();
         }
+        return (TransitionManager) invokeIL.objValue;
     }
 }

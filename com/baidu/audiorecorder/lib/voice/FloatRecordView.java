@@ -6,133 +6,211 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import d.a.o0.f1.f.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.i1.f.b;
 /* loaded from: classes.dex */
 public class FloatRecordView implements b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f4206e = null;
+    public ImageView f4236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f4207f = null;
+    public LinearLayout f4237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f4208g = null;
+    public LinearLayout f4238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f4209h = null;
+    public LinearLayout f4239h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4210i = 0;
-    public long j = 0;
-    public int k = 0;
+    public int f4240i;
+    public long j;
+    public int k;
 
     public FloatRecordView(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f4236e = null;
+        this.f4237f = null;
+        this.f4238g = null;
+        this.f4239h = null;
+        this.f4240i = 0;
+        this.j = 0L;
+        this.k = 0;
         d(context, null);
     }
 
     public LinearLayout a() {
-        return this.f4209h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4239h : (LinearLayout) invokeV.objValue;
     }
 
     public LinearLayout b() {
-        return this.f4208g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4238g : (LinearLayout) invokeV.objValue;
     }
 
     public LinearLayout c() {
-        return this.f4207f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4237f : (LinearLayout) invokeV.objValue;
     }
 
-    @Override // d.a.o0.f1.f.b
+    @Override // d.a.s0.i1.f.b
     public void closeRecordCancel() {
-        this.f4209h.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f4239h.setVisibility(8);
+        }
     }
 
-    @Override // d.a.o0.f1.f.b
+    @Override // d.a.s0.i1.f.b
     public void closeRecordTooShort() {
-        this.f4208g.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f4238g.setVisibility(8);
+        }
     }
 
     public final void d(Context context, ViewGroup viewGroup) {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.float_chat_recording_view, (ViewGroup) null);
-        this.f4207f = linearLayout;
-        this.f4206e = (ImageView) linearLayout.findViewById(R.id.img_msgsend_recording);
-        this.f4208g = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
-        this.f4209h = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, viewGroup) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.float_chat_recording_view, (ViewGroup) null);
+            this.f4237f = linearLayout;
+            this.f4236e = (ImageView) linearLayout.findViewById(R.id.img_msgsend_recording);
+            this.f4238g = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
+            this.f4239h = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
+        }
     }
 
     public void e() {
-        this.f4208g.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f4238g.setVisibility(0);
+        }
     }
 
     @Override // d.a.c.e.q.f
     public void onDeletedVoice(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        }
     }
 
     @Override // d.a.c.e.q.f
     public void onSendVoice(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2) == null) {
+        }
     }
 
     @Override // d.a.c.e.q.f
     public void onShowErr(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) {
+        }
     }
 
     @Override // d.a.c.e.q.f
     public void onShowRecordTime(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        }
     }
 
     @Override // d.a.c.e.q.f
     public void onShowRecording(int i2) {
-        this.f4210i = Math.max(i2, this.f4210i);
-        long uptimeMillis = SystemClock.uptimeMillis();
-        if (uptimeMillis - this.j > 150) {
-            this.f4210i = 0;
-            this.j = uptimeMillis;
-        }
-        int i3 = this.k + 1;
-        this.k = i3;
-        if (i3 % 5 == 0) {
-            this.k = 0;
-            int i4 = this.f4210i;
-            if (i4 < 2) {
-                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
-            } else if (i4 < 10) {
-                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
-            } else if (i4 < 20) {
-                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
-            } else if (i4 < 30) {
-                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
-            } else if (i4 < 40) {
-                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
-            } else if (i4 < 50) {
-                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
-            } else {
-                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f4240i = Math.max(i2, this.f4240i);
+            long uptimeMillis = SystemClock.uptimeMillis();
+            if (uptimeMillis - this.j > 150) {
+                this.f4240i = 0;
+                this.j = uptimeMillis;
+            }
+            int i3 = this.k + 1;
+            this.k = i3;
+            if (i3 % 5 == 0) {
+                this.k = 0;
+                int i4 = this.f4240i;
+                if (i4 < 2) {
+                    this.f4236e.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
+                } else if (i4 < 10) {
+                    this.f4236e.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
+                } else if (i4 < 20) {
+                    this.f4236e.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
+                } else if (i4 < 30) {
+                    this.f4236e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                } else if (i4 < 40) {
+                    this.f4236e.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
+                } else if (i4 < 50) {
+                    this.f4236e.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
+                } else {
+                    this.f4236e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                }
             }
         }
     }
 
     @Override // d.a.c.e.q.f
     public void onStartedRecorder(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        }
     }
 
     @Override // d.a.c.e.q.f
     public void onStopingRecorder() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
     }
 
-    @Override // d.a.o0.f1.f.b
+    @Override // d.a.s0.i1.f.b
     public void showRecordCancel() {
-        this.f4209h.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.f4239h.setVisibility(0);
+        }
     }
 
-    @Override // d.a.o0.f1.f.b
+    @Override // d.a.s0.i1.f.b
     public void startRecordVoice() {
-        this.f4207f.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.f4237f.setVisibility(0);
+        }
     }
 
-    @Override // d.a.o0.f1.f.b
+    @Override // d.a.s0.i1.f.b
     public void stopRecordVoice() {
-        this.f4207f.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f4237f.setVisibility(8);
+        }
     }
 }

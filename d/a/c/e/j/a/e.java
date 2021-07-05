@@ -1,46 +1,86 @@
 package d.a.c.e.j.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f42386a = new f();
+    public f f44195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f42387b = new g();
+    public g f44196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<d> f42388c = new LinkedList<>();
+    public LinkedList<d> f44197c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f42389d = null;
+    public d f44198d;
+
+    public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44195a = new f();
+        this.f44196b = new g();
+        this.f44197c = new LinkedList<>();
+        this.f44198d = null;
+    }
 
     public d a() {
-        return this.f42389d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44198d : (d) invokeV.objValue;
     }
 
     public f b() {
-        return this.f42386a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44195a : (f) invokeV.objValue;
     }
 
     public g c() {
-        return this.f42387b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44196b : (g) invokeV.objValue;
     }
 
     public List<d> d() {
-        return Collections.unmodifiableList(this.f42388c);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableList(this.f44197c) : (List) invokeV.objValue;
     }
 
     public void e(d dVar) {
-        if (dVar != null) {
-            this.f42388c.add(dVar);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null) {
+            return;
         }
+        this.f44197c.add(dVar);
     }
 
     public void f(d dVar) {
-        this.f42389d = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.f44198d = dVar;
+        }
     }
 }

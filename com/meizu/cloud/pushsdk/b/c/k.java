@@ -5,112 +5,112 @@ import com.meizu.cloud.pushsdk.b.c.c;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f38435a;
+    public final i f40198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f38436b;
+    public final int f40199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f38437c;
+    public final String f40200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c f38438d;
+    public final c f40201d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final l f38439e;
+    public final l f40202e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f38440f;
+    public k f40203f;
 
     /* renamed from: g  reason: collision with root package name */
-    public k f38441g;
+    public k f40204g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final k f38442h;
+    public final k f40205h;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public i f38443a;
+        public i f40206a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38445c;
+        public String f40208c;
 
         /* renamed from: e  reason: collision with root package name */
-        public l f38447e;
+        public l f40210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public k f38448f;
+        public k f40211f;
 
         /* renamed from: g  reason: collision with root package name */
-        public k f38449g;
+        public k f40212g;
 
         /* renamed from: h  reason: collision with root package name */
-        public k f38450h;
+        public k f40213h;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f38444b = -1;
+        public int f40207b = -1;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a f38446d = new c.a();
+        public c.a f40209d = new c.a();
 
         public a a(int i2) {
-            this.f38444b = i2;
+            this.f40207b = i2;
             return this;
         }
 
         public a a(c cVar) {
-            this.f38446d = cVar.c();
+            this.f40209d = cVar.c();
             return this;
         }
 
         public a a(i iVar) {
-            this.f38443a = iVar;
+            this.f40206a = iVar;
             return this;
         }
 
         public a a(l lVar) {
-            this.f38447e = lVar;
+            this.f40210e = lVar;
             return this;
         }
 
         public a a(String str) {
-            this.f38445c = str;
+            this.f40208c = str;
             return this;
         }
 
         public k a() {
-            if (this.f38443a != null) {
-                if (this.f38444b >= 0) {
+            if (this.f40206a != null) {
+                if (this.f40207b >= 0) {
                     return new k(this);
                 }
-                throw new IllegalStateException("code < 0: " + this.f38444b);
+                throw new IllegalStateException("code < 0: " + this.f40207b);
             }
             throw new IllegalStateException("request == null");
         }
     }
 
     public k(a aVar) {
-        this.f38435a = aVar.f38443a;
-        this.f38436b = aVar.f38444b;
-        this.f38437c = aVar.f38445c;
-        this.f38438d = aVar.f38446d.a();
-        this.f38439e = aVar.f38447e;
-        this.f38440f = aVar.f38448f;
-        this.f38441g = aVar.f38449g;
-        this.f38442h = aVar.f38450h;
+        this.f40198a = aVar.f40206a;
+        this.f40199b = aVar.f40207b;
+        this.f40200c = aVar.f40208c;
+        this.f40201d = aVar.f40209d.a();
+        this.f40202e = aVar.f40210e;
+        this.f40203f = aVar.f40211f;
+        this.f40204g = aVar.f40212g;
+        this.f40205h = aVar.f40213h;
     }
 
     public int a() {
-        return this.f38436b;
+        return this.f40199b;
     }
 
     public l b() {
-        return this.f38439e;
+        return this.f40202e;
     }
 
     public String toString() {
-        return "Response{protocol=, code=" + this.f38436b + ", message=" + this.f38437c + ", url=" + this.f38435a.a() + '}';
+        return "Response{protocol=, code=" + this.f40199b + ", message=" + this.f40200c + ", url=" + this.f40198a.a() + '}';
     }
 }

@@ -3,21 +3,44 @@ package org.webrtc;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.camera2.CameraManager;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
 @TargetApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Camera2Capturer extends CameraCapturer {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final CameraManager cameraManager;
     public final Context context;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Camera2Capturer(Context context, String str, CameraVideoCapturer.CameraEventsHandler cameraEventsHandler) {
         super(str, cameraEventsHandler, new Camera2Enumerator(context));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, cameraEventsHandler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (CameraVideoCapturer.CameraEventsHandler) objArr2[1], (CameraEnumerator) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.context = context;
-        this.cameraManager = (CameraManager) context.getSystemService(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
+        this.cameraManager = (CameraManager) context.getSystemService("camera");
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
@@ -27,7 +50,10 @@ public class Camera2Capturer extends CameraCapturer {
 
     @Override // org.webrtc.CameraCapturer
     public void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4) {
-        Camera2Session.create(createSessionCallback, events, context, this.cameraManager, surfaceTextureHelper, str, i2, i3, i4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{createSessionCallback, events, context, surfaceTextureHelper, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            Camera2Session.create(createSessionCallback, events, context, this.cameraManager, surfaceTextureHelper, str, i2, i3, i4);
+        }
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer

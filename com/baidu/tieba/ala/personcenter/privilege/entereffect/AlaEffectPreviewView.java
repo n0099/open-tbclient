@@ -19,192 +19,329 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.v.j.g.d.b;
-/* loaded from: classes4.dex */
+import d.a.s0.v.j.g.d.b;
+/* loaded from: classes5.dex */
 public class AlaEffectPreviewView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14176e;
+    public int f14263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14177f;
+    public int f14264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14178g;
+    public View f14265g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f14179h;
+    public ImageView f14266h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14180i;
+    public TextView f14267i;
     public b.c j;
     public ObjectAnimator k;
     public LinearLayout l;
     public ImageView m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AlaEffectPreviewView f14268a;
+
+        public a(AlaEffectPreviewView alaEffectPreviewView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaEffectPreviewView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14268a = alaEffectPreviewView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
         public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             Bitmap p;
-            super.onLoaded((a) aVar, str, i2);
-            if (aVar == null || (p = aVar.p()) == null) {
-                return;
-            }
-            try {
-                if (p.getConfig() == null) {
-                    p = p.copy(Bitmap.Config.ARGB_8888, false);
-                } else {
-                    p = p.copy(p.getConfig(), false);
-                }
-            } catch (OutOfMemoryError e2) {
-                BdLog.e(e2);
-                if (p.getConfig() != null) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
+                super.onLoaded((a) aVar, str, i2);
+                if (aVar == null || (p = aVar.p()) == null) {
                     return;
                 }
                 try {
-                    p = p.copy(Bitmap.Config.RGB_565, false);
-                } catch (OutOfMemoryError e3) {
-                    BdLog.e(e3);
+                    if (p.getConfig() == null) {
+                        p = p.copy(Bitmap.Config.ARGB_8888, false);
+                    } else {
+                        p = p.copy(p.getConfig(), false);
+                    }
+                } catch (OutOfMemoryError e2) {
+                    BdLog.e(e2);
+                    if (p.getConfig() != null) {
+                        return;
+                    }
+                    try {
+                        p = p.copy(Bitmap.Config.RGB_565, false);
+                    } catch (OutOfMemoryError e3) {
+                        BdLog.e(e3);
+                        return;
+                    }
+                }
+                if (p == null) {
                     return;
                 }
-            }
-            if (p == null) {
-                return;
-            }
-            try {
-                Bitmap g2 = d.a.c.e.p.d.d().g(p, l.k(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
-                if (g2 != p) {
-                    p.recycle();
-                }
-                AlaEffectPreviewView.this.f14179h.setImageBitmap(g2);
-            } catch (OutOfMemoryError e4) {
-                BdLog.e(e4);
-                if (p != null) {
-                    p.recycle();
+                try {
+                    Bitmap g2 = d.a.c.e.p.d.d().g(p, l.k(this.f14268a.getContext()), this.f14268a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                    if (g2 != p) {
+                        p.recycle();
+                    }
+                    this.f14268a.f14266h.setImageBitmap(g2);
+                } catch (OutOfMemoryError e4) {
+                    BdLog.e(e4);
+                    if (p != null) {
+                        p.recycle();
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements TimeInterpolator {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AlaEffectPreviewView f14269a;
+
+        public b(AlaEffectPreviewView alaEffectPreviewView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaEffectPreviewView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14269a = alaEffectPreviewView;
         }
 
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f2) {
-            return f2;
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? f2 : invokeF.floatValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements Animator.AnimatorListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AlaEffectPreviewView f14270e;
+
+        public c(AlaEffectPreviewView alaEffectPreviewView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaEffectPreviewView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14270e = alaEffectPreviewView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            if (AlaEffectPreviewView.this.j != null) {
-                AlaEffectPreviewView.this.j.a();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
             }
         }
 
         @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f14270e.j == null) {
+                return;
+            }
+            this.f14270e.j.a();
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends FloatEvaluator {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AlaEffectPreviewView f14271a;
+
+        public d(AlaEffectPreviewView alaEffectPreviewView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaEffectPreviewView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14271a = alaEffectPreviewView;
         }
 
         public /* synthetic */ d(AlaEffectPreviewView alaEffectPreviewView, a aVar) {
-            this();
+            this(alaEffectPreviewView);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.animation.TypeEvaluator
         public Float evaluate(float f2, Number number, Number number2) {
+            InterceptResult invokeCommon;
             float f3;
-            float f4 = f2 * 3500.0f;
-            if (f4 <= 500.0f) {
-                f3 = (AlaEffectPreviewView.this.f14176e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14177f;
-            } else {
-                float f5 = 3500.0f - f4;
-                if (f5 <= 500.0f) {
-                    f3 = AlaEffectPreviewView.this.f14177f + (AlaEffectPreviewView.this.f14176e * (1.0f - (f5 / 500.0f)));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), number, number2})) == null) {
+                float f4 = f2 * 3500.0f;
+                if (f4 <= 500.0f) {
+                    f3 = (this.f14271a.f14263e * ((f4 / 500.0f) - 1.0f)) + this.f14271a.f14264f;
                 } else {
-                    f3 = AlaEffectPreviewView.this.f14177f;
+                    float f5 = 3500.0f - f4;
+                    f3 = f5 <= 500.0f ? this.f14271a.f14264f + (this.f14271a.f14263e * (1.0f - (f5 / 500.0f))) : this.f14271a.f14264f;
                 }
+                return Float.valueOf(f3);
             }
-            return Float.valueOf(f3);
+            return (Float) invokeCommon.objValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEffectPreviewView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         e();
     }
 
     public final void e() {
-        this.f14178g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
-        this.f14179h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-        this.f14180i = (TextView) findViewById(R.id.ala_im_user_enter_content);
-        this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
-        this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f14265g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
+            this.f14266h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
+            this.f14267i = (TextView) findViewById(R.id.ala_im_user_enter_content);
+            this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
+            this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+        }
     }
 
     public void f() {
-        ObjectAnimator objectAnimator = this.k;
-        if (objectAnimator != null) {
-            objectAnimator.cancel();
+        ObjectAnimator objectAnimator;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (objectAnimator = this.k) == null) {
+            return;
         }
+        objectAnimator.cancel();
     }
 
     public void g() {
-        if (getMeasuredWidth() <= 0) {
-            measure(0, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (getMeasuredWidth() <= 0) {
+                measure(0, 0);
+            }
+            int k = l.k(getContext());
+            this.f14263e = k;
+            this.f14264f = (k - getMeasuredWidth()) / 2;
+            View view = this.f14265g;
+            int i2 = this.f14263e;
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i2, -i2);
+            this.k = ofFloat;
+            ofFloat.setDuration(3500L);
+            this.k.setInterpolator(new b(this));
+            this.k.addListener(new c(this));
+            this.k.setEvaluator(new d(this, null));
+            this.k.start();
         }
-        int k = l.k(getContext());
-        this.f14176e = k;
-        this.f14177f = (k - getMeasuredWidth()) / 2;
-        View view = this.f14178g;
-        int i2 = this.f14176e;
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i2, -i2);
-        this.k = ofFloat;
-        ofFloat.setDuration(3500L);
-        this.k.setInterpolator(new b());
-        this.k.addListener(new c());
-        this.k.setEvaluator(new d(this, null));
-        this.k.start();
     }
 
     public void setAnimCompleteCallback(b.c cVar) {
-        this.j = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.j = cVar;
+        }
     }
 
     public void setData(AlaEnterEffectData alaEnterEffectData) {
         GradientDrawable gradientDrawable;
-        if (alaEnterEffectData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, alaEnterEffectData) == null) || alaEnterEffectData == null) {
             return;
         }
         String str = alaEnterEffectData.content_first;
@@ -228,12 +365,12 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
         String str3 = alaEnterEffectData.icon_url;
         if (StringUtils.isNull(str3)) {
-            this.f14179h.setVisibility(8);
+            this.f14266h.setVisibility(8);
         } else {
-            this.f14179h.setVisibility(0);
-            d.a.c.e.l.d.h().m(str3, 10, new a(), null);
+            this.f14266h.setVisibility(0);
+            d.a.c.e.l.d.h().m(str3, 10, new a(this), null);
         }
-        this.f14180i.setText(spannableStringBuilder);
+        this.f14267i.setText(spannableStringBuilder);
         String str4 = alaEnterEffectData.color;
         if (StringUtils.isNull(str4)) {
             str4 = "#B2FF5460";
@@ -259,13 +396,47 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         e();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         e();
     }
 }

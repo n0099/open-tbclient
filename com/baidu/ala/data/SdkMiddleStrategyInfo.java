@@ -1,9 +1,16 @@
 package com.baidu.ala.data;
 
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SdkMiddleStrategyInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public DisplayStrategy displayStrategy;
     public int score;
     public StrategyExtra strategyExtra;
@@ -11,14 +18,31 @@ public class SdkMiddleStrategyInfo {
 
     /* loaded from: classes.dex */
     public static class DisplayStrategy {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String attention;
         public int imageNum;
         public int mark;
         public String title;
         public int type;
 
+        public DisplayStrategy() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void fromJson(JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.mark = jSONObject.optInt("mark");
@@ -30,6 +54,8 @@ public class SdkMiddleStrategyInfo {
 
     /* loaded from: classes.dex */
     public static class StrategyExtra {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int click;
         public String ctr_fea;
         public String fe;
@@ -44,8 +70,23 @@ public class SdkMiddleStrategyInfo {
         public String source_from;
         public int vertical_type;
 
+        public StrategyExtra() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void fromJson(JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             this.mthid = jSONObject.optString("mthid");
@@ -64,12 +105,27 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
+    public SdkMiddleStrategyInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public void fromJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.ts = jSONObject.optLong("ts");
-        this.score = jSONObject.optInt("score");
+        this.score = jSONObject.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
         this.displayStrategy = new DisplayStrategy();
         JSONObject optJSONObject = jSONObject.optJSONObject("display_strategy");
         if (optJSONObject != null) {

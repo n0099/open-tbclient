@@ -1,73 +1,170 @@
 package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.service.AsInstallService;
-import d.a.m0.n.j.j.c;
-import d.a.m0.n.j.j.d;
-import d.a.m0.n.j.k.e;
-/* loaded from: classes3.dex */
-public enum Node {
-    HOST("host", c.class, d.class),
-    PACKAGE(AsInstallService.SCHEME_PACKAGE_ADDED, d.a.m0.n.j.k.d.class, e.class, true),
-    CERES("ceres", d.a.m0.n.j.h.c.class, d.a.m0.n.j.h.d.class),
-    COMMON("common", d.a.m0.n.j.i.c.class, d.a.m0.n.j.i.d.class);
-    
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.n.j.d;
+import d.a.q0.n.j.e;
+import d.a.q0.n.j.j.c;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes4.dex */
+public final class Node {
+    public static final /* synthetic */ Node[] $VALUES;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Node CERES;
+    public static final Node COMMON;
+    public static final Node HOST;
+    public static final Node PACKAGE;
     public static final String TAG = "LXNODE";
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends d.a.m0.n.j.e> mParamsProvider;
-    public Class<? extends d.a.m0.n.j.d> mProcessor;
+    public Class<? extends e> mParamsProvider;
+    public Class<? extends d> mProcessor;
 
-    Node(String str, Class cls, Class cls2, boolean z) {
-        this.mName = str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1568771051, "Lcom/baidu/swan/pms/node/Node;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1568771051, "Lcom/baidu/swan/pms/node/Node;");
+                return;
+            }
+        }
+        HOST = new Node("HOST", 0, "host", c.class, d.a.q0.n.j.j.d.class);
+        PACKAGE = new Node("PACKAGE", 1, AsInstallService.SCHEME_PACKAGE_ADDED, d.a.q0.n.j.k.d.class, d.a.q0.n.j.k.e.class, true);
+        CERES = new Node("CERES", 2, "ceres", d.a.q0.n.j.h.c.class, d.a.q0.n.j.h.d.class);
+        Node node = new Node("COMMON", 3, "common", d.a.q0.n.j.i.c.class, d.a.q0.n.j.i.d.class);
+        COMMON = node;
+        $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
+    }
+
+    public Node(String str, int i2, String str2, Class cls, Class cls2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2, cls, cls2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mName = str2;
         this.mParamsProvider = cls;
         this.mProcessor = cls2;
         this.mIsDataArray = z;
     }
 
     public static Node getNodeByConfigName(String str) {
+        InterceptResult invokeL;
         Node[] values;
-        for (Node node : values()) {
-            if (node != null && TextUtils.equals(node.getName(), str)) {
-                return node;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            for (Node node : values()) {
+                if (node != null && TextUtils.equals(node.getName(), str)) {
+                    return node;
+                }
             }
+            return null;
         }
-        return null;
+        return (Node) invokeL.objValue;
     }
 
-    public static d.a.m0.n.j.e getProvider(Node node) {
-        Class<? extends d.a.m0.n.j.e> paramsProvider;
-        if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
-            return null;
-        }
-        try {
-            return paramsProvider.newInstance();
-        } catch (IllegalAccessException | InstantiationException e2) {
-            if (d.a.m0.n.c.f51766a) {
-                e2.printStackTrace();
+    public static e getProvider(Node node) {
+        InterceptResult invokeL;
+        Class<? extends e> paramsProvider;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, node)) == null) {
+            if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
+                return null;
             }
-            return null;
+            try {
+                return paramsProvider.newInstance();
+            } catch (IllegalAccessException | InstantiationException e2) {
+                if (d.a.q0.n.c.f53910a) {
+                    e2.printStackTrace();
+                }
+                return null;
+            }
         }
+        return (e) invokeL.objValue;
+    }
+
+    public static Node valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (Node) Enum.valueOf(Node.class, str) : (Node) invokeL.objValue;
+    }
+
+    public static Node[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (Node[]) $VALUES.clone() : (Node[]) invokeV.objValue;
     }
 
     public String getName() {
-        return this.mName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public Class<? extends d.a.m0.n.j.e> getParamsProvider() {
-        return this.mParamsProvider;
+    public Class<? extends e> getParamsProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mParamsProvider : (Class) invokeV.objValue;
     }
 
-    public Class<? extends d.a.m0.n.j.d> getProcessor() {
-        return this.mProcessor;
+    public Class<? extends d> getProcessor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProcessor : (Class) invokeV.objValue;
     }
 
     public boolean isDataArray() {
-        return this.mIsDataArray;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsDataArray : invokeV.booleanValue;
     }
 
-    Node(String str, Class cls, Class cls2) {
-        this.mName = str;
+    public Node(String str, int i2, String str2, Class cls, Class cls2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2, cls, cls2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mName = str2;
         this.mParamsProvider = cls;
         this.mProcessor = cls2;
         this.mIsDataArray = false;

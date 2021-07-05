@@ -1,5 +1,13 @@
 package com.google.zxing.aztec.encoder;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitArray;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -8,20 +16,36 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class HighLevelEncoder {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] CHAR_MAP;
+    public static final int[][] LATCH_TABLE;
     public static final int MODE_DIGIT = 2;
     public static final int MODE_LOWER = 1;
     public static final int MODE_MIXED = 3;
+    public static final String[] MODE_NAMES;
     public static final int MODE_PUNCT = 4;
     public static final int MODE_UPPER = 0;
     public static final int[][] SHIFT_TABLE;
+    public transient /* synthetic */ FieldHolder $fh;
     public final byte[] text;
-    public static final String[] MODE_NAMES = {"UPPER", "LOWER", "DIGIT", "MIXED", "PUNCT"};
-    public static final int[][] LATCH_TABLE = {new int[]{0, 327708, 327710, 327709, 656318}, new int[]{590318, 0, 327710, 327709, 656318}, new int[]{262158, 590300, 0, 590301, 932798}, new int[]{327709, 327708, 656318, 0, 327710}, new int[]{327711, 656380, 656382, 656381, 0}};
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-703852367, "Lcom/google/zxing/aztec/encoder/HighLevelEncoder;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-703852367, "Lcom/google/zxing/aztec/encoder/HighLevelEncoder;");
+                return;
+            }
+        }
+        MODE_NAMES = new String[]{"UPPER", "LOWER", "DIGIT", "MIXED", "PUNCT"};
+        LATCH_TABLE = new int[][]{new int[]{0, 327708, 327710, 327709, 656318}, new int[]{590318, 0, 327710, 327709, 656318}, new int[]{262158, 590300, 0, 590301, 932798}, new int[]{327709, 327708, 656318, 0, 327710}, new int[]{327711, 656380, 656382, 656381, 0}};
         int[][] iArr = (int[][]) Array.newInstance(int.class, 5, 256);
         CHAR_MAP = iArr;
         iArr[0][32] = 1;
@@ -64,93 +88,133 @@ public final class HighLevelEncoder {
     }
 
     public HighLevelEncoder(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.text = bArr;
     }
 
     public static Collection<State> simplifyStates(Iterable<State> iterable) {
-        LinkedList linkedList = new LinkedList();
-        for (State state : iterable) {
-            boolean z = true;
-            Iterator it = linkedList.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iterable)) == null) {
+            LinkedList linkedList = new LinkedList();
+            for (State state : iterable) {
+                boolean z = true;
+                Iterator it = linkedList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    State state2 = (State) it.next();
+                    if (state2.isBetterThanOrEqualTo(state)) {
+                        z = false;
+                        break;
+                    } else if (state.isBetterThanOrEqualTo(state2)) {
+                        it.remove();
+                    }
                 }
-                State state2 = (State) it.next();
-                if (state2.isBetterThanOrEqualTo(state)) {
-                    z = false;
-                    break;
-                } else if (state.isBetterThanOrEqualTo(state2)) {
-                    it.remove();
+                if (z) {
+                    linkedList.add(state);
                 }
             }
-            if (z) {
-                linkedList.add(state);
-            }
+            return linkedList;
         }
-        return linkedList;
+        return (Collection) invokeL.objValue;
     }
 
     private void updateStateForChar(State state, int i2, Collection<State> collection) {
-        char c2 = (char) (this.text[i2] & 255);
-        boolean z = CHAR_MAP[state.getMode()][c2] > 0;
-        State state2 = null;
-        for (int i3 = 0; i3 <= 4; i3++) {
-            int i4 = CHAR_MAP[i3][c2];
-            if (i4 > 0) {
-                if (state2 == null) {
-                    state2 = state.endBinaryShift(i2);
-                }
-                if (!z || i3 == state.getMode() || i3 == 2) {
-                    collection.add(state2.latchAndAppend(i3, i4));
-                }
-                if (!z && SHIFT_TABLE[state.getMode()][i3] >= 0) {
-                    collection.add(state2.shiftAndAppend(i3, i4));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65539, this, state, i2, collection) == null) {
+            char c2 = (char) (this.text[i2] & 255);
+            boolean z = CHAR_MAP[state.getMode()][c2] > 0;
+            State state2 = null;
+            for (int i3 = 0; i3 <= 4; i3++) {
+                int i4 = CHAR_MAP[i3][c2];
+                if (i4 > 0) {
+                    if (state2 == null) {
+                        state2 = state.endBinaryShift(i2);
+                    }
+                    if (!z || i3 == state.getMode() || i3 == 2) {
+                        collection.add(state2.latchAndAppend(i3, i4));
+                    }
+                    if (!z && SHIFT_TABLE[state.getMode()][i3] >= 0) {
+                        collection.add(state2.shiftAndAppend(i3, i4));
+                    }
                 }
             }
-        }
-        if (state.getBinaryShiftByteCount() > 0 || CHAR_MAP[state.getMode()][c2] == 0) {
-            collection.add(state.addBinaryShiftChar(i2));
+            if (state.getBinaryShiftByteCount() > 0 || CHAR_MAP[state.getMode()][c2] == 0) {
+                collection.add(state.addBinaryShiftChar(i2));
+            }
         }
     }
 
     public static void updateStateForPair(State state, int i2, int i3, Collection<State> collection) {
-        State endBinaryShift = state.endBinaryShift(i2);
-        collection.add(endBinaryShift.latchAndAppend(4, i3));
-        if (state.getMode() != 4) {
-            collection.add(endBinaryShift.shiftAndAppend(4, i3));
-        }
-        if (i3 == 3 || i3 == 4) {
-            collection.add(endBinaryShift.latchAndAppend(2, 16 - i3).latchAndAppend(2, 1));
-        }
-        if (state.getBinaryShiftByteCount() > 0) {
-            collection.add(state.addBinaryShiftChar(i2).addBinaryShiftChar(i2 + 1));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{state, Integer.valueOf(i2), Integer.valueOf(i3), collection}) == null) {
+            State endBinaryShift = state.endBinaryShift(i2);
+            collection.add(endBinaryShift.latchAndAppend(4, i3));
+            if (state.getMode() != 4) {
+                collection.add(endBinaryShift.shiftAndAppend(4, i3));
+            }
+            if (i3 == 3 || i3 == 4) {
+                collection.add(endBinaryShift.latchAndAppend(2, 16 - i3).latchAndAppend(2, 1));
+            }
+            if (state.getBinaryShiftByteCount() > 0) {
+                collection.add(state.addBinaryShiftChar(i2).addBinaryShiftChar(i2 + 1));
+            }
         }
     }
 
     private Collection<State> updateStateListForChar(Iterable<State> iterable, int i2) {
-        LinkedList linkedList = new LinkedList();
-        for (State state : iterable) {
-            updateStateForChar(state, i2, linkedList);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, iterable, i2)) == null) {
+            LinkedList linkedList = new LinkedList();
+            for (State state : iterable) {
+                updateStateForChar(state, i2, linkedList);
+            }
+            return simplifyStates(linkedList);
         }
-        return simplifyStates(linkedList);
+        return (Collection) invokeLI.objValue;
     }
 
     public static Collection<State> updateStateListForPair(Iterable<State> iterable, int i2, int i3) {
-        LinkedList linkedList = new LinkedList();
-        for (State state : iterable) {
-            updateStateForPair(state, i2, i3, linkedList);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, iterable, i2, i3)) == null) {
+            LinkedList linkedList = new LinkedList();
+            for (State state : iterable) {
+                updateStateForPair(state, i2, i3, linkedList);
+            }
+            return simplifyStates(linkedList);
         }
-        return simplifyStates(linkedList);
+        return (Collection) invokeLII.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0047  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x004b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public BitArray encode() {
+        InterceptResult invokeV;
         int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+            return (BitArray) invokeV.objValue;
+        }
         Collection<State> singletonList = Collections.singletonList(State.INITIAL_STATE);
         int i3 = 0;
         while (true) {
@@ -209,11 +273,35 @@ public final class HighLevelEncoder {
                     i3++;
                 }
             } else {
-                return ((State) Collections.min(singletonList, new Comparator<State>() { // from class: com.google.zxing.aztec.encoder.HighLevelEncoder.1
+                return ((State) Collections.min(singletonList, new Comparator<State>(this) { // from class: com.google.zxing.aztec.encoder.HighLevelEncoder.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ HighLevelEncoder this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i5 = newInitContext.flag;
+                            if ((i5 & 1) != 0) {
+                                int i6 = i5 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.util.Comparator
                     public int compare(State state, State state2) {
-                        return state.getBitCount() - state2.getBitCount();
+                        InterceptResult invokeLL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, state, state2)) == null) ? state.getBitCount() - state2.getBitCount() : invokeLL.intValue;
                     }
                 })).toBitArray(this.text);
             }

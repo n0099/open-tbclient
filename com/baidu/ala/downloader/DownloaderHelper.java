@@ -4,8 +4,14 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaSharedPrefHelper;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.m;
 import d.a.c.e.p.q;
 import java.io.BufferedInputStream;
@@ -15,6 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -22,57 +29,92 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes.dex */
 public class DownloaderHelper {
-    public static boolean checkDirFiles(String str, ArrayList<String> arrayList) {
-        File[] listFiles;
-        if (existFile(str)) {
-            if (!isDirectory(str)) {
-                FileHelper.deleteFileOrDir(new File(str));
-                return true;
-            } else if (arrayList == null || arrayList.size() <= 0 || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
-                return true;
-            } else {
-                for (int i2 = 0; i2 < listFiles.length; i2++) {
-                    if (!listFiles[i2].isDirectory() && !arrayList.contains(getFileMd5(listFiles[i2]))) {
-                        return true;
-                    }
-                }
-                return false;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public DownloaderHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return true;
+    }
+
+    public static boolean checkDirFiles(String str, ArrayList<String> arrayList) {
+        InterceptResult invokeLL;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, arrayList)) == null) {
+            if (existFile(str)) {
+                if (!isDirectory(str)) {
+                    FileHelper.deleteFileOrDir(new File(str));
+                    return true;
+                } else if (arrayList == null || arrayList.size() <= 0 || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
+                    return true;
+                } else {
+                    for (int i2 = 0; i2 < listFiles.length; i2++) {
+                        if (!listFiles[i2].isDirectory() && !arrayList.contains(getFileMd5(listFiles[i2]))) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static void cleanDir(File file) {
-        try {
-            if (file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                int length = listFiles.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (listFiles[i2].isFile()) {
-                        listFiles[i2].delete();
-                    } else {
-                        cleanDir(listFiles[i2]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            try {
+                if (file.exists() && file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    int length = listFiles.length;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (listFiles[i2].isFile()) {
+                            listFiles[i2].delete();
+                        } else {
+                            cleanDir(listFiles[i2]);
+                        }
                     }
                 }
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
         }
     }
 
     public static boolean existFile(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return new File(str).exists();
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return false;
+            }
         }
-        try {
-            return new File(str).exists();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
     public static ArrayList<String> getAllFileMd5Set(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, str)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
         ArrayList<String> arrayList = null;
         String string = AlaSharedPrefHelper.getInstance().getString(str, null);
         if (string == null) {
@@ -101,26 +143,37 @@ public class DownloaderHelper {
     }
 
     public static String getFileMd5(File file) {
-        String b2 = q.b(FileHelper.GetStreamFromFile(file));
-        return !StringUtils.isNull(b2) ? b2.toLowerCase() : b2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+            String b2 = q.b(FileHelper.GetStreamFromFile(file));
+            return !StringUtils.isNull(b2) ? b2.toLowerCase() : b2;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean isDirectory(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return new File(str).isDirectory();
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return false;
+            }
         }
-        try {
-            return new File(str).isDirectory();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
     public static void saveAllFileMd5ToSharePreference(String str, String str2) {
         File[] listFiles;
         String fileMd5;
-        if (StringUtils.isNull(str2) || (listFiles = new File(str2).listFiles()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || StringUtils.isNull(str2) || (listFiles = new File(str2).listFiles()) == null) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
@@ -133,8 +186,13 @@ public class DownloaderHelper {
     }
 
     public static String saveFile(String str, String str2, InputStream inputStream) {
+        InterceptResult invokeLLL;
         FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65544, null, str, str2, inputStream)) != null) {
+            return (String) invokeLLL.objValue;
+        }
+        OutputStream outputStream = null;
         if (inputStream == null || StringUtils.isNull(str2) || str2.contains("/.")) {
             return null;
         }
@@ -153,22 +211,27 @@ public class DownloaderHelper {
         }
         File file = new File(str + "/" + str2);
         String parent = file.getParent();
-        if (!StringUtils.isNull(parent)) {
+        boolean isNull = StringUtils.isNull(parent);
+        String str3 = parent;
+        if (!isNull) {
             File file2 = new File(parent);
-            if (!file2.exists()) {
+            boolean exists = file2.exists();
+            str3 = exists;
+            if (!exists) {
                 file2.mkdirs();
+                str3 = exists;
             }
         }
         try {
-            if (file.exists() && !file.delete()) {
-                m.f(null);
-                return null;
-            } else if (!file.createNewFile()) {
-                m.f(null);
-                return null;
-            } else {
-                fileOutputStream = new FileOutputStream(file);
-                try {
+            try {
+                if (file.exists() && !file.delete()) {
+                    m.f(null);
+                    return null;
+                } else if (!file.createNewFile()) {
+                    m.f(null);
+                    return null;
+                } else {
+                    fileOutputStream = new FileOutputStream(file);
                     try {
                         byte[] bArr = new byte[1024];
                         while (true) {
@@ -189,24 +252,29 @@ public class DownloaderHelper {
                         m.f(fileOutputStream);
                         return null;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream2 = fileOutputStream;
-                    m.f(fileOutputStream2);
-                    throw th;
                 }
+            } catch (Throwable th) {
+                th = th;
+                outputStream = str3;
+                m.f(outputStream);
+                throw th;
             }
         } catch (IOException e4) {
             e = e4;
             fileOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            m.f(fileOutputStream2);
+            m.f(outputStream);
             throw th;
         }
     }
 
     public static boolean unZipFile(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65545, null, str, str2)) != null) {
+            return invokeLL.booleanValue;
+        }
         ZipInputStream zipInputStream = null;
         try {
             try {

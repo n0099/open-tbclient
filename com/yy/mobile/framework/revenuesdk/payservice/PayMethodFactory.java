@@ -1,27 +1,52 @@
 package com.yy.mobile.framework.revenuesdk.payservice;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.H5PayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
-/* loaded from: classes7.dex */
-public enum PayMethodFactory {
-    GOOGLE_PLAY("com.yy.mobile.framework.revenue.gppay.PayMethodImpl"),
-    WECHAT_PAY("com.yy.mobile.framework.revenue.wxpay.RevenueWechatPayImpl"),
-    ALIPAY_PAY("com.yy.mobile.framework.revenue.alipay.RevenueAlipayImpl"),
-    DXM_PAY("com.yy.mobile.framework.revenue.dxmpay.RevenueDxmpayImpl");
-    
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes8.dex */
+public final class PayMethodFactory {
+    public static final /* synthetic */ PayMethodFactory[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final PayMethodFactory ALIPAY_PAY;
+    public static final PayMethodFactory DXM_PAY;
+    public static final PayMethodFactory GOOGLE_PLAY;
+    public static final PayMethodFactory WECHAT_PAY;
+    public transient /* synthetic */ FieldHolder $fh;
     public final String clazz;
     public IPayMethod method;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1503004595, "Lcom/yy/mobile/framework/revenuesdk/payservice/PayMethodFactory$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1503004595, "Lcom/yy/mobile/framework/revenuesdk/payservice/PayMethodFactory$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[PayType.values().length];
             $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType = iArr;
             try {
@@ -51,47 +76,110 @@ public enum PayMethodFactory {
         }
     }
 
-    PayMethodFactory(String str) {
-        this.clazz = str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1896533984, "Lcom/yy/mobile/framework/revenuesdk/payservice/PayMethodFactory;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1896533984, "Lcom/yy/mobile/framework/revenuesdk/payservice/PayMethodFactory;");
+                return;
+            }
+        }
+        GOOGLE_PLAY = new PayMethodFactory("GOOGLE_PLAY", 0, "com.yy.mobile.framework.revenue.gppay.PayMethodImpl");
+        WECHAT_PAY = new PayMethodFactory("WECHAT_PAY", 1, "com.yy.mobile.framework.revenue.wxpay.RevenueWechatPayImpl");
+        ALIPAY_PAY = new PayMethodFactory("ALIPAY_PAY", 2, "com.yy.mobile.framework.revenue.alipay.RevenueAlipayImpl");
+        PayMethodFactory payMethodFactory = new PayMethodFactory("DXM_PAY", 3, "com.yy.mobile.framework.revenue.dxmpay.RevenueDxmpayImpl");
+        DXM_PAY = payMethodFactory;
+        $VALUES = new PayMethodFactory[]{GOOGLE_PLAY, WECHAT_PAY, ALIPAY_PAY, payMethodFactory};
+    }
+
+    public PayMethodFactory(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.clazz = str2;
     }
 
     private IPayMethod getPayMethodImpl() {
-        IPayMethod iPayMethod = this.method;
-        if (iPayMethod != null) {
-            return iPayMethod;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            IPayMethod iPayMethod = this.method;
+            if (iPayMethod != null) {
+                return iPayMethod;
+            }
+            initPayMethod();
+            return this.method;
         }
-        initPayMethod();
-        return this.method;
+        return (IPayMethod) invokeV.objValue;
     }
 
     private void initPayMethod() {
-        try {
-            this.method = (IPayMethod) Class.forName(this.clazz).newInstance();
-        } catch (Exception e2) {
-            this.method = new DefaultPayMethod();
-            RLog.error("AppPayServiceImpl", "init PayMethod error.clazz = " + this.clazz, e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            try {
+                this.method = (IPayMethod) Class.forName(this.clazz).newInstance();
+            } catch (Exception e2) {
+                this.method = new DefaultPayMethod();
+                RLog.error("AppPayServiceImpl", "init PayMethod error.clazz = " + this.clazz, e2);
+            }
         }
     }
 
+    public static PayMethodFactory valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (PayMethodFactory) Enum.valueOf(PayMethodFactory.class, str) : (PayMethodFactory) invokeL.objValue;
+    }
+
+    public static PayMethodFactory[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (PayMethodFactory[]) $VALUES.clone() : (PayMethodFactory[]) invokeV.objValue;
+    }
+
     public static IPayMethod valueOf(PayType payType) {
-        IPayMethod findProxyPayMethod = PayMethodProxyFactory.instance().findProxyPayMethod(payType);
-        if (findProxyPayMethod != null) {
-            RLog.info("AppPayServiceImpl", "use proxyPayMethod channel:" + payType.getChannel());
-            return findProxyPayMethod;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, payType)) == null) {
+            IPayMethod findProxyPayMethod = PayMethodProxyFactory.instance().findProxyPayMethod(payType);
+            if (findProxyPayMethod != null) {
+                RLog.info("AppPayServiceImpl", "use proxyPayMethod channel:" + payType.getChannel());
+                return findProxyPayMethod;
+            }
+            switch (AnonymousClass1.$SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[payType.ordinal()]) {
+                case 1:
+                    return WECHAT_PAY.getPayMethodImpl();
+                case 2:
+                    return ALIPAY_PAY.getPayMethodImpl();
+                case 3:
+                    return DXM_PAY.getPayMethodImpl();
+                case 4:
+                case 5:
+                case 6:
+                    return new H5PayMethod();
+                default:
+                    return new DefaultPayMethod();
+            }
         }
-        switch (AnonymousClass1.$SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[payType.ordinal()]) {
-            case 1:
-                return WECHAT_PAY.getPayMethodImpl();
-            case 2:
-                return ALIPAY_PAY.getPayMethodImpl();
-            case 3:
-                return DXM_PAY.getPayMethodImpl();
-            case 4:
-            case 5:
-            case 6:
-                return new H5PayMethod();
-            default:
-                return new DefaultPayMethod();
-        }
+        return (IPayMethod) invokeL.objValue;
     }
 }

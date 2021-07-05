@@ -1,5 +1,11 @@
 package io.reactivex.internal.observers;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
@@ -11,15 +17,31 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class LambdaObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, LambdaConsumerIntrospection {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7251123623727029452L;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Action onComplete;
     public final Consumer<? super Throwable> onError;
     public final Consumer<? super T> onNext;
     public final Consumer<? super Disposable> onSubscribe;
 
     public LambdaObserver(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Consumer<? super Disposable> consumer3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {consumer, consumer2, action, consumer3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.onNext = consumer;
         this.onError = consumer2;
         this.onComplete = action;
@@ -28,22 +50,30 @@ public final class LambdaObserver<T> extends AtomicReference<Disposable> impleme
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        DisposableHelper.dispose(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            DisposableHelper.dispose(this);
+        }
     }
 
     @Override // io.reactivex.observers.LambdaConsumerIntrospection
     public boolean hasCustomOnError() {
-        return this.onError != Functions.ON_ERROR_MISSING;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.onError != Functions.ON_ERROR_MISSING : invokeV.booleanValue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
-        return get() == DisposableHelper.DISPOSED;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
     }
 
     @Override // io.reactivex.Observer
     public void onComplete() {
-        if (isDisposed()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || isDisposed()) {
             return;
         }
         lazySet(DisposableHelper.DISPOSED);
@@ -57,7 +87,8 @@ public final class LambdaObserver<T> extends AtomicReference<Disposable> impleme
 
     @Override // io.reactivex.Observer
     public void onError(Throwable th) {
-        if (isDisposed()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, th) == null) || isDisposed()) {
             return;
         }
         lazySet(DisposableHelper.DISPOSED);
@@ -71,7 +102,8 @@ public final class LambdaObserver<T> extends AtomicReference<Disposable> impleme
 
     @Override // io.reactivex.Observer
     public void onNext(T t) {
-        if (isDisposed()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || isDisposed()) {
             return;
         }
         try {
@@ -85,7 +117,8 @@ public final class LambdaObserver<T> extends AtomicReference<Disposable> impleme
 
     @Override // io.reactivex.Observer
     public void onSubscribe(Disposable disposable) {
-        if (DisposableHelper.setOnce(this, disposable)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.setOnce(this, disposable)) {
             try {
                 this.onSubscribe.accept(this);
             } catch (Throwable th) {

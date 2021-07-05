@@ -1,29 +1,56 @@
 package com.baidu.mobstat;
-/* loaded from: classes2.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8896a;
+    public long f8969a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8897b;
+    public String f8970b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8898c;
+    public String f8971c;
 
     public i(long j, String str, String str2) {
-        this.f8896a = -1L;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f8969a = -1L;
         str2 = str2 == null ? "" : str2;
-        this.f8896a = j;
-        this.f8897b = str;
-        this.f8898c = str2;
+        this.f8969a = j;
+        this.f8970b = str;
+        this.f8971c = str2;
     }
 
     public long a() {
-        return this.f8896a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8969a : invokeV.longValue;
     }
 
     public String b() {
-        return this.f8898c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8971c : (String) invokeV.objValue;
     }
 }

@@ -16,6 +16,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.FloatingLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -34,6 +36,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
@@ -43,126 +46,286 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.a.x;
-import d.a.n0.t.i;
-import d.a.n0.z0.n0;
-import d.a.n0.z0.o0;
-import d.a.o0.e2.k.e.p;
-import d.a.o0.e2.k.e.r0;
-import d.a.o0.e2.k.e.w0;
+import d.a.r0.a.x;
+import d.a.r0.t.i;
+import d.a.r0.z0.p0;
+import d.a.r0.z0.q0;
+import d.a.s0.h2.k.e.p;
+import d.a.s0.h2.k.e.r0;
+import d.a.s0.h2.k.e.w0;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes5.dex */
 public class PbActivityStatic {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static BdAsyncTaskParallel f19023a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    public static BdAsyncTaskParallel f19145a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements d.a.n0.d.e {
-        @Override // d.a.n0.d.e
-        public View a(Context context) {
-            TextView a2 = d.a.n0.d.d.a(context);
-            if (a2 != null) {
-                FloatingLayout.LayoutParams layoutParams = new FloatingLayout.LayoutParams(-2, -2);
-                ((LinearLayout.LayoutParams) layoutParams).gravity = 16;
-                SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
-                layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds4), 0, 0);
-                a2.setLayoutParams(layoutParams);
+    public static class a implements d.a.r0.d.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return a2;
+        }
+
+        @Override // d.a.r0.d.e
+        public View a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                TextView a2 = d.a.r0.d.d.a(context);
+                if (a2 != null) {
+                    FloatingLayout.LayoutParams layoutParams = new FloatingLayout.LayoutParams(-2, -2);
+                    ((LinearLayout.LayoutParams) layoutParams).gravity = 16;
+                    SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
+                    layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds4), 0, 0);
+                    a2.setLayoutParams(layoutParams);
+                }
+                return a2;
+            }
+            return (View) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements d.a.n0.d.e {
-        @Override // d.a.n0.d.e
-        public View a(Context context) {
-            TextView a2 = d.a.n0.d.d.a(context);
-            if (a2 != null) {
-                SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds2), 0, 0);
-                layoutParams.gravity = 16;
-                a2.setLayoutParams(layoutParams);
+    public static class b implements d.a.r0.d.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return a2;
+        }
+
+        @Override // d.a.r0.d.e
+        public View a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                TextView a2 = d.a.r0.d.d.a(context);
+                if (a2 != null) {
+                    SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                    layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds2), 0, 0);
+                    layoutParams.gravity = 16;
+                    a2.setLayoutParams(layoutParams);
+                }
+                return a2;
+            }
+            return (View) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements d.a.n0.d.e {
-        @Override // d.a.n0.d.e
-        public View a(Context context) {
-            TextView a2 = d.a.n0.d.d.a(context);
-            if (a2 != null) {
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
-                layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds2), 0, 0);
-                layoutParams.gravity = 16;
-                a2.setLayoutParams(layoutParams);
+    public static class c implements d.a.r0.d.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return a2;
+        }
+
+        @Override // d.a.r0.d.e
+        public View a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                TextView a2 = d.a.r0.d.d.a(context);
+                if (a2 != null) {
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                    SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
+                    layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds2), 0, 0);
+                    layoutParams.gravity = 16;
+                    a2.setLayoutParams(layoutParams);
+                }
+                return a2;
+            }
+            return (View) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements d.a.n0.d.e {
-        @Override // d.a.n0.d.e
-        public View a(Context context) {
-            TextView a2 = d.a.n0.d.d.a(context);
-            if (a2 != null) {
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
-                layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds2), 0, 0);
-                layoutParams.gravity = 16;
-                a2.setLayoutParams(layoutParams);
+    public static class d implements d.a.r0.d.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return a2;
+        }
+
+        @Override // d.a.r0.d.e
+        public View a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                TextView a2 = d.a.r0.d.d.a(context);
+                if (a2 != null) {
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                    SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
+                    layoutParams.setMargins(l.g(context, R.dimen.ds8), l.g(context, R.dimen.ds2), 0, 0);
+                    layoutParams.gravity = 16;
+                    a2.setLayoutParams(layoutParams);
+                }
+                return a2;
+            }
+            return (View) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public static class e implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
-            if (customMessage != null && customMessage.getData() != null) {
-                if ("1".equals(customMessage.getData().getIntent().getStringExtra("is_start_for_result"))) {
-                    customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
-                } else {
-                    customMessage.getData().startActivity(PbActivity.class);
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return null;
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    if ("1".equals(customMessage.getData().getIntent().getStringExtra("is_start_for_result"))) {
+                        customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
+                    } else {
+                        customMessage.getData().startActivity(PbActivity.class);
+                    }
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public static class f extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            o0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                q0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+                return null;
+            }
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public static class g implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f19024a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        public Pattern f19146a;
 
-        /* JADX WARN: Removed duplicated region for block: B:191:0x0381  */
-        /* JADX WARN: Removed duplicated region for block: B:193:0x0387 A[RETURN] */
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19146a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:193:0x0385  */
+        /* JADX WARN: Removed duplicated region for block: B:195:0x038b A[RETURN] */
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            InterceptResult invokeLL;
             String c2;
             boolean z;
             boolean z2;
@@ -175,12 +338,16 @@ public class PbActivityStatic {
             int i2;
             boolean z6;
             String str2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) != null) {
+                return invokeLL.intValue;
+            }
             if (strArr == null || strArr.length == 0 || strArr[0] == null) {
                 return 3;
             }
             boolean z7 = strArr.length > 1 && !StringUtils.isNull(strArr[1]) && strArr[1].toLowerCase().contains("n/video/opersquare");
             String lowerCase = strArr[0].toLowerCase();
-            Matcher matcher = this.f19024a.matcher(lowerCase);
+            Matcher matcher = this.f19146a.matcher(lowerCase);
             String str3 = "push";
             if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
                 if (lowerCase.contains("unidispatch/pb")) {
@@ -244,7 +411,7 @@ public class PbActivityStatic {
                                 }
                             }
                         }
-                        z6 = d.a.c.e.m.b.a(n0.c(lowerCase, "is_from_push="), false);
+                        z6 = d.a.c.e.m.b.a(p0.c(lowerCase, "is_from_push="), false);
                     } else {
                         z6 = false;
                     }
@@ -265,7 +432,7 @@ public class PbActivityStatic {
                     }
                     str2 = group;
                     if (lowerCase != null) {
-                        String c3 = n0.c(lowerCase, "sttype=");
+                        String c3 = p0.c(lowerCase, "sttype=");
                         if (!StringUtils.isNull(c3)) {
                             str7 = c3;
                         }
@@ -329,7 +496,7 @@ public class PbActivityStatic {
                             } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
                                 return 3;
                             } else {
-                                c2 = n0.c(lowerCase, "kz=");
+                                c2 = p0.c(lowerCase, "kz=");
                                 z = false;
                             }
                             z2 = false;
@@ -344,8 +511,8 @@ public class PbActivityStatic {
                             } else {
                                 createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(c2, str4, str7);
                             }
-                            if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(n0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
-                                createNormalCfg.setUserName(n0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
+                            if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(p0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
+                                createNormalCfg.setUserName(p0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
                             }
                             createNormalCfg.setVideo_source(str3);
                             if (z3) {
@@ -399,16 +566,51 @@ public class PbActivityStatic {
 
     /* loaded from: classes5.dex */
     public static class h implements CustomMessageTask.CustomRunnable<Context> {
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.o0.m3.a> run(CustomMessage<Context> customMessage) {
-            if (customMessage == null || !(customMessage.getData() instanceof Context)) {
-                return null;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return new CustomResponsedMessage<>(2921343, new d.a.o0.e2.k.f.a(customMessage.getData()));
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<d.a.s0.p3.a> run(CustomMessage<Context> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage == null || !(customMessage.getData() instanceof Context)) {
+                    return null;
+                }
+                return new CustomResponsedMessage<>(2921343, new d.a.s0.h2.k.f.a(customMessage.getData()));
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1084828188, "Lcom/baidu/tieba/pb/pb/main/PbActivityStatic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1084828188, "Lcom/baidu/tieba/pb/pb/main/PbActivityStatic;");
+                return;
+            }
+        }
+        f19145a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         a();
         i();
         h();
@@ -427,73 +629,122 @@ public class PbActivityStatic {
         fVar.setSelfExecute(true);
         fVar.setPriority(4);
         fVar.execute(new Void[0]);
+        ItemCardHelper.n();
+        ItemCardHelper.m();
+    }
+
+    public PbActivityStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     public static void a() {
-        d.a.n0.d.c.b().c(2, new a());
-        d.a.n0.d.c.b().c(3, new b());
-        d.a.n0.d.c.b().c(4, new c());
-        d.a.n0.d.c.b().c(6, new d());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            d.a.r0.d.c.b().c(2, new a());
+            d.a.r0.d.c.b().c(3, new b());
+            d.a.r0.d.c.b().c(4, new c());
+            d.a.r0.d.c.b().c(6, new d());
+        }
     }
 
     public static void b() {
-        TbadkCoreApplication.getInst().RegisterIntent(PbSearchEmotionActivityConfig.class, PbSearchEmotionActivity.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbadkCoreApplication.getInst().RegisterIntent(PbSearchEmotionActivityConfig.class, PbSearchEmotionActivity.class);
+        }
     }
 
     public static void c() {
-        TbadkCoreApplication.getInst().RegisterIntent(ForbidActivityConfig.class, ForbidActivity.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+            TbadkCoreApplication.getInst().RegisterIntent(ForbidActivityConfig.class, ForbidActivity.class);
+        }
     }
 
     public static void d() {
-        TbadkCoreApplication.getInst().RegisterIntent(PbFullScreenEditorActivityConfig.class, PbFullScreenEditorActivity.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            TbadkCoreApplication.getInst().RegisterIntent(PbFullScreenEditorActivityConfig.class, PbFullScreenEditorActivity.class);
+        }
     }
 
     public static void e() {
-        TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-        d.a.n0.v0.b h2 = d.a.o0.e3.d0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
-        TbHttpMessageTask c2 = d.a.o0.e3.d0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        h2.setParallel(f19023a);
-        c2.setParallel(f19023a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+            TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
+            d.a.r0.v0.b h2 = d.a.s0.h3.d0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = d.a.s0.h3.d0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            h2.setParallel(f19145a);
+            c2.setParallel(f19145a);
+        }
     }
 
     public static void f() {
-        UrlManager.getInstance().addListener(new g());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            UrlManager.getInstance().addListener(new g());
+        }
     }
 
     public static void g() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_APPLY_COPY_THREAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_APPLY_COPY_THREAD);
-        tbHttpMessageTask.setResponsedClass(ApplyCopyThreadResponseMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_APPLY_COPY_THREAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_APPLY_COPY_THREAD);
+            tbHttpMessageTask.setResponsedClass(ApplyCopyThreadResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public static void h() {
-        d.a.o0.e3.d0.a.b(2004003, w0.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            d.a.s0.h3.d0.a.b(2004003, w0.class);
+        }
     }
 
     public static void i() {
-        d.a.o0.e3.d0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, d.a.o0.e3.d0.a.a("c/f/pb/page", 302001));
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedTbs(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(false);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-        tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        LocationModel.G();
-        k();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            d.a.s0.h3.d0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, d.a.s0.h3.d0.a.a("c/f/pb/page", 302001));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            LocationModel.G();
+            k();
+        }
     }
 
     public static void j() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_FLOOR_AGREE_URL);
-        tbHttpMessageTask.setResponsedClass(PbFloorAgreeResponseMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_FLOOR_AGREE_URL);
+            tbHttpMessageTask.setResponsedClass(PbFloorAgreeResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public static void k() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921343, new h());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921343, new h());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
     }
 }

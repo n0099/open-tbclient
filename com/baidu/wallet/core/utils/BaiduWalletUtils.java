@@ -6,25 +6,33 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.beans.BeanConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BaiduWalletUtils {
+    public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_BAIDUAPP_PLUGIN = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f24055a;
+    public static int f24598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f24056b;
+    public static int f24599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f24057c;
+    public static int f24600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f24058d;
+    public static int f24601d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface IRequestPermissionCallBack {
         void isAllAgree(Boolean bool);
 
@@ -33,88 +41,135 @@ public final class BaiduWalletUtils {
         void requestResult(String str, Boolean bool);
     }
 
-    public static void finishActivityAnim(Context context) {
-        if (context == null) {
-            return;
-        }
-        if (f24057c == 0 || f24058d == 0) {
-            f24057c = ResUtils.anim(context, "wallet_base_slide_from_left");
-            f24058d = ResUtils.anim(context, "wallet_base_slide_to_right");
-        }
-        if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f24057c, f24058d);
-        }
-        LogUtil.v("xyz", "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f24057c + ", mCloseExit:" + f24058d);
-    }
-
-    public static String getBaiduappVersionCode(Context context) {
-        return null;
-    }
-
-    public static String getBaiduappVersionName(Context context) {
-        return null;
-    }
-
-    public static String[] getForegroundActivityInfo(Context context) {
-        if (context instanceof Activity) {
-            Activity activity = (Activity) context;
-            return new String[]{activity.getPackageName(), activity.getComponentName().getClassName()};
-        } else if (context == null) {
-            return null;
-        } else {
-            try {
-                ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-                ActivityManager.RunningTaskInfo runningTaskInfo = activityManager != null ? activityManager.getRunningTasks(1).get(0) : null;
-                if (runningTaskInfo != null) {
-                    ComponentName componentName = runningTaskInfo.topActivity;
-                    return new String[]{componentName.getPackageName(), componentName.getClassName()};
-                }
-                return null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
+    public BaiduWalletUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
+    public static void finishActivityAnim(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
+            return;
+        }
+        if (f24600c == 0 || f24601d == 0) {
+            f24600c = ResUtils.anim(context, "wallet_base_slide_from_left");
+            f24601d = ResUtils.anim(context, "wallet_base_slide_to_right");
+        }
+        if ((context instanceof Activity) && BeanConstants.needActAnimation) {
+            ((Activity) context).overridePendingTransition(f24600c, f24601d);
+        }
+        LogUtil.v("xyz", "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f24600c + ", mCloseExit:" + f24601d);
+    }
+
+    public static String getBaiduappVersionCode(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getBaiduappVersionName(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String[] getForegroundActivityInfo(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                return new String[]{activity.getPackageName(), activity.getComponentName().getClassName()};
+            } else if (context == null) {
+                return null;
+            } else {
+                try {
+                    ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+                    ActivityManager.RunningTaskInfo runningTaskInfo = activityManager != null ? activityManager.getRunningTasks(1).get(0) : null;
+                    if (runningTaskInfo != null) {
+                        ComponentName componentName = runningTaskInfo.topActivity;
+                        return new String[]{componentName.getPackageName(), componentName.getClassName()};
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            }
+        }
+        return (String[]) invokeL.objValue;
+    }
+
     public static void invokeHostLightapp(Context context, String str) {
-    }
-
-    public static boolean isActivity(Context context) {
-        return (context instanceof Activity) || (context instanceof BaseActivity);
-    }
-
-    public static boolean isNightMode() {
-        return false;
-    }
-
-    public static void overridePendingTransitionNoAnim(Activity activity) {
-        if (activity != null) {
-            activity.overridePendingTransition(0, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
         }
     }
 
+    public static boolean isActivity(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? (context instanceof Activity) || (context instanceof BaseActivity) : invokeL.booleanValue;
+    }
+
+    public static boolean isNightMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void overridePendingTransitionNoAnim(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, activity) == null) || activity == null) {
+            return;
+        }
+        activity.overridePendingTransition(0, 0);
+    }
+
     public static void requestPermissionsDialog(String str, Activity activity, String[] strArr, IRequestPermissionCallBack iRequestPermissionCallBack) {
-        DangerousPermissionUtils.getInstance().requestPermissionsDialog(str, activity, strArr, iRequestPermissionCallBack);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, str, activity, strArr, iRequestPermissionCallBack) == null) {
+            DangerousPermissionUtils.getInstance().requestPermissionsDialog(str, activity, strArr, iRequestPermissionCallBack);
+        }
     }
 
     public static void startActivity(Intent intent, Context context) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, intent, context) == null) || context == null) {
             return;
         }
         context.startActivity(intent);
     }
 
     public static void startActivityAnim(Context context) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65547, null, context) == null) || context == null) {
             return;
         }
-        if (f24055a == 0 || f24056b == 0) {
-            f24055a = ResUtils.anim(context, "wallet_base_slide_from_right");
-            f24056b = ResUtils.anim(context, "wallet_base_slide_to_left");
+        if (f24598a == 0 || f24599b == 0) {
+            f24598a = ResUtils.anim(context, "wallet_base_slide_from_right");
+            f24599b = ResUtils.anim(context, "wallet_base_slide_to_left");
         }
         if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f24055a, f24056b);
+            ((Activity) context).overridePendingTransition(f24598a, f24599b);
         }
     }
 }

@@ -1,5 +1,11 @@
 package io.reactivex.internal.operators.flowable;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.Scheduler;
@@ -15,34 +21,59 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final boolean emitLast;
     public final long period;
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SampleTimedEmitLast<T> extends SampleTimedSubscriber<T> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger wip;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SampleTimedEmitLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
             super(subscriber, j, timeUnit, scheduler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r8;
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Subscriber) objArr2[0], ((Long) objArr2[1]).longValue(), (TimeUnit) objArr2[2], (Scheduler) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.wip = new AtomicInteger(1);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableSampleTimed.SampleTimedSubscriber
         public void complete() {
-            emit();
-            if (this.wip.decrementAndGet() == 0) {
-                this.actual.onComplete();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                emit();
+                if (this.wip.decrementAndGet() == 0) {
+                    this.actual.onComplete();
+                }
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.wip.incrementAndGet() == 2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.wip.incrementAndGet() == 2) {
                 emit();
                 if (this.wip.decrementAndGet() == 0) {
                     this.actual.onComplete();
@@ -51,37 +82,80 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SampleTimedNoLast<T> extends SampleTimedSubscriber<T> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
+        public transient /* synthetic */ FieldHolder $fh;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SampleTimedNoLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
             super(subscriber, j, timeUnit, scheduler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r8;
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Subscriber) objArr2[0], ((Long) objArr2[1]).longValue(), (TimeUnit) objArr2[2], (Scheduler) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableSampleTimed.SampleTimedSubscriber
         public void complete() {
-            this.actual.onComplete();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.actual.onComplete();
+            }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            emit();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                emit();
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static abstract class SampleTimedSubscriber<T> extends AtomicReference<T> implements FlowableSubscriber<T>, Subscription, Runnable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public final long period;
+        public final AtomicLong requested;
         public Subscription s;
         public final Scheduler scheduler;
+        public final SequentialDisposable timer;
         public final TimeUnit unit;
-        public final AtomicLong requested = new AtomicLong();
-        public final SequentialDisposable timer = new SequentialDisposable();
 
         public SampleTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.requested = new AtomicLong();
+            this.timer = new SequentialDisposable();
             this.actual = subscriber;
             this.period = j;
             this.unit = timeUnit;
@@ -90,49 +164,67 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            cancelTimer();
-            this.s.cancel();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cancelTimer();
+                this.s.cancel();
+            }
         }
 
         public void cancelTimer() {
-            DisposableHelper.dispose(this.timer);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                DisposableHelper.dispose(this.timer);
+            }
         }
 
         public abstract void complete();
 
         public void emit() {
-            T andSet = getAndSet(null);
-            if (andSet != null) {
-                if (this.requested.get() != 0) {
-                    this.actual.onNext(andSet);
-                    BackpressureHelper.produced(this.requested, 1L);
-                    return;
-                }
-                cancel();
-                this.actual.onError(new MissingBackpressureException("Couldn't emit value due to lack of requests!"));
+            T andSet;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (andSet = getAndSet(null)) == null) {
+                return;
             }
+            if (this.requested.get() != 0) {
+                this.actual.onNext(andSet);
+                BackpressureHelper.produced(this.requested, 1L);
+                return;
+            }
+            cancel();
+            this.actual.onError(new MissingBackpressureException("Couldn't emit value due to lack of requests!"));
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            cancelTimer();
-            complete();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                cancelTimer();
+                complete();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            cancelTimer();
-            this.actual.onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                cancelTimer();
+                this.actual.onError(th);
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            lazySet(t);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                lazySet(t);
+            }
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            if (SubscriptionHelper.validate(this.s, subscription)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
                 SequentialDisposable sequentialDisposable = this.timer;
@@ -145,14 +237,31 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && SubscriptionHelper.validate(j)) {
                 BackpressureHelper.add(this.requested, j);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowableSampleTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.period = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
@@ -161,11 +270,14 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);
-        if (this.emitLast) {
-            this.source.subscribe((FlowableSubscriber) new SampleTimedEmitLast(serializedSubscriber, this.period, this.unit, this.scheduler));
-        } else {
-            this.source.subscribe((FlowableSubscriber) new SampleTimedNoLast(serializedSubscriber, this.period, this.unit, this.scheduler));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);
+            if (this.emitLast) {
+                this.source.subscribe((FlowableSubscriber) new SampleTimedEmitLast(serializedSubscriber, this.period, this.unit, this.scheduler));
+            } else {
+                this.source.subscribe((FlowableSubscriber) new SampleTimedNoLast(serializedSubscriber, this.period, this.unit, this.scheduler));
+            }
         }
     }
 }

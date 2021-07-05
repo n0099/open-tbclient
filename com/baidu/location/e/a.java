@@ -1,33 +1,40 @@
 package com.baidu.location.e;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6710a = "baidu_location_service";
+    public static String f6740a = "baidu_location_service";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6711b = 12000;
+    public static int f6741b = 12000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6712c = 20000;
+    public static int f6742c = 20000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6713d = 1;
+    public static int f6743d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6714e = 2;
+    public static int f6744e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6715f = 3;
+    public static int f6745f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6716g = 4;
+    public static int f6746g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f6717h = 5;
+    public static int f6747h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f6718i = 5120;
+    public static int f6748i = 5120;
     public static int j = 0;
     public static int k = 1;
     public static int l = 2;
@@ -41,4 +48,20 @@ public class a {
     public static int t = 512;
     public static int u = 1024;
     public static int v = 2048;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1037812656, "Lcom/baidu/location/e/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1037812656, "Lcom/baidu/location/e/a;");
+        }
+    }
 }

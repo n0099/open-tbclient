@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -19,28 +20,34 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import d.a.c.e.p.l;
-import d.a.n0.m.f;
-import d.a.n0.r.q.a;
-import d.a.o0.y1.e.b;
+import d.a.r0.m.f;
+import d.a.r0.r.q.a;
+import d.a.s0.b2.e.b;
 /* loaded from: classes5.dex */
 public class HotTopicDetailSpecialItem extends RelativeLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18666e;
+    public int f18794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f18667f;
+    public ViewGroup f18795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18668g;
+    public TbImageView f18796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18669h;
+    public View f18797h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f18670i;
+    public View f18798i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -48,83 +55,107 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     public b n;
     public f<b> o;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicDetailSpecialItem(Context context) {
         super(context);
-        this.f18666e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f18794e = 3;
         b();
     }
 
     public void a(b bVar) {
-        if (bVar != null) {
-            this.n = bVar;
-            if (TextUtils.isEmpty(bVar.f67244h)) {
-                this.f18668g.setVisibility(8);
-                this.f18669h.setVisibility(8);
-                this.f18670i.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
-                layoutParams.addRule(8, 0);
-                layoutParams.addRule(3, R.id.descView);
-                this.m.setLayoutParams(layoutParams);
-            } else {
-                this.f18668g.U(bVar.f67244h, 10, false);
-                this.f18668g.setVisibility(0);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
-                layoutParams2.addRule(8, R.id.coverView);
-                layoutParams2.addRule(3, 0);
-                this.m.setLayoutParams(layoutParams2);
-                if (bVar.f67245i > 0) {
-                    this.f18670i.setVisibility(0);
-                    this.f18669h.setVisibility(0);
-                    this.k.setText(StringUtils.translateSecondsToString(bVar.f67245i));
-                } else {
-                    this.f18670i.setVisibility(8);
-                    this.f18669h.setVisibility(8);
-                }
-            }
-            this.l.setText(bVar.f67241e);
-            String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(bVar.f67242f);
-            String str = "" + this.m.getContext().getResources().getString(R.string.hot_topic_special_item_reply, numberUniformFormatExtra);
-            String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(bVar.f67243g);
-            if (str.length() > 0) {
-                str = str + GlideException.IndentedAppendable.INDENT;
-            }
-            this.m.setText(str + this.m.getContext().getResources().getString(R.string.hot_topic_special_item_like, numberUniformFormatExtra2));
-            setPadding(0, 0, 0, bVar.j ? l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+            return;
         }
+        this.n = bVar;
+        if (TextUtils.isEmpty(bVar.f57843h)) {
+            this.f18796g.setVisibility(8);
+            this.f18797h.setVisibility(8);
+            this.f18798i.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+            layoutParams.addRule(8, 0);
+            layoutParams.addRule(3, R.id.descView);
+            this.m.setLayoutParams(layoutParams);
+        } else {
+            this.f18796g.M(bVar.f57843h, 10, false);
+            this.f18796g.setVisibility(0);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+            layoutParams2.addRule(8, R.id.coverView);
+            layoutParams2.addRule(3, 0);
+            this.m.setLayoutParams(layoutParams2);
+            if (bVar.f57844i > 0) {
+                this.f18798i.setVisibility(0);
+                this.f18797h.setVisibility(0);
+                this.k.setText(StringUtils.translateSecondsToString(bVar.f57844i));
+            } else {
+                this.f18798i.setVisibility(8);
+                this.f18797h.setVisibility(8);
+            }
+        }
+        this.l.setText(bVar.f57840e);
+        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(bVar.f57841f);
+        String str = "" + this.m.getContext().getResources().getString(R.string.hot_topic_special_item_reply, numberUniformFormatExtra);
+        String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(bVar.f57842g);
+        if (str.length() > 0) {
+            str = str + GlideException.IndentedAppendable.INDENT;
+        }
+        this.m.setText(str + this.m.getContext().getResources().getString(R.string.hot_topic_special_item_like, numberUniformFormatExtra2));
+        setPadding(0, 0, 0, bVar.j ? l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
     }
 
     public final void b() {
-        LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_special_item, (ViewGroup) this, true);
-        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.rootLayout);
-        this.f18667f = viewGroup;
-        viewGroup.setOnClickListener(this);
-        this.f18668g = (TbImageView) findViewById(R.id.coverView);
-        this.f18669h = findViewById(R.id.coverGradientMask);
-        this.f18670i = findViewById(R.id.videoTimeContainer);
-        this.j = (ImageView) findViewById(R.id.videoPlayIcon);
-        this.k = (TextView) findViewById(R.id.videoPlayTime);
-        this.l = (TextView) findViewById(R.id.descView);
-        this.m = (TextView) findViewById(R.id.tagView);
-        this.f18668g.setPlaceHolder(2);
-        this.f18668g.setRadius(l.g(getContext(), R.dimen.tbds10));
-        this.f18668g.setConrers(15);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_special_item, (ViewGroup) this, true);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.rootLayout);
+            this.f18795f = viewGroup;
+            viewGroup.setOnClickListener(this);
+            this.f18796g = (TbImageView) findViewById(R.id.coverView);
+            this.f18797h = findViewById(R.id.coverGradientMask);
+            this.f18798i = findViewById(R.id.videoTimeContainer);
+            this.j = (ImageView) findViewById(R.id.videoPlayIcon);
+            this.k = (TextView) findViewById(R.id.videoPlayTime);
+            this.l = (TextView) findViewById(R.id.descView);
+            this.m = (TextView) findViewById(R.id.tagView);
+            this.f18796g.setPlaceHolder(2);
+            this.f18796g.setRadius(l.g(getContext(), R.dimen.tbds10));
+            this.f18796g.setConrers(15);
+        }
     }
 
     public void c(int i2) {
-        if (this.f18666e != i2) {
-            TBSelector.setViewBackgroundColorWithPressedState(this.f18667f, R.color.CAM_X0205, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0101);
-            this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-            this.f18666e = i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f18794e == i2) {
+            return;
         }
+        TBSelector.setViewBackgroundColorWithPressedState(this.f18795f, R.color.CAM_X0205, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.l, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0101);
+        this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+        this.f18794e = i2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        b bVar = this.n;
-        if (bVar == null || bVar.k == null) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (bVar = this.n) == null || bVar.k == null) {
             return;
         }
         f<b> fVar = this.o;
@@ -135,18 +166,55 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     }
 
     public void setOnItemCoverListener(f<b> fVar) {
-        this.o = fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            this.o = fVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicDetailSpecialItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18666e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f18794e = 3;
         b();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicDetailSpecialItem(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f18666e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f18794e = 3;
         b();
     }
 }

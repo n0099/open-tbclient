@@ -1,9 +1,11 @@
 package com.bytedance.sdk.openadsdk.core.nativeexpress;
+
+import com.bytedance.sdk.openadsdk.core.e.p;
 /* loaded from: classes6.dex */
 public interface j {
-    void a(int i2, com.bytedance.sdk.openadsdk.core.d.j jVar);
+    void a(int i2, com.bytedance.sdk.openadsdk.core.e.k kVar);
 
-    void a(int i2, com.bytedance.sdk.openadsdk.core.d.j jVar, boolean z);
+    void a(int i2, com.bytedance.sdk.openadsdk.core.e.k kVar, boolean z);
 
-    void a(com.bytedance.sdk.openadsdk.core.d.o oVar);
+    void a(p pVar);
 }

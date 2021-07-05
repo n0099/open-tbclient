@@ -1,10 +1,16 @@
 package com.baidu.wallet.paysdk.datamodel;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.DebugConfig;
 import com.baidu.wallet.core.domain.DomainConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ScanCodeConstant {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String API_CLOSE_SCANCODE = "/_u/o2o/b2c/close";
     public static final String API_CREATE_SCANCODE = "/o2o/0/b2c/0/create_code/0";
     public static final String API_OPEN_SCANCODE = "/_u/o2o/b2c/open";
@@ -45,12 +51,37 @@ public class ScanCodeConstant {
     public static final int SCANCODE_SMS_CHECK_ERROR = 69563;
     public static final int SETTINGPWDCODE = 65231;
     public static final int UPDATE_KEY = 65316;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ScanCodeConstant() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static String getScancodeHelpUrl(Context context) {
-        return DomainConfig.getInstance().getAppPayHost() + "/content/mywallet/o2o/b2c/help.html?titlebar=no&sdk=yes";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + "/content/mywallet/o2o/b2c/help.html?titlebar=no&sdk=yes";
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getScancodeRuleUrl(Context context) {
-        return DebugConfig.getInstance().getFixedWalletHttpsHostForH5() + "/content/mywallet/o2o/b2c/rules.html?titlebar=no";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return DebugConfig.getInstance().getFixedWalletHttpsHostForH5() + "/content/mywallet/o2o/b2c/rules.html?titlebar=no";
+        }
+        return (String) invokeL.objValue;
     }
 }

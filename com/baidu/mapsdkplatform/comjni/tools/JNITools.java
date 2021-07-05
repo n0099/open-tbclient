@@ -1,6 +1,12 @@
 package com.baidu.mapsdkplatform.comjni.tools;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public class JNITools {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static native boolean CoordinateEncryptEx(float f2, float f3, String str, Object obj);
 
     public static native boolean CoordinateEncryptMc(float f2, float f3, Object obj);

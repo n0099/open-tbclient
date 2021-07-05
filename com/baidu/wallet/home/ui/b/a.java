@@ -2,111 +2,146 @@ package com.baidu.wallet.home.ui.b;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.beans.HomeCfgBean;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24346a;
+    public String f24889a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.home.ui.a.a f24347b;
+    public com.baidu.wallet.home.ui.a.a f24890b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24348c = false;
+    public boolean f24891c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HomeCfgResponse.TitleConfig f24349d;
+    public HomeCfgResponse.TitleConfig f24892d;
 
     public a(com.baidu.wallet.home.ui.a.a aVar) {
-        this.f24347b = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24891c = false;
+        this.f24890b = aVar;
     }
 
     private void b(Context context, HomeCfgResponse.TitleItemData titleItemData) {
-        com.baidu.wallet.home.ui.a.a aVar = this.f24347b;
-        if (aVar != null) {
-            aVar.refreshRightZoneDot(a(context, titleItemData));
+        com.baidu.wallet.home.ui.a.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, titleItemData) == null) || (aVar = this.f24890b) == null) {
+            return;
         }
+        aVar.refreshRightZoneDot(a(context, titleItemData));
     }
 
     public void a(Context context, String str, HomeCfgResponse.TitleConfig titleConfig, String str2) {
         HomeCfgResponse.TitleItem[] titleItemArr;
-        this.f24346a = str2;
-        com.baidu.wallet.home.ui.a.a aVar = this.f24347b;
-        if (aVar == null) {
-            return;
-        }
-        if (titleConfig != null && (titleItemArr = titleConfig.data) != null && titleItemArr.length > 0) {
-            aVar.refreshRightZoneDot(false);
-            this.f24349d = titleConfig;
-            if (!TextUtils.isEmpty(titleConfig.data[0].titlebar)) {
-                this.f24347b.refreshTitle(titleConfig.data[0].titlebar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, titleConfig, str2) == null) {
+            this.f24889a = str2;
+            com.baidu.wallet.home.ui.a.a aVar = this.f24890b;
+            if (aVar == null) {
+                return;
             }
-            this.f24347b.refreshSafeTip(titleConfig.data[0].safe_title);
-            HomeCfgResponse.TitleItem[] titleItemArr2 = titleConfig.data;
-            if (titleItemArr2[0].list != null && titleItemArr2[0].list.length >= 1) {
-                if (titleItemArr2[0].list.length > 1) {
-                    this.f24348c = true;
-                    this.f24347b.refreshRightZone(ResUtils.drawable(context, "wallet_base_actionbar_more"));
-                    this.f24347b.refreshMenu(str, titleConfig.data[0].list, this.f24346a);
-                    return;
-                } else if (titleItemArr2[0].list.length == 1) {
-                    HomeCfgResponse.TitleItemData titleItemData = titleItemArr2[0].list[0];
-                    if (titleItemData != null && !TextUtils.isEmpty(titleItemData.setting_addr) && !TextUtils.isEmpty(titleItemData.setting_type)) {
-                        this.f24347b.refreshRightZone(ResUtils.drawable(context, a(this.f24346a)));
-                        b(context, titleItemData);
-                        this.f24348c = false;
-                        String str3 = titleConfig.data[0].list[0].setting_icon;
-                        if (TextUtils.isEmpty(str3)) {
+            if (titleConfig != null && (titleItemArr = titleConfig.data) != null && titleItemArr.length > 0) {
+                aVar.refreshRightZoneDot(false);
+                this.f24892d = titleConfig;
+                if (!TextUtils.isEmpty(titleConfig.data[0].titlebar)) {
+                    this.f24890b.refreshTitle(titleConfig.data[0].titlebar);
+                }
+                this.f24890b.refreshSafeTip(titleConfig.data[0].safe_title);
+                HomeCfgResponse.TitleItem[] titleItemArr2 = titleConfig.data;
+                if (titleItemArr2[0].list != null && titleItemArr2[0].list.length >= 1) {
+                    if (titleItemArr2[0].list.length > 1) {
+                        this.f24891c = true;
+                        this.f24890b.refreshRightZone(ResUtils.drawable(context, "wallet_base_actionbar_more"));
+                        this.f24890b.refreshMenu(str, titleConfig.data[0].list, this.f24889a);
+                        return;
+                    } else if (titleItemArr2[0].list.length == 1) {
+                        HomeCfgResponse.TitleItemData titleItemData = titleItemArr2[0].list[0];
+                        if (titleItemData != null && !TextUtils.isEmpty(titleItemData.setting_addr) && !TextUtils.isEmpty(titleItemData.setting_type)) {
+                            this.f24890b.refreshRightZone(ResUtils.drawable(context, a(this.f24889a)));
+                            b(context, titleItemData);
+                            this.f24891c = false;
+                            String str3 = titleConfig.data[0].list[0].setting_icon;
+                            if (TextUtils.isEmpty(str3)) {
+                                return;
+                            }
+                            if (TextUtils.isEmpty(str)) {
+                                str = "";
+                            }
+                            this.f24890b.refreshRightZone(str + str3);
                             return;
                         }
-                        if (TextUtils.isEmpty(str)) {
-                            str = "";
-                        }
-                        this.f24347b.refreshRightZone(str + str3);
+                        this.f24890b.hideRightZone();
+                        return;
+                    } else {
                         return;
                     }
-                    this.f24347b.hideRightZone();
-                    return;
-                } else {
-                    return;
                 }
+                this.f24890b.hideRightZone();
+                return;
             }
-            this.f24347b.hideRightZone();
-            return;
+            this.f24890b.hideRightZone();
         }
-        this.f24347b.hideRightZone();
     }
 
     public void a(Context context) {
-        if (this.f24348c) {
-            com.baidu.wallet.home.ui.a.a aVar = this.f24347b;
-            if (aVar != null) {
-                aVar.showMenu();
-            }
-        } else if (this.f24349d.checkTitleConfig()) {
-            HomeCfgResponse.TitleItem[] titleItemArr = this.f24349d.data;
-            if (titleItemArr[0].list == null || titleItemArr[0].list.length <= 0 || titleItemArr[0].list[0] == null || TextUtils.isEmpty(titleItemArr[0].list[0].setting_addr)) {
-                return;
-            }
-            HomeCfgResponse.TitleItemData titleItemData = this.f24349d.data[0].list[0];
-            if (a(context, titleItemData)) {
-                if (!TextUtils.isEmpty(titleItemData.getLinkAddr())) {
-                    com.baidu.wallet.home.storage.a.a(context, titleItemData.getLinkAddr(), TextUtils.isEmpty(titleItemData.getTimeStamp()) ? "0" : titleItemData.getTimeStamp());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            if (this.f24891c) {
+                com.baidu.wallet.home.ui.a.a aVar = this.f24890b;
+                if (aVar != null) {
+                    aVar.showMenu();
                 }
-                b(context, titleItemData);
+            } else if (this.f24892d.checkTitleConfig()) {
+                HomeCfgResponse.TitleItem[] titleItemArr = this.f24892d.data;
+                if (titleItemArr[0].list == null || titleItemArr[0].list.length <= 0 || titleItemArr[0].list[0] == null || TextUtils.isEmpty(titleItemArr[0].list[0].setting_addr)) {
+                    return;
+                }
+                HomeCfgResponse.TitleItemData titleItemData = this.f24892d.data[0].list[0];
+                if (a(context, titleItemData)) {
+                    if (!TextUtils.isEmpty(titleItemData.getLinkAddr())) {
+                        com.baidu.wallet.home.storage.a.a(context, titleItemData.getLinkAddr(), TextUtils.isEmpty(titleItemData.getTimeStamp()) ? "0" : titleItemData.getTimeStamp());
+                    }
+                    b(context, titleItemData);
+                }
+                com.baidu.wallet.home.a.a().a(context, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, false, this.f24889a);
             }
-            com.baidu.wallet.home.a.a().a(context, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, false, this.f24346a);
         }
     }
 
     public boolean a(Context context, HomeCfgResponse.TitleItemData titleItemData) {
-        return titleItemData != null && ("2".equalsIgnoreCase(titleItemData.timestamp_icon) || "1".equalsIgnoreCase(titleItemData.timestamp_icon)) && titleItemData.isShoudShowPoint(context);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, titleItemData)) == null) ? titleItemData != null && ("2".equalsIgnoreCase(titleItemData.timestamp_icon) || "1".equalsIgnoreCase(titleItemData.timestamp_icon)) && titleItemData.isShoudShowPoint(context) : invokeLL.booleanValue;
     }
 
     private String a(String str) {
-        return HomeCfgBean.PAGE_FINANCE.equals(str) ? "wallet_home_go_wallet_logo" : "wallet_home_go_security_center";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? HomeCfgBean.PAGE_FINANCE.equals(str) ? "wallet_home_go_wallet_logo" : "wallet_home_go_security_center" : (String) invokeL.objValue;
     }
 }

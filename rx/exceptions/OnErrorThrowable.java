@@ -1,44 +1,95 @@
 package rx.exceptions;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.m.a;
 import h.r.f;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class OnErrorThrowable extends RuntimeException {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -569558213262703934L;
+    public transient /* synthetic */ FieldHolder $fh;
     public final boolean hasValue;
     public final Object value;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class OnNextValue extends RuntimeException {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3454462756050397899L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Object value;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static final class a {
+            public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final Set<Class<?>> f72471a = a();
+            public static final Set<Class<?>> f76141a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1853026974, "Lrx/exceptions/OnErrorThrowable$OnNextValue$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(1853026974, "Lrx/exceptions/OnErrorThrowable$OnNextValue$a;");
+                        return;
+                    }
+                }
+                f76141a = a();
+            }
 
             public static Set<Class<?>> a() {
-                HashSet hashSet = new HashSet();
-                hashSet.add(Boolean.class);
-                hashSet.add(Character.class);
-                hashSet.add(Byte.class);
-                hashSet.add(Short.class);
-                hashSet.add(Integer.class);
-                hashSet.add(Long.class);
-                hashSet.add(Float.class);
-                hashSet.add(Double.class);
-                return hashSet;
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                    HashSet hashSet = new HashSet();
+                    hashSet.add(Boolean.class);
+                    hashSet.add(Character.class);
+                    hashSet.add(Byte.class);
+                    hashSet.add(Short.class);
+                    hashSet.add(Integer.class);
+                    hashSet.add(Long.class);
+                    hashSet.add(Float.class);
+                    hashSet.add(Double.class);
+                    return hashSet;
+                }
+                return (Set) invokeV.objValue;
             }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public OnNextValue(Object obj) {
             super("OnError while emitting onNext value: " + renderValue(obj));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             if (!(obj instanceof Serializable)) {
                 try {
                     obj = String.valueOf(obj);
@@ -50,69 +101,122 @@ public final class OnErrorThrowable extends RuntimeException {
         }
 
         public static String renderValue(Object obj) {
-            if (obj == null) {
-                return StringUtil.NULL_STRING;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+                if (obj == null) {
+                    return StringUtil.NULL_STRING;
+                }
+                if (a.f76141a.contains(obj.getClass())) {
+                    return obj.toString();
+                }
+                if (obj instanceof String) {
+                    return (String) obj;
+                }
+                if (obj instanceof Enum) {
+                    return ((Enum) obj).name();
+                }
+                String b2 = f.c().b().b(obj);
+                if (b2 != null) {
+                    return b2;
+                }
+                return obj.getClass().getName() + ".class";
             }
-            if (a.f72471a.contains(obj.getClass())) {
-                return obj.toString();
-            }
-            if (obj instanceof String) {
-                return (String) obj;
-            }
-            if (obj instanceof Enum) {
-                return ((Enum) obj).name();
-            }
-            String b2 = f.c().b().b(obj);
-            if (b2 != null) {
-                return b2;
-            }
-            return obj.getClass().getName() + ".class";
+            return (String) invokeL.objValue;
         }
 
         public Object getValue() {
-            return this.value;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.objValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OnErrorThrowable(Throwable th) {
         super(th);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {th};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Throwable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.hasValue = false;
         this.value = null;
     }
 
     public static Throwable addValueAsLastCause(Throwable th, Object obj) {
-        if (th == null) {
-            th = new NullPointerException();
-        }
-        Throwable b2 = a.b(th);
-        if ((b2 instanceof OnNextValue) && ((OnNextValue) b2).getValue() == obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, th, obj)) == null) {
+            if (th == null) {
+                th = new NullPointerException();
+            }
+            Throwable b2 = a.b(th);
+            if ((b2 instanceof OnNextValue) && ((OnNextValue) b2).getValue() == obj) {
+                return th;
+            }
+            a.a(th, new OnNextValue(obj));
             return th;
         }
-        a.a(th, new OnNextValue(obj));
-        return th;
+        return (Throwable) invokeLL.objValue;
     }
 
     public static OnErrorThrowable from(Throwable th) {
-        if (th == null) {
-            th = new NullPointerException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            if (th == null) {
+                th = new NullPointerException();
+            }
+            Throwable b2 = a.b(th);
+            if (b2 instanceof OnNextValue) {
+                return new OnErrorThrowable(th, ((OnNextValue) b2).getValue());
+            }
+            return new OnErrorThrowable(th);
         }
-        Throwable b2 = a.b(th);
-        if (b2 instanceof OnNextValue) {
-            return new OnErrorThrowable(th, ((OnNextValue) b2).getValue());
-        }
-        return new OnErrorThrowable(th);
+        return (OnErrorThrowable) invokeL.objValue;
     }
 
     public Object getValue() {
-        return this.value;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.objValue;
     }
 
     public boolean isValueNull() {
-        return this.hasValue;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasValue : invokeV.booleanValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OnErrorThrowable(Throwable th, Object obj) {
         super(th);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {th, obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Throwable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.hasValue = true;
         if (!(obj instanceof Serializable)) {
             try {

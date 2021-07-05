@@ -4,6 +4,13 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.download.e;
 import com.kwai.sodler.lib.a.b;
 import com.kwai.sodler.lib.a.f;
@@ -17,58 +24,103 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes7.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37985a = false;
+    public static boolean f39748a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(251028068, "Lcom/kwai/sodler/a/b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(251028068, "Lcom/kwai/sodler/a/b;");
+        }
+    }
 
     public static synchronized void a(Context context) {
-        synchronized (b.class) {
-            if (f37985a) {
-                return;
-            }
-            j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
-            j.a().d().a(new g.a() { // from class: com.kwai.sodler.a.b.1
-                /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-                @Override // com.kwai.sodler.lib.a.g.a
-                public void a(@NonNull f fVar, File file) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("Sodler.helper", "==============start download:" + fVar);
-                    try {
-                        e.a(fVar.q(), file, null, 0);
-                        if (!TextUtils.isEmpty(fVar.p()) && !TextUtils.equals(com.kwai.sodler.lib.c.a.f(file), fVar.p())) {
-                            throw new PluginError.UpdateError("file md5 not equal", -4);
-                        }
-                        a.a((InputStream) null);
-                        a.a((OutputStream) null);
-                        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                        j.a h2 = j.a().h();
-                        if (h2 != null) {
-                            h2.a("sodler_download", String.valueOf(currentTimeMillis2));
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            throw new PluginError.UpdateError(th.getMessage(), -4);
-                        } catch (Throwable th2) {
-                            a.a((InputStream) null);
-                            a.a((OutputStream) null);
-                            throw th2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (b.class) {
+                if (f39748a) {
+                    return;
+                }
+                j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
+                j.a().d().a(new g.a() { // from class: com.kwai.sodler.a.b.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
                         }
                     }
-                }
-            });
-            f37985a = true;
+
+                    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+                    @Override // com.kwai.sodler.lib.a.g.a
+                    public void a(@NonNull f fVar, File file) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, fVar, file) == null) {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            Log.d("Sodler.helper", "==============start download:" + fVar);
+                            try {
+                                e.a(fVar.q(), file, null, 0);
+                                if (!TextUtils.isEmpty(fVar.p()) && !TextUtils.equals(com.kwai.sodler.lib.c.a.f(file), fVar.p())) {
+                                    throw new PluginError.UpdateError("file md5 not equal", -4);
+                                }
+                                a.a((InputStream) null);
+                                a.a((OutputStream) null);
+                                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                                j.a h2 = j.a().h();
+                                if (h2 != null) {
+                                    h2.a("sodler_download", String.valueOf(currentTimeMillis2));
+                                }
+                            } catch (Throwable th) {
+                                try {
+                                    throw new PluginError.UpdateError(th.getMessage(), -4);
+                                } catch (Throwable th2) {
+                                    a.a((InputStream) null);
+                                    a.a((OutputStream) null);
+                                    throw th2;
+                                }
+                            }
+                        }
+                    }
+                });
+                f39748a = true;
+            }
         }
     }
 
     public static void a(b.a aVar) {
-        if (aVar != null) {
-            j.a().f().a(aVar);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, aVar) == null) || aVar == null) {
+            return;
         }
+        j.a().f().a(aVar);
     }
 
     public static void a(String str, com.kwai.sodler.lib.ext.b bVar) {
-        h hVar = new h(null, str);
-        hVar.a(bVar);
-        j.a().a(hVar, 16);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, bVar) == null) {
+            h hVar = new h(null, str);
+            hVar.a(bVar);
+            j.a().a(hVar, 16);
+        }
     }
 }

@@ -4,75 +4,136 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import d.a.o0.v.c;
-import d.a.o0.v.h.b.a;
-import d.a.o0.z.b;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.a0.b;
+import d.a.s0.v.c;
+import d.a.s0.v.h.b.a;
+/* loaded from: classes5.dex */
 public class AlaGameFrsGameLiveDoubleView extends b<a> {
-    public d.a.o0.v.e.d.a m;
-    public d.a.o0.v.e.d.a n;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public d.a.s0.v.e.d.a m;
+    public d.a.s0.v.e.d.a n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AlaGameFrsGameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsGameLiveDoubleView f14100a;
+        public AlaGameFrsGameLiveDoubleView f14187a;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaGameFrsGameLiveDoubleViewHolder(AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView) {
-            super(alaGameFrsGameLiveDoubleView.m());
-            this.f14100a = alaGameFrsGameLiveDoubleView;
+            super(alaGameFrsGameLiveDoubleView.l());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaGameFrsGameLiveDoubleView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14187a = alaGameFrsGameLiveDoubleView;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsGameLiveDoubleView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        t();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        s();
     }
 
-    @Override // d.a.o0.z.b
+    @Override // d.a.s0.a0.b
     public int h() {
-        return R.layout.ala_sub_list_game_live;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // d.a.o0.z.b
-    public void o(TbPageContext<?> tbPageContext, int i2) {
-        this.m.e(tbPageContext, i2);
-        this.n.e(tbPageContext, i2);
+    @Override // d.a.s0.a0.b
+    public void n(TbPageContext<?> tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
+            this.m.e(tbPageContext, i2);
+            this.n.e(tbPageContext, i2);
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-    }
-
-    public final void t() {
-        this.m = new d.a.o0.v.e.d.a(k());
-        this.n = new d.a.o0.v.e.d.a(k());
-        ViewGroup viewGroup = (ViewGroup) m();
-        View view = new View(b());
-        viewGroup.addView(this.m.c());
-        viewGroup.addView(view, new LinearLayout.LayoutParams(k().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
-        viewGroup.addView(this.n.c());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.o0.z.b
-    /* renamed from: u */
-    public void n(a aVar) {
-        if (aVar != null) {
-            this.m.d(aVar.f65806e);
-            this.n.d(aVar.f65807f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
         }
     }
 
-    public void v(String str) {
-        this.m.f(str);
-        this.n.f(str);
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.m = new d.a.s0.v.e.d.a(k());
+            this.n = new d.a.s0.v.e.d.a(k());
+            ViewGroup viewGroup = (ViewGroup) l();
+            View view = new View(b());
+            viewGroup.addView(this.m.c());
+            viewGroup.addView(view, new LinearLayout.LayoutParams(k().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
+            viewGroup.addView(this.n.c());
+        }
     }
 
-    public void w(c cVar) {
-        this.m.g(cVar);
-        this.n.g(cVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.s0.a0.b
+    /* renamed from: t */
+    public void m(a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        this.m.d(aVar.f67984e);
+        this.n.d(aVar.f67985f);
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.m.f(str);
+            this.n.f(str);
+        }
+    }
+
+    public void v(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.m.g(cVar);
+            this.n.g(cVar);
+        }
     }
 }

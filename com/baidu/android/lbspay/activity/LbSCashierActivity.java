@@ -14,7 +14,9 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.e;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.beans.GetPayBean;
@@ -37,6 +39,13 @@ import com.baidu.apollon.utils.CheckUtils;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.base.widget.dialog.PromptDialog;
@@ -58,6 +67,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INoSupportAliAuthorizePay {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHPAY_CANCEL_HOST = "BdwAliPayWithholdingCancel";
     public static final String AUTHPAY_SUCCESS_HOST = "BdwAliPayWithholdingSuccess";
     public static final String BEAN_TAG = "LbSCashierActivity";
@@ -68,6 +78,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     public static final String EVENT_BANNER_HIDE = "wallet_sdk_langbridge_juhe_banner_hide";
     public static final int WITHHOLDING_FAIL = 110000;
     public static final int WITHHOLDING_SUCCESS = 100000;
+    public transient /* synthetic */ FieldHolder $fh;
     public TextView mAmount;
     public NewCashierContent.IBaseChannel mBaseChannel;
     public NewCashierContent mCashierContent;
@@ -83,41 +94,76 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     public View mPayWrap;
     public NewCashierContent.CashierChannel mSupportBaiFuBaoChannel;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void asyncGetPayAPI() {
-        WalletGlobalUtils.safeShowDialog(this, 0, "");
-        int chanelId = this.mBaseChannel.getChanelId();
-        this.mChannelId = chanelId;
-        IChannelPay channelPay = ChannelPayUtil.getChannelPay(chanelId);
-        this.mChannelPay = channelPay;
-        if (channelPay == null || this.mCashierData == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1554582140, "Lcom/baidu/android/lbspay/activity/LbSCashierActivity;")) == null) {
             return;
         }
-        StatHelper.cacheChannelId(this.mChannelId + "");
-        String orderNo = this.mCashierData.getOrderNo();
-        List<String> collectData = StatHelper.collectData(orderNo, this.mChannelId + "");
-        HashMap hashMap = new HashMap();
-        hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
-        StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_CHANNEL, collectData, hashMap);
-        StatisticManager.onEventWithValue(StatServiceEvent.LBS_DO_PAY_CLICK, ChannelPayUtil.getChannelTag(this.mBaseChannel.getChanelId()));
-        StatisticManager.onEventStart(StatServiceEvent.LBS_API_GET_PAY);
-        this.mGetPayBean = (GetPayBean) LbsPayBeanFactory.getInstance().getBean((Context) this, 2, BEAN_TAG);
-        ((AbstractChannelPay) this.mChannelPay).setNotifyOnError(false);
-        this.mGetPayBean.setmCashierData(this.mCashierData);
-        this.mGetPayBean.setmChannel(this.mBaseChannel);
-        this.mGetPayBean.setmCashierContent(this.mCashierContent);
-        this.mGetPayBean.setResponseCallback(this);
-        this.mGetPayBean.execBean();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1554582140, "Lcom/baidu/android/lbspay/activity/LbSCashierActivity;");
+        }
+    }
+
+    public LbSCashierActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void asyncGetPayAPI() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            WalletGlobalUtils.safeShowDialog(this, 0, "");
+            int chanelId = this.mBaseChannel.getChanelId();
+            this.mChannelId = chanelId;
+            IChannelPay channelPay = ChannelPayUtil.getChannelPay(chanelId);
+            this.mChannelPay = channelPay;
+            if (channelPay == null || this.mCashierData == null) {
+                return;
+            }
+            StatHelper.cacheChannelId(this.mChannelId + "");
+            String orderNo = this.mCashierData.getOrderNo();
+            List<String> collectData = StatHelper.collectData(orderNo, this.mChannelId + "");
+            HashMap hashMap = new HashMap();
+            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
+            StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_CHANNEL, collectData, hashMap);
+            StatisticManager.onEventWithValue(StatServiceEvent.LBS_DO_PAY_CLICK, ChannelPayUtil.getChannelTag(this.mBaseChannel.getChanelId()));
+            StatisticManager.onEventStart(StatServiceEvent.LBS_API_GET_PAY);
+            this.mGetPayBean = (GetPayBean) LbsPayBeanFactory.getInstance().getBean((Context) this, 2, BEAN_TAG);
+            ((AbstractChannelPay) this.mChannelPay).setNotifyOnError(false);
+            this.mGetPayBean.setmCashierData(this.mCashierData);
+            this.mGetPayBean.setmChannel(this.mBaseChannel);
+            this.mGetPayBean.setmCashierContent(this.mCashierContent);
+            this.mGetPayBean.setResponseCallback(this);
+            this.mGetPayBean.execBean();
+        }
     }
 
     private String getCommonMarketUrl(NewCashierContent newCashierContent) {
+        InterceptResult invokeL;
         NewCashierContent.CommonMarketing[] commonMarketingArr;
-        return (newCashierContent == null || (commonMarketingArr = newCashierContent.common_marketing) == null || commonMarketingArr.length <= 0 || TextUtils.isEmpty(commonMarketingArr[0].url)) ? "" : newCashierContent.common_marketing[0].url;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, newCashierContent)) == null) ? (newCashierContent == null || (commonMarketingArr = newCashierContent.common_marketing) == null || commonMarketingArr.length <= 0 || TextUtils.isEmpty(commonMarketingArr[0].url)) ? "" : newCashierContent.common_marketing[0].url : (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void getPay() {
-        if (CheckUtils.isFastDoubleClick()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || CheckUtils.isFastDoubleClick()) {
             return;
         }
         NewCashierContent.IBaseChannel channel = this.mChannelListView.getChannel();
@@ -128,163 +174,301 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     }
 
     private NewCashierContent.CashierChannel getSupportBaiFuBaoChannel() {
+        InterceptResult invokeV;
         List<NewCashierContent.CashierChannel> officialChannels;
-        ChannelListView channelListView = this.mChannelListView;
-        if (channelListView == null || (officialChannels = channelListView.getOfficialChannels()) == null || officialChannels.size() <= 0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            ChannelListView channelListView = this.mChannelListView;
+            if (channelListView == null || (officialChannels = channelListView.getOfficialChannels()) == null || officialChannels.size() <= 0) {
+                return null;
+            }
+            for (NewCashierContent.CashierChannel cashierChannel : officialChannels) {
+                if (cashierChannel != null && cashierChannel.isAvailable() && TextUtils.equals(cashierChannel.channel_code, PayChannelController.BAIFUBAO_PAYCHANNEL_CODE)) {
+                    return cashierChannel;
+                }
+            }
             return null;
         }
-        for (NewCashierContent.CashierChannel cashierChannel : officialChannels) {
-            if (cashierChannel != null && cashierChannel.isAvailable() && TextUtils.equals(cashierChannel.channel_code, PayChannelController.BAIFUBAO_PAYCHANNEL_CODE)) {
-                return cashierChannel;
-            }
-        }
-        return null;
+        return (NewCashierContent.CashierChannel) invokeV.objValue;
     }
 
     private void initData(Bundle bundle) {
-        if (bundle != null) {
-            this.mCashierData = (CashierDataNew) bundle.getSerializable(CashierDataNew.DELIVERY_CASHIER_DATA);
-            this.mCashierContent = (NewCashierContent) bundle.getSerializable(CASHIER_CONTENT);
-        } else {
-            Intent intent = getIntent();
-            if (intent != null) {
-                try {
-                    Serializable serializableExtra = intent.getSerializableExtra(CashierDataNew.DELIVERY_CASHIER_DATA);
-                    if (serializableExtra != null && (serializableExtra instanceof CashierDataNew)) {
-                        this.mCashierData = (CashierDataNew) serializableExtra;
-                    }
-                    Serializable serializableExtra2 = intent.getSerializableExtra(CashierDataNew.DELIVERY_CASHIER_CONTENT);
-                    if (serializableExtra2 != null && (serializableExtra2 instanceof NewCashierContent)) {
-                        this.mCashierContent = (NewCashierContent) serializableExtra2;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-        CashierDataNew cashierDataNew = this.mCashierData;
-        if (cashierDataNew != null) {
-            String goodsName = cashierDataNew.getGoodsName();
-            if (!TextUtils.isEmpty(goodsName)) {
-                this.mGoodsName.setText(goodsName);
-                this.mGoodsName.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, this, bundle) == null) {
+            if (bundle != null) {
+                this.mCashierData = (CashierDataNew) bundle.getSerializable(CashierDataNew.DELIVERY_CASHIER_DATA);
+                this.mCashierContent = (NewCashierContent) bundle.getSerializable(CASHIER_CONTENT);
             } else {
-                this.mGoodsName.setText("");
-                this.mGoodsName.setVisibility(8);
-            }
-            String amount = this.mCashierData.amount();
-            if (!TextUtils.isEmpty(amount)) {
-                this.mAmount.setText(StringUtils.fen2Yuan(amount));
-            }
-            try {
-                Typeface createFromAsset = Typeface.createFromAsset(getAssets(), "wallet_base_font/FDCfont-Bold.ttf");
-                if (createFromAsset != null) {
-                    this.mAmount.setTypeface(createFromAsset);
+                Intent intent = getIntent();
+                if (intent != null) {
+                    try {
+                        Serializable serializableExtra = intent.getSerializableExtra(CashierDataNew.DELIVERY_CASHIER_DATA);
+                        if (serializableExtra != null && (serializableExtra instanceof CashierDataNew)) {
+                            this.mCashierData = (CashierDataNew) serializableExtra;
+                        }
+                        Serializable serializableExtra2 = intent.getSerializableExtra(CashierDataNew.DELIVERY_CASHIER_CONTENT);
+                        if (serializableExtra2 != null && (serializableExtra2 instanceof NewCashierContent)) {
+                            this.mCashierContent = (NewCashierContent) serializableExtra2;
+                        }
+                    } catch (Exception unused) {
+                    }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
+            CashierDataNew cashierDataNew = this.mCashierData;
+            if (cashierDataNew != null) {
+                String goodsName = cashierDataNew.getGoodsName();
+                if (!TextUtils.isEmpty(goodsName)) {
+                    this.mGoodsName.setText(goodsName);
+                    this.mGoodsName.setVisibility(0);
+                } else {
+                    this.mGoodsName.setText("");
+                    this.mGoodsName.setVisibility(8);
+                }
+                String amount = this.mCashierData.amount();
+                if (!TextUtils.isEmpty(amount)) {
+                    this.mAmount.setText(StringUtils.fen2Yuan(amount));
+                }
+                try {
+                    Typeface createFromAsset = Typeface.createFromAsset(getAssets(), "wallet_base_font/FDCfont-Bold.ttf");
+                    if (createFromAsset != null) {
+                        this.mAmount.setTypeface(createFromAsset);
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            NewCashierContent newCashierContent = this.mCashierContent;
+            if (newCashierContent != null && newCashierContent.pay != null) {
+                updateChannels();
+                updateFooter();
+                setBootomDivierVisiable();
+                return;
+            }
+            finish();
         }
-        NewCashierContent newCashierContent = this.mCashierContent;
-        if (newCashierContent != null && newCashierContent.pay != null) {
-            updateChannels();
-            updateFooter();
-            setBootomDivierVisiable();
-            return;
-        }
-        finish();
     }
 
     private void initEvent() {
-        this.mPay.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                LbSCashierActivity.this.getPay();
-            }
-        });
-        this.mChannelListView.setSelectChannelListener(new PayChannelController.SelectChannelListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.3
-            @Override // com.baidu.android.lbspay.view.PayChannelController.SelectChannelListener
-            public void onSelectChannel(String str) {
-                TextView textView = LbSCashierActivity.this.mPayText;
-                textView.setText(ResUtils.getString(LbSCashierActivity.this, "lbspay_pay_confirm_paydesc") + "   " + String.format(ResUtils.getString(LbSCashierActivity.this, "lbspay_pay_confirm_payamount"), StringUtils.fen2Yuan(str)));
-            }
-        });
-        this.mChannelListView.setShowAllChannelClickListener(new PayChannelController.DoShowAllChannelClick() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.4
-            @Override // com.baidu.android.lbspay.view.PayChannelController.DoShowAllChannelClick
-            public void doClick() {
-                LbSCashierActivity.this.setBootomDivierVisiable();
-            }
-        });
-        EventBus.getInstance().register(this, EVENT_BANNER_CLICK_PAY, 0, EventBus.ThreadMode.MainThread);
-        EventBus.getInstance().register(this, EVENT_BANNER_HIDE, 0, EventBus.ThreadMode.MainThread);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            this.mPay.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ LbSCashierActivity f2626a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f2626a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f2626a.getPay();
+                    }
+                }
+            });
+            this.mChannelListView.setSelectChannelListener(new PayChannelController.SelectChannelListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ LbSCashierActivity f2627a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f2627a = this;
+                }
+
+                @Override // com.baidu.android.lbspay.view.PayChannelController.SelectChannelListener
+                public void onSelectChannel(String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                        TextView textView = this.f2627a.mPayText;
+                        textView.setText(ResUtils.getString(this.f2627a, "lbspay_pay_confirm_paydesc") + "   " + String.format(ResUtils.getString(this.f2627a, "lbspay_pay_confirm_payamount"), StringUtils.fen2Yuan(str)));
+                    }
+                }
+            });
+            this.mChannelListView.setShowAllChannelClickListener(new PayChannelController.DoShowAllChannelClick(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ LbSCashierActivity f2628a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f2628a = this;
+                }
+
+                @Override // com.baidu.android.lbspay.view.PayChannelController.DoShowAllChannelClick
+                public void doClick() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f2628a.setBootomDivierVisiable();
+                    }
+                }
+            });
+            EventBus.getInstance().register(this, EVENT_BANNER_CLICK_PAY, 0, EventBus.ThreadMode.MainThread);
+            EventBus.getInstance().register(this, EVENT_BANNER_HIDE, 0, EventBus.ThreadMode.MainThread);
+        }
     }
 
     private void initView() {
-        setContentView(ResUtils.layout(this, "wallet_juhe_layout_cashier"));
-        TitleBar titleBar = (TitleBar) findViewById(ResUtils.id(this, "wallet_lbs_titlebar"));
-        this.titleBar = titleBar;
-        titleBar.setTitle(ResUtils.getString(this, "lbspay_title_name"));
-        this.mGoodsName = (TextView) findViewById(ResUtils.id(this, "goodsName"));
-        this.mAmount = (TextView) findViewById(ResUtils.id(this, "price"));
-        this.mChannelListView = (ChannelListView) findViewById(ResUtils.id(this, "paysdk_id_channellistview"));
-        this.mChannelFootView = (ChannelFootView) findViewById(ResUtils.id(this, "lbspay_channel_foot_layout"));
-        this.mPayWrap = findViewById(ResUtils.id(this, "lbspay_pay_warp"));
-        this.mPay = (LinearLayout) findViewById(ResUtils.id(this, "lbspay_pay"));
-        this.mPayText = (TextView) findViewById(ResUtils.id(this, "wallet_lbs_pay_textview"));
-        setBtnImge();
-        setBackButton();
-        tryChangingTheme();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            setContentView(ResUtils.layout(this, "wallet_juhe_layout_cashier"));
+            TitleBar titleBar = (TitleBar) findViewById(ResUtils.id(this, "wallet_lbs_titlebar"));
+            this.titleBar = titleBar;
+            titleBar.setTitle(ResUtils.getString(this, "lbspay_title_name"));
+            this.mGoodsName = (TextView) findViewById(ResUtils.id(this, "goodsName"));
+            this.mAmount = (TextView) findViewById(ResUtils.id(this, "price"));
+            this.mChannelListView = (ChannelListView) findViewById(ResUtils.id(this, "paysdk_id_channellistview"));
+            this.mChannelFootView = (ChannelFootView) findViewById(ResUtils.id(this, "lbspay_channel_foot_layout"));
+            this.mPayWrap = findViewById(ResUtils.id(this, "lbspay_pay_warp"));
+            this.mPay = (LinearLayout) findViewById(ResUtils.id(this, "lbspay_pay"));
+            this.mPayText = (TextView) findViewById(ResUtils.id(this, "wallet_lbs_pay_textview"));
+            setBtnImge();
+            setBackButton();
+            tryChangingTheme();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void openSystemBrowser() {
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("https://d.alipay.com"));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("https://d.alipay.com"));
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
         }
     }
 
     private void renderTitleBar() {
-        int color = ResUtils.getColor(getActivity(), "lbspay_white");
-        int color2 = ResUtils.getColor(getActivity(), "lbspay_color_222222");
-        Drawable drawable = ResUtils.getDrawable(getActivity(), "wallet_juhe_back");
-        this.titleBar.setBackgroundColor(color);
-        ((TextView) this.titleBar.findViewById(ResUtils.id(getActivity(), "title_tv"))).setTextColor(color2);
-        ((ImageView) this.titleBar.findViewById(ResUtils.id(getActivity(), "title_left_btn"))).setImageDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
+            int color = ResUtils.getColor(getActivity(), "lbspay_white");
+            int color2 = ResUtils.getColor(getActivity(), "lbspay_color_222222");
+            Drawable drawable = ResUtils.getDrawable(getActivity(), "wallet_juhe_back");
+            this.titleBar.setBackgroundColor(color);
+            ((TextView) this.titleBar.findViewById(ResUtils.id(getActivity(), "title_tv"))).setTextColor(color2);
+            ((ImageView) this.titleBar.findViewById(ResUtils.id(getActivity(), "title_left_btn"))).setImageDrawable(drawable);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setBootomDivierVisiable() {
-        findViewById(ResUtils.id(this, "content_layout")).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.11
-            @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-            public void onGlobalLayout() {
-                LbSCashierActivity lbSCashierActivity = LbSCashierActivity.this;
-                View findViewById = lbSCashierActivity.findViewById(ResUtils.id(lbSCashierActivity, "lbspay_cashier_wap"));
-                LbSCashierActivity lbSCashierActivity2 = LbSCashierActivity.this;
-                if (lbSCashierActivity2.findViewById(ResUtils.id(lbSCashierActivity2, "content_layout")).getMeasuredHeight() > findViewById.getMeasuredHeight()) {
-                    if (LbSCashierActivity.this.mChannelFootView != null) {
-                        LbSCashierActivity.this.mChannelFootView.setPadding(30, 30, 30, 30);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            findViewById(ResUtils.id(this, "content_layout")).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.11
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ LbSCashierActivity f2624a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                } else if (LbSCashierActivity.this.mChannelFootView != null) {
-                    LbSCashierActivity.this.mChannelFootView.setPadding(30, 30, 30, 0);
+                    this.f2624a = this;
                 }
-            }
-        });
+
+                @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+                public void onGlobalLayout() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        LbSCashierActivity lbSCashierActivity = this.f2624a;
+                        View findViewById = lbSCashierActivity.findViewById(ResUtils.id(lbSCashierActivity, "lbspay_cashier_wap"));
+                        LbSCashierActivity lbSCashierActivity2 = this.f2624a;
+                        if (lbSCashierActivity2.findViewById(ResUtils.id(lbSCashierActivity2, "content_layout")).getMeasuredHeight() > findViewById.getMeasuredHeight()) {
+                            if (this.f2624a.mChannelFootView != null) {
+                                this.f2624a.mChannelFootView.setPadding(30, 30, 30, 30);
+                            }
+                        } else if (this.f2624a.mChannelFootView != null) {
+                            this.f2624a.mChannelFootView.setPadding(30, 30, 30, 0);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     private void setBtnImge() {
-        Drawable drawable = ResUtils.getDrawable(getActivity(), "wallet_juhe_security_icon");
-        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        this.mPayText.setCompoundDrawables(drawable, null, null, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+            Drawable drawable = ResUtils.getDrawable(getActivity(), "wallet_juhe_security_icon");
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            this.mPayText.setCompoundDrawables(drawable, null, null, null);
+        }
     }
 
     private void tryChangingTheme() {
-        renderTitleBar();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+            renderTitleBar();
+        }
     }
 
     private void updateChannels() {
+        ChannelListView channelListView;
         NewCashierContent newCashierContent;
-        ChannelListView channelListView = this.mChannelListView;
-        if (channelListView == null || (newCashierContent = this.mCashierContent) == null || newCashierContent.pay == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65560, this) == null) || (channelListView = this.mChannelListView) == null || (newCashierContent = this.mCashierContent) == null || newCashierContent.pay == null) {
             return;
         }
         channelListView.setAdapter(newCashierContent);
@@ -292,50 +476,58 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     }
 
     private void updateFooter() {
+        ChannelFootView channelFootView;
         NewCashierContent.CashierPay cashierPay;
-        ChannelFootView channelFootView = this.mChannelFootView;
-        if (channelFootView != null) {
-            NewCashierContent newCashierContent = this.mCashierContent;
-            if (newCashierContent != null && (cashierPay = newCashierContent.pay) != null && cashierPay.brand != null) {
-                channelFootView.setVisibility(0);
-                this.mChannelFootView.initBrandData(this.mCashierContent.pay.brand);
-                return;
-            }
-            this.mChannelFootView.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || (channelFootView = this.mChannelFootView) == null) {
+            return;
         }
+        NewCashierContent newCashierContent = this.mCashierContent;
+        if (newCashierContent != null && (cashierPay = newCashierContent.pay) != null && cashierPay.brand != null) {
+            channelFootView.setVisibility(0);
+            this.mChannelFootView.initBrandData(this.mCashierContent.pay.brand);
+            return;
+        }
+        this.mChannelFootView.setVisibility(8);
     }
 
     public void doPay(GetPayContent getPayContent) {
-        IChannelPay iChannelPay = this.mChannelPay;
-        if (iChannelPay != null) {
-            if ((iChannelPay instanceof ChannelFastPay) && TextUtils.isEmpty(((ChannelFastPay) iChannelPay).getUrl(getPayContent))) {
-                GlobalUtils.toast(this, EventAlias.PayEventAlias.PAY_FAIL);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, getPayContent) == null) {
+            IChannelPay iChannelPay = this.mChannelPay;
+            if (iChannelPay != null) {
+                if ((iChannelPay instanceof ChannelFastPay) && TextUtils.isEmpty(((ChannelFastPay) iChannelPay).getUrl(getPayContent))) {
+                    GlobalUtils.toast(this, EventAlias.PayEventAlias.PAY_FAIL);
+                    return;
+                }
+                if ((this.mChannelPay instanceof ChannelAliPay) && getPayContent.getPayData() != null && getPayContent.getPayData().isAliAuthPay()) {
+                    ((ChannelAliPay) this.mChannelPay).setAliPayNoSupportCallBack(this);
+                }
+                this.mChannelPay.pay(getActivity(), getPayContent);
                 return;
             }
-            if ((this.mChannelPay instanceof ChannelAliPay) && getPayContent.getPayData() != null && getPayContent.getPayData().isAliAuthPay()) {
-                ((ChannelAliPay) this.mChannelPay).setAliPayNoSupportCallBack(this);
-            }
-            this.mChannelPay.pay(getActivity(), getPayContent);
-            return;
+            GlobalUtils.toast(this, "暂不支持这种支付方式");
         }
-        GlobalUtils.toast(this, "暂不支持这种支付方式");
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
     public void handleFailure(int i2, int i3, String str) {
-        LogUtil.d("LbsCashier handle failed!");
-        WalletGlobalUtils.safeDismissDialog(this, 0);
-        if (i2 == 2) {
-            LBSPayAli.getInstance().clearChannelPay();
-            this.mChannelPay = null;
-            if (!TextUtils.isEmpty(str)) {
-                GlobalUtils.toast(this, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
+            LogUtil.d("LbsCashier handle failed!");
+            WalletGlobalUtils.safeDismissDialog(this, 0);
+            if (i2 == 2) {
+                LBSPayAli.getInstance().clearChannelPay();
+                this.mChannelPay = null;
+                if (!TextUtils.isEmpty(str)) {
+                    GlobalUtils.toast(this, str);
+                }
             }
-        }
-        CashierDataNew cashierDataNew = this.mCashierData;
-        String orderNo = cashierDataNew != null ? cashierDataNew.getOrderNo() : "";
-        if (i2 == 2) {
-            StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_PAY, i3, orderNo);
+            CashierDataNew cashierDataNew = this.mCashierData;
+            String orderNo = cashierDataNew != null ? cashierDataNew.getOrderNo() : "";
+            if (i2 == 2) {
+                StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_PAY, i3, orderNo);
+            }
         }
     }
 
@@ -343,27 +535,30 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     public void handleResponse(int i2, Object obj, String str) {
         IChannelPay iChannelPay;
         GetPayBean getPayBean;
-        LogUtil.d("LbsCashier handle success");
-        WalletGlobalUtils.safeDismissDialog(this, 0);
-        if (obj != null && i2 == 2) {
-            CashierDataNew cashierDataNew = this.mCashierData;
-            StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_PAY, 0, cashierDataNew == null ? "" : cashierDataNew.getOrderNo());
-            GetPayContent getPayContent = null;
-            if (obj instanceof GetPayContent) {
-                getPayContent = (GetPayContent) obj;
-                getPayContent.extraOrderInfo = this.mCashierData;
-            }
-            if (getPayContent != null) {
-                if (!TextUtils.isEmpty(getPayContent.redirect_sp_succpage_remain_time) && !"0".equals(getPayContent.redirect_sp_succpage_remain_time) && (iChannelPay = this.mChannelPay) != null && (getPayBean = this.mGetPayBean) != null && 126 != this.mChannelId) {
-                    ((AbstractChannelPay) iChannelPay).setPayBean(getPayBean);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
+            LogUtil.d("LbsCashier handle success");
+            WalletGlobalUtils.safeDismissDialog(this, 0);
+            if (obj != null && i2 == 2) {
+                CashierDataNew cashierDataNew = this.mCashierData;
+                StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_PAY, 0, cashierDataNew == null ? "" : cashierDataNew.getOrderNo());
+                GetPayContent getPayContent = null;
+                if (obj instanceof GetPayContent) {
+                    getPayContent = (GetPayContent) obj;
+                    getPayContent.extraOrderInfo = this.mCashierData;
                 }
-                int i3 = getPayContent.authorize_err_no;
-                if (i3 == 100000) {
-                    LBSPayResult.payResult(this, 0, getPayContent.authorize_return_data);
-                } else if (i3 > 100000 && i3 <= 110000) {
-                    doPay(getPayContent);
-                } else {
-                    doPay(getPayContent);
+                if (getPayContent != null) {
+                    if (!TextUtils.isEmpty(getPayContent.redirect_sp_succpage_remain_time) && !"0".equals(getPayContent.redirect_sp_succpage_remain_time) && (iChannelPay = this.mChannelPay) != null && (getPayBean = this.mGetPayBean) != null && 126 != this.mChannelId) {
+                        ((AbstractChannelPay) iChannelPay).setPayBean(getPayBean);
+                    }
+                    int i3 = getPayContent.authorize_err_no;
+                    if (i3 == 100000) {
+                        LBSPayResult.payResult(this, 0, getPayContent.authorize_return_data);
+                    } else if (i3 > 100000 && i3 <= 110000) {
+                        doPay(getPayContent);
+                    } else {
+                        doPay(getPayContent);
+                    }
                 }
             }
         }
@@ -372,220 +567,477 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Bundle extras;
-        super.onActivityResult(i2, i3, intent);
-        LogUtil.logd("requestCode=" + i2 + "#resultCode=" + i3);
-        if (intent == null || (extras = intent.getExtras()) == null) {
-            return;
-        }
-        LogUtil.logd("bundle =" + extras.toString());
-        String string = extras.getString(WalletPayResultActivityConfig.PAY_RESULT);
-        LogUtil.logd("result =" + string);
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        if (string.equalsIgnoreCase("success")) {
-            IChannelPay iChannelPay = this.mChannelPay;
-            if (iChannelPay != null) {
-                iChannelPay.paySuccess("");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            LogUtil.logd("requestCode=" + i2 + "#resultCode=" + i3);
+            if (intent == null || (extras = intent.getExtras()) == null) {
+                return;
             }
-        } else if (string.equalsIgnoreCase(QueryResponse.Options.CANCEL)) {
-            IChannelPay iChannelPay2 = this.mChannelPay;
-            if (iChannelPay2 != null) {
-                iChannelPay2.payCancel();
+            LogUtil.logd("bundle =" + extras.toString());
+            String string = extras.getString(WalletPayResultActivityConfig.PAY_RESULT);
+            LogUtil.logd("result =" + string);
+            if (TextUtils.isEmpty(string)) {
+                return;
             }
-        } else {
-            string.equalsIgnoreCase(e.f1963a);
+            if (string.equalsIgnoreCase("success")) {
+                IChannelPay iChannelPay = this.mChannelPay;
+                if (iChannelPay != null) {
+                    iChannelPay.paySuccess("");
+                }
+            } else if (string.equalsIgnoreCase(QueryResponse.Options.CANCEL)) {
+                IChannelPay iChannelPay2 = this.mChannelPay;
+                if (iChannelPay2 != null) {
+                    iChannelPay2.payCancel();
+                }
+            } else {
+                string.equalsIgnoreCase(e.f1966a);
+            }
         }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        LBSPayResult.payResult(getActivity(), 2, "");
-        super.onBackPressed();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LBSPayResult.payResult(getActivity(), 2, "");
+            super.onBackPressed();
+        }
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        initView();
-        initEvent();
-        initData(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            initView();
+            initEvent();
+            initData(bundle);
+        }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
     public Dialog onCreateDialog(int i2) {
-        if (i2 == 61186) {
-            return new PromptDialog(getActivity());
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            if (i2 == 61186) {
+                return new PromptDialog(getActivity());
+            }
+            if (i2 == 61185) {
+                return new PromptMultiBtnDialog(getActivity());
+            }
+            return super.onCreateDialog(i2);
         }
-        if (i2 == 61185) {
-            return new PromptMultiBtnDialog(getActivity());
-        }
-        return super.onCreateDialog(i2);
+        return (Dialog) invokeI.objValue;
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        EventBus.getInstance().unregister(this);
-        BeanManager.getInstance().removeAllBeans(BEAN_TAG);
-        StatisticManager.onEvent(LbsStatistics.QUIT_CASHDESK);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroy();
+            EventBus.getInstance().unregister(this);
+            BeanManager.getInstance().removeAllBeans(BEAN_TAG);
+            StatisticManager.onEvent(LbsStatistics.QUIT_CASHDESK);
+        }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i2, KeyEvent keyEvent) {
-        if (i2 == 4) {
-            StatisticManager.onEvent(StatServiceEvent.LBS_KEY_BACK);
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, keyEvent)) == null) {
+            if (i2 == 4) {
+                StatisticManager.onEvent(StatServiceEvent.LBS_KEY_BACK);
+            }
+            return super.onKeyUp(i2, keyEvent);
         }
-        return super.onKeyUp(i2, keyEvent);
+        return invokeIL.booleanValue;
     }
 
     public void onModuleEvent(EventBus.Event event) {
-        if (event != null) {
-            if (EVENT_BANNER_CLICK_PAY.equals(event.mEventKey)) {
-                Object obj = event.mEventObj;
-                if (obj == null || !(obj instanceof String)) {
-                    return;
-                }
-                String str = (String) obj;
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                try {
-                    int optInt = new JSONObject(str).optInt("pay_channel_id", 0);
-                    if (this.mChannelListView.selectChannelById(optInt)) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(getCommonMarketUrl(this.mCashierContent));
-                        arrayList.add(optInt + "");
-                        StatisticManager.onEventWithValues(LbsStatistics.WALLET_LBS_BANNER_CLICK_PAY, arrayList);
-                        this.mChannelListView.hideCommonMarket();
-                        this.mChannelListView.postDelayed(new Runnable() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                LbSCashierActivity.this.getPay();
-                            }
-                        }, 500L);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            } else if (EVENT_BANNER_HIDE.equals(event.mEventKey)) {
-                StatisticManager.onEventWithValue(LbsStatistics.WALLET_LBS_BANNER_HIDE, getCommonMarketUrl(this.mCashierContent));
-                this.mChannelListView.hideCommonMarket();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, event) == null) || event == null) {
+            return;
+        }
+        if (EVENT_BANNER_CLICK_PAY.equals(event.mEventKey)) {
+            Object obj = event.mEventObj;
+            if (obj == null || !(obj instanceof String)) {
+                return;
             }
+            String str = (String) obj;
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            try {
+                int optInt = new JSONObject(str).optInt("pay_channel_id", 0);
+                if (this.mChannelListView.selectChannelById(optInt)) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(getCommonMarketUrl(this.mCashierContent));
+                    arrayList.add(optInt + "");
+                    StatisticManager.onEventWithValues(LbsStatistics.WALLET_LBS_BANNER_CLICK_PAY, arrayList);
+                    this.mChannelListView.hideCommonMarket();
+                    this.mChannelListView.postDelayed(new Runnable(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ LbSCashierActivity f2622a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f2622a = this;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                this.f2622a.getPay();
+                            }
+                        }
+                    }, 500L);
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        } else if (EVENT_BANNER_HIDE.equals(event.mEventKey)) {
+            StatisticManager.onEventWithValue(LbsStatistics.WALLET_LBS_BANNER_HIDE, getCommonMarketUrl(this.mCashierContent));
+            this.mChannelListView.hideCommonMarket();
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        initData(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
+            initData(null);
+        }
     }
 
     @Override // com.baidu.android.lbspay.channelpay.alipay.LBSPayAli.INoSupportAliAuthorizePay
     public void onNoSupportAliAuthorizePay() {
-        NewCashierContent.CashierChannel supportBaiFuBaoChannel = getSupportBaiFuBaoChannel();
-        this.mSupportBaiFuBaoChannel = supportBaiFuBaoChannel;
-        if (supportBaiFuBaoChannel != null) {
-            WalletGlobalUtils.safeShowDialog(this, DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY, "");
-        } else {
-            WalletGlobalUtils.safeShowDialog(this, DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG, "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            NewCashierContent.CashierChannel supportBaiFuBaoChannel = getSupportBaiFuBaoChannel();
+            this.mSupportBaiFuBaoChannel = supportBaiFuBaoChannel;
+            if (supportBaiFuBaoChannel != null) {
+                WalletGlobalUtils.safeShowDialog(this, DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY, "");
+            } else {
+                WalletGlobalUtils.safeShowDialog(this, DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG, "");
+            }
         }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
     public void onPrepareDialog(int i2, Dialog dialog) {
-        if (i2 == 3) {
-            PromptDialog promptDialog = (PromptDialog) dialog;
-            promptDialog.setMessage(ResUtils.getString(this, "lbspay_pay_timeout_prompt"));
-            promptDialog.setCanceledOnTouchOutside(false);
-            promptDialog.hideNegativeButton();
-            promptDialog.setPositiveBtn(ResUtils.getString(this, "lbspay_make_sure_confirm"), new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.5
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    WalletGlobalUtils.safeDismissDialog(LbSCashierActivity.this, 3);
-                    LbSCashierActivity.this.onBackPressed();
-                }
-            });
-        } else if (i2 == 61185) {
-            PromptMultiBtnDialog promptMultiBtnDialog = (PromptMultiBtnDialog) dialog;
-            promptMultiBtnDialog.setMessage(ResUtils.getString(getActivity(), "lbspay_pay_guide_dxm_wallet_pay_type_msg"));
-            promptMultiBtnDialog.setCanceledOnTouchOutside(false);
-            promptMultiBtnDialog.setFirstBtnTextBold();
-            promptMultiBtnDialog.setFirstBtn(ResUtils.getString(getActivity(), "lbspay_pay_use_dxm_wallet_pay_type"), new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.6
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_CONFIRM);
-                    LbSCashierActivity lbSCashierActivity = LbSCashierActivity.this;
-                    lbSCashierActivity.mBaseChannel = lbSCashierActivity.mSupportBaiFuBaoChannel;
-                    LbSCashierActivity.this.mChannelListView.selectChannelById(LbSCashierActivity.this.mBaseChannel.getChanelId());
-                    WalletGlobalUtils.safeDismissDialog(LbSCashierActivity.this, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
-                    LbSCashierActivity.this.asyncGetPayAPI();
-                }
-            });
-            promptMultiBtnDialog.setSecondBtn(ResUtils.getString(getActivity(), "lbspay_pay_guide_install_ali_pay_pkg_confirm"), new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.7
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_INSTALL_ALI_PAY_PKG);
-                    WalletGlobalUtils.safeDismissDialog(LbSCashierActivity.this, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
-                    LbSCashierActivity.this.openSystemBrowser();
-                }
-            });
-            promptMultiBtnDialog.setThirdBtn(ResUtils.getString(getActivity(), "lbspay_cancel"), new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.8
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_CANCEL);
-                    WalletGlobalUtils.safeDismissDialog(LbSCashierActivity.this, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
-                }
-            });
-        } else if (i2 == 61186) {
-            PromptDialog promptDialog2 = (PromptDialog) dialog;
-            promptDialog2.setMessage(ResUtils.getString(getActivity(), "lbspay_pay_guide_install_ali_pay_pkg_msg"));
-            promptDialog2.setCanceledOnTouchOutside(false);
-            promptDialog2.cancelPositiveBtnTextBold();
-            promptDialog2.setNegativeBtnTextColor(ResUtils.getColor(getActivity(), "lbspay_color_121C32"));
-            promptDialog2.setNegativeBtn(new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.9
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_INSTALL_CANCEL);
-                    WalletGlobalUtils.safeDismissDialog(LbSCashierActivity.this, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
-                }
-            });
-            promptDialog2.setPositiveBtnTextColor(ResUtils.getColor(getActivity(), "lbspay_color_121C32"));
-            promptDialog2.setPositiveBtn(ResUtils.getString(getActivity(), "lbspay_pay_guide_install_ali_pay_pkg_confirm"), new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.10
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_INSTALL_CONFIRM);
-                    WalletGlobalUtils.safeDismissDialog(LbSCashierActivity.this, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
-                    LbSCashierActivity.this.openSystemBrowser();
-                }
-            });
-        } else {
-            super.onPrepareDialog(i2, dialog);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i2, dialog) == null) {
+            if (i2 == 3) {
+                PromptDialog promptDialog = (PromptDialog) dialog;
+                promptDialog.setMessage(ResUtils.getString(this, "lbspay_pay_timeout_prompt"));
+                promptDialog.setCanceledOnTouchOutside(false);
+                promptDialog.hideNegativeButton();
+                promptDialog.setPositiveBtn(ResUtils.getString(this, "lbspay_make_sure_confirm"), new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LbSCashierActivity f2629a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f2629a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            WalletGlobalUtils.safeDismissDialog(this.f2629a, 3);
+                            this.f2629a.onBackPressed();
+                        }
+                    }
+                });
+            } else if (i2 == 61185) {
+                PromptMultiBtnDialog promptMultiBtnDialog = (PromptMultiBtnDialog) dialog;
+                promptMultiBtnDialog.setMessage(ResUtils.getString(getActivity(), "lbspay_pay_guide_dxm_wallet_pay_type_msg"));
+                promptMultiBtnDialog.setCanceledOnTouchOutside(false);
+                promptMultiBtnDialog.setFirstBtnTextBold();
+                promptMultiBtnDialog.setFirstBtn(ResUtils.getString(getActivity(), "lbspay_pay_use_dxm_wallet_pay_type"), new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.6
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LbSCashierActivity f2630a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f2630a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_CONFIRM);
+                            LbSCashierActivity lbSCashierActivity = this.f2630a;
+                            lbSCashierActivity.mBaseChannel = lbSCashierActivity.mSupportBaiFuBaoChannel;
+                            this.f2630a.mChannelListView.selectChannelById(this.f2630a.mBaseChannel.getChanelId());
+                            WalletGlobalUtils.safeDismissDialog(this.f2630a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
+                            this.f2630a.asyncGetPayAPI();
+                        }
+                    }
+                });
+                promptMultiBtnDialog.setSecondBtn(ResUtils.getString(getActivity(), "lbspay_pay_guide_install_ali_pay_pkg_confirm"), new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LbSCashierActivity f2631a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f2631a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_INSTALL_ALI_PAY_PKG);
+                            WalletGlobalUtils.safeDismissDialog(this.f2631a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
+                            this.f2631a.openSystemBrowser();
+                        }
+                    }
+                });
+                promptMultiBtnDialog.setThirdBtn(ResUtils.getString(getActivity(), "lbspay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LbSCashierActivity f2632a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f2632a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_CANCEL);
+                            WalletGlobalUtils.safeDismissDialog(this.f2632a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
+                        }
+                    }
+                });
+            } else if (i2 == 61186) {
+                PromptDialog promptDialog2 = (PromptDialog) dialog;
+                promptDialog2.setMessage(ResUtils.getString(getActivity(), "lbspay_pay_guide_install_ali_pay_pkg_msg"));
+                promptDialog2.setCanceledOnTouchOutside(false);
+                promptDialog2.cancelPositiveBtnTextBold();
+                promptDialog2.setNegativeBtnTextColor(ResUtils.getColor(getActivity(), "lbspay_color_121C32"));
+                promptDialog2.setNegativeBtn(new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LbSCashierActivity f2633a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f2633a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_INSTALL_CANCEL);
+                            WalletGlobalUtils.safeDismissDialog(this.f2633a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
+                        }
+                    }
+                });
+                promptDialog2.setPositiveBtnTextColor(ResUtils.getColor(getActivity(), "lbspay_color_121C32"));
+                promptDialog2.setPositiveBtn(ResUtils.getString(getActivity(), "lbspay_pay_guide_install_ali_pay_pkg_confirm"), new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.10
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LbSCashierActivity f2623a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f2623a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_INSTALL_CONFIRM);
+                            WalletGlobalUtils.safeDismissDialog(this.f2623a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
+                            this.f2623a.openSystemBrowser();
+                        }
+                    }
+                });
+            } else {
+                super.onPrepareDialog(i2, dialog);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onResume();
+        }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable(CashierDataNew.DELIVERY_CASHIER_DATA, this.mCashierData);
-        bundle.putSerializable(CASHIER_CONTENT, this.mCashierContent);
-        super.onSaveInstanceState(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
+            bundle.putSerializable(CashierDataNew.DELIVERY_CASHIER_DATA, this.mCashierData);
+            bundle.putSerializable(CASHIER_CONTENT, this.mCashierContent);
+            super.onSaveInstanceState(bundle);
+        }
     }
 
     @Override // com.baidu.android.lbspay.activity.LBSBaseActivity
     public void setBackButton() {
-        TitleBar titleBar = this.titleBar;
-        if (titleBar != null) {
-            titleBar.setLeftButton(new View.OnClickListener() { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.12
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    StatisticManager.onEvent(StatServiceEvent.LBS_TITLE_BACK);
-                    LbSCashierActivity.this.onBackPressed();
-                }
-            });
+        TitleBar titleBar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (titleBar = this.titleBar) == null) {
+            return;
         }
+        titleBar.setLeftButton(new View.OnClickListener(this) { // from class: com.baidu.android.lbspay.activity.LbSCashierActivity.12
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ LbSCashierActivity f2625a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f2625a = this;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    StatisticManager.onEvent(StatServiceEvent.LBS_TITLE_BACK);
+                    this.f2625a.onBackPressed();
+                }
+            }
+        });
     }
 }

@@ -3,24 +3,22 @@ package androidx.core.view;
 import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class DragStartHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mDragging;
     public int mLastTouchX;
     public int mLastTouchY;
     public final OnDragStartListener mListener;
-    public final View.OnLongClickListener mLongClickListener = new View.OnLongClickListener() { // from class: androidx.core.view.DragStartHelper.1
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            return DragStartHelper.this.onLongClick(view);
-        }
-    };
-    public final View.OnTouchListener mTouchListener = new View.OnTouchListener() { // from class: androidx.core.view.DragStartHelper.2
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            return DragStartHelper.this.onTouch(view, motionEvent);
-        }
-    };
+    public final View.OnLongClickListener mLongClickListener;
+    public final View.OnTouchListener mTouchListener;
     public final View mView;
 
     /* loaded from: classes.dex */
@@ -29,55 +27,145 @@ public class DragStartHelper {
     }
 
     public DragStartHelper(View view, OnDragStartListener onDragStartListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view, onDragStartListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mLongClickListener = new View.OnLongClickListener(this) { // from class: androidx.core.view.DragStartHelper.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DragStartHelper this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.view.View.OnLongClickListener
+            public boolean onLongClick(View view2) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? this.this$0.onLongClick(view2) : invokeL.booleanValue;
+            }
+        };
+        this.mTouchListener = new View.OnTouchListener(this) { // from class: androidx.core.view.DragStartHelper.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DragStartHelper this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) ? this.this$0.onTouch(view2, motionEvent) : invokeLL.booleanValue;
+            }
+        };
         this.mView = view;
         this.mListener = onDragStartListener;
     }
 
     public void attach() {
-        this.mView.setOnLongClickListener(this.mLongClickListener);
-        this.mView.setOnTouchListener(this.mTouchListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mView.setOnLongClickListener(this.mLongClickListener);
+            this.mView.setOnTouchListener(this.mTouchListener);
+        }
     }
 
     public void detach() {
-        this.mView.setOnLongClickListener(null);
-        this.mView.setOnTouchListener(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mView.setOnLongClickListener(null);
+            this.mView.setOnTouchListener(null);
+        }
     }
 
     public void getTouchPosition(Point point) {
-        point.set(this.mLastTouchX, this.mLastTouchY);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, point) == null) {
+            point.set(this.mLastTouchX, this.mLastTouchY);
+        }
     }
 
     public boolean onLongClick(View view) {
-        return this.mListener.onDragStart(view, this);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) ? this.mListener.onDragStart(view, this) : invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x0018, code lost:
-        if (r2 != 3) goto L9;
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x001c, code lost:
+        if (r2 != 3) goto L11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        int action = motionEvent.getAction();
-        if (action != 0) {
-            if (action != 1) {
-                if (action == 2) {
-                    if (MotionEventCompat.isFromSource(motionEvent, 8194) && (motionEvent.getButtonState() & 1) != 0 && !this.mDragging && (this.mLastTouchX != x || this.mLastTouchY != y)) {
-                        this.mLastTouchX = x;
-                        this.mLastTouchY = y;
-                        boolean onDragStart = this.mListener.onDragStart(view, this);
-                        this.mDragging = onDragStart;
-                        return onDragStart;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, motionEvent)) == null) {
+            int x = (int) motionEvent.getX();
+            int y = (int) motionEvent.getY();
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        if (MotionEventCompat.isFromSource(motionEvent, 8194) && (motionEvent.getButtonState() & 1) != 0 && !this.mDragging && (this.mLastTouchX != x || this.mLastTouchY != y)) {
+                            this.mLastTouchX = x;
+                            this.mLastTouchY = y;
+                            boolean onDragStart = this.mListener.onDragStart(view, this);
+                            this.mDragging = onDragStart;
+                            return onDragStart;
+                        }
                     }
                 }
+                this.mDragging = false;
+            } else {
+                this.mLastTouchX = x;
+                this.mLastTouchY = y;
             }
-            this.mDragging = false;
-        } else {
-            this.mLastTouchX = x;
-            this.mLastTouchY = y;
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 }

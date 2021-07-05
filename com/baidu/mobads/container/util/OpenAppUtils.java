@@ -10,58 +10,105 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OpenAppUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_WTAI_MC = "wtai://wp/mc;";
-    public static String[] browserArr = {"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", WebViewFactory.CHROMIUM_HOST_APP, "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", "com.baidu.searchbox"};
+    public static String[] browserArr;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(698250003, "Lcom/baidu/mobads/container/util/OpenAppUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(698250003, "Lcom/baidu/mobads/container/util/OpenAppUtils;");
+                return;
+            }
+        }
+        browserArr = new String[]{"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", WebViewFactory.CHROMIUM_HOST_APP, "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", "com.baidu.searchbox"};
+    }
+
+    public OpenAppUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     @TargetApi(3)
     public static void browserOutside(Context context, String str) {
-        if (str.startsWith(SCHEME_WTAI_MC)) {
-            str = "tel:" + str.substring(13);
-        }
-        try {
-            try {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                if (AdURIUtils.isHttpProtocol(str).booleanValue()) {
-                    String bestBrowser = getBestBrowser(context);
-                    if (!bestBrowser.equals("")) {
-                        intent = context.getPackageManager().getLaunchIntentForPackage(bestBrowser);
-                        intent.setData(Uri.parse(str));
-                        intent.setAction("android.intent.action.VIEW");
-                    }
-                } else if (AdURIUtils.isMessageProtocol(str).booleanValue()) {
-                    intent.setType("vnd.android-dir/mms-sms");
-                    intent.putExtra("address", str.substring(4, str.indexOf(63) > 0 ? str.indexOf(63) : str.length()));
-                    int indexOf = str.indexOf("body=") + 5;
-                    if (indexOf > 5) {
-                        int indexOf2 = str.indexOf(38, indexOf);
-                        if (indexOf2 <= 0) {
-                            indexOf2 = str.length();
-                        }
-                        intent.putExtra("sms_body", Uri.decode(str.substring(indexOf, indexOf2)));
-                    }
-                }
-                if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
-                    context.startActivity(intent);
-                }
-            } catch (Exception e2) {
-                RemoteXAdLogger.getInstance().d("XAdCommonUtils.browserOutside 2", str, e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            if (str.startsWith(SCHEME_WTAI_MC)) {
+                str = "tel:" + str.substring(13);
             }
-        } catch (Exception unused) {
-            Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            context.startActivity(intent2);
+            try {
+                try {
+                    Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                    if (AdURIUtils.isHttpProtocol(str).booleanValue()) {
+                        String bestBrowser = getBestBrowser(context);
+                        if (!bestBrowser.equals("")) {
+                            intent = context.getPackageManager().getLaunchIntentForPackage(bestBrowser);
+                            intent.setData(Uri.parse(str));
+                            intent.setAction("android.intent.action.VIEW");
+                        }
+                    } else if (AdURIUtils.isMessageProtocol(str).booleanValue()) {
+                        intent.setType("vnd.android-dir/mms-sms");
+                        intent.putExtra("address", str.substring(4, str.indexOf(63) > 0 ? str.indexOf(63) : str.length()));
+                        int indexOf = str.indexOf("body=") + 5;
+                        if (indexOf > 5) {
+                            int indexOf2 = str.indexOf(38, indexOf);
+                            if (indexOf2 <= 0) {
+                                indexOf2 = str.length();
+                            }
+                            intent.putExtra("sms_body", Uri.decode(str.substring(indexOf, indexOf2)));
+                        }
+                    }
+                    if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
+                        context.startActivity(intent);
+                    }
+                } catch (Exception e2) {
+                    RemoteXAdLogger.getInstance().d("XAdCommonUtils.browserOutside 2", str, e2);
+                }
+            } catch (Exception unused) {
+                Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                context.startActivity(intent2);
+            }
         }
     }
 
     @TargetApi(3)
     public static String getBestBrowser(Context context) {
         int i2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
+            return (String) invokeL.objValue;
+        }
         try {
             PackageManager packageManager = context.getPackageManager();
             ArrayList arrayList = new ArrayList();
@@ -121,11 +168,14 @@ public class OpenAppUtils {
     }
 
     public static void openApp(Context context, String str) {
-        try {
-            Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
-            launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            context.startActivity(launchIntentForPackage);
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, context, str) == null) {
+            try {
+                Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
+                launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                context.startActivity(launchIntentForPackage);
+            } catch (Exception unused) {
+            }
         }
     }
 }

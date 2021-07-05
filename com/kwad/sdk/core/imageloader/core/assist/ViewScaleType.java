@@ -1,17 +1,42 @@
 package com.kwad.sdk.core.imageloader.core.assist;
 
 import android.widget.ImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes7.dex */
-public enum ViewScaleType {
-    FIT_INSIDE,
-    CROP;
+public final class ViewScaleType {
+    public static final /* synthetic */ ViewScaleType[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final ViewScaleType CROP;
+    public static final ViewScaleType FIT_INSIDE;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.assist.ViewScaleType$1  reason: invalid class name */
     /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1093550661, "Lcom/kwad/sdk/core/imageloader/core/assist/ViewScaleType$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1093550661, "Lcom/kwad/sdk/core/imageloader/core/assist/ViewScaleType$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[ImageView.ScaleType.values().length];
             $SwitchMap$android$widget$ImageView$ScaleType = iArr;
             try {
@@ -49,8 +74,63 @@ public enum ViewScaleType {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1605605400, "Lcom/kwad/sdk/core/imageloader/core/assist/ViewScaleType;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1605605400, "Lcom/kwad/sdk/core/imageloader/core/assist/ViewScaleType;");
+                return;
+            }
+        }
+        FIT_INSIDE = new ViewScaleType("FIT_INSIDE", 0);
+        ViewScaleType viewScaleType = new ViewScaleType("CROP", 1);
+        CROP = viewScaleType;
+        $VALUES = new ViewScaleType[]{FIT_INSIDE, viewScaleType};
+    }
+
+    public ViewScaleType(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static ViewScaleType fromImageView(ImageView imageView) {
-        int i2 = AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
-        return (i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) ? FIT_INSIDE : CROP;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageView)) == null) {
+            int i2 = AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
+            return (i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) ? FIT_INSIDE : CROP;
+        }
+        return (ViewScaleType) invokeL.objValue;
+    }
+
+    public static ViewScaleType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ViewScaleType) Enum.valueOf(ViewScaleType.class, str) : (ViewScaleType) invokeL.objValue;
+    }
+
+    public static ViewScaleType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ViewScaleType[]) $VALUES.clone() : (ViewScaleType[]) invokeV.objValue;
     }
 }

@@ -3,11 +3,21 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.n0.r.q.a2;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.b2;
+/* loaded from: classes4.dex */
 public class PbVideoActivityConfig extends IntentConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
     public static final String BIG_PIC_NAME = "big_pic_type";
     public static final String FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
@@ -78,19 +88,52 @@ public class PbVideoActivityConfig extends IntentConfig {
     public static final String VALUE_FROM_FRS = "FrsActivity";
     public static final String VALUE_FROM_HOT_TOPIC = "HotTopicActivity";
     public static final String VALUE_FROM_MAINTAB = "MainTabActivity";
+    public transient /* synthetic */ FieldHolder $fh;
     public String key_video_source_value;
     public final Context mContext;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1635242264, "Lcom/baidu/tbadk/core/atomData/PbVideoActivityConfig;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1635242264, "Lcom/baidu/tbadk/core/atomData/PbVideoActivityConfig;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoActivityConfig(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.key_video_source_value = "";
         this.mContext = context;
     }
 
     private void addMoreIntentExtraParam() {
+        Intent intent;
         Context context;
-        Intent intent = getIntent();
-        if (intent == null || (context = this.mContext) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (intent = getIntent()) == null || (context = this.mContext) == null) {
             return;
         }
         String simpleName = context.getClass().getSimpleName();
@@ -112,117 +155,237 @@ public class PbVideoActivityConfig extends IntentConfig {
     }
 
     public PbVideoActivityConfig addLocateParam(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("locate", str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                intent.putExtra("locate", str);
+            }
+            return this;
         }
-        return this;
+        return (PbVideoActivityConfig) invokeL.objValue;
     }
 
     public PbVideoActivityConfig createCfgForPbChosen(String str, int i2) {
-        if (str == null) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("praise_data", i2);
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("praise_data", i2);
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLI.objValue;
     }
 
     public PbVideoActivityConfig createCfgForPersonCenter(String str, String str2, String str3, int i2) {
-        if (str == null) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, i2)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("is_start_for_result", "1");
+            intent.putExtra("request_code", i2);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("is_start_for_result", "1");
-        intent.putExtra("request_code", i2);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLLLI.objValue;
     }
 
     public PbVideoActivityConfig createFromInterviewCfg(String str, String str2, int i2, int i3) {
-        if (str == null) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, str, str2, i2, i3)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("is_top", i2);
+            intent.putExtra("is_good", i3);
+            intent.putExtra("from", str2);
+            intent.putExtra("is_from_interview_live_config", true);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str2)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("is_top", i2);
-        intent.putExtra("is_good", i3);
-        intent.putExtra("from", str2);
-        intent.putExtra("is_from_interview_live_config", true);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str2)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLLII.objValue;
     }
 
-    public PbVideoActivityConfig createFromThreadCfg(a2 a2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
-        if (a2Var == null) {
+    public PbVideoActivityConfig createFromThreadCfg(b2 b2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{b2Var, str, str2, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (b2Var == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", b2Var.n1());
+            intent.putExtra("is_good", b2Var.l0());
+            intent.putExtra("is_top", b2Var.m0());
+            intent.putExtra("thread_time", b2Var.q0());
+            intent.putExtra("st_type", str2);
+            intent.putExtra("squence", z);
+            intent.putExtra("host_only", z2);
+            intent.putExtra("is_ad", z3);
+            intent.putExtra("from_forum_name", str);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            intent.putExtra("is_start_for_result", "1");
+            intent.putExtra("request_code", i2);
+            intent.putExtra("is_from_thread_config", true);
+            long num = b2Var.G0() == null ? 0L : b2Var.G0().getNum();
+            intent.putExtra("extra_pb_cache_key", "zan=" + num);
+            if (b2Var.H() != null && b2Var.H().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", b2Var.H().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", b2Var.H().getGodUserData().getIsLike());
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", a2Var.z1());
-        intent.putExtra("is_good", a2Var.x0());
-        intent.putExtra("is_top", a2Var.y0());
-        intent.putExtra("thread_time", a2Var.C0());
-        intent.putExtra("st_type", str2);
-        intent.putExtra("squence", z);
-        intent.putExtra("host_only", z2);
-        intent.putExtra("is_ad", z3);
-        intent.putExtra("from_forum_name", str);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra("is_start_for_result", "1");
-        intent.putExtra("request_code", i2);
-        intent.putExtra("is_from_thread_config", true);
-        long num = a2Var.R0() == null ? 0L : a2Var.R0().getNum();
-        intent.putExtra("extra_pb_cache_key", "zan=" + num);
-        if (a2Var.T() != null && a2Var.T().getGodUserData().getId() != null) {
-            intent.putExtra("extra_pb_funs_count_key", a2Var.T().getFansNum());
-            intent.putExtra("extra_pb_is_attention_key", a2Var.T().getGodUserData().getIsLike());
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeCommon.objValue;
     }
 
     public PbVideoActivityConfig createGodHistoryCfg(String str, String str2, boolean z, boolean z2, String str3, boolean z3, int i2) {
-        Intent intent = getIntent();
-        intent.putExtra("is_good", i2);
-        intent.putExtra("is_top", z3);
-        intent.putExtra("is_from_my_god_config", true);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        return createHistoryCfg(str, str2, z, z2, str3);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3, Boolean.valueOf(z3), Integer.valueOf(i2)})) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("is_good", i2);
+            intent.putExtra("is_top", z3);
+            intent.putExtra("is_from_my_god_config", true);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            return createHistoryCfg(str, str2, z, z2, str3);
+        }
+        return (PbVideoActivityConfig) invokeCommon.objValue;
     }
 
     public PbVideoActivityConfig createHistoryCfg(String str, String str2, boolean z, boolean z2, String str3) {
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("host_only", z);
-        intent.putExtra("squence", z2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("host_only", z);
+            intent.putExtra("squence", z2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
+        }
+        return (PbVideoActivityConfig) invokeCommon.objValue;
     }
 
     public PbVideoActivityConfig createMangaCfg(String str, String str2, String str3, String str4, int i2, int i3, boolean z, boolean z2, boolean z3) {
-        Intent intent = getIntent();
-        if (intent != null) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                intent.putExtra("thread_id", str);
+                intent.putExtra("post_id", str2);
+                intent.putExtra("st_type", str3);
+                intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+                if (!(this.mContext instanceof Activity)) {
+                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                }
+                intent.putExtra("key_manga_title", str4);
+                intent.putExtra("key_manga_prev_chapter", i2);
+                intent.putExtra("key_manga_next_chapter", i3);
+                intent.putExtra("key_manga_is_pre_chapter_vip", z);
+                intent.putExtra("key_manga_is_next_chapter_vip", z2);
+                intent.putExtra("key_manga_is_user_vip", z3);
+                addMoreIntentExtraParam();
+            }
+            return this;
+        }
+        return (PbVideoActivityConfig) invokeCommon.objValue;
+    }
+
+    public PbVideoActivityConfig createMarkCfg(String str, String str2, boolean z, boolean z2, String str3, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3, Integer.valueOf(i2)})) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("host_only", z);
+            intent.putExtra("squence", z2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("from_mark", true);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            intent.putExtra("is_start_for_result", "1");
+            intent.putExtra("request_code", i2);
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
+        }
+        return (PbVideoActivityConfig) invokeCommon.objValue;
+    }
+
+    public PbVideoActivityConfig createMessageCfg(String str, String str2, String str3, long j, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5, str6})) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("is_pv", true);
+            intent.putExtra("msg_id", j);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (str4 != null) {
+                intent.putExtra("op_url", str4);
+            }
+            if (str5 != null) {
+                intent.putExtra("op_stat", str5);
+            }
+            if (str6 != null) {
+                intent.putExtra("op_type", str6);
+            }
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
+        }
+        return (PbVideoActivityConfig) invokeCommon.objValue;
+    }
+
+    public PbVideoActivityConfig createNormalCfg(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, str2, str3)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
             intent.putExtra("thread_id", str);
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
@@ -230,260 +393,253 @@ public class PbVideoActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
-            intent.putExtra("key_manga_title", str4);
-            intent.putExtra("key_manga_prev_chapter", i2);
-            intent.putExtra("key_manga_next_chapter", i3);
-            intent.putExtra("key_manga_is_pre_chapter_vip", z);
-            intent.putExtra("key_manga_is_next_chapter_vip", z2);
-            intent.putExtra("key_manga_is_user_vip", z3);
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
-        }
-        return this;
-    }
-
-    public PbVideoActivityConfig createMarkCfg(String str, String str2, boolean z, boolean z2, String str3, int i2) {
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("host_only", z);
-        intent.putExtra("squence", z2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("from_mark", true);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra("is_start_for_result", "1");
-        intent.putExtra("request_code", i2);
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
-    }
-
-    public PbVideoActivityConfig createMessageCfg(String str, String str2, String str3, long j, String str4, String str5, String str6) {
-        if (str == null) {
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("is_pv", true);
-        intent.putExtra("msg_id", j);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (str4 != null) {
-            intent.putExtra("op_url", str4);
-        }
-        if (str5 != null) {
-            intent.putExtra("op_stat", str5);
-        }
-        if (str6 != null) {
-            intent.putExtra("op_type", str6);
-        }
-        if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
-    }
-
-    public PbVideoActivityConfig createNormalCfg(String str, String str2, String str3) {
-        if (str == null) {
-            return this;
-        }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLLL.objValue;
     }
 
     public PbVideoActivityConfig createSubPbCfg(String str, String str2, String str3) {
-        if (str == null) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, str, str2, str3)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("is_sub_pb", true);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("is_sub_pb", true);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLLL.objValue;
     }
 
     public PbVideoActivityConfig createViewTypeCfg(String str, boolean z, boolean z2, String str2) {
-        if (str == null) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2})) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("st_type", str2);
+            intent.putExtra("host_only", z);
+            intent.putExtra("squence", z2);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("st_type", str2);
-        intent.putExtra("host_only", z);
-        intent.putExtra("squence", z2);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeCommon.objValue;
     }
 
     public PbVideoActivityConfig disablePbKeyPostId() {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("is_pb_key_need_post_id", true);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                intent.putExtra("is_pb_key_need_post_id", true);
+            }
+            return this;
         }
-        return this;
+        return (PbVideoActivityConfig) invokeV.objValue;
     }
 
     public void setForumId(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("forum_id", str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("forum_id", str);
     }
 
     public void setForumName(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("from_forum_name", str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("from_forum_name", str);
     }
 
     public void setFrom(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("from", str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("from", str);
     }
 
     public void setFromPushNotify() {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, true);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, true);
     }
 
     public void setFromSmartFrs(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("from_smart_frs", z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("from_smart_frs", z);
     }
 
     public void setJumpGodReply(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("key_jump_to_god_reply", z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("key_jump_to_god_reply", z);
     }
 
     public void setJumpToCommentArea(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("key_jump_to_comment_area", z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("key_jump_to_comment_area", z);
     }
 
     public void setNeedRepostRecommendForum(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", z);
     }
 
     public void setPostThreadTip(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("KEY_POST_THREAD_TIP", str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("KEY_POST_THREAD_TIP", str);
     }
 
     public void setSmartFrsPosition(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("KEY_SMART_FRS_POSITION", i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("KEY_SMART_FRS_POSITION", i2);
     }
 
     public void setStartFrom(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("key_start_from", i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048603, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("key_start_from", i2);
     }
 
     public void setUserName(String str) {
-        getIntent().putExtra("big_pic_type", str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            getIntent().putExtra("big_pic_type", str);
+        }
     }
 
     public void setVideo_source(String str) {
-        this.key_video_source_value = str;
-        getIntent().putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.key_video_source_value = str;
+            getIntent().putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+        }
     }
 
     public PbVideoActivityConfig createNormalCfg(String str, String str2, int i2, String str3) {
-        if (str == null) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048586, this, str, str2, i2, str3)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("thread_type", i2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("thread_type", i2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLLIL.objValue;
     }
 
     public PbVideoActivityConfig createNormalCfg(String str, String str2, String str3, String str4) {
-        if (str == null) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, str2, str3, str4)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("from", str4);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str4)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("from", str4);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str4)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLLLL.objValue;
     }
 
     public PbVideoActivityConfig createNormalCfg(String str, String str2, String str3, String str4, String str5) {
-        if (str == null) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048589, this, str, str2, str3, str4, str5)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("from", str4);
+            intent.putExtra("query_word", str5);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
             return this;
         }
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("from", str4);
-        intent.putExtra("query_word", str5);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
+        return (PbVideoActivityConfig) invokeLLLLL.objValue;
     }
 }

@@ -97,7 +97,7 @@ public class MessageV3 implements Parcelable {
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
-        d.j.a.a.a.b(TAG, "V2 message " + mPushMessage);
+        d.h.a.a.a.b(TAG, "V2 message " + mPushMessage);
         MessageV3 messageV3 = new MessageV3();
         messageV3.setPackageName(str);
         messageV3.setUploadDataPackageName(str);
@@ -134,11 +134,11 @@ public class MessageV3 implements Parcelable {
         }
         messageV3.setParamsMap(mPushMessage.getParams());
         String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
-        d.j.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
+        d.h.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
         }
-        d.j.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
+        d.h.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
     }
 
@@ -183,7 +183,7 @@ public class MessageV3 implements Parcelable {
                     messageV3.setWebUrl(jSONObject2.getString("url"));
                 }
                 if (!jSONObject2.isNull("task_id") && TextUtils.isEmpty(str3)) {
-                    d.j.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
+                    d.h.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
                 if (!jSONObject2.isNull("pk")) {
@@ -194,7 +194,7 @@ public class MessageV3 implements Parcelable {
                 }
             }
         } catch (JSONException e2) {
-            d.j.a.a.a.b(TAG, "parse message error " + e2.getMessage());
+            d.h.a.a.a.b(TAG, "parse message error " + e2.getMessage());
         }
         return messageV3;
     }

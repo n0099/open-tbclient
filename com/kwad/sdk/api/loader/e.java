@@ -3,8 +3,14 @@ package com.kwad.sdk.api.loader;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
@@ -19,19 +25,21 @@ import java.net.URLConnection;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32427a;
+    public String f34190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32428b;
+    public String f34191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32429c;
+    public int f34192c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -39,136 +47,160 @@ public class e {
     }
 
     public e(String str) {
-        this.f32428b = str;
-        this.f32427a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f34191b = str;
+        this.f34190a = str;
     }
 
     private String a() {
+        InterceptResult invokeV;
         int i2;
-        Context context = Loader.get().getContext();
-        int i3 = com.kwad.sdk.api.a.f32388a;
-        String valueOf = String.valueOf(Loader.get().a(context));
-        IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
-        if (ksAdSDKImpl != null) {
-            if (TextUtils.isEmpty(valueOf)) {
-                valueOf = ksAdSDKImpl.getSDKVersion();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            Context context = Loader.get().getContext();
+            int i3 = com.kwad.sdk.api.a.f34151a;
+            String valueOf = String.valueOf(Loader.get().a(context));
+            IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
+            if (ksAdSDKImpl != null) {
+                if (TextUtils.isEmpty(valueOf)) {
+                    valueOf = ksAdSDKImpl.getSDKVersion();
+                }
+                i2 = ksAdSDKImpl.getSDKVersionCode();
+            } else {
+                i2 = -1;
             }
-            i2 = ksAdSDKImpl.getSDKVersionCode();
-        } else {
-            i2 = -1;
+            JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
+            JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
+            JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("sdkApiVersion", "3.3.9");
+                jSONObject.put("sdkApiVersionCode", 3030900);
+                jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
+                jSONObject.put("SDKVersionCode", i2);
+                jSONObject.put("sdkType", i3);
+                jSONObject.put(DI.APP_INFO_NAME, appInfo);
+                jSONObject.put("deviceInfo", deviceInfo);
+                jSONObject.put("networkInfo", networkInfo);
+                jSONObject.put("sdkAbi", s.b());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject.toString();
         }
-        JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
-        JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
-        JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("sdkApiVersion", "3.3.9");
-            jSONObject.put("sdkApiVersionCode", 3030900);
-            jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
-            jSONObject.put("SDKVersionCode", i2);
-            jSONObject.put("sdkType", i3);
-            jSONObject.put(DI.APP_INFO_NAME, appInfo);
-            jSONObject.put("deviceInfo", deviceInfo);
-            jSONObject.put("networkInfo", networkInfo);
-            jSONObject.put("sdkAbi", s.b());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        return jSONObject.toString();
+        return (String) invokeV.objValue;
     }
 
     public static String a(InputStream inputStream) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[1024];
-        while (true) {
-            try {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
                 try {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
+                    try {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        try {
+                            byteArrayOutputStream.close();
+                            return null;
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                            return null;
+                        }
                     }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } catch (Throwable th) {
+                } finally {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                    throw th;
-                }
-            } catch (IOException e4) {
-                e4.printStackTrace();
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
                     }
                 }
-                try {
-                    byteArrayOutputStream.close();
-                    return null;
-                } catch (IOException e6) {
-                    e6.printStackTrace();
-                    return null;
-                }
             }
+            return new String(byteArrayOutputStream.toByteArray());
         }
-        String str = new String(byteArrayOutputStream.toByteArray());
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e7) {
-                e7.printStackTrace();
-            }
-        }
-        try {
-            byteArrayOutputStream.close();
-        } catch (IOException e8) {
-            e8.printStackTrace();
-        }
-        return str;
+        return (String) invokeL.objValue;
     }
 
     private URLConnection a(String str, int i2, int i3, boolean z) {
-        URLConnection openConnection = new URL(str).openConnection();
-        openConnection.setRequestProperty("Accept-Language", "zh-CN");
-        if (i2 > 0) {
-            openConnection.setConnectTimeout(i2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+            URLConnection openConnection = new URL(str).openConnection();
+            openConnection.setRequestProperty("Accept-Language", "zh-CN");
+            if (i2 > 0) {
+                openConnection.setConnectTimeout(i2);
+            }
+            if (i3 > 0) {
+                openConnection.setReadTimeout(i3);
+            }
+            openConnection.setUseCaches(z);
+            openConnection.setDoInput(true);
+            openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+            return openConnection;
         }
-        if (i3 > 0) {
-            openConnection.setReadTimeout(i3);
-        }
-        openConnection.setUseCaches(z);
-        openConnection.setDoInput(true);
-        openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-        openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-        return openConnection;
+        return (URLConnection) invokeCommon.objValue;
     }
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f32427a)) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (TextUtils.isEmpty(this.f34190a)) {
+                return null;
+            }
+            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f34190a, 10000, 30000, false);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setInstanceFollowRedirects(true);
+            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            httpURLConnection.setRequestProperty("User-Agent", RequestParamsUtils.getUserAgent());
+            return httpURLConnection;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f32427a, 10000, 30000, false);
-        httpURLConnection.setRequestMethod("POST");
-        httpURLConnection.setDoOutput(true);
-        httpURLConnection.setInstanceFollowRedirects(true);
-        httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-        httpURLConnection.setRequestProperty("User-Agent", RequestParamsUtils.getUserAgent());
-        return httpURLConnection;
+        return (HttpURLConnection) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) != null) {
+            return;
+        }
         HttpURLConnection httpURLConnection = null;
         try {
             try {
@@ -184,9 +216,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f32429c < 21) {
-                        this.f32427a = httpURLConnection.getHeaderField("Location");
-                        this.f32429c++;
+                    } else if (this.f34192c < 21) {
+                        this.f34190a = httpURLConnection.getHeaderField("Location");
+                        this.f34192c++;
                         b(aVar);
                     }
                 }
@@ -214,12 +246,46 @@ public class e {
         }
     }
 
-    public void a(final a aVar) {
-        i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.e.1
-            @Override // java.lang.Runnable
-            public void run() {
-                e.this.b(aVar);
-            }
-        });
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            i.a(new Runnable(this, aVar) { // from class: com.kwad.sdk.api.loader.e.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ a f34193a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ e f34194b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f34194b = this;
+                    this.f34193a = aVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f34194b.b(this.f34193a);
+                    }
+                }
+            });
+        }
     }
 }

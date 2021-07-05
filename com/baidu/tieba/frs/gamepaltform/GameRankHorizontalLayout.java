@@ -9,96 +9,151 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GameRankHorizontalLayout extends HorizontalScrollView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15593e;
+    public LinearLayout f15681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f15594f;
+    public b f15682f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.o0.u0.a f15595e;
+        public final /* synthetic */ d.a.s0.x0.a f15683e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f15596f;
+        public final /* synthetic */ int f15684f;
 
-        public a(d.a.o0.u0.a aVar, int i2) {
-            this.f15595e = aVar;
-            this.f15596f = i2;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ GameRankHorizontalLayout f15685g;
+
+        public a(GameRankHorizontalLayout gameRankHorizontalLayout, d.a.s0.x0.a aVar, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameRankHorizontalLayout, aVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15685g = gameRankHorizontalLayout;
+            this.f15683e = aVar;
+            this.f15684f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (GameRankHorizontalLayout.this.f15594f != null) {
-                GameRankHorizontalLayout.this.f15594f.a(this.f15595e, this.f15596f);
-                if (d.a.n0.r.d0.b.j().k("game_rank_list_show_times", 0) != 0) {
-                    d.a.n0.r.d0.b.j().v("game_rank_list_show_times", 0);
-                }
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15685g.f15682f == null) {
+                return;
+            }
+            this.f15685g.f15682f.a(this.f15683e, this.f15684f);
+            if (d.a.r0.r.d0.b.j().k("game_rank_list_show_times", 0) != 0) {
+                d.a.r0.r.d0.b.j().v("game_rank_list_show_times", 0);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(d.a.o0.u0.a aVar, int i2);
+        void a(d.a.s0.x0.a aVar, int i2);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRankHorizontalLayout(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         b(context);
     }
 
     public final void b(Context context) {
-        setFillViewport(true);
-        setHorizontalScrollBarEnabled(false);
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.f15593e = linearLayout;
-        addView(linearLayout, -1, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setFillViewport(true);
+            setHorizontalScrollBarEnabled(false);
+            LinearLayout linearLayout = new LinearLayout(context);
+            this.f15681e = linearLayout;
+            addView(linearLayout, -1, -1);
+        }
     }
 
-    public final View c(d.a.o0.u0.a aVar, int i2) {
+    public final View c(d.a.s0.x0.a aVar, int i2) {
+        InterceptResult invokeLI;
         RoundAngleRelativeLayout roundAngleRelativeLayout;
-        if (aVar == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            if (!StringUtils.isNull(aVar.b())) {
+                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.game_rank_week_card, (ViewGroup) null);
+                roundAngleRelativeLayout.setRadius(4.0f);
+                HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
+                headImageView.setIsRound(true);
+                headImageView.M(aVar.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.week_card_bg)).M(aVar.b(), 10, false);
+            } else {
+                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.game_rank_normal_card, (ViewGroup) null);
+                roundAngleRelativeLayout.setRadius(4.0f);
+                HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
+                headImageView2.setIsRound(true);
+                headImageView2.M(aVar.f(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.normal_card_bg)).M(aVar.f(), 10, false);
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(aVar.e());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_title)).setText(aVar.g());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_rank)).setText(getContext().getString(R.string.game_rank_no, aVar.d()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_des)).setText(aVar.a());
+            }
+            if (roundAngleRelativeLayout != null) {
+                roundAngleRelativeLayout.setOnClickListener(new a(this, aVar, i2));
+            }
+            return roundAngleRelativeLayout;
         }
-        if (!StringUtils.isNull(aVar.b())) {
-            roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.game_rank_week_card, (ViewGroup) null);
-            roundAngleRelativeLayout.setRadius(4.0f);
-            HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
-            headImageView.setIsRound(true);
-            headImageView.U(aVar.b(), 10, false);
-            ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.week_card_bg)).U(aVar.b(), 10, false);
-        } else {
-            roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.game_rank_normal_card, (ViewGroup) null);
-            roundAngleRelativeLayout.setRadius(4.0f);
-            HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
-            headImageView2.setIsRound(true);
-            headImageView2.U(aVar.f(), 10, false);
-            ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.normal_card_bg)).U(aVar.f(), 10, false);
-            ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(aVar.e());
-            ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_title)).setText(aVar.g());
-            ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_rank)).setText(getContext().getString(R.string.game_rank_no, aVar.d()));
-            ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_des)).setText(aVar.a());
-        }
-        if (roundAngleRelativeLayout != null) {
-            roundAngleRelativeLayout.setOnClickListener(new a(aVar, i2));
-        }
-        return roundAngleRelativeLayout;
+        return (View) invokeLI.objValue;
     }
 
-    public void setData(d.a.o0.u0.b bVar) {
-        LinearLayout linearLayout = this.f15593e;
-        if (linearLayout == null || bVar == null) {
+    public void setData(d.a.s0.x0.b bVar) {
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f15681e) == null || bVar == null) {
             return;
         }
         linearLayout.removeAllViews();
@@ -119,21 +174,58 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 layoutParams.rightMargin = 0;
             }
             c2.setLayoutParams(layoutParams);
-            this.f15593e.addView(c2);
+            this.f15681e.addView(c2);
         }
     }
 
     public void setOnCardClickListener(b bVar) {
-        this.f15594f = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.f15682f = bVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRankHorizontalLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         b(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRankHorizontalLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         b(context);
     }
 }

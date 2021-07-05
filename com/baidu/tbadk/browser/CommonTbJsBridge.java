@@ -11,6 +11,7 @@ import android.util.SparseArray;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,7 +19,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.DocumentOpenUtil;
+import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
@@ -66,21 +70,27 @@ import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.tieba.quickWebView.message.WebViewCacheReqMsg;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.TriState;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import com.tencent.connect.common.Constants;
 import com.vivo.push.PushClientConstants;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
-import d.a.n0.a.y;
-import d.a.n0.f0.h;
-import d.a.n0.r.s.i;
-import d.a.n0.s.d.f;
-import d.a.n0.t.l;
-import d.a.n0.v.d;
-import d.a.n0.z0.q;
+import d.a.r0.a.y;
+import d.a.r0.f0.h;
+import d.a.r0.r.s.i;
+import d.a.r0.s.d.f;
+import d.a.r0.t.l;
+import d.a.r0.v.d;
+import d.a.r0.z0.q;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -91,8 +101,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @d.a.e.a.a
-/* loaded from: classes3.dex */
-public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
+/* loaded from: classes4.dex */
+public class CommonTbJsBridge implements d.a.s0.h3.l0.b {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_SKIN_TYPE = "changeSkinType";
     public static final String CHECK_APP_INSTALL = "checkAppInstall";
     public static final String CLICK_GO_BACK_TO_H5 = "clickGoBackToH5";
@@ -156,9 +167,10 @@ public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
     public static final String THREAD_MEZZANINE_FLOOR = "3";
     public static final String TOAST_POPUPVIEW = "toastPopupView";
     public static final String UPDATE_OFFLINE_BUNDLE = "updateOfflineBundle";
-    public static String tempUrl = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
+    public static String tempUrl;
+    public transient /* synthetic */ FieldHolder $fh;
     public final String SHOW_MORE_FORUM_ICON;
-    public d.a.o0.e3.l0.a jsPromptBridge;
+    public d.a.s0.h3.l0.a jsPromptBridge;
     public final Context mContext;
     public long mLastLoadUrlTime;
     public PermissionJudgePolicy mPermissionJudgement;
@@ -168,86 +180,191 @@ public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
     public String shakeCallbackjsMethod;
     public ShareItem shareItem;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements y.b {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CommonTbJsBridge f12118a;
+
+        public a(CommonTbJsBridge commonTbJsBridge) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {commonTbJsBridge};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12118a = commonTbJsBridge;
         }
 
-        @Override // d.a.n0.a.y.b
+        @Override // d.a.r0.a.y.b
         public void a() {
-            if (TextUtils.isEmpty(CommonTbJsBridge.this.shakeCallbackjsMethod)) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f12118a.shakeCallbackjsMethod)) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-                CommonTbJsBridge.this.callJsMethod(CommonTbJsBridge.this.shakeCallbackjsMethod, jSONObject);
+                this.f12118a.callJsMethod(this.f12118a.shakeCallbackjsMethod, jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends q.a {
-        public b() {
-        }
-
-        @Override // d.a.n0.z0.q.a
-        public void onError(int i2, String str) {
-            if (CommonTbJsBridge.this.jsPromptBridge != null) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("result", -1);
-                CommonTbJsBridge.this.jsPromptBridge.h(CommonTbJsBridge.this.mWebView, "saveImageSuccess", linkedHashMap);
-            }
-        }
-
-        @Override // d.a.n0.z0.q.a
-        public void onSuccess(String str) {
-            if (CommonTbJsBridge.this.jsPromptBridge != null) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("result", 0);
-                CommonTbJsBridge.this.jsPromptBridge.h(CommonTbJsBridge.this.mWebView, "saveImageSuccess", linkedHashMap);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c extends q.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f12067a;
+        public final /* synthetic */ CommonTbJsBridge f12119a;
 
-        public c(int i2) {
-            this.f12067a = i2;
-        }
-
-        @Override // d.a.n0.z0.q.a
-        public void onError(int i2, String str) {
-        }
-
-        @Override // d.a.n0.z0.q.a
-        public void onSuccess(String str) {
-            if (new File(str).exists()) {
-                if (CommonTbJsBridge.this.shareItem != null) {
-                    CommonTbJsBridge.this.shareItem.W = 1;
-                    CommonTbJsBridge.this.shareItem.x = str;
+        public b(CommonTbJsBridge commonTbJsBridge) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {commonTbJsBridge};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (this.f12067a != 0) {
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(CommonTbJsBridge.this.mContext, this.f12067a, CommonTbJsBridge.this.shareItem, true));
+            }
+            this.f12119a = commonTbJsBridge;
+        }
+
+        @Override // d.a.r0.z0.q.a
+        public void onError(int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f12119a.jsPromptBridge == null) {
+                return;
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("result", -1);
+            this.f12119a.jsPromptBridge.h(this.f12119a.mWebView, "saveImageSuccess", linkedHashMap);
+        }
+
+        @Override // d.a.r0.z0.q.a
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f12119a.jsPromptBridge == null) {
+                return;
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("result", 0);
+            this.f12119a.jsPromptBridge.h(this.f12119a.mWebView, "saveImageSuccess", linkedHashMap);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends q.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ int f12120a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ CommonTbJsBridge f12121b;
+
+        public c(CommonTbJsBridge commonTbJsBridge, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {commonTbJsBridge, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12121b = commonTbJsBridge;
+            this.f12120a = i2;
+        }
+
+        @Override // d.a.r0.z0.q.a
+        public void onError(int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+            }
+        }
+
+        @Override // d.a.r0.z0.q.a
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists()) {
+                if (this.f12121b.shareItem != null) {
+                    this.f12121b.shareItem.W = 1;
+                    this.f12121b.shareItem.x = str;
+                }
+                if (this.f12120a != 0) {
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f12121b.mContext, this.f12120a, this.f12121b.shareItem, true));
                 }
             }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1434736678, "Lcom/baidu/tbadk/browser/CommonTbJsBridge;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1434736678, "Lcom/baidu/tbadk/browser/CommonTbJsBridge;");
+                return;
+            }
+        }
+        tempUrl = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CommonTbJsBridge(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (WebView) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void callJsMethod(String str, JSONObject jSONObject) {
-        WebView webView = this.mWebView;
-        if (webView == null) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, this, str, jSONObject) == null) || (webView = this.mWebView) == null) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 19) {
@@ -259,148 +376,206 @@ public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
 
     private void dealJump(String str) {
         TbPageContext<?> currentActivityPageContext;
-        if (k.isEmpty(str) || (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || k.isEmpty(str) || (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) == null) {
             return;
         }
         UrlManager.getInstance().dealOneLink(currentActivityPageContext, new String[]{str});
     }
 
     private String generalSharePreferences() {
-        d.a.n0.r.d0.b.j().v("key_bawu_task_toast", -1);
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            return jSONObject.toString();
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            d.a.r0.r.d0.b.j().v("key_bawu_task_toast", -1);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                return jSONObject.toString();
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     private String getAPIs() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("status", 0);
-            jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
-            if (OpenJsSdkSwitch.isOn()) {
-                jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
-            } else {
-                jSONObject.put("data", new JSONArray());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("status", 0);
+                jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
+                if (OpenJsSdkSwitch.isOn()) {
+                    jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
+                } else {
+                    jSONObject.put("data", new JSONArray());
+                }
+                return jSONObject.toString();
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return null;
             }
-            return jSONObject.toString();
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return null;
         }
+        return (String) invokeV.objValue;
     }
 
     private TbPageContext getCurrentActivityPageContext(Activity activity) {
-        if (activity instanceof BaseActivity) {
-            return ((BaseActivity) activity).getPageContext();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, activity)) == null) {
+            if (activity instanceof BaseActivity) {
+                return ((BaseActivity) activity).getPageContext();
+            }
+            if (activity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) activity).getPageContext();
+            }
+            return null;
         }
-        if (activity instanceof BaseFragmentActivity) {
-            return ((BaseFragmentActivity) activity).getPageContext();
-        }
-        return null;
+        return (TbPageContext) invokeL.objValue;
     }
 
     private y getShakeController() {
-        if (this.mShakeController == null) {
-            this.mShakeController = new y(this.mContext, new a());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            if (this.mShakeController == null) {
+                this.mShakeController = new y(this.mContext, new a(this));
+            }
+            return this.mShakeController;
         }
-        return this.mShakeController;
+        return (y) invokeV.objValue;
     }
 
     private ShareItem getShareItem() {
-        return this.shareItem;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? this.shareItem : (ShareItem) invokeV.objValue;
     }
 
     private void goToGameShare(String str) {
         JSONObject jSONObject;
-        try {
-            jSONObject = new JSONObject(str);
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            jSONObject = null;
-        }
-        if (jSONObject != null) {
-            GameShareData gameShareData = new GameShareData();
-            gameShareData.a(jSONObject);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameShareActivityConfig(this.mContext, gameShareData)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, this, str) == null) {
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                jSONObject = null;
+            }
+            if (jSONObject != null) {
+                GameShareData gameShareData = new GameShareData();
+                gameShareData.parseJson(jSONObject);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameShareActivityConfig(this.mContext, gameShareData)));
+            }
         }
     }
 
     private void hideWebviewLoading(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, this, str) == null) {
+        }
     }
 
     private boolean isLegalSchema(List<String> list, String str) {
-        if (!StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
-            for (String str2 : list) {
-                if (str.startsWith(str2)) {
-                    return true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, list, str)) == null) {
+            if (!StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
+                for (String str2 : list) {
+                    if (str.startsWith(str2)) {
+                        return true;
+                    }
                 }
             }
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 
     private String jumpToPbPage(String str, String str2) {
-        PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str, null, str2);
-        createNormalCfg.setStartFrom(5);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-        return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, this, str, str2)) == null) {
+            PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str, null, str2);
+            createNormalCfg.setStartFrom(5);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 
     private String loadThirdPartyLogin(String str) {
-        if (k.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, str)) == null) {
+            if (k.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return jumpLoginActivity(jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return null;
+            }
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            return jumpLoginActivity(jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return null;
-        }
+        return (String) invokeL.objValue;
     }
 
     private String parseSpringFestivalTimer(String str) {
         int i2;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            boolean optBoolean = jSONObject.optBoolean("open");
-            String optString = jSONObject.optString("method_name");
-            l lVar = new l();
-            lVar.g(optBoolean);
-            lVar.f(optString);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, lVar));
-            i2 = 1;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            i2 = 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                boolean optBoolean = jSONObject.optBoolean("open");
+                String optString = jSONObject.optString("method_name");
+                l lVar = new l();
+                lVar.g(optBoolean);
+                lVar.f(optString);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, lVar));
+                i2 = 1;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                i2 = 0;
+            }
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+                return jSONObject2.toString();
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+                return null;
+            }
         }
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
-            return jSONObject2.toString();
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-            return null;
-        }
+        return (String) invokeL.objValue;
     }
 
     private String refreshPage() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921052));
-        return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921052));
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     private void setShareItem(ShareItem shareItem) {
-        this.shareItem = shareItem;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65559, this, shareItem) == null) {
+            this.shareItem = shareItem;
+        }
     }
 
     private void shareLoacalImage(String str, int i2) {
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity == null) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65560, this, str, i2) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
             return;
         }
         if (this.mPermissionJudgement == null) {
@@ -411,477 +586,553 @@ public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
         if (this.mPermissionJudgement.startRequestPermission(currentActivity)) {
             return;
         }
-        q qVar = new q(currentActivity, str, new c(i2));
+        q qVar = new q(currentActivity, str, new c(this, i2));
         qVar.p(1);
         qVar.execute(new String[0]);
     }
 
     private void showRightShare(String str) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921331, str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65561, this, str) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921331, str));
+        }
     }
 
     private String startAcceleromter(String str) {
         int i2;
-        try {
-            this.shakeCallbackjsMethod = new JSONObject(str).optString("method_name");
-            if (!getShakeController().d()) {
-                getShakeController().f();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, str)) == null) {
+            try {
+                this.shakeCallbackjsMethod = new JSONObject(str).optString("method_name");
+                if (!getShakeController().d()) {
+                    getShakeController().f();
+                }
+                i2 = 1;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                i2 = 0;
             }
-            i2 = 1;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            i2 = 0;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+                return jSONObject.toString();
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+                return null;
+            }
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
-            return jSONObject.toString();
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-            return null;
-        }
+        return (String) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c changeSkinTypeInH5(HashMap hashMap) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        if (hashMap == null) {
+    public d.a.s0.h3.l0.d.c changeSkinTypeInH5(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if (hashMap == null) {
+                return cVar;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("skin", hashMap.get("skin"));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
+            cVar.l(jSONObject.toString());
             return cVar;
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("skin", hashMap.get("skin"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
-        cVar.l(jSONObject.toString());
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v5, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public d.a.o0.e3.l0.d.c checkAppInstall(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        int isInstalledPackage = !StringUtils.isNull(str) ? UtilHelper.isInstalledPackage(this.mContext, str) : 0;
-        try {
+    public d.a.s0.h3.l0.d.c checkAppInstall(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            int isInstalledPackage = !StringUtils.isNull(str) ? UtilHelper.isInstalledPackage(this.mContext, str) : 0;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, isInstalledPackage);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c closeNativeMask(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921444, Boolean.valueOf(i2 == 1)));
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeI.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c dealClickGoBackToH5(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hashMap)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, isInstalledPackage);
+            try {
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            callJsMethod(CLICK_GO_BACK_TO_H5, jSONObject);
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
             cVar.l(jSONObject.toString());
             return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c dealGoBackFromNative(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hashMap)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            callJsMethod(GO_BACK_FROM_NATIVE, jSONObject);
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            cVar.l(jSONObject.toString());
             return cVar;
         }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c closeNativeMask(int i2) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921444, Boolean.valueOf(i2 == 1)));
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            cVar.l(jSONObject.toString());
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c dealClickGoBackToH5(HashMap hashMap) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        callJsMethod(CLICK_GO_BACK_TO_H5, jSONObject);
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        cVar.l(jSONObject.toString());
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c dealGoBackFromNative(HashMap hashMap) {
-        JSONObject jSONObject = new JSONObject();
-        callJsMethod(GO_BACK_FROM_NATIVE, jSONObject);
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        cVar.l(jSONObject.toString());
-        return cVar;
-    }
-
-    @Override // d.a.o0.e3.l0.b
+    @Override // d.a.s0.h3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLL;
         boolean z;
         boolean z2;
         boolean z3;
-        CommonTbJsBridge commonTbJsBridge = this;
-        if ("CommonJSBridge".equals(str)) {
-            if ("startLoginModule".equals(str2)) {
-                try {
-                    jsPromptResult.confirm(commonTbJsBridge.startLoginModule(new JSONObject(str3).optString("cssUrl")).a());
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (HIDE_WEBVIEW_LOADING.equals(str2)) {
-                try {
-                    String optString = new JSONObject(str3).optString("url");
-                    if (!StringUtils.isNull(optString)) {
-                        commonTbJsBridge.hideWebviewLoading(optString);
-                    }
-                    jsPromptResult.confirm();
-                    return true;
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            if (PERSON_PAGE_REFRESH.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(refreshPage());
-                    return true;
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-            }
-            if (FINISH_THIS_PAGE.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(finishPage().a());
-                    return true;
-                } catch (Exception e5) {
-                    e5.printStackTrace();
-                }
-            }
-            if (PERSON_PAGE_SHARE.equals(str2)) {
-                try {
-                    commonTbJsBridge.showRightShare(str3);
-                    jsPromptResult.confirm();
-                    return true;
-                } catch (Exception e6) {
-                    e6.printStackTrace();
-                }
-            }
-            if (GAME_SHARE.equals(str2)) {
-                try {
-                    commonTbJsBridge.goToGameShare(str3);
-                    jsPromptResult.confirm();
-                } catch (Exception e7) {
-                    e7.printStackTrace();
-                }
-                return true;
-            } else if (GET_ZID.equals(str2)) {
-                jsPromptResult.confirm(getZid().a());
-                return true;
-            } else if (SET_SHARE_INFO.equals(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(setShareInfo(jSONObject.optString("title"), jSONObject.optString("desc"), jSONObject.optString("img"), jSONObject.optString("url"), jSONObject.optString("topic"), jSONObject.optString("wbtitle"), jSONObject.optString("wbcontent"), jSONObject.optString("isShowMoreForum"), jSONObject.optInt("shareimg"), jSONObject.optString("extdata")).a());
-                    return true;
-                } catch (JSONException e8) {
-                    BdLog.e(e8);
-                    return true;
-                }
-            } else if ("share".equals(str2)) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(str3);
-                    z = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, str, str2, str3, jsPromptResult)) == null) {
+            CommonTbJsBridge commonTbJsBridge = this;
+            if ("CommonJSBridge".equals(str)) {
+                if ("startLoginModule".equals(str2)) {
                     try {
-                        jsPromptResult.confirm(share(jSONObject2.optInt("channel"), jSONObject2.optInt("shareimg"), jSONObject2.optString("img"), jSONObject2.optString("isShowMoreForum"), jSONObject2.optString("url"), jSONObject2.optString("title"), jSONObject2.optString("desc"), jSONObject2.optString("topic"), jSONObject2.optString("wbtitle"), jSONObject2.optString("wbcontent"), jSONObject2.optInt("weixin_disable"), jSONObject2.optString("extdata")).a());
-                    } catch (JSONException e9) {
-                        e = e9;
-                        BdLog.e(e);
-                        return z;
+                        jsPromptResult.confirm(commonTbJsBridge.startLoginModule(new JSONObject(str3).optString("cssUrl")).a());
+                        return true;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
-                } catch (JSONException e10) {
-                    e = e10;
-                    z = true;
                 }
-                return z;
-            } else if (GET_CLIPPER_INFORMATION.equals(str2)) {
-                jsPromptResult.confirm(getClipperInformation().a());
-                return true;
-            } else if (SET_CLIPPER_INFORMATION.equals(str2)) {
-                try {
-                    z2 = true;
+                if (HIDE_WEBVIEW_LOADING.equals(str2)) {
                     try {
-                        jsPromptResult.confirm(setClipperInformation(new JSONObject(str3).optString(DocumentOpenUtil.TXT)).a());
-                    } catch (JSONException e11) {
-                        e = e11;
-                        BdLog.e(e);
-                        return z2;
-                    }
-                } catch (JSONException e12) {
-                    e = e12;
-                    z2 = true;
-                }
-                return z2;
-            } else {
-                commonTbJsBridge = this;
-                if (CHECK_APP_INSTALL.equals(str2)) {
-                    try {
-                        jsPromptResult.confirm(commonTbJsBridge.checkAppInstall(new JSONObject(str3).optString(PushClientConstants.TAG_PKG_NAME)).a());
-                    } catch (JSONException e13) {
-                        BdLog.e(e13);
-                    }
-                    return true;
-                } else if (START_APP.equals(str2)) {
-                    jsPromptResult.confirm(commonTbJsBridge.startApp(str3));
-                    return true;
-                } else if (LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
-                    jsPromptResult.confirm(commonTbJsBridge.loadThirdPartyLogin(str3));
-                } else if (HAS_NOTIFICATION_PERMISSION.equals(str2)) {
-                    jsPromptResult.confirm(hasNotificationPermission().a());
-                    return true;
-                } else if (GO_TO_NOTIFICATIONSETTING.equals(str2)) {
-                    goToNotificationSetting();
-                } else if (START_DOWNLOAD_CSS.equals(str2)) {
-                    try {
-                        jsPromptResult.confirm(commonTbJsBridge.startDownloadCss(new JSONObject(str3).optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL)).a());
-                    } catch (JSONException e14) {
-                        BdLog.e(e14);
-                    }
-                } else if (SPRING_FESTIVAL_TIMER.equals(str2)) {
-                    jsPromptResult.confirm(commonTbJsBridge.parseSpringFestivalTimer(str3));
-                } else if (IS_DISABLE_GO_BACK.equals(str2)) {
-                    jsPromptResult.confirm(setDisableGoBack().a());
-                } else if (PLAY_VIBRATE.equals(str2)) {
-                    jsPromptResult.confirm(playVibrate().a());
-                } else if (PLAY_SOUND.equals(str2)) {
-                    try {
-                        jsPromptResult.confirm(commonTbJsBridge.playSound(new JSONObject(str3).optString("soundUrl")).a());
-                    } catch (JSONException e15) {
-                        BdLog.e(e15);
-                    }
-                } else if (START_ACCELEROMETER.equals(str2)) {
-                    jsPromptResult.confirm(commonTbJsBridge.startAcceleromter(str3));
-                } else if (DisableSlideBack.equals(str2)) {
-                    try {
-                        jsPromptResult.confirm(commonTbJsBridge.disableBack(new JSONObject(str3).optInt(PackageTable.DISABLE)).a());
-                    } catch (JSONException e16) {
-                        BdLog.e(e16);
-                    }
-                } else {
-                    if (TOAST_POPUPVIEW.equals(str2)) {
-                        try {
-                            JSONObject jSONObject3 = new JSONObject(str3);
-                            jsPromptResult.confirm(showLowerHairHint(jSONObject3.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject3.optInt("ahead_type"), jSONObject3.optString("message"), jSONObject3.optString("btn_text"), jSONObject3.optInt("toast_duration"), jSONObject3.optString("schema"), jSONObject3.optString("token"), jSONObject3.optDouble("opacity"), jSONObject3.optString(BigdayActivityConfig.IMG_URL), jSONObject3.optString("url"), jSONObject3.optInt("mission_id"), jSONObject3.optString("btn_color"), jSONObject3.optString("message_color"), jSONObject3.optString("btn_text_color"), jSONObject3.optInt("status"), jSONObject3.optInt(FINISH_THIS_PAGE)).a());
-                        } catch (JSONException e17) {
-                            BdLog.e(e17);
+                        String optString = new JSONObject(str3).optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            commonTbJsBridge.hideWebviewLoading(optString);
                         }
-                    } else if (GAME_PUSH.equals(str2)) {
-                        try {
-                            JSONObject jSONObject4 = new JSONObject(str3);
-                            try {
-                                jsPromptResult.confirm(gamePush(jSONObject4.optString("gameId"), jSONObject4.optString("gameName"), jSONObject4.optString("gameTime"), jSONObject4.optString("gameType")).a());
-                            } catch (JSONException e18) {
-                                e = e18;
-                                e.printStackTrace();
-                                return true;
-                            }
-                        } catch (JSONException e19) {
-                            e = e19;
-                        }
-                        return true;
-                    } else if (GAME_PUSH_STATUS.equals(str2)) {
-                        jsPromptResult.confirm(handleGamePushStatus().a());
-                        return true;
-                    } else if (GO_TO_MY_POST.equals(str2)) {
-                        try {
-                            jsPromptResult.confirm(handleGoToMyPost(new JSONObject(str3).optString("uid")).a());
-                        } catch (JSONException e20) {
-                            BdLog.e(e20);
-                        }
-                        return true;
-                    } else if (GO_TO_MY_LIVE.equals(str2)) {
-                        try {
-                            jsPromptResult.confirm(handleGoToMyLive(new JSONObject(str3).optString("uid")).a());
-                        } catch (JSONException e21) {
-                            BdLog.e(e21);
-                        }
-                        return true;
-                    } else if (SAVE_IMAGE.equals(str2)) {
-                        try {
-                            jsPromptResult.confirm(handleSaveImage(new JSONObject(str3).optString("imgUrl")).a());
-                        } catch (JSONException e22) {
-                            BdLog.e(e22);
-                        }
-                        return true;
-                    } else if ("getSupplementInfo".equals(str2)) {
-                        jsPromptResult.confirm(getSupplementInfo().a());
-                        return true;
-                    } else if ("getDeviceInfo".equals(str2)) {
-                        jsPromptResult.confirm(getDeviceInfo().a());
-                        return true;
-                    } else if (GENERAL_PREFERENCES.equals(str2)) {
-                        jsPromptResult.confirm(generalSharePreferences());
-                    } else if (COMPLETE_TASK.equals(str2)) {
-                        try {
-                            JSONObject jSONObject5 = new JSONObject(str3);
-                            jsPromptResult.confirm(sendCompleteTaskReqMsg(jSONObject5.optString("activityId"), jSONObject5.optString("missionId")).a());
-                        } catch (JSONException e23) {
-                            BdLog.e(e23);
-                        }
-                    } else if (GET_MODAL_DATA.equals(str2)) {
-                        jsPromptResult.confirm(getGetModalData().a());
-                    } else if (SHOW_TIP_TOAST.equals(str2)) {
-                        try {
-                            JSONObject jSONObject6 = new JSONObject(str3);
-                            jsPromptResult.confirm(showTipToast(jSONObject6.optString("content"), jSONObject6.optString("linkUrl"), jSONObject6.optString("key"), jSONObject6.optInt("maxTimes"), jSONObject6.optInt(FINISH_THIS_PAGE)).a());
-                        } catch (JSONException e24) {
-                            BdLog.e(e24);
-                        }
-                    } else if (JUMP_TO_HTML_PAGE.equals(str2)) {
-                        try {
-                            JSONObject jSONObject7 = new JSONObject(str3);
-                            jsPromptResult.confirm(jumpToHtmlPage(jSONObject7.optString("url"), jSONObject7.optInt("finish_this_page", 1)).toString());
-                        } catch (JSONException e25) {
-                            BdLog.e(e25);
-                        }
-                    } else if (CLOSE_NATIVE_MASK.equals(str2)) {
-                        try {
-                            z3 = false;
-                        } catch (JSONException e26) {
-                            e = e26;
-                            z3 = false;
-                        }
-                        try {
-                            jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt("result", 0)).a());
-                            return false;
-                        } catch (JSONException e27) {
-                            e = e27;
-                            e.printStackTrace();
-                            return z3;
-                        }
-                    } else if (GO_TO_HOT_TREND.equals(str2)) {
-                        jumpToHotTrendPage();
                         jsPromptResult.confirm();
-                        return false;
-                    } else if (GO_TO_PB.equals(str2)) {
+                        return true;
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                if (PERSON_PAGE_REFRESH.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(refreshPage());
+                        return true;
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                if (FINISH_THIS_PAGE.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(finishPage().a());
+                        return true;
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                if (PERSON_PAGE_SHARE.equals(str2)) {
+                    try {
+                        commonTbJsBridge.showRightShare(str3);
+                        jsPromptResult.confirm();
+                        return true;
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                if (GAME_SHARE.equals(str2)) {
+                    try {
+                        commonTbJsBridge.goToGameShare(str3);
+                        jsPromptResult.confirm();
+                    } catch (Exception e7) {
+                        e7.printStackTrace();
+                    }
+                    return true;
+                } else if (GET_ZID.equals(str2)) {
+                    jsPromptResult.confirm(getZid().a());
+                    return true;
+                } else if (SET_SHARE_INFO.equals(str2)) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(str3);
+                        jsPromptResult.confirm(setShareInfo(jSONObject.optString("title"), jSONObject.optString("desc"), jSONObject.optString("img"), jSONObject.optString("url"), jSONObject.optString("topic"), jSONObject.optString("wbtitle"), jSONObject.optString("wbcontent"), jSONObject.optString("isShowMoreForum"), jSONObject.optInt("shareimg"), jSONObject.optString("extdata")).a());
+                        return true;
+                    } catch (JSONException e8) {
+                        BdLog.e(e8);
+                        return true;
+                    }
+                } else if ("share".equals(str2)) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(str3);
+                        z = true;
                         try {
-                            JSONObject jSONObject8 = new JSONObject(str3);
-                            String optString2 = jSONObject8.optString("tid");
-                            String optString3 = jSONObject8.optString("fr");
-                            if (!StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
-                                jumpToPbPage(optString2, optString3);
+                            jsPromptResult.confirm(share(jSONObject2.optInt("channel"), jSONObject2.optInt("shareimg"), jSONObject2.optString("img"), jSONObject2.optString("isShowMoreForum"), jSONObject2.optString("url"), jSONObject2.optString("title"), jSONObject2.optString("desc"), jSONObject2.optString("topic"), jSONObject2.optString("wbtitle"), jSONObject2.optString("wbcontent"), jSONObject2.optInt("weixin_disable"), jSONObject2.optString("extdata")).a());
+                        } catch (JSONException e9) {
+                            e = e9;
+                            BdLog.e(e);
+                            return z;
+                        }
+                    } catch (JSONException e10) {
+                        e = e10;
+                        z = true;
+                    }
+                    return z;
+                } else if (GET_CLIPPER_INFORMATION.equals(str2)) {
+                    jsPromptResult.confirm(getClipperInformation().a());
+                    return true;
+                } else if (SET_CLIPPER_INFORMATION.equals(str2)) {
+                    try {
+                        z2 = true;
+                        try {
+                            jsPromptResult.confirm(setClipperInformation(new JSONObject(str3).optString(DocumentOpenUtil.TXT)).a());
+                        } catch (JSONException e11) {
+                            e = e11;
+                            BdLog.e(e);
+                            return z2;
+                        }
+                    } catch (JSONException e12) {
+                        e = e12;
+                        z2 = true;
+                    }
+                    return z2;
+                } else {
+                    commonTbJsBridge = this;
+                    if (CHECK_APP_INSTALL.equals(str2)) {
+                        try {
+                            jsPromptResult.confirm(commonTbJsBridge.checkAppInstall(new JSONObject(str3).optString(PushClientConstants.TAG_PKG_NAME)).a());
+                        } catch (JSONException e13) {
+                            BdLog.e(e13);
+                        }
+                        return true;
+                    } else if (START_APP.equals(str2)) {
+                        jsPromptResult.confirm(commonTbJsBridge.startApp(str3));
+                        return true;
+                    } else if (LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
+                        jsPromptResult.confirm(commonTbJsBridge.loadThirdPartyLogin(str3));
+                    } else if (HAS_NOTIFICATION_PERMISSION.equals(str2)) {
+                        jsPromptResult.confirm(hasNotificationPermission().a());
+                        return true;
+                    } else if (GO_TO_NOTIFICATIONSETTING.equals(str2)) {
+                        goToNotificationSetting();
+                    } else if (START_DOWNLOAD_CSS.equals(str2)) {
+                        try {
+                            jsPromptResult.confirm(commonTbJsBridge.startDownloadCss(new JSONObject(str3).optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL)).a());
+                        } catch (JSONException e14) {
+                            BdLog.e(e14);
+                        }
+                    } else if (SPRING_FESTIVAL_TIMER.equals(str2)) {
+                        jsPromptResult.confirm(commonTbJsBridge.parseSpringFestivalTimer(str3));
+                    } else if (IS_DISABLE_GO_BACK.equals(str2)) {
+                        jsPromptResult.confirm(setDisableGoBack().a());
+                    } else if (PLAY_VIBRATE.equals(str2)) {
+                        jsPromptResult.confirm(playVibrate().a());
+                    } else if (PLAY_SOUND.equals(str2)) {
+                        try {
+                            jsPromptResult.confirm(commonTbJsBridge.playSound(new JSONObject(str3).optString("soundUrl")).a());
+                        } catch (JSONException e15) {
+                            BdLog.e(e15);
+                        }
+                    } else if (START_ACCELEROMETER.equals(str2)) {
+                        jsPromptResult.confirm(commonTbJsBridge.startAcceleromter(str3));
+                    } else if (DisableSlideBack.equals(str2)) {
+                        try {
+                            jsPromptResult.confirm(commonTbJsBridge.disableBack(new JSONObject(str3).optInt(PackageTable.DISABLE)).a());
+                        } catch (JSONException e16) {
+                            BdLog.e(e16);
+                        }
+                    } else {
+                        if (TOAST_POPUPVIEW.equals(str2)) {
+                            try {
+                                JSONObject jSONObject3 = new JSONObject(str3);
+                                jsPromptResult.confirm(showLowerHairHint(jSONObject3.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject3.optInt("ahead_type"), jSONObject3.optString("message"), jSONObject3.optString("btn_text"), jSONObject3.optInt("toast_duration"), jSONObject3.optString("schema"), jSONObject3.optString("token"), jSONObject3.optDouble("opacity"), jSONObject3.optString(BigdayActivityConfig.IMG_URL), jSONObject3.optString("url"), jSONObject3.optInt("mission_id"), jSONObject3.optString("btn_color"), jSONObject3.optString("message_color"), jSONObject3.optString("btn_text_color"), jSONObject3.optInt("status"), jSONObject3.optInt(FINISH_THIS_PAGE)).a());
+                            } catch (JSONException e17) {
+                                BdLog.e(e17);
                             }
-                            jsPromptResult.confirm();
+                        } else if (GAME_PUSH.equals(str2)) {
+                            try {
+                                JSONObject jSONObject4 = new JSONObject(str3);
+                                try {
+                                    jsPromptResult.confirm(gamePush(jSONObject4.optString("gameId"), jSONObject4.optString("gameName"), jSONObject4.optString("gameTime"), jSONObject4.optString("gameType")).a());
+                                } catch (JSONException e18) {
+                                    e = e18;
+                                    e.printStackTrace();
+                                    return true;
+                                }
+                            } catch (JSONException e19) {
+                                e = e19;
+                            }
                             return true;
-                        } catch (JSONException e28) {
-                            e28.printStackTrace();
+                        } else if (GAME_PUSH_STATUS.equals(str2)) {
+                            jsPromptResult.confirm(handleGamePushStatus().a());
+                            return true;
+                        } else if (GO_TO_MY_POST.equals(str2)) {
+                            try {
+                                jsPromptResult.confirm(handleGoToMyPost(new JSONObject(str3).optString("uid")).a());
+                            } catch (JSONException e20) {
+                                BdLog.e(e20);
+                            }
+                            return true;
+                        } else if (GO_TO_MY_LIVE.equals(str2)) {
+                            try {
+                                jsPromptResult.confirm(handleGoToMyLive(new JSONObject(str3).optString("uid")).a());
+                            } catch (JSONException e21) {
+                                BdLog.e(e21);
+                            }
+                            return true;
+                        } else if (SAVE_IMAGE.equals(str2)) {
+                            try {
+                                jsPromptResult.confirm(handleSaveImage(new JSONObject(str3).optString("imgUrl")).a());
+                            } catch (JSONException e22) {
+                                BdLog.e(e22);
+                            }
+                            return true;
+                        } else if ("getSupplementInfo".equals(str2)) {
+                            jsPromptResult.confirm(getSupplementInfo().a());
+                            return true;
+                        } else if ("getDeviceInfo".equals(str2)) {
+                            jsPromptResult.confirm(getDeviceInfo().a());
+                            return true;
+                        } else if (GENERAL_PREFERENCES.equals(str2)) {
+                            jsPromptResult.confirm(generalSharePreferences());
+                        } else if (COMPLETE_TASK.equals(str2)) {
+                            try {
+                                JSONObject jSONObject5 = new JSONObject(str3);
+                                jsPromptResult.confirm(sendCompleteTaskReqMsg(jSONObject5.optString("activityId"), jSONObject5.optString("missionId")).a());
+                            } catch (JSONException e23) {
+                                BdLog.e(e23);
+                            }
+                        } else if (GET_MODAL_DATA.equals(str2)) {
+                            jsPromptResult.confirm(getGetModalData().a());
+                        } else if (SHOW_TIP_TOAST.equals(str2)) {
+                            try {
+                                JSONObject jSONObject6 = new JSONObject(str3);
+                                jsPromptResult.confirm(showTipToast(jSONObject6.optString("content"), jSONObject6.optString("linkUrl"), jSONObject6.optString("key"), jSONObject6.optInt("maxTimes"), jSONObject6.optInt(FINISH_THIS_PAGE)).a());
+                            } catch (JSONException e24) {
+                                BdLog.e(e24);
+                            }
+                        } else if (JUMP_TO_HTML_PAGE.equals(str2)) {
+                            try {
+                                JSONObject jSONObject7 = new JSONObject(str3);
+                                jsPromptResult.confirm(jumpToHtmlPage(jSONObject7.optString("url"), jSONObject7.optInt("finish_this_page", 1)).toString());
+                            } catch (JSONException e25) {
+                                BdLog.e(e25);
+                            }
+                        } else if (CLOSE_NATIVE_MASK.equals(str2)) {
+                            try {
+                                z3 = false;
+                            } catch (JSONException e26) {
+                                e = e26;
+                                z3 = false;
+                            }
+                            try {
+                                jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt("result", 0)).a());
+                                return false;
+                            } catch (JSONException e27) {
+                                e = e27;
+                                e.printStackTrace();
+                                return z3;
+                            }
+                        } else if (GO_TO_HOT_TREND.equals(str2)) {
+                            jumpToHotTrendPage();
+                            jsPromptResult.confirm();
+                            return false;
+                        } else if (GO_TO_PB.equals(str2)) {
+                            try {
+                                JSONObject jSONObject8 = new JSONObject(str3);
+                                String optString2 = jSONObject8.optString("tid");
+                                String optString3 = jSONObject8.optString("fr");
+                                if (!StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
+                                    jumpToPbPage(optString2, optString3);
+                                }
+                                jsPromptResult.confirm();
+                                return true;
+                            } catch (JSONException e28) {
+                                e28.printStackTrace();
+                                return false;
+                            }
+                        } else if (GET_APIS.equals(str2)) {
+                            jsPromptResult.confirm(getAPIs());
+                            return true;
+                        } else if (START_LOAD_TIME_INTERVAL.equals(str2)) {
+                            jsPromptResult.confirm(getStartLoadTimeInterval().a());
+                            return true;
+                        } else if (FINISH_TEST_ANSWER.equals(str2)) {
+                            try {
+                                jsPromptResult.confirm(finishTestAnswer(new JSONObject(str3).optLong("testId")).a());
+                            } catch (JSONException e29) {
+                                e29.printStackTrace();
+                            }
+                            return true;
+                        } else {
                             return false;
                         }
-                    } else if (GET_APIS.equals(str2)) {
-                        jsPromptResult.confirm(getAPIs());
-                        return true;
-                    } else if (START_LOAD_TIME_INTERVAL.equals(str2)) {
-                        jsPromptResult.confirm(getStartLoadTimeInterval().a());
-                        return true;
-                    } else if (FINISH_TEST_ANSWER.equals(str2)) {
-                        try {
-                            jsPromptResult.confirm(finishTestAnswer(new JSONObject(str3).optLong("testId")).a());
-                        } catch (JSONException e29) {
-                            e29.printStackTrace();
-                        }
-                        return true;
-                    } else {
                         return false;
                     }
-                    return false;
                 }
             }
+            return false;
         }
-        return false;
+        return invokeLLLL.booleanValue;
     }
 
     public void dealSpringFestivalTimer(String str, JSONObject jSONObject) {
-        callJsMethod(str, jSONObject);
-    }
-
-    public d.a.o0.e3.l0.d.c deleteOfflineBundle() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            d.a.o0.r2.b.q().i();
-            d.a.o0.r2.c.a().g(null);
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) {
+            callJsMethod(str, jSONObject);
         }
     }
 
-    public d.a.o0.e3.l0.d.c disableBack(int i2) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        Context context = this.mContext;
-        if (context instanceof TbWebViewActivity) {
-            if (i2 == 0) {
-                ((TbWebViewActivity) context).setSwipeBackEnabled(true);
-            } else {
-                ((TbWebViewActivity) context).setSwipeBackEnabled(false);
+    public d.a.s0.h3.l0.d.c deleteOfflineBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            try {
+                d.a.s0.u2.b.q().i();
+                d.a.s0.u2.c.a().g(null);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c finishPage() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        Context context = this.mContext;
-        if (context instanceof Activity) {
-            ((Activity) context).finish();
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c finishTestAnswer(long j) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
-        Context context = this.mContext;
-        if (context instanceof Activity) {
-            ((Activity) context).finish();
-        }
-        cVar.l(FINISH_TEST_ANSWER);
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c gamePush(String str, String str2, String str3, String str4) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("gameId", str);
-            jSONObject.put("gameName", str2);
-            jSONObject.put("gameTime", str3);
-            jSONObject.put("gameType", str4);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        String jSONObject2 = jSONObject.toString();
-        if (!TextUtils.isEmpty(jSONObject2)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
+    public d.a.s0.h3.l0.d.c disableBack(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            Context context = this.mContext;
+            if (context instanceof TbWebViewActivity) {
+                if (i2 == 0) {
+                    ((TbWebViewActivity) context).setSwipeBackEnabled(true);
+                } else {
+                    ((TbWebViewActivity) context).setSwipeBackEnabled(false);
+                }
+            }
             return cVar;
         }
-        cVar.m();
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeI.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c getClipperInformation() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        String clipBoardContent = UtilHelper.getClipBoardContent();
-        int i2 = !k.isEmpty(clipBoardContent) ? 1 : 0;
-        try {
+    public d.a.s0.h3.l0.d.c finishPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            Context context = this.mContext;
+            if (context instanceof Activity) {
+                ((Activity) context).finish();
+            }
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c finishTestAnswer(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
+            Context context = this.mContext;
+            if (context instanceof Activity) {
+                ((Activity) context).finish();
+            }
+            cVar.l(FINISH_TEST_ANSWER);
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeJ.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c gamePush(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, str2, str3, str4)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
-            jSONObject.put("data", clipBoardContent);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
+            try {
+                jSONObject.put("gameId", str);
+                jSONObject.put("gameName", str2);
+                jSONObject.put("gameTime", str3);
+                jSONObject.put("gameType", str4);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (!TextUtils.isEmpty(jSONObject2)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
+                return cVar;
+            }
+            cVar.m();
             return cVar;
         }
+        return (d.a.s0.h3.l0.d.c) invokeLLLL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c getDeviceInfo() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
+    public d.a.s0.h3.l0.d.c getClipperInformation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            String clipBoardContent = UtilHelper.getClipBoardContent();
+            int i2 = !k.isEmpty(clipBoardContent) ? 1 : 0;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+                jSONObject.put("data", clipBoardContent);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c getDeviceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048590, this)) != null) {
+            return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+        }
+        d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
         StringBuffer stringBuffer = new StringBuffer(1024);
         String imei = TbadkCoreApplication.getInst().getImei();
         stringBuffer.append("imei=");
@@ -934,14 +1185,14 @@ public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
                 jSONObject.put(BaseStatisContent.IMSI, iMsi);
                 jSONObject.put("model", str);
                 jSONObject.put("brand", str2);
-                jSONObject.put(Constants.PARAM_PLATFORM, "Android");
+                jSONObject.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
                 jSONObject.put(PushClientConstants.TAG_PKG_NAME, packageName);
                 jSONObject.put("network", str3);
                 jSONObject.put("carrier", str4);
-                jSONObject.put("manufacturer", devicesManufacturer);
-                jSONObject.put("hardware", str5);
-                jSONObject.put("board", str6);
-                jSONObject.put("imu", str7);
+                jSONObject.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                jSONObject.put(HttpConstants.HTTP_HARDWARE, str5);
+                jSONObject.put(HttpConstants.HTTP_BOARD, str6);
+                jSONObject.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str7);
                 jSONObject.put("sign", c2);
                 cVar = cVar;
                 cVar.l(jSONObject.toString());
@@ -958,627 +1209,774 @@ public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
         }
     }
 
-    public d.a.o0.e3.l0.d.c getGetModalData() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        JSONObject jSONObject = null;
-        int i2 = 0;
-        try {
-            String f2 = f.c().f();
-            if (!TextUtils.isEmpty(f2)) {
-                jSONObject = new JSONObject(f2);
-                i2 = 1;
-            }
-        } catch (Exception e2) {
-            BdLog.e(e2);
-        }
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
-            jSONObject2.put("user_info", jSONObject);
-            cVar.l(jSONObject2.toString());
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c getOfflineUserInfo() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("version", TbConfig.getVersion());
-            jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
-            jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
-            jSONObject.put("hybridVersion", d.a.o0.r2.b.q().B());
-            jSONObject.put("hybridOffline", QuickWebViewSwitch.getInOn() ? 1 : 0);
-            jSONObject.put("offlineApiHost", tempUrl);
-            if (TbDebugSingleton.getInstance().getUrlSwitchMap() != null && !TextUtils.isEmpty(TbDebugSingleton.getInstance().getUrlSwitchMap().f53236b)) {
-                jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().f53236b);
-            }
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            cVar.l(jSONObject.toString());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c getStartLoadTimeInterval() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("loadUrlTime", this.mLastLoadUrlTime);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c getSupplementInfo() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        String imei = TbadkCoreApplication.getInst().getImei();
-        stringBuffer.append("imei=");
-        stringBuffer.append(imei);
-        String cuid = TbadkCoreApplication.getInst().getCuid();
-        stringBuffer.append("cuid=");
-        stringBuffer.append(cuid);
-        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-        stringBuffer.append("shoubai_cuid=");
-        stringBuffer.append(cuidGalaxy2);
-        String str = Build.BRAND;
-        stringBuffer.append("brand=");
-        stringBuffer.append(str);
-        stringBuffer.append("client_type=");
-        stringBuffer.append("Android");
-        String version = TbConfig.getVersion();
-        stringBuffer.append("client_version=");
-        stringBuffer.append(version);
-        String zid = TbadkCoreApplication.getInst().getZid();
-        stringBuffer.append("zid=");
-        stringBuffer.append(zid);
-        stringBuffer.append("tiebaclient!!!");
-        String c2 = d.a.c.e.p.q.c(stringBuffer.toString());
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("imei", imei);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put("shoubai_cuid", cuidGalaxy2);
-            jSONObject.put("brand", str);
-            jSONObject.put("client_type", "Android");
-            jSONObject.put("client_version", version);
-            jSONObject.put("zid", zid);
-            jSONObject.put("sign", c2);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            cVar.l("");
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c getZid() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        String zid = TbadkCoreApplication.getInst().getZid();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            jSONObject.put("zid", zid);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        if ("1".equals(str)) {
-            WriteActivityConfig.newInstance(this.mContext).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
-        } else if ("2".equals(str)) {
-            PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str2, null, null);
-            createNormalCfg.setJumpToCommentArea(true);
-            createNormalCfg.showOpenEditorTips(str5);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-        } else if ("3".equals(str)) {
-            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.mContext).createSubPbActivityConfig(str2, str4, "mention", false, "", false, str4, 0);
-            createSubPbActivityConfig.showOpenEditorTips(str5);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c goToNotificationSetting() {
-        Activity currentActivity;
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
-        if (currentActivity == null) {
-            return cVar;
-        }
-        currentActivity.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName())));
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c handleGamePushStatus() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        String p = d.a.n0.r.d0.b.j().p("key_match_id_list_football", "");
-        String p2 = d.a.n0.r.d0.b.j().p("key_match_id_list_basketball", "");
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + p + PreferencesUtil.RIGHT_MOUNT);
-            jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + p2 + PreferencesUtil.RIGHT_MOUNT);
-            cVar.l(jSONObject.toString());
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c handleGoToBarDetail(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        if (!TextUtils.isEmpty(str)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.mContext, str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE)));
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c handleGoToMyLive(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c handleGoToMyPost(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c handleSaveImage(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        if (this.mPermissionJudgement == null) {
-            this.mPermissionJudgement = new PermissionJudgePolicy();
-        }
-        this.mPermissionJudgement.clearRequestPermissionList();
-        Context context = this.mContext;
-        if (!(context instanceof Activity)) {
-            cVar.m();
-            return cVar;
-        }
-        this.mPermissionJudgement.appendRequestPermission((Activity) context, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-            cVar.n("权限申请");
-            return cVar;
-        }
-        new q((Activity) this.mContext, str, new b()).execute(new String[0]);
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c hasNotificationPermission() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        int areNotificationsEnabled = Build.VERSION.SDK_INT >= 19 ? NotificationManagerCompat.from(this.mContext).areNotificationsEnabled() : 1;
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, areNotificationsEnabled);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c jumpLoginActivity(int i2, String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        JSONObject jSONObject = new JSONObject();
-        if (this.mContext == null) {
+    public d.a.s0.h3.l0.d.c getGetModalData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            JSONObject jSONObject = null;
+            int i2 = 0;
             try {
-                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                String f2 = f.c().f();
+                if (!TextUtils.isEmpty(f2)) {
+                    jSONObject = new JSONObject(f2);
+                    i2 = 1;
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+                jSONObject2.put("user_info", jSONObject);
+                cVar.l(jSONObject2.toString());
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+            }
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c getOfflineUserInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("version", TbConfig.getVersion());
+                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
+                jSONObject.put("hybridVersion", d.a.s0.u2.b.q().B());
+                jSONObject.put("hybridOffline", QuickWebViewSwitch.getInOn() ? 1 : 0);
+                jSONObject.put("offlineApiHost", tempUrl);
+                if (TbDebugSingleton.getInstance().getUrlSwitchMap() != null && !TextUtils.isEmpty(TbDebugSingleton.getInstance().getUrlSwitchMap().f55372b)) {
+                    jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().f55372b);
+                }
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c getStartLoadTimeInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("loadUrlTime", this.mLastLoadUrlTime);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c getSupplementInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            StringBuffer stringBuffer = new StringBuffer(1024);
+            String imei = TbadkCoreApplication.getInst().getImei();
+            stringBuffer.append("imei=");
+            stringBuffer.append(imei);
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            stringBuffer.append("cuid=");
+            stringBuffer.append(cuid);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            stringBuffer.append("shoubai_cuid=");
+            stringBuffer.append(cuidGalaxy2);
+            String str = Build.BRAND;
+            stringBuffer.append("brand=");
+            stringBuffer.append(str);
+            stringBuffer.append("client_type=");
+            stringBuffer.append("Android");
+            String version = TbConfig.getVersion();
+            stringBuffer.append("client_version=");
+            stringBuffer.append(version);
+            String zid = TbadkCoreApplication.getInst().getZid();
+            stringBuffer.append("zid=");
+            stringBuffer.append(zid);
+            stringBuffer.append("tiebaclient!!!");
+            String c2 = d.a.c.e.p.q.c(stringBuffer.toString());
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("imei", imei);
+                jSONObject.put("cuid", cuid);
+                jSONObject.put("shoubai_cuid", cuidGalaxy2);
+                jSONObject.put("brand", str);
+                jSONObject.put("client_type", "Android");
+                jSONObject.put("client_version", version);
+                jSONObject.put("zid", zid);
+                jSONObject.put("sign", c2);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                cVar.l("");
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            String zid = TbadkCoreApplication.getInst().getZid();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                jSONObject.put("zid", zid);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if ("1".equals(str)) {
+                WriteActivityConfig.newInstance(this.mContext).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
+            } else if ("2".equals(str)) {
+                PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str2, null, null);
+                createNormalCfg.setJumpToCommentArea(true);
+                createNormalCfg.showOpenEditorTips(str5);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+            } else if ("3".equals(str)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.mContext).createSubPbActivityConfig(str2, str4, "mention", false, "", false, str4, 0);
+                createSubPbActivityConfig.showOpenEditorTips(str5);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+            }
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeCommon.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c goToNotificationSetting() {
+        InterceptResult invokeV;
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            try {
+                currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+            if (currentActivity == null) {
+                return cVar;
+            }
+            currentActivity.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName())));
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c handleGamePushStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            String p = d.a.r0.r.d0.b.j().p("key_match_id_list_football", "");
+            String p2 = d.a.r0.r.d0.b.j().p("key_match_id_list_basketball", "");
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + p + PreferencesUtil.RIGHT_MOUNT);
+                jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + p2 + PreferencesUtil.RIGHT_MOUNT);
+                cVar.l(jSONObject.toString());
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c handleGoToBarDetail(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if (!TextUtils.isEmpty(str)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.mContext, str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE)));
+            }
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c handleGoToMyLive(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c handleGoToMyPost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c handleSaveImage(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if (this.mPermissionJudgement == null) {
+                this.mPermissionJudgement = new PermissionJudgePolicy();
+            }
+            this.mPermissionJudgement.clearRequestPermissionList();
+            Context context = this.mContext;
+            if (!(context instanceof Activity)) {
+                cVar.m();
+                return cVar;
+            }
+            this.mPermissionJudgement.appendRequestPermission((Activity) context, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
+                cVar.n("权限申请");
+                return cVar;
+            }
+            new q((Activity) this.mContext, str, new b(this)).execute(new String[0]);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c hasNotificationPermission() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            int areNotificationsEnabled = Build.VERSION.SDK_INT >= 19 ? NotificationManagerCompat.from(this.mContext).areNotificationsEnabled() : 1;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, areNotificationsEnabled);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c jumpLoginActivity(int i2, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048604, this, i2, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            JSONObject jSONObject = new JSONObject();
+            if (this.mContext == null) {
+                try {
+                    jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+                cVar.l(jSONObject.toString());
+                return cVar;
+            }
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.mContext, true);
+            loginActivityConfig.setThirdPartyLoginForResult(i2, str);
+            WebView webView = this.mWebView;
+            if (webView != null) {
+                loginActivityConfig.setUrl(webView.getOriginalUrl());
+            }
+            ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
+            try {
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+            }
             cVar.l(jSONObject.toString());
             return cVar;
         }
-        LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.mContext, true);
-        loginActivityConfig.setThirdPartyLoginForResult(i2, str);
-        WebView webView = this.mWebView;
-        if (webView != null) {
-            loginActivityConfig.setUrl(webView.getOriginalUrl());
-        }
-        ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
-        try {
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-        }
-        cVar.l(jSONObject.toString());
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeIL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c jumpToHotTrendPage() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        d.a.n0.r.a0.b.g(this.mContext, 16, false);
-        return cVar;
+    public d.a.s0.h3.l0.d.c jumpToHotTrendPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            d.a.r0.r.a0.b.g(this.mContext, 16, false);
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c jumpToHtmlPage(String str, int i2) {
+    public d.a.s0.h3.l0.d.c jumpToHtmlPage(String str, int i2) {
+        InterceptResult invokeLI;
         Context context;
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        if (!TextUtils.isEmpty(str) && (context = this.mContext) != null) {
-            d.a.n0.l.a.l(context, str);
-            if (i2 == 1) {
-                Context context2 = this.mContext;
-                if (context2 instanceof Activity) {
-                    ((Activity) context2).finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048606, this, str, i2)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if (!TextUtils.isEmpty(str) && (context = this.mContext) != null) {
+                d.a.r0.l.a.l(context, str);
+                if (i2 == 1) {
+                    Context context2 = this.mContext;
+                    if (context2 instanceof Activity) {
+                        ((Activity) context2).finish();
+                    }
                 }
             }
+            return cVar;
         }
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeLI.objValue;
     }
 
     public void onDestroy() {
-        y yVar = this.mShakeController;
-        if (yVar == null || !yVar.d()) {
-            return;
+        y yVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (yVar = this.mShakeController) != null && yVar.d()) {
+            this.mShakeController.c();
         }
-        this.mShakeController.c();
     }
 
-    public d.a.o0.e3.l0.d.c onUserLoginChanged(HashMap hashMap) {
-        if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
-            return null;
+    public d.a.s0.h3.l0.d.c onUserLoginChanged(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, hashMap)) == null) {
+            if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            cVar.l(jSONObject.toString());
+            return cVar;
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        cVar.l(jSONObject.toString());
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c playSound(String str) {
+    public d.a.s0.h3.l0.d.c playSound(String str) {
+        InterceptResult invokeL;
         int i2;
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        if (j.z()) {
-            getShakeController().i(str);
-            i2 = 1;
-        } else {
-            Context context = this.mContext;
-            if (context != null) {
-                d.a.c.e.p.l.L(context, R.string.neterror);
-            }
-            i2 = 0;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c playVibrate() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        boolean g2 = getShakeController().g();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, g2 ? 1 : 0);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c reShow(HashMap hashMap) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        callJsMethod(RE_SHOW, jSONObject);
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        cVar.l(jSONObject.toString());
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c saveImageSuccess(HashMap<String, Integer> hashMap) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        if (hashMap != null && hashMap.get("result").intValue() == -1) {
-            cVar.n("图片保存错误");
-        }
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c sendCompleteTaskReqMsg(String str, String str2) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        int i2 = 0;
-        try {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(str, str2);
-                CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
-                completeTaskReqMsg.completeId = jSONObject.toString();
-                completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-                MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if (j.z()) {
+                getShakeController().i(str);
                 i2 = 1;
+            } else {
+                Context context = this.mContext;
+                if (context != null) {
+                    d.a.c.e.p.l.L(context, R.string.neterror);
+                }
+                i2 = 0;
             }
-        } catch (Exception e2) {
-            BdLog.e(e2);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
         }
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
-            cVar.l(jSONObject2.toString());
-            return cVar;
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-            return cVar;
-        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c setClipperInformation(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        d.a.c.e.p.a.a(str);
-        try {
+    public d.a.s0.h3.l0.d.c playVibrate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            boolean g2 = getShakeController().g();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, g2 ? 1 : 0);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c reShow(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, hashMap)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            try {
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            callJsMethod(RE_SHOW, jSONObject);
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
             cVar.l(jSONObject.toString());
             return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
         }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c setDisableGoBack() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        Context context = this.mContext;
-        int i2 = 1;
-        if (context instanceof TbWebViewActivity) {
-            ((TbWebViewActivity) context).isDisableGoBack = true;
-        } else {
-            i2 = 0;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
+    public d.a.s0.h3.l0.d.c saveImageSuccess(HashMap<String, Integer> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, hashMap)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if (hashMap != null && hashMap.get("result").intValue() == -1) {
+                cVar.n("图片保存错误");
+            }
             return cVar;
         }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    public void setJsPromptBridge(d.a.o0.e3.l0.a aVar) {
-        this.jsPromptBridge = aVar;
+    public d.a.s0.h3.l0.d.c sendCompleteTaskReqMsg(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, str, str2)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            int i2 = 0;
+            try {
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(str, str2);
+                    CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
+                    completeTaskReqMsg.completeId = jSONObject.toString();
+                    completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
+                    MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+                    i2 = 1;
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+                cVar.l(jSONObject2.toString());
+                return cVar;
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeLL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c setClipperInformation(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            d.a.c.e.p.a.a(str);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c setDisableGoBack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            Context context = this.mContext;
+            int i2 = 1;
+            if (context instanceof TbWebViewActivity) {
+                ((TbWebViewActivity) context).isDisableGoBack = true;
+            } else {
+                i2 = 0;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
+    }
+
+    public void setJsPromptBridge(d.a.s0.h3.l0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, aVar) == null) {
+            this.jsPromptBridge = aVar;
+        }
     }
 
     public void setLastLoadUrlTime(long j) {
-        this.mLastLoadUrlTime = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048617, this, j) == null) {
+            this.mLastLoadUrlTime = j;
+        }
     }
 
-    public d.a.o0.e3.l0.d.c setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i2, String str9) {
+    public d.a.s0.h3.l0.d.c setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i2, String str9) {
+        InterceptResult invokeCommon;
         int i3;
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("title", str);
-            jSONObject.put("desc", str2);
-            jSONObject.put("img", str3);
-            jSONObject.put("url", str4);
-            jSONObject.put("topic", str5);
-            jSONObject.put("wbtitle", str6);
-            jSONObject.put("wbcontent", str7);
-            jSONObject.put("isShowMoreForum", str8);
-            jSONObject.put("shareimg", i2);
-            jSONObject.put("extdata", str9);
-        } catch (JSONException e2) {
-            BdLog.e(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i2), str9})) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("title", str);
+                jSONObject.put("desc", str2);
+                jSONObject.put("img", str3);
+                jSONObject.put("url", str4);
+                jSONObject.put("topic", str5);
+                jSONObject.put("wbtitle", str6);
+                jSONObject.put("wbcontent", str7);
+                jSONObject.put("isShowMoreForum", str8);
+                jSONObject.put("shareimg", i2);
+                jSONObject.put("extdata", str9);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (k.isEmpty(jSONObject2)) {
+                i3 = 0;
+            } else {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, jSONObject2));
+                i3 = 1;
+            }
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put(MiPushCommandMessage.KEY_RESULT_CODE, i3);
+                cVar.l(jSONObject3.toString());
+                return cVar;
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+                return cVar;
+            }
         }
-        String jSONObject2 = jSONObject.toString();
-        if (k.isEmpty(jSONObject2)) {
-            i3 = 0;
-        } else {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, jSONObject2));
-            i3 = 1;
-        }
-        try {
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put(MiPushCommandMessage.KEY_RESULT_CODE, i3);
-            cVar.l(jSONObject3.toString());
-            return cVar;
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-            return cVar;
-        }
+        return (d.a.s0.h3.l0.d.c) invokeCommon.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c share(int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9) {
+    public d.a.s0.h3.l0.d.c share(int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9) {
+        InterceptResult invokeCommon;
         CustomResponsedMessage runTask;
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("channel", i2);
-            jSONObject.put("shareimg", i3);
-            jSONObject.put("img", str);
-            jSONObject.put("isShowMoreForum", str2);
-            jSONObject.put("url", str3);
-            jSONObject.put("title", str4);
-            jSONObject.put("desc", str5);
-            jSONObject.put("topic", str6);
-            jSONObject.put("wbtitle", str7);
-            jSONObject.put("wbcontent", str8);
-            jSONObject.put("weixin_disable", i4);
-            jSONObject.put("extdata", str9);
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-        }
-        String jSONObject2 = jSONObject.toString();
-        int i5 = 1;
-        if (k.isEmpty(jSONObject2) || (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject2)) == null) {
-            i5 = 0;
-        } else {
-            ShareItem shareItem = (ShareItem) runTask.getData();
-            if (shareItem != null) {
-                shareItem.E = 17;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i4), str9})) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("channel", i2);
+                jSONObject.put("shareimg", i3);
+                jSONObject.put("img", str);
+                jSONObject.put("isShowMoreForum", str2);
+                jSONObject.put("url", str3);
+                jSONObject.put("title", str4);
+                jSONObject.put("desc", str5);
+                jSONObject.put("topic", str6);
+                jSONObject.put("wbtitle", str7);
+                jSONObject.put("wbcontent", str8);
+                jSONObject.put("weixin_disable", i4);
+                jSONObject.put("extdata", str9);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
             }
-            if ("1".equals(str2) && shareItem != null) {
-                shareItem.w = str;
-                shareItem.t = str3;
-                shareItem.r = str4 + " " + str5;
-                shareItem.m = true;
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
-                shareDialogConfig.mShowMoreForumShare = true;
-                d.a.o0.d0.f.b().k(shareDialogConfig);
-                cVar.l("");
-                return cVar;
-            } else if (i2 == 0) {
-                if (shareItem != null && !k.isEmpty(str) && i3 == 1) {
+            String jSONObject2 = jSONObject.toString();
+            int i5 = 1;
+            if (k.isEmpty(jSONObject2) || (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject2)) == null) {
+                i5 = 0;
+            } else {
+                ShareItem shareItem = (ShareItem) runTask.getData();
+                if (shareItem != null) {
+                    shareItem.E = 17;
+                }
+                if ("1".equals(str2) && shareItem != null) {
+                    shareItem.w = str;
+                    shareItem.t = str3;
+                    shareItem.r = str4 + " " + str5;
+                    shareItem.m = true;
+                    ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
+                    shareDialogConfig.mShowMoreForumShare = true;
+                    d.a.s0.e0.f.b().k(shareDialogConfig);
+                    cVar.l("");
+                    return cVar;
+                } else if (i2 == 0) {
+                    if (shareItem != null && !k.isEmpty(str) && i3 == 1) {
+                        setShareItem(shareItem);
+                        shareLoacalImage(str, i2);
+                    }
+                    showShareDialog(shareItem);
+                } else if (shareItem != null && !k.isEmpty(str) && i3 == 1) {
                     setShareItem(shareItem);
                     shareLoacalImage(str, i2);
+                } else {
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.mContext, i2, shareItem, true));
                 }
-                showShareDialog(shareItem);
-            } else if (shareItem != null && !k.isEmpty(str) && i3 == 1) {
-                setShareItem(shareItem);
-                shareLoacalImage(str, i2);
-            } else {
-                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.mContext, i2, shareItem, true));
+            }
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put(MiPushCommandMessage.KEY_RESULT_CODE, i5);
+                cVar.l(jSONObject3.toString());
+                return cVar;
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+                return cVar;
             }
         }
-        try {
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put(MiPushCommandMessage.KEY_RESULT_CODE, i5);
-            cVar.l(jSONObject3.toString());
-            return cVar;
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-            return cVar;
-        }
+        return (d.a.s0.h3.l0.d.c) invokeCommon.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c shareSuccessNotification(HashMap hashMap) {
-        int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
-        ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
-        JSONObject jSONObject = new JSONObject();
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("title", shareItem.r);
-            jSONObject2.put("desc", shareItem.s);
-            jSONObject2.put("img", shareItem.v);
-            jSONObject2.put("url", shareItem.t);
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("type", intValue);
-            jSONObject3.put("shareData", jSONObject2);
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            jSONObject.put("data", jSONObject3);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        callJsMethod(SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        cVar.l(jSONObject.toString());
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c showLowerHairHint(int i2, int i3, String str, String str2, int i4, String str3, String str4, double d2, String str5, String str6, int i5, String str7, String str8, String str9, int i6, int i7) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        d.a.n0.a.e0.a aVar = new d.a.n0.a.e0.a();
-        aVar.f52466c = i2;
-        aVar.f52467d = i3;
-        aVar.f52468e = str;
-        aVar.f52469f = str2;
-        aVar.f52472i = i4;
-        aVar.l = str3;
-        aVar.n = d2;
-        aVar.j = str5;
-        aVar.k = str6;
-        aVar.f52465b = i5;
-        aVar.o = str7;
-        aVar.p = str8;
-        aVar.q = str9;
-        if (i2 == d.a.n0.a.e0.a.y) {
-            i.i(TbadkCoreApplication.getInst().getCurrentActivity(), aVar).k();
-        } else if (i2 == d.a.n0.a.e0.a.z) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            d.a.n0.r.o.b bVar = new d.a.n0.r.o.b(currentActivity);
-            if (currentActivity != null) {
-                bVar.d(currentActivity, aVar);
-                bVar.i();
-            }
-        } else if (i2 == d.a.n0.a.e0.a.A) {
-            if (i3 == d.a.n0.a.e0.a.D) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), aVar.l) && !k.isEmpty(aVar.k)) {
-                    dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                }
-            } else if (i3 == d.a.n0.a.e0.a.E && !k.isEmpty(str6)) {
-                dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-            }
-        } else if (i2 == d.a.n0.a.e0.a.C) {
-            if (i7 == 1) {
-                Context context = this.mContext;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
-            }
-            h.i(new TopToastEvent(i6, str));
-        }
-        try {
+    public d.a.s0.h3.l0.d.c shareSuccessNotification(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, hashMap)) == null) {
+            int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
+            ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("title", shareItem.r);
+                jSONObject2.put("desc", shareItem.s);
+                jSONObject2.put("img", shareItem.v);
+                jSONObject2.put("url", shareItem.t);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("type", intValue);
+                jSONObject3.put("shareData", jSONObject2);
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                jSONObject.put("data", jSONObject3);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            callJsMethod(SHARE_SUCCCESS_NOTIFICATION, jSONObject);
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
             cVar.l(jSONObject.toString());
             return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
         }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c showLowerHairHint(int i2, int i3, String str, String str2, int i4, String str3, String str4, double d2, String str5, String str6, int i5, String str7, String str8, String str9, int i6, int i7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048621, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, Integer.valueOf(i4), str3, str4, Double.valueOf(d2), str5, str6, Integer.valueOf(i5), str7, str8, str9, Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            d.a.r0.a.e0.a aVar = new d.a.r0.a.e0.a();
+            aVar.f54606c = i2;
+            aVar.f54607d = i3;
+            aVar.f54608e = str;
+            aVar.f54609f = str2;
+            aVar.f54612i = i4;
+            aVar.l = str3;
+            aVar.n = d2;
+            aVar.j = str5;
+            aVar.k = str6;
+            aVar.f54605b = i5;
+            aVar.o = str7;
+            aVar.p = str8;
+            aVar.q = str9;
+            if (i2 == d.a.r0.a.e0.a.y) {
+                i.i(TbadkCoreApplication.getInst().getCurrentActivity(), aVar).k();
+            } else if (i2 == d.a.r0.a.e0.a.z) {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                d.a.r0.r.o.b bVar = new d.a.r0.r.o.b(currentActivity);
+                if (currentActivity != null) {
+                    bVar.d(currentActivity, aVar);
+                    bVar.i();
+                }
+            } else if (i2 == d.a.r0.a.e0.a.A) {
+                if (i3 == d.a.r0.a.e0.a.D) {
+                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), aVar.l) && !k.isEmpty(aVar.k)) {
+                        dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                    }
+                } else if (i3 == d.a.r0.a.e0.a.E && !k.isEmpty(str6)) {
+                    dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                }
+            } else if (i2 == d.a.r0.a.e0.a.C) {
+                if (i7 == 1) {
+                    Context context = this.mContext;
+                    if (context instanceof Activity) {
+                        ((Activity) context).finish();
+                    }
+                }
+                h.i(new TopToastEvent(i6, str));
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeCommon.objValue;
     }
 
     public void showShareDialog(ShareItem shareItem) {
-        if (shareItem == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048622, this, shareItem) == null) || shareItem == null) {
             return;
         }
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true);
@@ -1594,215 +1992,302 @@ public class CommonTbJsBridge implements d.a.o0.e3.l0.b {
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    public d.a.o0.e3.l0.d.c showTipToast(String str, String str2, String str3, int i2, int i3) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        int i4 = 0;
-        i4 = 0;
-        if (!TextUtils.isEmpty(str)) {
-            Context context = this.mContext;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (!TextUtils.isEmpty(str3)) {
-                    String str4 = "showToast_" + str3;
-                    int k = d.a.n0.r.d0.b.j().k(str4, 0);
-                    if (k < i2) {
-                        d.a.n0.r.d0.b.j().v(str4, k);
+    public d.a.s0.h3.l0.d.c showTipToast(String str, String str2, String str3, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            int i4 = 0;
+            i4 = 0;
+            if (!TextUtils.isEmpty(str)) {
+                Context context = this.mContext;
+                if (context instanceof Activity) {
+                    Activity activity = (Activity) context;
+                    if (!TextUtils.isEmpty(str3)) {
+                        String str4 = "showToast_" + str3;
+                        int k = d.a.r0.r.d0.b.j().k(str4, 0);
+                        if (k < i2) {
+                            d.a.r0.r.d0.b.j().v(str4, k);
+                            h.i(new TipEvent(activity.getIntent(), str, str2, i3 == 1));
+                        }
+                    } else {
                         h.i(new TipEvent(activity.getIntent(), str, str2, i3 == 1));
                     }
-                } else {
-                    h.i(new TipEvent(activity.getIntent(), str, str2, i3 == 1));
+                    if (i3 == 1) {
+                        activity.finish();
+                    }
+                    i4 = 1;
                 }
-                if (i3 == 1) {
-                    activity.finish();
-                }
-                i4 = 1;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i4);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return cVar;
             }
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i4);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
+        return (d.a.s0.h3.l0.d.c) invokeCommon.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c springFestivalTimeToH5(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, hashMap)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            if (hashMap != null && hashMap.get("result") != null) {
+                cVar.l(hashMap.get("result"));
+            }
             return cVar;
         }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
     public String startApp(String str) {
-        if (!k.isEmpty(str)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
+            if (!k.isEmpty(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    return startApp(jSONObject.optString(PushClientConstants.TAG_PKG_NAME), jSONObject.optString("schema")).a();
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                return startApp(jSONObject.optString(PushClientConstants.TAG_PKG_NAME), jSONObject.optString("schema")).a();
-            } catch (JSONException e2) {
-                BdLog.e(e2);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                return jSONObject2.toString();
+            } catch (JSONException e3) {
+                BdLog.e(e3);
+                return null;
             }
         }
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
-            return jSONObject2.toString();
-        } catch (JSONException e3) {
-            BdLog.e(e3);
-            return null;
-        }
+        return (String) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c startDownloadCss(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        JSONObject jSONObject = new JSONObject();
-        if (!k.isEmpty(str)) {
+    public d.a.s0.h3.l0.d.c startDownloadCss(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            JSONObject jSONObject = new JSONObject();
+            if (!k.isEmpty(str)) {
+                try {
+                    if (k.isEmpty(str)) {
+                        jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                        cVar.l(jSONObject.toString());
+                        return cVar;
+                    }
+                    String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
+                    String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
+                    if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
+                        jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                        cVar.l(jSONObject.toString());
+                        return cVar;
+                    }
+                    DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
+                    downloadData.setPath(customLoginCssStoragePath);
+                    d.j().k(downloadData);
+                    jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            cVar.l(jSONObject.toString());
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c startLoginModule(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            WebView webView = this.mWebView;
+            if (webView == null) {
+                ViewHelper.checkUpIsLogin(this.mContext);
+            } else {
+                ViewHelper.checkUpIsLoginFromH5(this.mContext, webView.getOriginalUrl(), str);
+            }
+            JSResultData jSResultData = new JSResultData();
+            jSResultData.setStatus(1);
+            jSResultData.setErrorCode("0");
+            jSResultData.setErrorMsg("");
+            cVar.l(OrmObject.jsonStrWithObject(jSResultData));
+            return cVar;
+        }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c switchOfflineBundleStatus(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i2)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
             try {
-                if (k.isEmpty(str)) {
-                    jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
-                    cVar.l(jSONObject.toString());
-                    return cVar;
-                }
-                String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
-                String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
-                if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
-                    jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
-                    cVar.l(jSONObject.toString());
-                    return cVar;
-                }
-                DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
-                downloadData.setPath(customLoginCssStoragePath);
-                d.j().k(downloadData);
+                QuickWebViewSwitch.setState(i2 == 1 ? TriState.YES : TriState.NO);
+                JSONObject jSONObject = new JSONObject();
                 jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+                return cVar;
             } catch (JSONException e2) {
-                BdLog.e(e2);
+                e2.printStackTrace();
+                return null;
             }
         }
-        cVar.l(jSONObject.toString());
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeI.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c startLoginModule(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        WebView webView = this.mWebView;
-        if (webView == null) {
-            ViewHelper.checkUpIsLogin(this.mContext);
-        } else {
-            ViewHelper.checkUpIsLoginFromH5(this.mContext, webView.getOriginalUrl(), str);
-        }
-        JSResultData jSResultData = new JSResultData();
-        jSResultData.setStatus(1);
-        jSResultData.setErrorCode("0");
-        jSResultData.setErrorMsg("");
-        cVar.l(OrmObject.jsonStrWithObject(jSResultData));
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c switchOfflineBundleStatus(int i2) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            QuickWebViewSwitch.setState(i2 == 1 ? TriState.YES : TriState.NO);
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
-        }
-    }
-
-    public d.a.o0.e3.l0.d.c switchOfflineInterface(String str) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            if (StringUtils.isNull(str)) {
-                str = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
+    public d.a.s0.h3.l0.d.c switchOfflineInterface(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, str)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            try {
+                if (StringUtils.isNull(str)) {
+                    str = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
+                }
+                tempUrl = str;
+                d.a.r0.s.j.c.a().g(true);
+                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, tempUrl + "?cmd=309485");
+                tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
+                MessageManager.getInstance().registerTask(tbHttpMessageTask);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
             }
-            tempUrl = str;
-            d.a.n0.s.j.c.a().g(true);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, tempUrl + "?cmd=309485");
-            tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            cVar.l(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
         }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c switchUrlHost(ArrayList<JSONObject> arrayList) {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            d.a.n0.l.d dVar = new d.a.n0.l.d();
-            dVar.f53235a = new LinkedHashMap();
-            if (arrayList != null) {
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    JSONObject jSONObject = arrayList.get(i2);
-                    if (jSONObject != null) {
-                        dVar.f53235a.put(jSONObject.optString("path"), jSONObject.optString("host"));
+    public d.a.s0.h3.l0.d.c switchUrlHost(ArrayList<JSONObject> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, arrayList)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            try {
+                d.a.r0.l.d dVar = new d.a.r0.l.d();
+                dVar.f55371a = new LinkedHashMap();
+                if (arrayList != null) {
+                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                        JSONObject jSONObject = arrayList.get(i2);
+                        if (jSONObject != null) {
+                            dVar.f55371a.put(jSONObject.optString("path"), jSONObject.optString("host"));
+                        }
+                    }
+                    if (dVar.f55371a.size() > 0) {
+                        dVar.f55372b = new JSONObject().put("hostArr", new JSONArray((Collection) arrayList)).toString();
+                        TbDebugSingleton.getInstance().setUrlSwitchMap(dVar);
                     }
                 }
-                if (dVar.f53235a.size() > 0) {
-                    dVar.f53236b = new JSONObject().put("hostArr", new JSONArray((Collection) arrayList)).toString();
-                    TbDebugSingleton.getInstance().setUrlSwitchMap(dVar);
-                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject2.toString());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            cVar.l(jSONObject2.toString());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            return cVar;
         }
-        return cVar;
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
     }
 
-    public d.a.o0.e3.l0.d.c thirdPartyLoginResultToH5(HashMap hashMap) {
-        if (hashMap == null) {
-            return null;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
-            jSONObject.put("socialType", hashMap.get("social_type"));
-            jSONObject.put("activityId", hashMap.get("activityId"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        cVar.l(jSONObject.toString());
-        return cVar;
-    }
-
-    public d.a.o0.e3.l0.d.c updateOfflineBundle() {
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        try {
-            d.a.o0.r2.b.q().i();
-            MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
+    public d.a.s0.h3.l0.d.c thirdPartyLoginResultToH5(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
+            }
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            try {
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                jSONObject.put("socialType", hashMap.get("social_type"));
+                jSONObject.put("activityId", hashMap.get("activityId"));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
             cVar.l(jSONObject.toString());
             return cVar;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
         }
+        return (d.a.s0.h3.l0.d.c) invokeL.objValue;
+    }
+
+    public d.a.s0.h3.l0.d.c updateOfflineBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+            try {
+                d.a.s0.u2.b.q().i();
+                MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (d.a.s0.h3.l0.d.c) invokeV.objValue;
     }
 
     public CommonTbJsBridge(Context context, WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, webView};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.SHOW_MORE_FORUM_ICON = "1";
         this.mLastLoadUrlTime = 0L;
         this.mContext = context;
         this.mWebView = webView;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0048  */
+    public void dealSpringFestivalTimer(HashMap hashMap) {
+        d.a.s0.h3.l0.a aVar;
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) || (aVar = this.jsPromptBridge) == null || (webView = this.mWebView) == null || hashMap == null) {
+            return;
+        }
+        aVar.h(webView, "getPageLeaveTime", hashMap);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public d.a.o0.e3.l0.d.c startApp(String str, String str2) {
+    public d.a.s0.h3.l0.d.c startApp(String str, String str2) {
+        InterceptResult invokeLL;
         boolean z;
         Intent launchIntentForPackage;
-        d.a.o0.e3.l0.d.c cVar = new d.a.o0.e3.l0.d.c();
-        List<String> a2 = d.a.n0.s.c.i.a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048625, this, str, str2)) != null) {
+            return (d.a.s0.h3.l0.d.c) invokeLL.objValue;
+        }
+        d.a.s0.h3.l0.d.c cVar = new d.a.s0.h3.l0.d.c();
+        List<String> a2 = d.a.r0.s.c.i.a();
         try {
             if (isLegalSchema(a2, str2)) {
                 Intent intent = new Intent();

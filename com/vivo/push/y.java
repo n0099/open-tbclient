@@ -3,97 +3,149 @@ package com.vivo.push;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public abstract class y {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40540a;
+    public int f42283a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40541b;
+    public String f42284b;
 
     public y(int i2) {
-        this.f40540a = -1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42283a = -1;
         if (i2 >= 0) {
-            this.f40540a = i2;
+            this.f42283a = i2;
             return;
         }
         throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
     }
 
     private final void e(a aVar) {
-        aVar.a("command", this.f40540a);
-        aVar.a("client_pkgname", this.f40541b);
-        c(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
+            aVar.a("command", this.f42283a);
+            aVar.a("client_pkgname", this.f42284b);
+            c(aVar);
+        }
     }
 
     public final String a() {
-        return this.f40541b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42284b : (String) invokeV.objValue;
     }
 
     public final int b() {
-        return this.f40540a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42283a : invokeV.intValue;
     }
 
     public abstract void c(a aVar);
 
     public boolean c() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public abstract void d(a aVar);
 
     public String toString() {
-        return getClass().getSimpleName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getClass().getSimpleName() : (String) invokeV.objValue;
     }
 
     public final void a(String str) {
-        this.f40541b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f42284b = str;
+        }
     }
 
     public final void b(Intent intent) {
-        a a2 = a.a(intent);
-        if (a2 == null) {
-            com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
-            return;
-        }
-        a2.a("method", this.f40540a);
-        e(a2);
-        Bundle b2 = a2.b();
-        if (b2 != null) {
-            intent.putExtras(b2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
+            a a2 = a.a(intent);
+            if (a2 == null) {
+                com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
+                return;
+            }
+            a2.a("method", this.f42283a);
+            e(a2);
+            Bundle b2 = a2.b();
+            if (b2 != null) {
+                intent.putExtras(b2);
+            }
         }
     }
 
     public final void a(Intent intent) {
-        a a2 = a.a(intent);
-        if (a2 == null) {
-            com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
-            return;
-        }
-        a(a2);
-        Bundle b2 = a2.b();
-        if (b2 != null) {
-            intent.putExtras(b2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            a a2 = a.a(intent);
+            if (a2 == null) {
+                com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
+                return;
+            }
+            a(a2);
+            Bundle b2 = a2.b();
+            if (b2 != null) {
+                intent.putExtras(b2);
+            }
         }
     }
 
     public final void a(a aVar) {
-        String a2 = z.a(this.f40540a);
-        if (a2 == null) {
-            a2 = "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            String a2 = z.a(this.f42283a);
+            if (a2 == null) {
+                a2 = "";
+            }
+            aVar.a("method", a2);
+            e(aVar);
         }
-        aVar.a("method", a2);
-        e(aVar);
     }
 
     public final void b(a aVar) {
-        String a2 = aVar.a();
-        if (!TextUtils.isEmpty(a2)) {
-            this.f40541b = a2;
-        } else {
-            this.f40541b = aVar.a("client_pkgname");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            String a2 = aVar.a();
+            if (!TextUtils.isEmpty(a2)) {
+                this.f42284b = a2;
+            } else {
+                this.f42284b = aVar.a("client_pkgname");
+            }
+            d(aVar);
         }
-        d(aVar);
     }
 }

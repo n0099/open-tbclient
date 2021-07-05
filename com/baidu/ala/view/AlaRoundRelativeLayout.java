@@ -6,18 +6,41 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 /* loaded from: classes.dex */
 public class AlaRoundRelativeLayout extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public float[] mRadius;
     public RectF mRectF;
     public float mRoundLayoutRadius;
     public Path mRoundPath;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRoundRelativeLayout(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRoundLayoutRadius = g2;
         this.mRadius = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
@@ -25,30 +48,43 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
     }
 
     private void init() {
-        setWillNotDraw(false);
-        this.mRoundPath = new Path();
-        this.mRectF = new RectF();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            setWillNotDraw(false);
+            this.mRoundPath = new Path();
+            this.mRectF = new RectF();
+        }
     }
 
     private void setRoundPath() {
-        this.mRoundPath.addRoundRect(this.mRectF, this.mRadius, Path.Direction.CW);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            this.mRoundPath.addRoundRect(this.mRectF, this.mRadius, Path.Direction.CW);
+        }
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        canvas.clipPath(this.mRoundPath);
-        super.draw(canvas);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            canvas.clipPath(this.mRoundPath);
+            super.draw(canvas);
+        }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        this.mRectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        setRoundPath();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            this.mRectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            setRoundPath();
+        }
     }
 
     public void setRoundLayoutRadius(float[] fArr) {
-        if (fArr == null || fArr.length <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fArr) == null) || fArr == null || fArr.length <= 0) {
             return;
         }
         this.mRadius = new float[fArr.length];
@@ -59,16 +95,50 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
         invalidate();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRoundRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRoundLayoutRadius = g2;
         this.mRadius = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         init();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRoundLayoutRadius = g2;
         this.mRadius = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};

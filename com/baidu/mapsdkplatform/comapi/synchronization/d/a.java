@@ -1,44 +1,83 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.d;
 
 import android.util.Log;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7807a = true;
+    public static boolean f7837a = true;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-879635590, "Lcom/baidu/mapsdkplatform/comapi/synchronization/d/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-879635590, "Lcom/baidu/mapsdkplatform/comapi/synchronization/d/a;");
+        }
+    }
 
     public static String a() {
-        StackTraceElement stackTraceElement = new Throwable().getStackTrace()[2];
-        return stackTraceElement.getFileName() + ": Line " + stackTraceElement.getLineNumber();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StackTraceElement stackTraceElement = new Throwable().getStackTrace()[2];
+            return stackTraceElement.getFileName() + ": Line " + stackTraceElement.getLineNumber();
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void a(String str, String str2) {
-        if (f7807a) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f7837a) {
             Log.d(str, str2);
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f7807a) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && f7837a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void a(boolean z) {
-        f7807a = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
+            f7837a = z;
+        }
     }
 
     public static String b() {
-        return new Throwable().getStackTrace()[2].getMethodName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new Throwable().getStackTrace()[2].getMethodName() : (String) invokeV.objValue;
     }
 
     public static void b(String str, String str2) {
-        if (f7807a) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && f7837a) {
             Log.e(str, str2);
         }
     }
 
     public static void c(String str, String str2) {
-        Log.d(str + "-" + b() + "-" + a(), str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            Log.d(str + "-" + b() + "-" + a(), str2);
+        }
     }
 }

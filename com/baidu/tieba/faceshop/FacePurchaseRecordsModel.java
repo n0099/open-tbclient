@@ -6,110 +6,190 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FacePurchaseRecordsModel extends BdBaseModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f14851e;
+    public b f14942e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14852f;
+    public String f14943f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14853g;
+    public int f14944g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14854h;
+    public int f14945h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f14855i;
+    public float f14946i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14856a;
+        public NetWork f14947a;
 
-        public b() {
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ FacePurchaseRecordsModel f14948b;
+
+        public b(FacePurchaseRecordsModel facePurchaseRecordsModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {facePurchaseRecordsModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14948b = facePurchaseRecordsModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public FacePurchaseRecordsData doInBackground(Object... objArr) {
-            try {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_PURCHASE_RECORDS);
-                this.f14856a = netWork;
-                netWork.addPostData("st_type", FacePurchaseRecordsModel.this.f14852f);
-                this.f14856a.addPostData("scr_w", String.valueOf(FacePurchaseRecordsModel.this.f14853g));
-                this.f14856a.addPostData("scr_h", String.valueOf(FacePurchaseRecordsModel.this.f14854h));
-                this.f14856a.addPostData("scr_dip", String.valueOf(FacePurchaseRecordsModel.this.f14855i));
-                return (FacePurchaseRecordsData) OrmObject.objectWithJsonStr(this.f14856a.postNetData(), FacePurchaseRecordsData.class);
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                try {
+                    NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_PURCHASE_RECORDS);
+                    this.f14947a = netWork;
+                    netWork.addPostData("st_type", this.f14948b.f14943f);
+                    this.f14947a.addPostData("scr_w", String.valueOf(this.f14948b.f14944g));
+                    this.f14947a.addPostData("scr_h", String.valueOf(this.f14948b.f14945h));
+                    this.f14947a.addPostData("scr_dip", String.valueOf(this.f14948b.f14946i));
+                    return (FacePurchaseRecordsData) OrmObject.objectWithJsonStr(this.f14947a.postNetData(), FacePurchaseRecordsData.class);
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                    return null;
+                }
             }
+            return (FacePurchaseRecordsData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(FacePurchaseRecordsData facePurchaseRecordsData) {
-            FacePurchaseRecordsModel.this.f14851e = null;
-            FacePurchaseRecordsModel.this.mLoadDataCallBack.c(facePurchaseRecordsData);
-            super.onPostExecute(facePurchaseRecordsData);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, facePurchaseRecordsData) == null) {
+                this.f14948b.f14942e = null;
+                this.f14948b.mLoadDataCallBack.c(facePurchaseRecordsData);
+                super.onPostExecute(facePurchaseRecordsData);
+            }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            super.cancel(true);
-            NetWork netWork = this.f14856a;
-            if (netWork != null) {
-                netWork.cancelNetConnect();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.f14947a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                this.f14948b.f14942e = null;
             }
-            FacePurchaseRecordsModel.this.f14851e = null;
+        }
+
+        public /* synthetic */ b(FacePurchaseRecordsModel facePurchaseRecordsModel, a aVar) {
+            this(facePurchaseRecordsModel);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FacePurchaseRecordsModel(Context context) {
         super(null);
-        this.f14853g = 0;
-        this.f14854h = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f14944g = 0;
+        this.f14945h = 0;
         Application app = TbadkApplication.getInst().getApp();
-        this.f14853g = l.k(app);
-        this.f14854h = l.i(app);
-        this.f14855i = app.getResources().getDisplayMetrics().density;
+        this.f14944g = l.k(app);
+        this.f14945h = l.i(app);
+        this.f14946i = app.getResources().getDisplayMetrics().density;
     }
 
     public void C() {
-        if (this.f14851e == null) {
-            b bVar = new b();
-            this.f14851e = bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f14942e == null) {
+            b bVar = new b(this, null);
+            this.f14942e = bVar;
             bVar.setPriority(3);
-            this.f14851e.execute(new Object[0]);
+            this.f14942e.execute(new Object[0]);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f14851e;
-        if (bVar != null) {
-            bVar.cancel();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            b bVar = this.f14942e;
+            if (bVar != null) {
+                bVar.cancel();
+                return true;
+            }
             return true;
         }
-        return true;
+        return invokeV.booleanValue;
     }
 
     public void setStType(String str) {
-        this.f14852f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f14943f = str;
+        }
     }
 }

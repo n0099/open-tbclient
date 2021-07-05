@@ -1,41 +1,99 @@
 package com.qq.e.ads.rewardvideo;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ServerSideVerificationOptions {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TRANS_ID = "transId";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39126a;
+    public String f40878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39127b;
+    public String f40879b;
+
+    /* renamed from: com.qq.e.ads.rewardvideo.ServerSideVerificationOptions$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* loaded from: classes7.dex */
     public static class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39128a;
+        public String f40880a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39129b;
+        public String f40881b;
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public ServerSideVerificationOptions build() {
-            return new ServerSideVerificationOptions(this, (byte) 0);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ServerSideVerificationOptions(this, (byte) 0) : (ServerSideVerificationOptions) invokeV.objValue;
         }
 
         public Builder setCustomData(String str) {
-            this.f39128a = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.f40880a = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setUserId(String str) {
-            this.f39129b = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.f40881b = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
     }
 
     public ServerSideVerificationOptions(Builder builder) {
-        this.f39126a = builder.f39128a;
-        this.f39127b = builder.f39129b;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f40878a = builder.f40880a;
+        this.f40879b = builder.f40881b;
     }
 
     public /* synthetic */ ServerSideVerificationOptions(Builder builder, byte b2) {
@@ -43,10 +101,14 @@ public class ServerSideVerificationOptions {
     }
 
     public String getCustomData() {
-        return this.f39126a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40878a : (String) invokeV.objValue;
     }
 
     public String getUserId() {
-        return this.f39127b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40879b : (String) invokeV.objValue;
     }
 }

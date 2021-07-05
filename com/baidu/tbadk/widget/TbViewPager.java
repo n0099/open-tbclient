@@ -5,126 +5,210 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbViewPager extends ViewPager {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13203e;
+    public boolean f13288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13204f;
+    public float f13289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13205g;
+    public int f13290g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13206h;
+    public int f13291h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Scroller {
-        public a(Context context) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ TbViewPager f13292a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(TbViewPager tbViewPager, Context context) {
             super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbViewPager, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13292a = tbViewPager;
         }
 
         public void a(ViewPager viewPager) {
-            try {
-                Field declaredField = ViewPager.class.getDeclaredField("mScroller");
-                declaredField.setAccessible(true);
-                declaredField.set(viewPager, this);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, viewPager) == null) {
+                try {
+                    Field declaredField = ViewPager.class.getDeclaredField("mScroller");
+                    declaredField.setAccessible(true);
+                    declaredField.set(viewPager, this);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i2, int i3, int i4, int i5, int i6) {
-            super.startScroll(i2, i3, i4, i5, TbViewPager.this.f13206h);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+                super.startScroll(i2, i3, i4, i5, this.f13292a.f13291h);
+            }
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i2, int i3, int i4, int i5) {
-            super.startScroll(i2, i3, i4, i5, TbViewPager.this.f13206h);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
+                super.startScroll(i2, i3, i4, i5, this.f13292a.f13291h);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbViewPager(Context context) {
         super(context);
-        this.f13203e = false;
-        this.f13206h = 600;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13288e = false;
+        this.f13291h = 600;
         c();
     }
 
     public final void c() {
-        this.f13205g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f13290g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+        }
     }
 
     public final boolean d(MotionEvent motionEvent) {
-        int action = (motionEvent.getAction() & 65280) >> 8;
-        return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = (motionEvent.getAction() & 65280) >> 8;
+            return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (d(motionEvent)) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            if (d(motionEvent)) {
+                return true;
+            }
+            if (motionEvent.getPointerCount() > 1 && this.f13288e) {
+                requestDisallowInterceptTouchEvent(false);
+                boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+                requestDisallowInterceptTouchEvent(true);
+                return dispatchTouchEvent;
+            }
+            try {
+                return super.dispatchTouchEvent(motionEvent);
+            } catch (Exception unused) {
+                return false;
+            }
         }
-        if (motionEvent.getPointerCount() > 1 && this.f13203e) {
-            requestDisallowInterceptTouchEvent(false);
-            boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-            requestDisallowInterceptTouchEvent(true);
-            return dispatchTouchEvent;
-        }
-        try {
-            return super.dispatchTouchEvent(motionEvent);
-        } catch (Exception unused) {
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
     public final void e(boolean z) {
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(z);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || getParent() == null) {
+            return;
         }
+        getParent().requestDisallowInterceptTouchEvent(z);
     }
 
     public int getScrollingDuration() {
-        return this.f13206h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13291h : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (d(motionEvent)) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (d(motionEvent)) {
+                return true;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
         }
-        return super.onInterceptTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0016, code lost:
-        if (r0 != 6) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x001a, code lost:
+        if (r0 != 6) goto L15;
      */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x006a A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006e A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, motionEvent)) != null) {
+            return invokeL.booleanValue;
+        }
         int action = motionEvent.getAction() & 255;
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float x = motionEvent.getX() - this.f13204f;
+                    float x = motionEvent.getX() - this.f13289f;
                     if (getCurrentItem() == 0) {
-                        if (x >= this.f13205g) {
+                        if (x >= this.f13290g) {
                             e(false);
                         } else {
                             e(true);
                         }
                     } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                        if (x <= (-this.f13205g)) {
+                        if (x <= (-this.f13290g)) {
                             e(false);
                         } else {
                             e(true);
@@ -144,35 +228,61 @@ public class TbViewPager extends ViewPager {
                 }
             }
             e(false);
-            this.f13204f = 0.0f;
+            this.f13289f = 0.0f;
             if (d(motionEvent)) {
             }
         }
         e(true);
-        this.f13204f = motionEvent.getX();
+        this.f13289f = motionEvent.getX();
         if (d(motionEvent)) {
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.f13203e = z;
-        super.requestDisallowInterceptTouchEvent(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f13288e = z;
+            super.requestDisallowInterceptTouchEvent(z);
+        }
     }
 
     public void setViewPagerScroll(int i2) {
-        this.f13206h = i2;
-        new a(getContext()).a(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.f13291h = i2;
+            new a(this, getContext()).a(this);
+        }
     }
 
     public void setViewPagerScroll() {
-        setViewPagerScroll(600);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            setViewPagerScroll(600);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13203e = false;
-        this.f13206h = 600;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f13288e = false;
+        this.f13291h = 600;
         c();
     }
 }

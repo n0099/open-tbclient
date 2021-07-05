@@ -1,5 +1,12 @@
 package rx.internal.operators;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.f;
 import h.j;
@@ -12,24 +19,45 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements f, k, d.a<T> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3852313036005250360L;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicReference<j<? super T>> actual;
+    public final AtomicBoolean cancelled;
     public final boolean delayError;
     public volatile boolean done;
     public Throwable error;
     public final K key;
+    public final AtomicBoolean once;
     public final n<?, K, T> parent;
-    public final Queue<Object> queue = new ConcurrentLinkedQueue();
-    public final AtomicBoolean cancelled = new AtomicBoolean();
-    public final AtomicReference<j<? super T>> actual = new AtomicReference<>();
-    public final AtomicBoolean once = new AtomicBoolean();
-    public final AtomicLong requested = new AtomicLong();
+    public final Queue<Object> queue;
+    public final AtomicLong requested;
 
     public OperatorGroupBy$State(int i2, n<?, K, T> nVar, K k, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), nVar, k, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.queue = new ConcurrentLinkedQueue();
         this.parent = nVar;
         this.key = k;
         this.delayError = z;
+        this.cancelled = new AtomicBoolean();
+        this.actual = new AtomicReference<>();
+        this.once = new AtomicBoolean();
+        this.requested = new AtomicLong();
     }
 
     @Override // h.n.b
@@ -38,41 +66,47 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
     }
 
     public boolean checkTerminated(boolean z, boolean z2, j<? super T> jVar, boolean z3) {
-        if (this.cancelled.get()) {
-            this.queue.clear();
-            this.parent.b(this.key);
-            return true;
-        } else if (z) {
-            if (z3) {
-                if (z2) {
-                    Throwable th = this.error;
-                    if (th != null) {
-                        jVar.onError(th);
-                    } else {
-                        jVar.onCompleted();
-                    }
-                    return true;
-                }
-                return false;
-            }
-            Throwable th2 = this.error;
-            if (th2 != null) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), jVar, Boolean.valueOf(z3)})) == null) {
+            if (this.cancelled.get()) {
                 this.queue.clear();
-                jVar.onError(th2);
+                this.parent.b(this.key);
                 return true;
-            } else if (z2) {
-                jVar.onCompleted();
-                return true;
+            } else if (z) {
+                if (z3) {
+                    if (z2) {
+                        Throwable th = this.error;
+                        if (th != null) {
+                            jVar.onError(th);
+                        } else {
+                            jVar.onCompleted();
+                        }
+                        return true;
+                    }
+                    return false;
+                }
+                Throwable th2 = this.error;
+                if (th2 != null) {
+                    this.queue.clear();
+                    jVar.onError(th2);
+                    return true;
+                } else if (z2) {
+                    jVar.onCompleted();
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
                 return false;
             }
-        } else {
-            return false;
         }
+        return invokeCommon.booleanValue;
     }
 
     public void drain() {
-        if (getAndIncrement() != 0) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getAndIncrement() != 0) {
             return;
         }
         Queue<Object> queue = this.queue;
@@ -103,7 +137,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     if (j != Long.MAX_VALUE) {
                         a.g(this.requested, j2);
                     }
-                    this.parent.f71868e.request(j2);
+                    this.parent.f75460e.request(j2);
                 }
             }
             i2 = addAndGet(-i2);
@@ -118,56 +152,74 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.cancelled.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cancelled.get() : invokeV.booleanValue;
     }
 
     public void onComplete() {
-        this.done = true;
-        drain();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.done = true;
+            drain();
+        }
     }
 
     public void onError(Throwable th) {
-        this.error = th;
-        this.done = true;
-        drain();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
+            this.error = th;
+            this.done = true;
+            drain();
+        }
     }
 
     public void onNext(T t) {
-        if (t == null) {
-            this.error = new NullPointerException();
-            this.done = true;
-        } else {
-            this.queue.offer(NotificationLite.h(t));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+            if (t == null) {
+                this.error = new NullPointerException();
+                this.done = true;
+            } else {
+                this.queue.offer(NotificationLite.h(t));
+            }
+            drain();
         }
-        drain();
     }
 
     @Override // h.f
     public void request(long j) {
-        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i2 < 0) {
-            throw new IllegalArgumentException("n >= required but it was " + j);
-        } else if (i2 != 0) {
-            a.b(this.requested, j);
-            drain();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i2 < 0) {
+                throw new IllegalArgumentException("n >= required but it was " + j);
+            } else if (i2 != 0) {
+                a.b(this.requested, j);
+                drain();
+            }
         }
     }
 
     @Override // h.k
     public void unsubscribe() {
-        if (this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
             this.parent.b(this.key);
         }
     }
 
     public void call(j<? super T> jVar) {
-        if (this.once.compareAndSet(false, true)) {
-            jVar.add(this);
-            jVar.setProducer(this);
-            this.actual.lazySet(jVar);
-            drain();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
+            if (this.once.compareAndSet(false, true)) {
+                jVar.add(this);
+                jVar.setProducer(this);
+                this.actual.lazySet(jVar);
+                drain();
+                return;
+            }
+            jVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
         }
-        jVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
     }
 }

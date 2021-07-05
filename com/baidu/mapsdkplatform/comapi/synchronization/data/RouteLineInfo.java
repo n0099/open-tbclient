@@ -2,117 +2,251 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RouteLineInfo implements Parcelable {
-    public static final Parcelable.Creator<RouteLineInfo> CREATOR = new b();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<RouteLineInfo> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f7815a;
+    public boolean f7845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7816b;
+    public String f7846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<RouteSectionInfo> f7817c;
+    public CopyOnWriteArrayList<RouteSectionInfo> f7847c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class RouteSectionInfo implements Parcelable {
-        public static final Parcelable.Creator<RouteSectionInfo> CREATOR = new c();
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<RouteSectionInfo> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LatLng f7818a;
+        public LatLng f7848a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LatLng f7819b;
+        public LatLng f7849b;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2058168984, "Lcom/baidu/mapsdkplatform/comapi/synchronization/data/RouteLineInfo$RouteSectionInfo;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-2058168984, "Lcom/baidu/mapsdkplatform/comapi/synchronization/data/RouteLineInfo$RouteSectionInfo;");
+                    return;
+                }
+            }
+            CREATOR = new c();
+        }
 
         public RouteSectionInfo() {
-            this.f7818a = null;
-            this.f7819b = null;
-            this.f7818a = null;
-            this.f7819b = null;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f7848a = null;
+            this.f7849b = null;
+            this.f7848a = null;
+            this.f7849b = null;
         }
 
         public RouteSectionInfo(Parcel parcel) {
-            this.f7818a = null;
-            this.f7819b = null;
-            this.f7818a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f7819b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.f7848a = null;
+            this.f7849b = null;
+            this.f7848a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7849b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
         }
 
         public LatLng a() {
-            return this.f7818a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7848a : (LatLng) invokeV.objValue;
         }
 
         public void a(LatLng latLng) {
-            this.f7818a = latLng;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
+                this.f7848a = latLng;
+            }
         }
 
         public LatLng b() {
-            return this.f7819b;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7849b : (LatLng) invokeV.objValue;
         }
 
         public void b(LatLng latLng) {
-            this.f7819b = latLng;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, latLng) == null) {
+                this.f7849b = latLng;
+            }
         }
 
         @Override // android.os.Parcelable
         public int describeContents() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
-            parcel.writeParcelable(this.f7818a, i2);
-            parcel.writeParcelable(this.f7819b, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
+                parcel.writeParcelable(this.f7848a, i2);
+                parcel.writeParcelable(this.f7849b, i2);
+            }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1047804928, "Lcom/baidu/mapsdkplatform/comapi/synchronization/data/RouteLineInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1047804928, "Lcom/baidu/mapsdkplatform/comapi/synchronization/data/RouteLineInfo;");
+                return;
+            }
+        }
+        CREATOR = new b();
     }
 
     public RouteLineInfo() {
-        this.f7815a = false;
-        this.f7816b = null;
-        this.f7817c = new CopyOnWriteArrayList<>();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f7845a = false;
+        this.f7846b = null;
+        this.f7847c = new CopyOnWriteArrayList<>();
     }
 
     public RouteLineInfo(Parcel parcel) {
-        this.f7815a = parcel.readByte() != 0;
-        this.f7816b = parcel.readString();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f7845a = parcel.readByte() != 0;
+        this.f7846b = parcel.readString();
     }
 
     public String a() {
-        return this.f7816b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7846b : (String) invokeV.objValue;
     }
 
     public void a(RouteSectionInfo routeSectionInfo) {
-        CopyOnWriteArrayList<RouteSectionInfo> copyOnWriteArrayList = this.f7817c;
-        if (copyOnWriteArrayList != null) {
-            copyOnWriteArrayList.add(routeSectionInfo);
+        CopyOnWriteArrayList<RouteSectionInfo> copyOnWriteArrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, routeSectionInfo) == null) || (copyOnWriteArrayList = this.f7847c) == null) {
+            return;
         }
+        copyOnWriteArrayList.add(routeSectionInfo);
     }
 
     public void a(String str) {
-        this.f7816b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f7846b = str;
+        }
     }
 
     public void a(boolean z) {
-        this.f7815a = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f7845a = z;
+        }
     }
 
     public List<RouteSectionInfo> b() {
-        return this.f7817c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7847c : (List) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeByte(this.f7815a ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f7816b);
-        parcel.writeTypedList(this.f7817c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+            parcel.writeByte(this.f7845a ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.f7846b);
+            parcel.writeTypedList(this.f7847c);
+        }
     }
 }

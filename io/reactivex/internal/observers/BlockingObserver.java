@@ -1,50 +1,105 @@
 package io.reactivex.internal.observers;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.NotificationLite;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class BlockingObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
-    public static final Object TERMINATED = new Object();
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Object TERMINATED;
     public static final long serialVersionUID = -4875965440900746268L;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Queue<Object> queue;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(518099577, "Lio/reactivex/internal/observers/BlockingObserver;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(518099577, "Lio/reactivex/internal/observers/BlockingObserver;");
+                return;
+            }
+        }
+        TERMINATED = new Object();
+    }
+
     public BlockingObserver(Queue<Object> queue) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {queue};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.queue = queue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        if (DisposableHelper.dispose(this)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && DisposableHelper.dispose(this)) {
             this.queue.offer(TERMINATED);
         }
     }
 
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
-        return get() == DisposableHelper.DISPOSED;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
     }
 
     @Override // io.reactivex.Observer
     public void onComplete() {
-        this.queue.offer(NotificationLite.complete());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.queue.offer(NotificationLite.complete());
+        }
     }
 
     @Override // io.reactivex.Observer
     public void onError(Throwable th) {
-        this.queue.offer(NotificationLite.error(th));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+            this.queue.offer(NotificationLite.error(th));
+        }
     }
 
     @Override // io.reactivex.Observer
     public void onNext(T t) {
-        this.queue.offer(NotificationLite.next(t));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            this.queue.offer(NotificationLite.next(t));
+        }
     }
 
     @Override // io.reactivex.Observer
     public void onSubscribe(Disposable disposable) {
-        DisposableHelper.setOnce(this, disposable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
+            DisposableHelper.setOnce(this, disposable);
+        }
     }
 }

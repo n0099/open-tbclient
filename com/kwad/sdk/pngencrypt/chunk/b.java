@@ -1,5 +1,11 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -11,106 +17,165 @@ import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
 /* loaded from: classes7.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f36948a = a("IHDR");
+    public static final byte[] f38711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f36949b = a("PLTE");
+    public static final byte[] f38712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f36950c = a("IDAT");
+    public static final byte[] f38713c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f36951d = a("IEND");
-
-    /* renamed from: f  reason: collision with root package name */
-    public static byte[] f36953f = new byte[4096];
+    public static final byte[] f38714d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Pattern f36952e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
+    public static Pattern f38715e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static byte[] f38716f;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1066534701, "Lcom/kwad/sdk/pngencrypt/chunk/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1066534701, "Lcom/kwad/sdk/pngencrypt/chunk/b;");
+                return;
+            }
+        }
+        f38711a = a("IHDR");
+        f38712b = a("PLTE");
+        f38713c = a("IDAT");
+        f38714d = a("IEND");
+        f38716f = new byte[4096];
+        f38715e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
+    }
 
     public static String a(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f37026a);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f38789a) : (String) invokeL.objValue;
     }
 
     public static String a(byte[] bArr, int i2) {
-        return (bArr == null || bArr.length < i2 + 4) ? "?" : a(bArr, i2, 4);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i2)) == null) ? (bArr == null || bArr.length < i2 + 4) ? "?" : a(bArr, i2, 4) : (String) invokeLI.objValue;
     }
 
     public static String a(byte[] bArr, int i2, int i3) {
-        return new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f37026a);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f38789a) : (String) invokeLII.objValue;
     }
 
     public static List<PngChunk> a(List<PngChunk> list, c cVar) {
-        ArrayList arrayList = new ArrayList();
-        for (PngChunk pngChunk : list) {
-            if (cVar.a(pngChunk)) {
-                arrayList.add(pngChunk);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, list, cVar)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (PngChunk pngChunk : list) {
+                if (cVar.a(pngChunk)) {
+                    arrayList.add(pngChunk);
+                }
             }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeLL.objValue;
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
-        synchronized (f36953f) {
-            while (true) {
-                int read = inputStream.read(f36953f);
-                if (read > 0) {
-                    outputStream.write(f36953f, 0, read);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, outputStream) == null) {
+            synchronized (f38716f) {
+                while (true) {
+                    int read = inputStream.read(f38716f);
+                    if (read > 0) {
+                        outputStream.write(f38716f, 0, read);
+                    }
                 }
             }
         }
     }
 
     public static byte[] a(String str) {
-        return str.getBytes(com.kwad.sdk.pngencrypt.n.f37026a);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? str.getBytes(com.kwad.sdk.pngencrypt.n.f38789a) : (byte[]) invokeL.objValue;
     }
 
     public static byte[] a(byte[] bArr, int i2, int i3, boolean z) {
-        try {
-            InputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i2, i3);
-            if (!z) {
-                byteArrayInputStream = new InflaterInputStream(byteArrayInputStream);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+            try {
+                InputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i2, i3);
+                if (!z) {
+                    byteArrayInputStream = new InflaterInputStream(byteArrayInputStream);
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                OutputStream deflaterOutputStream = z ? new DeflaterOutputStream(byteArrayOutputStream) : byteArrayOutputStream;
+                a(byteArrayInputStream, deflaterOutputStream);
+                byteArrayInputStream.close();
+                deflaterOutputStream.close();
+                return byteArrayOutputStream.toByteArray();
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                return new byte[0];
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            OutputStream deflaterOutputStream = z ? new DeflaterOutputStream(byteArrayOutputStream) : byteArrayOutputStream;
-            a(byteArrayInputStream, deflaterOutputStream);
-            byteArrayInputStream.close();
-            deflaterOutputStream.close();
-            return byteArrayOutputStream.toByteArray();
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return new byte[0];
         }
+        return (byte[]) invokeCommon.objValue;
     }
 
     public static String b(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f37027b);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f38790b) : (String) invokeL.objValue;
     }
 
     public static String b(byte[] bArr, int i2, int i3) {
-        return new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f37027b);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f38790b) : (String) invokeLII.objValue;
     }
 
     public static boolean b(String str) {
-        return Character.isUpperCase(str.charAt(0));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? Character.isUpperCase(str.charAt(0)) : invokeL.booleanValue;
     }
 
     public static int c(byte[] bArr) {
-        for (int i2 = 0; i2 < bArr.length; i2++) {
-            if (bArr[i2] == 0) {
-                return i2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) {
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (bArr[i2] == 0) {
+                    return i2;
+                }
             }
+            return -1;
         }
-        return -1;
+        return invokeL.intValue;
     }
 
     public static boolean c(String str) {
-        return Character.isUpperCase(str.charAt(1));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? Character.isUpperCase(str.charAt(1)) : invokeL.booleanValue;
     }
 
     public static boolean d(String str) {
-        return !Character.isUpperCase(str.charAt(3));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? !Character.isUpperCase(str.charAt(3)) : invokeL.booleanValue;
     }
 }

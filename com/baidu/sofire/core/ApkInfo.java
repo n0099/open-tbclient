@@ -3,9 +3,17 @@ package com.baidu.sofire.core;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ApkInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ActivityInfo[] activities;
     public String apkMD5;
     public int apkParseSuc;
@@ -34,36 +42,72 @@ public class ApkInfo {
     public String versionName;
 
     public ApkInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj != null && ApkInfo.class == obj.getClass()) {
-            ApkInfo apkInfo = (ApkInfo) obj;
-            String str = this.packageName;
-            if (str == null) {
-                if (apkInfo.packageName != null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && ApkInfo.class == obj.getClass()) {
+                ApkInfo apkInfo = (ApkInfo) obj;
+                String str = this.packageName;
+                if (str == null) {
+                    if (apkInfo.packageName != null) {
+                        return false;
+                    }
+                } else if (!str.equals(apkInfo.packageName)) {
                     return false;
                 }
-            } else if (!str.equals(apkInfo.packageName)) {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int hashCode() {
-        String str = this.packageName;
-        return (str == null ? 0 : str.hashCode()) + 31;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.packageName;
+            return (str == null ? 0 : str.hashCode()) + 31;
+        }
+        return invokeV.intValue;
     }
 
     public ApkInfo(int i2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
@@ -73,6 +117,20 @@ public class ApkInfo {
     }
 
     public ApkInfo(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
@@ -81,6 +139,20 @@ public class ApkInfo {
     }
 
     public ApkInfo(int i2, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
@@ -92,6 +164,20 @@ public class ApkInfo {
     }
 
     public ApkInfo(ApkInfo apkInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {apkInfo};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;

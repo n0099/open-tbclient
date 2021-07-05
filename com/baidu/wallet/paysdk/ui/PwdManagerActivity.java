@@ -9,9 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.eventbus.EventBus;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduWalletDelegate;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
@@ -35,127 +42,199 @@ import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.personal.ui.BankCardListActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PwdManagerActivity extends PayBaseBeanActivity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26000a;
+    public Context f26543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f26001b;
+    public ViewGroup f26544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f26002c;
+    public ViewGroup f26545c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f26003d;
+    public ViewGroup f26546d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f26004e;
+    public TextView f26547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f26005f;
-
-    /* renamed from: i  reason: collision with root package name */
-    public DirectPayContentResponse f26008i;
-    public LinearLayout k;
-    public LoginBackListenerProxy n;
+    public TextView f26548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f26006g = false;
+    public boolean f26549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26007h = false;
-    public boolean j = false;
-    public boolean l = false;
-    public boolean m = false;
+    public boolean f26550h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public DirectPayContentResponse f26551i;
+    public boolean j;
+    public LinearLayout k;
+    public boolean l;
+    public boolean m;
+    public LoginBackListenerProxy n;
+
+    public PwdManagerActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f26549g = false;
+        this.f26550h = false;
+        this.j = false;
+        this.l = false;
+        this.m = false;
+    }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.n = new LoginBackListenerProxy(this.f26000a, new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.5
-            @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i2, String str) {
-                if (i2 == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(PwdManagerActivity.this.n);
-                }
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.n = new LoginBackListenerProxy(this.f26543a, new ILoginBackListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i2, String str) {
-                PwdManagerActivity.this.f();
-            }
-        });
-        WalletLoginHelper.getInstance().login(this.n);
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ PwdManagerActivity f26558a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f26558a = this;
+                }
+
+                @Override // com.baidu.wallet.api.ILoginBackListener
+                public void onFail(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) && i2 == 603) {
+                        WalletLoginHelper.getInstance().onlyLogin(this.f26558a.n);
+                    }
+                }
+
+                @Override // com.baidu.wallet.api.ILoginBackListener
+                public void onSuccess(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                        this.f26558a.f();
+                    }
+                }
+            });
+            WalletLoginHelper.getInstance().login(this.n);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        UserInfoBean userInfoBean = (UserInfoBean) PayBeanFactory.getInstance().getBean((Context) this, 6, "PhonePwdActivity");
-        userInfoBean.setResponseCallback(this);
-        userInfoBean.execBean();
-        WalletGlobalUtils.safeShowDialog(this, -1, "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            UserInfoBean userInfoBean = (UserInfoBean) PayBeanFactory.getInstance().getBean((Context) this, 6, "PhonePwdActivity");
+            userInfoBean.setResponseCallback(this);
+            userInfoBean.execBean();
+            WalletGlobalUtils.safeShowDialog(this, -1, "");
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
-        WalletGlobalUtils.safeDismissDialog(this, -1);
-        super.handleFailure(i2, i3, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
+            WalletGlobalUtils.safeDismissDialog(this, -1);
+            super.handleFailure(i2, i3, str);
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
-        this.f26008i = (DirectPayContentResponse) obj;
-        WalletGlobalUtils.safeDismissDialog(this, -1);
-        if (this.f26008i != null) {
-            this.j = true;
-            this.f26006g = false;
-            a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
+            this.f26551i = (DirectPayContentResponse) obj;
+            WalletGlobalUtils.safeDismissDialog(this, -1);
+            if (this.f26551i != null) {
+                this.j = true;
+                this.f26549g = false;
+                a();
+            }
         }
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        setResult(-1, new Intent().putExtra("reload_userinfo", this.j));
-        finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setResult(-1, new Intent().putExtra("reload_userinfo", this.j));
+            finish();
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.f26000a = getActivity();
-        setContentView(ResUtils.layout(getActivity(), "wallet_base_pwd_manager_activity"));
-        setRequestedOrientation(1);
-        if (bundle == null) {
-            this.f26008i = PayDataCache.getInstance().getPayResponse();
-        } else {
-            this.f26008i = (DirectPayContentResponse) bundle.getSerializable("mUserInfoContent");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            this.f26543a = getActivity();
+            setContentView(ResUtils.layout(getActivity(), "wallet_base_pwd_manager_activity"));
+            setRequestedOrientation(1);
+            if (bundle == null) {
+                this.f26551i = PayDataCache.getInstance().getPayResponse();
+            } else {
+                this.f26551i = (DirectPayContentResponse) bundle.getSerializable("mUserInfoContent");
+            }
+            b();
+            a();
+            EventBus.getInstance().register(this, BankCardListActivity.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
         }
-        b();
-        a();
-        EventBus.getInstance().register(this, BankCardListActivity.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        BeanManager.getInstance().removeAllBeans("PhonePwdActivity");
-        if (this.m) {
-            PasswordController.getPassWordInstance().clearEditPwdCallBack();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            BeanManager.getInstance().removeAllBeans("PhonePwdActivity");
+            if (this.m) {
+                PasswordController.getPassWordInstance().clearEditPwdCallBack();
+            }
+            if (this.l) {
+                PasswordController.getPassWordInstance().clearForgetPasswdCallback();
+            }
+            EventBus.getInstance().unregister(this);
+            super.onDestroy();
         }
-        if (this.l) {
-            PasswordController.getPassWordInstance().clearForgetPasswdCallback();
-        }
-        EventBus.getInstance().unregister(this);
-        super.onDestroy();
     }
 
     public void onModuleEvent(EventBus.Event event) {
-        if (event == null || !BankCardListActivity.EVT_PAY_PWD_CHANGE.equals(event.mEventKey) || event.mEventObj == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, event) == null) || event == null || !BankCardListActivity.EVT_PAY_PWD_CHANGE.equals(event.mEventKey) || event.mEventObj == null) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject((String) event.mEventObj);
             if (jSONObject.has("is_succeed") && 1 == jSONObject.getInt("is_succeed")) {
-                this.f26006g = true;
+                this.f26549g = true;
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.REGET_PWD_SUCCESSFULLY, "reGetPwd");
             }
         } catch (Exception e2) {
@@ -165,139 +244,328 @@ public class PwdManagerActivity extends PayBaseBeanActivity {
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        super.onPause();
-        if (Build.VERSION.SDK_INT >= 10) {
-            NFCUtil.getInstance().disableForegroundDispatch(getActivity(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onPause();
+            if (Build.VERSION.SDK_INT >= 10) {
+                NFCUtil.getInstance().disableForegroundDispatch(getActivity(), false);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        if (!WalletLoginHelper.getInstance().isLogin()) {
-            this.k.setVisibility(8);
-            this.f26003d.setVisibility(8);
-            this.f26004e.setVisibility(0);
-            this.f26005f.setVisibility(8);
-        } else if (this.f26007h) {
-            this.k.setVisibility(0);
-            this.f26003d.setVisibility(8);
-            this.f26004e.setVisibility(8);
-            this.f26005f.setVisibility(8);
-        }
-        if (this.f26006g) {
-            e();
-        }
-        if (Build.VERSION.SDK_INT >= 10) {
-            NFCUtil.getInstance().enableForegroundDispatch(getActivity(), false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            if (!WalletLoginHelper.getInstance().isLogin()) {
+                this.k.setVisibility(8);
+                this.f26546d.setVisibility(8);
+                this.f26547e.setVisibility(0);
+                this.f26548f.setVisibility(8);
+            } else if (this.f26550h) {
+                this.k.setVisibility(0);
+                this.f26546d.setVisibility(8);
+                this.f26547e.setVisibility(8);
+                this.f26548f.setVisibility(8);
+            }
+            if (this.f26549g) {
+                e();
+            }
+            if (Build.VERSION.SDK_INT >= 10) {
+                NFCUtil.getInstance().enableForegroundDispatch(getActivity(), false);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putSerializable("mUserInfoContent", this.f26008i);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putSerializable("mUserInfoContent", this.f26551i);
+        }
     }
 
     private void c() {
-        this.k = (LinearLayout) findViewById(ResUtils.id(this.f26000a, "modify_forget_layout"));
-        ViewGroup viewGroup = (ViewGroup) findViewById(ResUtils.id(this.f26000a, "bd_wallet_modify_pwd"));
-        this.f26001b = viewGroup;
-        if (viewGroup != null) {
-            viewGroup.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    PayStatisticsUtil.onEventWithValue(StatServiceEvent.MODIFY_PWD_LAYOUT_CLICK, "modifyPwd");
-                    PasswordController.getPassWordInstance().editPwd(PwdManagerActivity.this.f26000a, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.1.1
-                        @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
-                        public void onFail(int i2, String str) {
-                        }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            this.k = (LinearLayout) findViewById(ResUtils.id(this.f26543a, "modify_forget_layout"));
+            ViewGroup viewGroup = (ViewGroup) findViewById(ResUtils.id(this.f26543a, "bd_wallet_modify_pwd"));
+            this.f26544b = viewGroup;
+            if (viewGroup != null) {
+                viewGroup.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
-                        public void onSucceed(String str) {
-                            BaseActivity.clearTasksTopOf(PwdManagerActivity.this);
-                            PayStatisticsUtil.onEventWithValue(StatServiceEvent.MODIFY_PWD_SUCCESSFULLY, "editPwd");
-                        }
-                    });
-                    PwdManagerActivity.this.m = true;
-                }
-            });
-        }
-        ViewGroup viewGroup2 = (ViewGroup) findViewById(ResUtils.id(this.f26000a, "bd_wallet_forget_pwd"));
-        this.f26002c = viewGroup2;
-        if (viewGroup2 != null) {
-            viewGroup2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                    Activity activity = PwdManagerActivity.this.getActivity();
-                    baiduWalletDelegate.openH5Module(activity, DomainConfig.getInstance().getMHost() + BeanConstants.API_FIND_PASS, false);
-                    PwdManagerActivity.this.l = true;
-                }
-            });
-        }
-        ViewGroup viewGroup3 = (ViewGroup) findViewById(ResUtils.id(this.f26000a, "bd_wallet_set_pwd"));
-        this.f26003d = viewGroup3;
-        if (viewGroup3 != null) {
-            viewGroup3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    BaiduPay.getInstance().bindCardOnCardaddReturn(PwdManagerActivity.this.f26000a, new BindCardEntry.OnReturn() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.3.1
-                        @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
-                        public void onFailed(int i2, String str) {
-                        }
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ PwdManagerActivity f26552a;
 
-                        @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
-                        public void onResponse(CardAddResponse cardAddResponse) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
                         }
-                    }, PayRequestCache.BindCategory.Initiative, 4, null, null);
-                }
-            });
+                        this.f26552a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            PayStatisticsUtil.onEventWithValue(StatServiceEvent.MODIFY_PWD_LAYOUT_CLICK, "modifyPwd");
+                            PasswordController.getPassWordInstance().editPwd(this.f26552a.f26543a, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.1.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass1 f26553a;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f26553a = this;
+                                }
+
+                                @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
+                                public void onFail(int i2, String str) {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, str) == null) {
+                                    }
+                                }
+
+                                @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
+                                public void onSucceed(String str) {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                                        BaseActivity.clearTasksTopOf(this.f26553a.f26552a);
+                                        PayStatisticsUtil.onEventWithValue(StatServiceEvent.MODIFY_PWD_SUCCESSFULLY, "editPwd");
+                                    }
+                                }
+                            });
+                            this.f26552a.m = true;
+                        }
+                    }
+                });
+            }
+            ViewGroup viewGroup2 = (ViewGroup) findViewById(ResUtils.id(this.f26543a, "bd_wallet_forget_pwd"));
+            this.f26545c = viewGroup2;
+            if (viewGroup2 != null) {
+                viewGroup2.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ PwdManagerActivity f26554a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f26554a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
+                            Activity activity = this.f26554a.getActivity();
+                            baiduWalletDelegate.openH5Module(activity, DomainConfig.getInstance().getMHost() + BeanConstants.API_FIND_PASS, false);
+                            this.f26554a.l = true;
+                        }
+                    }
+                });
+            }
+            ViewGroup viewGroup3 = (ViewGroup) findViewById(ResUtils.id(this.f26543a, "bd_wallet_set_pwd"));
+            this.f26546d = viewGroup3;
+            if (viewGroup3 != null) {
+                viewGroup3.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ PwdManagerActivity f26555a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f26555a = this;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            BaiduPay.getInstance().bindCardOnCardaddReturn(this.f26555a.f26543a, new BindCardEntry.OnReturn(this) { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.3.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass3 f26556a;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f26556a = this;
+                                }
+
+                                @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
+                                public void onFailed(int i2, String str) {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, str) == null) {
+                                    }
+                                }
+
+                                @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
+                                public void onResponse(CardAddResponse cardAddResponse) {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardAddResponse) == null) {
+                                    }
+                                }
+                            }, PayRequestCache.BindCategory.Initiative, 4, null, null);
+                        }
+                    }
+                });
+            }
         }
     }
 
     private void d() {
-        TextView textView = (TextView) findViewById(ResUtils.id(this.f26000a, "bd_wallet_my_bank_network_not_avail"));
-        this.f26004e = textView;
-        textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                PwdManagerActivity.this.e();
-            }
-        });
-        this.f26005f = (TextView) findViewById(ResUtils.id(this.f26000a, "bd_wallet_get_info_error"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            TextView textView = (TextView) findViewById(ResUtils.id(this.f26543a, "bd_wallet_my_bank_network_not_avail"));
+            this.f26547e = textView;
+            textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdManagerActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ PwdManagerActivity f26557a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f26557a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f26557a.e();
+                    }
+                }
+            });
+            this.f26548f = (TextView) findViewById(ResUtils.id(this.f26543a, "bd_wallet_get_info_error"));
+        }
     }
 
     private void b() {
-        initActionBar("bd_wallet_phone_pwd");
-        c();
-        d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            initActionBar("bd_wallet_phone_pwd");
+            c();
+            d();
+        }
     }
 
     private void a() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f26008i;
-        if (directPayContentResponse != null && (userModel = directPayContentResponse.user) != null) {
-            if (userModel.hasMobilePwd()) {
-                this.k.setVisibility(0);
-                this.f26003d.setVisibility(8);
-                this.f26004e.setVisibility(8);
-                this.f26005f.setVisibility(8);
-                this.f26007h = true;
-                return;
-            } else if (this.f26008i.user.hasMobilePwd()) {
-                return;
-            } else {
-                this.k.setVisibility(8);
-                this.f26003d.setVisibility(0);
-                this.f26004e.setVisibility(8);
-                this.f26005f.setVisibility(8);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            DirectPayContentResponse directPayContentResponse = this.f26551i;
+            if (directPayContentResponse != null && (userModel = directPayContentResponse.user) != null) {
+                if (userModel.hasMobilePwd()) {
+                    this.k.setVisibility(0);
+                    this.f26546d.setVisibility(8);
+                    this.f26547e.setVisibility(8);
+                    this.f26548f.setVisibility(8);
+                    this.f26550h = true;
+                    return;
+                } else if (this.f26551i.user.hasMobilePwd()) {
+                    return;
+                } else {
+                    this.k.setVisibility(8);
+                    this.f26546d.setVisibility(0);
+                    this.f26547e.setVisibility(8);
+                    this.f26548f.setVisibility(8);
+                    return;
+                }
             }
+            this.k.setVisibility(8);
+            this.f26547e.setVisibility(8);
+            this.f26546d.setVisibility(8);
+            this.f26548f.setVisibility(0);
         }
-        this.k.setVisibility(8);
-        this.f26004e.setVisibility(8);
-        this.f26003d.setVisibility(8);
-        this.f26005f.setVisibility(0);
     }
 }

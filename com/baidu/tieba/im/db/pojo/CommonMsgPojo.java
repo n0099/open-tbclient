@@ -1,7 +1,9 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.data.MsgLocalData;
@@ -10,18 +12,25 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.o0.f1.s.a;
-import d.a.o0.f1.w.c;
+import d.a.s0.i1.s.a;
+import d.a.s0.i1.w.c;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETEED = 1;
     public static final int READED = 0;
     public static final int UNREAD = 1;
     public static final int UN_DELETE = 0;
     public static final long serialVersionUID = -7522120557807426716L;
+    public transient /* synthetic */ FieldHolder $fh;
     public String content;
     public long create_time;
     public int customGroupType;
@@ -49,6 +58,18 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
     public UserData user_info_data;
 
     public CommonMsgPojo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.gid = "";
         this.uid = "";
         this.toUid = "";
@@ -62,245 +83,382 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
     }
 
     public void checkRidAndSelf() {
-        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            if (TbadkCoreApplication.getCurrentAccount().equals(this.uid)) {
-                this.isSelf = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                if (TbadkCoreApplication.getCurrentAccount().equals(this.uid)) {
+                    this.isSelf = true;
+                }
+            } else {
+                this.isSelf = false;
             }
-        } else {
-            this.isSelf = false;
-        }
-        if (!this.isSelf) {
-            this.rid = this.mid;
-        } else if (this.rid == 0) {
-            this.rid = this.mid;
+            if (!this.isSelf) {
+                this.rid = this.mid;
+            } else if (this.rid == 0) {
+                this.rid = this.mid;
+            }
         }
     }
 
     public String getContent() {
-        return this.content;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
     }
 
     public long getCreate_time() {
-        return this.create_time;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.create_time : invokeV.longValue;
     }
 
     public int getCustomGroupType() {
-        return this.customGroupType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.customGroupType : invokeV.intValue;
     }
 
     public String getExt() {
-        return this.ext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ext : (String) invokeV.objValue;
     }
 
     public int getFollowStatus() {
-        return this.followStatus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.followStatus : invokeV.intValue;
     }
 
     public String getGid() {
-        return this.gid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.gid : (String) invokeV.objValue;
     }
 
     public int getIsFriend() {
-        return this.isFriend;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isFriend : invokeV.intValue;
     }
 
     public int getIs_delete() {
-        return this.is_delete;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.is_delete : invokeV.intValue;
     }
 
     public long getMid() {
-        return this.mid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mid : invokeV.longValue;
     }
 
     public int getMsg_status() {
-        return this.msg_status;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.msg_status : invokeV.intValue;
     }
 
     public int getMsg_type() {
-        return this.msg_type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.msg_type : invokeV.intValue;
     }
 
     public UserData getPrivateOtherUser_infoObj() {
-        if (this.user_info_data == null || this.to_user_info_data == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.user_info_data == null || this.to_user_info_data == null) {
+                return null;
+            }
+            if (b.f(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
+                return this.to_user_info_data;
+            }
+            return this.user_info_data;
         }
-        if (b.f(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
-            return this.to_user_info_data;
-        }
-        return this.user_info_data;
+        return (UserData) invokeV.objValue;
     }
 
     public String getPushIds() {
-        return this.pushIds;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.pushIds : (String) invokeV.objValue;
     }
 
     public int getRead_flag() {
-        return this.read_flag;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.read_flag : invokeV.intValue;
     }
 
     public long getRid() {
-        return this.rid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.rid : invokeV.longValue;
     }
 
     public String getServiceId() {
-        return this.serviceId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.serviceId : (String) invokeV.objValue;
     }
 
     public long getSid() {
-        return this.sid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.sid : invokeV.longValue;
     }
 
     public String getTaskId() {
-        return this.taskId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.taskId : (String) invokeV.objValue;
     }
 
     public String getToUid() {
-        return this.toUid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.toUid : (String) invokeV.objValue;
     }
 
     public String getToUser_info() {
-        String str = this.to_user_info;
-        if (str == null || (str.length() < 1 && this.to_user_info_data != null)) {
-            this.to_user_info = OrmObject.jsonStrWithObject(this.to_user_info_data);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            String str = this.to_user_info;
+            if (str == null || (str.length() < 1 && this.to_user_info_data != null)) {
+                this.to_user_info = OrmObject.jsonStrWithObject(this.to_user_info_data);
+            }
+            return this.to_user_info;
         }
-        return this.to_user_info;
+        return (String) invokeV.objValue;
     }
 
     public UserData getToUser_infoObj() {
-        return this.to_user_info_data;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.to_user_info_data : (UserData) invokeV.objValue;
     }
 
     public String getUid() {
-        return this.uid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.uid : (String) invokeV.objValue;
     }
 
     public String getUser_info() {
-        String str = this.user_info;
-        if (str == null || (str.length() < 1 && this.user_info_data != null)) {
-            this.user_info = OrmObject.jsonStrWithObject(this.user_info_data);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            String str = this.user_info;
+            if (str == null || (str.length() < 1 && this.user_info_data != null)) {
+                this.user_info = OrmObject.jsonStrWithObject(this.user_info_data);
+            }
+            return this.user_info;
         }
-        return this.user_info;
+        return (String) invokeV.objValue;
     }
 
     public UserData getUser_infoObj() {
-        return this.user_info_data;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.user_info_data : (UserData) invokeV.objValue;
     }
 
     public boolean isPrivate() {
-        return this.isPrivate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.isPrivate : invokeV.booleanValue;
     }
 
     public boolean isSelf() {
-        if (!TextUtils.isEmpty(this.uid) && this.uid.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.isSelf = true;
-        } else {
-            this.isSelf = false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (!TextUtils.isEmpty(this.uid) && this.uid.equals(TbadkCoreApplication.getCurrentAccount())) {
+                this.isSelf = true;
+            } else {
+                this.isSelf = false;
+            }
+            return this.isSelf;
         }
-        return this.isSelf;
+        return invokeV.booleanValue;
     }
 
     public void setContent(String str) {
-        this.content = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.content = str;
+        }
     }
 
     public void setCreate_time(long j) {
-        this.create_time = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.create_time = j;
+        }
     }
 
     public void setCustomGroupType(int i2) {
-        this.customGroupType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+            this.customGroupType = i2;
+        }
     }
 
     public void setExt(String str) {
-        this.ext = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.ext = str;
+        }
     }
 
     public void setFollowStatus(int i2) {
-        this.followStatus = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+            this.followStatus = i2;
+        }
     }
 
     public void setGid(String str) {
-        this.gid = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            this.gid = str;
+        }
     }
 
     public void setIsFriend(int i2) {
-        this.isFriend = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+            this.isFriend = i2;
+        }
     }
 
     public void setIs_delete(int i2) {
-        this.is_delete = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+            this.is_delete = i2;
+        }
     }
 
     public void setMid(long j) {
-        this.mid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
+            this.mid = j;
+        }
     }
 
     public void setMsg_status(int i2) {
-        this.msg_status = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            this.msg_status = i2;
+        }
     }
 
     public void setMsg_type(int i2) {
-        this.msg_type = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
+            this.msg_type = i2;
+        }
     }
 
     public void setPrivate(boolean z) {
-        this.isPrivate = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+            this.isPrivate = z;
+        }
     }
 
     public void setPushIds(String str) {
-        this.pushIds = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+            this.pushIds = str;
+        }
     }
 
     public void setRead_flag(int i2) {
-        this.read_flag = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+            this.read_flag = i2;
+        }
     }
 
     public void setRid(long j) {
-        this.rid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048617, this, j) == null) {
+            this.rid = j;
+        }
     }
 
     public void setSelf(boolean z) {
-        this.isSelf = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+            this.isSelf = z;
+        }
     }
 
     public void setServiceId(String str) {
-        this.serviceId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+            this.serviceId = str;
+        }
     }
 
     public void setSid(long j) {
-        this.sid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
+            this.sid = j;
+        }
     }
 
     public void setTaskId(String str) {
-        this.taskId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+            this.taskId = str;
+        }
     }
 
     public void setToUid(String str) {
-        this.toUid = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+            this.toUid = str;
+        }
     }
 
     public void setToUser_info(String str) {
-        this.to_user_info = str;
-        this.to_user_info_data = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+            this.to_user_info = str;
+            this.to_user_info_data = null;
+        }
     }
 
     public void setUid(String str) {
-        this.uid = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+            this.uid = str;
+        }
     }
 
     public void setUser_info(String str) {
-        this.user_info = str;
-        this.user_info_data = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
+            this.user_info = str;
+            this.user_info_data = null;
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x003d  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0048  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00a7  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00d3  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x004c  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00ab  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00d7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public ChatMessage toChatMessage() {
+        InterceptResult invokeV;
         long j;
         long j2;
         long j3;
@@ -310,20 +468,100 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         OldUserData oldUserData;
         long j4;
         OldUserData oldUserData2;
-        long j5 = 0;
-        try {
-            j2 = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
-        } catch (Exception e2) {
-            e = e2;
-            j = 0;
-        }
-        try {
-        } catch (Exception e3) {
-            long j6 = j2;
-            e = e3;
-            j = j6;
-            e.printStackTrace();
-            j2 = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            long j5 = 0;
+            try {
+                j2 = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
+                try {
+                } catch (Exception e2) {
+                    long j6 = j2;
+                    e = e2;
+                    j = j6;
+                    e.printStackTrace();
+                    j2 = j;
+                    j3 = 0;
+                    if (TextUtils.isEmpty(this.toUid)) {
+                    }
+                    personalChatMessage.setMsgId(this.mid);
+                    personalChatMessage.setUserId(j2);
+                    personalChatMessage.setToUserId(j3);
+                    personalChatMessage.setRecordId(this.rid);
+                    this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
+                    this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
+                    personalChatMessage.setUserInfo(this.user_info_data);
+                    personalChatMessage.setToUserInfo(this.to_user_info_data);
+                    personalChatMessage.setTime(this.create_time);
+                    personalChatMessage.setMsgType((short) this.msg_type);
+                    MsgLocalData msgLocalData = new MsgLocalData();
+                    msgLocalData.setStatus(Short.valueOf((short) this.msg_status));
+                    personalChatMessage.setLocalData(msgLocalData);
+                    personalChatMessage.setContent(this.content);
+                    userInfo = personalChatMessage.getUserInfo();
+                    if (userInfo != null) {
+                    }
+                    toUserInfo = personalChatMessage.getToUserInfo();
+                    if (toUserInfo != null) {
+                    }
+                    c.n(personalChatMessage);
+                    personalChatMessage.setIsFriend(this.isFriend);
+                    personalChatMessage.setFollowStatus(this.followStatus);
+                    return personalChatMessage;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                j = 0;
+            }
+            if (this.toUid != null && this.toUid.length() > 0) {
+                j3 = Long.parseLong(this.toUid);
+                if (TextUtils.isEmpty(this.toUid)) {
+                    personalChatMessage = new GroupChatMessage();
+                    personalChatMessage.setGroupId(this.gid);
+                } else {
+                    personalChatMessage = new PersonalChatMessage();
+                }
+                personalChatMessage.setMsgId(this.mid);
+                personalChatMessage.setUserId(j2);
+                personalChatMessage.setToUserId(j3);
+                personalChatMessage.setRecordId(this.rid);
+                this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
+                this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
+                personalChatMessage.setUserInfo(this.user_info_data);
+                personalChatMessage.setToUserInfo(this.to_user_info_data);
+                personalChatMessage.setTime(this.create_time);
+                personalChatMessage.setMsgType((short) this.msg_type);
+                MsgLocalData msgLocalData2 = new MsgLocalData();
+                msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
+                personalChatMessage.setLocalData(msgLocalData2);
+                personalChatMessage.setContent(this.content);
+                userInfo = personalChatMessage.getUserInfo();
+                if (userInfo != null) {
+                    if (k.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
+                        oldUserData2.setToUserData(userInfo);
+                    }
+                    try {
+                        j4 = Long.parseLong(userInfo.getUserId());
+                    } catch (Exception unused) {
+                        j4 = 0;
+                    }
+                    personalChatMessage.setUserId(j4);
+                }
+                toUserInfo = personalChatMessage.getToUserInfo();
+                if (toUserInfo != null) {
+                    if (k.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
+                        oldUserData.setToUserData(toUserInfo);
+                    }
+                    try {
+                        j5 = Long.parseLong(toUserInfo.getUserId());
+                    } catch (Exception unused2) {
+                    }
+                    personalChatMessage.setToUserId(j5);
+                }
+                c.n(personalChatMessage);
+                personalChatMessage.setIsFriend(this.isFriend);
+                personalChatMessage.setFollowStatus(this.followStatus);
+                return personalChatMessage;
+            }
             j3 = 0;
             if (TextUtils.isEmpty(this.toUid)) {
             }
@@ -337,9 +575,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             personalChatMessage.setToUserInfo(this.to_user_info_data);
             personalChatMessage.setTime(this.create_time);
             personalChatMessage.setMsgType((short) this.msg_type);
-            MsgLocalData msgLocalData = new MsgLocalData();
-            msgLocalData.setStatus(Short.valueOf((short) this.msg_status));
-            personalChatMessage.setLocalData(msgLocalData);
+            MsgLocalData msgLocalData22 = new MsgLocalData();
+            msgLocalData22.setStatus(Short.valueOf((short) this.msg_status));
+            personalChatMessage.setLocalData(msgLocalData22);
             personalChatMessage.setContent(this.content);
             userInfo = personalChatMessage.getUserInfo();
             if (userInfo != null) {
@@ -352,86 +590,24 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             personalChatMessage.setFollowStatus(this.followStatus);
             return personalChatMessage;
         }
-        if (this.toUid != null && this.toUid.length() > 0) {
-            j3 = Long.parseLong(this.toUid);
-            if (TextUtils.isEmpty(this.toUid)) {
-                personalChatMessage = new GroupChatMessage();
-                personalChatMessage.setGroupId(this.gid);
-            } else {
-                personalChatMessage = new PersonalChatMessage();
-            }
-            personalChatMessage.setMsgId(this.mid);
-            personalChatMessage.setUserId(j2);
-            personalChatMessage.setToUserId(j3);
-            personalChatMessage.setRecordId(this.rid);
-            this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
-            this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
-            personalChatMessage.setUserInfo(this.user_info_data);
-            personalChatMessage.setToUserInfo(this.to_user_info_data);
-            personalChatMessage.setTime(this.create_time);
-            personalChatMessage.setMsgType((short) this.msg_type);
-            MsgLocalData msgLocalData2 = new MsgLocalData();
-            msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
-            personalChatMessage.setLocalData(msgLocalData2);
-            personalChatMessage.setContent(this.content);
-            userInfo = personalChatMessage.getUserInfo();
-            if (userInfo != null) {
-                if (k.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
-                    oldUserData2.setToUserData(userInfo);
-                }
-                try {
-                    j4 = Long.parseLong(userInfo.getUserId());
-                } catch (Exception unused) {
-                    j4 = 0;
-                }
-                personalChatMessage.setUserId(j4);
-            }
-            toUserInfo = personalChatMessage.getToUserInfo();
-            if (toUserInfo != null) {
-                if (k.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
-                    oldUserData.setToUserData(toUserInfo);
-                }
-                try {
-                    j5 = Long.parseLong(toUserInfo.getUserId());
-                } catch (Exception unused2) {
-                }
-                personalChatMessage.setToUserId(j5);
-            }
-            c.n(personalChatMessage);
-            personalChatMessage.setIsFriend(this.isFriend);
-            personalChatMessage.setFollowStatus(this.followStatus);
-            return personalChatMessage;
-        }
-        j3 = 0;
-        if (TextUtils.isEmpty(this.toUid)) {
-        }
-        personalChatMessage.setMsgId(this.mid);
-        personalChatMessage.setUserId(j2);
-        personalChatMessage.setToUserId(j3);
-        personalChatMessage.setRecordId(this.rid);
-        this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
-        this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
-        personalChatMessage.setUserInfo(this.user_info_data);
-        personalChatMessage.setToUserInfo(this.to_user_info_data);
-        personalChatMessage.setTime(this.create_time);
-        personalChatMessage.setMsgType((short) this.msg_type);
-        MsgLocalData msgLocalData22 = new MsgLocalData();
-        msgLocalData22.setStatus(Short.valueOf((short) this.msg_status));
-        personalChatMessage.setLocalData(msgLocalData22);
-        personalChatMessage.setContent(this.content);
-        userInfo = personalChatMessage.getUserInfo();
-        if (userInfo != null) {
-        }
-        toUserInfo = personalChatMessage.getToUserInfo();
-        if (toUserInfo != null) {
-        }
-        c.n(personalChatMessage);
-        personalChatMessage.setIsFriend(this.isFriend);
-        personalChatMessage.setFollowStatus(this.followStatus);
-        return personalChatMessage;
+        return (ChatMessage) invokeV.objValue;
     }
 
     public CommonMsgPojo(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {chatMessage};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.gid = "";
         this.uid = "";
         this.toUid = "";
@@ -446,7 +622,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.f58510i);
+                this.gid = String.valueOf(a.f61853i);
             } else if (chatMessage instanceof OfficialChatMessage) {
                 this.gid = String.valueOf(a.j);
             }

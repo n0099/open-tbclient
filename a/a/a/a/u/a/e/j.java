@@ -5,6 +5,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.KsLoadManager;
@@ -14,76 +20,133 @@ import com.kwad.sdk.api.KsVideoPlayConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends a.a.a.a.c<KsRewardVideoAd> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public class a implements KsLoadManager.RewardVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f1275a;
+        public final /* synthetic */ FunAdSlot f1278a;
 
-        public a(FunAdSlot funAdSlot) {
-            this.f1275a = funAdSlot;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ j f1279b;
+
+        public a(j jVar, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jVar, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1279b = jVar;
+            this.f1278a = funAdSlot;
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
         public void onError(int i2, String str) {
-            a.a.a.a.y.d.b("onError code: " + i2 + ", message: " + str, new Object[0]);
-            j.this.f1014h.a(Integer.valueOf(i2));
-            j.this.b(i2, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+                a.a.a.a.y.d.b("onError code: " + i2 + ", message: " + str, new Object[0]);
+                this.f1279b.f1017h.a(Integer.valueOf(i2));
+                this.f1279b.b(i2, str);
+            }
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
         public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
-            a.a.a.a.y.d.a();
-            if (list != null && !list.isEmpty()) {
-                j.this.f1014h.b();
-                KsRewardVideoAd ksRewardVideoAd = list.get(0);
-                j jVar = j.this;
-                jVar.a((j) ksRewardVideoAd);
-                jVar.h();
-                j.this.l.b(ksRewardVideoAd, this.f1275a.getSid());
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                a.a.a.a.y.d.a();
+                if (list != null && !list.isEmpty()) {
+                    this.f1279b.f1017h.b();
+                    KsRewardVideoAd ksRewardVideoAd = list.get(0);
+                    j jVar = this.f1279b;
+                    jVar.a((j) ksRewardVideoAd);
+                    jVar.h();
+                    this.f1279b.l.b(ksRewardVideoAd, this.f1278a.getSid());
+                    return;
+                }
+                a.a.a.a.y.d.b("onNativeAdLoad error: adList is null or empty", new Object[0]);
+                this.f1279b.f1017h.a("NoFill");
+                onError(0, "No Fill");
             }
-            a.a.a.a.y.d.b("onNativeAdLoad error: adList is null or empty", new Object[0]);
-            j.this.f1014h.a("NoFill");
-            onError(0, "No Fill");
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(e.a aVar) {
         super(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((e.a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // a.a.a.a.c
     public a.a.a.a.x.a a(e.a aVar) {
-        return new a.a.a.a.x.m(aVar);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? new a.a.a.a.x.m(aVar) : (a.a.a.a.x.a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
     @Override // a.a.a.a.c
     public boolean a(Activity activity, ViewGroup viewGroup, String str, KsRewardVideoAd ksRewardVideoAd) {
-        KsRewardVideoAd ksRewardVideoAd2 = ksRewardVideoAd;
-        if (!ksRewardVideoAd2.isAdEnable()) {
-            a.a.a.a.y.d.b("Ad isn't ready now", new Object[0]);
-            a(0, "F:ad disable");
-            return false;
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, ksRewardVideoAd)) == null) {
+            KsRewardVideoAd ksRewardVideoAd2 = ksRewardVideoAd;
+            if (!ksRewardVideoAd2.isAdEnable()) {
+                a.a.a.a.y.d.b("Ad isn't ready now", new Object[0]);
+                a(0, "F:ad disable");
+                return false;
+            }
+            this.f1017h.g();
+            ksRewardVideoAd2.setRewardAdInteractionListener(new k(this, ksRewardVideoAd2, str));
+            ksRewardVideoAd2.showRewardVideoAd(activity, this.f1018i.j ? new KsVideoPlayConfig.Builder().showLandscape(true).build() : null);
+            return true;
         }
-        this.f1014h.g();
-        ksRewardVideoAd2.setRewardAdInteractionListener(new k(this, ksRewardVideoAd2, str));
-        ksRewardVideoAd2.showRewardVideoAd(activity, this.f1015i.j ? new KsVideoPlayConfig.Builder().showLandscape(true).build() : null);
-        return true;
+        return invokeLLLL.booleanValue;
     }
 
     @Override // a.a.a.a.c
     public void b(Context context, FunAdSlot funAdSlot) {
-        KsScene build = new KsScene.Builder(Long.parseLong(this.f1015i.f1342c)).adNum(1).build();
-        this.f1014h.a(funAdSlot, this.f1015i);
-        KsAdSDK.getLoadManager().loadRewardVideoAd(build, new a(funAdSlot));
-        g();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.f1018i.f1345c)).adNum(1).build();
+            this.f1017h.a(funAdSlot, this.f1018i);
+            KsAdSDK.getLoadManager().loadRewardVideoAd(build, new a(this, funAdSlot));
+            g();
+        }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // a.a.a.a.c
     public void b(KsRewardVideoAd ksRewardVideoAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ksRewardVideoAd) == null) {
+        }
     }
 }

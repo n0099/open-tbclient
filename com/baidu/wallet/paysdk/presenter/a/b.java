@@ -1,18 +1,29 @@
 package com.baidu.wallet.paysdk.presenter.a;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.paysdk.contract.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    public static a.InterfaceC0258a a(int i2, a.b bVar) {
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    return null;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static a.InterfaceC0283a a(int i2, a.b bVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, bVar)) == null) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        return null;
+                    }
+                    return new c(bVar);
                 }
-                return new c(bVar);
+                return new a(bVar);
             }
-            return new a(bVar);
+            return new d(bVar);
         }
-        return new d(bVar);
+        return (a.InterfaceC0283a) invokeIL.objValue;
     }
 }

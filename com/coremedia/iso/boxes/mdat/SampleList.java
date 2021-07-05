@@ -1,5 +1,11 @@
 package com.coremedia.iso.boxes.mdat;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
@@ -12,9 +18,25 @@ import java.util.AbstractList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class SampleList extends AbstractList<Sample> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public List<Sample> samples;
 
     public SampleList(TrackBox trackBox, IsoFile... isoFileArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {trackBox, isoFileArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         Container parent = ((Box) trackBox.getParent()).getParent();
         if (trackBox.getParent().getBoxes(MovieExtendsBox.class).isEmpty()) {
             if (isoFileArr.length <= 0) {
@@ -28,12 +50,16 @@ public class SampleList extends AbstractList<Sample> {
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
-        return this.samples.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.samples.size() : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
     public Sample get(int i2) {
-        return this.samples.get(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.samples.get(i2) : (Sample) invokeI.objValue;
     }
 }

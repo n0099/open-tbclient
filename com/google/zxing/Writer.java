@@ -2,7 +2,7 @@ package com.google.zxing;
 
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface Writer {
     BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) throws WriterException;
 

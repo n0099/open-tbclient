@@ -1,17 +1,52 @@
 package UserPost;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.CommonReq;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Integer DEFAULT_BEGIN_TIME;
+    public static final Integer DEFAULT_CHECK_LOGIN;
     public static final String DEFAULT_COOKIE = "";
     public static final String DEFAULT_EMAIL = "";
+    public static final Integer DEFAULT_END_TIME;
+    public static final Long DEFAULT_FORUM_ID;
+    public static final Integer DEFAULT_IP_INT;
     public static final String DEFAULT_IP_STR = "";
+    public static final Integer DEFAULT_IS_THREAD;
+    public static final Integer DEFAULT_IS_TWZHIBO;
+    public static final Integer DEFAULT_IS_VIEW_CARD;
+    public static final Integer DEFAULT_LAST_THREAD_TIME;
+    public static final Integer DEFAULT_LOGIN;
     public static final String DEFAULT_MOBILE = "";
     public static final String DEFAULT_MODULE_NAME = "";
+    public static final Integer DEFAULT_NEED_CONTENT;
+    public static final Integer DEFAULT_NO_UN;
+    public static final Integer DEFAULT_OFFSET;
+    public static final Integer DEFAULT_PN;
     public static final String DEFAULT_PORTRAIT = "";
+    public static final Integer DEFAULT_Q_TYPE;
+    public static final Integer DEFAULT_RN;
+    public static final Double DEFAULT_SCR_DIP;
+    public static final Integer DEFAULT_SCR_H;
+    public static final Integer DEFAULT_SCR_W;
+    public static final Integer DEFAULT_SMILE_GRADE;
+    public static final Integer DEFAULT_ST_PARAM;
+    public static final Integer DEFAULT_ST_TYPE;
+    public static final Integer DEFAULT_SUBTYPE;
+    public static final Integer DEFAULT_SUPPORT_NOUN;
+    public static final Long DEFAULT_UID;
+    public static final Long DEFAULT_USER_ID;
     public static final String DEFAULT_USER_NAME = "";
+    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 7, type = Message.Datatype.UINT32)
     public final Integer begin_time;
     @ProtoField(tag = 10, type = Message.Datatype.UINT32)
@@ -19,7 +54,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 27)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f996common;
+    public final CommonReq f999common;
     @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String cookie;
     @ProtoField(tag = 24, type = Message.Datatype.STRING)
@@ -82,40 +117,16 @@ public final class DataReq extends Message {
     public final Long user_id;
     @ProtoField(tag = 20, type = Message.Datatype.STRING)
     public final String user_name;
-    public static final Long DEFAULT_UID = 0L;
-    public static final Integer DEFAULT_RN = 0;
-    public static final Integer DEFAULT_OFFSET = 0;
-    public static final Integer DEFAULT_IS_THREAD = 0;
-    public static final Integer DEFAULT_NEED_CONTENT = 0;
-    public static final Long DEFAULT_FORUM_ID = 0L;
-    public static final Integer DEFAULT_BEGIN_TIME = 0;
-    public static final Integer DEFAULT_END_TIME = 0;
-    public static final Integer DEFAULT_SUBTYPE = 0;
-    public static final Integer DEFAULT_CHECK_LOGIN = 0;
-    public static final Integer DEFAULT_IP_INT = 0;
-    public static final Integer DEFAULT_ST_TYPE = 0;
-    public static final Integer DEFAULT_ST_PARAM = 0;
-    public static final Integer DEFAULT_SMILE_GRADE = 0;
-    public static final Integer DEFAULT_SUPPORT_NOUN = 0;
-    public static final Integer DEFAULT_LOGIN = 0;
-    public static final Long DEFAULT_USER_ID = 0L;
-    public static final Integer DEFAULT_NO_UN = 0;
-    public static final Integer DEFAULT_PN = 0;
-    public static final Integer DEFAULT_IS_TWZHIBO = 0;
-    public static final Integer DEFAULT_SCR_W = 0;
-    public static final Integer DEFAULT_SCR_H = 0;
-    public static final Double DEFAULT_SCR_DIP = Double.valueOf(0.0d);
-    public static final Integer DEFAULT_Q_TYPE = 0;
-    public static final Integer DEFAULT_IS_VIEW_CARD = 0;
-    public static final Integer DEFAULT_LAST_THREAD_TIME = 0;
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataReq> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Integer begin_time;
         public Integer check_login;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f997common;
+        public CommonReq f1000common;
         public String cookie;
         public String email;
         public Integer end_time;
@@ -149,10 +160,37 @@ public final class DataReq extends Message {
         public String user_name;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(DataReq dataReq) {
             super(dataReq);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dataReq};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Message) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             if (dataReq == null) {
                 return;
             }
@@ -182,7 +220,7 @@ public final class DataReq extends Message {
             this.email = dataReq.email;
             this.cookie = dataReq.cookie;
             this.pn = dataReq.pn;
-            this.f997common = dataReq.f996common;
+            this.f1000common = dataReq.f999common;
             this.is_twzhibo = dataReq.is_twzhibo;
             this.scr_w = dataReq.scr_w;
             this.scr_h = dataReq.scr_h;
@@ -196,12 +234,81 @@ public final class DataReq extends Message {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public DataReq build(boolean z) {
-            return new DataReq(this, z);
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new DataReq(this, z, null) : (DataReq) invokeZ.objValue;
         }
     }
 
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1701174817, "LUserPost/DataReq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1701174817, "LUserPost/DataReq;");
+                return;
+            }
+        }
+        DEFAULT_UID = 0L;
+        DEFAULT_RN = 0;
+        DEFAULT_OFFSET = 0;
+        DEFAULT_IS_THREAD = 0;
+        DEFAULT_NEED_CONTENT = 0;
+        DEFAULT_FORUM_ID = 0L;
+        DEFAULT_BEGIN_TIME = 0;
+        DEFAULT_END_TIME = 0;
+        DEFAULT_SUBTYPE = 0;
+        DEFAULT_CHECK_LOGIN = 0;
+        DEFAULT_IP_INT = 0;
+        DEFAULT_ST_TYPE = 0;
+        DEFAULT_ST_PARAM = 0;
+        DEFAULT_SMILE_GRADE = 0;
+        DEFAULT_SUPPORT_NOUN = 0;
+        DEFAULT_LOGIN = 0;
+        DEFAULT_USER_ID = 0L;
+        DEFAULT_NO_UN = 0;
+        DEFAULT_PN = 0;
+        DEFAULT_IS_TWZHIBO = 0;
+        DEFAULT_SCR_W = 0;
+        DEFAULT_SCR_H = 0;
+        DEFAULT_SCR_DIP = Double.valueOf(0.0d);
+        DEFAULT_Q_TYPE = 0;
+        DEFAULT_IS_VIEW_CARD = 0;
+        DEFAULT_LAST_THREAD_TIME = 0;
+    }
+
+    public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
+        this(builder, z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DataReq(Builder builder, boolean z) {
         super(builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Message.Builder) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (z) {
             Long l = builder.uid;
             if (l == null) {
@@ -359,7 +466,7 @@ public final class DataReq extends Message {
             } else {
                 this.pn = num16;
             }
-            this.f996common = builder.f997common;
+            this.f999common = builder.f1000common;
             Integer num17 = builder.is_twzhibo;
             if (num17 == null) {
                 this.is_twzhibo = DEFAULT_IS_TWZHIBO;
@@ -431,7 +538,7 @@ public final class DataReq extends Message {
         this.email = builder.email;
         this.cookie = builder.cookie;
         this.pn = builder.pn;
-        this.f996common = builder.f997common;
+        this.f999common = builder.f1000common;
         this.is_twzhibo = builder.is_twzhibo;
         this.scr_w = builder.scr_w;
         this.scr_h = builder.scr_h;

@@ -1,33 +1,40 @@
 package d.a.c.e.l;
-/* loaded from: classes.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42466a;
+    public int f44275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42467b;
+    public int f44276b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42468c;
+    public long f44277c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42469d;
+    public int f44278d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42470e;
+    public int f44279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42471f;
+    public long f44280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42472g;
+    public int f44281g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42473h;
+    public int f44282h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f42474i;
+    public long f44283i;
     public int j;
     public long k;
     public int l;
@@ -46,32 +53,49 @@ public class f {
     public int y;
     public long z;
 
+    public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public void a() {
-        this.f42466a = 0;
-        this.f42467b = 0;
-        this.f42468c = 0L;
-        this.f42469d = 0;
-        this.f42470e = 0;
-        this.f42471f = 0L;
-        this.f42472g = 0;
-        this.f42473h = 0;
-        this.f42474i = 0L;
-        this.j = 0;
-        this.k = 0L;
-        this.l = 0;
-        this.m = 0L;
-        this.n = 0;
-        this.o = 0L;
-        this.p = 0;
-        this.q = 0L;
-        this.r = 0;
-        this.s = 0L;
-        this.t = 0;
-        this.u = 0;
-        this.v = 0;
-        this.w = 0;
-        this.x = 0;
-        this.y = 0;
-        this.z = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f44275a = 0;
+            this.f44276b = 0;
+            this.f44277c = 0L;
+            this.f44278d = 0;
+            this.f44279e = 0;
+            this.f44280f = 0L;
+            this.f44281g = 0;
+            this.f44282h = 0;
+            this.f44283i = 0L;
+            this.j = 0;
+            this.k = 0L;
+            this.l = 0;
+            this.m = 0L;
+            this.n = 0;
+            this.o = 0L;
+            this.p = 0;
+            this.q = 0L;
+            this.r = 0;
+            this.s = 0L;
+            this.t = 0;
+            this.u = 0;
+            this.v = 0;
+            this.w = 0;
+            this.x = 0;
+            this.y = 0;
+            this.z = 0L;
+        }
     }
 }

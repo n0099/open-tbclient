@@ -5,233 +5,393 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.n0.d0.h;
-import d.a.n0.r.f0.f;
-import d.a.n0.r.f0.g;
-/* loaded from: classes4.dex */
+import d.a.r0.d0.h;
+import d.a.r0.r.f0.f;
+import d.a.r0.r.f0.g;
+/* loaded from: classes5.dex */
 public class HotRankView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f16987e;
+    public TbPageContext<?> f17113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f16988f;
+    public BdTypeListView f17114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.o0.d1.a.a f16989g;
+    public d.a.s0.g1.a.a f17115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f16990h;
+    public g f17116h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f16991i;
-    public d.a.n0.d0.g j;
+    public View f17117i;
+    public d.a.r0.d0.g j;
     public h k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements f.g {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HotRankView f17118e;
+
+        public a(HotRankView hotRankView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotRankView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17118e = hotRankView;
         }
 
-        @Override // d.a.n0.r.f0.f.g
+        @Override // d.a.r0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            if (!j.z()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                HotRankView.this.f16988f.A(0L);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (!j.z()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
+                    this.f17118e.f17114f.A(0L);
+                    return;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
+                ((HotRanklistActivity) this.f17118e.f17113e.getOrignalPage()).loadHotTopicRanklistData();
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
-            ((HotRanklistActivity) HotRankView.this.f16987e.getOrignalPage()).loadHotTopicRanklistData();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements AbsListView.OnScrollListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HotRankView f17119e;
+
+        public b(HotRankView hotRankView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotRankView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17119e = hotRankView;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004013));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004013));
+            }
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HotRankView f17120e;
+
+        public c(HotRankView hotRankView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotRankView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17120e = hotRankView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (j.A()) {
-                HotRankView.this.e();
-                HotRankView hotRankView = HotRankView.this;
-                hotRankView.l(true, l.g(hotRankView.f16987e.getPageActivity(), R.dimen.ds500));
-                ((HotRanklistActivity) HotRankView.this.f16987e.getOrignalPage()).loadHotTopicRanklistData();
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A()) {
+                this.f17120e.e();
+                HotRankView hotRankView = this.f17120e;
+                hotRankView.l(true, l.g(hotRankView.f17113e.getPageActivity(), R.dimen.ds500));
+                ((HotRanklistActivity) this.f17120e.f17113e.getOrignalPage()).loadHotTopicRanklistData();
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotRankView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16988f = null;
-        this.f16989g = null;
-        this.f16990h = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f17114f = null;
+        this.f17115g = null;
+        this.f17116h = null;
         f(context);
     }
 
     public void c(boolean z) {
-        BdTypeListView bdTypeListView = this.f16988f;
-        if (bdTypeListView != null) {
-            if (z) {
-                bdTypeListView.z();
-            } else {
-                bdTypeListView.A(0L);
-            }
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (bdTypeListView = this.f17114f) == null) {
+            return;
+        }
+        if (z) {
+            bdTypeListView.z();
+        } else {
+            bdTypeListView.A(0L);
         }
     }
 
     public void d() {
-        d.a.n0.d0.g gVar = this.j;
-        if (gVar != null) {
-            gVar.dettachView(this);
-            this.j = null;
+        d.a.r0.d0.g gVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (gVar = this.j) == null) {
+            return;
         }
+        gVar.dettachView(this);
+        this.j = null;
     }
 
     public void e() {
-        h hVar = this.k;
-        if (hVar != null) {
-            hVar.dettachView(this);
-            this.k = null;
+        h hVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hVar = this.k) == null) {
+            return;
         }
+        hVar.dettachView(this);
+        this.k = null;
     }
 
     public final void f(Context context) {
-        BdTypeListView bdTypeListView = new BdTypeListView(context);
-        this.f16988f = bdTypeListView;
-        bdTypeListView.setVerticalScrollBarEnabled(false);
-        this.f16988f.setDividerHeight(0);
-        this.f16988f.setSelector(17170445);
-        d.a.c.a.f<?> a2 = d.a.c.a.j.a(context);
-        if (a2 instanceof TbPageContext) {
-            this.f16987e = (TbPageContext) a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            BdTypeListView bdTypeListView = new BdTypeListView(context);
+            this.f17114f = bdTypeListView;
+            bdTypeListView.setVerticalScrollBarEnabled(false);
+            this.f17114f.setDividerHeight(0);
+            this.f17114f.setSelector(17170445);
+            d.a.c.a.f<?> a2 = d.a.c.a.j.a(context);
+            if (a2 instanceof TbPageContext) {
+                this.f17113e = (TbPageContext) a2;
+            }
+            g gVar = new g(this.f17113e);
+            this.f17116h = gVar;
+            gVar.a(new a(this));
+            this.f17114f.setPullRefresh(this.f17116h);
+            this.f17117i = BdListViewHelper.d(context, this.f17114f, BdListViewHelper.HeadType.HASTAB);
+            this.f17114f.setOnScrollListener(new b(this));
+            this.f17115g = new d.a.s0.g1.a.a((HotRanklistActivity) this.f17113e.getOrignalPage(), this.f17114f);
+            addView(this.f17114f);
         }
-        g gVar = new g(this.f16987e);
-        this.f16990h = gVar;
-        gVar.a(new a());
-        this.f16988f.setPullRefresh(this.f16990h);
-        this.f16991i = BdListViewHelper.d(context, this.f16988f, BdListViewHelper.HeadType.HASTAB);
-        this.f16988f.setOnScrollListener(new b());
-        this.f16989g = new d.a.o0.d1.a.a((HotRanklistActivity) this.f16987e.getOrignalPage(), this.f16988f);
-        addView(this.f16988f);
     }
 
     public boolean g() {
-        d.a.n0.d0.g gVar = this.j;
-        if (gVar != null) {
-            return gVar.isViewAttached();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            d.a.r0.d0.g gVar = this.j;
+            if (gVar != null) {
+                return gVar.isViewAttached();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean h() {
-        h hVar = this.k;
-        if (hVar != null) {
-            return hVar.isViewAttached();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            h hVar = this.k;
+            if (hVar != null) {
+                return hVar.isViewAttached();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public void i() {
-        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f16988f, R.color.CAM_X0201);
-        this.f16988f.getListAdapter().notifyDataSetChanged();
-        d.a.n0.d0.g gVar = this.j;
-        if (gVar != null) {
-            gVar.onChangeSkinType();
-        }
-        h hVar = this.k;
-        if (hVar != null) {
-            hVar.onChangeSkinType();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f17114f, R.color.CAM_X0201);
+            this.f17114f.getListAdapter().notifyDataSetChanged();
+            d.a.r0.d0.g gVar = this.j;
+            if (gVar != null) {
+                gVar.onChangeSkinType();
+            }
+            h hVar = this.k;
+            if (hVar != null) {
+                hVar.onChangeSkinType();
+            }
         }
     }
 
     public void j(View view, int i2, int i3, int i4, int i5) {
-        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.f16991i.getLayoutParams();
-        layoutParams.height = i3;
-        this.f16991i.setLayoutParams(layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.f17117i.getLayoutParams();
+            layoutParams.height = i3;
+            this.f17117i.setLayoutParams(layoutParams);
+        }
     }
 
-    public void k(d.a.o0.d1.c.j jVar, String str) {
-        if (this.f16989g == null) {
+    public void k(d.a.s0.g1.c.j jVar, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jVar, str) == null) || this.f17115g == null) {
             return;
         }
         if (jVar == null) {
-            jVar = new d.a.o0.d1.c.j();
+            jVar = new d.a.s0.g1.c.j();
         }
-        this.f16988f.setVisibility(0);
-        this.f16989g.b(jVar, str);
+        this.f17114f.setVisibility(0);
+        this.f17115g.b(jVar, str);
     }
 
     public void l(boolean z, int i2) {
-        if (g()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || g()) {
             return;
         }
         if (this.j == null) {
             if (i2 <= 0) {
-                this.j = new d.a.n0.d0.g(getContext());
+                this.j = new d.a.r0.d0.g(getContext());
             } else {
-                d.a.n0.d0.g gVar = new d.a.n0.d0.g(getContext(), i2);
+                d.a.r0.d0.g gVar = new d.a.r0.d0.g(getContext(), i2);
                 this.j = gVar;
                 gVar.h();
             }
             this.j.onChangeSkinType();
         }
         this.j.attachView(this, z);
-        this.f16988f.setVisibility(8);
+        this.f17114f.setVisibility(8);
     }
 
     public void m(String str, boolean z) {
-        if (h()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) || h()) {
             return;
         }
         if (this.k == null) {
-            this.k = new h(getContext(), new c());
+            this.k = new h(getContext(), new c(this));
         }
         this.k.j(getContext().getResources().getDimensionPixelSize(R.dimen.ds280));
         this.k.attachView(this, z);
         this.k.o();
-        this.f16988f.setVisibility(8);
+        this.f17114f.setVisibility(8);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotRankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16988f = null;
-        this.f16989g = null;
-        this.f16990h = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f17114f = null;
+        this.f17115g = null;
+        this.f17116h = null;
         f(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotRankView(Context context) {
         super(context);
-        this.f16988f = null;
-        this.f16989g = null;
-        this.f16990h = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17114f = null;
+        this.f17115g = null;
+        this.f17116h = null;
         f(context);
     }
 }

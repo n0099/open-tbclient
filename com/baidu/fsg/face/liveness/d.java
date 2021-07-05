@@ -1,6 +1,12 @@
 package com.baidu.fsg.face.liveness;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class d {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "ABTestEnd";
     public static final String B = "showLivenessConfirm";
     public static final String C = "livnenessConfirmClickContinue";
@@ -29,35 +35,35 @@ public final class d {
     public static final String Z = "videoFileException";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5972a = "#startLiveness";
+    public static final String f6002a = "#startLiveness";
     public static final String aa = "videoFileTooLargeException";
     public static final String ab = "videoMediaRecordIdealBitrate";
     public static final String ac = "videoFileSize";
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5973b = "@queryVideo";
+    public static final String f6003b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5974c = "enterLiveness";
+    public static final String f6004c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5975d = "userSwitchSound";
+    public static final String f6005d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5976e = "@getPortrait";
+    public static final String f6006e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5977f = "passLiveness";
+    public static final String f6007f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5978g = "faceDetected";
+    public static final String f6008g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5979h = "showBlink";
+    public static final String f6009h = "showBlink";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5980i = "detectBlink";
+    public static final String f6010i = "detectBlink";
     public static final String j = "showMouth";
     public static final String k = "detectMouth";
     public static final String l = "firstTimeOut";
@@ -75,4 +81,19 @@ public final class d {
     public static final String x = "enterVideoVerify";
     public static final String y = "@videoUpload";
     public static final String z = "ABTestStart";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

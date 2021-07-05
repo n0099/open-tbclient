@@ -1,57 +1,129 @@
 package org.apache.commons.codec.binary;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.BinaryDecoder;
 import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public BinaryCodec() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new RuntimeException("Stub!");
     }
 
     public static byte[] fromAscii(char[] cArr) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static byte[] toAsciiBytes(byte[] bArr) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static char[] toAsciiChars(byte[] bArr) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (char[]) invokeL.objValue;
     }
 
     public static String toAsciiString(byte[] bArr) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // org.apache.commons.codec.Decoder
     public Object decode(Object obj) throws DecoderException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
     }
 
     @Override // org.apache.commons.codec.BinaryEncoder
     public byte[] encode(byte[] bArr) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public byte[] toByteArray(String str) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static byte[] fromAscii(byte[] bArr) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     @Override // org.apache.commons.codec.BinaryDecoder
     public byte[] decode(byte[] bArr) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     @Override // org.apache.commons.codec.Encoder
     public Object encode(Object obj) throws EncoderException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
     }
 }

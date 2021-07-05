@@ -1,35 +1,27 @@
 package d.g.a.a;
 
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes10.dex */
 public class a {
-    static {
-        a.class.getClassLoader();
-    }
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
-        if (parcel.readInt() == 0) {
-            return null;
-        }
-        return creator.createFromParcel(parcel);
-    }
-
-    public static void b(Parcel parcel, IInterface iInterface) {
-        if (iInterface == null) {
-            parcel.writeStrongBinder(null);
-        } else {
-            parcel.writeStrongBinder(iInterface.asBinder());
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
         }
     }
 
-    public static void c(Parcel parcel, Parcelable parcelable) {
-        if (parcelable == null) {
-            parcel.writeInt(0);
-            return;
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
         }
-        parcel.writeInt(1);
-        parcelable.writeToParcel(parcel, 0);
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+        }
     }
 }

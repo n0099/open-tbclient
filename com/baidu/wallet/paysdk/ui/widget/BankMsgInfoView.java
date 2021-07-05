@@ -8,77 +8,149 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.base.widget.NetImageView;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BorderTipTextView;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BankMsgInfoView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f26207a;
+    public NetImageView f26750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26208b;
+    public TextView f26751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f26209c;
+    public BorderTipTextView f26752c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f26210d;
+    public ViewGroup f26753d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankMsgInfoView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a();
     }
 
     private void a() {
-        LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_bankinfo_view"), this);
-        this.f26210d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
-        this.f26207a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
-        this.f26208b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
-        this.f26209c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_bankinfo_view"), this);
+            this.f26753d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
+            this.f26750a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
+            this.f26751b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
+            this.f26752c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
+        }
     }
 
     public void hideCouponView() {
-        this.f26209c.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f26752c.setVisibility(8);
+        }
     }
 
     public void setBankInfo(String str, CharSequence charSequence) {
-        if (!TextUtils.isEmpty(str)) {
-            this.f26207a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
-            this.f26207a.setImageUrl(str);
-            this.f26207a.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, charSequence) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.f26750a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
+                this.f26750a.setImageUrl(str);
+                this.f26750a.setVisibility(0);
+            }
+            this.f26751b.setText(charSequence);
         }
-        this.f26208b.setText(charSequence);
     }
 
     public void setCouponDesc(CharSequence charSequence) {
-        if (!TextUtils.isEmpty(charSequence)) {
-            this.f26209c.setVisibility(0);
-            this.f26209c.setText(charSequence, true);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
+            if (!TextUtils.isEmpty(charSequence)) {
+                this.f26752c.setVisibility(0);
+                this.f26752c.setText(charSequence, true);
+                return;
+            }
+            this.f26752c.setVisibility(8);
         }
-        this.f26209c.setVisibility(8);
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
-        if (i2 == 0) {
-            super.setVisibility(0);
-            this.f26210d.setVisibility(0);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            if (i2 == 0) {
+                super.setVisibility(0);
+                this.f26753d.setVisibility(0);
+                return;
+            }
+            this.f26753d.setVisibility(4);
         }
-        this.f26210d.setVisibility(4);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankMsgInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankMsgInfoView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         a();
     }
 }

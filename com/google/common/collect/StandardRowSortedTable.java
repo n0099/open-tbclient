@@ -1,96 +1,188 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.Maps;
-import d.g.c.a.n;
-import d.g.c.a.r;
-import d.g.c.c.q0;
+import d.f.d.a.n;
+import d.f.d.a.r;
+import d.f.d.c.c1;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.SortedSet;
-/* loaded from: classes6.dex */
-public class StandardRowSortedTable<R, C, V> extends StandardTable<R, C, V> implements q0<R, C, V> {
+/* loaded from: classes7.dex */
+public class StandardRowSortedTable<R, C, V> extends StandardTable<R, C, V> implements c1<R, C, V> {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
     public class b extends StandardTable<R, C, V>.h implements SortedMap<R, Map<C, V>> {
-        public b() {
-            super();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ StandardRowSortedTable f33302i;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(StandardRowSortedTable standardRowSortedTable) {
+            super(standardRowSortedTable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {standardRowSortedTable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((StandardTable) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33302i = standardRowSortedTable;
         }
 
         @Override // java.util.SortedMap
         public Comparator<? super R> comparator() {
-            return StandardRowSortedTable.this.sortedBackingMap().comparator();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33302i.sortedBackingMap().comparator() : (Comparator) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Maps.u
+        @Override // com.google.common.collect.Maps.y
         /* renamed from: f */
         public SortedSet<R> b() {
-            return new Maps.o(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Maps.s(this) : (SortedSet) invokeV.objValue;
         }
 
         @Override // java.util.SortedMap
         public R firstKey() {
-            return (R) StandardRowSortedTable.this.sortedBackingMap().firstKey();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (R) this.f33302i.sortedBackingMap().firstKey() : (R) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Maps.u, java.util.AbstractMap, java.util.Map
+        @Override // com.google.common.collect.Maps.y, java.util.AbstractMap, java.util.Map
         /* renamed from: g */
         public SortedSet<R> keySet() {
-            return (SortedSet) super.keySet();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (SortedSet) super.keySet() : (SortedSet) invokeV.objValue;
         }
 
         @Override // java.util.SortedMap
         public SortedMap<R, Map<C, V>> headMap(R r) {
-            n.p(r);
-            return new StandardRowSortedTable(StandardRowSortedTable.this.sortedBackingMap().headMap(r), StandardRowSortedTable.this.factory).rowMap();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, r)) == null) {
+                n.p(r);
+                return new StandardRowSortedTable(this.f33302i.sortedBackingMap().headMap(r), this.f33302i.factory).rowMap();
+            }
+            return (SortedMap) invokeL.objValue;
         }
 
         @Override // java.util.SortedMap
         public R lastKey() {
-            return (R) StandardRowSortedTable.this.sortedBackingMap().lastKey();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (R) this.f33302i.sortedBackingMap().lastKey() : (R) invokeV.objValue;
         }
 
         @Override // java.util.SortedMap
         public SortedMap<R, Map<C, V>> subMap(R r, R r2) {
-            n.p(r);
-            n.p(r2);
-            return new StandardRowSortedTable(StandardRowSortedTable.this.sortedBackingMap().subMap(r, r2), StandardRowSortedTable.this.factory).rowMap();
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, r, r2)) == null) {
+                n.p(r);
+                n.p(r2);
+                return new StandardRowSortedTable(this.f33302i.sortedBackingMap().subMap(r, r2), this.f33302i.factory).rowMap();
+            }
+            return (SortedMap) invokeLL.objValue;
         }
 
         @Override // java.util.SortedMap
         public SortedMap<R, Map<C, V>> tailMap(R r) {
-            n.p(r);
-            return new StandardRowSortedTable(StandardRowSortedTable.this.sortedBackingMap().tailMap(r), StandardRowSortedTable.this.factory).rowMap();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, r)) == null) {
+                n.p(r);
+                return new StandardRowSortedTable(this.f33302i.sortedBackingMap().tailMap(r), this.f33302i.factory).rowMap();
+            }
+            return (SortedMap) invokeL.objValue;
+        }
+
+        public /* synthetic */ b(StandardRowSortedTable standardRowSortedTable, a aVar) {
+            this(standardRowSortedTable);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StandardRowSortedTable(SortedMap<R, Map<C, V>> sortedMap, r<? extends Map<C, V>> rVar) {
         super(sortedMap, rVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sortedMap, rVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Map) objArr2[0], (r) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public SortedMap<R, Map<C, V>> sortedBackingMap() {
-        return (SortedMap) this.backingMap;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (SortedMap) this.backingMap : (SortedMap) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.collect.StandardTable
     public SortedMap<R, Map<C, V>> createRowMap() {
-        return new b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new b(this, null) : (SortedMap) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.StandardTable, d.g.c.c.i, d.g.c.c.y0
+    @Override // com.google.common.collect.StandardTable, d.f.d.c.i, d.f.d.c.k1
     public SortedSet<R> rowKeySet() {
-        return (SortedSet) rowMap().keySet();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (SortedSet) rowMap().keySet() : (SortedSet) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.StandardTable, d.g.c.c.y0
+    @Override // com.google.common.collect.StandardTable, d.f.d.c.k1
     public SortedMap<R, Map<C, V>> rowMap() {
-        return (SortedMap) super.rowMap();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (SortedMap) super.rowMap() : (SortedMap) invokeV.objValue;
     }
 }

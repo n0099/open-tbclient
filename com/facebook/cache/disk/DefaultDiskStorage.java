@@ -1,7 +1,16 @@
 package com.facebook.cache.disk;
 
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.facebook.binaryresource.BinaryResource;
 import com.facebook.binaryresource.FileBinaryResource;
@@ -28,78 +37,89 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class DefaultDiskStorage implements DiskStorage {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
     public static final String DEFAULT_DISK_STORAGE_VERSION_PREFIX = "v2";
     public static final int SHARDING_BUCKET_COUNT = 100;
+    public static final Class<?> TAG;
     public static final String TEMP_FILE_EXTENSION = ".tmp";
+    public static final long TEMP_FILE_LIFETIME_MS;
+    public transient /* synthetic */ FieldHolder $fh;
     public final CacheErrorLogger mCacheErrorLogger;
     public final Clock mClock;
     public final boolean mIsExternal;
     public final File mRootDirectory;
     public final File mVersionDirectory;
-    public static final Class<?> TAG = DefaultDiskStorage.class;
-    public static final long TEMP_FILE_LIFETIME_MS = TimeUnit.MINUTES.toMillis(30);
 
+    /* renamed from: com.facebook.cache.disk.DefaultDiskStorage$1  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public class EntriesCollector implements FileTreeVisitor {
-        public final List<DiskStorage.Entry> result;
-
-        public EntriesCollector() {
-            this.result = new ArrayList();
-        }
-
-        public List<DiskStorage.Entry> getEntries() {
-            return Collections.unmodifiableList(this.result);
-        }
-
-        @Override // com.facebook.common.file.FileTreeVisitor
-        public void postVisitDirectory(File file) {
-        }
-
-        @Override // com.facebook.common.file.FileTreeVisitor
-        public void preVisitDirectory(File file) {
-        }
-
-        @Override // com.facebook.common.file.FileTreeVisitor
-        public void visitFile(File file) {
-            FileInfo shardFileInfo = DefaultDiskStorage.this.getShardFileInfo(file);
-            if (shardFileInfo == null || shardFileInfo.type != ".cnt") {
-                return;
-            }
-            this.result.add(new EntryImpl(shardFileInfo.resourceId, file));
-        }
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
     /* loaded from: classes6.dex */
     public static class EntryImpl implements DiskStorage.Entry {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final String id;
         public final FileBinaryResource resource;
         public long size;
         public long timestamp;
 
+        public /* synthetic */ EntryImpl(String str, File file, AnonymousClass1 anonymousClass1) {
+            this(str, file);
+        }
+
         @Override // com.facebook.cache.disk.DiskStorage.Entry
         public String getId() {
-            return this.id;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : (String) invokeV.objValue;
         }
 
         @Override // com.facebook.cache.disk.DiskStorage.Entry
         public long getSize() {
-            if (this.size < 0) {
-                this.size = this.resource.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.size < 0) {
+                    this.size = this.resource.size();
+                }
+                return this.size;
             }
-            return this.size;
+            return invokeV.longValue;
         }
 
         @Override // com.facebook.cache.disk.DiskStorage.Entry
         public long getTimestamp() {
-            if (this.timestamp < 0) {
-                this.timestamp = this.resource.getFile().lastModified();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.timestamp < 0) {
+                    this.timestamp = this.resource.getFile().lastModified();
+                }
+                return this.timestamp;
             }
-            return this.timestamp;
+            return invokeV.longValue;
         }
 
         public EntryImpl(String str, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             Preconditions.checkNotNull(file);
             this.id = (String) Preconditions.checkNotNull(str);
             this.resource = FileBinaryResource.createOrNull(file);
@@ -110,48 +130,90 @@ public class DefaultDiskStorage implements DiskStorage {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.cache.disk.DiskStorage.Entry
         public FileBinaryResource getResource() {
-            return this.resource;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resource : (FileBinaryResource) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
     public static class FileInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final String resourceId;
         @FileType
         public final String type;
 
+        public /* synthetic */ FileInfo(String str, String str2, AnonymousClass1 anonymousClass1) {
+            this(str, str2);
+        }
+
         @Nullable
         public static FileInfo fromFile(File file) {
+            InterceptResult invokeL;
             String fileTypefromExtension;
-            String name = file.getName();
-            int lastIndexOf = name.lastIndexOf(46);
-            if (lastIndexOf > 0 && (fileTypefromExtension = DefaultDiskStorage.getFileTypefromExtension(name.substring(lastIndexOf))) != null) {
-                String substring = name.substring(0, lastIndexOf);
-                if (fileTypefromExtension.equals(".tmp")) {
-                    int lastIndexOf2 = substring.lastIndexOf(46);
-                    if (lastIndexOf2 <= 0) {
-                        return null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+                String name = file.getName();
+                int lastIndexOf = name.lastIndexOf(46);
+                if (lastIndexOf > 0 && (fileTypefromExtension = DefaultDiskStorage.getFileTypefromExtension(name.substring(lastIndexOf))) != null) {
+                    String substring = name.substring(0, lastIndexOf);
+                    if (fileTypefromExtension.equals(".tmp")) {
+                        int lastIndexOf2 = substring.lastIndexOf(46);
+                        if (lastIndexOf2 <= 0) {
+                            return null;
+                        }
+                        substring = substring.substring(0, lastIndexOf2);
                     }
-                    substring = substring.substring(0, lastIndexOf2);
+                    return new FileInfo(fileTypefromExtension, substring);
                 }
-                return new FileInfo(fileTypefromExtension, substring);
+                return null;
             }
-            return null;
+            return (FileInfo) invokeL.objValue;
         }
 
         public File createTempFile(File file) throws IOException {
-            return File.createTempFile(this.resourceId + ".", ".tmp", file);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                return File.createTempFile(this.resourceId + ".", ".tmp", file);
+            }
+            return (File) invokeL.objValue;
         }
 
         public String toPath(String str) {
-            return str + File.separator + this.resourceId + this.type;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                return str + File.separator + this.resourceId + this.type;
+            }
+            return (String) invokeL.objValue;
         }
 
         public String toString() {
-            return this.type + "(" + this.resourceId + SmallTailInfo.EMOTION_SUFFIX;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.type + "(" + this.resourceId + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
         }
 
         public FileInfo(@FileType String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.type = str;
             this.resourceId = str2;
         }
@@ -165,11 +227,29 @@ public class DefaultDiskStorage implements DiskStorage {
 
     /* loaded from: classes6.dex */
     public static class IncompleteFileException extends IOException {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final long actual;
         public final long expected;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public IncompleteFileException(long j, long j2) {
             super("File was not written completely. Expected: " + j + ", found: " + j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.expected = j;
             this.actual = j2;
         }
@@ -178,126 +258,220 @@ public class DefaultDiskStorage implements DiskStorage {
     @VisibleForTesting
     /* loaded from: classes6.dex */
     public class InserterImpl implements DiskStorage.Inserter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final String mResourceId;
         @VisibleForTesting
         public final File mTemporaryFile;
+        public final /* synthetic */ DefaultDiskStorage this$0;
 
-        public InserterImpl(String str, File file) {
+        public InserterImpl(DefaultDiskStorage defaultDiskStorage, String str, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {defaultDiskStorage, str, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = defaultDiskStorage;
             this.mResourceId = str;
             this.mTemporaryFile = file;
         }
 
         @Override // com.facebook.cache.disk.DiskStorage.Inserter
         public boolean cleanUp() {
-            return !this.mTemporaryFile.exists() || this.mTemporaryFile.delete();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.mTemporaryFile.exists() || this.mTemporaryFile.delete() : invokeV.booleanValue;
         }
 
         @Override // com.facebook.cache.disk.DiskStorage.Inserter
         public BinaryResource commit(Object obj) throws IOException {
+            InterceptResult invokeL;
             CacheErrorLogger.CacheErrorCategory cacheErrorCategory;
-            File contentFileFor = DefaultDiskStorage.this.getContentFileFor(this.mResourceId);
-            try {
-                FileUtils.rename(this.mTemporaryFile, contentFileFor);
-                if (contentFileFor.exists()) {
-                    contentFileFor.setLastModified(DefaultDiskStorage.this.mClock.now());
-                }
-                return FileBinaryResource.createOrNull(contentFileFor);
-            } catch (FileUtils.RenameException e2) {
-                Throwable cause = e2.getCause();
-                if (cause != null) {
-                    if (!(cause instanceof FileUtils.ParentDirNotFoundException)) {
-                        if (cause instanceof FileNotFoundException) {
-                            cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_TEMPFILE_NOT_FOUND;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                File contentFileFor = this.this$0.getContentFileFor(this.mResourceId);
+                try {
+                    FileUtils.rename(this.mTemporaryFile, contentFileFor);
+                    if (contentFileFor.exists()) {
+                        contentFileFor.setLastModified(this.this$0.mClock.now());
+                    }
+                    return FileBinaryResource.createOrNull(contentFileFor);
+                } catch (FileUtils.RenameException e2) {
+                    Throwable cause = e2.getCause();
+                    if (cause != null) {
+                        if (!(cause instanceof FileUtils.ParentDirNotFoundException)) {
+                            if (cause instanceof FileNotFoundException) {
+                                cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_TEMPFILE_NOT_FOUND;
+                            } else {
+                                cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_OTHER;
+                            }
                         } else {
-                            cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_OTHER;
+                            cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_TEMPFILE_PARENT_NOT_FOUND;
                         }
                     } else {
-                        cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_TEMPFILE_PARENT_NOT_FOUND;
+                        cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_OTHER;
                     }
-                } else {
-                    cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_OTHER;
+                    this.this$0.mCacheErrorLogger.logError(cacheErrorCategory, DefaultDiskStorage.TAG, "commit", e2);
+                    throw e2;
                 }
-                DefaultDiskStorage.this.mCacheErrorLogger.logError(cacheErrorCategory, DefaultDiskStorage.TAG, "commit", e2);
-                throw e2;
             }
+            return (BinaryResource) invokeL.objValue;
         }
 
         @Override // com.facebook.cache.disk.DiskStorage.Inserter
         public void writeData(WriterCallback writerCallback, Object obj) throws IOException {
-            try {
-                FileOutputStream fileOutputStream = new FileOutputStream(this.mTemporaryFile);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, writerCallback, obj) == null) {
                 try {
-                    CountingOutputStream countingOutputStream = new CountingOutputStream(fileOutputStream);
-                    writerCallback.write(countingOutputStream);
-                    countingOutputStream.flush();
-                    long count = countingOutputStream.getCount();
-                    fileOutputStream.close();
-                    if (this.mTemporaryFile.length() != count) {
-                        throw new IncompleteFileException(count, this.mTemporaryFile.length());
+                    FileOutputStream fileOutputStream = new FileOutputStream(this.mTemporaryFile);
+                    try {
+                        CountingOutputStream countingOutputStream = new CountingOutputStream(fileOutputStream);
+                        writerCallback.write(countingOutputStream);
+                        countingOutputStream.flush();
+                        long count = countingOutputStream.getCount();
+                        fileOutputStream.close();
+                        if (this.mTemporaryFile.length() != count) {
+                            throw new IncompleteFileException(count, this.mTemporaryFile.length());
+                        }
+                    } catch (Throwable th) {
+                        fileOutputStream.close();
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    fileOutputStream.close();
-                    throw th;
+                } catch (FileNotFoundException e2) {
+                    this.this$0.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.TAG, "updateResource", e2);
+                    throw e2;
                 }
-            } catch (FileNotFoundException e2) {
-                DefaultDiskStorage.this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.TAG, "updateResource", e2);
-                throw e2;
             }
         }
     }
 
     /* loaded from: classes6.dex */
     public class PurgingVisitor implements FileTreeVisitor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean insideBaseDirectory;
+        public final /* synthetic */ DefaultDiskStorage this$0;
 
-        public PurgingVisitor() {
+        public PurgingVisitor(DefaultDiskStorage defaultDiskStorage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {defaultDiskStorage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = defaultDiskStorage;
         }
 
         private boolean isExpectedFile(File file) {
-            FileInfo shardFileInfo = DefaultDiskStorage.this.getShardFileInfo(file);
-            if (shardFileInfo == null) {
-                return false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, file)) == null) {
+                FileInfo shardFileInfo = this.this$0.getShardFileInfo(file);
+                if (shardFileInfo == null) {
+                    return false;
+                }
+                String str = shardFileInfo.type;
+                if (str == ".tmp") {
+                    return isRecentFile(file);
+                }
+                Preconditions.checkState(str == ".cnt");
+                return true;
             }
-            String str = shardFileInfo.type;
-            if (str == ".tmp") {
-                return isRecentFile(file);
-            }
-            Preconditions.checkState(str == ".cnt");
-            return true;
+            return invokeL.booleanValue;
         }
 
         private boolean isRecentFile(File file) {
-            return file.lastModified() > DefaultDiskStorage.this.mClock.now() - DefaultDiskStorage.TEMP_FILE_LIFETIME_MS;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, file)) == null) ? file.lastModified() > this.this$0.mClock.now() - DefaultDiskStorage.TEMP_FILE_LIFETIME_MS : invokeL.booleanValue;
         }
 
         @Override // com.facebook.common.file.FileTreeVisitor
         public void postVisitDirectory(File file) {
-            if (!DefaultDiskStorage.this.mRootDirectory.equals(file) && !this.insideBaseDirectory) {
-                file.delete();
-            }
-            if (this.insideBaseDirectory && file.equals(DefaultDiskStorage.this.mVersionDirectory)) {
-                this.insideBaseDirectory = false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                if (!this.this$0.mRootDirectory.equals(file) && !this.insideBaseDirectory) {
+                    file.delete();
+                }
+                if (this.insideBaseDirectory && file.equals(this.this$0.mVersionDirectory)) {
+                    this.insideBaseDirectory = false;
+                }
             }
         }
 
         @Override // com.facebook.common.file.FileTreeVisitor
         public void preVisitDirectory(File file) {
-            if (this.insideBaseDirectory || !file.equals(DefaultDiskStorage.this.mVersionDirectory)) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && !this.insideBaseDirectory && file.equals(this.this$0.mVersionDirectory)) {
+                this.insideBaseDirectory = true;
             }
-            this.insideBaseDirectory = true;
         }
 
         @Override // com.facebook.common.file.FileTreeVisitor
         public void visitFile(File file) {
-            if (this.insideBaseDirectory && isExpectedFile(file)) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
+                if (this.insideBaseDirectory && isExpectedFile(file)) {
+                    return;
+                }
+                file.delete();
             }
-            file.delete();
+        }
+
+        public /* synthetic */ PurgingVisitor(DefaultDiskStorage defaultDiskStorage, AnonymousClass1 anonymousClass1) {
+            this(defaultDiskStorage);
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(463809320, "Lcom/facebook/cache/disk/DefaultDiskStorage;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(463809320, "Lcom/facebook/cache/disk/DefaultDiskStorage;");
+                return;
+            }
+        }
+        TAG = DefaultDiskStorage.class;
+        TEMP_FILE_LIFETIME_MS = TimeUnit.MINUTES.toMillis(30L);
+    }
+
     public DefaultDiskStorage(File file, int i2, CacheErrorLogger cacheErrorLogger) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, Integer.valueOf(i2), cacheErrorLogger};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         Preconditions.checkNotNull(file);
         this.mRootDirectory = file;
         this.mIsExternal = isExternal(file, cacheErrorLogger);
@@ -308,83 +482,122 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     private long doRemove(File file) {
-        if (file.exists()) {
-            long length = file.length();
-            if (file.delete()) {
-                return length;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, file)) == null) {
+            if (file.exists()) {
+                long length = file.length();
+                if (file.delete()) {
+                    return length;
+                }
+                return -1L;
             }
-            return -1L;
+            return 0L;
         }
-        return 0L;
+        return invokeL.longValue;
     }
 
     private DiskStorage.DiskDumpInfoEntry dumpCacheEntry(DiskStorage.Entry entry) throws IOException {
-        EntryImpl entryImpl = (EntryImpl) entry;
-        byte[] read = entryImpl.getResource().read();
-        String typeOfBytes = typeOfBytes(read);
-        return new DiskStorage.DiskDumpInfoEntry(entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, entry)) == null) {
+            EntryImpl entryImpl = (EntryImpl) entry;
+            byte[] read = entryImpl.getResource().read();
+            String typeOfBytes = typeOfBytes(read);
+            return new DiskStorage.DiskDumpInfoEntry(entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
+        }
+        return (DiskStorage.DiskDumpInfoEntry) invokeL.objValue;
     }
 
     @FileType
     @Nullable
     public static String getFileTypefromExtension(String str) {
-        if (".cnt".equals(str)) {
-            return ".cnt";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (".cnt".equals(str)) {
+                return ".cnt";
+            }
+            if (".tmp".equals(str)) {
+                return ".tmp";
+            }
+            return null;
         }
-        if (".tmp".equals(str)) {
-            return ".tmp";
-        }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     private String getFilename(String str) {
-        FileInfo fileInfo = new FileInfo(".cnt", str);
-        return fileInfo.toPath(getSubdirectoryPath(fileInfo.resourceId));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) {
+            FileInfo fileInfo = new FileInfo(".cnt", str, null);
+            return fileInfo.toPath(getSubdirectoryPath(fileInfo.resourceId));
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
     public FileInfo getShardFileInfo(File file) {
-        FileInfo fromFile = FileInfo.fromFile(file);
-        if (fromFile != null && getSubdirectory(fromFile.resourceId).equals(file.getParentFile())) {
-            return fromFile;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, file)) == null) {
+            FileInfo fromFile = FileInfo.fromFile(file);
+            if (fromFile != null && getSubdirectory(fromFile.resourceId).equals(file.getParentFile())) {
+                return fromFile;
+            }
+            return null;
         }
-        return null;
+        return (FileInfo) invokeL.objValue;
     }
 
     private File getSubdirectory(String str) {
-        return new File(getSubdirectoryPath(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) ? new File(getSubdirectoryPath(str)) : (File) invokeL.objValue;
     }
 
     private String getSubdirectoryPath(String str) {
-        String valueOf = String.valueOf(Math.abs(str.hashCode() % 100));
-        return this.mVersionDirectory + File.separator + valueOf;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, str)) == null) {
+            String valueOf = String.valueOf(Math.abs(str.hashCode() % 100));
+            return this.mVersionDirectory + File.separator + valueOf;
+        }
+        return (String) invokeL.objValue;
     }
 
     @VisibleForTesting
     public static String getVersionSubdirectoryName(int i2) {
-        return String.format(null, "%s.ols%d.%d", DEFAULT_DISK_STORAGE_VERSION_PREFIX, 100, Integer.valueOf(i2));
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) ? String.format(null, "%s.ols%d.%d", DEFAULT_DISK_STORAGE_VERSION_PREFIX, 100, Integer.valueOf(i2)) : (String) invokeI.objValue;
     }
 
     public static boolean isExternal(File file, CacheErrorLogger cacheErrorLogger) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65553, null, file, cacheErrorLogger)) != null) {
+            return invokeLL.booleanValue;
+        }
         try {
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            if (externalStorageDirectory != null) {
-                try {
-                } catch (IOException e2) {
-                    e = e2;
-                }
+            if (externalStorageDirectory == null) {
+                return false;
+            }
+            try {
                 try {
                     return file.getCanonicalPath().contains(externalStorageDirectory.toString());
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.OTHER;
                     Class<?> cls = TAG;
                     cacheErrorLogger.logError(cacheErrorCategory, cls, "failed to read folder to check if external: " + ((String) null), e);
                     return false;
                 }
+            } catch (IOException e3) {
+                e = e3;
             }
-            return false;
         } catch (Exception e4) {
             cacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.OTHER, TAG, "failed to get the external storage directory!", e4);
             return false;
@@ -392,147 +605,268 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     private void mkdirs(File file, String str) throws IOException {
-        try {
-            FileUtils.mkdirs(file);
-        } catch (FileUtils.CreateDirectoryException e2) {
-            this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, str, e2);
-            throw e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, this, file, str) == null) {
+            try {
+                FileUtils.mkdirs(file);
+            } catch (FileUtils.CreateDirectoryException e2) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, str, e2);
+                throw e2;
+            }
         }
     }
 
     private boolean query(String str, boolean z) {
-        File contentFileFor = getContentFileFor(str);
-        boolean exists = contentFileFor.exists();
-        if (z && exists) {
-            contentFileFor.setLastModified(this.mClock.now());
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65555, this, str, z)) == null) {
+            File contentFileFor = getContentFileFor(str);
+            boolean exists = contentFileFor.exists();
+            if (z && exists) {
+                contentFileFor.setLastModified(this.mClock.now());
+            }
+            return exists;
         }
-        return exists;
+        return invokeLZ.booleanValue;
     }
 
     private void recreateDirectoryIfVersionChanges() {
-        boolean z = true;
-        if (this.mRootDirectory.exists()) {
-            if (this.mVersionDirectory.exists()) {
-                z = false;
-            } else {
-                FileTree.deleteRecursively(this.mRootDirectory);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
+            boolean z = true;
+            if (this.mRootDirectory.exists()) {
+                if (this.mVersionDirectory.exists()) {
+                    z = false;
+                } else {
+                    FileTree.deleteRecursively(this.mRootDirectory);
+                }
             }
-        }
-        if (z) {
-            try {
-                FileUtils.mkdirs(this.mVersionDirectory);
-            } catch (FileUtils.CreateDirectoryException unused) {
-                CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
-                CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR;
-                Class<?> cls = TAG;
-                cacheErrorLogger.logError(cacheErrorCategory, cls, "version directory could not be created: " + this.mVersionDirectory, null);
+            if (z) {
+                try {
+                    FileUtils.mkdirs(this.mVersionDirectory);
+                } catch (FileUtils.CreateDirectoryException unused) {
+                    CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
+                    CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR;
+                    Class<?> cls = TAG;
+                    cacheErrorLogger.logError(cacheErrorCategory, cls, "version directory could not be created: " + this.mVersionDirectory, null);
+                }
             }
         }
     }
 
     private String typeOfBytes(byte[] bArr) {
-        return bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? "webp" : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? "webp" : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public void clearAll() {
-        FileTree.deleteContents(this.mRootDirectory);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            FileTree.deleteContents(this.mRootDirectory);
+        }
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public boolean contains(String str, Object obj) {
-        return query(str, false);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) ? query(str, false) : invokeLL.booleanValue;
     }
 
     @VisibleForTesting
     public File getContentFileFor(String str) {
-        return new File(getFilename(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new File(getFilename(str)) : (File) invokeL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public DiskStorage.DiskDumpInfo getDumpInfo() throws IOException {
-        List<DiskStorage.Entry> entries = getEntries();
-        DiskStorage.DiskDumpInfo diskDumpInfo = new DiskStorage.DiskDumpInfo();
-        for (DiskStorage.Entry entry : entries) {
-            DiskStorage.DiskDumpInfoEntry dumpCacheEntry = dumpCacheEntry(entry);
-            String str = dumpCacheEntry.type;
-            if (!diskDumpInfo.typeCounts.containsKey(str)) {
-                diskDumpInfo.typeCounts.put(str, 0);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<DiskStorage.Entry> entries = getEntries();
+            DiskStorage.DiskDumpInfo diskDumpInfo = new DiskStorage.DiskDumpInfo();
+            for (DiskStorage.Entry entry : entries) {
+                DiskStorage.DiskDumpInfoEntry dumpCacheEntry = dumpCacheEntry(entry);
+                String str = dumpCacheEntry.type;
+                if (!diskDumpInfo.typeCounts.containsKey(str)) {
+                    diskDumpInfo.typeCounts.put(str, 0);
+                }
+                Map<String, Integer> map = diskDumpInfo.typeCounts;
+                map.put(str, Integer.valueOf(map.get(str).intValue() + 1));
+                diskDumpInfo.entries.add(dumpCacheEntry);
             }
-            Map<String, Integer> map = diskDumpInfo.typeCounts;
-            map.put(str, Integer.valueOf(map.get(str).intValue() + 1));
-            diskDumpInfo.entries.add(dumpCacheEntry);
+            return diskDumpInfo;
         }
-        return diskDumpInfo;
+        return (DiskStorage.DiskDumpInfo) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     @Nullable
     public BinaryResource getResource(String str, Object obj) {
-        File contentFileFor = getContentFileFor(str);
-        if (contentFileFor.exists()) {
-            contentFileFor.setLastModified(this.mClock.now());
-            return FileBinaryResource.createOrNull(contentFileFor);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, obj)) == null) {
+            File contentFileFor = getContentFileFor(str);
+            if (contentFileFor.exists()) {
+                contentFileFor.setLastModified(this.mClock.now());
+                return FileBinaryResource.createOrNull(contentFileFor);
+            }
+            return null;
         }
-        return null;
+        return (BinaryResource) invokeLL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public String getStorageName() {
-        String absolutePath = this.mRootDirectory.getAbsolutePath();
-        return "_" + absolutePath.substring(absolutePath.lastIndexOf(47) + 1, absolutePath.length()) + "_" + absolutePath.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String absolutePath = this.mRootDirectory.getAbsolutePath();
+            return "_" + absolutePath.substring(absolutePath.lastIndexOf(47) + 1, absolutePath.length()) + "_" + absolutePath.hashCode();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public DiskStorage.Inserter insert(String str, Object obj) throws IOException {
-        FileInfo fileInfo = new FileInfo(".tmp", str);
-        File subdirectory = getSubdirectory(fileInfo.resourceId);
-        if (!subdirectory.exists()) {
-            mkdirs(subdirectory, "insert");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, obj)) == null) {
+            FileInfo fileInfo = new FileInfo(".tmp", str, null);
+            File subdirectory = getSubdirectory(fileInfo.resourceId);
+            if (!subdirectory.exists()) {
+                mkdirs(subdirectory, "insert");
+            }
+            try {
+                return new InserterImpl(this, str, fileInfo.createTempFile(subdirectory));
+            } catch (IOException e2) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, TAG, "insert", e2);
+                throw e2;
+            }
         }
-        try {
-            return new InserterImpl(str, fileInfo.createTempFile(subdirectory));
-        } catch (IOException e2) {
-            this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, TAG, "insert", e2);
-            throw e2;
-        }
+        return (DiskStorage.Inserter) invokeLL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public boolean isEnabled() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public void purgeUnexpectedResources() {
-        FileTree.walkFileTree(this.mRootDirectory, new PurgingVisitor());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            FileTree.walkFileTree(this.mRootDirectory, new PurgingVisitor(this, null));
+        }
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public long remove(DiskStorage.Entry entry) {
-        return doRemove(((EntryImpl) entry).getResource().getFile());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, entry)) == null) ? doRemove(((EntryImpl) entry).getResource().getFile()) : invokeL.longValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public boolean touch(String str, Object obj) {
-        return query(str, true);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, obj)) == null) ? query(str, true) : invokeLL.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class EntriesCollector implements FileTreeVisitor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<DiskStorage.Entry> result;
+        public final /* synthetic */ DefaultDiskStorage this$0;
+
+        public EntriesCollector(DefaultDiskStorage defaultDiskStorage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {defaultDiskStorage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = defaultDiskStorage;
+            this.result = new ArrayList();
+        }
+
+        public List<DiskStorage.Entry> getEntries() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Collections.unmodifiableList(this.result) : (List) invokeV.objValue;
+        }
+
+        @Override // com.facebook.common.file.FileTreeVisitor
+        public void postVisitDirectory(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+            }
+        }
+
+        @Override // com.facebook.common.file.FileTreeVisitor
+        public void preVisitDirectory(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
+            }
+        }
+
+        @Override // com.facebook.common.file.FileTreeVisitor
+        public void visitFile(File file) {
+            FileInfo shardFileInfo;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, file) == null) && (shardFileInfo = this.this$0.getShardFileInfo(file)) != null && shardFileInfo.type == ".cnt") {
+                this.result.add(new EntryImpl(shardFileInfo.resourceId, file, null));
+            }
+        }
+
+        public /* synthetic */ EntriesCollector(DefaultDiskStorage defaultDiskStorage, AnonymousClass1 anonymousClass1) {
+            this(defaultDiskStorage);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.cache.disk.DiskStorage
     public List<DiskStorage.Entry> getEntries() throws IOException {
-        EntriesCollector entriesCollector = new EntriesCollector();
-        FileTree.walkFileTree(this.mVersionDirectory, entriesCollector);
-        return entriesCollector.getEntries();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            EntriesCollector entriesCollector = new EntriesCollector(this, null);
+            FileTree.walkFileTree(this.mVersionDirectory, entriesCollector);
+            return entriesCollector.getEntries();
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public long remove(String str) {
-        return doRemove(getContentFileFor(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? doRemove(getContentFileFor(str)) : invokeL.longValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public boolean isExternal() {
-        return this.mIsExternal;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIsExternal : invokeV.booleanValue;
     }
 }

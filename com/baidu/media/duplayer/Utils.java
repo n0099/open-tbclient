@@ -13,7 +13,13 @@ import com.baidu.android.util.io.PathUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import dalvik.system.BaseDexClassLoader;
 import java.io.BufferedReader;
@@ -21,151 +27,217 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Utils {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8037a = "filecache-Utils";
+    public static String f8067a = "filecache-Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8038b = 536870912;
+    public static int f8068b = 536870912;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8039c = ".video_cache";
+    public static String f8069c = ".video_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile int f8040d = -1;
+    public static volatile int f8070d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f8041e = -1;
+    public static volatile int f8071e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f8042f = -1;
+    public static volatile int f8072f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f8043g;
+    public static volatile String f8073g;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(302187854, "Lcom/baidu/media/duplayer/Utils;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(302187854, "Lcom/baidu/media/duplayer/Utils;");
+        }
+    }
 
     public static long a() {
-        try {
-            if ("mounted".equals(Environment.getExternalStorageState())) {
-                String path = Environment.getExternalStorageDirectory().getPath();
-                if (path == null || path.length() <= 0) {
-                    CyberLog.w(f8037a, "External path is null, so SDCard no free space");
-                    return -1L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    String path = Environment.getExternalStorageDirectory().getPath();
+                    if (path == null || path.length() <= 0) {
+                        CyberLog.w(f8067a, "External path is null, so SDCard no free space");
+                        return -1L;
+                    }
+                    StatFs statFs = new StatFs(path);
+                    return statFs.getBlockSize() * statFs.getAvailableBlocks();
                 }
-                StatFs statFs = new StatFs(path);
-                return statFs.getBlockSize() * statFs.getAvailableBlocks();
+                return -1L;
+            } catch (Exception unused) {
+                CyberLog.d(f8067a, "SDCard no free space");
+                return -1L;
             }
-            return -1L;
-        } catch (Exception unused) {
-            CyberLog.d(f8037a, "SDCard no free space");
-            return -1L;
         }
+        return invokeV.longValue;
     }
 
     public static String b(Context context) {
-        String str = null;
-        try {
-            if (p(context)) {
-                str = Environment.getExternalStorageDirectory().getAbsolutePath();
-            } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
-                str = context.getExternalCacheDir().getPath();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String str = null;
+            try {
+                if (p(context)) {
+                    str = Environment.getExternalStorageDirectory().getAbsolutePath();
+                } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
+                    str = context.getExternalCacheDir().getPath();
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            return str;
         }
-        return str;
+        return (String) invokeL.objValue;
     }
 
     public static void c(int i2) {
-        nativeSetMaxConcurrentOperationCount(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
+            nativeSetMaxConcurrentOperationCount(i2);
+        }
     }
 
     public static void d(long j) {
-        nativeCleanFilecacheWithTimeExpired(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65540, null, j) == null) {
+            nativeCleanFilecacheWithTimeExpired(j);
+        }
     }
 
     public static void e(File file) {
-        try {
-            if (file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    e(file2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file) == null) {
+            try {
+                if (file.isDirectory()) {
+                    for (File file2 : file.listFiles()) {
+                        e(file2);
+                    }
                 }
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e2) {
+                CyberLog.w(f8067a, e2.toString());
             }
-            if (file.exists()) {
-                file.delete();
-            }
-        } catch (Exception e2) {
-            CyberLog.w(f8037a, e2.toString());
         }
     }
 
     public static void f(String str) {
-        nativeSetFileacheWorkDirectory(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+            nativeSetFileacheWorkDirectory(str);
+        }
     }
 
     public static void g(String str, String str2) {
-        nativeVideoSRInit(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            nativeVideoSRInit(str, str2);
+        }
     }
 
     public static void h(String str, boolean z) {
-        try {
-            String str2 = Build.DISPLAY;
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "sdk-" + Build.VERSION.SDK_INT;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
+            try {
+                String str2 = Build.DISPLAY;
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "sdk-" + Build.VERSION.SDK_INT;
+                }
+                nativeMonitorInit(str, str2, z);
+            } catch (Exception unused) {
             }
-            nativeMonitorInit(str, str2, z);
-        } catch (Exception unused) {
         }
     }
 
     public static void i(byte[] bArr, int i2, byte[] bArr2) {
-        nativeKernelEncrypt(bArr, i2, bArr2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65545, null, bArr, i2, bArr2) == null) {
+            nativeKernelEncrypt(bArr, i2, bArr2);
+        }
     }
 
     public static String j() {
-        StringBuilder sb = new StringBuilder();
-        String defaultHost = Proxy.getDefaultHost();
-        int defaultPort = Proxy.getDefaultPort();
-        if (defaultHost == null || defaultHost.length() <= 0 || defaultPort < 0 || defaultPort > 65535) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            String defaultHost = Proxy.getDefaultHost();
+            int defaultPort = Proxy.getDefaultPort();
+            if (defaultHost == null || defaultHost.length() <= 0 || defaultPort < 0 || defaultPort > 65535) {
+                return null;
+            }
+            sb.append(defaultHost);
+            sb.append(":");
+            sb.append(String.valueOf(defaultPort));
+            return sb.toString();
         }
-        sb.append(defaultHost);
-        sb.append(":");
-        sb.append(String.valueOf(defaultPort));
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     public static String k(Context context) {
+        InterceptResult invokeL;
         String str;
-        String b2 = b(context);
-        if (TextUtils.isEmpty(b2)) {
-            str = null;
-        } else {
-            str = b2 + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            String b2 = b(context);
+            if (TextUtils.isEmpty(b2)) {
+                str = null;
+            } else {
+                str = b2 + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+            }
+            String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
+            CyberLog.i(f8067a, "Utils.getExternalStorageSpace():" + a());
+            if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
+                str = str2;
+            }
+            new File(str).mkdirs();
+            if (!r(context)) {
+                str = str + File.separator + "remote";
+            }
+            CyberLog.i(f8067a, "getVideoStatisticsPath folder:" + str);
+            return str;
         }
-        String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-        CyberLog.i(f8037a, "Utils.getExternalStorageSpace():" + a());
-        if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
-            str = str2;
-        }
-        new File(str).mkdirs();
-        if (!r(context)) {
-            str = str + File.separator + "remote";
-        }
-        CyberLog.i(f8037a, "getVideoStatisticsPath folder:" + str);
-        return str;
+        return (String) invokeL.objValue;
     }
 
     public static void l(long j) {
-        nativeUpdateStorageQuota(j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65548, null, j) == null) {
+            nativeUpdateStorageQuota(j);
+        }
     }
 
     public static void m(String str) {
-        nativeStrategyOptimizeInit(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
+            nativeStrategyOptimizeInit(str);
+        }
     }
 
     public static long n() {
-        return nativeCaculateFolderSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? nativeCaculateFolderSize() : invokeV.longValue;
     }
 
     public static native long nativeCaculateFolderSize();
@@ -193,78 +265,109 @@ public class Utils {
     public static native void nativeVideoSRInit(String str, String str2);
 
     public static void o(String str) {
-        nativeDecodeModeOptimizeInit(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65563, null, str) == null) {
+            nativeDecodeModeOptimizeInit(str);
+        }
     }
 
     public static boolean p(Context context) {
+        InterceptResult invokeL;
         PackageManager packageManager;
-        if (context != null && (packageManager = context.getPackageManager()) != null) {
-            try {
-                if (packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0) {
-                    return packageManager.checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, context.getPackageName()) == 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
+            if (context != null && (packageManager = context.getPackageManager()) != null) {
+                try {
+                    if (packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0) {
+                        return packageManager.checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, context.getPackageName()) == 0;
+                    }
+                    return false;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-                return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static synchronized void q() {
-        synchronized (Utils.class) {
-            Map<String, String> cfgMap = CyberCfgManager.getInstance().getCfgMap();
-            if (cfgMap != null && cfgMap.size() > 0) {
-                String[] strArr = (String[]) cfgMap.keySet().toArray(new String[0]);
-                String[] strArr2 = (String[]) cfgMap.values().toArray(new String[0]);
-                if (strArr != null && strArr2 != null && strArr.length == strArr2.length) {
-                    nativeUpdateCfgOpts(strArr, strArr2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65565, null) == null) {
+            synchronized (Utils.class) {
+                Map<String, String> cfgMap = CyberCfgManager.getInstance().getCfgMap();
+                if (cfgMap != null && cfgMap.size() > 0) {
+                    String[] strArr = (String[]) cfgMap.keySet().toArray(new String[0]);
+                    String[] strArr2 = (String[]) cfgMap.values().toArray(new String[0]);
+                    if (strArr != null && strArr2 != null && strArr.length == strArr2.length) {
+                        nativeUpdateCfgOpts(strArr, strArr2);
+                    }
                 }
             }
         }
     }
 
     public static boolean r(Context context) {
-        if (context == null) {
-            return false;
-        }
-        if (f8040d < 0) {
-            if (context.getPackageName().equals(v(context))) {
-                f8040d = 1;
-            } else {
-                f8040d = 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
+            if (context == null) {
+                return false;
             }
+            if (f8070d < 0) {
+                if (context.getPackageName().equals(v(context))) {
+                    f8070d = 1;
+                } else {
+                    f8070d = 0;
+                }
+            }
+            return f8070d == 1;
         }
-        return f8040d == 1;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: int */
     /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: int */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: int */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v14, resolved type: int */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v15, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
     public static String s() {
-        if (f8042f < 0) {
-            f8042f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+            if (f8072f < 0) {
+                f8072f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+            }
+            return f8072f == 1 ? "arm64-v8a" : "armeabi-v7a";
         }
-        return f8042f == 1 ? "arm64-v8a" : "armeabi-v7a";
+        return (String) invokeV.objValue;
     }
 
     public static boolean t(Context context) {
-        if (context == null) {
-            return false;
-        }
-        if (f8041e < 0) {
-            if ((context.getPackageName() + ":media").equals(v(context))) {
-                f8041e = 1;
-            } else {
-                f8041e = 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
+            if (context == null) {
+                return false;
             }
+            if (f8071e < 0) {
+                if ((context.getPackageName() + ":media").equals(v(context))) {
+                    f8071e = 1;
+                } else {
+                    f8071e = 0;
+                }
+            }
+            return f8071e == 1;
         }
-        return f8041e == 1;
+        return invokeL.booleanValue;
     }
 
     public static String u() {
+        InterceptResult invokeV;
         BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65569, null)) != null) {
+            return (String) invokeV.objValue;
+        }
         BufferedReader bufferedReader2 = null;
         try {
             bufferedReader = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
@@ -305,27 +408,37 @@ public class Utils {
     }
 
     public static String v(Context context) {
-        if (TextUtils.isEmpty(f8043g)) {
-            f8043g = w(context);
-            if (TextUtils.isEmpty(f8043g)) {
-                f8043g = u();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
+            if (TextUtils.isEmpty(f8073g)) {
+                f8073g = w(context);
+                if (TextUtils.isEmpty(f8073g)) {
+                    f8073g = u();
+                }
+                return f8073g;
             }
-            return f8043g;
+            return f8073g;
         }
-        return f8043g;
+        return (String) invokeL.objValue;
     }
 
     public static String w(Context context) {
-        int myPid = Process.myPid();
-        try {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
+            int myPid = Process.myPid();
+            try {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
                 }
+                return null;
+            } catch (Exception unused) {
+                return null;
             }
-            return null;
-        } catch (Exception unused) {
-            return null;
         }
+        return (String) invokeL.objValue;
     }
 }

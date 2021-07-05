@@ -4,11 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -19,54 +21,80 @@ import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
 import com.baidu.tieba.write.write.relevance.list.ReleavanceItemListData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.w3.u.m.a.a;
+import d.a.s0.a4.u.m.a.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdListView.p {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View f22321e;
+    public final View f22837e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RelevanceItemListFragment f22322f;
+    public final RelevanceItemListFragment f22838f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.o0.w3.u.m.a.a f22323g;
+    public final d.a.s0.a4.u.m.a.a f22839g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdRecyclerView f22324h;
+    public BdRecyclerView f22840h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PbListView f22325i;
+    public PbListView f22841i;
+    public List<ReleavanceItemListData.ItemListBean> j;
+    public boolean k;
     public String l;
-    public List<ReleavanceItemListData.ItemListBean> j = new ArrayList();
-    public boolean k = true;
-    public RecyclerView.Adapter m = new a();
+    public RecyclerView.Adapter m;
 
     /* loaded from: classes5.dex */
     public static class ListViewHolder extends RecyclerView.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final View f22326a;
+        public final View f22842a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ItemCardView f22327b;
+        public ItemCardView f22843b;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ListViewHolder(View view) {
             super(view);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             ItemCardView itemCardView = (ItemCardView) view.findViewById(R.id.item_rate_info);
-            this.f22327b = itemCardView;
+            this.f22843b = itemCardView;
             itemCardView.setBackGroundColor(R.color.transparent_1);
-            this.f22327b.setSizeStyle(1);
+            this.f22843b.setSizeStyle(1);
             View findViewById = view.findViewById(R.id.bottom_divider);
-            this.f22326a = findViewById;
+            this.f22842a = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0203);
         }
 
         public void a(ReleavanceItemListData.ItemListBean itemListBean, String str) {
-            if (itemListBean == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, itemListBean, str) == null) || itemListBean == null) {
                 return;
             }
             TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
@@ -80,47 +108,95 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
                 e2.printStackTrace();
             }
             tbRichTextEvaluateItemInfo.setTags(itemListBean.getTags());
-            ItemCardView itemCardView = this.f22327b;
+            ItemCardView itemCardView = this.f22843b;
             itemCardView.setHighLightText(str + "");
-            this.f22327b.setData(tbRichTextEvaluateItemInfo, 10);
+            this.f22843b.setData(tbRichTextEvaluateItemInfo, 10);
         }
     }
 
     /* loaded from: classes5.dex */
     public class a extends RecyclerView.Adapter<ListViewHolder> {
-        public a() {
-        }
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: c */
-        public void onBindViewHolder(ListViewHolder listViewHolder, int i2) {
-            listViewHolder.a((ReleavanceItemListData.ItemListBean) RelevanceItemListController.this.j.get(i2), RelevanceItemListController.this.l);
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ RelevanceItemListController f22844a;
+
+        public a(RelevanceItemListController relevanceItemListController) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {relevanceItemListController};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22844a = relevanceItemListController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: d */
+        public void onBindViewHolder(ListViewHolder listViewHolder, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, listViewHolder, i2) == null) {
+                listViewHolder.a((ReleavanceItemListData.ItemListBean) this.f22844a.j.get(i2), this.f22844a.l);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        /* renamed from: e */
         public ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
-            return new ListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.relevance_item_view, (ViewGroup) null));
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new ListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.relevance_item_view, (ViewGroup) null)) : (ListViewHolder) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return RelevanceItemListController.this.j.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22844a.j.size() : invokeV.intValue;
         }
     }
 
     public RelevanceItemListController(RelevanceItemListFragment relevanceItemListFragment, View view, String str, BdUniqueId bdUniqueId) {
-        this.f22321e = view;
-        this.f22322f = relevanceItemListFragment;
-        this.f22323g = new d.a.o0.w3.u.m.a.a(bdUniqueId, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {relevanceItemListFragment, view, str, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = new ArrayList();
+        this.k = true;
+        this.m = new a(this);
+        this.f22837e = view;
+        this.f22838f = relevanceItemListFragment;
+        this.f22839g = new d.a.s0.a4.u.m.a.a(bdUniqueId, str);
         j();
     }
 
-    @Override // d.a.o0.w3.u.m.a.a.b
+    @Override // d.a.s0.a4.u.m.a.a.b
     public void a() {
-        this.f22322f.K0();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f22838f.K0();
+        }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
@@ -129,117 +205,146 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         double d3;
         double d4;
         int i3;
-        if (ListUtils.isEmpty(this.j)) {
+        double parseDouble;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j)}) == null) || ListUtils.isEmpty(this.j)) {
             return;
         }
         ReleavanceItemListData.ItemListBean itemListBean = this.j.get(i2);
         double d5 = 0.0d;
         try {
-            double parseDouble = Double.parseDouble(itemListBean.getScore());
-            try {
-                d5 = Double.parseDouble(itemListBean.getIcon_size());
-                i3 = Integer.parseInt(itemListBean.getStar());
-                d4 = d5;
-                d3 = parseDouble;
-            } catch (NumberFormatException e2) {
-                e = e2;
-                double d6 = d5;
-                d5 = parseDouble;
-                d2 = d6;
-                e.printStackTrace();
-                d3 = d5;
-                d4 = d2;
-                i3 = 0;
-                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d3, d4, i3, itemListBean.getTags()));
-                this.f22322f.getActivity().finish();
-            }
-        } catch (NumberFormatException e3) {
-            e = e3;
+            parseDouble = Double.parseDouble(itemListBean.getScore());
+        } catch (NumberFormatException e2) {
+            e = e2;
             d2 = 0.0d;
         }
+        try {
+            d5 = Double.parseDouble(itemListBean.getIcon_size());
+            i3 = Integer.parseInt(itemListBean.getStar());
+            d4 = d5;
+            d3 = parseDouble;
+        } catch (NumberFormatException e3) {
+            e = e3;
+            double d6 = d5;
+            d5 = parseDouble;
+            d2 = d6;
+            e.printStackTrace();
+            d3 = d5;
+            d4 = d2;
+            i3 = 0;
+            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d3, d4, i3, itemListBean.getTags()));
+            this.f22838f.getActivity().finish();
+        }
         MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d3, d4, i3, itemListBean.getTags()));
-        this.f22322f.getActivity().finish();
+        this.f22838f.getActivity().finish();
     }
 
-    @Override // d.a.o0.w3.u.m.a.a.b
+    @Override // d.a.s0.a4.u.m.a.a.b
     public void c(RelevanceItemSearchData relevanceItemSearchData) {
-        this.f22322f.I0();
-        if (relevanceItemSearchData != null && !ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
-            this.j.addAll(relevanceItemSearchData.getData().getItem_list());
-            this.m.notifyDataSetChanged();
-        }
-        if (this.f22324h.getVisibility() == 8) {
-            this.f22324h.setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, relevanceItemSearchData) == null) {
+            this.f22838f.I0();
+            if (relevanceItemSearchData != null && !ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
+                this.j.addAll(relevanceItemSearchData.getData().getItem_list());
+                this.m.notifyDataSetChanged();
+            }
+            if (this.f22840h.getVisibility() == 8) {
+                this.f22840h.setVisibility(0);
+            }
         }
     }
 
-    @Override // d.a.o0.w3.u.m.a.a.b
+    @Override // d.a.s0.a4.u.m.a.a.b
     public void d() {
-        this.k = false;
-        this.f22324h.setNextPage(this.f22325i);
-        this.f22325i.A(this.f22322f.getResources().getString(R.string.list_no_more));
-        this.f22325i.f();
-        this.f22325i.J(l.g(this.f22324h.getContext(), R.dimen.tbds44));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.k = false;
+            this.f22840h.setNextPage(this.f22841i);
+            this.f22841i.A(this.f22838f.getResources().getString(R.string.list_no_more));
+            this.f22841i.f();
+            this.f22841i.J(l.g(this.f22840h.getContext(), R.dimen.tbds44));
+        }
     }
 
     public void g(String str) {
-        this.j.clear();
-        this.k = true;
-        this.l = str;
-        this.m.notifyDataSetChanged();
-        this.f22323g.g(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.j.clear();
+            this.k = true;
+            this.l = str;
+            this.m.notifyDataSetChanged();
+            this.f22839g.g(str);
+        }
     }
 
     public void h() {
-        this.f22323g.h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f22839g.h();
+        }
     }
 
     public BdRecyclerView i() {
-        return this.f22324h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22840h : (BdRecyclerView) invokeV.objValue;
     }
 
     public final void j() {
-        BdRecyclerView bdRecyclerView = (BdRecyclerView) this.f22321e.findViewById(R.id.item_list);
-        this.f22324h = bdRecyclerView;
-        bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.f22321e.getContext()));
-        this.f22324h.setAdapter(this.m);
-        PbListView pbListView = new PbListView(this.f22321e.getContext());
-        this.f22325i = pbListView;
-        pbListView.a();
-        this.f22325i.o(R.color.CAM_X0205);
-        this.f22325i.v();
-        this.f22325i.C(SkinManager.getColor(R.color.CAM_X0107));
-        this.f22325i.E(R.dimen.tbfontsize33);
-        this.f22325i.y(R.color.CAM_X0110);
-        this.f22324h.setNextPage(this.f22325i);
-        this.f22324h.setOnItemClickListener(this);
-        this.f22324h.setOnSrollToBottomListener(this);
-        this.f22323g.m(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) this.f22837e.findViewById(R.id.item_list);
+            this.f22840h = bdRecyclerView;
+            bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.f22837e.getContext()));
+            this.f22840h.setAdapter(this.m);
+            PbListView pbListView = new PbListView(this.f22837e.getContext());
+            this.f22841i = pbListView;
+            pbListView.a();
+            this.f22841i.o(R.color.CAM_X0205);
+            this.f22841i.v();
+            this.f22841i.C(SkinManager.getColor(R.color.CAM_X0107));
+            this.f22841i.E(R.dimen.tbfontsize33);
+            this.f22841i.y(R.color.CAM_X0110);
+            this.f22840h.setNextPage(this.f22841i);
+            this.f22840h.setOnItemClickListener(this);
+            this.f22840h.setOnSrollToBottomListener(this);
+            this.f22839g.m(this);
+        }
     }
 
     public void k() {
-        this.f22323g.j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f22839g.j();
+        }
     }
 
     public void l() {
-        this.f22325i.H();
-        this.f22325i.O();
-        this.f22325i.A(this.f22324h.getContext().getString(R.string.list_loading));
-        this.f22325i.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f22841i.H();
+            this.f22841i.O();
+            this.f22841i.A(this.f22840h.getContext().getString(R.string.list_loading));
+            this.f22841i.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        }
     }
 
-    @Override // d.a.o0.w3.u.m.a.a.b
+    @Override // d.a.s0.a4.u.m.a.a.b
     public void onError(int i2, String str) {
-        this.j.clear();
-        this.m.notifyDataSetChanged();
-        this.f22324h.setVisibility(8);
-        this.f22322f.J0(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) {
+            this.j.clear();
+            this.m.notifyDataSetChanged();
+            this.f22840h.setVisibility(8);
+            this.f22838f.J0(str);
+        }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        if (this.k) {
-            this.f22323g.h();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.k) {
+            this.f22839g.h();
             l();
         }
     }

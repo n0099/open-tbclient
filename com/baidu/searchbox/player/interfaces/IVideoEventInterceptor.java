@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.interfaces;
 
 import com.baidu.searchbox.player.layer.ILayer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IVideoEventInterceptor {
     ILayer getInterceptorLayer();
 

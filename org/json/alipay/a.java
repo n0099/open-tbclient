@@ -1,43 +1,126 @@
 package org.json.alipay;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f72454a;
+    public ArrayList f76123a;
 
     public a() {
-        this.f72454a = new ArrayList();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f76123a = new ArrayList();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(Object obj) {
         this();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (!obj.getClass().isArray()) {
             throw new JSONException("JSONArray initial value should be a string or collection or array.");
         }
         int length = Array.getLength(obj);
-        for (int i2 = 0; i2 < length; i2++) {
-            this.f72454a.add(Array.get(obj, i2));
+        for (int i4 = 0; i4 < length; i4++) {
+            this.f76123a.add(Array.get(obj, i4));
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str) {
         this(new c(str));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((c) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     public a(Collection collection) {
-        this.f72454a = collection == null ? new ArrayList() : new ArrayList(collection);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collection};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f76123a = collection == null ? new ArrayList() : new ArrayList(collection);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(c cVar) {
         this();
         char c2;
         ArrayList arrayList;
         Object d2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
         char c3 = cVar.c();
         if (c3 == '[') {
             c2 = ']';
@@ -54,10 +137,10 @@ public class a {
             char c4 = cVar.c();
             cVar.a();
             if (c4 == ',') {
-                arrayList = this.f72454a;
+                arrayList = this.f76123a;
                 d2 = null;
             } else {
-                arrayList = this.f72454a;
+                arrayList = this.f76123a;
                 d2 = cVar.d();
             }
             arrayList.add(d2);
@@ -77,34 +160,51 @@ public class a {
     }
 
     private String a(String str) {
-        int size = this.f72454a.size();
-        StringBuffer stringBuffer = new StringBuffer();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (i2 > 0) {
-                stringBuffer.append(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+            int size = this.f76123a.size();
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (i2 > 0) {
+                    stringBuffer.append(str);
+                }
+                stringBuffer.append(b.a(this.f76123a.get(i2)));
             }
-            stringBuffer.append(b.a(this.f72454a.get(i2)));
+            return stringBuffer.toString();
         }
-        return stringBuffer.toString();
+        return (String) invokeL.objValue;
     }
 
     public final int a() {
-        return this.f72454a.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76123a.size() : invokeV.intValue;
     }
 
     public final Object a(int i2) {
-        Object obj = (i2 < 0 || i2 >= this.f72454a.size()) ? null : this.f72454a.get(i2);
-        if (obj != null) {
-            return obj;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            Object obj = (i2 < 0 || i2 >= this.f76123a.size()) ? null : this.f76123a.get(i2);
+            if (obj != null) {
+                return obj;
+            }
+            throw new JSONException("JSONArray[" + i2 + "] not found.");
         }
-        throw new JSONException("JSONArray[" + i2 + "] not found.");
+        return invokeI.objValue;
     }
 
     public String toString() {
-        try {
-            return PreferencesUtil.LEFT_MOUNT + a(",") + ']';
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                return PreferencesUtil.LEFT_MOUNT + a(",") + ']';
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 }

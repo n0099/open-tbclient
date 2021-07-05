@@ -1,6 +1,10 @@
 package com.baidu.pass.face.platform.network;
 
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,61 +14,102 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LogRequest extends BaseRequest {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_GET_LOG = "http://face.baidu.com/openapi/v2/stat/sdkdata";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0093 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:171:0x01bf */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0095 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0097 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x009a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x009d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x00a0 */
+    public LogRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:173:0x01c3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0097 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0099 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x009b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x009e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x00a1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x00a4 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0144 A[Catch: IOException -> 0x0140, TryCatch #12 {IOException -> 0x0140, blocks: (B:108:0x013c, B:112:0x0144, B:114:0x0149, B:116:0x014e), top: B:189:0x013c }] */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0149 A[Catch: IOException -> 0x0140, TryCatch #12 {IOException -> 0x0140, blocks: (B:108:0x013c, B:112:0x0144, B:114:0x0149, B:116:0x014e), top: B:189:0x013c }] */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x014e A[Catch: IOException -> 0x0140, TRY_LEAVE, TryCatch #12 {IOException -> 0x0140, blocks: (B:108:0x013c, B:112:0x0144, B:114:0x0149, B:116:0x014e), top: B:189:0x013c }] */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x0167 A[Catch: IOException -> 0x0163, TryCatch #31 {IOException -> 0x0163, blocks: (B:125:0x015f, B:129:0x0167, B:131:0x016c, B:133:0x0171), top: B:196:0x015f }] */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x016c A[Catch: IOException -> 0x0163, TryCatch #31 {IOException -> 0x0163, blocks: (B:125:0x015f, B:129:0x0167, B:131:0x016c, B:133:0x0171), top: B:196:0x015f }] */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x0171 A[Catch: IOException -> 0x0163, TRY_LEAVE, TryCatch #31 {IOException -> 0x0163, blocks: (B:125:0x015f, B:129:0x0167, B:131:0x016c, B:133:0x0171), top: B:196:0x015f }] */
-    /* JADX WARN: Removed duplicated region for block: B:146:0x018a A[Catch: IOException -> 0x0186, TryCatch #8 {IOException -> 0x0186, blocks: (B:142:0x0182, B:146:0x018a, B:148:0x018f, B:150:0x0194), top: B:185:0x0182 }] */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x018f A[Catch: IOException -> 0x0186, TryCatch #8 {IOException -> 0x0186, blocks: (B:142:0x0182, B:146:0x018a, B:148:0x018f, B:150:0x0194), top: B:185:0x0182 }] */
-    /* JADX WARN: Removed duplicated region for block: B:150:0x0194 A[Catch: IOException -> 0x0186, TRY_LEAVE, TryCatch #8 {IOException -> 0x0186, blocks: (B:142:0x0182, B:146:0x018a, B:148:0x018f, B:150:0x0194), top: B:185:0x0182 }] */
-    /* JADX WARN: Removed duplicated region for block: B:163:0x01ad A[Catch: IOException -> 0x01a9, TryCatch #27 {IOException -> 0x01a9, blocks: (B:159:0x01a5, B:163:0x01ad, B:165:0x01b2, B:167:0x01b7), top: B:194:0x01a5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:165:0x01b2 A[Catch: IOException -> 0x01a9, TryCatch #27 {IOException -> 0x01a9, blocks: (B:159:0x01a5, B:163:0x01ad, B:165:0x01b2, B:167:0x01b7), top: B:194:0x01a5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:167:0x01b7 A[Catch: IOException -> 0x01a9, TRY_LEAVE, TryCatch #27 {IOException -> 0x01a9, blocks: (B:159:0x01a5, B:163:0x01ad, B:165:0x01b2, B:167:0x01b7), top: B:194:0x01a5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:177:0x01ca A[Catch: IOException -> 0x01c6, TryCatch #9 {IOException -> 0x01c6, blocks: (B:173:0x01c2, B:177:0x01ca, B:179:0x01cf, B:181:0x01d4), top: B:187:0x01c2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:179:0x01cf A[Catch: IOException -> 0x01c6, TryCatch #9 {IOException -> 0x01c6, blocks: (B:173:0x01c2, B:177:0x01ca, B:179:0x01cf, B:181:0x01d4), top: B:187:0x01c2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:181:0x01d4 A[Catch: IOException -> 0x01c6, TRY_LEAVE, TryCatch #9 {IOException -> 0x01c6, blocks: (B:173:0x01c2, B:177:0x01ca, B:179:0x01cf, B:181:0x01d4), top: B:187:0x01c2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:185:0x0182 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:187:0x01c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:189:0x013c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:194:0x01a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x015f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:198:0x0119 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:212:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:214:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:216:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:218:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:220:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0121 A[Catch: IOException -> 0x011d, TryCatch #33 {IOException -> 0x011d, blocks: (B:91:0x0119, B:95:0x0121, B:97:0x0126, B:99:0x012b), top: B:198:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x0126 A[Catch: IOException -> 0x011d, TryCatch #33 {IOException -> 0x011d, blocks: (B:91:0x0119, B:95:0x0121, B:97:0x0126, B:99:0x012b), top: B:198:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x012b A[Catch: IOException -> 0x011d, TRY_LEAVE, TryCatch #33 {IOException -> 0x011d, blocks: (B:91:0x0119, B:95:0x0121, B:97:0x0126, B:99:0x012b), top: B:198:0x0119 }] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x012f A[Catch: IOException -> 0x0121, TRY_LEAVE, TryCatch #34 {IOException -> 0x0121, blocks: (B:93:0x011d, B:97:0x0125, B:99:0x012a, B:101:0x012f), top: B:203:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0148 A[Catch: IOException -> 0x0144, TryCatch #13 {IOException -> 0x0144, blocks: (B:110:0x0140, B:114:0x0148, B:116:0x014d, B:118:0x0152), top: B:196:0x0140 }] */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x014d A[Catch: IOException -> 0x0144, TryCatch #13 {IOException -> 0x0144, blocks: (B:110:0x0140, B:114:0x0148, B:116:0x014d, B:118:0x0152), top: B:196:0x0140 }] */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x0152 A[Catch: IOException -> 0x0144, TRY_LEAVE, TryCatch #13 {IOException -> 0x0144, blocks: (B:110:0x0140, B:114:0x0148, B:116:0x014d, B:118:0x0152), top: B:196:0x0140 }] */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x016b A[Catch: IOException -> 0x0167, TryCatch #28 {IOException -> 0x0167, blocks: (B:127:0x0163, B:131:0x016b, B:133:0x0170, B:135:0x0175), top: B:201:0x0163 }] */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x0170 A[Catch: IOException -> 0x0167, TryCatch #28 {IOException -> 0x0167, blocks: (B:127:0x0163, B:131:0x016b, B:133:0x0170, B:135:0x0175), top: B:201:0x0163 }] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x0175 A[Catch: IOException -> 0x0167, TRY_LEAVE, TryCatch #28 {IOException -> 0x0167, blocks: (B:127:0x0163, B:131:0x016b, B:133:0x0170, B:135:0x0175), top: B:201:0x0163 }] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x018e A[Catch: IOException -> 0x018a, TryCatch #9 {IOException -> 0x018a, blocks: (B:144:0x0186, B:148:0x018e, B:150:0x0193, B:152:0x0198), top: B:192:0x0186 }] */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x0193 A[Catch: IOException -> 0x018a, TryCatch #9 {IOException -> 0x018a, blocks: (B:144:0x0186, B:148:0x018e, B:150:0x0193, B:152:0x0198), top: B:192:0x0186 }] */
+    /* JADX WARN: Removed duplicated region for block: B:152:0x0198 A[Catch: IOException -> 0x018a, TRY_LEAVE, TryCatch #9 {IOException -> 0x018a, blocks: (B:144:0x0186, B:148:0x018e, B:150:0x0193, B:152:0x0198), top: B:192:0x0186 }] */
+    /* JADX WARN: Removed duplicated region for block: B:165:0x01b1 A[Catch: IOException -> 0x01ad, TryCatch #6 {IOException -> 0x01ad, blocks: (B:161:0x01a9, B:165:0x01b1, B:167:0x01b6, B:169:0x01bb), top: B:190:0x01a9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:167:0x01b6 A[Catch: IOException -> 0x01ad, TryCatch #6 {IOException -> 0x01ad, blocks: (B:161:0x01a9, B:165:0x01b1, B:167:0x01b6, B:169:0x01bb), top: B:190:0x01a9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:169:0x01bb A[Catch: IOException -> 0x01ad, TRY_LEAVE, TryCatch #6 {IOException -> 0x01ad, blocks: (B:161:0x01a9, B:165:0x01b1, B:167:0x01b6, B:169:0x01bb), top: B:190:0x01a9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:179:0x01ce A[Catch: IOException -> 0x01ca, TryCatch #10 {IOException -> 0x01ca, blocks: (B:175:0x01c6, B:179:0x01ce, B:181:0x01d3, B:183:0x01d8), top: B:194:0x01c6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:181:0x01d3 A[Catch: IOException -> 0x01ca, TryCatch #10 {IOException -> 0x01ca, blocks: (B:175:0x01c6, B:179:0x01ce, B:181:0x01d3, B:183:0x01d8), top: B:194:0x01c6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:183:0x01d8 A[Catch: IOException -> 0x01ca, TRY_LEAVE, TryCatch #10 {IOException -> 0x01ca, blocks: (B:175:0x01c6, B:179:0x01ce, B:181:0x01d3, B:183:0x01d8), top: B:194:0x01c6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:190:0x01a9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x0186 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:194:0x01c6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x0140 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:201:0x0163 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:203:0x011d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:217:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:219:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:221:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:223:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:225:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x0125 A[Catch: IOException -> 0x0121, TryCatch #34 {IOException -> 0x0121, blocks: (B:93:0x011d, B:97:0x0125, B:99:0x012a, B:101:0x012f), top: B:203:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x012a A[Catch: IOException -> 0x0121, TryCatch #34 {IOException -> 0x0121, blocks: (B:93:0x011d, B:97:0x0125, B:99:0x012a, B:101:0x012f), top: B:203:0x011d }] */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r4v12, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r4v13, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r4v14, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r4v15, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r4v16, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r4v17, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r4v44 */
-    /* JADX WARN: Type inference failed for: r4v46 */
-    /* JADX WARN: Type inference failed for: r4v48 */
-    /* JADX WARN: Type inference failed for: r4v50 */
-    /* JADX WARN: Type inference failed for: r4v52 */
-    /* JADX WARN: Type inference failed for: r4v54 */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r7v0 */
+    /* JADX WARN: Type inference failed for: r7v10, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r7v11, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r7v12, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r7v13, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r7v14 */
+    /* JADX WARN: Type inference failed for: r7v15 */
+    /* JADX WARN: Type inference failed for: r7v16 */
+    /* JADX WARN: Type inference failed for: r7v17 */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v19 */
+    /* JADX WARN: Type inference failed for: r7v2 */
+    /* JADX WARN: Type inference failed for: r7v20 */
+    /* JADX WARN: Type inference failed for: r7v21 */
+    /* JADX WARN: Type inference failed for: r7v22 */
+    /* JADX WARN: Type inference failed for: r7v23 */
+    /* JADX WARN: Type inference failed for: r7v24 */
+    /* JADX WARN: Type inference failed for: r7v25 */
+    /* JADX WARN: Type inference failed for: r7v26 */
+    /* JADX WARN: Type inference failed for: r7v27 */
+    /* JADX WARN: Type inference failed for: r7v28 */
+    /* JADX WARN: Type inference failed for: r7v29 */
+    /* JADX WARN: Type inference failed for: r7v3 */
+    /* JADX WARN: Type inference failed for: r7v30 */
+    /* JADX WARN: Type inference failed for: r7v31 */
+    /* JADX WARN: Type inference failed for: r7v32, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r7v33 */
+    /* JADX WARN: Type inference failed for: r7v34 */
+    /* JADX WARN: Type inference failed for: r7v35 */
+    /* JADX WARN: Type inference failed for: r7v36 */
+    /* JADX WARN: Type inference failed for: r7v37 */
+    /* JADX WARN: Type inference failed for: r7v4 */
+    /* JADX WARN: Type inference failed for: r7v5 */
+    /* JADX WARN: Type inference failed for: r7v6 */
+    /* JADX WARN: Type inference failed for: r7v7 */
+    /* JADX WARN: Type inference failed for: r7v8, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r7v9, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.Object, java.lang.String] */
     /* JADX WARN: Type inference failed for: r9v1 */
     /* JADX WARN: Type inference failed for: r9v13, types: [java.net.HttpURLConnection] */
     /* JADX WARN: Type inference failed for: r9v27, types: [java.net.HttpURLConnection] */
@@ -74,34 +119,33 @@ public class LogRequest extends BaseRequest {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void httpUrlConnectionPost(String str) {
-        ByteArrayOutputStream byteArrayOutputStream;
-        HttpURLConnection httpURLConnection;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        HttpURLConnection httpURLConnection2;
-        ByteArrayOutputStream byteArrayOutputStream3;
-        HttpURLConnection httpURLConnection3;
-        ByteArrayOutputStream byteArrayOutputStream4;
-        HttpURLConnection httpURLConnection4;
-        ByteArrayOutputStream byteArrayOutputStream5;
-        HttpURLConnection httpURLConnection5;
-        ByteArrayOutputStream byteArrayOutputStream6;
-        ByteArrayOutputStream byteArrayOutputStream7;
+        ?? r7;
         InputStream inputStream;
+        HttpURLConnection httpURLConnection;
+        HttpURLConnection httpURLConnection2;
+        HttpURLConnection httpURLConnection3;
+        HttpURLConnection httpURLConnection4;
+        HttpURLConnection httpURLConnection5;
+        ?? r72;
+        ?? r73;
+        ?? r74;
+        ?? r75;
+        ?? r76;
         HttpURLConnection httpURLConnection6;
-        InputStream inputStream2;
         HttpURLConnection httpURLConnection7;
-        InputStream inputStream3;
         HttpURLConnection httpURLConnection8;
-        InputStream inputStream4;
         HttpURLConnection httpURLConnection9;
-        InputStream inputStream5;
         HttpURLConnection httpURLConnection10;
-        InputStream inputStream6;
         JSONObject jSONObject;
-        InputStream inputStream7;
-        InputStream inputStream8;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r7 = 65538;
+            if (interceptable.invokeL(65538, null, str) != null) {
+                return;
+            }
+        }
         StringBuffer stringBuffer = new StringBuffer();
-        ByteArrayOutputStream byteArrayOutputStream8 = null;
+        ByteArrayOutputStream byteArrayOutputStream = null;
         try {
             try {
                 jSONObject = new JSONObject((String) str);
@@ -126,127 +170,125 @@ public class LogRequest extends BaseRequest {
                     outputStream.flush();
                     outputStream.close();
                     if (200 == str.getResponseCode()) {
-                        inputStream7 = str.getInputStream();
+                        inputStream = str.getInputStream();
                         try {
                             byte[] bArr = new byte[1024];
-                            byteArrayOutputStream7 = new ByteArrayOutputStream();
+                            r7 = new ByteArrayOutputStream();
                             while (true) {
                                 try {
-                                    int read = inputStream7.read(bArr);
+                                    int read = inputStream.read(bArr);
                                     if (read == -1) {
                                         break;
                                     }
-                                    byteArrayOutputStream7.write(bArr, 0, read);
+                                    r7.write(bArr, 0, read);
                                 } catch (UnsupportedEncodingException e2) {
                                     e = e2;
-                                    byteArrayOutputStream8 = outputStream;
-                                    inputStream6 = inputStream7;
+                                    byteArrayOutputStream = outputStream;
+                                    r76 = r7;
                                     httpURLConnection10 = str;
                                     e.printStackTrace();
-                                    if (byteArrayOutputStream8 != null) {
+                                    if (byteArrayOutputStream != null) {
                                     }
-                                    if (byteArrayOutputStream7 != null) {
+                                    if (r76 != 0) {
                                     }
-                                    if (inputStream6 != 0) {
+                                    if (inputStream != null) {
                                     }
                                     if (httpURLConnection10 == null) {
                                     }
                                 } catch (MalformedURLException e3) {
                                     e = e3;
-                                    byteArrayOutputStream8 = outputStream;
-                                    inputStream5 = inputStream7;
+                                    byteArrayOutputStream = outputStream;
+                                    r75 = r7;
                                     httpURLConnection9 = str;
                                     e.printStackTrace();
-                                    if (byteArrayOutputStream8 != null) {
+                                    if (byteArrayOutputStream != null) {
                                     }
-                                    if (byteArrayOutputStream7 != null) {
+                                    if (r75 != 0) {
                                     }
-                                    if (inputStream5 != 0) {
+                                    if (inputStream != null) {
                                     }
                                     if (httpURLConnection9 == null) {
                                     }
                                 } catch (ProtocolException e4) {
                                     e = e4;
-                                    byteArrayOutputStream8 = outputStream;
-                                    inputStream4 = inputStream7;
+                                    byteArrayOutputStream = outputStream;
+                                    r74 = r7;
                                     httpURLConnection8 = str;
                                     e.printStackTrace();
-                                    if (byteArrayOutputStream8 != null) {
+                                    if (byteArrayOutputStream != null) {
                                     }
-                                    if (byteArrayOutputStream7 != null) {
+                                    if (r74 != 0) {
                                     }
-                                    if (inputStream4 != 0) {
+                                    if (inputStream != null) {
                                     }
                                     if (httpURLConnection8 == null) {
                                     }
                                 } catch (IOException e5) {
                                     e = e5;
-                                    byteArrayOutputStream8 = outputStream;
-                                    inputStream3 = inputStream7;
+                                    byteArrayOutputStream = outputStream;
+                                    r73 = r7;
                                     httpURLConnection7 = str;
                                     e.printStackTrace();
-                                    if (byteArrayOutputStream8 != null) {
+                                    if (byteArrayOutputStream != null) {
                                     }
-                                    if (byteArrayOutputStream7 != null) {
+                                    if (r73 != 0) {
                                     }
-                                    if (inputStream3 != 0) {
+                                    if (inputStream != null) {
                                     }
                                     if (httpURLConnection7 == null) {
                                     }
                                 } catch (Exception e6) {
                                     e = e6;
-                                    byteArrayOutputStream8 = outputStream;
-                                    inputStream2 = inputStream7;
+                                    byteArrayOutputStream = outputStream;
+                                    r72 = r7;
                                     httpURLConnection6 = str;
                                     e.printStackTrace();
-                                    if (byteArrayOutputStream8 != null) {
+                                    if (byteArrayOutputStream != null) {
                                     }
-                                    if (byteArrayOutputStream7 != null) {
+                                    if (r72 != 0) {
                                     }
-                                    if (inputStream2 != 0) {
+                                    if (inputStream != null) {
                                     }
                                     if (httpURLConnection6 == null) {
                                     }
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    byteArrayOutputStream8 = outputStream;
-                                    inputStream = inputStream7;
-                                    if (byteArrayOutputStream8 != null) {
+                                    byteArrayOutputStream = outputStream;
+                                    if (byteArrayOutputStream != null) {
                                     }
-                                    if (byteArrayOutputStream7 != null) {
+                                    if (r7 != 0) {
                                     }
-                                    if (inputStream != 0) {
+                                    if (inputStream != null) {
                                     }
                                     if (str != 0) {
                                     }
                                     throw th;
                                 }
                             }
-                            stringBuffer.append(new String(byteArrayOutputStream7.toByteArray(), "utf-8"));
-                            byteArrayOutputStream7.flush();
-                            byteArrayOutputStream8 = byteArrayOutputStream7;
-                            inputStream8 = inputStream7;
+                            stringBuffer.append(new String(r7.toByteArray(), "utf-8"));
+                            r7.flush();
+                            byteArrayOutputStream = r7;
                         } catch (UnsupportedEncodingException e7) {
                             e = e7;
-                            byteArrayOutputStream7 = null;
+                            r7 = 0;
                         } catch (MalformedURLException e8) {
                             e = e8;
-                            byteArrayOutputStream7 = null;
+                            r7 = 0;
                         } catch (ProtocolException e9) {
                             e = e9;
-                            byteArrayOutputStream7 = null;
+                            r7 = 0;
                         } catch (IOException e10) {
                             e = e10;
-                            byteArrayOutputStream7 = null;
+                            r7 = 0;
                         } catch (Exception e11) {
                             e = e11;
-                            byteArrayOutputStream7 = null;
+                            r7 = 0;
                         } catch (Throwable th3) {
                             th = th3;
-                            byteArrayOutputStream7 = null;
+                            r7 = 0;
                         }
                     } else {
-                        inputStream8 = null;
+                        inputStream = null;
                     }
                     if (outputStream != 0) {
                         try {
@@ -256,183 +298,177 @@ public class LogRequest extends BaseRequest {
                             return;
                         }
                     }
-                    if (byteArrayOutputStream8 != null) {
-                        byteArrayOutputStream8.close();
+                    if (byteArrayOutputStream != null) {
+                        byteArrayOutputStream.close();
                     }
-                    if (inputStream8 != null) {
-                        inputStream8.close();
+                    if (inputStream != null) {
+                        inputStream.close();
                     }
                     if (str != 0) {
                         str.disconnect();
                     }
                 } catch (UnsupportedEncodingException e13) {
                     e = e13;
-                    inputStream7 = null;
-                    byteArrayOutputStream7 = null;
+                    inputStream = null;
+                    r7 = 0;
                 } catch (MalformedURLException e14) {
                     e = e14;
-                    inputStream7 = null;
-                    byteArrayOutputStream7 = null;
+                    inputStream = null;
+                    r7 = 0;
                 } catch (ProtocolException e15) {
                     e = e15;
-                    inputStream7 = null;
-                    byteArrayOutputStream7 = null;
+                    inputStream = null;
+                    r7 = 0;
                 } catch (IOException e16) {
                     e = e16;
-                    inputStream7 = null;
-                    byteArrayOutputStream7 = null;
+                    inputStream = null;
+                    r7 = 0;
                 } catch (Exception e17) {
                     e = e17;
-                    inputStream7 = null;
-                    byteArrayOutputStream7 = null;
+                    inputStream = null;
+                    r7 = 0;
                 } catch (Throwable th4) {
                     th = th4;
-                    inputStream7 = null;
-                    byteArrayOutputStream7 = null;
+                    inputStream = null;
+                    r7 = 0;
                 }
             } catch (UnsupportedEncodingException e18) {
                 e = e18;
-                byteArrayOutputStream6 = null;
+                inputStream = null;
                 httpURLConnection5 = str;
-                byteArrayOutputStream7 = byteArrayOutputStream6;
-                inputStream6 = byteArrayOutputStream6;
+                r76 = inputStream;
                 httpURLConnection10 = httpURLConnection5;
                 e.printStackTrace();
-                if (byteArrayOutputStream8 != null) {
+                if (byteArrayOutputStream != null) {
                     try {
-                        byteArrayOutputStream8.close();
+                        byteArrayOutputStream.close();
                     } catch (IOException e19) {
                         e19.printStackTrace();
                         return;
                     }
                 }
-                if (byteArrayOutputStream7 != null) {
-                    byteArrayOutputStream7.close();
+                if (r76 != 0) {
+                    r76.close();
                 }
-                if (inputStream6 != 0) {
-                    inputStream6.close();
+                if (inputStream != null) {
+                    inputStream.close();
                 }
                 if (httpURLConnection10 == null) {
                     httpURLConnection10.disconnect();
                 }
             } catch (MalformedURLException e20) {
                 e = e20;
-                byteArrayOutputStream5 = null;
+                inputStream = null;
                 httpURLConnection4 = str;
-                byteArrayOutputStream7 = byteArrayOutputStream5;
-                inputStream5 = byteArrayOutputStream5;
+                r75 = inputStream;
                 httpURLConnection9 = httpURLConnection4;
                 e.printStackTrace();
-                if (byteArrayOutputStream8 != null) {
+                if (byteArrayOutputStream != null) {
                     try {
-                        byteArrayOutputStream8.close();
+                        byteArrayOutputStream.close();
                     } catch (IOException e21) {
                         e21.printStackTrace();
                         return;
                     }
                 }
-                if (byteArrayOutputStream7 != null) {
-                    byteArrayOutputStream7.close();
+                if (r75 != 0) {
+                    r75.close();
                 }
-                if (inputStream5 != 0) {
-                    inputStream5.close();
+                if (inputStream != null) {
+                    inputStream.close();
                 }
                 if (httpURLConnection9 == null) {
                     httpURLConnection9.disconnect();
                 }
             } catch (ProtocolException e22) {
                 e = e22;
-                byteArrayOutputStream4 = null;
+                inputStream = null;
                 httpURLConnection3 = str;
-                byteArrayOutputStream7 = byteArrayOutputStream4;
-                inputStream4 = byteArrayOutputStream4;
+                r74 = inputStream;
                 httpURLConnection8 = httpURLConnection3;
                 e.printStackTrace();
-                if (byteArrayOutputStream8 != null) {
+                if (byteArrayOutputStream != null) {
                     try {
-                        byteArrayOutputStream8.close();
+                        byteArrayOutputStream.close();
                     } catch (IOException e23) {
                         e23.printStackTrace();
                         return;
                     }
                 }
-                if (byteArrayOutputStream7 != null) {
-                    byteArrayOutputStream7.close();
+                if (r74 != 0) {
+                    r74.close();
                 }
-                if (inputStream4 != 0) {
-                    inputStream4.close();
+                if (inputStream != null) {
+                    inputStream.close();
                 }
                 if (httpURLConnection8 == null) {
                     httpURLConnection8.disconnect();
                 }
             } catch (IOException e24) {
                 e = e24;
-                byteArrayOutputStream3 = null;
+                inputStream = null;
                 httpURLConnection2 = str;
-                byteArrayOutputStream7 = byteArrayOutputStream3;
-                inputStream3 = byteArrayOutputStream3;
+                r73 = inputStream;
                 httpURLConnection7 = httpURLConnection2;
                 e.printStackTrace();
-                if (byteArrayOutputStream8 != null) {
+                if (byteArrayOutputStream != null) {
                     try {
-                        byteArrayOutputStream8.close();
+                        byteArrayOutputStream.close();
                     } catch (IOException e25) {
                         e25.printStackTrace();
                         return;
                     }
                 }
-                if (byteArrayOutputStream7 != null) {
-                    byteArrayOutputStream7.close();
+                if (r73 != 0) {
+                    r73.close();
                 }
-                if (inputStream3 != 0) {
-                    inputStream3.close();
+                if (inputStream != null) {
+                    inputStream.close();
                 }
                 if (httpURLConnection7 == null) {
                     httpURLConnection7.disconnect();
                 }
             } catch (Exception e26) {
                 e = e26;
-                byteArrayOutputStream2 = null;
+                inputStream = null;
                 httpURLConnection = str;
-                byteArrayOutputStream7 = byteArrayOutputStream2;
-                inputStream2 = byteArrayOutputStream2;
+                r72 = inputStream;
                 httpURLConnection6 = httpURLConnection;
                 e.printStackTrace();
-                if (byteArrayOutputStream8 != null) {
+                if (byteArrayOutputStream != null) {
                     try {
-                        byteArrayOutputStream8.close();
+                        byteArrayOutputStream.close();
                     } catch (IOException e27) {
                         e27.printStackTrace();
                         return;
                     }
                 }
-                if (byteArrayOutputStream7 != null) {
-                    byteArrayOutputStream7.close();
+                if (r72 != 0) {
+                    r72.close();
                 }
-                if (inputStream2 != 0) {
-                    inputStream2.close();
+                if (inputStream != null) {
+                    inputStream.close();
                 }
                 if (httpURLConnection6 == null) {
                     httpURLConnection6.disconnect();
                 }
             } catch (Throwable th5) {
                 th = th5;
-                byteArrayOutputStream = null;
+                inputStream = null;
                 str = str;
-                byteArrayOutputStream7 = byteArrayOutputStream;
-                inputStream = byteArrayOutputStream;
-                if (byteArrayOutputStream8 != null) {
+                r7 = inputStream;
+                if (byteArrayOutputStream != null) {
                     try {
-                        byteArrayOutputStream8.close();
+                        byteArrayOutputStream.close();
                     } catch (IOException e28) {
                         e28.printStackTrace();
                         throw th;
                     }
                 }
-                if (byteArrayOutputStream7 != null) {
-                    byteArrayOutputStream7.close();
+                if (r7 != 0) {
+                    r7.close();
                 }
-                if (inputStream != 0) {
+                if (inputStream != null) {
                     inputStream.close();
                 }
                 if (str != 0) {
@@ -443,38 +479,64 @@ public class LogRequest extends BaseRequest {
         } catch (UnsupportedEncodingException e29) {
             e = e29;
             httpURLConnection5 = null;
-            byteArrayOutputStream6 = null;
+            inputStream = null;
         } catch (MalformedURLException e30) {
             e = e30;
             httpURLConnection4 = null;
-            byteArrayOutputStream5 = null;
+            inputStream = null;
         } catch (ProtocolException e31) {
             e = e31;
             httpURLConnection3 = null;
-            byteArrayOutputStream4 = null;
+            inputStream = null;
         } catch (IOException e32) {
             e = e32;
             httpURLConnection2 = null;
-            byteArrayOutputStream3 = null;
+            inputStream = null;
         } catch (Exception e33) {
             e = e33;
             httpURLConnection = null;
-            byteArrayOutputStream2 = null;
+            inputStream = null;
         } catch (Throwable th6) {
             th = th6;
             str = 0;
-            byteArrayOutputStream = null;
+            inputStream = null;
         }
     }
 
-    public static void sendLogMessage(final String str) {
-        if (str == null || str.length() <= 0) {
+    public static void sendLogMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        new Thread(new Runnable() { // from class: com.baidu.pass.face.platform.network.LogRequest.1
+        new Thread(new Runnable(str) { // from class: com.baidu.pass.face.platform.network.LogRequest.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String val$message;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.val$message = str;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                LogRequest.httpUrlConnectionPost(str);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    LogRequest.httpUrlConnectionPost(this.val$message);
+                }
             }
         }).start();
     }

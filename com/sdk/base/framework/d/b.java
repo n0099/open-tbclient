@@ -1,29 +1,53 @@
 package com.sdk.base.framework.d;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.a.l;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class b extends com.sdk.base.framework.b.b<String> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f39454a;
+    public /* synthetic */ a f41210a;
 
     public b(a aVar) {
-        this.f39454a = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f41210a = aVar;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 java.lang.Object)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 java.lang.Object)] */
     @Override // com.sdk.base.framework.b.b
     public final void a(int i2, Object obj) {
-        a aVar = this.f39454a;
-        StringBuilder sb = new StringBuilder();
-        sb.append(obj);
-        aVar.a(i2, 302002, sb.toString());
-        Context context = this.f39454a.f39447a;
-        com.sdk.base.framework.f.g.a.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, obj) == null) {
+            a aVar = this.f41210a;
+            StringBuilder sb = new StringBuilder();
+            sb.append(obj);
+            aVar.a(i2, 302002, sb.toString());
+            Context context = this.f41210a.f41203a;
+            com.sdk.base.framework.f.g.a.a();
+        }
     }
 
     @Override // com.sdk.base.framework.b.b
@@ -33,6 +57,10 @@ public final class b extends com.sdk.base.framework.b.b<String> {
         boolean z;
         String str2;
         boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) != null) {
+            return;
+        }
         try {
             JSONObject jSONObject = new JSONObject(lVar == null ? "" : lVar.b());
             int optInt = jSONObject.optInt("code");
@@ -42,22 +70,22 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                 String optString2 = jSONObject.optString("obj");
                 String optString3 = jSONObject.optString(IAdRequestParam.SEQ);
                 if (!c.a(optString).booleanValue() || !c.a(optString3).booleanValue() || !c.a(optString2).booleanValue()) {
-                    this.f39454a.a(optInt, optString, optInt2, optString2, optString3);
-                    Context context = this.f39454a.f39447a;
+                    this.f41210a.a(optInt, optString, optInt2, optString2, optString3);
+                    Context context = this.f41210a.f41203a;
                     com.sdk.base.framework.f.g.a.a();
                     return;
                 }
-                this.f39454a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f39445d;
-                z2 = a.f39446e;
+                this.f41210a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str2 = a.f41201d;
+                z2 = a.f41202e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
                 i2 = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
-                this.f39454a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f39445d;
-                z = a.f39446e;
+                this.f41210a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str = a.f41201d;
+                z = a.f41202e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {

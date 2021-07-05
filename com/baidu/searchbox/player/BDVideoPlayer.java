@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager;
@@ -29,11 +32,20 @@ import com.baidu.searchbox.player.session.VideoSessionManager;
 import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
 import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDVideoPlayer";
-    public static boolean sGlobalMute = false;
+    public static boolean sGlobalMute;
+    public transient /* synthetic */ FieldHolder $fh;
     public AudioFocusChangedListener mAudioFocusListener;
     public AudioManager mAudioManager;
     public VideoPlayerCallbackBaseManager mCallbackManager;
@@ -53,105 +65,194 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public VideoSession mVideoSession;
     public VideoTask mVideoTask;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
-        public AudioFocusChangedListener() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BDVideoPlayer this$0;
+
+        public AudioFocusChangedListener(BDVideoPlayer bDVideoPlayer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bDVideoPlayer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = bDVideoPlayer;
         }
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i2) {
-            BDVideoPlayer.this.onAudioFocusChanged(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                this.this$0.onAudioFocusChanged(i2);
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(347566101, "Lcom/baidu/searchbox/player/BDVideoPlayer;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(347566101, "Lcom/baidu/searchbox/player/BDVideoPlayer;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BDVideoPlayer(@Nullable Context context) {
         this(context, new BaseKernelLayer("NormalVideoKernel"));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (BaseKernelLayer) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private void bindSession() {
-        bindSession(requireVideoSession());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            bindSession(requireVideoSession());
+        }
     }
 
     private void createEnv(Context context) {
-        this.mContainerLayoutParams = new ViewGroup.LayoutParams(-1, -1);
-        this.mVideoTask = new VideoTask();
-        this.mPluginManager = new PluginManager(this);
-        LayerContainer layerContainer = new LayerContainer(context);
-        this.mLayerContainer = layerContainer;
-        layerContainer.bindPlayer(this);
-        this.mLayerContainer.setClickable(true);
-        initCallBackManager();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
+            this.mContainerLayoutParams = new ViewGroup.LayoutParams(-1, -1);
+            this.mVideoTask = new VideoTask();
+            this.mPluginManager = new PluginManager(this);
+            LayerContainer layerContainer = new LayerContainer(context);
+            this.mLayerContainer = layerContainer;
+            layerContainer.bindPlayer(this);
+            this.mLayerContainer.setClickable(true);
+            initCallBackManager();
+        }
     }
 
     @PublicMethod
     public static boolean isGlobalMute() {
-        return sGlobalMute;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sGlobalMute : invokeV.booleanValue;
     }
 
     private void setupPlayer(@Nullable Context context) {
-        setupPlayer(context, new BaseKernelLayer("NormalVideoKernel"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+            setupPlayer(context, new BaseKernelLayer("NormalVideoKernel"));
+        }
     }
 
     public void abandonAudioFocus() {
         AudioFocusChangedListener audioFocusChangedListener;
-        AudioManager audioManager = this.mAudioManager;
-        if (audioManager != null && (audioFocusChangedListener = this.mAudioFocusListener) != null) {
-            audioManager.abandonAudioFocus(audioFocusChangedListener);
-            this.mAudioManager = null;
-            this.mAudioFocusListener = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            AudioManager audioManager = this.mAudioManager;
+            if (audioManager != null && (audioFocusChangedListener = this.mAudioFocusListener) != null) {
+                audioManager.abandonAudioFocus(audioFocusChangedListener);
+                this.mAudioManager = null;
+                this.mAudioFocusListener = null;
+            }
+            this.mHasAudioFocus = false;
+            BdVideoLog.d(TAG, "video player abandonAudioFocus");
         }
-        this.mHasAudioFocus = false;
-        BdVideoLog.d(TAG, "video player abandonAudioFocus");
     }
 
     @PublicMethod
     public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
-        absLayer.injectMessenger(this.mVideoSession.getMessenger());
-        this.mLayerContainer.addLayer(absLayer, layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, absLayer, layoutParams) == null) {
+            absLayer.injectMessenger(this.mVideoSession.getMessenger());
+            this.mLayerContainer.addLayer(absLayer, layoutParams);
+        }
     }
 
     @PublicMethod
     public void addPlugin(@NonNull AbsPlugin absPlugin) {
-        absPlugin.attachMessenger(this.mVideoSession.getMessenger());
-        this.mPluginManager.addPlugin(absPlugin);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, absPlugin) == null) {
+            absPlugin.attachMessenger(this.mVideoSession.getMessenger());
+            this.mPluginManager.addPlugin(absPlugin);
+        }
     }
 
     @PublicMethod
     public void attachKernelLayer(@NonNull BaseKernelLayer baseKernelLayer) {
-        detachKernelLayer();
-        this.mKernelLayer = baseKernelLayer;
-        baseKernelLayer.setKernelCallBack(this);
-        this.mKernelLayer.setVideoSession(this.mVideoSession);
-        this.mKernelLayer.injectMessenger(this.mVideoSession.getMessenger());
-        this.mLayerContainer.attachKernelLayer(baseKernelLayer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, baseKernelLayer) == null) {
+            detachKernelLayer();
+            this.mKernelLayer = baseKernelLayer;
+            baseKernelLayer.setKernelCallBack(this);
+            this.mKernelLayer.setVideoSession(this.mVideoSession);
+            this.mKernelLayer.injectMessenger(this.mVideoSession.getMessenger());
+            this.mLayerContainer.attachKernelLayer(baseKernelLayer);
+        }
     }
 
     @PublicMethod
     public void attachToContainer(@NonNull ViewGroup viewGroup) {
-        attachToContainer(viewGroup, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, viewGroup) == null) {
+            attachToContainer(viewGroup, true);
+        }
     }
 
     @PublicMethod
     public void detachFromContainer() {
-        detachFromContainer(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            detachFromContainer(true);
+        }
     }
 
     @Nullable
     @PublicMethod
     public BaseKernelLayer detachKernelLayer() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            this.mVideoSession.unregisterLayer(baseKernelLayer);
-            this.mLayerContainer.detachLayer(this.mKernelLayer);
-            this.mKernelLayer = null;
-            return baseKernelLayer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                this.mVideoSession.unregisterLayer(baseKernelLayer);
+                this.mLayerContainer.detachLayer(this.mKernelLayer);
+                this.mKernelLayer = null;
+                return baseKernelLayer;
+            }
+            return null;
         }
-        return null;
+        return (BaseKernelLayer) invokeV.objValue;
     }
 
     @PublicMethod
     public void doPlay() {
-        if (this.mKernelLayer == null || this.mVideoSession.getStatus() == PlayerStatus.PAUSE) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.mKernelLayer == null || this.mVideoSession.getStatus() == PlayerStatus.PAUSE) {
             return;
         }
         if (this.mKernelLayer.getContentView() != null) {
@@ -171,277 +272,426 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Nullable
     @PublicMethod
     public Activity getActivity() {
-        ViewGroup viewGroup = this.mPlayerContainer;
-        if (viewGroup == null || !(viewGroup.getContext() instanceof Activity)) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ViewGroup viewGroup = this.mPlayerContainer;
+            if (viewGroup == null || !(viewGroup.getContext() instanceof Activity)) {
+                return null;
+            }
+            return (Activity) this.mPlayerContainer.getContext();
         }
-        return (Activity) this.mPlayerContainer.getContext();
+        return (Activity) invokeV.objValue;
     }
 
     @NonNull
     @PublicMethod
     public Context getAppContext() {
-        return BDPlayerConfig.getAppContext();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? BDPlayerConfig.getAppContext() : (Context) invokeV.objValue;
     }
 
     @PublicMethod
     public ViewGroup getAttachedContainer() {
-        return this.mPlayerContainer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mPlayerContainer : (ViewGroup) invokeV.objValue;
     }
 
     @PublicMethod
     public int getBufferingPosition() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer == null) {
+                return 0;
+            }
+            return baseKernelLayer.getBufferingPosition();
         }
-        return baseKernelLayer.getBufferingPosition();
+        return invokeV.intValue;
     }
 
     @PublicMethod
     public int getDuration() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer == null) {
+                return 0;
+            }
+            return baseKernelLayer.getDuration();
         }
-        return baseKernelLayer.getDuration();
+        return invokeV.intValue;
     }
 
     @PublicMethod
     public int getDurationMs() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer == null) {
+                return 0;
+            }
+            return baseKernelLayer.getDurationMs();
         }
-        return baseKernelLayer.getDurationMs();
+        return invokeV.intValue;
     }
 
     @NonNull
     @PublicMethod
     public LayerContainer getLayerContainer() {
-        return this.mLayerContainer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mLayerContainer : (LayerContainer) invokeV.objValue;
     }
 
     @PublicMethod
     public int getLoopCount() {
-        return this.mVideoLoopCount;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mVideoLoopCount : invokeV.intValue;
     }
 
     @NonNull
     @PublicMethod
     public VideoPlayerCallbackBaseManager getPlayerCallbackManager() {
-        return this.mCallbackManager;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mCallbackManager : (VideoPlayerCallbackBaseManager) invokeV.objValue;
     }
 
     public PlayerEventTrigger getPlayerEventTrigger() {
-        return this.mVideoSession.getPlayerEventTrigger();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mVideoSession.getPlayerEventTrigger() : (PlayerEventTrigger) invokeV.objValue;
     }
 
     @Nullable
     @PublicMethod
     public BaseKernelLayer getPlayerKernelLayer() {
-        return this.mKernelLayer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mKernelLayer : (BaseKernelLayer) invokeV.objValue;
     }
 
     @PublicMethod
     public int getPlayerStageType() {
-        return -1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
     }
 
     @PublicMethod
     public int getPosition() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer == null) {
+                return 0;
+            }
+            return baseKernelLayer.getPosition();
         }
-        return baseKernelLayer.getPosition();
+        return invokeV.intValue;
     }
 
     @PublicMethod
     public int getPositionMs() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer == null) {
+                return 0;
+            }
+            return baseKernelLayer.getPositionMs();
         }
-        return baseKernelLayer.getPositionMs();
+        return invokeV.intValue;
     }
 
     @Nullable
     @PublicMethod
     public String getServerIpInfo() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            return baseKernelLayer.getServerIpInfo();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                return baseKernelLayer.getServerIpInfo();
+            }
+            return null;
         }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     @NonNull
     @PublicMethod
     public IPlayerStatisticsDispatcher getStatDispatcher() {
-        return SimpleVideoStatisticsDispatcher.EMPTY;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? SimpleVideoStatisticsDispatcher.EMPTY : (IPlayerStatisticsDispatcher) invokeV.objValue;
     }
 
     @NonNull
     @PublicMethod(version = "11.24.0.0")
     public StatisticsEventTrigger getStatEventTrigger() {
-        return this.mStatEventTrigger;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mStatEventTrigger : (StatisticsEventTrigger) invokeV.objValue;
     }
 
     @PublicMethod
     public int getSyncPositionMs() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer == null) {
+                return 0;
+            }
+            return baseKernelLayer.getSyncPositionMs();
         }
-        return baseKernelLayer.getSyncPositionMs();
+        return invokeV.intValue;
     }
 
     @PublicMethod(version = "11.24.0.0")
     public int getVideoHeight() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            return baseKernelLayer.getVideoHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                return baseKernelLayer.getVideoHeight();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     @PublicMethod
     public VideoSession getVideoSession() {
-        return this.mVideoSession;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mVideoSession : (VideoSession) invokeV.objValue;
     }
 
     @PublicMethod
     public VideoTask getVideoTask() {
-        return this.mVideoTask;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mVideoTask : (VideoTask) invokeV.objValue;
     }
 
     @NonNull
     @PublicMethod
     public String getVideoUniqueKey() {
-        return this.mKey;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mKey : (String) invokeV.objValue;
     }
 
     @PublicMethod
     public String getVideoUrl() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        return baseKernelLayer == null ? "" : baseKernelLayer.getVideoUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            return baseKernelLayer == null ? "" : baseKernelLayer.getVideoUrl();
+        }
+        return (String) invokeV.objValue;
     }
 
     @PublicMethod(version = "11.24.0.0")
     public int getVideoWidth() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            return baseKernelLayer.getVideoWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                return baseKernelLayer.getVideoWidth();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     @PublicMethod
     public void goBackOrForeground(boolean z) {
-        this.mIsForeground = z;
-        getStatDispatcher().goBackOrForeground(z, getLoopCount());
-        VideoSystemHelper.setKeepScreenOnOff(getActivity(), z);
-        this.mVideoSession.getControlEventTrigger().goBackOrForeground(z);
-        getPlayerCallbackManager().onGoBackOrForeground(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+            this.mIsForeground = z;
+            getStatDispatcher().goBackOrForeground(z, getLoopCount());
+            VideoSystemHelper.setKeepScreenOnOff(getActivity(), z);
+            this.mVideoSession.getControlEventTrigger().goBackOrForeground(z);
+            getPlayerCallbackManager().onGoBackOrForeground(z);
+        }
     }
 
     public void initCallBackManager() {
-        this.mCallbackManager = new VideoPlayerCallbackBaseManager();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+            this.mCallbackManager = new VideoPlayerCallbackBaseManager();
+        }
     }
 
     public void initPlayer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+        }
     }
 
     @PublicMethod
     public void insertLayer(@NonNull AbsLayer absLayer) {
-        absLayer.injectMessenger(this.mVideoSession.getMessenger());
-        this.mLayerContainer.insertLayer(absLayer, (FrameLayout.LayoutParams) null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, absLayer) == null) {
+            absLayer.injectMessenger(this.mVideoSession.getMessenger());
+            this.mLayerContainer.insertLayer(absLayer, (FrameLayout.LayoutParams) null);
+        }
     }
 
     @PublicMethod
     public boolean isAttachToContainer() {
-        return this.mLayerContainer.getParent() != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mLayerContainer.getParent() != null : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isComplete() {
-        return this.mVideoSession.isComplete();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mVideoSession.isComplete() : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isError() {
-        return this.mVideoSession.isError();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mVideoSession.isError() : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isForeground() {
-        return this.mIsForeground;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mIsForeground : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isHasAudioFocus() {
-        return this.mHasAudioFocus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mHasAudioFocus : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isMute() {
-        return this.mIsMute;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mIsMute : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPause() {
-        return this.mVideoSession.isPause();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mVideoSession.isPause() : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPlayerMute() {
-        return isGlobalMute();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? isGlobalMute() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public boolean isPlaying() {
-        return this.mVideoSession.isPlaying();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.mVideoSession.isPlaying() : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPrepared() {
-        return this.mVideoSession.isPrepared();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.mVideoSession.isPrepared() : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPreparing() {
-        return this.mVideoSession.isPreparing();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.mVideoSession.isPreparing() : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isStop() {
-        return this.mVideoSession.isStop();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mVideoSession.isStop() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void mute(boolean z) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048627, this, z) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.mute(z);
     }
 
-    public void onAudioFocusChanged(final int i2) {
-        Activity activity = getActivity();
-        if (activity == null || isPlayerMute()) {
+    public void onAudioFocusChanged(int i2) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048628, this, i2) == null) || (activity = getActivity()) == null || isPlayerMute()) {
             return;
         }
-        activity.runOnUiThread(new Runnable() { // from class: com.baidu.searchbox.player.BDVideoPlayer.1
+        activity.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.searchbox.player.BDVideoPlayer.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BDVideoPlayer this$0;
+            public final /* synthetic */ int val$focusChange;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(i2)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$focusChange = i2;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                int i3 = i2;
-                if ((i3 == -2 || i3 == -1) && BDVideoPlayer.this.isPlaying()) {
-                    BDVideoPlayer.this.pauseInternal(2);
-                    BDVideoPlayer.this.abandonAudioFocus();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    int i3 = this.val$focusChange;
+                    if ((i3 == -2 || i3 == -1) && this.this$0.isPlaying()) {
+                        this.this$0.pauseInternal(2);
+                        this.this$0.abandonAudioFocus();
+                    }
                 }
             }
         });
@@ -449,56 +699,85 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
     public void onBufferingUpdate(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
-        abandonAudioFocus();
-        getPlayerEventTrigger().onCompletion();
-        getStatDispatcher().end(getLoopCount());
-        getStatEventTrigger().onPlayerComplete(getLoopCount());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
+            abandonAudioFocus();
+            getPlayerEventTrigger().onCompletion();
+            getStatDispatcher().end(getLoopCount());
+            getStatEventTrigger().onPlayerComplete(getLoopCount());
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i2, int i3, Object obj) {
-        getPlayerEventTrigger().onError(i2, i3, obj);
-        getStatDispatcher().onError(i2, i3, obj);
-        getStatEventTrigger().onError(i2, i3, obj);
-        VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
-        return true;
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048631, this, i2, i3, obj)) == null) {
+            getPlayerEventTrigger().onError(i2, i3, obj);
+            getStatDispatcher().onError(i2, i3, obj);
+            getStatEventTrigger().onError(i2, i3, obj);
+            VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
+            return true;
+        }
+        return invokeIIL.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
     public boolean onInfo(int i2, int i3, Object obj) {
-        getPlayerEventTrigger().onInfo(i2, i3, obj);
-        getStatDispatcher().onInfo(i2, i3, obj != null ? obj.toString() : "");
-        getStatEventTrigger().onInfo(i2, i3, obj);
-        return false;
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048632, this, i2, i3, obj)) == null) {
+            getPlayerEventTrigger().onInfo(i2, i3, obj);
+            getStatDispatcher().onInfo(i2, i3, obj != null ? obj.toString() : "");
+            getStatEventTrigger().onInfo(i2, i3, obj);
+            return false;
+        }
+        return invokeIIL.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
     public void onPrepared() {
-        getPlayerEventTrigger().onPrepared();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+            getPlayerEventTrigger().onPrepared();
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
     public void onSeekComplete() {
-        getPlayerEventTrigger().onSeekComplete();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+            getPlayerEventTrigger().onSeekComplete();
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
     public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
-        getPlayerEventTrigger().onVideoSizeChanged(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048635, this, i2, i3, i4, i5) == null) {
+            getPlayerEventTrigger().onVideoSizeChanged(i2, i3, i4, i5);
+        }
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void pause() {
-        pauseInternal(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+            pauseInternal(0);
+        }
     }
 
     public void pauseInternal(int i2) {
-        if (this.mKernelLayer == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048637, this, i2) == null) || this.mKernelLayer == null) {
             return;
         }
         abandonAudioFocus();
@@ -510,8 +789,9 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void play(String str) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048639, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.play(str);
@@ -520,7 +800,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void prepare() {
-        if (this.mKernelLayer == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048640, this) == null) || this.mKernelLayer == null) {
             return;
         }
         this.mVideoSession.getControlEventTrigger().prepare();
@@ -529,40 +810,50 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void release() {
-        BdVideoLog.d("release player : " + this);
-        getStatDispatcher().stop(getLoopCount());
-        getStatEventTrigger().onPlayerStop(getLoopCount());
-        getStatDispatcher().release();
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.pause();
-            this.mKernelLayer.stop();
-            this.mKernelLayer.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
+            BdVideoLog.d("release player : " + this);
+            getStatDispatcher().stop(getLoopCount());
+            getStatEventTrigger().onPlayerStop(getLoopCount());
+            getStatDispatcher().release();
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                baseKernelLayer.pause();
+                this.mKernelLayer.stop();
+                this.mKernelLayer.release();
+            }
+            VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
+            getPlayerCallbackManager().release();
+            abandonAudioFocus();
+            this.mPluginManager.release();
+            this.mLayerContainer.release();
+            detachFromContainer(false);
+            getStatEventTrigger().release();
+            unbindSession();
+            this.mPlayerContainer = null;
         }
-        VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
-        getPlayerCallbackManager().release();
-        abandonAudioFocus();
-        this.mPluginManager.release();
-        this.mLayerContainer.release();
-        detachFromContainer(false);
-        getStatEventTrigger().release();
-        unbindSession();
-        this.mPlayerContainer = null;
     }
 
     @PublicMethod
     public void removePlugin(@NonNull AbsPlugin absPlugin) {
-        absPlugin.detachMessenger();
-        this.mPluginManager.removePlugin(absPlugin);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, absPlugin) == null) {
+            absPlugin.detachMessenger();
+            this.mPluginManager.removePlugin(absPlugin);
+        }
     }
 
     @PublicMethod
     public void replaceVideoHolder(@NonNull ViewGroup viewGroup) {
-        this.mPlayerContainer = viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, viewGroup) == null) {
+            this.mPlayerContainer = viewGroup;
+        }
     }
 
     public void requestAudioFocus() {
-        if (this.mHasAudioFocus) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048644, this) == null) || this.mHasAudioFocus) {
             return;
         }
         if (this.mAudioManager == null) {
@@ -578,13 +869,16 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     public VideoSession requireVideoSession() {
-        return VideoSessionManager.getInstance().getVideoSession();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? VideoSessionManager.getInstance().getVideoSession() : (VideoSession) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void resume() {
-        if (this.mKernelLayer == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048646, this) == null) || this.mKernelLayer == null) {
             return;
         }
         if (this.mVideoSession.getStatus() == PlayerStatus.PAUSE || this.mVideoSession.getStatus() == PlayerStatus.PREPARED || this.mVideoSession.getStatus() == PlayerStatus.PREPARING) {
@@ -598,18 +892,22 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     public void resumeFromError() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.stopPlayback();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                baseKernelLayer.stopPlayback();
+            }
+            setVideoUrl(this.mVideoTask.videoUrl);
+            resumePlayer(false);
         }
-        setVideoUrl(this.mVideoTask.videoUrl);
-        resumePlayer(false);
     }
 
     @PublicMethod
     public void resumePlayer(boolean z) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048648, this, z) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         if (z) {
@@ -630,7 +928,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void seekTo(int i2) {
-        if (this.mKernelLayer == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048649, this, i2) == null) || this.mKernelLayer == null) {
             return;
         }
         this.mVideoSession.getControlEventTrigger().seekTo(i2);
@@ -638,8 +937,9 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void seekToMs(int i2) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048650, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.seekToMs(i2);
@@ -647,8 +947,9 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void sendEvent(@NonNull VideoEvent videoEvent) {
-        VideoSession videoSession = this.mVideoSession;
-        if (videoSession == null) {
+        VideoSession videoSession;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048651, this, videoEvent) == null) || (videoSession = this.mVideoSession) == null) {
             return;
         }
         videoSession.sendEvent(videoEvent);
@@ -656,39 +957,47 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod(version = "11.24.0.0")
     public void setExternalInfo(String str, Object obj) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.setExternalInfo(str, obj);
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048652, this, str, obj) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+            return;
         }
+        baseKernelLayer.setExternalInfo(str, obj);
     }
 
     @PublicMethod
     public void setGlobalMuteMode(boolean z) {
-        sGlobalMute = z;
-        setMuteMode(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048653, this, z) == null) {
+            sGlobalMute = z;
+            setMuteMode(z);
+        }
     }
 
     @PublicMethod
     public void setHasReplaceUrl(boolean z) {
         BaseKernelLayer baseKernelLayer;
-        if (!z || (baseKernelLayer = this.mKernelLayer) == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048654, this, z) == null) && z && (baseKernelLayer = this.mKernelLayer) != null) {
+            baseKernelLayer.updateFreeProxy(null);
         }
-        baseKernelLayer.updateFreeProxy(null);
     }
 
     @PublicMethod
     public void setHttpHeader(HashMap<String, String> hashMap) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.setHttpHeader(hashMap);
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048655, this, hashMap) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+            return;
         }
+        baseKernelLayer.setHttpHeader(hashMap);
     }
 
     @PublicMethod
     public void setLooping(boolean z) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048656, this, z) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setLooping(z);
@@ -696,40 +1005,52 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void setMuteMode(boolean z) {
-        this.mIsMute = z;
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.mute(z);
-        }
-        if (z) {
-            abandonAudioFocus();
-        } else if (isPlaying()) {
-            requestAudioFocus();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048657, this, z) == null) {
+            this.mIsMute = z;
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                baseKernelLayer.mute(z);
+            }
+            if (z) {
+                abandonAudioFocus();
+            } else if (isPlaying()) {
+                requestAudioFocus();
+            }
         }
     }
 
     @PublicMethod(version = "11.24.0.0")
     public void setOption(String str, String str2) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.setOption(str, str2);
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048658, this, str, str2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+            return;
         }
+        baseKernelLayer.setOption(str, str2);
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void setParameter(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048659, this, str, i2) == null) {
+        }
     }
 
     @PublicMethod
     public void setPlayerListener(IVideoPlayerCallback iVideoPlayerCallback) {
-        getPlayerCallbackManager().setVideoPlayerCallback(iVideoPlayerCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048660, this, iVideoPlayerCallback) == null) {
+            getPlayerCallbackManager().setVideoPlayerCallback(iVideoPlayerCallback);
+        }
     }
 
     @PublicMethod
     public void setProxy(@Nullable String str) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048661, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setProxy(str);
@@ -737,36 +1058,41 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void setSpeed(float f2) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.setSpeed(f2);
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048662, this, f2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+            return;
         }
+        baseKernelLayer.setSpeed(f2);
     }
 
     public void setStageInfo(String str, String str2, String str3) {
         String str4;
-        if (this.mKernelLayer != null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, str);
-            hashMap.put(CyberPlayerManager.STAGE_INFO_SOURCE, str2);
-            hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, str3);
-            this.mKernelLayer.setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
-            if (getPlayerStageType() != 1) {
-                if ((getPlayerStageType() != 22) & (getPlayerStageType() != 6)) {
-                    str4 = "0";
-                    this.mKernelLayer.setOption(CyberPlayerManager.OPT_FEED_VIDEO, str4);
-                }
-            }
-            str4 = "1";
-            this.mKernelLayer.setOption(CyberPlayerManager.OPT_FEED_VIDEO, str4);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048663, this, str, str2, str3) == null) || this.mKernelLayer == null) {
+            return;
         }
+        HashMap hashMap = new HashMap();
+        hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, str);
+        hashMap.put(CyberPlayerManager.STAGE_INFO_SOURCE, str2);
+        hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, str3);
+        this.mKernelLayer.setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
+        if (getPlayerStageType() != 1) {
+            if ((getPlayerStageType() != 22) & (getPlayerStageType() != 6)) {
+                str4 = "0";
+                this.mKernelLayer.setOption(CyberPlayerManager.OPT_FEED_VIDEO, str4);
+            }
+        }
+        str4 = "1";
+        this.mKernelLayer.setOption(CyberPlayerManager.OPT_FEED_VIDEO, str4);
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void setUserAgent(String str) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048664, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setUserAgent(str);
@@ -775,8 +1101,9 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void setVideoRotation(int i2) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048665, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setVideoRotation(i2);
@@ -785,8 +1112,9 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void setVideoScalingMode(int i2) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048666, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setVideoScalingMode(i2);
@@ -794,39 +1122,55 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void setVideoUniqueKey(String str) {
-        this.mKey = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048667, this, str) == null) {
+            this.mKey = str;
+        }
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void setVideoUrl(@NonNull String str) {
-        setVideoUrl(str, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048668, this, str) == null) {
+            setVideoUrl(str, true);
+        }
     }
 
     @PublicMethod
     public void setupKernel(@Nullable BaseKernelLayer baseKernelLayer) {
-        getStatDispatcher().startInitPlayerKernel();
-        if (baseKernelLayer != null) {
-            attachKernelLayer(baseKernelLayer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048670, this, baseKernelLayer) == null) {
+            getStatDispatcher().startInitPlayerKernel();
+            if (baseKernelLayer != null) {
+                attachKernelLayer(baseKernelLayer);
+            }
+            getStatDispatcher().endInitPlayerKernel();
         }
-        getStatDispatcher().endInitPlayerKernel();
     }
 
     public abstract void setupLayers(@NonNull Context context);
 
     public void setupPlugin(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048673, this, context) == null) {
+        }
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void start() {
-        doPlay();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048674, this) == null) {
+            doPlay();
+        }
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
     public void stop() {
-        if (this.mKernelLayer == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048675, this) == null) || this.mKernelLayer == null) {
             return;
         }
         abandonAudioFocus();
@@ -839,51 +1183,83 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void syncSession(@NonNull VideoSession videoSession) {
-        this.mVideoSession.syncSession(videoSession);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048676, this, videoSession) == null) {
+            this.mVideoSession.syncSession(videoSession);
+        }
     }
 
     @PublicMethod
     public void syncState(@NonNull BDVideoPlayer bDVideoPlayer) {
-        if (this.mVideoSession == null || bDVideoPlayer.getVideoSession() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048677, this, bDVideoPlayer) == null) || this.mVideoSession == null || bDVideoPlayer.getVideoSession() == null) {
             return;
         }
         this.mVideoSession.getState().stateChangeNotify(bDVideoPlayer.getVideoSession().getStatus());
     }
 
     public void unbindSession() {
-        if (this.mVideoSession != null) {
-            VideoSessionManager.getInstance().recycle(this.mVideoSession);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048679, this) == null) || this.mVideoSession == null) {
+            return;
         }
+        VideoSessionManager.getInstance().recycle(this.mVideoSession);
     }
 
     @PublicMethod(version = "11.23.0.0")
     public void updateFreeProxy(@Nullable String str) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.updateFreeProxy(str);
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048680, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+            return;
+        }
+        baseKernelLayer.updateFreeProxy(str);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
+        this(context, baseKernelLayer, "");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, baseKernelLayer};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (BaseKernelLayer) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
     }
 
-    public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
-        this(context, baseKernelLayer, "");
-    }
-
     private void bindSession(@NonNull VideoSession videoSession) {
-        this.mVideoSession = videoSession;
-        videoSession.bind(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, videoSession) == null) {
+            this.mVideoSession = videoSession;
+            videoSession.bind(this);
+        }
     }
 
     @PublicMethod
     public void attachToContainer(@NonNull ViewGroup viewGroup, boolean z) {
-        detachFromContainer(z);
-        this.mPlayerContainer = viewGroup;
-        viewGroup.addView(this.mLayerContainer, this.mContainerLayoutParams);
-        getPlayerEventTrigger().onPlayerAttach();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, viewGroup, z) == null) {
+            detachFromContainer(z);
+            this.mPlayerContainer = viewGroup;
+            viewGroup.addView(this.mLayerContainer, this.mContainerLayoutParams);
+            getPlayerEventTrigger().onPlayerAttach();
+        }
     }
 
     @PublicMethod
     public void detachFromContainer(boolean z) {
-        if (this.mLayerContainer.getParent() instanceof ViewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (this.mLayerContainer.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.mLayerContainer.getParent()).removeView(this.mLayerContainer);
             if (z) {
                 this.mLayerContainer.onContainerDetach();
@@ -895,8 +1271,9 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void setVideoUrl(@NonNull String str, boolean z) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer == null) {
+        BaseKernelLayer baseKernelLayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048669, this, str, z) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         this.mVideoTask.videoUrl = str;
@@ -906,14 +1283,31 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     public void setupPlayer(Context context, @Nullable BaseKernelLayer baseKernelLayer) {
-        bindSession();
-        getStatEventTrigger().setMessenger(this.mVideoSession.getMessenger());
-        setupKernel(baseKernelLayer);
-        setupLayers(context);
-        setupPlugin(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048672, this, context, baseKernelLayer) == null) {
+            bindSession();
+            getStatEventTrigger().setMessenger(this.mVideoSession.getMessenger());
+            setupKernel(baseKernelLayer);
+            setupLayers(context);
+            setupPlugin(context);
+        }
     }
 
     public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, baseKernelLayer, str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.mIsForeground = false;
         this.mStatEventTrigger = new StatisticsEventTrigger();
         this.mKey = "";
@@ -930,21 +1324,27 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @PublicMethod
     public void addLayer(@NonNull AbsLayer absLayer) {
-        absLayer.injectMessenger(this.mVideoSession.getMessenger());
-        this.mLayerContainer.addLayer(absLayer);
-    }
-
-    @PublicMethod
-    public void syncState(@NonNull VideoKernelState videoKernelState) {
-        VideoSession videoSession = this.mVideoSession;
-        if (videoSession != null) {
-            videoSession.getState().stateChangeNotify(videoKernelState.getStatus());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absLayer) == null) {
+            absLayer.injectMessenger(this.mVideoSession.getMessenger());
+            this.mLayerContainer.addLayer(absLayer);
         }
     }
 
     @PublicMethod
+    public void syncState(@NonNull VideoKernelState videoKernelState) {
+        VideoSession videoSession;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048678, this, videoKernelState) == null) || (videoSession = this.mVideoSession) == null) {
+            return;
+        }
+        videoSession.getState().stateChangeNotify(videoKernelState.getStatus());
+    }
+
+    @PublicMethod
     public void pauseInternal(boolean z) {
-        if (this.mKernelLayer == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048638, this, z) == null) || this.mKernelLayer == null) {
             return;
         }
         abandonAudioFocus();

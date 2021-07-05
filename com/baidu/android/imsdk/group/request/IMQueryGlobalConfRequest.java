@@ -13,44 +13,107 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class IMQueryGlobalConfRequest extends GroupBaseHttpRequest {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryGlobalConfRequest";
+    public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
     public String mKey;
 
     /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
-        public Mytask(String str, String str2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IMQueryGlobalConfRequest this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public Mytask(IMQueryGlobalConfRequest iMQueryGlobalConfRequest, String str, String str2) {
             super(str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iMQueryGlobalConfRequest, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iMQueryGlobalConfRequest;
         }
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
             int i2;
             String str;
-            try {
-                JSONObject jSONObject = new JSONObject(this.mJson);
-                i2 = jSONObject.getInt("error_code");
-                str = jSONObject.optString("response_params", "");
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "IMQueryGlobalConfRequest JSONException", e2);
-                i2 = 1010;
-                new IMTrack.CrashBuilder(IMQueryGlobalConfRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
-                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(this.mJson);
+                    i2 = jSONObject.getInt("error_code");
+                    str = jSONObject.optString("response_params", "");
+                } catch (JSONException e2) {
+                    LogUtils.e(LogUtils.TAG, "IMQueryGlobalConfRequest JSONException", e2);
+                    i2 = 1010;
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                }
+                IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
+                if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
+                    return;
+                }
+                ((BIMValueCallBack) removeListener).onResult(i2, str, null);
             }
-            IMListener removeListener = ListenerManager.getInstance().removeListener(IMQueryGlobalConfRequest.this.mKey);
-            if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-                return;
-            }
-            ((BIMValueCallBack) removeListener).onResult(i2, str, null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(43784640, "Lcom/baidu/android/imsdk/group/request/IMQueryGlobalConfRequest;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(43784640, "Lcom/baidu/android/imsdk/group/request/IMQueryGlobalConfRequest;");
         }
     }
 
     public IMQueryGlobalConfRequest(Context context, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
         this.mAppid = j;
         this.mKey = str;
@@ -58,36 +121,51 @@ public class IMQueryGlobalConfRequest extends GroupBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
-        return "application/x-www-form-urlencoded";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        return ("method=get_global_group_conf&appid=" + this.mAppid + "&timestamp=" + currentTimeMillis + "&appversion=" + AccountManagerImpl.getInstance(this.mContext).getAppVersion() + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid)).getBytes();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            return ("method=get_global_group_conf&appid=" + this.mAppid + "&timestamp=" + currentTimeMillis + "&appversion=" + AccountManagerImpl.getInstance(this.mContext).getAppVersion() + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid)).getBytes();
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i2, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
-        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+            if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
+                return;
+            }
+            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
         }
-        ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i2, byte[] bArr) {
-        String str = new String(bArr);
-        String str2 = TAG;
-        LogUtils.d(str2, "json is = " + str);
-        TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this.mKey, str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+            String str = new String(bArr);
+            String str2 = TAG;
+            LogUtils.d(str2, "json is = " + str);
+            TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));
+        }
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
-        return AccountManager.isCuidLogin(this.mContext);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? AccountManager.isCuidLogin(this.mContext) : invokeV.booleanValue;
     }
 }

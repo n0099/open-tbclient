@@ -1,58 +1,148 @@
 package com.baidu.browser.core;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class BdCore {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdCore f4283c;
+    public static BdCore f4313c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4284a;
+    public Context f4314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4285b;
+    public boolean f4315b;
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public enum EditTextType {
-        DEFAULT,
-        WEB_EDIT,
-        ADD_BAR,
-        BD_EDIT,
-        BD_RSS_WEB
+    public static final class EditTextType {
+        public static final /* synthetic */ EditTextType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final EditTextType ADD_BAR;
+        public static final EditTextType BD_EDIT;
+        public static final EditTextType BD_RSS_WEB;
+        public static final EditTextType DEFAULT;
+        public static final EditTextType WEB_EDIT;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-72324414, "Lcom/baidu/browser/core/BdCore$EditTextType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-72324414, "Lcom/baidu/browser/core/BdCore$EditTextType;");
+                    return;
+                }
+            }
+            DEFAULT = new EditTextType("DEFAULT", 0);
+            WEB_EDIT = new EditTextType("WEB_EDIT", 1);
+            ADD_BAR = new EditTextType("ADD_BAR", 2);
+            BD_EDIT = new EditTextType("BD_EDIT", 3);
+            EditTextType editTextType = new EditTextType("BD_RSS_WEB", 4);
+            BD_RSS_WEB = editTextType;
+            $VALUES = new EditTextType[]{DEFAULT, WEB_EDIT, ADD_BAR, BD_EDIT, editTextType};
+        }
+
+        public EditTextType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static EditTextType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EditTextType) Enum.valueOf(EditTextType.class, str) : (EditTextType) invokeL.objValue;
+        }
+
+        public static EditTextType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EditTextType[]) $VALUES.clone() : (EditTextType[]) invokeV.objValue;
+        }
     }
 
     public BdCore() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         EditTextType editTextType = EditTextType.DEFAULT;
-        this.f4285b = false;
+        this.f4315b = false;
     }
 
     public static synchronized BdCore b() {
+        InterceptResult invokeV;
         BdCore bdCore;
-        synchronized (BdCore.class) {
-            if (f4283c == null) {
-                f4283c = new BdCore();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (BdCore.class) {
+                if (f4313c == null) {
+                    f4313c = new BdCore();
+                }
+                bdCore = f4313c;
             }
-            bdCore = f4283c;
+            return bdCore;
         }
-        return bdCore;
+        return (BdCore) invokeV.objValue;
     }
 
     public Context a() {
-        Context context = this.f4284a;
-        if (context != null) {
-            return context;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Context context = this.f4314a;
+            if (context != null) {
+                return context;
+            }
+            throw new RuntimeException("context is null");
         }
-        throw new RuntimeException("context is null");
+        return (Context) invokeV.objValue;
     }
 
     public void c(Context context, boolean z) {
-        if (this.f4285b) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) || this.f4315b) {
             return;
         }
         BdLog.f(z);
-        this.f4284a = context.getApplicationContext();
-        this.f4285b = true;
+        this.f4314a = context.getApplicationContext();
+        this.f4315b = true;
     }
 }

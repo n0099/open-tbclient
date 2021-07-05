@@ -1,17 +1,41 @@
 package com.xiaomi.push;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* renamed from: com.xiaomi.push.do  reason: invalid class name */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Cdo implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ dn f41226a;
+    public final /* synthetic */ dn f42969a;
 
     public Cdo(dn dnVar) {
-        this.f41226a = dnVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dnVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42969a = dnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f41226a.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f42969a.b();
+        }
     }
 }

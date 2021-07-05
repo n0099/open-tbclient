@@ -1,166 +1,242 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class GroundOverlay extends Overlay {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String j = "GroundOverlay";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6883a;
+    public int f6913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f6884b;
+    public BitmapDescriptor f6914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f6885c;
+    public LatLng f6915c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f6886d;
+    public double f6916d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f6887e;
+    public double f6917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f6888f;
+    public float f6918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f6889g;
+    public float f6919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LatLngBounds f6890h;
+    public LatLngBounds f6920h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f6891i;
+    public float f6921i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1556852968, "Lcom/baidu/mapapi/map/GroundOverlay;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1556852968, "Lcom/baidu/mapapi/map/GroundOverlay;");
+        }
+    }
 
     public GroundOverlay() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.ground;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f7707d;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
-        super.a(bundle);
-        bundle.putBundle("image_info", this.f6884b.b());
-        if (this.f6883a == 1) {
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f6890h.southwest);
-            double longitudeE6 = ll2mc.getLongitudeE6();
-            double latitudeE6 = ll2mc.getLatitudeE6();
-            GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f6890h.northeast);
-            double longitudeE62 = ll2mc2.getLongitudeE6();
-            double latitudeE62 = ll2mc2.getLatitudeE6();
-            double d2 = longitudeE62 - longitudeE6;
-            this.f6886d = d2;
-            double d3 = latitudeE62 - latitudeE6;
-            this.f6887e = d3;
-            this.f6885c = CoordUtil.mc2ll(new GeoPoint(latitudeE6 + (d3 / 2.0d), longitudeE6 + (d2 / 2.0d)));
-            this.f6888f = 0.5f;
-            this.f6889g = 0.5f;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            super.a(bundle);
+            bundle.putBundle("image_info", this.f6914b.b());
+            if (this.f6913a == 1) {
+                GeoPoint ll2mc = CoordUtil.ll2mc(this.f6920h.southwest);
+                double longitudeE6 = ll2mc.getLongitudeE6();
+                double latitudeE6 = ll2mc.getLatitudeE6();
+                GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f6920h.northeast);
+                double longitudeE62 = ll2mc2.getLongitudeE6();
+                double latitudeE62 = ll2mc2.getLatitudeE6();
+                double d2 = longitudeE62 - longitudeE6;
+                this.f6916d = d2;
+                double d3 = latitudeE62 - latitudeE6;
+                this.f6917e = d3;
+                this.f6915c = CoordUtil.mc2ll(new GeoPoint(latitudeE6 + (d3 / 2.0d), longitudeE6 + (d2 / 2.0d)));
+                this.f6918f = 0.5f;
+                this.f6919g = 0.5f;
+            }
+            double d4 = this.f6916d;
+            if (d4 <= 0.0d || this.f6917e <= 0.0d) {
+                throw new IllegalStateException("BDMapSDKException: when you add ground overlay, the width and height must greater than 0");
+            }
+            bundle.putDouble("x_distance", d4);
+            if (this.f6917e == 2.147483647E9d) {
+                this.f6917e = (int) ((this.f6916d * this.f6914b.f6881a.getHeight()) / this.f6914b.f6881a.getWidth());
+            }
+            bundle.putDouble("y_distance", this.f6917e);
+            GeoPoint ll2mc3 = CoordUtil.ll2mc(this.f6915c);
+            bundle.putDouble("location_x", ll2mc3.getLongitudeE6());
+            bundle.putDouble("location_y", ll2mc3.getLatitudeE6());
+            bundle.putFloat("anchor_x", this.f6918f);
+            bundle.putFloat("anchor_y", this.f6919g);
+            bundle.putFloat("transparency", this.f6921i);
+            return bundle;
         }
-        double d4 = this.f6886d;
-        if (d4 <= 0.0d || this.f6887e <= 0.0d) {
-            throw new IllegalStateException("BDMapSDKException: when you add ground overlay, the width and height must greater than 0");
-        }
-        bundle.putDouble("x_distance", d4);
-        if (this.f6887e == 2.147483647E9d) {
-            this.f6887e = (int) ((this.f6886d * this.f6884b.f6851a.getHeight()) / this.f6884b.f6851a.getWidth());
-        }
-        bundle.putDouble("y_distance", this.f6887e);
-        GeoPoint ll2mc3 = CoordUtil.ll2mc(this.f6885c);
-        bundle.putDouble("location_x", ll2mc3.getLongitudeE6());
-        bundle.putDouble("location_y", ll2mc3.getLatitudeE6());
-        bundle.putFloat("anchor_x", this.f6888f);
-        bundle.putFloat("anchor_y", this.f6889g);
-        bundle.putFloat("transparency", this.f6891i);
-        return bundle;
+        return (Bundle) invokeL.objValue;
     }
 
     public float getAnchorX() {
-        return this.f6888f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6918f : invokeV.floatValue;
     }
 
     public float getAnchorY() {
-        return this.f6889g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6919g : invokeV.floatValue;
     }
 
     public LatLngBounds getBounds() {
-        return this.f6890h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6920h : (LatLngBounds) invokeV.objValue;
     }
 
     public double getHeight() {
-        return this.f6887e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6917e : invokeV.doubleValue;
     }
 
     public BitmapDescriptor getImage() {
-        return this.f6884b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6914b : (BitmapDescriptor) invokeV.objValue;
     }
 
     public LatLng getPosition() {
-        return this.f6885c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6915c : (LatLng) invokeV.objValue;
     }
 
     public float getTransparency() {
-        return this.f6891i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6921i : invokeV.floatValue;
     }
 
     public double getWidth() {
-        return this.f6886d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6916d : invokeV.doubleValue;
     }
 
     public void setAnchor(float f2, float f3) {
-        if (f2 < 0.0f || f2 > 1.0f || f3 < 0.0f || f3 > 1.0f) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || f2 < 0.0f || f2 > 1.0f || f3 < 0.0f || f3 > 1.0f) {
             return;
         }
-        this.f6888f = f2;
-        this.f6889g = f3;
+        this.f6918f = f2;
+        this.f6919g = f3;
         this.listener.b(this);
     }
 
     public void setDimensions(int i2) {
-        this.f6886d = i2;
-        this.f6887e = 2.147483647E9d;
-        this.listener.b(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f6916d = i2;
+            this.f6917e = 2.147483647E9d;
+            this.listener.b(this);
+        }
     }
 
     public void setDimensions(int i2, int i3) {
-        this.f6886d = i2;
-        this.f6887e = i3;
-        this.listener.b(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
+            this.f6916d = i2;
+            this.f6917e = i3;
+            this.listener.b(this);
+        }
     }
 
     public void setImage(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("BDMapSDKException: image can not be null");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bitmapDescriptor) == null) {
+            if (bitmapDescriptor == null) {
+                throw new IllegalArgumentException("BDMapSDKException: image can not be null");
+            }
+            this.f6914b = bitmapDescriptor;
+            this.listener.b(this);
         }
-        this.f6884b = bitmapDescriptor;
-        this.listener.b(this);
     }
 
     public void setPosition(LatLng latLng) {
-        if (latLng == null) {
-            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, latLng) == null) {
+            if (latLng == null) {
+                throw new IllegalArgumentException("BDMapSDKException: position can not be null");
+            }
+            this.f6913a = 2;
+            this.f6915c = latLng;
+            this.listener.b(this);
         }
-        this.f6883a = 2;
-        this.f6885c = latLng;
-        this.listener.b(this);
     }
 
     public void setPositionFromBounds(LatLngBounds latLngBounds) {
-        if (latLngBounds == null) {
-            throw new IllegalArgumentException("BDMapSDKException: bounds can not be null");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, latLngBounds) == null) {
+            if (latLngBounds == null) {
+                throw new IllegalArgumentException("BDMapSDKException: bounds can not be null");
+            }
+            this.f6913a = 1;
+            this.f6920h = latLngBounds;
+            this.listener.b(this);
         }
-        this.f6883a = 1;
-        this.f6890h = latLngBounds;
-        this.listener.b(this);
     }
 
     public void setTransparency(float f2) {
-        if (f2 > 1.0f || f2 < 0.0f) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048591, this, f2) == null) || f2 > 1.0f || f2 < 0.0f) {
             return;
         }
-        this.f6891i = f2;
+        this.f6921i = f2;
         this.listener.b(this);
     }
 }

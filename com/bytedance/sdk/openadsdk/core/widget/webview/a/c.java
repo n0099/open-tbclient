@@ -5,11 +5,17 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import android.util.LruCache;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.bytedance.sdk.openadsdk.core.d.t;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.u;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.openadsdk.core.e.v;
+import com.bytedance.sdk.openadsdk.core.o;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -17,156 +23,186 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f28923a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Object f28925c = new Object();
-
-    /* renamed from: d  reason: collision with root package name */
-    public LruCache<String, t> f28926d = new LruCache<String, t>(2000) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public int sizeOf(String str, t tVar) {
-            return 1;
-        }
-    };
+    public static volatile c f30826a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f28924b = Collections.synchronizedSet(new HashSet());
+    public Set<String> f30827b;
 
-    public static c a() {
-        if (f28923a == null) {
-            synchronized (c.class) {
-                if (f28923a == null) {
-                    f28923a = new c();
-                }
+    /* renamed from: c  reason: collision with root package name */
+    public Object f30828c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public LruCache<String, v> f30829d;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return f28923a;
+        this.f30828c = new Object();
+        this.f30829d = new LruCache<String, v>(this, 2000) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ c f30830a;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f30830a = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.util.LruCache
+            /* renamed from: a */
+            public int sizeOf(String str, v vVar) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, vVar)) == null) {
+                    return 1;
+                }
+                return invokeLL.intValue;
+            }
+        };
+        this.f30827b = Collections.synchronizedSet(new HashSet());
+    }
+
+    public static c a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f30826a == null) {
+                synchronized (c.class) {
+                    if (f30826a == null) {
+                        f30826a = new c();
+                    }
+                }
+            }
+            return f30826a;
+        }
+        return (c) invokeV.objValue;
     }
 
     private void c(String str) {
-        LruCache<String, t> lruCache;
-        if (TextUtils.isEmpty(str) || (lruCache = this.f28926d) == null || lruCache.size() <= 0) {
+        LruCache<String, v> lruCache;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || TextUtils.isEmpty(str) || (lruCache = this.f30829d) == null || lruCache.size() <= 0) {
             return;
         }
-        synchronized (this.f28925c) {
-            this.f28926d.remove(str);
+        synchronized (this.f30828c) {
+            this.f30829d.remove(str);
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     public Set<String> b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        HashSet hashSet = new HashSet();
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, "rit=?", new String[]{str}, null, null, null);
-        if (a2 != null) {
-            while (a2.moveToNext()) {
-                try {
-                    hashSet.add(a2.getString(a2.getColumnIndex("id")));
-                } finally {
-                    if (a2 != null) {
-                        a2.close();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashSet hashSet = new HashSet();
+            Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", null, "rit=?", new String[]{str}, null, null, null);
+            if (a2 != null) {
+                while (a2.moveToNext()) {
+                    try {
+                        hashSet.add(a2.getString(a2.getColumnIndex("id")));
+                    } finally {
+                        if (a2 != null) {
+                            a2.close();
+                        }
                     }
                 }
+                return hashSet;
             }
-            return hashSet;
+            return null;
         }
-        return null;
+        return (Set) invokeL.objValue;
     }
 
     public static String c() {
-        return "CREATE TABLE IF NOT EXISTS template_diff_new (_id INTEGER PRIMARY KEY AUTOINCREMENT,rit TEXT ,id TEXT UNIQUE," + PackageTable.MD5 + " TEXT ,url TEXT , data TEXT , version TEXT , update_time TEXT" + SmallTailInfo.EMOTION_SUFFIX;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return "CREATE TABLE IF NOT EXISTS template_diff_new (_id INTEGER PRIMARY KEY AUTOINCREMENT,rit TEXT ,id TEXT UNIQUE," + PackageTable.MD5 + " TEXT ,url TEXT , data TEXT , version TEXT , update_time TEXT" + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00bb, code lost:
-        if (r12 != null) goto L28;
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00bf, code lost:
+        if (r12 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00bd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00c1, code lost:
         r12.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00c9, code lost:
-        if (r12 == null) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00cd, code lost:
+        if (r12 == null) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public t a(String str) {
-        t tVar;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        synchronized (this.f28925c) {
-            tVar = this.f28926d.get(String.valueOf(str));
-        }
-        if (tVar != null) {
-            return tVar;
-        }
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, "id=?", new String[]{str}, null, null, null);
-        if (a2 != null) {
-            try {
-                if (a2.moveToNext()) {
-                    String string = a2.getString(a2.getColumnIndex("rit"));
-                    String string2 = a2.getString(a2.getColumnIndex("id"));
-                    String string3 = a2.getString(a2.getColumnIndex(PackageTable.MD5));
-                    String string4 = a2.getString(a2.getColumnIndex("url"));
-                    String string5 = a2.getString(a2.getColumnIndex("data"));
-                    t a3 = new t().a(string).b(string2).c(string3).d(string4).e(string5).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time"))));
-                    synchronized (this.f28925c) {
-                        this.f28926d.put(string2, a3);
-                    }
-                    this.f28924b.add(string2);
-                    return a3;
-                }
-            } catch (Throwable th) {
-                try {
-                    u.c("TmplDbHelper", "getTemplate error", th);
-                } finally {
-                    if (a2 != null) {
-                        a2.close();
-                    }
-                }
+    public v a(String str) {
+        InterceptResult invokeL;
+        v vVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v5, resolved type: android.util.LruCache<java.lang.String, com.bytedance.sdk.openadsdk.core.d.t> */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x00b6, code lost:
-        if (r1 == null) goto L3;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    @NonNull
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<t> b() {
-        ArrayList arrayList = new ArrayList();
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, null, null, null, null, null);
-        if (a2 != null) {
-            while (a2.moveToNext()) {
+            synchronized (this.f30828c) {
+                vVar = this.f30829d.get(String.valueOf(str));
+            }
+            if (vVar != null) {
+                return vVar;
+            }
+            Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", null, "id=?", new String[]{str}, null, null, null);
+            if (a2 != null) {
                 try {
-                    String string = a2.getString(a2.getColumnIndex("rit"));
-                    String string2 = a2.getString(a2.getColumnIndex("id"));
-                    String string3 = a2.getString(a2.getColumnIndex(PackageTable.MD5));
-                    String string4 = a2.getString(a2.getColumnIndex("url"));
-                    String string5 = a2.getString(a2.getColumnIndex("data"));
-                    String string6 = a2.getString(a2.getColumnIndex("version"));
-                    arrayList.add(new t().a(string).b(string2).c(string3).d(string4).e(string5).f(string6).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time")))));
-                    synchronized (this.f28925c) {
-                        this.f28926d.put(string2, arrayList.get(arrayList.size() - 1));
+                    if (a2.moveToNext()) {
+                        String string = a2.getString(a2.getColumnIndex("rit"));
+                        String string2 = a2.getString(a2.getColumnIndex("id"));
+                        String string3 = a2.getString(a2.getColumnIndex(PackageTable.MD5));
+                        String string4 = a2.getString(a2.getColumnIndex("url"));
+                        v a3 = new v().a(string).b(string2).c(string3).d(string4).e(a2.getString(a2.getColumnIndex("data"))).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time"))));
+                        synchronized (this.f30828c) {
+                            this.f30829d.put(string2, a3);
+                        }
+                        this.f30827b.add(string2);
+                        return a3;
                     }
-                    this.f28924b.add(string2);
                 } catch (Throwable th) {
                     try {
-                        u.c("TmplDbHelper", "getTemplate error", th);
+                        j.c("TmplDbHelper", "getTemplate error", th);
                     } finally {
                         if (a2 != null) {
                             a2.close();
@@ -174,15 +210,62 @@ public class c {
                     }
                 }
             }
+            return null;
         }
-        return arrayList;
+        return (v) invokeL.objValue;
     }
 
-    public void a(t tVar) {
-        if (tVar == null || TextUtils.isEmpty(tVar.b())) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v5, resolved type: android.util.LruCache<java.lang.String, com.bytedance.sdk.openadsdk.core.e.v> */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x00ba, code lost:
+        if (r1 == null) goto L5;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    @NonNull
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<v> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", null, null, null, null, null, null);
+            if (a2 != null) {
+                while (a2.moveToNext()) {
+                    try {
+                        String string = a2.getString(a2.getColumnIndex("rit"));
+                        String string2 = a2.getString(a2.getColumnIndex("id"));
+                        String string3 = a2.getString(a2.getColumnIndex(PackageTable.MD5));
+                        String string4 = a2.getString(a2.getColumnIndex("url"));
+                        String string5 = a2.getString(a2.getColumnIndex("data"));
+                        arrayList.add(new v().a(string).b(string2).c(string3).d(string4).e(string5).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time")))));
+                        synchronized (this.f30828c) {
+                            this.f30829d.put(string2, arrayList.get(arrayList.size() - 1));
+                        }
+                        this.f30827b.add(string2);
+                    } catch (Throwable th) {
+                        try {
+                            j.c("TmplDbHelper", "getTemplate error", th);
+                        } finally {
+                            if (a2 != null) {
+                                a2.close();
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void a(v vVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) || vVar == null || TextUtils.isEmpty(vVar.b())) {
             return;
         }
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, "id=?", new String[]{tVar.b()}, null, null, null);
+        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", null, "id=?", new String[]{vVar.b()}, null, null, null);
         boolean z = a2 != null && a2.getCount() > 0;
         if (a2 != null) {
             try {
@@ -191,33 +274,34 @@ public class c {
             }
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put("rit", tVar.a());
-        contentValues.put("id", tVar.b());
-        contentValues.put(PackageTable.MD5, tVar.c());
-        contentValues.put("url", tVar.d());
-        contentValues.put("data", tVar.e());
-        contentValues.put("version", tVar.f());
-        contentValues.put("update_time", tVar.g());
+        contentValues.put("rit", vVar.a());
+        contentValues.put("id", vVar.b());
+        contentValues.put(PackageTable.MD5, vVar.c());
+        contentValues.put("url", vVar.d());
+        contentValues.put("data", vVar.e());
+        contentValues.put("version", vVar.f());
+        contentValues.put("update_time", vVar.g());
         if (z) {
-            com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", contentValues, "id=?", new String[]{tVar.b()});
+            com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", contentValues, "id=?", new String[]{vVar.b()});
         } else {
-            com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", contentValues);
+            com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", contentValues);
         }
-        synchronized (this.f28925c) {
-            this.f28926d.put(tVar.b(), tVar);
+        synchronized (this.f30828c) {
+            this.f30829d.put(vVar.b(), vVar);
         }
-        this.f28924b.add(tVar.b());
+        this.f30827b.add(vVar.b());
     }
 
     public void a(Set<String> set) {
-        if (set == null || set.isEmpty()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, set) == null) || set == null || set.isEmpty()) {
             return;
         }
         String[] strArr = (String[]) set.toArray(new String[set.size()]);
         if (strArr.length > 0) {
             for (int i2 = 0; i2 < strArr.length; i2++) {
                 c(strArr[i2]);
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", "id=?", new String[]{strArr[i2]});
+                com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", "id=?", new String[]{strArr[i2]});
             }
         }
     }

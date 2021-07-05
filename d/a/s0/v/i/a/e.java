@@ -1,0 +1,183 @@
+package d.a.s0.v.i.a;
+
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaVideoHolder;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.k.e.s;
+import d.a.r0.r.q.b2;
+import d.a.s0.a0.b0;
+import d.a.s0.a0.z;
+import d.a.s0.u0.k;
+/* loaded from: classes9.dex */
+public class e extends k<b2, FrsPageAlaVideoHolder> implements z, d.a.s0.o.f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public b0<b2> A;
+    public d.a.s0.v.i.e.e x;
+    public String y;
+    public String z;
+
+    /* loaded from: classes9.dex */
+    public class a extends b0<b2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ e f67993b;
+
+        public a(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f67993b = eVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.s0.a0.b0
+        /* renamed from: d */
+        public void a(View view, b2 b2Var) {
+            CustomMessage customMessage;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, b2Var) == null) {
+                if (view.getId() == R.id.layout_root) {
+                    customMessage = new CustomMessage(2921018);
+                } else if (view.getId() != R.id.card_home_page_normal_thread_user_name && view.getId() != R.id.card_home_page_normal_thread_user_header) {
+                    customMessage = view.getId() == R.id.video_container ? new CustomMessage(2921019) : null;
+                } else {
+                    customMessage = new CustomMessage(2921016);
+                }
+                if (customMessage == null || this.f67993b.o == null) {
+                    return;
+                }
+                customMessage.setData(b2Var);
+                this.f67993b.o.sendMessage(customMessage);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.A = new a(this);
+    }
+
+    @Override // d.a.s0.a0.z
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.y = str;
+        }
+    }
+
+    @Override // d.a.s0.o.f
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.z = str;
+        }
+    }
+
+    @Override // d.a.s0.u0.k, d.a.s0.a0.y
+    public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {
+            super.o(tbPageContext, bdUniqueId);
+        }
+    }
+
+    @Override // d.a.s0.a0.z
+    public void r(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: x0 */
+    public FrsPageAlaVideoHolder Q(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.o;
+            if (tbPageContext == null) {
+                return null;
+            }
+            d.a.s0.v.i.e.e eVar = new d.a.s0.v.i.e.e(tbPageContext, this.f44825i);
+            this.x = eVar;
+            eVar.U(this.f44825i);
+            this.x.a(this.y);
+            this.x.o(this.A);
+            return new FrsPageAlaVideoHolder(this.x);
+        }
+        return (FrsPageAlaVideoHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.s0.u0.k, d.a.c.k.e.a
+    /* renamed from: y0 */
+    public View X(int i2, View view, ViewGroup viewGroup, b2 b2Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), view, viewGroup, b2Var, frsPageAlaVideoHolder})) == null) {
+            TiebaStatic.log("c11842");
+            CustomMessage customMessage = new CustomMessage(2921017);
+            FrsViewData frsViewData = this.n;
+            b2Var.P1 = (i2 + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
+            customMessage.setData(b2Var);
+            this.o.sendMessage(customMessage);
+            if (b2Var != null) {
+                d.a.s0.v.i.e.e eVar = frsPageAlaVideoHolder.f14230a;
+                if (eVar instanceof d.a.s0.o.e) {
+                    eVar.setPage(this.z);
+                }
+                frsPageAlaVideoHolder.f14230a.a(this.y);
+                frsPageAlaVideoHolder.f14230a.W(h0());
+                frsPageAlaVideoHolder.f14230a.m(b2Var);
+                b2Var.q4();
+            }
+            this.q = (s) viewGroup;
+            return frsPageAlaVideoHolder.a();
+        }
+        return (View) invokeCommon.objValue;
+    }
+}

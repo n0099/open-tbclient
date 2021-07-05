@@ -1,28 +1,56 @@
 package io.reactivex.exceptions;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.util.ExceptionHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class Exceptions {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public Exceptions() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new IllegalStateException("No instances!");
     }
 
     @NonNull
     public static RuntimeException propagate(@NonNull Throwable th) {
-        throw ExceptionHelper.wrapOrThrow(th);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
+            throw ExceptionHelper.wrapOrThrow(th);
+        }
+        return (RuntimeException) invokeL.objValue;
     }
 
     public static void throwIfFatal(@NonNull Throwable th) {
-        if (!(th instanceof VirtualMachineError)) {
-            if (!(th instanceof ThreadDeath)) {
-                if (th instanceof LinkageError) {
-                    throw ((LinkageError) th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
+            if (!(th instanceof VirtualMachineError)) {
+                if (!(th instanceof ThreadDeath)) {
+                    if (th instanceof LinkageError) {
+                        throw ((LinkageError) th);
+                    }
+                    return;
                 }
-                return;
+                throw ((ThreadDeath) th);
             }
-            throw ((ThreadDeath) th);
+            throw ((VirtualMachineError) th);
         }
-        throw ((VirtualMachineError) th);
     }
 }

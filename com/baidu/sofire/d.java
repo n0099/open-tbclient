@@ -2,30 +2,55 @@ package com.baidu.sofire;
 
 import android.content.Context;
 import android.os.FileObserver;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.utility.x;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d extends FileObserver {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10289a;
+    public String f10361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10290b;
+    public String f10362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10291c;
+    public int f10363c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f10292d;
+    public Context f10364d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context, int i2, String str, String str2) {
         super(str, 4095);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2), str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         try {
-            this.f10289a = str;
-            this.f10290b = str2;
-            this.f10291c = i2;
-            this.f10292d = context;
+            this.f10361a = str;
+            this.f10362b = str2;
+            this.f10363c = i2;
+            this.f10364d = context;
         } catch (Throwable unused) {
             com.baidu.sofire.utility.c.a();
         }
@@ -33,42 +58,77 @@ public class d extends FileObserver {
 
     @Override // android.os.FileObserver
     public void onEvent(int i2, String str) {
-        if (i2 == 2 || i2 == 4 || i2 == 64 || i2 == 128 || i2 == 512 || i2 == 1024 || i2 == 2048) {
-            try {
-                x.a(this.f10292d).a(new Runnable() { // from class: com.baidu.sofire.d.1
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        try {
-                            synchronized (d.class) {
-                                if (!com.baidu.sofire.utility.c.c(d.this.f10289a)) {
-                                    com.baidu.sofire.utility.c.a(d.this.f10290b, d.this.f10289a);
-                                    com.baidu.sofire.utility.c.a(d.this.f10289a, true);
-                                    c.a(new File(d.this.f10289a));
-                                    c.a(d.this.f10292d, d.this.f10291c, new File(d.this.f10289a), new File(d.this.f10290b));
-                                    com.baidu.sofire.a.a.a(d.this.f10292d).b(d.this.f10291c, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            if (i2 == 2 || i2 == 4 || i2 == 64 || i2 == 128 || i2 == 512 || i2 == 1024 || i2 == 2048) {
+                try {
+                    x.a(this.f10364d).a(new Runnable(this) { // from class: com.baidu.sofire.d.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ d f10365a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
                                 }
                             }
-                        } catch (Throwable unused) {
-                            com.baidu.sofire.utility.c.a();
+                            this.f10365a = this;
                         }
-                    }
-                });
-            } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                try {
+                                    synchronized (d.class) {
+                                        if (!com.baidu.sofire.utility.c.c(this.f10365a.f10361a)) {
+                                            com.baidu.sofire.utility.c.a(this.f10365a.f10362b, this.f10365a.f10361a);
+                                            com.baidu.sofire.utility.c.a(this.f10365a.f10361a, true);
+                                            c.a(new File(this.f10365a.f10361a));
+                                            c.a(this.f10365a.f10364d, this.f10365a.f10363c, new File(this.f10365a.f10361a), new File(this.f10365a.f10362b));
+                                            com.baidu.sofire.a.a.a(this.f10365a.f10364d).b(this.f10365a.f10363c, -1);
+                                        }
+                                    }
+                                } catch (Throwable unused) {
+                                    com.baidu.sofire.utility.c.a();
+                                }
+                            }
+                        }
+                    });
+                } catch (Throwable unused) {
+                    com.baidu.sofire.utility.c.a();
+                }
             }
         }
     }
 
     public final boolean a() {
-        try {
-            File file = new File(this.f10290b);
-            if (file.exists()) {
-                return file.delete();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                File file = new File(this.f10362b);
+                if (file.exists()) {
+                    return file.delete();
+                }
+                return false;
+            } catch (Throwable unused) {
+                com.baidu.sofire.utility.c.a();
+                return false;
             }
-            return false;
-        } catch (Throwable unused) {
-            com.baidu.sofire.utility.c.a();
-            return false;
         }
+        return invokeV.booleanValue;
     }
 }

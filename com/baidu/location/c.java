@@ -1,14 +1,34 @@
 package com.baidu.location;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class c extends Thread {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f6641a;
+    public final /* synthetic */ LocationClient f6671a;
 
     public c(LocationClient locationClient) {
-        this.f6641a = locationClient;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {locationClient};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f6671a = locationClient;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -18,17 +38,20 @@ public class c extends Thread {
         com.baidu.location.b.c cVar3;
         Context context;
         LocationClientOption locationClientOption;
-        cVar = this.f6641a.C;
-        if (cVar == null) {
-            LocationClient locationClient = this.f6641a;
-            context = this.f6641a.f6460f;
-            locationClientOption = this.f6641a.f6458d;
-            locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.f6641a);
-        }
-        cVar2 = this.f6641a.C;
-        if (cVar2 != null) {
-            cVar3 = this.f6641a.C;
-            cVar3.c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            cVar = this.f6671a.C;
+            if (cVar == null) {
+                LocationClient locationClient = this.f6671a;
+                context = this.f6671a.f6490f;
+                locationClientOption = this.f6671a.f6488d;
+                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.f6671a);
+            }
+            cVar2 = this.f6671a.C;
+            if (cVar2 != null) {
+                cVar3 = this.f6671a.C;
+                cVar3.c();
+            }
         }
     }
 }

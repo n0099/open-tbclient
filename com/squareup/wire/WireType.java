@@ -1,57 +1,124 @@
 package com.squareup.wire;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes7.dex */
-public enum WireType {
-    VARINT(0),
-    FIXED64(1),
-    LENGTH_DELIMITED(2),
-    START_GROUP(3),
-    END_GROUP(4),
-    FIXED32(5);
-    
+public final class WireType {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final WireType END_GROUP;
+    public static final /* synthetic */ WireType[] ENUM$VALUES;
+    public static final WireType FIXED32;
+    public static final WireType FIXED64;
     public static final int FIXED_32_SIZE = 4;
     public static final int FIXED_64_SIZE = 8;
+    public static final WireType LENGTH_DELIMITED;
+    public static final WireType START_GROUP;
     public static final int TAG_TYPE_BITS = 3;
     public static final int TAG_TYPE_MASK = 7;
+    public static final WireType VARINT;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
-    WireType(int i2) {
-        this.value = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2094146129, "Lcom/squareup/wire/WireType;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2094146129, "Lcom/squareup/wire/WireType;");
+                return;
+            }
+        }
+        VARINT = new WireType("VARINT", 0, 0);
+        FIXED64 = new WireType("FIXED64", 1, 1);
+        LENGTH_DELIMITED = new WireType("LENGTH_DELIMITED", 2, 2);
+        START_GROUP = new WireType("START_GROUP", 3, 3);
+        END_GROUP = new WireType("END_GROUP", 4, 4);
+        WireType wireType = new WireType("FIXED32", 5, 5);
+        FIXED32 = wireType;
+        ENUM$VALUES = new WireType[]{VARINT, FIXED64, LENGTH_DELIMITED, START_GROUP, END_GROUP, wireType};
     }
 
-    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
-    /* renamed from: values  reason: to resolve conflict with enum method */
-    public static WireType[] valuesCustom() {
-        WireType[] valuesCustom = values();
-        int length = valuesCustom.length;
-        WireType[] wireTypeArr = new WireType[length];
-        System.arraycopy(valuesCustom, 0, wireTypeArr, 0, length);
-        return wireTypeArr;
+    public WireType(String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.value = i3;
+    }
+
+    public static WireType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (WireType) Enum.valueOf(WireType.class, str) : (WireType) invokeL.objValue;
+    }
+
+    public static WireType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            WireType[] wireTypeArr = ENUM$VALUES;
+            int length = wireTypeArr.length;
+            WireType[] wireTypeArr2 = new WireType[length];
+            System.arraycopy(wireTypeArr, 0, wireTypeArr2, 0, length);
+            return wireTypeArr2;
+        }
+        return (WireType[]) invokeV.objValue;
     }
 
     public int value() {
-        return this.value;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
     }
 
     public static WireType valueOf(int i2) {
-        int i3 = i2 & 7;
-        if (i3 != 0) {
-            if (i3 != 1) {
-                if (i3 != 2) {
-                    if (i3 != 3) {
-                        if (i3 != 4) {
-                            if (i3 == 5) {
-                                return FIXED32;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            int i3 = i2 & 7;
+            if (i3 != 0) {
+                if (i3 != 1) {
+                    if (i3 != 2) {
+                        if (i3 != 3) {
+                            if (i3 != 4) {
+                                if (i3 == 5) {
+                                    return FIXED32;
+                                }
+                                throw new IllegalArgumentException("No WireType for value " + i2);
                             }
-                            throw new IllegalArgumentException("No WireType for value " + i2);
+                            return END_GROUP;
                         }
-                        return END_GROUP;
+                        return START_GROUP;
                     }
-                    return START_GROUP;
+                    return LENGTH_DELIMITED;
                 }
-                return LENGTH_DELIMITED;
+                return FIXED64;
             }
-            return FIXED64;
+            return VARINT;
         }
-        return VARINT;
+        return (WireType) invokeI.objValue;
     }
 }

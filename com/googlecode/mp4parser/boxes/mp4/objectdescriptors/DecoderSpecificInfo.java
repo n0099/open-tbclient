@@ -1,56 +1,99 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 @Descriptor(tags = {5})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DecoderSpecificInfo extends BaseDescriptor {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public byte[] bytes;
 
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+    public DecoderSpecificInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return obj != null && DecoderSpecificInfo.class == obj.getClass() && Arrays.equals(this.bytes, ((DecoderSpecificInfo) obj).bytes);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            return obj != null && DecoderSpecificInfo.class == obj.getClass() && Arrays.equals(this.bytes, ((DecoderSpecificInfo) obj).bytes);
+        }
+        return invokeL.booleanValue;
     }
 
     public int hashCode() {
-        byte[] bArr = this.bytes;
-        if (bArr != null) {
-            return Arrays.hashCode(bArr);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] bArr = this.bytes;
+            if (bArr != null) {
+                return Arrays.hashCode(bArr);
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public void parseDetail(ByteBuffer byteBuffer) throws IOException {
-        int i2 = this.sizeOfInstance;
-        if (i2 > 0) {
-            byte[] bArr = new byte[i2];
-            this.bytes = bArr;
-            byteBuffer.get(bArr);
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) || (i2 = this.sizeOfInstance) <= 0) {
+            return;
         }
+        byte[] bArr = new byte[i2];
+        this.bytes = bArr;
+        byteBuffer.get(bArr);
     }
 
     public ByteBuffer serialize() {
-        return ByteBuffer.wrap(this.bytes);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ByteBuffer.wrap(this.bytes) : (ByteBuffer) invokeV.objValue;
     }
 
     public int serializedSize() {
-        return this.bytes.length;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bytes.length : invokeV.intValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("DecoderSpecificInfo");
-        sb.append("{bytes=");
-        byte[] bArr = this.bytes;
-        sb.append(bArr == null ? StringUtil.NULL_STRING : Hex.encodeHex(bArr));
-        sb.append('}');
-        return sb.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("DecoderSpecificInfo");
+            sb.append("{bytes=");
+            byte[] bArr = this.bytes;
+            sb.append(bArr == null ? StringUtil.NULL_STRING : Hex.encodeHex(bArr));
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

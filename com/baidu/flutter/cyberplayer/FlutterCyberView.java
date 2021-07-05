@@ -4,10 +4,19 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.PowerManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVideoView;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class FlutterCyberView extends CyberVideoView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context J;
     public PowerManager.WakeLock K;
     public boolean L;
@@ -23,144 +32,304 @@ public class FlutterCyberView extends CyberVideoView {
     public CyberPlayerManager.OnSeekCompleteListener V;
     public CyberPlayerManager.OnInfoListener W;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements CyberPlayerManager.OnPreparedListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FlutterCyberView f5087e;
+
+        public a(FlutterCyberView flutterCyberView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {flutterCyberView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5087e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
             int a2;
-            if (FlutterCyberView.this.N != null) {
-                FlutterCyberView.this.N.onPrepared();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f5087e.N != null) {
+                    this.f5087e.N.onPrepared();
+                }
+                if (!this.f5087e.L || (a2 = d.a.p.a.d.b().a(this.f5087e.M)) <= 0) {
+                    return;
+                }
+                this.f5087e.seekTo(a2);
             }
-            if (!FlutterCyberView.this.L || (a2 = d.a.o.a.d.b().a(FlutterCyberView.this.M)) <= 0) {
-                return;
-            }
-            FlutterCyberView.this.seekTo(a2);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements CyberPlayerManager.OnCompletionListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FlutterCyberView f5088e;
+
+        public b(FlutterCyberView flutterCyberView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {flutterCyberView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5088e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
-            d.a.o.a.d.b().c(FlutterCyberView.this.M);
-            if (FlutterCyberView.this.getCyberPlayer().isLooping() || FlutterCyberView.this.O == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d.a.p.a.d.b().c(this.f5088e.M);
+                if (this.f5088e.getCyberPlayer().isLooping() || this.f5088e.O == null) {
+                    return;
+                }
+                this.f5088e.O.onCompletion();
             }
-            FlutterCyberView.this.O.onCompletion();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements CyberPlayerManager.OnErrorListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FlutterCyberView f5089e;
+
+        public c(FlutterCyberView flutterCyberView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {flutterCyberView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5089e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i2, int i3, Object obj) {
-            if (FlutterCyberView.this.getCurrentPosition() > 0 && FlutterCyberView.this.s()) {
-                d.a.o.a.d.b().d(FlutterCyberView.this.M, FlutterCyberView.this.getCurrentPosition());
-            }
-            if (FlutterCyberView.this.Q != null) {
-                FlutterCyberView.this.Q.onError(i2, i3, obj);
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
+                if (this.f5089e.getCurrentPosition() > 0 && this.f5089e.s()) {
+                    d.a.p.a.d.b().d(this.f5089e.M, this.f5089e.getCurrentPosition());
+                }
+                if (this.f5089e.Q != null) {
+                    this.f5089e.Q.onError(i2, i3, obj);
+                    return true;
+                }
                 return true;
             }
-            return true;
+            return invokeIIL.booleanValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements CyberPlayerManager.OnSeekCompleteListener {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FlutterCyberView f5090e;
+
+        public d(FlutterCyberView flutterCyberView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {flutterCyberView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5090e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
         public void onSeekComplete() {
-            if (FlutterCyberView.this.P != null) {
-                FlutterCyberView.this.P.onSeekComplete();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5090e.P == null) {
+                return;
             }
+            this.f5090e.P.onSeekComplete();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements CyberPlayerManager.OnInfoListener {
-        public e() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FlutterCyberView f5091e;
+
+        public e(FlutterCyberView flutterCyberView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {flutterCyberView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5091e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
         public boolean onInfo(int i2, int i3, Object obj) {
-            if (FlutterCyberView.this.R != null) {
-                FlutterCyberView.this.R.onInfo(i2, i3, obj);
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
+                if (this.f5091e.R != null) {
+                    this.f5091e.R.onInfo(i2, i3, obj);
+                    return true;
+                }
                 return true;
             }
-            return true;
+            return invokeIIL.booleanValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface f {
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlutterCyberView(Context context) {
         super(context, 1);
-        this.S = new a();
-        this.T = new b();
-        this.U = new c();
-        this.V = new d();
-        this.W = new e();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.S = new a(this);
+        this.T = new b(this);
+        this.U = new c(this);
+        this.V = new d(this);
+        this.W = new e(this);
         r(context);
     }
 
     public String getOriginUrl() {
-        return this.M;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.M : (String) invokeV.objValue;
     }
 
     @SuppressLint({"InvalidWakeLockTag"})
     public final void r(Context context) {
-        this.J = context;
-        try {
-            PowerManager powerManager = (PowerManager) context.getSystemService("power");
-            if (powerManager != null) {
-                PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(536870922, "FlutterVideoView_WakeLock");
-                this.K = newWakeLock;
-                newWakeLock.setReferenceCounted(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.J = context;
+            try {
+                PowerManager powerManager = (PowerManager) context.getSystemService("power");
+                if (powerManager != null) {
+                    PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(536870922, "FlutterVideoView_WakeLock");
+                    this.K = newWakeLock;
+                    newWakeLock.setReferenceCounted(false);
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            super.setOnPreparedListener(this.S);
+            super.setOnCompletionListener(this.T);
+            super.setOnErrorListener(this.U);
+            super.setOnSeekCompleteListener(this.V);
+            super.setOnInfoListener(this.W);
         }
-        super.setOnPreparedListener(this.S);
-        super.setOnCompletionListener(this.T);
-        super.setOnErrorListener(this.U);
-        super.setOnSeekCompleteListener(this.V);
-        super.setOnInfoListener(this.W);
     }
 
     public final boolean s() {
-        return getCyberPlayer() != null && getCyberPlayer().getDuration() >= getCyberPlayer().getCurrentPosition();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getCyberPlayer() != null && getCyberPlayer().getDuration() >= getCyberPlayer().getCurrentPosition() : invokeV.booleanValue;
     }
 
     public void setContinuePlayEnable(boolean z) {
-        this.L = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.L = z;
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setLooping(boolean z) {
-        getCyberPlayer().setLooping(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            getCyberPlayer().setLooping(z);
+        }
     }
 
     public void setOnSurfaceDestroyedListener(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+        }
     }
 
     public void setVideoDuration(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         this.M = str;
@@ -169,19 +338,25 @@ public class FlutterCyberView extends CyberVideoView {
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void stopPlayback() {
-        if (isPlaying() && s()) {
-            d.a.o.a.d.b().d(this.M, getCurrentPositionSync());
-        }
-        try {
-            if (this.K != null && this.K.isHeld()) {
-                this.K.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (isPlaying() && s()) {
+                d.a.p.a.d.b().d(this.M, getCurrentPositionSync());
             }
-        } catch (Exception unused) {
+            try {
+                if (this.K != null && this.K.isHeld()) {
+                    this.K.release();
+                }
+            } catch (Exception unused) {
+            }
+            super.stopPlayback();
         }
-        super.stopPlayback();
     }
 
     public void t() {
-        stopPlayback();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            stopPlayback();
+        }
     }
 }

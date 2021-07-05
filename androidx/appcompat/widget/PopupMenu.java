@@ -18,8 +18,17 @@ import androidx.appcompat.view.SupportMenuInflater;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPopupHelper;
 import androidx.appcompat.view.menu.ShowableListMenu;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class PopupMenu {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final View mAnchor;
     public final Context mContext;
     public View.OnTouchListener mDragListener;
@@ -38,115 +47,288 @@ public class PopupMenu {
         boolean onMenuItemClick(MenuItem menuItem);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PopupMenu(@NonNull Context context, @NonNull View view) {
         this(context, view, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (View) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public void dismiss() {
-        this.mPopup.dismiss();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mPopup.dismiss();
+        }
     }
 
     @NonNull
     public View.OnTouchListener getDragToOpenListener() {
-        if (this.mDragListener == null) {
-            this.mDragListener = new ForwardingListener(this.mAnchor) { // from class: androidx.appcompat.widget.PopupMenu.3
-                @Override // androidx.appcompat.widget.ForwardingListener
-                public ShowableListMenu getPopup() {
-                    return PopupMenu.this.mPopup.getPopup();
-                }
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mDragListener == null) {
+                this.mDragListener = new ForwardingListener(this, this.mAnchor) { // from class: androidx.appcompat.widget.PopupMenu.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ PopupMenu this$0;
 
-                @Override // androidx.appcompat.widget.ForwardingListener
-                public boolean onForwardingStarted() {
-                    PopupMenu.this.show();
-                    return true;
-                }
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(r8);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, r8};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                super((View) newInitContext.callArgs[0]);
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
 
-                @Override // androidx.appcompat.widget.ForwardingListener
-                public boolean onForwardingStopped() {
-                    PopupMenu.this.dismiss();
-                    return true;
-                }
-            };
+                    @Override // androidx.appcompat.widget.ForwardingListener
+                    public ShowableListMenu getPopup() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.mPopup.getPopup() : (ShowableListMenu) invokeV2.objValue;
+                    }
+
+                    @Override // androidx.appcompat.widget.ForwardingListener
+                    public boolean onForwardingStarted() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            this.this$0.show();
+                            return true;
+                        }
+                        return invokeV2.booleanValue;
+                    }
+
+                    @Override // androidx.appcompat.widget.ForwardingListener
+                    public boolean onForwardingStopped() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                            this.this$0.dismiss();
+                            return true;
+                        }
+                        return invokeV2.booleanValue;
+                    }
+                };
+            }
+            return this.mDragListener;
         }
-        return this.mDragListener;
+        return (View.OnTouchListener) invokeV.objValue;
     }
 
     public int getGravity() {
-        return this.mPopup.getGravity();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPopup.getGravity() : invokeV.intValue;
     }
 
     @NonNull
     public Menu getMenu() {
-        return this.mMenu;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMenu : (Menu) invokeV.objValue;
     }
 
     @NonNull
     public MenuInflater getMenuInflater() {
-        return new SupportMenuInflater(this.mContext);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new SupportMenuInflater(this.mContext) : (MenuInflater) invokeV.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ListView getMenuListView() {
-        if (this.mPopup.isShowing()) {
-            return this.mPopup.getListView();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mPopup.isShowing()) {
+                return this.mPopup.getListView();
+            }
+            return null;
         }
-        return null;
+        return (ListView) invokeV.objValue;
     }
 
     public void inflate(@MenuRes int i2) {
-        getMenuInflater().inflate(i2, this.mMenu);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            getMenuInflater().inflate(i2, this.mMenu);
+        }
     }
 
     public void setGravity(int i2) {
-        this.mPopup.setGravity(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.mPopup.setGravity(i2);
+        }
     }
 
     public void setOnDismissListener(@Nullable OnDismissListener onDismissListener) {
-        this.mOnDismissListener = onDismissListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onDismissListener) == null) {
+            this.mOnDismissListener = onDismissListener;
+        }
     }
 
     public void setOnMenuItemClickListener(@Nullable OnMenuItemClickListener onMenuItemClickListener) {
-        this.mMenuItemClickListener = onMenuItemClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, onMenuItemClickListener) == null) {
+            this.mMenuItemClickListener = onMenuItemClickListener;
+        }
     }
 
     public void show() {
-        this.mPopup.show();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.mPopup.show();
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PopupMenu(@NonNull Context context, @NonNull View view, int i2) {
         this(context, view, i2, R.attr.popupMenuStyle, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (View) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public PopupMenu(@NonNull Context context, @NonNull View view, int i2, @AttrRes int i3, @StyleRes int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
         this.mAnchor = view;
         MenuBuilder menuBuilder = new MenuBuilder(context);
         this.mMenu = menuBuilder;
-        menuBuilder.setCallback(new MenuBuilder.Callback() { // from class: androidx.appcompat.widget.PopupMenu.1
+        menuBuilder.setCallback(new MenuBuilder.Callback(this) { // from class: androidx.appcompat.widget.PopupMenu.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PopupMenu this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i7 = newInitContext2.flag;
+                    if ((i7 & 1) != 0) {
+                        int i8 = i7 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
             public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder2, @NonNull MenuItem menuItem) {
-                OnMenuItemClickListener onMenuItemClickListener = PopupMenu.this.mMenuItemClickListener;
-                if (onMenuItemClickListener != null) {
-                    return onMenuItemClickListener.onMenuItemClick(menuItem);
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, menuBuilder2, menuItem)) == null) {
+                    OnMenuItemClickListener onMenuItemClickListener = this.this$0.mMenuItemClickListener;
+                    if (onMenuItemClickListener != null) {
+                        return onMenuItemClickListener.onMenuItemClick(menuItem);
+                    }
+                    return false;
                 }
-                return false;
+                return invokeLL.booleanValue;
             }
 
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
             public void onMenuModeChange(@NonNull MenuBuilder menuBuilder2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder2) == null) {
+                }
             }
         });
         MenuPopupHelper menuPopupHelper = new MenuPopupHelper(context, this.mMenu, view, false, i3, i4);
         this.mPopup = menuPopupHelper;
         menuPopupHelper.setGravity(i2);
-        this.mPopup.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: androidx.appcompat.widget.PopupMenu.2
+        this.mPopup.setOnDismissListener(new PopupWindow.OnDismissListener(this) { // from class: androidx.appcompat.widget.PopupMenu.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PopupMenu this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i7 = newInitContext2.flag;
+                    if ((i7 & 1) != 0) {
+                        int i8 = i7 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                PopupMenu popupMenu = PopupMenu.this;
-                OnDismissListener onDismissListener = popupMenu.mOnDismissListener;
-                if (onDismissListener != null) {
-                    onDismissListener.onDismiss(popupMenu);
+                PopupMenu popupMenu;
+                OnDismissListener onDismissListener;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (onDismissListener = (popupMenu = this.this$0).mOnDismissListener) == null) {
+                    return;
                 }
+                onDismissListener.onDismiss(popupMenu);
             }
         });
     }

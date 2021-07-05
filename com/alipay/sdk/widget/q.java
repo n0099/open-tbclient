@@ -4,37 +4,64 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import com.alipay.sdk.widget.WebViewWindow;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2047a;
+    public final /* synthetic */ WebViewWindow f2050a;
 
     public q(WebViewWindow webViewWindow) {
-        this.f2047a = webViewWindow;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webViewWindow};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f2050a = webViewWindow;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
+        r0 = r5.f2050a.f2012i;
+     */
     @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onClick(View view) {
         WebViewWindow.c cVar;
         Handler handler;
         ImageView imageView;
         ImageView imageView2;
-        cVar = this.f2047a.f2009i;
-        if (cVar != null) {
-            view.setEnabled(false);
-            handler = WebViewWindow.f2001f;
-            handler.postDelayed(new r(this, view), 256L);
-            imageView = this.f2047a.f2002a;
-            if (view != imageView) {
-                imageView2 = this.f2047a.f2004c;
-                if (view == imageView2) {
-                    cVar.b(this.f2047a);
-                    return;
-                }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || cVar == null) {
+            return;
+        }
+        view.setEnabled(false);
+        handler = WebViewWindow.f2004f;
+        handler.postDelayed(new r(this, view), 256L);
+        imageView = this.f2050a.f2005a;
+        if (view != imageView) {
+            imageView2 = this.f2050a.f2007c;
+            if (view == imageView2) {
+                cVar.b(this.f2050a);
                 return;
             }
-            cVar.a(this.f2047a);
+            return;
         }
+        cVar.a(this.f2050a);
     }
 }

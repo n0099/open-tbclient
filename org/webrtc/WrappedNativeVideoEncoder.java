@@ -1,29 +1,72 @@
 package org.webrtc;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class WrappedNativeVideoEncoder implements VideoEncoder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public WrappedNativeVideoEncoder() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // org.webrtc.VideoEncoder
     public abstract long createNativeVideoEncoder();
 
     @Override // org.webrtc.VideoEncoder
     public VideoCodecStatus encode(VideoFrame videoFrame, VideoEncoder.EncodeInfo encodeInfo) {
-        throw new UnsupportedOperationException("Not implemented.");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoFrame, encodeInfo)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (VideoCodecStatus) invokeLL.objValue;
     }
 
     @Override // org.webrtc.VideoEncoder
     public String getImplementationName() {
-        throw new UnsupportedOperationException("Not implemented.");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.webrtc.VideoEncoder
     public VideoEncoder.ScalingSettings getScalingSettings() {
-        throw new UnsupportedOperationException("Not implemented.");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (VideoEncoder.ScalingSettings) invokeV.objValue;
     }
 
     @Override // org.webrtc.VideoEncoder
     public VideoCodecStatus initEncode(VideoEncoder.Settings settings, VideoEncoder.Callback callback) {
-        throw new UnsupportedOperationException("Not implemented.");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, settings, callback)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (VideoCodecStatus) invokeLL.objValue;
     }
 
     @Override // org.webrtc.VideoEncoder
@@ -31,11 +74,21 @@ public abstract class WrappedNativeVideoEncoder implements VideoEncoder {
 
     @Override // org.webrtc.VideoEncoder
     public VideoCodecStatus release() {
-        throw new UnsupportedOperationException("Not implemented.");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (VideoCodecStatus) invokeV.objValue;
     }
 
     @Override // org.webrtc.VideoEncoder
     public VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i2) {
-        throw new UnsupportedOperationException("Not implemented.");
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, bitrateAllocation, i2)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (VideoCodecStatus) invokeLI.objValue;
     }
 }

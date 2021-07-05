@@ -5,33 +5,69 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class NASLib extends Activity {
+    public static /* synthetic */ Interceptable $ic;
     public static NASCallBack callback;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface NASCallBack {
         void callback(String str, String str2);
     }
 
-    private void load_uri() {
-        Uri data = getIntent().getData();
-        if (data != null) {
-            parseRequest(data.toString(), true, getApplicationContext());
+    public NASLib() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
+    private void load_uri() {
+        Uri data;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (data = getIntent().getData()) == null) {
+            return;
+        }
+        parseRequest(data.toString(), true, getApplicationContext());
+    }
+
     public static void onAppStart(Context context) {
-        Logger.onClientBoot(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            Logger.onClientBoot(context);
+        }
     }
 
     public static void onAppStop(Context context) {
-        Logger.onClientExit(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            Logger.onClientExit(context);
+        }
     }
 
     private String parseRequest(String str, boolean z, Context context) {
+        InterceptResult invokeCommon;
         String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{str, Boolean.valueOf(z), context})) != null) {
+            return (String) invokeCommon.objValue;
+        }
         String str3 = null;
         try {
             if (str.contains(Info.kUrlSecStart)) {
@@ -71,31 +107,48 @@ public class NASLib extends Activity {
     }
 
     public static void recordCustomAction(Context context, String str) {
-        Logger.recordCustomAction(context, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+            Logger.recordCustomAction(context, str);
+        }
     }
 
     public static void setCallBack(NASCallBack nASCallBack) {
-        callback = nASCallBack;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, nASCallBack) == null) {
+            callback = nASCallBack;
+        }
     }
 
     public static void setLooperDisabled(boolean z) {
-        Logger.looperDisabled = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            Logger.looperDisabled = z;
+        }
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        requestWindowFeature(1);
-        getWindow().setFlags(1024, 2048);
-        load_uri();
-        onAppStart(getApplicationContext());
-        finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            getWindow().setFlags(1024, 2048);
+            load_uri();
+            onAppStart(getApplicationContext());
+            finish();
+        }
     }
 
     public String parseUri(Context context, Uri uri) {
-        if (uri != null) {
-            return parseRequest(uri.toString(), false, context);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, uri)) == null) {
+            if (uri != null) {
+                return parseRequest(uri.toString(), false, context);
+            }
+            return null;
         }
-        return null;
+        return (String) invokeLL.objValue;
     }
 }

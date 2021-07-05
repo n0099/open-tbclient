@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccount;
@@ -17,9 +18,14 @@ import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.AccountType;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareResultProxyActivity extends Activity implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_EXTRA_PARAMS = "key_extra_params";
     public static final String KEY_PKG = "key_pkg";
     public static final String KEY_SESSION_ID = "key_session_id";
@@ -28,110 +34,165 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f9781h = "ShareResultProxyActivity";
+    public static final String f9853h = "ShareResultProxyActivity";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f9782i = "key_launch_share_activity_status";
+    public static final String f9854i = "key_launch_share_activity_status";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9783a;
+    public String f9855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9784b;
+    public String f9856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9785c;
+    public String f9857c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9786d;
+    public String f9858d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f9787e;
+    public ArrayList<PassNameValuePair> f9859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9788f;
+    public String f9860f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9789g;
+    public boolean f9861g;
+
+    public ShareResultProxyActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     private void a() {
-        this.f9789g = true;
-        this.f9783a = getIntent().getStringExtra(KEY_PKG);
-        if (ShareLoginModel.getInstance().isMeetShareV4(this, this.f9783a)) {
-            Log.d(f9781h, "openShareLogin: is meet share_v4");
-            ShareLoginModel.getInstance().openV4ShareLogin(this, this.f9783a, "product");
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            this.f9861g = true;
+            this.f9855a = getIntent().getStringExtra(KEY_PKG);
+            if (ShareLoginModel.getInstance().isMeetShareV4(this, this.f9855a)) {
+                Log.d(f9853h, "openShareLogin: is meet share_v4");
+                ShareLoginModel.getInstance().openV4ShareLogin(this, this.f9855a, "product");
+                return;
+            }
+            Log.d(f9853h, "openShareLogin: is not share_v4");
+            b();
         }
-        Log.d(f9781h, "openShareLogin: is not share_v4");
-        b();
     }
 
     private void b() {
-        Intent intent = getIntent();
-        this.f9783a = intent.getStringExtra(KEY_PKG);
-        this.f9784b = intent.getStringExtra("key_url");
-        this.f9785c = intent.getStringExtra(KEY_TRACE_ID);
-        this.f9786d = intent.getStringExtra("key_session_id");
-        this.f9787e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-        this.f9788f = intent.getStringExtra("key_version");
-        new ShareCallPacking().startLoginShareActivityForResult(this, this.f9783a, this.f9784b, this.f9785c, this.f9786d, this.f9787e, this.f9788f, "product");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            Intent intent = getIntent();
+            this.f9855a = intent.getStringExtra(KEY_PKG);
+            this.f9856b = intent.getStringExtra("key_url");
+            this.f9857c = intent.getStringExtra(KEY_TRACE_ID);
+            this.f9858d = intent.getStringExtra("key_session_id");
+            this.f9859e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+            this.f9860f = intent.getStringExtra("key_version");
+            new ShareCallPacking().startLoginShareActivityForResult(this, this.f9855a, this.f9856b, this.f9857c, this.f9858d, this.f9859e, this.f9860f, "product");
+        }
     }
 
     @Override // android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
-        if (i2 == 20001) {
-            CoreViewRouter.getInstance().onShareLoginActivityResult(i2, i3, intent, "");
-        } else if (i2 == 100004) {
-            ShareLoginModel.getInstance().processShareResult(this, intent, new ShareResultCallback() { // from class: com.baidu.sapi2.activity.ShareResultProxyActivity.1
-                @Override // com.baidu.sapi2.share.ShareResultCallback
-                public void onResultAccount(SapiAccount sapiAccount) {
-                    WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
-                    if (webAuthListener == null) {
-                        return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            if (i2 == 20001) {
+                CoreViewRouter.getInstance().onShareLoginActivityResult(i2, i3, intent, "");
+            } else if (i2 == 100004) {
+                ShareLoginModel.getInstance().processShareResult(this, intent, new ShareResultCallback(this) { // from class: com.baidu.sapi2.activity.ShareResultProxyActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ ShareResultProxyActivity f9862a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f9862a = this;
                     }
-                    WebAuthResult webAuthResult = new WebAuthResult();
-                    if (sapiAccount == null) {
-                        webAuthResult.setResultCode(-207);
-                        webAuthResult.setResultMsg("互通登录失败,请稍后再试");
-                        webAuthListener.onFailure(webAuthResult);
-                        return;
+
+                    @Override // com.baidu.sapi2.share.ShareResultCallback
+                    public void onResultAccount(SapiAccount sapiAccount) {
+                        WebAuthListener webAuthListener;
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, sapiAccount) == null) || (webAuthListener = CoreViewRouter.getInstance().getWebAuthListener()) == null) {
+                            return;
+                        }
+                        WebAuthResult webAuthResult = new WebAuthResult();
+                        if (sapiAccount == null) {
+                            webAuthResult.setResultCode(-207);
+                            webAuthResult.setResultMsg("互通登录失败,请稍后再试");
+                            webAuthListener.onFailure(webAuthResult);
+                            return;
+                        }
+                        webAuthResult.accountType = AccountType.NORMAL;
+                        webAuthResult.setResultCode(0);
+                        webAuthListener.onSuccess(webAuthResult);
+                        CoreViewRouter.getInstance().release();
                     }
-                    webAuthResult.accountType = AccountType.NORMAL;
-                    webAuthResult.setResultCode(0);
-                    webAuthListener.onSuccess(webAuthResult);
-                    CoreViewRouter.getInstance().release();
-                }
-            });
+                });
+            }
+            finish();
         }
-        finish();
     }
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        super.onCreate(bundle);
-        Window window = getWindow();
-        window.setGravity(51);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.x = 0;
-        attributes.y = 0;
-        attributes.width = 1;
-        attributes.height = 1;
-        attributes.type = 2002;
-        attributes.flags = 32;
-        window.setAttributes(attributes);
-        if (bundle != null) {
-            this.f9789g = bundle.getBoolean(f9782i, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            Window window = getWindow();
+            window.setGravity(51);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.x = 0;
+            attributes.y = 0;
+            attributes.width = 1;
+            attributes.height = 1;
+            attributes.type = 2002;
+            attributes.flags = 32;
+            window.setAttributes(attributes);
+            if (bundle != null) {
+                this.f9861g = bundle.getBoolean(f9854i, false);
+            }
+            if (this.f9861g) {
+                return;
+            }
+            a();
         }
-        if (this.f9789g) {
-            return;
-        }
-        a();
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putBoolean(f9782i, this.f9789g);
-        super.onSaveInstanceState(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            bundle.putBoolean(f9854i, this.f9861g);
+            super.onSaveInstanceState(bundle);
+        }
     }
 }

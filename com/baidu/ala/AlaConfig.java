@@ -1,6 +1,12 @@
 package com.baidu.ala;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class AlaConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRS_NEGATIVE_URL = "c/f/video/sendFrsStageFeedBack";
     public static final String ALA_GET_BUY_TDOU_PRIVILEGE = "c/e/mema/buyLiveProps";
     public static final String ALA_GET_ENTER_EFFECT = "ala/user/getUserEffectPage";
@@ -23,4 +29,19 @@ public class AlaConfig {
     public static final String ALA_UPDATE_MARK_STATUS = "ala/user/editUserMark";
     public static final String ALA_USER_CENTER_URL = "ala/user/center";
     public static final String SQUARE_LIVE = "c/f/video/liveSquare";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AlaConfig() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

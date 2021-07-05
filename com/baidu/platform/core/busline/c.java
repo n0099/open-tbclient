@@ -1,32 +1,67 @@
 package com.baidu.platform.core.busline;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.search.busline.BusLineSearchOption;
 import com.baidu.mapapi.search.busline.OnGetBusLineSearchResultListener;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class c extends com.baidu.platform.base.a implements IBusLineSearch {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetBusLineSearchResultListener f9338b = null;
+    public OnGetBusLineSearchResultListener f9412b;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9412b = null;
+    }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a() {
-        this.f9303a.lock();
-        this.f9338b = null;
-        this.f9303a.unlock();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f9377a.lock();
+            this.f9412b = null;
+            this.f9377a.unlock();
+        }
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        this.f9303a.lock();
-        this.f9338b = onGetBusLineSearchResultListener;
-        this.f9303a.unlock();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetBusLineSearchResultListener) == null) {
+            this.f9377a.lock();
+            this.f9412b = onGetBusLineSearchResultListener;
+            this.f9377a.unlock();
+        }
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public boolean a(BusLineSearchOption busLineSearchOption) {
-        a aVar = new a();
-        aVar.a(SearchType.BUS_LINE_DETAIL);
-        return a(new b(busLineSearchOption), this.f9338b, aVar);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, busLineSearchOption)) == null) {
+            a aVar = new a();
+            aVar.a(SearchType.o);
+            return a(new b(busLineSearchOption), this.f9412b, aVar);
+        }
+        return invokeL.booleanValue;
     }
 }

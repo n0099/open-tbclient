@@ -1,36 +1,69 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class jj extends jl {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41769a;
+    public int f43512a;
 
     /* renamed from: a  reason: collision with other field name */
-    public it f814a;
+    public it f817a;
 
     public jj(int i2) {
-        this.f814a = new it(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f817a = new it(i2);
     }
 
     @Override // com.xiaomi.push.jl
     public int a(byte[] bArr, int i2, int i3) {
-        byte[] m502a = this.f814a.m502a();
-        if (i3 > this.f814a.a() - this.f41769a) {
-            i3 = this.f814a.a() - this.f41769a;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
+            byte[] m516a = this.f817a.m516a();
+            if (i3 > this.f817a.a() - this.f43512a) {
+                i3 = this.f817a.a() - this.f43512a;
+            }
+            if (i3 > 0) {
+                System.arraycopy(m516a, this.f43512a, bArr, i2, i3);
+                this.f43512a += i3;
+            }
+            return i3;
         }
-        if (i3 > 0) {
-            System.arraycopy(m502a, this.f41769a, bArr, i2, i3);
-            this.f41769a += i3;
-        }
-        return i3;
+        return invokeLII.intValue;
     }
 
     @Override // com.xiaomi.push.jl
     public void a(byte[] bArr, int i2, int i3) {
-        this.f814a.write(bArr, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
+            this.f817a.write(bArr, i2, i3);
+        }
     }
 
     public int a_() {
-        return this.f814a.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f817a.size() : invokeV.intValue;
     }
 }

@@ -1,6 +1,9 @@
 package androidx.lifecycle;
 
 import androidx.annotation.RequiresApi;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.time.Duration;
 import kotlin.Metadata;
 import kotlin.coroutines.CoroutineContext;
@@ -13,23 +16,34 @@ import kotlinx.coroutines.flow.FlowKt;
 @JvmName(name = "FlowLiveDataConversions")
 /* loaded from: classes.dex */
 public final class FlowLiveDataConversions {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static final <T> Flow<T> asFlow(LiveData<T> liveData) {
-        return FlowKt.flow(new FlowLiveDataConversions$asFlow$1(liveData, null));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, liveData)) == null) ? FlowKt.flow(new FlowLiveDataConversions$asFlow$1(liveData, null)) : (Flow) invokeL.objValue;
     }
 
     @JvmOverloads
     public static final <T> LiveData<T> asLiveData(Flow<? extends T> flow) {
-        return asLiveData$default(flow, (CoroutineContext) null, 0L, 3, (Object) null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, flow)) == null) ? asLiveData$default(flow, (CoroutineContext) null, 0L, 3, (Object) null) : (LiveData) invokeL.objValue;
     }
 
     @JvmOverloads
     public static final <T> LiveData<T> asLiveData(Flow<? extends T> flow, CoroutineContext coroutineContext) {
-        return asLiveData$default(flow, coroutineContext, 0L, 2, (Object) null);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, flow, coroutineContext)) == null) ? asLiveData$default(flow, coroutineContext, 0L, 2, (Object) null) : (LiveData) invokeLL.objValue;
     }
 
     @JvmOverloads
     public static final <T> LiveData<T> asLiveData(Flow<? extends T> flow, CoroutineContext coroutineContext, long j) {
-        return CoroutineLiveDataKt.liveData(coroutineContext, j, new FlowLiveDataConversions$asLiveData$1(flow, null));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{flow, coroutineContext, Long.valueOf(j)})) == null) ? CoroutineLiveDataKt.liveData(coroutineContext, j, new FlowLiveDataConversions$asLiveData$1(flow, null)) : (LiveData) invokeCommon.objValue;
     }
 
     public static /* synthetic */ LiveData asLiveData$default(Flow flow, CoroutineContext coroutineContext, long j, int i2, Object obj) {
@@ -44,7 +58,9 @@ public final class FlowLiveDataConversions {
 
     @RequiresApi(26)
     public static final <T> LiveData<T> asLiveData(Flow<? extends T> flow, CoroutineContext coroutineContext, Duration duration) {
-        return asLiveData(flow, coroutineContext, duration.toMillis());
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, flow, coroutineContext, duration)) == null) ? asLiveData(flow, coroutineContext, duration.toMillis()) : (LiveData) invokeLLL.objValue;
     }
 
     public static /* synthetic */ LiveData asLiveData$default(Flow flow, CoroutineContext coroutineContext, Duration duration, int i2, Object obj) {

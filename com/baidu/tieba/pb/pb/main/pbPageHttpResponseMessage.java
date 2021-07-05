@@ -3,11 +3,17 @@ package com.baidu.tieba.pb.pb.main;
 import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import d.a.o0.e2.h.c;
-import d.a.o0.e2.h.e;
-import d.a.o0.e2.k.e.k;
-import d.a.o0.t2.i0.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.h2.h.c;
+import d.a.s0.h2.h.e;
+import d.a.s0.h2.k.e.k;
+import d.a.s0.w2.i0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
@@ -16,6 +22,8 @@ import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
 /* loaded from: classes5.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public Context context;
     public boolean isFromMark;
@@ -23,84 +31,115 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public e pbData;
     public int updateType;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pbPageHttpResponseMessage(int i2) {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public c getAppealInfo() {
-        return this.mAppealInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (c) invokeV.objValue;
     }
 
     public e getPbData() {
-        return this.pbData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (e) invokeV.objValue;
     }
 
     public int getUpdateType() {
-        return this.updateType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.updateType : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void setOrginalMessage(Message<?> message) {
-        super.setOrginalMessage(message);
-        if (message.getExtra() instanceof PbPageRequestMessage) {
-            PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) message.getExtra();
-            this.updateType = pbPageRequestMessage.getUpdateType();
-            this.cacheKey = pbPageRequestMessage.getCacheKey();
-            this.isFromMark = pbPageRequestMessage.getIsFromMark();
-            this.context = pbPageRequestMessage.getContext();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
+            super.setOrginalMessage(message);
+            if (message.getExtra() instanceof PbPageRequestMessage) {
+                PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) message.getExtra();
+                this.updateType = pbPageRequestMessage.getUpdateType();
+                this.cacheKey = pbPageRequestMessage.getCacheKey();
+                this.isFromMark = pbPageRequestMessage.getIsFromMark();
+                this.context = pbPageRequestMessage.getContext();
+            }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
-        int i3 = this.updateType;
-        if (i3 == 3) {
-            k.b().e(this.cacheKey, this.isFromMark, bArr);
-        } else if (i3 != 4) {
-        } else {
-            k.b().f(this.cacheKey, bArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+            int i3 = this.updateType;
+            if (i3 == 3) {
+                k.b().e(this.cacheKey, this.isFromMark, bArr);
+            } else if (i3 != 4) {
+            } else {
+                k.b().f(this.cacheKey, bArr);
+            }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
-        PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
-        setError(pbPageResIdl.error.errorno.intValue());
-        setErrorString(pbPageResIdl.error.usermsg);
-        if (getError() != 0) {
-            if (getError() != 4 || pbPageResIdl.data == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+            PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
+            setError(pbPageResIdl.error.errorno.intValue());
+            setErrorString(pbPageResIdl.error.usermsg);
+            if (getError() != 0) {
+                if (getError() != 4 || pbPageResIdl.data == null) {
+                    return;
+                }
+                c cVar = new c();
+                this.mAppealInfo = cVar;
+                AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
+                if (appealInfo != null) {
+                    cVar.f60131a = appealInfo.source;
+                    cVar.f60133c = appealInfo.appeal_url;
+                }
+                SimpleForum simpleForum = pbPageResIdl.data.forum;
+                if (simpleForum != null) {
+                    this.mAppealInfo.f60132b = simpleForum.name;
+                    return;
+                }
                 return;
             }
-            c cVar = new c();
-            this.mAppealInfo = cVar;
-            AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
-            if (appealInfo != null) {
-                cVar.f56727a = appealInfo.source;
-                cVar.f56729c = appealInfo.appeal_url;
+            e eVar = new e();
+            this.pbData = eVar;
+            eVar.q0(2);
+            this.pbData.p0(pbPageResIdl.data, this.context);
+            DataRes dataRes = pbPageResIdl.data;
+            if (dataRes != null) {
+                SimpleForum simpleForum2 = dataRes.forum;
+                JSONObject c2 = b.c(pbPageResIdl.data.thread, simpleForum2 != null ? simpleForum2.name : "");
+                ArrayList arrayList = new ArrayList();
+                if (c2 != null) {
+                    arrayList.add(c2);
+                }
+                b.f().h("PB", arrayList);
             }
-            SimpleForum simpleForum = pbPageResIdl.data.forum;
-            if (simpleForum != null) {
-                this.mAppealInfo.f56728b = simpleForum.name;
-                return;
-            }
-            return;
+            BdLog.detailException(null);
         }
-        e eVar = new e();
-        this.pbData = eVar;
-        eVar.k0(2);
-        this.pbData.j0(pbPageResIdl.data, this.context);
-        DataRes dataRes = pbPageResIdl.data;
-        if (dataRes != null) {
-            SimpleForum simpleForum2 = dataRes.forum;
-            JSONObject c2 = b.c(pbPageResIdl.data.thread, simpleForum2 != null ? simpleForum2.name : "");
-            ArrayList arrayList = new ArrayList();
-            if (c2 != null) {
-                arrayList.add(c2);
-            }
-            b.f().h("PB", arrayList);
-        }
-        BdLog.detailException(null);
     }
 }

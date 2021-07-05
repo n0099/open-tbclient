@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.disasterrecovery.jnicrash.NativeCrashCapture;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -14,18 +15,57 @@ import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.searchbox.track.Track;
-import d.a.f0.b.a.a;
-import d.a.n.a.b;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.j0.b.a.a;
+import d.a.o.a.b;
+/* loaded from: classes3.dex */
 public class Loki {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
-    public static volatile boolean sIsInitialized = false;
-    public static volatile boolean sIsStartTrack = false;
+    public static volatile boolean sIsInitialized;
+    public static volatile boolean sIsStartTrack;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1613861027, "Lcom/baidu/searchbox/logsystem/basic/Loki;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1613861027, "Lcom/baidu/searchbox/logsystem/basic/Loki;");
+        }
+    }
+
+    public Loki() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     @DebugTrace
     @TimeSpendTrace(tag = "AppInit")
     public static void init(@NonNull Context context, @NonNull BaseUncaughtExceptionHandler baseUncaughtExceptionHandler) {
-        if (isLokiService(a.b())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, baseUncaughtExceptionHandler) == null) || isLokiService(a.b())) {
             return;
         }
         retryUpload(context);
@@ -37,49 +77,72 @@ public class Loki {
     }
 
     public static void initNative(@NonNull Context context) {
-        initNative(context, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+            initNative(context, true);
+        }
     }
 
     public static void initService(@Nullable LogSystemProcessor logSystemProcessor) {
-        if (isLokiService(a.b())) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, logSystemProcessor) == null) && isLokiService(a.b())) {
             LokiService.mProcessor = logSystemProcessor;
         }
     }
 
     public static boolean isCrashpadService(@NonNull String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.endsWith(CRASH_PAD_PROCESS_NAME);
         }
-        return str.endsWith(CRASH_PAD_PROCESS_NAME);
+        return invokeL.booleanValue;
     }
 
     public static boolean isLokiService(@NonNull String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.endsWith(LokiService.LOG_SYSTEM_SERVICE);
         }
-        return str.endsWith(LokiService.LOG_SYSTEM_SERVICE);
+        return invokeL.booleanValue;
     }
 
     public static boolean isStartTrack() {
-        return sIsInitialized;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? sIsInitialized : invokeV.booleanValue;
     }
 
     public static void retryUpload(Context context) {
-        if (a.f() && LogSystemUploaderStrategy.checkFlag()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a.f() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }
 
     public static void setAppExtraCall(Common.AppExtraCall appExtraCall) {
-        Common.setAppExtraCall(appExtraCall);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, appExtraCall) == null) {
+            Common.setAppExtraCall(appExtraCall);
+        }
     }
 
     public static boolean setCyberVersion(String str) {
-        return ZwCrashpad.setCyberVersion(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) ? ZwCrashpad.setCyberVersion(str) : invokeL.booleanValue;
     }
 
     public static void startTrack() {
-        if (sIsStartTrack) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65552, null) == null) || sIsStartTrack) {
             return;
         }
         sIsStartTrack = true;
@@ -88,31 +151,40 @@ public class Loki {
     }
 
     public static void initNative(@NonNull Context context, @NonNull b bVar) {
-        initNative(context, bVar, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, bVar) == null) {
+            initNative(context, bVar, true);
+        }
     }
 
     public static void initNative(@NonNull Context context, boolean z) {
-        if (isLokiService(a.b())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65543, null, context, z) == null) || isLokiService(a.b())) {
             return;
         }
         NativeCrashCapture.init(context, new b(context), z);
     }
 
     public static void initService() {
-        if (isLokiService(a.b())) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && isLokiService(a.b())) {
             LokiService.mProcessor = new LogSystemProcessor();
         }
     }
 
     public static void initNative(@NonNull Context context, @NonNull b bVar, boolean z) {
-        if (isLokiService(a.b())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, context, bVar, z) == null) || isLokiService(a.b())) {
             return;
         }
         NativeCrashCapture.init(context, bVar, z);
     }
 
     public static void init(@NonNull Context context) {
-        init(context, new BaseUncaughtExceptionHandler(context));
-        startTrack();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            init(context, new BaseUncaughtExceptionHandler(context));
+            startTrack();
+        }
     }
 }

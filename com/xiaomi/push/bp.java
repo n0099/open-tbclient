@@ -1,23 +1,50 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bp implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41146a;
+    public Context f42889a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.clientreport.processor.c f155a;
+    public com.xiaomi.clientreport.processor.c f158a;
+
+    public bp() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public void a(Context context) {
-        this.f41146a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.f42889a = context;
+        }
     }
 
     public void a(com.xiaomi.clientreport.processor.c cVar) {
-        this.f155a = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.f158a = cVar;
+        }
     }
 
     @Override // java.lang.Runnable
@@ -25,25 +52,28 @@ public class bp implements Runnable {
         bt a2;
         String str;
         long currentTimeMillis;
-        try {
-            if (this.f155a != null) {
-                this.f155a.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.f158a != null) {
+                    this.f158a.a();
+                }
+                com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
+                if (this.f158a instanceof IEventProcessor) {
+                    a2 = bt.a(this.f42889a);
+                    str = "event_last_upload_time";
+                    currentTimeMillis = System.currentTimeMillis();
+                } else if (!(this.f158a instanceof IPerfProcessor)) {
+                    return;
+                } else {
+                    a2 = bt.a(this.f42889a);
+                    str = "perf_last_upload_time";
+                    currentTimeMillis = System.currentTimeMillis();
+                }
+                a2.m188a("sp_client_report_status", str, currentTimeMillis);
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
-            com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-            if (this.f155a instanceof IEventProcessor) {
-                a2 = bt.a(this.f41146a);
-                str = "event_last_upload_time";
-                currentTimeMillis = System.currentTimeMillis();
-            } else if (!(this.f155a instanceof IPerfProcessor)) {
-                return;
-            } else {
-                a2 = bt.a(this.f41146a);
-                str = "perf_last_upload_time";
-                currentTimeMillis = System.currentTimeMillis();
-            }
-            a2.m174a("sp_client_report_status", str, currentTimeMillis);
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
     }
 }

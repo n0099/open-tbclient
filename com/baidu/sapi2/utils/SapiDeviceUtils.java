@@ -5,20 +5,48 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiDeviceUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public SapiDeviceUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static boolean checkHosts(Context context) {
+        InterceptResult invokeL;
         FileInputStream fileInputStream;
         Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, context)) != null) {
+            return invokeL.booleanValue;
+        }
         if (context == null) {
             return false;
         }
@@ -74,65 +102,85 @@ public class SapiDeviceUtils {
     }
 
     public static String getBrandName() {
-        try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, "UTF-8");
-        } catch (Exception unused) {
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, "UTF-8");
+            } catch (Exception unused) {
+                return "";
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public static String getIMEI(Context context) {
-        try {
-            if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
-                String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                return deviceId == null ? "" : deviceId;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
+                    String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                    return deviceId == null ? "" : deviceId;
+                }
+                return "";
+            } catch (Exception unused) {
+                return "";
             }
-            return "";
-        } catch (Exception unused) {
-            return "";
         }
+        return (String) invokeL.objValue;
     }
 
     public static String getMac(Context context) {
-        try {
-        } catch (Exception e2) {
-            Log.e(e2);
-        }
-        if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
-                        byte[] hardwareAddress = networkInterface.getHardwareAddress();
-                        if (hardwareAddress == null) {
-                            return "";
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        int length = hardwareAddress.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
-                        }
-                        if (sb.length() > 0) {
-                            sb.deleteCharAt(sb.length() - 1);
-                        }
-                        return sb.toString().toLowerCase();
-                    }
-                }
-                return Config.DEF_MAC_ID;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            try {
+            } catch (Exception e2) {
+                Log.e(e2);
             }
-            return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+            if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                        if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
+                            byte[] hardwareAddress = networkInterface.getHardwareAddress();
+                            if (hardwareAddress == null) {
+                                return "";
+                            }
+                            StringBuilder sb = new StringBuilder();
+                            int length = hardwareAddress.length;
+                            for (int i2 = 0; i2 < length; i2++) {
+                                sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
+                            }
+                            if (sb.length() > 0) {
+                                sb.deleteCharAt(sb.length() - 1);
+                            }
+                            return sb.toString().toLowerCase();
+                        }
+                    }
+                    return Config.DEF_MAC_ID;
+                }
+                return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+            }
+            return Config.DEF_MAC_ID;
         }
-        return Config.DEF_MAC_ID;
+        return (String) invokeL.objValue;
     }
 
     public static boolean isForbidDangerousPermissionApp(Context context) {
-        ArrayList<String> arrayList = new ArrayList();
-        arrayList.add("com.baidu.(.*)input(.*)");
-        String packageName = context.getPackageName();
-        for (String str : arrayList) {
-            if (packageName.matches(str)) {
-                return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            ArrayList<String> arrayList = new ArrayList();
+            arrayList.add("com.baidu.(.*)input(.*)");
+            String packageName = context.getPackageName();
+            for (String str : arrayList) {
+                if (packageName.matches(str)) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 }

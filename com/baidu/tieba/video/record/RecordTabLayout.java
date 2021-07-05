@@ -8,75 +8,129 @@ import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class RecordTabLayout extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f21489e;
+    public LinearLayout f21618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21490f;
+    public View f21619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21491g;
+    public boolean f21620g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21492h;
+    public int f21621h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f21493i;
+    public c f21622i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f21494e;
+        public final /* synthetic */ int f21623e;
 
-        public a(int i2) {
-            this.f21494e = i2;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ RecordTabLayout f21624f;
+
+        public a(RecordTabLayout recordTabLayout, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {recordTabLayout, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21624f = recordTabLayout;
+            this.f21623e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i2 = RecordTabLayout.this.f21492h;
-            int i3 = this.f21494e;
-            if (i2 == i3) {
-                return;
-            }
-            RecordTabLayout.this.setCurrentTab(i3, true);
-            if (RecordTabLayout.this.f21493i != null) {
-                RecordTabLayout.this.f21493i.onTabChoosed(this.f21494e, true);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                int i2 = this.f21624f.f21621h;
+                int i3 = this.f21623e;
+                if (i2 == i3) {
+                    return;
+                }
+                this.f21624f.setCurrentTab(i3, true);
+                if (this.f21624f.f21622i != null) {
+                    this.f21624f.f21622i.onTabChoosed(this.f21623e, true);
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f21496e;
+        public final /* synthetic */ TextView f21625e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f21497f;
+        public final /* synthetic */ boolean f21626f;
 
-        public b(TextView textView, boolean z) {
-            this.f21496e = textView;
-            this.f21497f = z;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ RecordTabLayout f21627g;
+
+        public b(RecordTabLayout recordTabLayout, TextView textView, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {recordTabLayout, textView, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21627g = recordTabLayout;
+            this.f21625e = textView;
+            this.f21626f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            float x = (this.f21496e.getX() + ((this.f21496e.getWidth() - RecordTabLayout.this.f21490f.getWidth()) / 2)) - RecordTabLayout.this.f21490f.getLeft();
-            if (this.f21497f) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.f21490f, "translationX", RecordTabLayout.this.f21490f.getTranslationX(), x);
-                ofFloat.setDuration(500L);
-                ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
-                ofFloat.start();
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                float x = (this.f21625e.getX() + ((this.f21625e.getWidth() - this.f21627g.f21619f.getWidth()) / 2)) - this.f21627g.f21619f.getLeft();
+                if (this.f21626f) {
+                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f21627g.f21619f, "translationX", this.f21627g.f21619f.getTranslationX(), x);
+                    ofFloat.setDuration(500L);
+                    ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
+                    ofFloat.start();
+                    return;
+                }
+                this.f21627g.f21619f.setTranslationX(x);
             }
-            RecordTabLayout.this.f21490f.setTranslationX(x);
         }
     }
 
@@ -85,53 +139,78 @@ public class RecordTabLayout extends LinearLayout {
         void onTabChoosed(int i2, boolean z);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecordTabLayout(Context context) {
         super(context);
-        this.f21491g = true;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f21620g = true;
         e();
     }
 
     public void d(int i2, String str) {
-        TextView textView = new TextView(getContext());
-        textView.setTextSize(0, l.g(getContext(), R.dimen.fontsize28));
-        textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
-        textView.setText(str);
-        textView.setTag(Integer.valueOf(i2));
-        textView.setOnClickListener(new a(i2));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.f21489e.getChildCount() != 0) {
-            layoutParams.leftMargin = l.g(getContext(), R.dimen.ds44);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+            TextView textView = new TextView(getContext());
+            textView.setTextSize(0, l.g(getContext(), R.dimen.fontsize28));
+            textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
+            textView.setText(str);
+            textView.setTag(Integer.valueOf(i2));
+            textView.setOnClickListener(new a(this, i2));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            if (this.f21618e.getChildCount() != 0) {
+                layoutParams.leftMargin = l.g(getContext(), R.dimen.ds44);
+            }
+            this.f21618e.addView(textView, layoutParams);
         }
-        this.f21489e.addView(textView, layoutParams);
     }
 
     public final void e() {
-        setOrientation(1);
-        LinearLayout linearLayout = new LinearLayout(getContext());
-        this.f21489e = linearLayout;
-        linearLayout.setOrientation(0);
-        this.f21489e.setGravity(17);
-        addView(this.f21489e, new ViewGroup.LayoutParams(-1, -2));
-        View view = new View(getContext());
-        this.f21490f = view;
-        view.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.g(getContext(), R.dimen.ds44), l.g(getContext(), R.dimen.ds4));
-        layoutParams.topMargin = l.g(getContext(), R.dimen.ds18);
-        addView(this.f21490f, layoutParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOrientation(1);
+            LinearLayout linearLayout = new LinearLayout(getContext());
+            this.f21618e = linearLayout;
+            linearLayout.setOrientation(0);
+            this.f21618e.setGravity(17);
+            addView(this.f21618e, new ViewGroup.LayoutParams(-1, -2));
+            View view = new View(getContext());
+            this.f21619f = view;
+            view.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.g(getContext(), R.dimen.ds44), l.g(getContext(), R.dimen.ds4));
+            layoutParams.topMargin = l.g(getContext(), R.dimen.ds18);
+            addView(this.f21619f, layoutParams);
+        }
     }
 
     public int getCurrentTab() {
-        return this.f21492h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21621h : invokeV.intValue;
     }
 
     public void setCurrentTab(int i2, boolean z) {
-        if (this.f21492h == i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f21621h == i2) {
             return;
         }
-        this.f21492h = i2;
+        this.f21621h = i2;
         TextView textView = null;
-        for (int i3 = 0; i3 < this.f21489e.getChildCount(); i3++) {
-            View childAt = this.f21489e.getChildAt(i3);
+        for (int i3 = 0; i3 < this.f21618e.getChildCount(); i3++) {
+            View childAt = this.f21618e.getChildAt(i3);
             if (childAt instanceof TextView) {
                 Object tag = childAt.getTag();
                 if ((tag instanceof Integer) && ((Integer) tag).intValue() == i2) {
@@ -143,32 +222,72 @@ public class RecordTabLayout extends LinearLayout {
                 }
             }
         }
-        if (this.f21491g) {
-            textView.post(new b(textView, z));
+        if (this.f21620g) {
+            textView.post(new b(this, textView, z));
         }
     }
 
     public void setListener(c cVar) {
-        this.f21493i = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.f21622i = cVar;
+        }
     }
 
     public void setShowIndicator(boolean z) {
-        this.f21491g = z;
-        if (z) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f21620g = z;
+            if (z) {
+                return;
+            }
+            this.f21619f.setVisibility(4);
         }
-        this.f21490f.setVisibility(4);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21491g = true;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f21620g = true;
         e();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21491g = true;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f21620g = true;
         e();
     }
 }

@@ -1,25 +1,52 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AuthTokenData implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String authToken;
     public int errorCode;
 
-    public static AuthTokenData parse(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+    public AuthTokenData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.parseJsonObj(jSONObject);
-        return authTokenData;
+    }
+
+    public static AuthTokenData parse(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            AuthTokenData authTokenData = new AuthTokenData();
+            authTokenData.parseJsonObj(jSONObject);
+            return authTokenData;
+        }
+        return (AuthTokenData) invokeL.objValue;
     }
 
     private void parseJsonObj(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.errorCode = jSONObject.optInt("error_code");
@@ -30,7 +57,8 @@ public class AuthTokenData implements Serializable {
     }
 
     private void parseJsonStr(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -45,15 +73,22 @@ public class AuthTokenData implements Serializable {
     }
 
     public String getAuthToken() {
-        return this.authToken;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.authToken : (String) invokeV.objValue;
     }
 
     public static AuthTokenData parse(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            AuthTokenData authTokenData = new AuthTokenData();
+            authTokenData.parseJsonStr(str);
+            return authTokenData;
         }
-        AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.parseJsonStr(str);
-        return authTokenData;
+        return (AuthTokenData) invokeL.objValue;
     }
 }

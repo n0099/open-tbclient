@@ -12,98 +12,193 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
 /* loaded from: classes.dex */
 public final class GlobalUtils {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f4062a = null;
+    public static LayoutInflater f4060a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f4063b = null;
+    public static WeakReference<Toast> f4061b = null;
     public static String showStr = "";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(599490569, "Lcom/baidu/apollon/utils/GlobalUtils;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(599490569, "Lcom/baidu/apollon/utils/GlobalUtils;");
+        }
+    }
+
+    public GlobalUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String getProperties(String str, String str2) {
-        try {
-            return (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
-        } catch (Exception e2) {
-            Log.e("getProperties", "Exception while getting system property: ", e2);
-            return str2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            try {
+                return (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
+            } catch (Exception e2) {
+                Log.e("getProperties", "Exception while getting system property: ", e2);
+                return str2;
+            }
         }
+        return (String) invokeLL.objValue;
     }
 
     public static boolean hideInputMethod(Context context, View view) {
+        InterceptResult invokeLL;
         InputMethodManager inputMethodManager;
-        if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, view)) == null) {
+            if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+                return false;
+            }
+            return inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
-        return inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        return invokeLL.booleanValue;
     }
 
     public static void hideKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager;
         View currentFocus;
-        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
-        if (inputMethodManager == null || (currentFocus = activity.getCurrentFocus()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, null, activity) == null) || (inputMethodManager = (InputMethodManager) activity.getSystemService("input_method")) == null || (currentFocus = activity.getCurrentFocus()) == null) {
             return;
         }
         inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 2);
     }
 
-    public static boolean showInputMethod(final Context context, final View view) {
-        if (context == null || view == null) {
-            return false;
-        }
-        view.requestFocusFromTouch();
-        view.postDelayed(new Runnable() { // from class: com.baidu.apollon.utils.GlobalUtils.1
-            @Override // java.lang.Runnable
-            public void run() {
-                ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
+    public static boolean showInputMethod(Context context, View view) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, view)) == null) {
+            if (context == null || view == null) {
+                return false;
             }
-        }, 100L);
-        return true;
+            view.requestFocusFromTouch();
+            view.postDelayed(new Runnable(context, view) { // from class: com.baidu.apollon.utils.GlobalUtils.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ Context f4062a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ View f4063b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {context, view};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f4062a = context;
+                    this.f4063b = view;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ((InputMethodManager) this.f4062a.getSystemService("input_method")).showSoftInput(this.f4063b, 0);
+                    }
+                }
+            }, 100L);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static void toast(Context context, CharSequence charSequence) {
-        toast(context, charSequence, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, charSequence) == null) {
+            toast(context, charSequence, 0);
+        }
     }
 
     public static void toast(Context context, CharSequence charSequence, int i2) {
-        try {
-            toast(context, charSequence, -1, i2);
-        } catch (Exception unused) {
-            LogUtil.errord("Exception in Toast!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, context, charSequence, i2) == null) {
+            try {
+                toast(context, charSequence, -1, i2);
+            } catch (Exception unused) {
+                LogUtil.errord("Exception in Toast!");
+            }
         }
     }
 
     public static void toast(Context context, CharSequence charSequence, int i2, int i3) {
         TextView textView;
-        Context applicationContext = context.getApplicationContext();
-        if (TextUtils.isEmpty(charSequence)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65544, null, context, charSequence, i2, i3) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (TextUtils.isEmpty(charSequence)) {
+                return;
+            }
+            WeakReference<Toast> weakReference = f4061b;
+            if (weakReference != null && weakReference.get() != null) {
+                f4061b.get().cancel();
+            }
+            if (f4060a == null) {
+                f4060a = LayoutInflater.from(applicationContext);
+            }
+            View inflate = f4060a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+            if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
+                return;
+            }
+            textView.setText(charSequence);
+            ImageView imageView = (ImageView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_icon"));
+            if (imageView != null && i2 > 0) {
+                imageView.setImageResource(i2);
+                imageView.setVisibility(0);
+            }
+            Toast toast = new Toast(applicationContext);
+            toast.setDuration(i3);
+            toast.setGravity(17, 0, 0);
+            toast.setView(inflate);
+            f4061b = new WeakReference<>(toast);
+            toast.show();
         }
-        WeakReference<Toast> weakReference = f4063b;
-        if (weakReference != null && weakReference.get() != null) {
-            f4063b.get().cancel();
-        }
-        if (f4062a == null) {
-            f4062a = LayoutInflater.from(applicationContext);
-        }
-        View inflate = f4062a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
-        if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
-            return;
-        }
-        textView.setText(charSequence);
-        ImageView imageView = (ImageView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_icon"));
-        if (imageView != null && i2 > 0) {
-            imageView.setImageResource(i2);
-            imageView.setVisibility(0);
-        }
-        Toast toast = new Toast(applicationContext);
-        toast.setDuration(i3);
-        toast.setGravity(17, 0, 0);
-        toast.setView(inflate);
-        f4063b = new WeakReference<>(toast);
-        toast.show();
     }
 }

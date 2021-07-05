@@ -28,7 +28,7 @@ public class PlatformMessageSender {
 
     public static void a(Context context, int i2, boolean z, String str) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        d.j.a.a.a.d("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
+        d.h.a.a.a.d("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
         if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("6")) {
             return;
         }
@@ -158,11 +158,11 @@ public class PlatformMessageSender {
             intent.setClassName(str, "com.meizu.cloud.pushsdk.NotificationService");
         }
         intent.putExtra("command_type", "reflect_receiver");
-        d.j.a.a.a.d("PlatformMessageSender", "start notification service " + parse);
+        d.h.a.a.a.d("PlatformMessageSender", "start notification service " + parse);
         try {
             context.startService(intent);
         } catch (Exception e2) {
-            d.j.a.a.a.b("PlatformMessageSender", "launchStartActivity error " + e2.getMessage());
+            d.h.a.a.a.b("PlatformMessageSender", "launchStartActivity error " + e2.getMessage());
         }
     }
 
@@ -180,10 +180,10 @@ public class PlatformMessageSender {
         intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.NotificationService");
         intent.putExtra("command_type", "reflect_receiver");
         try {
-            d.j.a.a.a.b("PlatformMessageSender", "start noficationservice to show notification");
+            d.h.a.a.a.b("PlatformMessageSender", "start noficationservice to show notification");
             context.startService(intent);
         } catch (Exception e2) {
-            d.j.a.a.a.b("PlatformMessageSender", "showNotification error " + e2.getMessage());
+            d.h.a.a.a.b("PlatformMessageSender", "showNotification error " + e2.getMessage());
         }
     }
 }

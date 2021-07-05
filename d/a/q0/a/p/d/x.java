@@ -1,0 +1,8 @@
+package d.a.q0.a.p.d;
+
+import android.app.Activity;
+import android.os.Bundle;
+/* loaded from: classes8.dex */
+public interface x {
+    void a(Activity activity, Bundle bundle, d.a.q0.a.i1.d.d.d dVar);
+}

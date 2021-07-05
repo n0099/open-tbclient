@@ -1,8 +1,14 @@
 package com.baidu.android.imsdk.db;
 
 import android.provider.BaseColumns;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class DBTableDefine {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME_PREFIX = "bd_imsdk_";
     public static final String DB_TABLE_GROUP_INFO = "groupinfo";
     public static final String DB_TABLE_GROUP_LOCALMESSAGE = "grouplocalmessage";
@@ -12,9 +18,11 @@ public class DBTableDefine {
     public static final String SQL_CREATE_TABLE_GROUP_MEMBER = "CREATE TABLE groupmember (group_id TEXT NOT NULL, bduid LONG, uk LONG, name TEXT, nickname TEXT, join_time LONG, last_active_time LONG, msg_set INTEGER, status INTEGER, role INTEGER ,avatar TEXT,  PRIMARY KEY (group_id,bduid));";
     public static final String SQL_CREATE_TABLE_GROUP_MESSAGE = " (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG UNIQUE, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
     public static final String SQL_CREATE_TABLE_LOCALMESSAGE = "CREATE TABLE grouplocalmessage (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static final class GroupInfoColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACTIVE_STATE = "active_state";
         public static final String COLUMN_BD_UID = "bduid";
         public static final String COLUMN_BRIEF = "brief";
@@ -39,10 +47,26 @@ public class DBTableDefine {
         public static final String COLUMN_USER_MEMBER_LOCAL_VERSION = "local_members_version";
         public static final String COLUMN_USER_MEMBER_VERSION = "members_version";
         public static final String COLUMN_USER_NUM = "user_num";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupInfoColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class GroupMemberColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_AVATAR = "avatar";
         public static final String COLUMN_BD_UID = "bduid";
         public static final String COLUMN_GROUP_ID = "group_id";
@@ -54,10 +78,26 @@ public class DBTableDefine {
         public static final String COLUMN_ROLE = "role";
         public static final String COLUMN_STATUS = "status";
         public static final String COLUMN_UK = "uk";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupMemberColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class GroupMessageColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CMD = "cmd";
         public static final String COLUMN_CONTENT = "content";
         public static final String COLUMN_DEVICE_FLAG = "device_flag";
@@ -73,13 +113,52 @@ public class DBTableDefine {
         public static final String COLUMN_STATUS = "status";
         public static final String COLUMN_TIME = "time";
         public static final String COLUMN_TYPE = "type";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GroupMessageColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public DBTableDefine() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public static String getGroupMessageTableName(String str) {
-        return "groupmessage_" + str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return "groupmessage_" + str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getSqlCreateTableGroupMessage(String str) {
-        return "CREATE TABLE IF NOT EXISTS " + getGroupMessageTableName(str) + SQL_CREATE_TABLE_GROUP_MESSAGE;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return "CREATE TABLE IF NOT EXISTS " + getGroupMessageTableName(str) + SQL_CREATE_TABLE_GROUP_MESSAGE;
+        }
+        return (String) invokeL.objValue;
     }
 }

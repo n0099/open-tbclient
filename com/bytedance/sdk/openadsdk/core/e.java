@@ -1,201 +1,60 @@
 package com.bytedance.sdk.openadsdk.core;
 
-import android.app.ActivityManager;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.ProviderInfo;
-import android.content.pm.ServiceInfo;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.core.f;
 /* loaded from: classes6.dex */
-public class e {
+public class e extends f {
+    public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f28221a = "AppEnvironment";
+    public static volatile e f29886a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile e f28222b = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f28223d = "ad_style";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f28224e = "ad_id";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f28225f = "rit";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f28226g = "request_id";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f28227h = "ad_slot_type";
-
-    /* renamed from: i  reason: collision with root package name */
-    public static String f28228i = "net_type";
-    public static String j = "low_memory";
-    public static String k = "total_max_memory_rate";
-
-    /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f28229c;
-    public long l;
-    public boolean m;
-
-    public e() {
-        HashMap hashMap = new HashMap();
-        this.f28229c = hashMap;
-        hashMap.put(f28223d, "default");
-        this.f28229c.put(f28224e, "default");
-        this.f28229c.put(f28225f, "default");
-        this.f28229c.put(f28226g, "default");
-        this.f28229c.put(f28227h, "default");
-        this.f28229c.put(f28228i, "default");
-        this.f28229c.put(j, "default");
-        this.f28229c.put(k, "default");
-        this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", 0L);
-        this.m = false;
-    }
-
-    private void d() {
-        Runtime runtime = Runtime.getRuntime();
-        float maxMemory = (float) ((runtime.maxMemory() * 1.0d) / 1048576.0d);
-        float f2 = (float) ((runtime.totalMemory() * 1.0d) / 1048576.0d);
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) p.a().getSystemService("activity")).getMemoryInfo(memoryInfo);
-        String str = f28221a;
-        com.bytedance.sdk.openadsdk.utils.u.f(str, "系统是否处于低内存运行：" + memoryInfo.lowMemory);
-        String str2 = f28221a;
-        com.bytedance.sdk.openadsdk.utils.u.f(str2, "maxMemory: " + maxMemory);
-        String str3 = f28221a;
-        com.bytedance.sdk.openadsdk.utils.u.f(str3, "totalMemory: " + f2);
-        String str4 = f28221a;
-        com.bytedance.sdk.openadsdk.utils.u.f(str4, "freeMemory: " + ((float) ((runtime.freeMemory() * 1.0d) / 1048576.0d)));
-        int i2 = (int) ((f2 / maxMemory) * 100.0f);
-        String str5 = f28221a;
-        com.bytedance.sdk.openadsdk.utils.u.f(str5, "totalMaxRate: " + i2);
-        this.f28229c.put(j, String.valueOf(memoryInfo.lowMemory));
-        this.f28229c.put(k, String.valueOf(i2));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject e() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            Context a2 = p.a();
-            if (a2 == null) {
-                return null;
-            }
-            PackageInfo packageInfo = a2.getPackageManager().getPackageInfo(a2.getPackageName(), 4111);
-            ApplicationInfo applicationInfo = a2.getApplicationInfo();
-            if (applicationInfo != null) {
-                jSONObject.put("application_name", applicationInfo.name);
-            }
-            jSONObject.put(Constants.APP_ID, i.d().g());
-            if (packageInfo != null) {
-                ActivityInfo[] activityInfoArr = packageInfo.activities;
-                String[] strArr = packageInfo.requestedPermissions;
-                ActivityInfo[] activityInfoArr2 = packageInfo.receivers;
-                ServiceInfo[] serviceInfoArr = packageInfo.services;
-                ProviderInfo[] providerInfoArr = packageInfo.providers;
-                if (activityInfoArr != null) {
-                    JSONArray jSONArray = new JSONArray();
-                    for (ActivityInfo activityInfo : activityInfoArr) {
-                        jSONArray.put(activityInfo.name);
-                    }
-                    jSONObject.put("activities", jSONArray);
-                }
-                if (strArr != null) {
-                    JSONArray jSONArray2 = new JSONArray();
-                    for (String str : strArr) {
-                        jSONArray2.put(str);
-                    }
-                    jSONObject.put("permissions", jSONArray2);
-                }
-                if (activityInfoArr2 != null) {
-                    JSONArray jSONArray3 = new JSONArray();
-                    for (ActivityInfo activityInfo2 : activityInfoArr2) {
-                        jSONArray3.put(activityInfo2.name);
-                    }
-                    jSONObject.put("receivers", jSONArray3);
-                }
-                if (serviceInfoArr != null) {
-                    JSONArray jSONArray4 = new JSONArray();
-                    for (ServiceInfo serviceInfo : serviceInfoArr) {
-                        jSONArray4.put(serviceInfo.name);
-                    }
-                    jSONObject.put("services", jSONArray4);
-                }
-                if (providerInfoArr != null) {
-                    JSONArray jSONArray5 = new JSONArray();
-                    for (ProviderInfo providerInfo : providerInfoArr) {
-                        jSONArray5.put(providerInfo.name);
-                    }
-                    jSONObject.put("providers", jSONArray5);
-                }
-            }
-            return jSONObject;
-        } catch (Throwable unused) {
-            return null;
-        }
-    }
-
-    public Map<String, String> b() {
-        return this.f28229c;
-    }
-
-    public void c() {
-        if (this.m || ak.a(this.l, System.currentTimeMillis())) {
-            return;
-        }
-        this.m = true;
-        com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("trySendAppManifestInfo") { // from class: com.bytedance.sdk.openadsdk.core.e.1
-            @Override // java.lang.Runnable
-            public void run() {
-                JSONObject e2 = e.this.e();
-                if (e2 != null) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    e.this.l = currentTimeMillis;
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", Long.valueOf(currentTimeMillis));
-                    com.bytedance.sdk.openadsdk.h.a.a().a(e2);
-                }
-                e.this.m = false;
-            }
-        }, 1);
-    }
-
-    public static e a() {
-        if (f28222b == null) {
-            synchronized (e.class) {
-                if (f28222b == null) {
-                    f28222b = new e();
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return f28222b;
     }
 
-    public void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (lVar == null) {
-            return;
+    public static e a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (f29886a == null) {
+                synchronized (e.class) {
+                    if (f29886a == null) {
+                        f29886a = new e(context);
+                    }
+                }
+            }
+            return f29886a;
         }
-        this.f28229c.put(f28224e, lVar.am());
-        Map<String, String> map = this.f28229c;
-        String str = f28225f;
-        map.put(str, "" + ak.d(lVar.ap()));
-        this.f28229c.put(f28226g, ak.h(lVar.ap()));
-        Map<String, String> map2 = this.f28229c;
-        String str2 = f28227h;
-        map2.put(str2, "" + ak.c(lVar.ap()));
-        this.f28229c.put(f28228i, com.bytedance.sdk.openadsdk.utils.x.f(p.a()));
-        if (lVar.C()) {
-            this.f28229c.put(f28223d, "is_playable");
-        }
-        d();
+        return (e) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.f
+    public /* bridge */ /* synthetic */ f.c a() {
+        return super.a();
     }
 }

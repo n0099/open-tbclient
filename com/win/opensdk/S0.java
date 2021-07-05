@@ -1,41 +1,70 @@
 package com.win.opensdk;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
 public class S0 implements L0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Y0 f40723a;
+    public final /* synthetic */ Y0 f42466a;
 
     public S0(Y0 y0) {
-        this.f40723a = y0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {y0};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42466a = y0;
     }
 
     @Override // com.win.opensdk.L0
     public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
     @Override // com.win.opensdk.L0
     public void a(Object obj) {
-        Info info = (Info) obj;
-        try {
-            this.f40723a.f40765c = info;
-            if (this.f40723a.f40768f != null) {
-                if (info == null || info.getType() != 51) {
-                    this.f40723a.f40768f.onFail(PBError.PID_TYPE_ERROR);
-                } else if (this.f40723a.b()) {
-                    this.f40723a.f40768f.onLoaded();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
+            try {
+                this.f42466a.f42508c = info;
+                if (this.f42466a.f42511f != null) {
+                    if (info == null || info.getType() != 51) {
+                        this.f42466a.f42511f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.f42466a.b()) {
+                        this.f42466a.f42511f.onLoaded();
+                    }
                 }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
         }
     }
 
     @Override // com.win.opensdk.L0
     public void onFail(PBError pBError) {
-        r rVar = this.f40723a.f40768f;
-        if (rVar != null) {
-            rVar.onFail(pBError);
+        r rVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (rVar = this.f42466a.f42511f) == null) {
+            return;
         }
+        rVar.onFail(pBError);
     }
 }

@@ -1,26 +1,47 @@
 package com.baidu.sapi2.portrait;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9885a = false;
+    public static final boolean f9957a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9886b = "com.baidu.sapi2.portrait";
+    public static final String f9958b = "com.baidu.sapi2.portrait";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9887c = "com.baidu.sapi2.portrait";
+    public static final String f9959c = "com.baidu.sapi2.portrait";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9888d = "release";
+    public static final String f9960d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f9889e = "";
+    public static final String f9961e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f9890f = 1;
+    public static final int f9962f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f9891g = "9.3.6";
+    public static final String f9963g = "9.3.7.1";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

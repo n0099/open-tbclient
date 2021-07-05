@@ -1,18 +1,81 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes4.dex */
-public enum CarrierType {
-    YIDONG(46000),
-    LIANTONG(46001),
-    DIANXIN(46003),
-    TIETONG(46020);
-    
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes5.dex */
+public final class CarrierType {
+    public static final /* synthetic */ CarrierType[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final CarrierType DIANXIN;
+    public static final CarrierType LIANTONG;
+    public static final CarrierType TIETONG;
+    public static final CarrierType YIDONG;
+    public transient /* synthetic */ FieldHolder $fh;
     public int type;
 
-    CarrierType(int i2) {
-        this.type = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1746906932, "Lcom/baidu/tieba/advert/sdk/data/CarrierType;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1746906932, "Lcom/baidu/tieba/advert/sdk/data/CarrierType;");
+                return;
+            }
+        }
+        YIDONG = new CarrierType("YIDONG", 0, 46000);
+        LIANTONG = new CarrierType("LIANTONG", 1, 46001);
+        DIANXIN = new CarrierType("DIANXIN", 2, 46003);
+        CarrierType carrierType = new CarrierType("TIETONG", 3, 46020);
+        TIETONG = carrierType;
+        $VALUES = new CarrierType[]{YIDONG, LIANTONG, DIANXIN, carrierType};
+    }
+
+    public CarrierType(String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.type = i3;
+    }
+
+    public static CarrierType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CarrierType) Enum.valueOf(CarrierType.class, str) : (CarrierType) invokeL.objValue;
+    }
+
+    public static CarrierType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CarrierType[]) $VALUES.clone() : (CarrierType[]) invokeV.objValue;
     }
 
     public int getValue() {
-        return this.type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
     }
 }

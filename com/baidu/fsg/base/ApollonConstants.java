@@ -1,6 +1,15 @@
 package com.baidu.fsg.base;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public abstract class ApollonConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String APOLLON_PUBLIC_SHARE_PREF = "apollon_share";
     public static final String APOLLON_REST_TAG = "apollon_rest";
     public static boolean DEBUG = false;
@@ -15,4 +24,34 @@ public abstract class ApollonConstants {
     public static boolean RES_PARTITION_DEBUG = false;
     public static boolean VIDEO_DEBUG = false;
     public static boolean WALLET_SPECIFIC = true;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(103391696, "Lcom/baidu/fsg/base/ApollonConstants;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(103391696, "Lcom/baidu/fsg/base/ApollonConstants;");
+        }
+    }
+
+    public ApollonConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

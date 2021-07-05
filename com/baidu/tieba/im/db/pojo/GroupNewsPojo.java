@@ -1,21 +1,31 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.ModelHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GroupNewsPojo implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int hide = 3;
     public static final int read = 2;
     public static final long serialVersionUID = -4624684256008701507L;
     public static final int un_read = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public String cmd;
     public String content;
     public int content_status;
@@ -27,10 +37,22 @@ public class GroupNewsPojo implements Serializable {
     public long time;
 
     public GroupNewsPojo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     private void initByValidateData(ValidateItemData validateItemData) {
-        if (validateItemData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, this, validateItemData) == null) || validateItemData == null) {
             return;
         }
         setCmd("apply_join_group");
@@ -44,7 +66,8 @@ public class GroupNewsPojo implements Serializable {
 
     private void setSelfNewsRead() {
         UpdatesItemData convertToUpdatesItem;
-        if (TextUtils.isEmpty(getCmd())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || TextUtils.isEmpty(getCmd())) {
             return;
         }
         if ((!getCmd().equals("group_intro_change") && !getCmd().equals("group_name_change") && !getCmd().equals("group_notice_change")) || ModelHelper.getInstance().getUpdatasModel() == null || (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) == null) {
@@ -66,79 +89,138 @@ public class GroupNewsPojo implements Serializable {
     }
 
     public String getCmd() {
-        return this.cmd;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cmd : (String) invokeV.objValue;
     }
 
     public String getContent() {
-        return this.content;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
     }
 
     public int getContent_status() {
-        return this.content_status;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.content_status : invokeV.intValue;
     }
 
     public String getExt() {
-        return this.ext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ext : (String) invokeV.objValue;
     }
 
     public String getGid() {
-        return this.gid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.gid : (String) invokeV.objValue;
     }
 
     public String getNotice_id() {
-        return this.notice_id;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.notice_id : (String) invokeV.objValue;
     }
 
     public CommonMsgPojo getOriginalChatMsgPojo() {
-        return this.originalChatMsgPojo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.originalChatMsgPojo : (CommonMsgPojo) invokeV.objValue;
     }
 
     public ChatMessage getOriginalPushMsg() {
-        return this.originalPushMsg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.originalPushMsg : (ChatMessage) invokeV.objValue;
     }
 
     public long getTime() {
-        return this.time;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.time : invokeV.longValue;
     }
 
     public void setCmd(String str) {
-        this.cmd = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.cmd = str;
+        }
     }
 
     public void setContent(String str) {
-        this.content = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.content = str;
+        }
     }
 
     public void setContent_status(int i2) {
-        this.content_status = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.content_status = i2;
+        }
     }
 
     public void setExt(String str) {
-        this.ext = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.ext = str;
+        }
     }
 
     public void setGid(String str) {
-        this.gid = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.gid = str;
+        }
     }
 
     public void setNotice_id(String str) {
-        this.notice_id = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.notice_id = str;
+        }
     }
 
     public void setOriginalChatMsgPojo(CommonMsgPojo commonMsgPojo) {
-        this.originalChatMsgPojo = commonMsgPojo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, commonMsgPojo) == null) {
+            this.originalChatMsgPojo = commonMsgPojo;
+        }
     }
 
     public void setOriginalPushMsg(ChatMessage chatMessage) {
-        this.originalPushMsg = chatMessage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, chatMessage) == null) {
+            this.originalPushMsg = chatMessage;
+        }
     }
 
     public void setTime(long j) {
-        this.time = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.time = j;
+        }
     }
 
     public GroupNewsPojo(ChatMessage chatMessage, String str) {
         String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {chatMessage, str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         if (chatMessage == null || TextUtils.isEmpty(str)) {
             return;
         }
@@ -211,10 +293,38 @@ public class GroupNewsPojo implements Serializable {
     }
 
     public GroupNewsPojo(ValidateItemData validateItemData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {validateItemData};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         initByValidateData(validateItemData);
     }
 
     public GroupNewsPojo(UpdatesItemData updatesItemData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {updatesItemData};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (updatesItemData == null) {
             return;
         }

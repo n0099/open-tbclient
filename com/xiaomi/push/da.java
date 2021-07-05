@@ -3,6 +3,14 @@ package com.xiaomi.push;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,89 +27,131 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class da {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41202a = "/MiPushLog";
+    public static String f42945a = "/MiPushLog";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f209a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public boolean f212a;
-
-    /* renamed from: b  reason: collision with other field name */
-    public String f213b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f41204c;
+    public int f212a;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    public final SimpleDateFormat f210a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f41203b = 2097152;
+    public final SimpleDateFormat f213a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<File> f211a = new ArrayList<>();
+    public ArrayList<File> f214a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public boolean f215a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f42946b;
+
+    /* renamed from: b  reason: collision with other field name */
+    public String f216b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f42947c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56376989, "Lcom/xiaomi/push/da;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-56376989, "Lcom/xiaomi/push/da;");
+        }
+    }
+
+    public da() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f213a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.f42946b = 2097152;
+        this.f214a = new ArrayList<>();
+    }
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
-        char[] cArr = new char[4096];
-        int read = bufferedReader.read(cArr);
-        boolean z = false;
-        while (read != -1 && !z) {
-            String str = new String(cArr, 0, read);
-            Matcher matcher = pattern.matcher(str);
-            int i2 = 0;
-            int i3 = 0;
-            while (true) {
-                if (i2 >= read || !matcher.find(i2)) {
-                    break;
-                }
-                int start = matcher.start();
-                String substring = str.substring(start, this.f213b.length() + start);
-                if (this.f212a) {
-                    if (substring.compareTo(this.f41204c) > 0) {
-                        read = start;
-                        z = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, this, bufferedReader, bufferedWriter, pattern) == null) {
+            char[] cArr = new char[4096];
+            int read = bufferedReader.read(cArr);
+            boolean z = false;
+            while (read != -1 && !z) {
+                String str = new String(cArr, 0, read);
+                Matcher matcher = pattern.matcher(str);
+                int i2 = 0;
+                int i3 = 0;
+                while (true) {
+                    if (i2 >= read || !matcher.find(i2)) {
                         break;
                     }
-                } else if (substring.compareTo(this.f213b) >= 0) {
-                    this.f212a = true;
-                    i3 = start;
+                    int start = matcher.start();
+                    String substring = str.substring(start, this.f216b.length() + start);
+                    if (this.f215a) {
+                        if (substring.compareTo(this.f42947c) > 0) {
+                            read = start;
+                            z = true;
+                            break;
+                        }
+                    } else if (substring.compareTo(this.f216b) >= 0) {
+                        this.f215a = true;
+                        i3 = start;
+                    }
+                    int indexOf = str.indexOf(10, start);
+                    if (indexOf == -1) {
+                        indexOf = this.f216b.length();
+                    }
+                    i2 = start + indexOf;
                 }
-                int indexOf = str.indexOf(10, start);
-                if (indexOf == -1) {
-                    indexOf = this.f213b.length();
+                if (this.f215a) {
+                    int i4 = read - i3;
+                    this.f212a += i4;
+                    bufferedWriter.write(cArr, i3, i4);
+                    if (z || this.f212a > this.f42946b) {
+                        return;
+                    }
                 }
-                i2 = start + indexOf;
+                read = bufferedReader.read(cArr);
             }
-            if (this.f212a) {
-                int i4 = read - i3;
-                this.f209a += i4;
-                bufferedWriter.write(cArr, i3, i4);
-                if (z || this.f209a > this.f41203b) {
-                    return;
-                }
-            }
-            read = bufferedReader.read(cArr);
         }
     }
 
     private void a(File file) {
         BufferedReader bufferedReader;
         String str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(65539, this, file) != null) {
+            return;
+        }
         Pattern compile = Pattern.compile("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}");
         BufferedReader bufferedReader2 = null;
         try {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m598a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
-                    this.f209a = 0;
-                    Iterator<File> it = this.f211a.iterator();
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m612a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
+                    this.f212a = 0;
+                    Iterator<File> it = this.f214a.iterator();
                     while (it.hasNext()) {
                         bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
                         try {
@@ -161,69 +211,86 @@ public class da {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public da m225a(File file) {
-        if (file.exists()) {
-            this.f211a.add(file);
+    public da m239a(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+            if (file.exists()) {
+                this.f214a.add(file);
+            }
+            return this;
         }
-        return this;
+        return (da) invokeL.objValue;
     }
 
     public da a(Date date, Date date2) {
+        InterceptResult invokeLL;
         String format;
-        if (date.after(date2)) {
-            this.f213b = this.f210a.format(date2);
-            format = this.f210a.format(date);
-        } else {
-            this.f213b = this.f210a.format(date);
-            format = this.f210a.format(date2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date, date2)) == null) {
+            if (date.after(date2)) {
+                this.f216b = this.f213a.format(date2);
+                format = this.f213a.format(date);
+            } else {
+                this.f216b = this.f213a.format(date);
+                format = this.f213a.format(date2);
+            }
+            this.f42947c = format;
+            return this;
         }
-        this.f41204c = format;
-        return this;
+        return (da) invokeLL.objValue;
     }
 
     public File a(Context context, Date date, Date date2, File file) {
+        InterceptResult invokeLLLL;
         File file2;
         File file3;
-        if ("com.xiaomi.xmsf".equalsIgnoreCase(context.getPackageName())) {
-            file2 = new File(context.getExternalFilesDir(null), "dump");
-            if (!file2.exists()) {
-                file2 = context.getFilesDir();
-            }
-            m225a(new File(file2, "xmsf.log.1"));
-            file3 = new File(file2, "xmsf.log");
-        } else {
-            file2 = new File(context.getExternalFilesDir(null) + f41202a);
-            m225a(new File(file2, "log0.txt"));
-            file3 = new File(file2, "log1.txt");
-        }
-        m225a(file3);
-        if (file2.isDirectory()) {
-            File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
-            if (file4.exists()) {
-                return null;
-            }
-            a(date, date2);
-            long currentTimeMillis = System.currentTimeMillis();
-            File file5 = new File(file, "log.txt");
-            a(file5);
-            com.xiaomi.channel.commonutils.logger.b.c("LOG: filter cost = " + (System.currentTimeMillis() - currentTimeMillis));
-            if (file5.exists()) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                y.a(file4, file5);
-                com.xiaomi.channel.commonutils.logger.b.c("LOG: zip cost = " + (System.currentTimeMillis() - currentTimeMillis2));
-                file5.delete();
-                if (file4.exists()) {
-                    return file4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, date, date2, file)) == null) {
+            if ("com.xiaomi.xmsf".equalsIgnoreCase(context.getPackageName())) {
+                file2 = new File(context.getExternalFilesDir(null), "dump");
+                if (!file2.exists()) {
+                    file2 = context.getFilesDir();
                 }
+                m239a(new File(file2, "xmsf.log.1"));
+                file3 = new File(file2, "xmsf.log");
+            } else {
+                file2 = new File(context.getExternalFilesDir(null) + f42945a);
+                m239a(new File(file2, "log0.txt"));
+                file3 = new File(file2, "log1.txt");
+            }
+            m239a(file3);
+            if (file2.isDirectory()) {
+                File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
+                if (file4.exists()) {
+                    return null;
+                }
+                a(date, date2);
+                long currentTimeMillis = System.currentTimeMillis();
+                File file5 = new File(file, "log.txt");
+                a(file5);
+                com.xiaomi.channel.commonutils.logger.b.c("LOG: filter cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                if (file5.exists()) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    y.a(file4, file5);
+                    com.xiaomi.channel.commonutils.logger.b.c("LOG: zip cost = " + (System.currentTimeMillis() - currentTimeMillis2));
+                    file5.delete();
+                    if (file4.exists()) {
+                        return file4;
+                    }
+                }
+                return null;
             }
             return null;
         }
-        return null;
+        return (File) invokeLLLL.objValue;
     }
 
     public void a(int i2) {
-        if (i2 != 0) {
-            this.f41203b = i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
+            return;
         }
+        this.f42946b = i2;
     }
 }

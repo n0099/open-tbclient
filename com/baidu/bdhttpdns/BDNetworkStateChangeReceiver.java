@@ -6,8 +6,13 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.imsdk.internal.Constants;
-import d.a.g.j;
-import d.a.g.k;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.h.j;
+import d.a.h.k;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
@@ -16,103 +21,163 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f4257a = false;
+    public boolean f4287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4258b = true;
+    public boolean f4288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4259c = true;
+    public boolean f4289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4260d = "";
+    public String f4290d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f4261e = true;
+    public boolean f4291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f4262f = true;
+    public boolean f4292f;
 
     /* loaded from: classes.dex */
     public class a implements Callable<Object> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BDNetworkStateChangeReceiver f4293e;
+
+        public a(BDNetworkStateChangeReceiver bDNetworkStateChangeReceiver) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bDNetworkStateChangeReceiver};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4293e = bDNetworkStateChangeReceiver;
         }
 
         @Override // java.util.concurrent.Callable
         public Object call() {
-            InetSocketAddress inetSocketAddress = new InetSocketAddress("2001:4860:4860::8888", (int) Constants.SOCKET_PORT_SSL);
-            try {
-                new DatagramSocket().connect(new InetSocketAddress("180.76.76.76", 80));
-            } catch (SocketException unused) {
-                BDNetworkStateChangeReceiver.this.f4262f = false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                InetSocketAddress inetSocketAddress = new InetSocketAddress("2001:4860:4860::8888", (int) Constants.SOCKET_PORT_SSL);
+                try {
+                    new DatagramSocket().connect(new InetSocketAddress("180.76.76.76", 80));
+                } catch (SocketException unused) {
+                    this.f4293e.f4292f = false;
+                }
+                try {
+                    new DatagramSocket().connect(inetSocketAddress);
+                } catch (SocketException unused2) {
+                    this.f4293e.f4291e = false;
+                }
+                k.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(this.f4293e.f4292f), Boolean.valueOf(this.f4293e.f4291e));
+                return null;
             }
-            try {
-                new DatagramSocket().connect(inetSocketAddress);
-            } catch (SocketException unused2) {
-                BDNetworkStateChangeReceiver.this.f4261e = false;
-            }
-            k.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.this.f4262f), Boolean.valueOf(BDNetworkStateChangeReceiver.this.f4261e));
-            return null;
+            return invokeV.objValue;
         }
     }
 
-    private void a(Context context) {
-        k.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f4258b), Boolean.valueOf(this.f4259c));
-        i b2 = i.b();
-        b2.r();
-        BDHttpDns j = BDHttpDns.j(context);
-        refreshIpReachable();
-        ArrayList<String> e2 = j.a().e();
-        if (this.f4258b) {
-            j.a().b();
-            j.d().b();
+    public BDNetworkStateChangeReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if (this.f4259c) {
-            if (isIPv6Only()) {
-                k.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
-            } else if (e2 == null || e2.isEmpty()) {
-            } else {
-                b2.o(e2, new j(context));
+        this.f4287a = false;
+        this.f4288b = true;
+        this.f4289c = true;
+        this.f4290d = "";
+        this.f4291e = true;
+        this.f4292f = true;
+    }
+
+    private void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
+            k.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f4288b), Boolean.valueOf(this.f4289c));
+            i b2 = i.b();
+            b2.r();
+            BDHttpDns j = BDHttpDns.j(context);
+            refreshIpReachable();
+            ArrayList<String> e2 = j.a().e();
+            if (this.f4288b) {
+                j.a().b();
+                j.d().b();
+            }
+            if (this.f4289c) {
+                if (isIPv6Only()) {
+                    k.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
+                } else if (e2 == null || e2.isEmpty()) {
+                } else {
+                    b2.o(e2, new j(context));
+                }
             }
         }
     }
 
     public void a(boolean z) {
-        this.f4258b = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.f4288b = z;
+        }
     }
 
     public void b(boolean z) {
-        this.f4259c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f4289c = z;
+        }
     }
 
     public boolean isIPv6Only() {
-        return !this.f4262f && this.f4261e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f4292f && this.f4291e : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(8:11|(1:(6:38|17|18|(1:21)|23|24)(1:37))(1:15)|16|17|18|(1:21)|23|24) */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x005b, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(8:13|(1:(6:40|19|20|(1:23)|25|26)(1:39))(1:17)|18|19|20|(1:23)|25|26) */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x005f, code lost:
         r9 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x005c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0060, code lost:
         r6 = r0;
         r0 = r9;
         r9 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0061, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0065, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0064, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0068, code lost:
         a(r8);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0068, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x006c, code lost:
         r8 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x006d, code lost:
         r8.printStackTrace();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x006c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0070, code lost:
         r0 = r9;
      */
     @Override // android.content.BroadcastReceiver
@@ -123,43 +188,49 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         String str;
         ConnectivityManager connectivityManager;
         String extraInfo;
-        String str2 = "";
-        if (!this.f4257a) {
-            this.f4257a = true;
-            return;
-        }
-        try {
-            connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        } catch (RuntimeException e2) {
-            e = e2;
-        }
-        if (connectivityManager == null) {
-            a(context);
-            return;
-        }
-        NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
-        NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-        if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-            extraInfo = networkInfo.getExtraInfo();
-        } else if (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) {
-            str = "";
-            if (!this.f4260d.equals(str) && str != "") {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, intent) == null) {
+            String str2 = "";
+            if (!this.f4287a) {
+                this.f4287a = true;
+                return;
+            }
+            try {
+                connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            } catch (RuntimeException e2) {
+                e = e2;
+            }
+            if (connectivityManager == null) {
+                a(context);
+                return;
+            }
+            NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
+            NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
+            if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                extraInfo = networkInfo.getExtraInfo();
+            } else if (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) {
+                str = "";
+                if (!this.f4290d.equals(str) && str != "") {
+                    k.a("Current net type: %s.", str);
+                    a(context);
+                }
+                this.f4290d = str;
+            } else {
+                extraInfo = networkInfo2.getExtraInfo();
+            }
+            str = extraInfo.toString();
+            if (!this.f4290d.equals(str)) {
                 k.a("Current net type: %s.", str);
                 a(context);
             }
-            this.f4260d = str;
-        } else {
-            extraInfo = networkInfo2.getExtraInfo();
+            this.f4290d = str;
         }
-        str = extraInfo.toString();
-        if (!this.f4260d.equals(str)) {
-            k.a("Current net type: %s.", str);
-            a(context);
-        }
-        this.f4260d = str;
     }
 
     public void refreshIpReachable() {
-        Executors.newFixedThreadPool(1).submit(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Executors.newFixedThreadPool(1).submit(new a(this));
+        }
     }
 }

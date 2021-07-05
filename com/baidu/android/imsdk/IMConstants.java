@@ -2,9 +2,17 @@ package com.baidu.android.imsdk;
 
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes.dex */
 public class IMConstants implements NoProGuard, ResponseCode {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCOUNT_ANON = 0;
     public static final int ACCOUNT_BAIDU = 1;
     public static final int ACCOUNT_BAIDUSNS = 2;
@@ -91,6 +99,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int CONNECTION_STATE_LOGOUT = 1;
     public static final String CONTACTER = "contacter";
     public static final String CUSTOMER_CHANGE = "com.baidu.android.imsdk.customer";
+    public static final Long DEFAULT_FRIEND_GROUP_ID;
     public static final int DEVICE_TYPE_ANDROID = 2;
     public static final int DIALOG_SYNC = 1;
     public static final long DRAFT_MSGID = -1048576;
@@ -159,6 +168,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_CATEGORY_SYS_NOTIFY = 2;
     public static final int IM_CATEGORY_UNSUBSCRIPTION = 0;
     public static final int IM_CONFIG_MESSAGE = 2;
+    public static final String IM_DB_DIR;
     public static final int IM_DEL_RECORD_HIDE = 2;
     public static final int IM_DEL_RECORD_LOCAL = 0;
     public static final int IM_DEL_RECORD_SERVER = 1;
@@ -168,6 +178,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_ENV_OL = 0;
     public static final int IM_ENV_QA = 2;
     public static final int IM_ENV_RD = 1;
+    public static final String IM_FILE_ROOT = "baidu/imsdk";
     public static final int IM_FILTER_TYPE_ALL = 0;
     public static final int IM_FILTER_TYPE_MSG = 1;
     public static final int IM_FILTER_TYPE_NOTIFY = 2;
@@ -182,6 +193,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_GROUP_JOINTYPE_QRCODE = 3;
     public static final int IM_GROUP_MEMBER = 2;
     public static final int IM_GROUP_TYPE_DISCUSS = 1;
+    public static final String IM_ICON_DIR;
     public static final int IM_INT_STATUS_OFF = 0;
     public static final int IM_INT_STATUS_ON = 1;
     public static final long IM_LOGIN_KEY_AT_LCP = 25000050;
@@ -192,6 +204,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MEDIA_ALL_READ_CONTACTER_TYPE = -1;
     public static final int IM_MEDIA_MARK_TOP = 2;
     public static final int IM_MEDIA_MARK_TOP_NOT = 1;
+    public static final String IM_MSG_FILE_DIR;
     public static final int IM_MSG_READED = 1;
     public static final int IM_MSG_RESEND = 1;
     public static final int IM_MSG_SETTING_SWITCH_BLOCK_STRANGER = 0;
@@ -316,6 +329,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int INTERACTIVE_STATUS_SUCCESS = 1;
     public static final int INTERACTIVE_ZAN = 1;
     public static final String INTER_ACTIVE_MSG_RECOMMEND_DESC = "[收到新消息]";
+    public static boolean IS_UPDATE_VERSION = false;
     public static final String KEY_CONNECTION_STATE = "lcs";
     public static final String KEY_TRACK_DB_DEFAULT_SIZE = "empty_track_db_size";
     public static final int LOGIN_SYNC = 0;
@@ -366,10 +380,39 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int UPDATESWITCHTYPE_PA = 1;
     public static final int UPDATESWITCHTYPE_USER = 2;
     public static final String UPDATE_TIME = "update_time";
-    public static final String IM_FILE_ROOT = "baidu/imsdk";
-    public static final String IM_ICON_DIR = IM_FILE_ROOT + File.separator + "icon";
-    public static final String IM_MSG_FILE_DIR = IM_FILE_ROOT + File.separator + "msgs";
-    public static final String IM_DB_DIR = IM_FILE_ROOT + File.separator + IMTrackDatabase.DbEnum.TABLE_NAME;
-    public static final Long DEFAULT_FRIEND_GROUP_ID = 0L;
-    public static boolean IS_UPDATE_VERSION = false;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1168992023, "Lcom/baidu/android/imsdk/IMConstants;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1168992023, "Lcom/baidu/android/imsdk/IMConstants;");
+                return;
+            }
+        }
+        IM_ICON_DIR = IM_FILE_ROOT + File.separator + "icon";
+        IM_MSG_FILE_DIR = IM_FILE_ROOT + File.separator + "msgs";
+        IM_DB_DIR = IM_FILE_ROOT + File.separator + IMTrackDatabase.DbEnum.TABLE_NAME;
+        DEFAULT_FRIEND_GROUP_ID = 0L;
+        IS_UPDATE_VERSION = false;
+    }
+
+    public IMConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

@@ -11,12 +11,38 @@ import com.baidu.android.imrtc.send.BIMUser;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMRtcNotifyMsg {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMRtcNotifyMsg";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public BIMRtcNotifyMsg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static BIMRtcInfo parseJson(Context context, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, context, jSONObject)) != null) {
+            return (BIMRtcInfo) invokeLL.objValue;
+        }
         try {
             if (context == null) {
                 LogUtils.e(TAG, "parseJson context == null ");

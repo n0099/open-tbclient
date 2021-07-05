@@ -3,118 +3,180 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ea {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ea f41294a;
+    public static volatile ea f43037a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f308a;
+    public int f311a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f309a;
+    public Context f312a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ee f310a;
+    public ee f313a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f311a;
+    public String f314a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<ec, ed> f312a;
+    public HashMap<ec, ed> f315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41295b;
+    public String f43038b;
 
     public ea(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         HashMap<ec, ed> hashMap = new HashMap<>();
-        this.f312a = hashMap;
-        this.f309a = context;
-        hashMap.put(ec.SERVICE_ACTION, new eg());
-        this.f312a.put(ec.SERVICE_COMPONENT, new eh());
-        this.f312a.put(ec.ACTIVITY, new dy());
-        this.f312a.put(ec.PROVIDER, new ef());
+        this.f315a = hashMap;
+        this.f312a = context;
+        hashMap.put(ec.f43043b, new eg());
+        this.f315a.put(ec.f43044c, new eh());
+        this.f315a.put(ec.f43042a, new dy());
+        this.f315a.put(ec.f43045d, new ef());
     }
 
     public static ea a(Context context) {
-        if (f41294a == null) {
-            synchronized (ea.class) {
-                if (f41294a == null) {
-                    f41294a = new ea(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (f43037a == null) {
+                synchronized (ea.class) {
+                    if (f43037a == null) {
+                        f43037a = new ea(context);
+                    }
                 }
             }
+            return f43037a;
         }
-        return f41294a;
+        return (ea) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ec ecVar, Context context, dz dzVar) {
-        this.f312a.get(ecVar).a(context, dzVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, this, ecVar, context, dzVar) == null) {
+            this.f315a.get(ecVar).a(context, dzVar);
+        }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m268a(Context context) {
-        return com.xiaomi.push.service.ac.m560a(context, context.getPackageName());
+    public static boolean m282a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? com.xiaomi.push.service.ac.m574a(context, context.getPackageName()) : invokeL.booleanValue;
     }
 
     public int a() {
-        return this.f308a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f311a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ee m269a() {
-        return this.f310a;
+    public ee m283a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f313a : (ee) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m270a() {
-        return this.f311a;
+    public String m284a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f314a : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
-        this.f308a = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f311a = i2;
+        }
     }
 
     public void a(Context context, String str, int i2, String str2, String str3) {
-        if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            a(i2);
-            ai.a(this.f309a).a(new eb(this, str, context, str2, str3));
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, Integer.valueOf(i2), str2, str3}) == null) {
+            if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                a(i2);
+                ai.a(this.f312a).a(new eb(this, str, context, str2, str3));
+                return;
+            }
+            dw.a(context, "" + str, 1008, "A receive a incorrect message");
         }
-        dw.a(context, "" + str, 1008, "A receive a incorrect message");
     }
 
     public void a(ec ecVar, Context context, Intent intent, String str) {
-        if (ecVar != null) {
-            this.f312a.get(ecVar).a(context, intent, str);
-        } else {
-            dw.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, ecVar, context, intent, str) == null) {
+            if (ecVar != null) {
+                this.f315a.get(ecVar).a(context, intent, str);
+            } else {
+                dw.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
+            }
         }
     }
 
     public void a(ee eeVar) {
-        this.f310a = eeVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eeVar) == null) {
+            this.f313a = eeVar;
+        }
     }
 
     public void a(String str) {
-        this.f311a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f314a = str;
+        }
     }
 
     public void a(String str, String str2, int i2, ee eeVar) {
-        a(str);
-        b(str2);
-        a(i2);
-        a(eeVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i2, eeVar) == null) {
+            a(str);
+            b(str2);
+            a(i2);
+            a(eeVar);
+        }
     }
 
     public String b() {
-        return this.f41295b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43038b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
-        this.f41295b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f43038b = str;
+        }
     }
 }

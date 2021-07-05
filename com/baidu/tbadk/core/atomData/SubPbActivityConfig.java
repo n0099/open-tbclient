@@ -3,18 +3,26 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.data.IconData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SubPbActivityConfig extends IntentConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ICON_LIST = "icon_list";
     public static final String KEY_ANTI = "anti";
     public static final String KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM = "key_deleted_reason_info_is_gray_cale_forum";
@@ -53,39 +61,64 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String SUB_KEY_IMG_OFFSET = "sub_img_offset";
     public static final String SUB_KEY_IMG_SRC = "sub_img_src";
     public static final String SUB_KEY_IMG_URL = "sub_img_url";
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SubPbActivityConfig(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public SubPbActivityConfig addBigImageData(ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z, int i2) {
-        if (concurrentHashMap != null && arrayList != null) {
-            Intent intent = getIntent();
-            Bundle bundle = new Bundle();
-            ArrayList<String> arrayList2 = new ArrayList<>(concurrentHashMap.keySet());
-            bundle.putStringArrayList(SUB_KEY_IMG_URL, arrayList2);
-            bundle.putBoolean(SUB_KEY_IMG_CDN, z);
-            bundle.putStringArrayList(SUB_KEY_IMG_SRC, arrayList);
-            Iterator<String> it = arrayList2.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!StringUtils.isNull(next)) {
-                    bundle.putSerializable(next, concurrentHashMap.get(next));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, concurrentHashMap, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+            if (concurrentHashMap != null && arrayList != null) {
+                Intent intent = getIntent();
+                Bundle bundle = new Bundle();
+                ArrayList<String> arrayList2 = new ArrayList<>(concurrentHashMap.keySet());
+                bundle.putStringArrayList(SUB_KEY_IMG_URL, arrayList2);
+                bundle.putBoolean(SUB_KEY_IMG_CDN, z);
+                bundle.putStringArrayList(SUB_KEY_IMG_SRC, arrayList);
+                Iterator<String> it = arrayList2.iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (!StringUtils.isNull(next)) {
+                        bundle.putSerializable(next, concurrentHashMap.get(next));
+                    }
                 }
+                bundle.putInt(SUB_KEY_IMG_OFFSET, i2);
+                intent.putExtra(KEY_IMG_URLS, bundle);
             }
-            bundle.putInt(SUB_KEY_IMG_OFFSET, i2);
-            intent.putExtra(KEY_IMG_URLS, bundle);
+            return this;
         }
-        return this;
+        return (SubPbActivityConfig) invokeCommon.objValue;
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2) {
-        return createSubPbActivityConfig(str, str2, str3, z, null, false, null, 0, null, null, z2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? createSubPbActivityConfig(str, str2, str3, z, null, false, null, 0, null, null, z2) : (SubPbActivityConfig) invokeCommon.objValue;
     }
 
     public void setBjhData(BaijiahaoData baijiahaoData) {
-        Intent intent = getIntent();
-        if (intent == null || baijiahaoData == null) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, baijiahaoData) == null) || (intent = getIntent()) == null || baijiahaoData == null) {
             return;
         }
         int i2 = baijiahaoData.oriUgcType;
@@ -101,163 +134,213 @@ public class SubPbActivityConfig extends IntentConfig {
     }
 
     public void setDeletedReasonInfoIsGrayCaleForum(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i2);
     }
 
     public void setDeletedReasonInfoIsIsBoomGrow(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i2);
     }
 
     public void setForumHeadUrl(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_FORUM_HEAD_URL, str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_FORUM_HEAD_URL, str);
     }
 
     public void setFromFrsForumId(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_FROM_FRS_FORUM_ID, str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_FROM_FRS_FORUM_ID, str);
     }
 
     public void setHasForumRule(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_HAS_FORUM_RULE, i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_HAS_FORUM_RULE, i2);
     }
 
     public void setHighLightPostId(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("high_light_post_id", str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("high_light_post_id", str);
     }
 
     public void setIsFromeSchema(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_FROM_SCHEMA, z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_IS_FROM_SCHEMA, z);
     }
 
     public void setIsManager(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_MANAGER, i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_IS_MANAGER, i2);
     }
 
     public void setIsOpenEditor(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_OPEN_EDITOR, z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_IS_OPEN_EDITOR, z);
     }
 
     public void setKeyFromForumId(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("from_forum_id", str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("from_forum_id", str);
     }
 
     public void setKeyIsUseSpid(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_USE_SPID, z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_IS_USE_SPID, z);
     }
 
     public void setKeyOriUgcTopPid(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_ORI_UGC_TOP_PID, str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_ORI_UGC_TOP_PID, str);
     }
 
     public void setKeyPageStartFrom(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_PAGE_START_FROM, i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_PAGE_START_FROM, i2);
     }
 
     public void setMainPostMaskVisibly(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_MAIN_POST_MASK_VISIBLE, z);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_MAIN_POST_MASK_VISIBLE, z);
     }
 
     public void setUserLevel(int i2) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_FORUM_HEAD_URL, i2);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra(KEY_FORUM_HEAD_URL, i2);
     }
 
     public void showOpenEditorTips(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("key_open_editor_tips", str);
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || (intent = getIntent()) == null) {
+            return;
         }
+        intent.putExtra("key_open_editor_tips", str);
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z) {
-        return createSubPbActivityConfig(str, str2, str3, z, null, false);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) ? createSubPbActivityConfig(str, str2, str3, z, null, false) : (SubPbActivityConfig) invokeCommon.objValue;
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2) {
-        return createSubPbActivityConfig(str, str2, str3, z, str4, z2, null, 0);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, Boolean.valueOf(z2)})) == null) ? createSubPbActivityConfig(str, str2, str3, z, str4, z2, null, 0) : (SubPbActivityConfig) invokeCommon.objValue;
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2) {
-        return createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i2, null);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, Boolean.valueOf(z2), str5, Integer.valueOf(i2)})) == null) ? createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i2, null) : (SubPbActivityConfig) invokeCommon.objValue;
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2, SmallTailInfo smallTailInfo) {
-        return createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i2, null, null, false);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, Boolean.valueOf(z2), str5, Integer.valueOf(i2), smallTailInfo})) == null) ? createSubPbActivityConfig(str, str2, str3, z, str4, z2, str5, i2, null, null, false) : (SubPbActivityConfig) invokeCommon.objValue;
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2, SmallTailInfo smallTailInfo, AntiData antiData, boolean z3) {
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra(KEY_IS_JUMP_FROM_PB, z);
-        intent.putExtra(KEY_SHOW_KEYBOARD, z2);
-        intent.putExtra(KEY_REPLAY_NAME, str4);
-        intent.putExtra(KEY_REPLAY_POST_ID, str5);
-        intent.putExtra(KEY_USER_IDENTITY, i2);
-        intent.putExtra(KEY_TAIL, smallTailInfo);
-        intent.putExtra(KEY_ANTI, antiData);
-        intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
-        return this;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, Boolean.valueOf(z2), str5, Integer.valueOf(i2), smallTailInfo, antiData, Boolean.valueOf(z3)})) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra(KEY_IS_JUMP_FROM_PB, z);
+            intent.putExtra(KEY_SHOW_KEYBOARD, z2);
+            intent.putExtra(KEY_REPLAY_NAME, str4);
+            intent.putExtra(KEY_REPLAY_POST_ID, str5);
+            intent.putExtra(KEY_USER_IDENTITY, i2);
+            intent.putExtra(KEY_TAIL, smallTailInfo);
+            intent.putExtra(KEY_ANTI, antiData);
+            intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
+            return this;
+        }
+        return (SubPbActivityConfig) invokeCommon.objValue;
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i2, SmallTailInfo smallTailInfo, AntiData antiData, boolean z3, ArrayList<IconData> arrayList) {
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra(KEY_IS_JUMP_FROM_PB, z);
-        intent.putExtra(KEY_SHOW_KEYBOARD, z2);
-        intent.putExtra(KEY_REPLAY_NAME, str4);
-        intent.putExtra(KEY_REPLAY_POST_ID, str5);
-        intent.putExtra(KEY_USER_IDENTITY, i2);
-        intent.putExtra(KEY_TAIL, smallTailInfo);
-        intent.putExtra(KEY_ANTI, antiData);
-        intent.putExtra(ICON_LIST, arrayList);
-        intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
-        return this;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, Boolean.valueOf(z2), str5, Integer.valueOf(i2), smallTailInfo, antiData, Boolean.valueOf(z3), arrayList})) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra(KEY_IS_JUMP_FROM_PB, z);
+            intent.putExtra(KEY_SHOW_KEYBOARD, z2);
+            intent.putExtra(KEY_REPLAY_NAME, str4);
+            intent.putExtra(KEY_REPLAY_POST_ID, str5);
+            intent.putExtra(KEY_USER_IDENTITY, i2);
+            intent.putExtra(KEY_TAIL, smallTailInfo);
+            intent.putExtra(KEY_ANTI, antiData);
+            intent.putExtra(ICON_LIST, arrayList);
+            intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
+            return this;
+        }
+        return (SubPbActivityConfig) invokeCommon.objValue;
     }
 }

@@ -10,60 +10,104 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class PolystarShapeParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", r.f7715a, "or", IAdRequestParam.OS, "ir", "is", "hd");
+    public static /* synthetic */ Interceptable $ic;
+    public static final JsonReader.Options NAMES;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static PolystarShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        String str = null;
-        PolystarShape.Type type = null;
-        AnimatableFloatValue animatableFloatValue = null;
-        AnimatableValue<PointF, PointF> animatableValue = null;
-        AnimatableFloatValue animatableFloatValue2 = null;
-        AnimatableFloatValue animatableFloatValue3 = null;
-        AnimatableFloatValue animatableFloatValue4 = null;
-        AnimatableFloatValue animatableFloatValue5 = null;
-        AnimatableFloatValue animatableFloatValue6 = null;
-        boolean z = false;
-        while (jsonReader.hasNext()) {
-            switch (jsonReader.selectName(NAMES)) {
-                case 0:
-                    str = jsonReader.nextString();
-                    break;
-                case 1:
-                    type = PolystarShape.Type.forValue(jsonReader.nextInt());
-                    break;
-                case 2:
-                    animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-                    break;
-                case 3:
-                    animatableValue = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
-                    break;
-                case 4:
-                    animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-                    break;
-                case 5:
-                    animatableFloatValue4 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
-                    break;
-                case 6:
-                    animatableFloatValue6 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-                    break;
-                case 7:
-                    animatableFloatValue3 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
-                    break;
-                case 8:
-                    animatableFloatValue5 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-                    break;
-                case 9:
-                    z = jsonReader.nextBoolean();
-                    break;
-                default:
-                    jsonReader.skipName();
-                    jsonReader.skipValue();
-                    break;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1415151870, "Lcom/airbnb/lottie/parser/PolystarShapeParser;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1415151870, "Lcom/airbnb/lottie/parser/PolystarShapeParser;");
+                return;
             }
         }
-        return new PolystarShape(str, type, animatableFloatValue, animatableValue, animatableFloatValue2, animatableFloatValue3, animatableFloatValue4, animatableFloatValue5, animatableFloatValue6, z);
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", r.f7745a, "or", IAdRequestParam.OS, "ir", "is", "hd");
+    }
+
+    public PolystarShapeParser() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static PolystarShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jsonReader, lottieComposition)) == null) {
+            String str = null;
+            PolystarShape.Type type = null;
+            AnimatableFloatValue animatableFloatValue = null;
+            AnimatableValue<PointF, PointF> animatableValue = null;
+            AnimatableFloatValue animatableFloatValue2 = null;
+            AnimatableFloatValue animatableFloatValue3 = null;
+            AnimatableFloatValue animatableFloatValue4 = null;
+            AnimatableFloatValue animatableFloatValue5 = null;
+            AnimatableFloatValue animatableFloatValue6 = null;
+            boolean z = false;
+            while (jsonReader.hasNext()) {
+                switch (jsonReader.selectName(NAMES)) {
+                    case 0:
+                        str = jsonReader.nextString();
+                        break;
+                    case 1:
+                        type = PolystarShape.Type.forValue(jsonReader.nextInt());
+                        break;
+                    case 2:
+                        animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                        break;
+                    case 3:
+                        animatableValue = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
+                        break;
+                    case 4:
+                        animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                        break;
+                    case 5:
+                        animatableFloatValue4 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                        break;
+                    case 6:
+                        animatableFloatValue6 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                        break;
+                    case 7:
+                        animatableFloatValue3 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                        break;
+                    case 8:
+                        animatableFloatValue5 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                        break;
+                    case 9:
+                        z = jsonReader.nextBoolean();
+                        break;
+                    default:
+                        jsonReader.skipName();
+                        jsonReader.skipValue();
+                        break;
+                }
+            }
+            return new PolystarShape(str, type, animatableFloatValue, animatableValue, animatableFloatValue2, animatableFloatValue3, animatableFloatValue4, animatableFloatValue5, animatableFloatValue6, z);
+        }
+        return (PolystarShape) invokeLL.objValue;
     }
 }

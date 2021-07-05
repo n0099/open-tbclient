@@ -7,15 +7,36 @@ import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class AlarmReceiver extends BroadcastReceiver {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TID = "tid";
     public static final String TITLE = "title";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AlarmReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String stringExtra;
-        if (intent == null || (stringExtra = intent.getStringExtra("uid")) == null || !stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || (stringExtra = intent.getStringExtra("uid")) == null || !stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
             return;
         }
         String stringExtra2 = intent.getStringExtra("task_id");

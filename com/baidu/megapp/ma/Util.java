@@ -3,41 +3,93 @@ package com.baidu.megapp.ma;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class Util {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Util() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static Intent createActivityIntent(Context context, String str, String str2) {
-        Intent intent = new Intent();
-        intent.setClassName(context.getPackageName(), str2);
-        return intent;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(context.getPackageName(), str2);
+            return intent;
+        }
+        return (Intent) invokeLLL.objValue;
     }
 
     public static int getHostResourcesId(Context context, String str, String str2, String str3) {
-        if (context != null) {
-            return context.getResources().getIdentifier(str2, str3, context.getPackageName());
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, str3)) == null) {
+            if (context != null) {
+                return context.getResources().getIdentifier(str2, str3, context.getPackageName());
+            }
+            return 0;
         }
-        return 0;
+        return invokeLLLL.intValue;
     }
 
     public static String getTargetPackageName(Context context) {
-        return context.getPackageName();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getPackageName() : (String) invokeL.objValue;
     }
 
     public static void quitApp(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        }
     }
 
     public static void remapReceiverIntent(String str, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, intent) == null) {
+        }
     }
 
     public static void remapStartActivityIntent(String str, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, intent) == null) {
+        }
     }
 
     public static void remapStartServiceIntent(String str, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, intent) == null) {
+        }
     }
 
     public MAActivity getMAActivityByProxy(Activity activity) {
-        if (activity instanceof MAActivity) {
-            return (MAActivity) activity;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            if (activity instanceof MAActivity) {
+                return (MAActivity) activity;
+            }
+            return null;
         }
-        return null;
+        return (MAActivity) invokeL.objValue;
     }
 }

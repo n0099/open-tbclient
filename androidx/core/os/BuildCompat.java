@@ -1,39 +1,76 @@
 package androidx.core.os;
 
 import android.os.Build;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BuildCompat {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public BuildCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Deprecated
     public static boolean isAtLeastN() {
-        return Build.VERSION.SDK_INT >= 24;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
     }
 
     @Deprecated
     public static boolean isAtLeastNMR1() {
-        return Build.VERSION.SDK_INT >= 25;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 25 : invokeV.booleanValue;
     }
 
     @Deprecated
     public static boolean isAtLeastO() {
-        return Build.VERSION.SDK_INT >= 26;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.VERSION.SDK_INT >= 26 : invokeV.booleanValue;
     }
 
     @Deprecated
     public static boolean isAtLeastOMR1() {
-        return Build.VERSION.SDK_INT >= 27;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Build.VERSION.SDK_INT >= 27 : invokeV.booleanValue;
     }
 
     @Deprecated
     public static boolean isAtLeastP() {
-        return Build.VERSION.SDK_INT >= 28;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Build.VERSION.SDK_INT >= 28 : invokeV.booleanValue;
     }
 
     @Deprecated
     public static boolean isAtLeastQ() {
-        return Build.VERSION.SDK_INT >= 29;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? Build.VERSION.SDK_INT >= 29 : invokeV.booleanValue;
     }
 
     public static boolean isAtLeastR() {
-        return Build.VERSION.SDK_INT >= 30 || Build.VERSION.CODENAME.equals("R");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT >= 30 || Build.VERSION.CODENAME.equals("R") : invokeV.booleanValue;
     }
 }

@@ -3,15 +3,25 @@ package com.baidu.wallet.core.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
 import com.baidu.sapi2.result.Web2NativeLoginResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.paysdk.ui.PassNormalizeActivity;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PassUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String NORMALIZE_URL = "normalize_url";
     public static final String PASS_ACCOUNT = "pass_account";
     public static final String PASS_ACCOUNT_TYPE = "pass_account_type";
@@ -35,154 +45,299 @@ public final class PassUtil {
     public static final int TYPE_VERIFY = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static IPassNormalize f24100a;
+    public static IPassNormalize f24643a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f24101b;
+    public static long f24644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static IPassNormalize f24102c;
+    public static IPassNormalize f24645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f24103d = new Object();
+    public static final Object f24646d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface IPassNormalize {
         boolean onNormalize(Context context, int i2, Map<String, String> map);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class PassNormalize implements IPassNormalize {
-        @Override // com.baidu.wallet.core.utils.PassUtil.IPassNormalize
-        public boolean onNormalize(Context context, int i2, Map<String, String> map) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("统一处理正常化 type=");
-            sb.append(i2);
-            sb.append("#map=");
-            sb.append(map == null);
-            LogUtil.logd(sb.toString());
-            if (i2 == 1 && map != null) {
-                String str = map.get("pass_open_bduss");
-                if ("0".equals(map.get("pass_error_code")) && !TextUtils.isEmpty(str)) {
-                    IPassNormalize iPassNormalize = PassUtil.f24100a;
-                    if (iPassNormalize != null) {
-                        iPassNormalize.onNormalize(context, i2, map);
-                    }
-                    return true;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public PassNormalize() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return i2 == 2 && map != null;
+        }
+
+        @Override // com.baidu.wallet.core.utils.PassUtil.IPassNormalize
+        public boolean onNormalize(Context context, int i2, Map<String, String> map) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, map)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("统一处理正常化 type=");
+                sb.append(i2);
+                sb.append("#map=");
+                sb.append(map == null);
+                LogUtil.logd(sb.toString());
+                if (i2 == 1 && map != null) {
+                    String str = map.get("pass_open_bduss");
+                    if ("0".equals(map.get("pass_error_code")) && !TextUtils.isEmpty(str)) {
+                        IPassNormalize iPassNormalize = PassUtil.f24643a;
+                        if (iPassNormalize != null) {
+                            iPassNormalize.onNormalize(context, i2, map);
+                        }
+                        return true;
+                    }
+                }
+                return i2 == 2 && map != null;
+            }
+            return invokeLIL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1826742014, "Lcom/baidu/wallet/core/utils/PassUtil;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1826742014, "Lcom/baidu/wallet/core/utils/PassUtil;");
+                return;
+            }
+        }
+        f24646d = new Object();
+    }
+
+    public PassUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
     public static long b() {
-        long currentTimeMillis = System.currentTimeMillis() - f24101b;
-        LogUtil.logd("wait =" + currentTimeMillis);
-        if (currentTimeMillis < 500 && currentTimeMillis > 0) {
-            LogUtil.logd("需要wait =" + currentTimeMillis);
-            return currentTimeMillis;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - f24644b;
+            LogUtil.logd("wait =" + currentTimeMillis);
+            if (currentTimeMillis < 500 && currentTimeMillis > 0) {
+                LogUtil.logd("需要wait =" + currentTimeMillis);
+                return currentTimeMillis;
+            }
+            LogUtil.logd("不需要wait");
+            return 0L;
         }
-        LogUtil.logd("不需要wait");
-        return 0L;
+        return invokeV.longValue;
     }
 
-    public static void backNormalized(final Context context, final int i2, final Map<String, String> map) {
-        if (map != null && !TextUtils.isEmpty(map.get("pass_error_code")) && "0".equals(map.get("pass_error_code"))) {
-            SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.wallet.core.utils.PassUtil.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.LoginStatusAware
-                /* renamed from: a */
-                public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
-                    if (PassUtil.f24102c != null) {
-                        PassUtil.f24102c.onNormalize(context, i2, map);
-                    }
-                    IPassNormalize unused = PassUtil.f24102c = null;
-                }
+    public static void backNormalized(Context context, int i2, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, context, i2, map) == null) {
+            if (map != null && !TextUtils.isEmpty(map.get("pass_error_code")) && "0".equals(map.get("pass_error_code"))) {
+                SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback(context, i2, map) { // from class: com.baidu.wallet.core.utils.PassUtil.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: b */
-                public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
-                    WalletLoginHelper.getInstance().getOpenBduss(true, new ILoginBackListener() { // from class: com.baidu.wallet.core.utils.PassUtil.1.1
-                        @Override // com.baidu.wallet.api.ILoginBackListener
-                        public void onFail(int i3, String str) {
-                            if (PassUtil.f24102c != null) {
-                                IPassNormalize iPassNormalize = PassUtil.f24102c;
-                                AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                                iPassNormalize.onNormalize(context, i2, map);
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ Context f24647a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ int f24648b;
+
+                    /* renamed from: c  reason: collision with root package name */
+                    public final /* synthetic */ Map f24649c;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {context, Integer.valueOf(i2), map};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
                             }
-                            IPassNormalize unused = PassUtil.f24102c = null;
                         }
+                        this.f24647a = context;
+                        this.f24648b = i2;
+                        this.f24649c = map;
+                    }
 
-                        @Override // com.baidu.wallet.api.ILoginBackListener
-                        public void onSuccess(int i3, String str) {
-                            map.put("pass_open_bduss", str);
-                            if (PassUtil.f24102c != null) {
-                                IPassNormalize iPassNormalize = PassUtil.f24102c;
-                                AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                                iPassNormalize.onNormalize(context, i2, map);
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.LoginStatusAware
+                    /* renamed from: a */
+                    public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, web2NativeLoginResult) == null) {
+                            if (PassUtil.f24645c != null) {
+                                PassUtil.f24645c.onNormalize(this.f24647a, this.f24648b, this.f24649c);
                             }
-                            IPassNormalize unused = PassUtil.f24102c = null;
+                            IPassNormalize unused = PassUtil.f24645c = null;
                         }
-                    });
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: c */
-                public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
-                    if (PassUtil.f24102c != null) {
-                        PassUtil.f24102c.onNormalize(context, i2, map);
                     }
-                    IPassNormalize unused = PassUtil.f24102c = null;
-                }
 
-                @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
-                public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
-                    if (PassUtil.f24102c != null) {
-                        PassUtil.f24102c.onNormalize(context, i2, map);
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    /* renamed from: b */
+                    public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, web2NativeLoginResult) == null) {
+                            WalletLoginHelper.getInstance().getOpenBduss(true, new ILoginBackListener(this) { // from class: com.baidu.wallet.core.utils.PassUtil.1.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* renamed from: a  reason: collision with root package name */
+                                public final /* synthetic */ AnonymousClass1 f24650a;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i3 = newInitContext.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.f24650a = this;
+                                }
+
+                                @Override // com.baidu.wallet.api.ILoginBackListener
+                                public void onFail(int i3, String str) {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i3, str) == null) {
+                                        if (PassUtil.f24645c != null) {
+                                            IPassNormalize iPassNormalize = PassUtil.f24645c;
+                                            AnonymousClass1 anonymousClass1 = this.f24650a;
+                                            iPassNormalize.onNormalize(anonymousClass1.f24647a, anonymousClass1.f24648b, anonymousClass1.f24649c);
+                                        }
+                                        IPassNormalize unused = PassUtil.f24645c = null;
+                                    }
+                                }
+
+                                @Override // com.baidu.wallet.api.ILoginBackListener
+                                public void onSuccess(int i3, String str) {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str) == null) {
+                                        this.f24650a.f24649c.put("pass_open_bduss", str);
+                                        if (PassUtil.f24645c != null) {
+                                            IPassNormalize iPassNormalize = PassUtil.f24645c;
+                                            AnonymousClass1 anonymousClass1 = this.f24650a;
+                                            iPassNormalize.onNormalize(anonymousClass1.f24647a, anonymousClass1.f24648b, anonymousClass1.f24649c);
+                                        }
+                                        IPassNormalize unused = PassUtil.f24645c = null;
+                                    }
+                                }
+                            });
+                        }
                     }
-                    IPassNormalize unused = PassUtil.f24102c = null;
-                }
 
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    /* renamed from: c */
+                    public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, web2NativeLoginResult) == null) {
+                            if (PassUtil.f24645c != null) {
+                                PassUtil.f24645c.onNormalize(this.f24647a, this.f24648b, this.f24649c);
+                            }
+                            IPassNormalize unused = PassUtil.f24645c = null;
+                        }
+                    }
 
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
-            }, true);
-            return;
+                    @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
+                    public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048579, this, web2NativeLoginResult) == null) {
+                            if (PassUtil.f24645c != null) {
+                                PassUtil.f24645c.onNormalize(this.f24647a, this.f24648b, this.f24649c);
+                            }
+                            IPassNormalize unused = PassUtil.f24645c = null;
+                        }
+                    }
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFinish() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onStart() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048583, this) == null) {
+                        }
+                    }
+                }, true);
+                return;
+            }
+            IPassNormalize iPassNormalize = f24645c;
+            if (iPassNormalize != null) {
+                iPassNormalize.onNormalize(context, i2, map);
+            }
+            f24645c = null;
         }
-        IPassNormalize iPassNormalize = f24102c;
-        if (iPassNormalize != null) {
-            iPassNormalize.onNormalize(context, i2, map);
-        }
-        f24102c = null;
     }
 
     public static void onCreate() {
-        f24101b = System.currentTimeMillis();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+            f24644b = System.currentTimeMillis();
+        }
     }
 
     public static void passNormalized(Context context, String str, int i2, IPassNormalize iPassNormalize) {
-        if (iPassNormalize == null || context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLIL(65543, null, context, str, i2, iPassNormalize) == null) || iPassNormalize == null || context == null) {
             return;
         }
         long b2 = b();
         if (b2 > 0) {
             try {
-                synchronized (f24103d) {
+                synchronized (f24646d) {
                     LogUtil.logd("before wait");
-                    f24103d.wait(b2);
+                    f24646d.wait(b2);
                     LogUtil.logd("after wait");
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        f24102c = iPassNormalize;
+        f24645c = iPassNormalize;
         Intent intent = new Intent(context, PassNormalizeActivity.class);
         intent.putExtra("normalize_url", str);
         intent.putExtra("pass_util_type", i2);
@@ -190,6 +345,9 @@ public final class PassUtil {
     }
 
     public static void registerPassNormalize(IPassNormalize iPassNormalize) {
-        f24100a = iPassNormalize;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, iPassNormalize) == null) {
+            f24643a = iPassNormalize;
+        }
     }
 }

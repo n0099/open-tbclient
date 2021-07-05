@@ -1,155 +1,150 @@
 package d.a.j;
 
-import android.text.TextUtils;
-import d.a.j.d.a.g;
-import d.a.j.f;
-import java.io.UnsupportedEncodingException;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
-public class j {
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.FollowUserDecorView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.FollowUserButton;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.b2;
+/* loaded from: classes8.dex */
+public class j extends c implements p<b2>, q {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f44012a;
+    /* renamed from: i  reason: collision with root package name */
+    public FollowUserDecorView f45755i;
+    public boolean j;
+    public int k;
+    public int l;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f44013b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f44014c = 2;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f44015d = 0;
-
-    public static j a(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        j jVar = new j();
-        jVar.f44012a = str;
-        int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-        jVar.f44015d = length;
-        if (length < 14) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "0";
+    public j(TbPageContext tbPageContext, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            jVar.f44013b = str2;
         }
-        return jVar;
+        this.j = true;
+        this.k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
+        this.l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
+        FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
+        this.f45755i = followUserDecorView;
+        followUserDecorView.setUseNewStyle(z);
+        h(-1);
+        m(z);
     }
 
-    public static boolean c(int i2) {
-        return i2 >= 14;
-    }
-
-    public static boolean d(String str) {
-        return TextUtils.isEmpty(str);
-    }
-
-    public static j e(String str) {
-        return g(j(str));
-    }
-
-    public static j g(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    public void k(d.a.r0.r.q.a aVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, z) == null) {
+            this.j = z;
+            s(0);
+            o(true);
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            Iterator<String> keys = jSONObject.keys();
-            String str2 = "0";
-            String str3 = "0";
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!i("ZGV2aWNlaWQ=").equals(next) && !i("dmVy").equals(next)) {
-                    str3 = jSONObject.optString(next, "0");
-                }
+    }
+
+    public final int l(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
+    }
+
+    public final void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                this.k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
+                this.l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
             }
-            String string = jSONObject.getString(i("ZGV2aWNlaWQ="));
-            int i2 = jSONObject.getInt(i("dmVy"));
-            int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
-            if (!TextUtils.isEmpty(string)) {
-                j jVar = new j();
-                jVar.f44012a = string;
-                jVar.f44014c = i2;
-                jVar.f44015d = length;
-                if (length < 14) {
-                    if (!TextUtils.isEmpty(str3)) {
-                        str2 = str3;
-                    }
-                    jVar.f44013b = str2;
-                }
-                jVar.k();
-                return jVar;
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.k, this.l);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.topMargin = l(R.dimen.tbds50);
+            if (z) {
+                layoutParams.topMargin = l(R.dimen.tbds52);
             }
-        } catch (JSONException e2) {
-            d.a.j.i.c.c(e2);
-        }
-        return null;
-    }
-
-    public static String i(String str) {
-        return new String(f.b.b(str.getBytes()));
-    }
-
-    public static String j(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            byte[] a2 = g.a();
-            return new String(d.a.j.d.a.c.d(a2, a2, f.b.b(str.getBytes())));
-        } catch (Exception e2) {
-            d.a.j.i.c.c(e2);
-            return "";
+            i(layoutParams);
+            g(this.f45755i);
         }
     }
 
-    public static String m(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.j.p
+    /* renamed from: n */
+    public void a(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b2Var) == null) {
+            if (b2Var != null && b2Var.H() != null) {
+                p(l(this.j ? R.dimen.tbds120 : R.dimen.tbds44));
+                this.f45755i.setVisibility(0);
+                this.f45755i.setData(b2Var);
+                this.f45755i.setTag(b2Var);
+                return;
+            }
+            this.f45755i.setVisibility(8);
         }
-        try {
-            byte[] a2 = g.a();
-            return f.b.a(d.a.j.d.a.c.c(a2, a2, str.getBytes()), "utf-8");
-        } catch (UnsupportedEncodingException | Exception e2) {
-            d.a.j.i.c.c(e2);
-            return "";
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f45755i.setClickableUnLike(z);
         }
     }
 
-    public boolean b() {
-        return d(this.f44013b);
-    }
-
-    public boolean f() {
-        return c(this.f44015d);
-    }
-
-    public String h() {
-        return m(l());
-    }
-
-    public boolean k() {
-        String str;
-        if (f()) {
-            str = "O";
-        } else if (!b()) {
-            return false;
-        } else {
-            str = "0";
+    @Override // d.a.j.q
+    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
+            this.f45755i.r(i2);
         }
-        this.f44013b = str;
-        return true;
     }
 
-    public final String l() {
-        try {
-            return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f44012a).put(i("aW1laQ=="), this.f44013b).put(i("dmVy"), this.f44014c).toString();
-        } catch (JSONException e2) {
-            d.a.j.i.c.c(e2);
-            return null;
+    public void p(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            if (d() != null) {
+                d().rightMargin = i2;
+            }
+            this.f45755i.setLayoutParams(d());
+        }
+    }
+
+    public void q(FollowUserButton.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            this.f45755i.setOnClickEvent(aVar);
+        }
+    }
+
+    public void r(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+            this.f45755i.setPageUniqueId(bdUniqueId);
+        }
+    }
+
+    public void s(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f45755i.setSvgIconResId(i2);
         }
     }
 }

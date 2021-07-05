@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
@@ -16,40 +18,88 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import d.a.n0.a.x;
-import d.a.n0.e0.c;
-import d.a.o0.x1.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.a.x;
+import d.a.r0.e0.c;
+import d.a.s0.a2.b;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
-    public d.a.o0.x1.a mController;
-    public CustomMessageListener mEditorEnableListener = new a(2022209);
+    public transient /* synthetic */ FieldHolder $fh;
+    public d.a.s0.a2.a mController;
+    public CustomMessageListener mEditorEnableListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CollectTabActivity f18702a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(CollectTabActivity collectTabActivity, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {collectTabActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18702a = collectTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getData() instanceof Bundle) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Bundle)) {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i2 = bundle.getInt("fragment_type", -1);
-                if (i2 == -1 || i2 != CollectTabActivity.this.mController.f()) {
+                if (i2 == -1 || i2 != this.f18702a.mController.f()) {
                     return;
                 }
-                CollectTabActivity.this.mController.k(z);
+                this.f18702a.mController.k(z);
             }
         }
     }
 
+    public CollectTabActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mEditorEnableListener = new a(this, 2022209);
+    }
+
     private void checkSchemeFromIntent(Intent intent) {
-        if (intent == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, this, intent) == null) || intent == null) {
             return;
         }
         String dataString = intent.getDataString();
@@ -68,46 +118,58 @@ public class CollectTabActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.n0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.r0.k0.a
     public String getCurrentPageKey() {
-        return "a081";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a081" : (String) invokeV.objValue;
     }
 
     public void initTabsOnActivityCreated() {
-        d.a.n0.q.a aVar = new d.a.n0.q.a(getPageContext().getPageActivity());
-        ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-        aVar.a(threadDelegateStatic);
-        if (aVar.b() != null) {
-            c fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure();
-            if (fragmentTabStructure == null) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d.a.r0.q.a aVar = new d.a.r0.q.a(getPageContext().getPageActivity());
+            ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
+            aVar.a(threadDelegateStatic);
+            if (aVar.b() != null) {
+                c fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure();
+                if (fragmentTabStructure == null) {
+                    return;
+                }
+                fragmentTabStructure.f55251a.setArguments(new Bundle());
             }
-            fragmentTabStructure.f53115a.setArguments(new Bundle());
+            this.mController.h(aVar.c());
         }
-        this.mController.h(aVar.c());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
-        Fragment e2 = this.mController.e();
-        if (e2 != null) {
-            e2.onActivityResult(i2, i3, intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            Fragment e2 = this.mController.e();
+            if (e2 != null) {
+                e2.onActivityResult(i2, i3, intent);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
-        super.changeSkinType(i2);
-        this.mController.j(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            super.changeSkinType(i2);
+            this.mController.j(i2);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mController.d()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.mController.d()) {
             boolean z = !this.mController.i();
             if (z) {
-                d.a.o0.x1.c.a("c14067");
+                d.a.s0.a2.c.a("c14067");
             }
             this.mController.b(z);
         }
@@ -115,44 +177,59 @@ public class CollectTabActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.collect_tab_activity);
-        this.mController = new d.a.o0.x1.a(this);
-        registerListener(this.mEditorEnableListener);
-        initTabsOnActivityCreated();
-        checkSchemeFromIntent(getIntent());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.collect_tab_activity);
+            this.mController = new d.a.s0.a2.a(this);
+            registerListener(this.mEditorEnableListener);
+            initTabsOnActivityCreated();
+            checkSchemeFromIntent(getIntent());
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        checkSchemeFromIntent(intent);
-        setIntent(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            super.onNewIntent(intent);
+            checkSchemeFromIntent(intent);
+            setIntent(intent);
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        super.onPause();
-        b.b().f(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPause();
+            b.b().f(false);
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        d.a.o0.x1.c.a("c14061");
-        b.b().f(true);
-        b.b().e(false);
-        NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onResume();
+            d.a.s0.a2.c.a("c14061");
+            b.b().f(true);
+            b.b().e(false);
+            NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        try {
-            super.onSaveInstanceState(bundle);
-        } catch (Exception unused) {
-        }
-        if (bundle != null) {
-            bundle.remove("android:support:fragments");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            try {
+                super.onSaveInstanceState(bundle);
+            } catch (Exception unused) {
+            }
+            if (bundle != null) {
+                bundle.remove("android:support:fragments");
+            }
         }
     }
 }

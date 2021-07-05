@@ -1,97 +1,150 @@
 package d.a.c.e.f;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class b {
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f42322d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f42323e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f42324f;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42319a = 0;
+    public int f44128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f42320b = null;
+    public String[] f44129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42321c = 0;
+    public int f44130c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f44131d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f44132e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f44133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f42325g = null;
+    public String[] f44134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42326h = false;
+    public boolean f44135h;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(String str, int i2, boolean z);
     }
 
     public b(String str, int i2, a aVar) {
-        this.f42322d = null;
-        this.f42323e = null;
-        this.f42324f = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44128a = 0;
+        this.f44129b = null;
+        this.f44130c = 0;
+        this.f44131d = null;
+        this.f44132e = null;
+        this.f44133f = 0;
+        this.f44134g = null;
+        this.f44135h = false;
         if (str != null) {
-            this.f42322d = str;
-            this.f42323e = aVar;
-            this.f42324f = i2;
+            this.f44131d = str;
+            this.f44132e = aVar;
+            this.f44133f = i2;
             return;
         }
         throw new InvalidParameterException("SwitchData name is null");
     }
 
     public void a(int i2, boolean z) {
-        a aVar = this.f42323e;
-        if (aVar != null) {
-            aVar.a(this.f42322d, i2, z);
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f44132e) == null) {
+            return;
         }
+        aVar.a(this.f44131d, i2, z);
     }
 
     public int b() {
-        return this.f42324f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44133f : invokeV.intValue;
     }
 
     public String[] c() {
-        return this.f42320b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44129b : (String[]) invokeV.objValue;
     }
 
     public int d() {
-        return this.f42319a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44128a : invokeV.intValue;
     }
 
     public String e() {
-        return this.f42322d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44131d : (String) invokeV.objValue;
     }
 
     public int f() {
-        return this.f42321c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f44130c : invokeV.intValue;
     }
 
     public String[] g() {
-        return this.f42325g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44134g : (String[]) invokeV.objValue;
     }
 
     public boolean h() {
-        return this.f42326h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44135h : invokeV.booleanValue;
     }
 
     public void i(int i2, String[] strArr, int i3) {
-        this.f42319a = i2;
-        this.f42320b = strArr;
-        this.f42321c = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), strArr, Integer.valueOf(i3)}) == null) {
+            this.f44128a = i2;
+            this.f44129b = strArr;
+            this.f44130c = i3;
+        }
     }
 
     public void j(boolean z) {
-        this.f42326h = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f44135h = z;
+        }
     }
 
     public void k(String[] strArr) {
-        this.f42325g = strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, strArr) == null) {
+            this.f44134g = strArr;
+        }
     }
 }

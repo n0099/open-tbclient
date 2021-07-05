@@ -1,64 +1,130 @@
 package org.apache.http.conn;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EofSensorInputStream extends InputStream implements ConnectionReleaseTrigger {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public InputStream wrappedStream;
 
     public EofSensorInputStream(InputStream inputStream, EofSensorWatcher eofSensorWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, eofSensorWatcher};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.conn.ConnectionReleaseTrigger
     public void abortConnection() throws IOException {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
     }
 
     public void checkAbort() throws IOException {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void checkClose() throws IOException {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void checkEOF(int i2) throws IOException {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public boolean isReadAllowed() throws IOException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.apache.http.conn.ConnectionReleaseTrigger
     public void releaseConnection() throws IOException {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i2, int i3) throws IOException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048585, this, bArr, i2, i3)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLII.intValue;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.intValue;
     }
 }

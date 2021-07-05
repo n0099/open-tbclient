@@ -12,12 +12,22 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.R;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class AbsActionBarView extends ViewGroup {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int FADE_DURATION = 200;
+    public transient /* synthetic */ FieldHolder $fh;
     public ActionMenuPresenter mActionMenuPresenter;
     public int mContentHeight;
     public boolean mEatingHover;
@@ -29,228 +39,412 @@ public abstract class AbsActionBarView extends ViewGroup {
 
     /* loaded from: classes.dex */
     public class VisibilityAnimListener implements ViewPropertyAnimatorListener {
-        public boolean mCanceled = false;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean mCanceled;
         public int mFinalVisibility;
+        public final /* synthetic */ AbsActionBarView this$0;
 
-        public VisibilityAnimListener() {
+        public VisibilityAnimListener(AbsActionBarView absActionBarView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {absActionBarView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = absActionBarView;
+            this.mCanceled = false;
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
         public void onAnimationCancel(View view) {
-            this.mCanceled = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.mCanceled = true;
+            }
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
         public void onAnimationEnd(View view) {
-            if (this.mCanceled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.mCanceled) {
                 return;
             }
-            AbsActionBarView absActionBarView = AbsActionBarView.this;
+            AbsActionBarView absActionBarView = this.this$0;
             absActionBarView.mVisibilityAnim = null;
             AbsActionBarView.super.setVisibility(this.mFinalVisibility);
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
         public void onAnimationStart(View view) {
-            AbsActionBarView.super.setVisibility(0);
-            this.mCanceled = false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+                AbsActionBarView.super.setVisibility(0);
+                this.mCanceled = false;
+            }
         }
 
         public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i2) {
-            AbsActionBarView.this.mVisibilityAnim = viewPropertyAnimatorCompat;
-            this.mFinalVisibility = i2;
-            return this;
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewPropertyAnimatorCompat, i2)) == null) {
+                this.this$0.mVisibilityAnim = viewPropertyAnimatorCompat;
+                this.mFinalVisibility = i2;
+                return this;
+            }
+            return (VisibilityAnimListener) invokeLI.objValue;
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AbsActionBarView(@NonNull Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public static int next(int i2, int i3, boolean z) {
-        return z ? i2 - i3 : i2 + i3;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) ? z ? i2 - i3 : i2 + i3 : invokeCommon.intValue;
     }
 
     public void animateToVisibility(int i2) {
-        setupAnimatorToVisibility(i2, 200L).start();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            setupAnimatorToVisibility(i2, 200L).start();
+        }
     }
 
     public boolean canShowOverflowMenu() {
-        return isOverflowReserved() && getVisibility() == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? isOverflowReserved() && getVisibility() == 0 : invokeV.booleanValue;
     }
 
     public void dismissPopupMenus() {
-        ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
-        if (actionMenuPresenter != null) {
-            actionMenuPresenter.dismissPopupMenus();
+        ActionMenuPresenter actionMenuPresenter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (actionMenuPresenter = this.mActionMenuPresenter) == null) {
+            return;
         }
+        actionMenuPresenter.dismissPopupMenus();
     }
 
     public int getAnimatedVisibility() {
-        if (this.mVisibilityAnim != null) {
-            return this.mVisAnimListener.mFinalVisibility;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mVisibilityAnim != null) {
+                return this.mVisAnimListener.mFinalVisibility;
+            }
+            return getVisibility();
         }
-        return getVisibility();
+        return invokeV.intValue;
     }
 
     public int getContentHeight() {
-        return this.mContentHeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContentHeight : invokeV.intValue;
     }
 
     public boolean hideOverflowMenu() {
-        ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
-        if (actionMenuPresenter != null) {
-            return actionMenuPresenter.hideOverflowMenu();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
+            if (actionMenuPresenter != null) {
+                return actionMenuPresenter.hideOverflowMenu();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean isOverflowMenuShowPending() {
-        ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
-        if (actionMenuPresenter != null) {
-            return actionMenuPresenter.isOverflowMenuShowPending();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
+            if (actionMenuPresenter != null) {
+                return actionMenuPresenter.isOverflowMenuShowPending();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean isOverflowMenuShowing() {
-        ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
-        if (actionMenuPresenter != null) {
-            return actionMenuPresenter.isOverflowMenuShowing();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
+            if (actionMenuPresenter != null) {
+                return actionMenuPresenter.isOverflowMenuShowing();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public boolean isOverflowReserved() {
-        ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
-        return actionMenuPresenter != null && actionMenuPresenter.isOverflowReserved();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
+            return actionMenuPresenter != null && actionMenuPresenter.isOverflowReserved();
+        }
+        return invokeV.booleanValue;
     }
 
     public int measureChildView(View view, int i2, int i3, int i4) {
-        view.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), i3);
-        return Math.max(0, (i2 - view.getMeasuredWidth()) - i4);
+        InterceptResult invokeLIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048585, this, view, i2, i3, i4)) == null) {
+            view.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), i3);
+            return Math.max(0, (i2 - view.getMeasuredWidth()) - i4);
+        }
+        return invokeLIII.intValue;
     }
 
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(null, R.styleable.ActionBar, R.attr.actionBarStyle, 0);
-        setContentHeight(obtainStyledAttributes.getLayoutDimension(R.styleable.ActionBar_height, 0));
-        obtainStyledAttributes.recycle();
-        ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
-        if (actionMenuPresenter != null) {
-            actionMenuPresenter.onConfigurationChanged(configuration);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(null, R.styleable.ActionBar, R.attr.actionBarStyle, 0);
+            setContentHeight(obtainStyledAttributes.getLayoutDimension(R.styleable.ActionBar_height, 0));
+            obtainStyledAttributes.recycle();
+            ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
+            if (actionMenuPresenter != null) {
+                actionMenuPresenter.onConfigurationChanged(configuration);
+            }
         }
     }
 
     @Override // android.view.View
     public boolean onHoverEvent(MotionEvent motionEvent) {
-        int actionMasked = motionEvent.getActionMasked();
-        if (actionMasked == 9) {
-            this.mEatingHover = false;
-        }
-        if (!this.mEatingHover) {
-            boolean onHoverEvent = super.onHoverEvent(motionEvent);
-            if (actionMasked == 9 && !onHoverEvent) {
-                this.mEatingHover = true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked == 9) {
+                this.mEatingHover = false;
             }
+            if (!this.mEatingHover) {
+                boolean onHoverEvent = super.onHoverEvent(motionEvent);
+                if (actionMasked == 9 && !onHoverEvent) {
+                    this.mEatingHover = true;
+                }
+            }
+            if (actionMasked == 10 || actionMasked == 3) {
+                this.mEatingHover = false;
+            }
+            return true;
         }
-        if (actionMasked == 10 || actionMasked == 3) {
-            this.mEatingHover = false;
-        }
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        int actionMasked = motionEvent.getActionMasked();
-        if (actionMasked == 0) {
-            this.mEatingTouch = false;
-        }
-        if (!this.mEatingTouch) {
-            boolean onTouchEvent = super.onTouchEvent(motionEvent);
-            if (actionMasked == 0 && !onTouchEvent) {
-                this.mEatingTouch = true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked == 0) {
+                this.mEatingTouch = false;
             }
+            if (!this.mEatingTouch) {
+                boolean onTouchEvent = super.onTouchEvent(motionEvent);
+                if (actionMasked == 0 && !onTouchEvent) {
+                    this.mEatingTouch = true;
+                }
+            }
+            if (actionMasked == 1 || actionMasked == 3) {
+                this.mEatingTouch = false;
+            }
+            return true;
         }
-        if (actionMasked == 1 || actionMasked == 3) {
-            this.mEatingTouch = false;
-        }
-        return true;
+        return invokeL.booleanValue;
     }
 
     public int positionChild(View view, int i2, int i3, int i4, boolean z) {
-        int measuredWidth = view.getMeasuredWidth();
-        int measuredHeight = view.getMeasuredHeight();
-        int i5 = i3 + ((i4 - measuredHeight) / 2);
-        if (z) {
-            view.layout(i2 - measuredWidth, i5, i2, measuredHeight + i5);
-        } else {
-            view.layout(i2, i5, i2 + measuredWidth, measuredHeight + i5);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+            int measuredWidth = view.getMeasuredWidth();
+            int measuredHeight = view.getMeasuredHeight();
+            int i5 = i3 + ((i4 - measuredHeight) / 2);
+            if (z) {
+                view.layout(i2 - measuredWidth, i5, i2, measuredHeight + i5);
+            } else {
+                view.layout(i2, i5, i2 + measuredWidth, measuredHeight + i5);
+            }
+            return z ? -measuredWidth : measuredWidth;
         }
-        return z ? -measuredWidth : measuredWidth;
+        return invokeCommon.intValue;
     }
 
     public void postShowOverflowMenu() {
-        post(new Runnable() { // from class: androidx.appcompat.widget.AbsActionBarView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                AbsActionBarView.this.showOverflowMenu();
-            }
-        });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            post(new Runnable(this) { // from class: androidx.appcompat.widget.AbsActionBarView.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AbsActionBarView this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.showOverflowMenu();
+                    }
+                }
+            });
+        }
     }
 
     public void setContentHeight(int i2) {
-        this.mContentHeight = i2;
-        requestLayout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.mContentHeight = i2;
+            requestLayout();
+        }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
-        if (i2 != getVisibility()) {
-            ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
-            if (viewPropertyAnimatorCompat != null) {
-                viewPropertyAnimatorCompat.cancel();
-            }
-            super.setVisibility(i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i2) == null) || i2 == getVisibility()) {
+            return;
         }
-    }
-
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
         if (viewPropertyAnimatorCompat != null) {
             viewPropertyAnimatorCompat.cancel();
         }
-        if (i2 == 0) {
-            if (getVisibility() != 0) {
-                setAlpha(0.0f);
+        super.setVisibility(i2);
+    }
+
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
+            if (viewPropertyAnimatorCompat != null) {
+                viewPropertyAnimatorCompat.cancel();
             }
-            ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
-            alpha.setDuration(j);
-            alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i2));
-            return alpha;
+            if (i2 == 0) {
+                if (getVisibility() != 0) {
+                    setAlpha(0.0f);
+                }
+                ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
+                alpha.setDuration(j);
+                alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i2));
+                return alpha;
+            }
+            ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
+            alpha2.setDuration(j);
+            alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i2));
+            return alpha2;
         }
-        ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
-        alpha2.setDuration(j);
-        alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i2));
-        return alpha2;
+        return (ViewPropertyAnimatorCompat) invokeCommon.objValue;
     }
 
     public boolean showOverflowMenu() {
-        ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
-        if (actionMenuPresenter != null) {
-            return actionMenuPresenter.showOverflowMenu();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mActionMenuPresenter;
+            if (actionMenuPresenter != null) {
+                return actionMenuPresenter.showOverflowMenu();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.mVisAnimListener = new VisibilityAnimListener();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mVisAnimListener = new VisibilityAnimListener(this);
         TypedValue typedValue = new TypedValue();
         if (context.getTheme().resolveAttribute(R.attr.actionBarPopupTheme, typedValue, true) && typedValue.resourceId != 0) {
             this.mPopupContext = new ContextThemeWrapper(context, typedValue.resourceId);

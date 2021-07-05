@@ -1,54 +1,96 @@
 package com.vivo.push.b;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 /* loaded from: classes7.dex */
 public final class b extends c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40311a;
+    public String f42054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40312b;
+    public String f42055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40313c;
+    public String f42056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40314d;
+    public String f42057d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(boolean z, String str) {
         super(z ? 2006 : 2007, null, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
-        super.c(aVar);
-        aVar.a("sdk_clients", this.f40311a);
-        aVar.a(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 293L);
-        aVar.a("BaseAppCommand.EXTRA_APPID", this.f40313c);
-        aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f40312b);
-        aVar.a("PUSH_REGID", this.f40314d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            super.c(aVar);
+            aVar.a("sdk_clients", this.f42054a);
+            aVar.a(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 293L);
+            aVar.a("BaseAppCommand.EXTRA_APPID", this.f42056c);
+            aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f42055b);
+            aVar.a("PUSH_REGID", this.f42057d);
+        }
     }
 
     public final void d() {
-        this.f40313c = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f42056c = null;
+        }
     }
 
     public final void e() {
-        this.f40312b = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f42055b = null;
+        }
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final String toString() {
-        return "AppCommand:" + b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "AppCommand:" + b();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
-        super.d(aVar);
-        this.f40311a = aVar.a("sdk_clients");
-        this.f40313c = aVar.a("BaseAppCommand.EXTRA_APPID");
-        this.f40312b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
-        this.f40314d = aVar.a("PUSH_REGID");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            super.d(aVar);
+            this.f42054a = aVar.a("sdk_clients");
+            this.f42056c = aVar.a("BaseAppCommand.EXTRA_APPID");
+            this.f42055b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
+            this.f42057d = aVar.a("PUSH_REGID");
+        }
     }
 }

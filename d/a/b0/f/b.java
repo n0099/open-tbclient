@@ -1,18 +1,30 @@
 package d.a.b0.f;
-/* loaded from: classes2.dex */
-public class b {
+/* loaded from: classes8.dex */
+public interface b {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile a f42051a;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void b(b bVar);
+    }
 
-    public static synchronized a a() {
-        a aVar;
-        synchronized (b.class) {
-            if (f42051a == null) {
-                f42051a = new a();
-            }
-            aVar = f42051a;
-        }
-        return aVar;
+    /* renamed from: d.a.b0.f.b$b  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0581b {
+        boolean d(b bVar, int i2, int i3);
+    }
+
+    /* loaded from: classes8.dex */
+    public interface c {
+        boolean e(b bVar, int i2, int i3, Object obj);
+    }
+
+    /* loaded from: classes8.dex */
+    public interface d {
+        void c(b bVar);
+    }
+
+    /* loaded from: classes8.dex */
+    public interface e {
+        void a(b bVar);
     }
 }

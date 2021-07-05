@@ -2,42 +2,61 @@ package com.baidu.mapapi.utils.poi;
 
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.PanoStateError;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public /* synthetic */ class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7472a;
+    public static final /* synthetic */ int[] f7502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7473b;
+    public static final /* synthetic */ int[] f7503b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(512817791, "Lcom/baidu/mapapi/utils/poi/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(512817791, "Lcom/baidu/mapapi/utils/poi/b;");
+                return;
+            }
+        }
         int[] iArr = new int[HttpClient.HttpStateError.values().length];
-        f7473b = iArr;
+        f7503b = iArr;
         try {
             iArr[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f7473b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
+            f7503b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[PanoStateError.values().length];
-        f7472a = iArr2;
+        f7502a = iArr2;
         try {
-            iArr2[PanoStateError.PANO_UID_ERROR.ordinal()] = 1;
+            iArr2[PanoStateError.f9396b.ordinal()] = 1;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f7472a[PanoStateError.PANO_NOT_FOUND.ordinal()] = 2;
+            f7502a[PanoStateError.f9397c.ordinal()] = 2;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f7472a[PanoStateError.PANO_NO_TOKEN.ordinal()] = 3;
+            f7502a[PanoStateError.f9398d.ordinal()] = 3;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f7472a[PanoStateError.PANO_NO_ERROR.ordinal()] = 4;
+            f7502a[PanoStateError.f9395a.ordinal()] = 4;
         } catch (NoSuchFieldError unused6) {
         }
     }

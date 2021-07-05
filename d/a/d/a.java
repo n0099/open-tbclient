@@ -1,11 +1,23 @@
 package d.a.d;
-/* loaded from: classes.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static e a(String str, String str2) {
-        e eVar = new e();
-        eVar.f43321a = true;
-        eVar.f43322b = str;
-        eVar.f43323c = null;
-        return eVar;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            e eVar = new e();
+            eVar.f45180a = true;
+            eVar.f45181b = str;
+            eVar.f45182c = null;
+            return eVar;
+        }
+        return (e) invokeLL.objValue;
     }
 }

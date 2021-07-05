@@ -2,99 +2,132 @@ package com.win.opensdk;
 
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public final class N extends AsyncTask {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public O f40665a;
+    public O f42408a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ File f40666b;
+    public final /* synthetic */ File f42409b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Bitmap f40667c;
+    public final /* synthetic */ Bitmap f42410c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f40668d;
+    public final /* synthetic */ Bitmap.CompressFormat f42411d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ i f40669e;
+    public final /* synthetic */ i f42412e;
 
     public N(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, i iVar) {
-        this.f40666b = file;
-        this.f40667c = bitmap;
-        this.f40668d = compressFormat;
-        this.f40669e = iVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, bitmap, compressFormat, iVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42409b = file;
+        this.f42410c = bitmap;
+        this.f42411d = compressFormat;
+        this.f42412e = iVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0040 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // android.os.AsyncTask
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Object doInBackground(Object[] objArr) {
+        InterceptResult invokeL;
         IOException e2;
         FileOutputStream fileOutputStream;
-        Void[] voidArr = (Void[]) objArr;
-        FileOutputStream fileOutputStream2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+            Void[] voidArr = (Void[]) objArr;
+            FileOutputStream fileOutputStream2 = null;
             try {
-                fileOutputStream = new FileOutputStream(this.f40666b);
                 try {
+                    fileOutputStream = new FileOutputStream(this.f42409b);
                     try {
-                        this.f40667c.compress(this.f40668d, 100, fileOutputStream);
-                        fileOutputStream.flush();
-                        fileOutputStream.close();
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        this.f40665a = new O(e2);
-                        cancel(true);
-                        if (fileOutputStream != null) {
+                        try {
+                            this.f42410c.compress(this.f42411d, 100, fileOutputStream);
                             fileOutputStream.flush();
                             fileOutputStream.close();
+                        } catch (IOException e3) {
+                            e2 = e3;
+                            this.f42408a = new O(e2);
+                            cancel(true);
+                            if (fileOutputStream != null) {
+                                fileOutputStream.flush();
+                                fileOutputStream.close();
+                            }
+                            return null;
                         }
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    FileOutputStream fileOutputStream3 = fileOutputStream;
-                    th = th;
-                    fileOutputStream2 = fileOutputStream3;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.flush();
-                            fileOutputStream2.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                    } catch (Throwable th) {
+                        FileOutputStream fileOutputStream3 = fileOutputStream;
+                        th = th;
+                        fileOutputStream2 = fileOutputStream3;
+                        if (fileOutputStream2 != null) {
+                            try {
+                                fileOutputStream2.flush();
+                                fileOutputStream2.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
                         }
+                        throw th;
                     }
-                    throw th;
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                 }
-            } catch (IOException e5) {
-                e5.printStackTrace();
+            } catch (IOException e6) {
+                e2 = e6;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (fileOutputStream2 != null) {
+                }
+                throw th;
             }
-        } catch (IOException e6) {
-            e2 = e6;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (fileOutputStream2 != null) {
-            }
-            throw th;
+            return null;
         }
-        return null;
+        return invokeL.objValue;
     }
 
     @Override // android.os.AsyncTask
     public void onCancelled() {
-        this.f40669e.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f42412e.a();
+        }
     }
 
     @Override // android.os.AsyncTask
     public void onPostExecute(Object obj) {
-        Void r1 = (Void) obj;
-        this.f40669e.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            Void r5 = (Void) obj;
+            this.f42412e.b();
+        }
     }
 }

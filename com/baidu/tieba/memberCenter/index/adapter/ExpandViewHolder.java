@@ -1,6 +1,10 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
 public class ExpandViewHolder extends TypeAdapter.ViewHolder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

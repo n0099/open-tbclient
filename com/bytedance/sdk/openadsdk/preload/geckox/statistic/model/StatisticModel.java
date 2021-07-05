@@ -2,6 +2,11 @@ package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 
 import androidx.annotation.Keep;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.Common;
 import java.util.ArrayList;
@@ -9,16 +14,20 @@ import java.util.List;
 @Keep
 /* loaded from: classes6.dex */
 public class StatisticModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f30293common;
+    public Common f32143common;
     @c(a = "packages")
-    public List<PackageStatisticModel> packages = new ArrayList();
+    public List<PackageStatisticModel> packages;
 
     @Keep
     /* loaded from: classes6.dex */
     public static class PackageStatisticModel {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         @c(a = "ac")
         public String ac;
         @c(a = "access_key")
@@ -51,7 +60,7 @@ public class StatisticModel {
         public String groupName;
         @c(a = "id")
         public Long id;
-        @c(a = "log_id")
+        @c(a = TiebaStatic.Params.LOGID)
         public String logId;
         @c(a = "patch_id")
         public Long patchId;
@@ -61,15 +70,61 @@ public class StatisticModel {
         @Keep
         /* loaded from: classes6.dex */
         public static class DownloadFailRecords {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
             @c(a = "domain")
             public String domain;
             @c(a = "reason")
             public String reason;
 
             public DownloadFailRecords(String str, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, str2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
                 this.domain = str;
                 this.reason = str2;
             }
         }
+
+        public PackageStatisticModel() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public StatisticModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.packages = new ArrayList();
     }
 }

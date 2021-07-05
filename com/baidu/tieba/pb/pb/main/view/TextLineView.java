@@ -7,28 +7,35 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.r.u.c;
+import d.a.r0.r.u.c;
 /* loaded from: classes5.dex */
 public class TextLineView extends TextView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f19393e;
+    public Paint f19525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19394f;
+    public int f19526f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19395g;
+    public int f19527g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19396h;
+    public int f19528h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19397i;
+    public int f19529i;
     public int j;
     public RectF k;
     public int l;
@@ -36,83 +43,134 @@ public class TextLineView extends TextView {
     public int n;
     public int o;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TextLineView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private void setTextSelectedUI(boolean z) {
-        if (z) {
-            c d2 = c.d(this);
-            d2.s(R.color.CAM_X0105);
-            d2.x(R.string.F_X02);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
+            if (z) {
+                c d2 = c.d(this);
+                d2.t(R.color.CAM_X0105);
+                d2.y(R.string.F_X02);
+                return;
+            }
+            c d3 = c.d(this);
+            d3.t(R.color.CAM_X0108);
+            d3.y(R.string.F_X01);
         }
-        c d3 = c.d(this);
-        d3.s(R.color.CAM_X0108);
-        d3.x(R.string.F_X01);
     }
 
     public final void a() {
-        if (this.f19393e == null) {
-            this.f19393e = new Paint();
-        }
-        this.f19393e.setAntiAlias(true);
-        this.f19393e.setStyle(Paint.Style.FILL);
-        if (isSelected()) {
-            this.f19393e.setColor(SkinManager.getColor(R.color.transparent));
-        } else {
-            this.f19393e.setColor(SkinManager.getColor(R.color.transparent));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.f19525e == null) {
+                this.f19525e = new Paint();
+            }
+            this.f19525e.setAntiAlias(true);
+            this.f19525e.setStyle(Paint.Style.FILL);
+            if (isSelected()) {
+                this.f19525e.setColor(SkinManager.getColor(R.color.transparent));
+            } else {
+                this.f19525e.setColor(SkinManager.getColor(R.color.transparent));
+            }
         }
     }
 
     public void b(int i2) {
-        setTextSelectedUI(isSelected());
-        a();
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            setTextSelectedUI(isSelected());
+            a();
+            invalidate();
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        a();
-        if (this.k == null) {
-            this.k = new RectF();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            a();
+            if (this.k == null) {
+                this.k = new RectF();
+            }
+            RectF rectF = this.k;
+            int i2 = this.n;
+            int i3 = this.m;
+            int i4 = this.f19528h;
+            rectF.set(i2 + 0, (i3 - i4) - this.f19526f, this.l - i2, i3 - i4);
+            RectF rectF2 = this.k;
+            int i5 = this.o;
+            canvas.drawRoundRect(rectF2, i5, i5, this.f19525e);
         }
-        RectF rectF = this.k;
-        int i2 = this.n;
-        int i3 = this.m;
-        int i4 = this.f19396h;
-        rectF.set(i2 + 0, (i3 - i4) - this.f19394f, this.l - i2, i3 - i4);
-        RectF rectF2 = this.k;
-        int i5 = this.o;
-        canvas.drawRoundRect(rectF2, i5, i5, this.f19393e);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        this.l = i2;
-        this.m = i3;
-        this.n = (i2 - this.j) / 2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            this.l = i2;
+            this.m = i3;
+            this.n = (i2 - this.j) / 2;
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
-        super.setSelected(z);
-        setTextSelectedUI(z);
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.setSelected(z);
+            setTextSelectedUI(z);
+            invalidate();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TextLineView);
-        this.f19394f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
-        this.f19395g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
-        this.f19396h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
-        this.f19397i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
+        this.f19526f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
+        this.f19527g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
+        this.f19528h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
+        this.f19529i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
         obtainStyledAttributes.getColor(R$styleable.TextLineView_text_unselected_color, SkinManager.getColor(R.color.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19395g + this.f19394f + this.f19396h);
-        setTextColor(this.f19397i);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19527g + this.f19526f + this.f19528h);
+        setTextColor(this.f19529i);
         this.j = l.g(context, R.dimen.ds56);
         this.k = new RectF();
         this.o = l.g(getContext(), R.dimen.ds4);

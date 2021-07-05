@@ -4,71 +4,140 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class MeasuredWrapperRelativeLayout extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21082e;
+    public a f21231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21083f;
+    public int f21232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21084g;
+    public boolean f21233g;
 
     /* loaded from: classes5.dex */
     public interface a {
         void a(boolean z, int i2);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MeasuredWrapperRelativeLayout(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void a(Context context, int i2) {
-        int size = View.MeasureSpec.getSize(i2);
-        int i3 = this.f21083f;
-        if (i3 == 0) {
-            this.f21083f = size;
-        } else if (i3 == size) {
-        } else {
-            int i4 = i3 - size;
-            if (Math.abs(i4) < context.getResources().getDimensionPixelSize(R.dimen.ds200)) {
-                return;
-            }
-            if (i4 > 0) {
-                this.f21084g = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
+            int size = View.MeasureSpec.getSize(i2);
+            int i3 = this.f21232f;
+            if (i3 == 0) {
+                this.f21232f = size;
+            } else if (i3 == size) {
             } else {
-                this.f21084g = false;
+                int i4 = i3 - size;
+                if (Math.abs(i4) < context.getResources().getDimensionPixelSize(R.dimen.ds200)) {
+                    return;
+                }
+                if (i4 > 0) {
+                    this.f21233g = true;
+                } else {
+                    this.f21233g = false;
+                }
+                b(this.f21233g, Math.abs(i4));
+                this.f21232f = size;
             }
-            b(this.f21084g, Math.abs(i4));
-            this.f21083f = size;
         }
     }
 
     public final void b(boolean z, int i2) {
-        a aVar = this.f21082e;
-        if (aVar != null) {
-            aVar.a(z, i2);
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (aVar = this.f21231e) == null) {
+            return;
         }
+        aVar.a(z, i2);
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        a(getContext(), i3);
-        super.onMeasure(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            a(getContext(), i3);
+            super.onMeasure(i2, i3);
+        }
     }
 
     public void setKeyBoardListener(a aVar) {
-        this.f21082e = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f21231e = aVar;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MeasuredWrapperRelativeLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MeasuredWrapperRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 }

@@ -5,17 +5,40 @@ import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.ab;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class x implements com.baidu.mapsdkplatform.comapi.map.l {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7157a;
+    public final /* synthetic */ WearMapView f7187a;
 
     public x(WearMapView wearMapView) {
-        this.f7157a = wearMapView;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wearMapView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7187a = wearMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -30,118 +53,183 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
         String format;
         TextView textView;
         TextView textView2;
-        jVar = this.f7157a.f7103f;
-        if (jVar != null) {
-            jVar2 = this.f7157a.f7103f;
-            if (jVar2.a() == null) {
-                return;
-            }
-            jVar3 = this.f7157a.f7103f;
-            float f3 = jVar3.a().E().f7614a;
-            f2 = this.f7157a.A;
-            if (f2 != f3) {
-                sparseArray = WearMapView.x;
-                int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
-                jVar4 = this.f7157a.f7103f;
-                imageView = this.f7157a.r;
-                int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
-                imageView.setPadding(i2, 0, i2, 0);
-                Object[] objArr = new Object[1];
-                if (intValue >= 1000) {
-                    objArr[0] = Integer.valueOf(intValue / 1000);
-                    format = String.format(" %d公里 ", objArr);
-                } else {
-                    objArr[0] = Integer.valueOf(intValue);
-                    format = String.format(" %d米 ", objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jVar = this.f7187a.f7133f;
+            if (jVar != null) {
+                jVar2 = this.f7187a.f7133f;
+                if (jVar2.a() == null) {
+                    return;
                 }
-                textView = this.f7157a.p;
-                textView.setText(format);
-                textView2 = this.f7157a.q;
-                textView2.setText(format);
-                this.f7157a.A = f3;
+                jVar3 = this.f7187a.f7133f;
+                float f3 = jVar3.a().E().f7644a;
+                f2 = this.f7187a.A;
+                if (f2 != f3) {
+                    sparseArray = WearMapView.x;
+                    int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
+                    jVar4 = this.f7187a.f7133f;
+                    imageView = this.f7187a.r;
+                    int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
+                    imageView.setPadding(i2, 0, i2, 0);
+                    Object[] objArr = new Object[1];
+                    if (intValue >= 1000) {
+                        objArr[0] = Integer.valueOf(intValue / 1000);
+                        format = String.format(" %d公里 ", objArr);
+                    } else {
+                        objArr[0] = Integer.valueOf(intValue);
+                        format = String.format(" %d米 ", objArr);
+                    }
+                    textView = this.f7187a.p;
+                    textView.setText(format);
+                    textView2 = this.f7187a.q;
+                    textView2.setText(format);
+                    this.f7187a.A = f3;
+                }
+                this.f7187a.requestLayout();
             }
-            this.f7157a.requestLayout();
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(GeoPoint geoPoint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, geoPoint) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(ab abVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, abVar) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(GL10 gl10, ab abVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, gl10, abVar) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void a(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void b(GeoPoint geoPoint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, geoPoint) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void b(ab abVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, abVar) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public boolean b(String str) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void c(GeoPoint geoPoint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, geoPoint) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void c(ab abVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, abVar) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void d(GeoPoint geoPoint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, geoPoint) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void e(GeoPoint geoPoint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, geoPoint) == null) {
+        }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
     public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        }
     }
 }

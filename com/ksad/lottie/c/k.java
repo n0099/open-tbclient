@@ -1,56 +1,67 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
 public class k {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static com.ksad.lottie.model.c a(JsonReader jsonReader) {
-        jsonReader.beginObject();
-        String str = null;
-        String str2 = null;
-        String str3 = null;
-        float f2 = 0.0f;
-        while (jsonReader.hasNext()) {
-            String nextName = jsonReader.nextName();
-            char c2 = 65535;
-            switch (nextName.hashCode()) {
-                case -1866931350:
-                    if (nextName.equals("fFamily")) {
-                        c2 = 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jsonReader)) == null) {
+            jsonReader.beginObject();
+            String str = null;
+            String str2 = null;
+            String str3 = null;
+            float f2 = 0.0f;
+            while (jsonReader.hasNext()) {
+                String nextName = jsonReader.nextName();
+                char c2 = 65535;
+                switch (nextName.hashCode()) {
+                    case -1866931350:
+                        if (nextName.equals("fFamily")) {
+                            c2 = 0;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case -1408684838:
-                    if (nextName.equals("ascent")) {
-                        c2 = 3;
+                    case -1408684838:
+                        if (nextName.equals("ascent")) {
+                            c2 = 3;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case -1294566165:
-                    if (nextName.equals("fStyle")) {
-                        c2 = 2;
+                    case -1294566165:
+                        if (nextName.equals("fStyle")) {
+                            c2 = 2;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case 96619537:
-                    if (nextName.equals("fName")) {
-                        c2 = 1;
+                    case 96619537:
+                        if (nextName.equals("fName")) {
+                            c2 = 1;
+                            break;
+                        }
                         break;
-                    }
-                    break;
+                }
+                if (c2 == 0) {
+                    str = jsonReader.nextString();
+                } else if (c2 == 1) {
+                    str2 = jsonReader.nextString();
+                } else if (c2 == 2) {
+                    str3 = jsonReader.nextString();
+                } else if (c2 != 3) {
+                    jsonReader.skipValue();
+                } else {
+                    f2 = (float) jsonReader.nextDouble();
+                }
             }
-            if (c2 == 0) {
-                str = jsonReader.nextString();
-            } else if (c2 == 1) {
-                str2 = jsonReader.nextString();
-            } else if (c2 == 2) {
-                str3 = jsonReader.nextString();
-            } else if (c2 != 3) {
-                jsonReader.skipValue();
-            } else {
-                f2 = (float) jsonReader.nextDouble();
-            }
+            jsonReader.endObject();
+            return new com.ksad.lottie.model.c(str, str2, str3, f2);
         }
-        jsonReader.endObject();
-        return new com.ksad.lottie.model.c(str, str2, str3, f2);
+        return (com.ksad.lottie.model.c) invokeL.objValue;
     }
 }

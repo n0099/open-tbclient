@@ -1,79 +1,143 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class i extends l implements Iterable<l> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<l> f30101a = new ArrayList();
+    public final List<l> f31951a;
+
+    public i() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31951a = new ArrayList();
+    }
 
     public void a(l lVar) {
-        if (lVar == null) {
-            lVar = n.f30102a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
+            if (lVar == null) {
+                lVar = n.f31952a;
+            }
+            this.f31951a.add(lVar);
         }
-        this.f30101a.add(lVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public String b() {
-        if (this.f30101a.size() == 1) {
-            return this.f30101a.get(0).b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f31951a.size() == 1) {
+                return this.f31951a.get(0).b();
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public double c() {
-        if (this.f30101a.size() == 1) {
-            return this.f30101a.get(0).c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.f31951a.size() == 1) {
+                return this.f31951a.get(0).c();
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return invokeV.doubleValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public long d() {
-        if (this.f30101a.size() == 1) {
-            return this.f30101a.get(0).d();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f31951a.size() == 1) {
+                return this.f31951a.get(0).d();
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public int e() {
-        if (this.f30101a.size() == 1) {
-            return this.f30101a.get(0).e();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.f31951a.size() == 1) {
+                return this.f31951a.get(0).e();
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof i) && ((i) obj).f30101a.equals(this.f30101a));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? obj == this || ((obj instanceof i) && ((i) obj).f31951a.equals(this.f31951a)) : invokeL.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public boolean f() {
-        if (this.f30101a.size() == 1) {
-            return this.f30101a.get(0).f();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.f31951a.size() == 1) {
+                return this.f31951a.get(0).f();
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return invokeV.booleanValue;
     }
 
     public int hashCode() {
-        return this.f30101a.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31951a.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.Iterable
     public Iterator<l> iterator() {
-        return this.f30101a.iterator();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31951a.iterator() : (Iterator) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public Number a() {
-        if (this.f30101a.size() == 1) {
-            return this.f30101a.get(0).a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f31951a.size() == 1) {
+                return this.f31951a.get(0).a();
+            }
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
+        return (Number) invokeV.objValue;
     }
 }

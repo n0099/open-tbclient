@@ -3,43 +3,57 @@ package com.baidu.android.pushservice.g;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.PushSettings;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static String a(Throwable th) {
-        if (th == null) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            StringWriter stringWriter = new StringWriter();
+            PrintWriter printWriter = new PrintWriter(stringWriter);
+            th.printStackTrace(printWriter);
+            printWriter.close();
+            return stringWriter.toString();
         }
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(stringWriter);
-        th.printStackTrace(printWriter);
-        printWriter.close();
-        return stringWriter.toString();
+        return (String) invokeL.objValue;
     }
 
     public static void a(String str, String str2, Context context) {
-        if (!PushSettings.e(context) || str2 == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
+            Log.d("BDPushSDK-" + str, str2);
         }
-        Log.d("BDPushSDK-" + str, str2);
     }
 
     public static void a(String str, Throwable th, Context context) {
-        b(str, a(th), context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, th, context) == null) {
+            b(str, a(th), context);
+        }
     }
 
     public static void b(String str, String str2, Context context) {
-        if (!PushSettings.e(context) || str2 == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
+            Log.e("BDPushSDK-" + str, str2);
         }
-        Log.e("BDPushSDK-" + str, str2);
     }
 
     public static void c(String str, String str2, Context context) {
-        if (!PushSettings.e(context) || str2 == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65540, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
+            Log.i("BDPushSDK-" + str, str2);
         }
-        Log.i("BDPushSDK-" + str, str2);
     }
 }

@@ -6,36 +6,66 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class DealEventView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21592e;
+    public long f21722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21593f;
+    public boolean f21723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f21594g;
+    public b f21724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f21595h;
+    public float f21725h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f21596i;
+    public float f21726i;
     public boolean j;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ DealEventView f21727e;
+
+        public a(DealEventView dealEventView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dealEventView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21727e = dealEventView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (DealEventView.this.f21593f || !DealEventView.this.j || DealEventView.this.f21594g == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21727e.f21723f || !this.f21727e.j || this.f21727e.f21724g == null) {
                 return;
             }
-            DealEventView.this.f21594g.m();
+            this.f21727e.f21724g.l();
         }
     }
 
@@ -45,70 +75,135 @@ public class DealEventView extends FrameLayout {
 
         void k();
 
-        void m();
+        void l();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DealEventView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         b bVar;
-        int action = motionEvent.getAction();
-        if (action == 0) {
-            this.f21595h = motionEvent.getX();
-            this.f21596i = motionEvent.getY();
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f21592e < 300) {
-                this.f21593f = true;
-                b bVar2 = this.f21594g;
-                if (bVar2 != null) {
-                    bVar2.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.f21725h = motionEvent.getX();
+                this.f21726i = motionEvent.getY();
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.f21722e < 300) {
+                    this.f21723f = true;
+                    b bVar2 = this.f21724g;
+                    if (bVar2 != null) {
+                        bVar2.a();
+                    }
+                } else {
+                    this.f21723f = false;
+                }
+                this.f21722e = currentTimeMillis;
+            } else if (action != 1) {
+                if (action == 2 && this.f21725h - motionEvent.getX() > 60.0f && (this.f21725h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.f21726i) && !this.f21723f && (bVar = this.f21724g) != null) {
+                    bVar.k();
                 }
             } else {
-                this.f21593f = false;
+                if (this.f21725h - motionEvent.getX() < 10.0f && this.f21726i - motionEvent.getY() < 10.0f) {
+                    this.j = true;
+                } else {
+                    this.j = false;
+                }
+                postDelayed(new a(this), 300L);
             }
-            this.f21592e = currentTimeMillis;
-        } else if (action != 1) {
-            if (action == 2 && this.f21595h - motionEvent.getX() > 60.0f && (this.f21595h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.f21596i) && !this.f21593f && (bVar = this.f21594g) != null) {
-                bVar.k();
-            }
-        } else {
-            if (this.f21595h - motionEvent.getX() < 10.0f && this.f21596i - motionEvent.getY() < 10.0f) {
-                this.j = true;
-            } else {
-                this.j = false;
-            }
-            postDelayed(new a(), 300L);
+            return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
-        for (int i2 = 0; i2 < getChildCount(); i2++) {
-            View childAt = getChildAt(i2);
-            if (childAt.getTag() instanceof AnimatorSet) {
-                ((AnimatorSet) childAt.getTag()).cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (int i2 = 0; i2 < getChildCount(); i2++) {
+                View childAt = getChildAt(i2);
+                if (childAt.getTag() instanceof AnimatorSet) {
+                    ((AnimatorSet) childAt.getTag()).cancel();
+                }
             }
+            super.removeAllViews();
         }
-        super.removeAllViews();
     }
 
     public void setOnViewClickListener(b bVar) {
-        this.f21594g = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.f21724g = bVar;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DealEventView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DealEventView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         d();
     }
 }

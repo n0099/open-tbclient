@@ -1,8 +1,18 @@
 package com.baidu.fsg.base;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class EnvConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static String DEFAULT_ENVIRONMENT = "ONLINE";
     public static final String ENVIRONMENT_ONLINE = "ONLINE";
     public static final String ENVIRONMENT_PRELINE = "PRELINE";
@@ -10,58 +20,113 @@ public class EnvConfig {
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5062a = "https://jrws.baidu.com";
+    public static final String f5092a = "https://jrws.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5063b = "https://jrws.baidu.com";
+    public static String f5093b = "https://jrws.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5064c = "https://jrws.baidu.com";
+    public static final String f5094c = "https://jrws.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static EnvConfig f5065d;
+    public static EnvConfig f5095d;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1474745607, "Lcom/baidu/fsg/base/EnvConfig;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1474745607, "Lcom/baidu/fsg/base/EnvConfig;");
+        }
+    }
+
+    public EnvConfig() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static synchronized EnvConfig a() {
+        InterceptResult invokeV;
         EnvConfig envConfig;
-        synchronized (EnvConfig.class) {
-            if (f5065d == null && f5065d == null) {
-                f5065d = new EnvConfig();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (EnvConfig.class) {
+                if (f5095d == null && f5095d == null) {
+                    f5095d = new EnvConfig();
+                }
+                envConfig = f5095d;
             }
-            envConfig = f5065d;
+            return envConfig;
         }
-        return envConfig;
+        return (EnvConfig) invokeV.objValue;
     }
 
     private void b() {
-        f5063b = "https://jrws.baidu.com";
-        DEFAULT_ENVIRONMENT = "ONLINE";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            f5093b = "https://jrws.baidu.com";
+            DEFAULT_ENVIRONMENT = "ONLINE";
+        }
     }
 
     public static synchronized EnvConfig getInstance(Context context) {
+        InterceptResult invokeL;
         EnvConfig b2;
-        synchronized (EnvConfig.class) {
-            b2 = c.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            synchronized (EnvConfig.class) {
+                b2 = c.b();
+            }
+            return b2;
         }
-        return b2;
+        return (EnvConfig) invokeL.objValue;
     }
 
     public String getEnvironment() {
-        return DEFAULT_ENVIRONMENT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? DEFAULT_ENVIRONMENT : (String) invokeV.objValue;
     }
 
     public String getRimHttpsHost() {
-        return f5063b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f5093b : (String) invokeV.objValue;
     }
 
     public void initEnv() {
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+        }
     }
 
     public static synchronized EnvConfig getInstance() {
+        InterceptResult invokeV;
         EnvConfig b2;
-        synchronized (EnvConfig.class) {
-            b2 = c.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            synchronized (EnvConfig.class) {
+                b2 = c.b();
+            }
+            return b2;
         }
-        return b2;
+        return (EnvConfig) invokeV.objValue;
     }
 }

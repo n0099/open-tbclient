@@ -1,9 +1,17 @@
 package android.net.http;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.apache.http.util.CharArrayBuffer;
 /* loaded from: classes.dex */
 public final class Headers {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_RANGES = "accept-ranges";
     public static final String CACHE_CONTROL = "cache-control";
     public static final int CONN_CLOSE = 1;
@@ -28,6 +36,7 @@ public final class Headers {
     public static final String TRANSFER_ENCODING = "transfer-encoding";
     public static final String WWW_AUTHENTICATE = "www-authenticate";
     public static final String X_PERMITTED_CROSS_DOMAIN_POLICIES = "x-permitted-cross-domain-policies";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface HeaderCallback {
@@ -35,138 +44,285 @@ public final class Headers {
     }
 
     public Headers() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new RuntimeException("Stub!");
     }
 
     public String getAcceptRanges() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getCacheControl() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getConnectionType() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
     }
 
     public String getContentDisposition() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getContentEncoding() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getContentLength() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.longValue;
     }
 
     public String getContentType() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getEtag() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getExpires() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public void getHeaders(HeaderCallback headerCallback) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, headerCallback) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public String getLastModified() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLocation() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPragma() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getProxyAuthenticate() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getRefresh() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public ArrayList<String> getSetCookie() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public long getTransferEncoding() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.longValue;
     }
 
     public String getWwwAuthenticate() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getXPermittedCrossDomainPolicies() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parseHeader(CharArrayBuffer charArrayBuffer) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, charArrayBuffer) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setAcceptRanges(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setCacheControl(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setContentDisposition(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setContentEncoding(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setContentLength(long j) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setContentType(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setEtag(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setExpires(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setLastModified(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setLocation(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setProxyAuthenticate(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setWwwAuthenticate(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setXPermittedCrossDomainPolicies(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 }

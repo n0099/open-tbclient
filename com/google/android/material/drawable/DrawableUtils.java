@@ -17,55 +17,90 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class DrawableUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public DrawableUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @NonNull
     public static AttributeSet parseDrawableXml(@NonNull Context context, @XmlRes int i2, @NonNull CharSequence charSequence) {
         int next;
-        try {
-            XmlResourceParser xml = context.getResources().getXml(i2);
-            do {
-                next = xml.next();
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, context, i2, charSequence)) == null) {
+            try {
+                XmlResourceParser xml = context.getResources().getXml(i2);
+                do {
+                    next = xml.next();
+                    if (next == 2) {
+                        break;
+                    }
+                } while (next != 1);
                 if (next == 2) {
-                    break;
+                    if (TextUtils.equals(xml.getName(), charSequence)) {
+                        return Xml.asAttributeSet(xml);
+                    }
+                    throw new XmlPullParserException("Must have a <" + ((Object) charSequence) + "> start tag");
                 }
-            } while (next != 1);
-            if (next == 2) {
-                if (TextUtils.equals(xml.getName(), charSequence)) {
-                    return Xml.asAttributeSet(xml);
-                }
-                throw new XmlPullParserException("Must have a <" + ((Object) charSequence) + "> start tag");
+                throw new XmlPullParserException("No start tag found");
+            } catch (IOException | XmlPullParserException e2) {
+                Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load badge resource ID #0x" + Integer.toHexString(i2));
+                notFoundException.initCause(e2);
+                throw notFoundException;
             }
-            throw new XmlPullParserException("No start tag found");
-        } catch (IOException | XmlPullParserException e2) {
-            Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load badge resource ID #0x" + Integer.toHexString(i2));
-            notFoundException.initCause(e2);
-            throw notFoundException;
         }
+        return (AttributeSet) invokeLIL.objValue;
     }
 
     @TargetApi(21)
     public static void setRippleDrawableRadius(@Nullable RippleDrawable rippleDrawable, int i2) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            rippleDrawable.setRadius(i2);
-            return;
-        }
-        try {
-            RippleDrawable.class.getDeclaredMethod("setMaxRadius", Integer.TYPE).invoke(rippleDrawable, Integer.valueOf(i2));
-        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-            throw new IllegalStateException("Couldn't set RippleDrawable radius", e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, rippleDrawable, i2) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                rippleDrawable.setRadius(i2);
+                return;
+            }
+            try {
+                RippleDrawable.class.getDeclaredMethod("setMaxRadius", Integer.TYPE).invoke(rippleDrawable, Integer.valueOf(i2));
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
+                throw new IllegalStateException("Couldn't set RippleDrawable radius", e2);
+            }
         }
     }
 
     @Nullable
     public static PorterDuffColorFilter updateTintFilter(@NonNull Drawable drawable, @Nullable ColorStateList colorStateList, @Nullable PorterDuff.Mode mode) {
-        if (colorStateList == null || mode == null) {
-            return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, drawable, colorStateList, mode)) == null) {
+            if (colorStateList == null || mode == null) {
+                return null;
+            }
+            return new PorterDuffColorFilter(colorStateList.getColorForState(drawable.getState(), 0), mode);
         }
-        return new PorterDuffColorFilter(colorStateList.getColorForState(drawable.getState(), 0), mode);
+        return (PorterDuffColorFilter) invokeLLL.objValue;
     }
 }

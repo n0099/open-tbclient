@@ -1,12 +1,21 @@
 package d.a.c.e.p;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(InputStream inputStream, OutputStream outputStream) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65536, null, inputStream, outputStream) != null) {
+            return;
+        }
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
         byte[] bArr = new byte[1024];
         while (true) {
@@ -23,7 +32,8 @@ public class g {
     }
 
     public static void b(byte[] bArr, OutputStream outputStream) throws Exception {
-        if (bArr == null || bArr.length == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, bArr, outputStream) == null) || bArr == null || bArr.length == 0) {
             return;
         }
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
@@ -34,6 +44,10 @@ public class g {
     }
 
     public static void c(InputStream inputStream, OutputStream outputStream) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65538, null, inputStream, outputStream) != null) {
+            return;
+        }
         GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
         byte[] bArr = new byte[1024];
         while (true) {

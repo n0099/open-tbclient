@@ -14,16 +14,40 @@ import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.o0.k1.o.k.a;
+import d.a.s0.n1.o.k.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AdAsyncRequestData extends HttpMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdAsyncRequestData(PlaceId placeId, Map<String, String> map, int i2) {
         super(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {placeId, map, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         addCommonParams();
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
         addParam("is_https", 1);
@@ -43,39 +67,52 @@ public class AdAsyncRequestData extends HttpMessage {
     }
 
     private void addCommonParams() {
-        addParam("_client_version", TbConfig.getVersion());
-        addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-        addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-        addParam("model", Build.MODEL);
-        addParam(HttpRequest.CLIENT_TYPE, "2");
-        addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-        addParam("net_type", String.valueOf(j.I()));
-        addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-        addParam(IAdRequestParam.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
-        addParam("cmode", PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            addParam("_client_version", TbConfig.getVersion());
+            addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
+            addParam("model", Build.MODEL);
+            addParam(HttpRequest.CLIENT_TYPE, "2");
+            addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+            addParam("net_type", String.valueOf(j.I()));
+            addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+            addParam(IAdRequestParam.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
+            addParam("cmode", PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
+        }
     }
 
     public static JSONObject create(String str, String str2) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(Config.APP_KEY, str);
-            jSONObject.put("v", str2);
-            return jSONObject;
-        } catch (JSONException unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(Config.APP_KEY, str);
+                jSONObject.put("v", str2);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
     public static String getExt(Map<String, String> map) {
-        if (a.f(map)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            if (a.f(map)) {
+                return null;
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONArray.put(create(entry.getKey(), entry.getValue()));
+            }
+            return jSONArray.toString();
         }
-        JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            jSONArray.put(create(entry.getKey(), entry.getValue()));
-        }
-        return jSONArray.toString();
+        return (String) invokeL.objValue;
     }
 }

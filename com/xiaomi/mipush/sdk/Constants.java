@@ -1,12 +1,21 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes7.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class Constants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_TIME_SEPARATOR_SERVER = "-";
     public static final String ACCEPT_TIME_SEPARATOR_SP = ",";
     public static final String APP_ID = "app_id";
     public static final long ASSEMBLE_PUSH_NETWORK_INTERVAL = 300000;
     public static final String ASSEMBLE_PUSH_REG_INFO = "RegInfo";
-    public static final int[] ASSEMBLE_PUSH_RETRY_DELAY = {2000, 4000, 8000};
+    public static final int[] ASSEMBLE_PUSH_RETRY_DELAY;
     public static final int ASSEMBLE_PUSH_RETRY_INTERVAL = 2000;
     public static final String ASSEMBLE_PUSH_TOKEN = "token";
     public static final String COLON_SEPARATOR = ":";
@@ -41,8 +50,41 @@ public class Constants {
     public static final String PREF_EXTRA = "mipush_extra";
     public static final String SP_KEY_LAST_REINITIALIZE = "last_reinitialize";
     public static final String WAVE_SEPARATOR = "~";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-183109088, "Lcom/xiaomi/mipush/sdk/Constants;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-183109088, "Lcom/xiaomi/mipush/sdk/Constants;");
+                return;
+            }
+        }
+        ASSEMBLE_PUSH_RETRY_DELAY = new int[]{2000, 4000, 8000};
+    }
+
+    public Constants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static int a() {
-        return com.xiaomi.push.ab.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? com.xiaomi.push.ab.a() : invokeV.intValue;
     }
 }

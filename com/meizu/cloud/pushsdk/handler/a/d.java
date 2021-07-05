@@ -25,7 +25,7 @@ public class d extends a<String> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        d.j.a.a.a.d("AbstractMessageHandler", "start RegisterMessageHandler match");
+        d.h.a.a.a.d("AbstractMessageHandler", "start RegisterMessageHandler match");
         return PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REGISTRATION_CALLBACK_INTENT.equals(intent.getAction()) && !TextUtils.isEmpty(intent.getStringExtra("registration_id")));
     }
 

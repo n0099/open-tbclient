@@ -25,19 +25,19 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38756a;
+    public int f40519a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38757b;
+    public String f40520b;
 
     public a() {
-        this.f38756a = 0;
+        this.f40519a = 0;
     }
 
     public a(Parcel parcel) {
-        this.f38756a = 0;
-        this.f38756a = parcel.readInt();
-        this.f38757b = parcel.readString();
+        this.f40519a = 0;
+        this.f40519a = parcel.readInt();
+        this.f40520b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -45,10 +45,10 @@ public class a implements Parcelable {
         try {
             c2 = !TextUtils.isEmpty(messageV3.getNotificationMessage()) ? a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no")) : null;
         } catch (Exception e2) {
-            d.j.a.a.a.b("NotifyOption", "parse flyme NotifyOption setting error " + e2.getMessage() + " so get from notificationMessage");
+            d.h.a.a.a.b("NotifyOption", "parse flyme NotifyOption setting error " + e2.getMessage() + " so get from notificationMessage");
             c2 = c(messageV3.getNotificationMessage());
         }
-        d.j.a.a.a.d("NotifyOption", "current notify option is " + c2);
+        d.h.a.a.a.d("NotifyOption", "current notify option is " + c2);
         return c2;
     }
 
@@ -69,7 +69,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no such tag NotifyOption";
-        d.j.a.a.a.b("NotifyOption", str);
+        d.h.a.a.a.b("NotifyOption", str);
         return aVar;
     }
 
@@ -87,7 +87,7 @@ public class a implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.j.a.a.a.b("NotifyOption", "parse json string error " + e2.getMessage());
+                d.h.a.a.a.b("NotifyOption", "parse json string error " + e2.getMessage());
             }
             return a(jSONObject);
         }
@@ -102,25 +102,25 @@ public class a implements Parcelable {
             }
             return b(new JSONObject(str).getString("no"));
         } catch (JSONException e2) {
-            d.j.a.a.a.b("NotifyOption", "parse notificationMessage error " + e2.getMessage());
+            d.h.a.a.a.b("NotifyOption", "parse notificationMessage error " + e2.getMessage());
             return null;
         }
     }
 
     public int a() {
-        return this.f38756a;
+        return this.f40519a;
     }
 
     public void a(int i2) {
-        this.f38756a = i2;
+        this.f40519a = i2;
     }
 
     public void a(String str) {
-        this.f38757b = str;
+        this.f40520b = str;
     }
 
     public String b() {
-        return this.f38757b;
+        return this.f40520b;
     }
 
     @Override // android.os.Parcelable
@@ -129,12 +129,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f38756a + ", notifyKey='" + this.f38757b + "'}";
+        return "NotifyOption{notifyId=" + this.f40519a + ", notifyKey='" + this.f40520b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f38756a);
-        parcel.writeString(this.f38757b);
+        parcel.writeInt(this.f40519a);
+        parcel.writeString(this.f40520b);
     }
 }

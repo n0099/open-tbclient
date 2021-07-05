@@ -1,48 +1,109 @@
 package com.baidu.fsg.face.base.d;
 
 import android.util.Log;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class d {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5591a = "SAPI_BIOMETRIC";
+    public static final String f5621a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5592b = "%1$s\n%2$s";
+    public static final String f5622b = "%1$s\n%2$s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f5593c = false;
+    public static boolean f5623c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-365275599, "Lcom/baidu/fsg/face/base/d/d;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-365275599, "Lcom/baidu/fsg/face/base/d/d;");
+        }
+    }
+
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void a(boolean z) {
-        f5593c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+            f5623c = z;
+        }
     }
 
     public static void b(String str, Object... objArr) {
-        a(4, null, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, objArr) == null) {
+            a(4, null, str, objArr);
+        }
     }
 
     public static void c(String str, Object... objArr) {
-        a(5, null, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, objArr) == null) {
+            a(5, null, str, objArr);
+        }
     }
 
     public static void d(String str, Object... objArr) {
-        a(6, null, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) {
+            a(6, null, str, objArr);
+        }
     }
 
     public static void a(String str, Object... objArr) {
-        a(3, null, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) {
+            a(3, null, str, objArr);
+        }
     }
 
     public static void a(Throwable th) {
-        a(6, th, null, new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, th) == null) {
+            a(6, th, null, new Object[0]);
+        }
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        a(6, th, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, th, str, objArr) == null) {
+            a(6, th, str, objArr);
+        }
     }
 
     public static void a(int i2, Throwable th, String str, Object... objArr) {
-        if (f5593c) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), th, str, objArr}) == null) && f5623c) {
             if (objArr.length > 0) {
                 str = String.format(str, objArr);
             }

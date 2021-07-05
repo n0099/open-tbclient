@@ -7,138 +7,263 @@ import android.os.Looper;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WalletToast {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_LONG = 1;
     public static final int LENGTH_SHORT = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f3646h = 3500;
+    public static final int f3644h = 3500;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f3647i = 2000;
-    public static List<View> j = new ArrayList();
+    public static final int f3645i = 2000;
+    public static List<View> j;
     public static CancleRunnable k;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3648a;
+    public Context f3646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3649b;
+    public int f3647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3650c;
+    public int f3648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3651d;
+    public int f3649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3652e;
+    public int f3650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f3653f;
+    public float f3651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f3654g;
+    public float f3652g;
     public WindowManager l;
     public View m;
     public WindowManager.LayoutParams n;
-    public Handler o = new Handler(Looper.getMainLooper());
+    public Handler o;
 
     /* loaded from: classes.dex */
     public class CancleRunnable implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f3656a = false;
+        public volatile boolean f3654a;
 
-        public CancleRunnable() {
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ WalletToast f3655b;
+
+        public CancleRunnable(WalletToast walletToast) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {walletToast};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3655b = walletToast;
+            this.f3654a = false;
         }
 
         public void discard() {
-            this.f3656a = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f3654a = true;
+            }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f3656a) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f3654a) {
                 return;
             }
-            WalletToast.this.a();
+            this.f3655b.a();
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1015857080, "Lcom/baidu/apollon/base/widget/WalletToast;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1015857080, "Lcom/baidu/apollon/base/widget/WalletToast;");
+                return;
+            }
+        }
+        j = new ArrayList();
+    }
+
     public WalletToast(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.o = new Handler(Looper.getMainLooper());
         this.l = (WindowManager) context.getSystemService("window");
-        this.f3648a = context;
+        this.f3646a = context;
         Toast toast = new Toast(context);
-        this.f3652e = toast.getYOffset();
+        this.f3650e = toast.getYOffset();
         a(toast);
     }
 
     public int getDuration() {
-        return this.f3649b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3647b : invokeV.intValue;
     }
 
     public int getGravity() {
-        return this.f3650c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3648c : invokeV.intValue;
     }
 
     public float getHorizontalMargin() {
-        return this.f3654g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3652g : invokeV.floatValue;
     }
 
     public float getVerticalMargin() {
-        return this.f3653f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3651f : invokeV.floatValue;
     }
 
     public View getView() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (View) invokeV.objValue;
     }
 
     public int getXOffset() {
-        return this.f3651d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3649d : invokeV.intValue;
     }
 
     public int getYOffset() {
-        return this.f3652e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3650e : invokeV.intValue;
     }
 
     public void setDuration(int i2) {
-        this.f3649b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.f3647b = i2;
+        }
     }
 
     public void setGravity(int i2, int i3, int i4) {
-        this.f3650c = i2;
-        this.f3651d = i3;
-        this.f3652e = i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4) == null) {
+            this.f3648c = i2;
+            this.f3649d = i3;
+            this.f3650e = i4;
+        }
     }
 
     public void setMargin(float f2, float f3) {
-        this.f3654g = f2;
-        this.f3653f = f3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            this.f3652g = f2;
+            this.f3651f = f3;
+        }
     }
 
     public void setView(View view) {
-        this.m = view;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
+            this.m = view;
+        }
     }
 
     public void show() {
-        this.o.post(new Runnable() { // from class: com.baidu.apollon.base.widget.WalletToast.1
-            @Override // java.lang.Runnable
-            public void run() {
-                WalletToast.this.a();
-                WalletToast walletToast = WalletToast.this;
-                walletToast.a(walletToast.m);
-            }
-        });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.o.post(new Runnable(this) { // from class: com.baidu.apollon.base.widget.WalletToast.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ WalletToast f3653a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f3653a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f3653a.a();
+                        WalletToast walletToast = this.f3653a;
+                        walletToast.a(walletToast.m);
+                    }
+                }
+            });
+        }
     }
 
     private void b(View view) {
-        if (view == null || view.getParent() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65545, this, view) == null) || view == null || view.getParent() == null) {
             return;
         }
         try {
@@ -149,85 +274,109 @@ public class WalletToast {
     }
 
     private void a(Toast toast) {
-        try {
-            Field declaredField = toast.getClass().getDeclaredField("mTN");
-            declaredField.setAccessible(true);
-            Object obj = declaredField.get(toast);
-            Field declaredField2 = obj.getClass().getDeclaredField("mParams");
-            declaredField2.setAccessible(true);
-            this.n = (WindowManager.LayoutParams) declaredField2.get(obj);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            this.n = layoutParams;
-            layoutParams.height = -2;
-            layoutParams.width = -2;
-            layoutParams.format = -3;
-            layoutParams.type = 2005;
-            layoutParams.windowAnimations = ResUtils.style(this.f3648a, "EbpayActivityAnim2");
-            this.n.setTitle("Toast");
-            this.n.flags = 152;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, toast) == null) {
+            try {
+                Field declaredField = toast.getClass().getDeclaredField("mTN");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(toast);
+                Field declaredField2 = obj.getClass().getDeclaredField("mParams");
+                declaredField2.setAccessible(true);
+                this.n = (WindowManager.LayoutParams) declaredField2.get(obj);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+                this.n = layoutParams;
+                layoutParams.height = -2;
+                layoutParams.width = -2;
+                layoutParams.format = -3;
+                layoutParams.type = 2005;
+                layoutParams.windowAnimations = ResUtils.style(this.f3646a, "EbpayActivityAnim2");
+                this.n.setTitle("Toast");
+                this.n.flags = 152;
+            }
+            this.f3648c = 17;
+            this.f3650e = 0;
+            this.m = toast.getView();
         }
-        this.f3650c = 17;
-        this.f3652e = 0;
-        this.m = toast.getView();
     }
 
     @SuppressLint({"ShowToast"})
     public WalletToast(Context context, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.o = new Handler(Looper.getMainLooper());
         this.l = (WindowManager) context.getSystemService("window");
-        this.f3648a = context;
+        this.f3646a = context;
         Toast makeText = Toast.makeText(context, str, i2);
-        this.f3652e = makeText.getYOffset();
+        this.f3650e = makeText.getYOffset();
         a(makeText);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        CancleRunnable cancleRunnable = k;
-        if (cancleRunnable != null) {
-            cancleRunnable.discard();
-            this.o.removeCallbacks(k);
-            k = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            CancleRunnable cancleRunnable = k;
+            if (cancleRunnable != null) {
+                cancleRunnable.discard();
+                this.o.removeCallbacks(k);
+                k = null;
+            }
+            for (View view : j) {
+                b(view);
+            }
+            j.clear();
         }
-        for (View view : j) {
-            b(view);
-        }
-        j.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view) {
-        Context applicationContext = this.f3648a.getApplicationContext();
-        if (applicationContext == null) {
-            applicationContext = this.f3648a;
-        }
-        this.l = (WindowManager) applicationContext.getSystemService("window");
-        int i2 = this.f3650c;
-        WindowManager.LayoutParams layoutParams = this.n;
-        layoutParams.gravity = i2;
-        if ((i2 & 7) == 7) {
-            layoutParams.horizontalWeight = 1.0f;
-        }
-        if ((i2 & 112) == 112) {
-            this.n.verticalWeight = 1.0f;
-        }
-        WindowManager.LayoutParams layoutParams2 = this.n;
-        layoutParams2.x = this.f3651d;
-        layoutParams2.y = this.f3652e;
-        layoutParams2.verticalMargin = this.f3653f;
-        layoutParams2.horizontalMargin = this.f3654g;
-        try {
-            if (view.getParent() != null) {
-                this.l.updateViewLayout(view, this.n);
-            } else {
-                this.l.addView(view, this.n);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, view) == null) {
+            Context applicationContext = this.f3646a.getApplicationContext();
+            if (applicationContext == null) {
+                applicationContext = this.f3646a;
             }
-            j.add(view);
-            CancleRunnable cancleRunnable = new CancleRunnable();
-            k = cancleRunnable;
-            this.o.postDelayed(cancleRunnable, this.f3649b == 1 ? 3500L : 2000L);
-        } catch (Exception unused) {
+            this.l = (WindowManager) applicationContext.getSystemService("window");
+            int i2 = this.f3648c;
+            WindowManager.LayoutParams layoutParams = this.n;
+            layoutParams.gravity = i2;
+            if ((i2 & 7) == 7) {
+                layoutParams.horizontalWeight = 1.0f;
+            }
+            if ((i2 & 112) == 112) {
+                this.n.verticalWeight = 1.0f;
+            }
+            WindowManager.LayoutParams layoutParams2 = this.n;
+            layoutParams2.x = this.f3649d;
+            layoutParams2.y = this.f3650e;
+            layoutParams2.verticalMargin = this.f3651f;
+            layoutParams2.horizontalMargin = this.f3652g;
+            try {
+                if (view.getParent() != null) {
+                    this.l.updateViewLayout(view, this.n);
+                } else {
+                    this.l.addView(view, this.n);
+                }
+                j.add(view);
+                CancleRunnable cancleRunnable = new CancleRunnable(this);
+                k = cancleRunnable;
+                this.o.postDelayed(cancleRunnable, this.f3647b == 1 ? 3500L : 2000L);
+            } catch (Exception unused) {
+            }
         }
     }
 }

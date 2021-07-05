@@ -3,211 +3,556 @@ package com.baidu.mapapi.search.poi;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PoiFilter implements Parcelable {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f7267a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f7268b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f7269c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f7270d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f7271e;
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<PoiFilter> CREATOR;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<SortName, String> f7266f = new HashMap();
-    public static final Parcelable.Creator<PoiFilter> CREATOR = new c();
+    public static Map<SortName, String> f7296f;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public String f7297a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f7298b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f7299c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f7300d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f7301e;
+
+    /* loaded from: classes3.dex */
     public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f7272a;
+        public String f7302a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7273b;
+        public String f7303b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7274c;
+        public String f7304c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f7275d;
+        public String f7305d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f7276e;
+        public String f7306e;
 
         public Builder() {
-            PoiFilter.f7266f.put(SortName.HotelSortName.DEFAULT, "default");
-            PoiFilter.f7266f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
-            PoiFilter.f7266f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
-            PoiFilter.f7266f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
-            PoiFilter.f7266f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
-            PoiFilter.f7266f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
-            PoiFilter.f7266f.put(SortName.CaterSortName.DEFAULT, "default");
-            PoiFilter.f7266f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
-            PoiFilter.f7266f.put(SortName.CaterSortName.CATER_PRICE, "price");
-            PoiFilter.f7266f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
-            PoiFilter.f7266f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
-            PoiFilter.f7266f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
-            PoiFilter.f7266f.put(SortName.LifeSortName.DEFAULT, "default");
-            PoiFilter.f7266f.put(SortName.LifeSortName.PRICE, "price");
-            PoiFilter.f7266f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
-            PoiFilter.f7266f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
-            PoiFilter.f7266f.put(SortName.LifeSortName.DISTANCE, "distance");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            PoiFilter.f7296f.put(SortName.HotelSortName.DEFAULT, "default");
+            PoiFilter.f7296f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
+            PoiFilter.f7296f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
+            PoiFilter.f7296f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
+            PoiFilter.f7296f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
+            PoiFilter.f7296f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
+            PoiFilter.f7296f.put(SortName.CaterSortName.DEFAULT, "default");
+            PoiFilter.f7296f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
+            PoiFilter.f7296f.put(SortName.CaterSortName.CATER_PRICE, "price");
+            PoiFilter.f7296f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
+            PoiFilter.f7296f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
+            PoiFilter.f7296f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
+            PoiFilter.f7296f.put(SortName.LifeSortName.DEFAULT, "default");
+            PoiFilter.f7296f.put(SortName.LifeSortName.PRICE, "price");
+            PoiFilter.f7296f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
+            PoiFilter.f7296f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
+            PoiFilter.f7296f.put(SortName.LifeSortName.DISTANCE, "distance");
         }
 
         public PoiFilter build() {
-            return new PoiFilter(this.f7272a, this.f7273b, this.f7274c, this.f7276e, this.f7275d);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoiFilter(this.f7302a, this.f7303b, this.f7304c, this.f7306e, this.f7305d) : (PoiFilter) invokeV.objValue;
         }
 
         public Builder industryType(IndustryType industryType) {
-            int i2 = d.f7293a[industryType.ordinal()];
-            this.f7272a = i2 != 1 ? i2 != 2 ? i2 != 3 ? "" : "life" : "cater" : "hotel";
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, industryType)) == null) {
+                int i2 = d.f7323a[industryType.ordinal()];
+                this.f7302a = i2 != 1 ? i2 != 2 ? i2 != 3 ? "" : "life" : "cater" : "hotel";
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder isDiscount(boolean z) {
-            this.f7276e = z ? "1" : "0";
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.f7306e = z ? "1" : "0";
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder isGroupon(boolean z) {
-            this.f7275d = z ? "1" : "0";
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.f7305d = z ? "1" : "0";
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder sortName(SortName sortName) {
-            if (!TextUtils.isEmpty(this.f7272a) && sortName != null) {
-                this.f7273b = (String) PoiFilter.f7266f.get(sortName);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sortName)) == null) {
+                if (!TextUtils.isEmpty(this.f7302a) && sortName != null) {
+                    this.f7303b = (String) PoiFilter.f7296f.get(sortName);
+                }
+                return this;
             }
-            return this;
+            return (Builder) invokeL.objValue;
         }
 
         public Builder sortRule(int i2) {
-            this.f7274c = i2 + "";
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+                this.f7304c = i2 + "";
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public enum IndustryType {
-        HOTEL,
-        CATER,
-        LIFE
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
+    public static final class IndustryType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final IndustryType CATER;
+        public static final IndustryType HOTEL;
+        public static final IndustryType LIFE;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ IndustryType[] f7307a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(771085944, "Lcom/baidu/mapapi/search/poi/PoiFilter$IndustryType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(771085944, "Lcom/baidu/mapapi/search/poi/PoiFilter$IndustryType;");
+                    return;
+                }
+            }
+            HOTEL = new IndustryType("HOTEL", 0);
+            CATER = new IndustryType("CATER", 1);
+            IndustryType industryType = new IndustryType("LIFE", 2);
+            LIFE = industryType;
+            f7307a = new IndustryType[]{HOTEL, CATER, industryType};
+        }
+
+        public IndustryType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static IndustryType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (IndustryType) Enum.valueOf(IndustryType.class, str) : (IndustryType) invokeL.objValue;
+        }
+
+        public static IndustryType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (IndustryType[]) f7307a.clone() : (IndustryType[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface SortName {
 
-        /* loaded from: classes2.dex */
-        public enum CaterSortName implements SortName {
-            DEFAULT,
-            CATER_PRICE,
-            CATER_DISTANCE,
-            CATER_TASTE_RATING,
-            CATER_OVERALL_RATING,
-            CATER_SERVICE_RATING
+        /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+        /* loaded from: classes3.dex */
+        public static final class CaterSortName implements SortName {
+            public static /* synthetic */ Interceptable $ic;
+            public static final CaterSortName CATER_DISTANCE;
+            public static final CaterSortName CATER_OVERALL_RATING;
+            public static final CaterSortName CATER_PRICE;
+            public static final CaterSortName CATER_SERVICE_RATING;
+            public static final CaterSortName CATER_TASTE_RATING;
+            public static final CaterSortName DEFAULT;
+
+            /* renamed from: a  reason: collision with root package name */
+            public static final /* synthetic */ CaterSortName[] f7308a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1378438239, "Lcom/baidu/mapapi/search/poi/PoiFilter$SortName$CaterSortName;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(1378438239, "Lcom/baidu/mapapi/search/poi/PoiFilter$SortName$CaterSortName;");
+                        return;
+                    }
+                }
+                DEFAULT = new CaterSortName("DEFAULT", 0);
+                CATER_PRICE = new CaterSortName("CATER_PRICE", 1);
+                CATER_DISTANCE = new CaterSortName("CATER_DISTANCE", 2);
+                CATER_TASTE_RATING = new CaterSortName("CATER_TASTE_RATING", 3);
+                CATER_OVERALL_RATING = new CaterSortName("CATER_OVERALL_RATING", 4);
+                CaterSortName caterSortName = new CaterSortName("CATER_SERVICE_RATING", 5);
+                CATER_SERVICE_RATING = caterSortName;
+                f7308a = new CaterSortName[]{DEFAULT, CATER_PRICE, CATER_DISTANCE, CATER_TASTE_RATING, CATER_OVERALL_RATING, caterSortName};
+            }
+
+            public CaterSortName(String str, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        String str2 = (String) objArr2[0];
+                        ((Integer) objArr2[1]).intValue();
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                    }
+                }
+            }
+
+            public static CaterSortName valueOf(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CaterSortName) Enum.valueOf(CaterSortName.class, str) : (CaterSortName) invokeL.objValue;
+            }
+
+            public static CaterSortName[] values() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CaterSortName[]) f7308a.clone() : (CaterSortName[]) invokeV.objValue;
+            }
         }
 
-        /* loaded from: classes2.dex */
-        public enum HotelSortName implements SortName {
-            DEFAULT,
-            HOTEL_PRICE,
-            HOTEL_DISTANCE,
-            HOTEL_TOTAL_SCORE,
-            HOTEL_LEVEL,
-            HOTEL_HEALTH_SCORE
+        /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+        /* loaded from: classes3.dex */
+        public static final class HotelSortName implements SortName {
+            public static /* synthetic */ Interceptable $ic;
+            public static final HotelSortName DEFAULT;
+            public static final HotelSortName HOTEL_DISTANCE;
+            public static final HotelSortName HOTEL_HEALTH_SCORE;
+            public static final HotelSortName HOTEL_LEVEL;
+            public static final HotelSortName HOTEL_PRICE;
+            public static final HotelSortName HOTEL_TOTAL_SCORE;
+
+            /* renamed from: a  reason: collision with root package name */
+            public static final /* synthetic */ HotelSortName[] f7309a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(217051342, "Lcom/baidu/mapapi/search/poi/PoiFilter$SortName$HotelSortName;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(217051342, "Lcom/baidu/mapapi/search/poi/PoiFilter$SortName$HotelSortName;");
+                        return;
+                    }
+                }
+                DEFAULT = new HotelSortName("DEFAULT", 0);
+                HOTEL_PRICE = new HotelSortName("HOTEL_PRICE", 1);
+                HOTEL_DISTANCE = new HotelSortName("HOTEL_DISTANCE", 2);
+                HOTEL_TOTAL_SCORE = new HotelSortName("HOTEL_TOTAL_SCORE", 3);
+                HOTEL_LEVEL = new HotelSortName("HOTEL_LEVEL", 4);
+                HotelSortName hotelSortName = new HotelSortName("HOTEL_HEALTH_SCORE", 5);
+                HOTEL_HEALTH_SCORE = hotelSortName;
+                f7309a = new HotelSortName[]{DEFAULT, HOTEL_PRICE, HOTEL_DISTANCE, HOTEL_TOTAL_SCORE, HOTEL_LEVEL, hotelSortName};
+            }
+
+            public HotelSortName(String str, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        String str2 = (String) objArr2[0];
+                        ((Integer) objArr2[1]).intValue();
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                    }
+                }
+            }
+
+            public static HotelSortName valueOf(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HotelSortName) Enum.valueOf(HotelSortName.class, str) : (HotelSortName) invokeL.objValue;
+            }
+
+            public static HotelSortName[] values() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HotelSortName[]) f7309a.clone() : (HotelSortName[]) invokeV.objValue;
+            }
         }
 
-        /* loaded from: classes2.dex */
-        public enum LifeSortName implements SortName {
-            DEFAULT,
-            PRICE,
-            DISTANCE,
-            LIFE_OVERALL_RATING,
-            LIFE_COMMENT_RATING
+        /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+        /* loaded from: classes3.dex */
+        public static final class LifeSortName implements SortName {
+            public static /* synthetic */ Interceptable $ic;
+            public static final LifeSortName DEFAULT;
+            public static final LifeSortName DISTANCE;
+            public static final LifeSortName LIFE_COMMENT_RATING;
+            public static final LifeSortName LIFE_OVERALL_RATING;
+            public static final LifeSortName PRICE;
+
+            /* renamed from: a  reason: collision with root package name */
+            public static final /* synthetic */ LifeSortName[] f7310a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1758041498, "Lcom/baidu/mapapi/search/poi/PoiFilter$SortName$LifeSortName;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1758041498, "Lcom/baidu/mapapi/search/poi/PoiFilter$SortName$LifeSortName;");
+                        return;
+                    }
+                }
+                DEFAULT = new LifeSortName("DEFAULT", 0);
+                PRICE = new LifeSortName("PRICE", 1);
+                DISTANCE = new LifeSortName("DISTANCE", 2);
+                LIFE_OVERALL_RATING = new LifeSortName("LIFE_OVERALL_RATING", 3);
+                LifeSortName lifeSortName = new LifeSortName("LIFE_COMMENT_RATING", 4);
+                LIFE_COMMENT_RATING = lifeSortName;
+                f7310a = new LifeSortName[]{DEFAULT, PRICE, DISTANCE, LIFE_OVERALL_RATING, lifeSortName};
+            }
+
+            public LifeSortName(String str, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        String str2 = (String) objArr2[0];
+                        ((Integer) objArr2[1]).intValue();
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                    }
+                }
+            }
+
+            public static LifeSortName valueOf(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LifeSortName) Enum.valueOf(LifeSortName.class, str) : (LifeSortName) invokeL.objValue;
+            }
+
+            public static LifeSortName[] values() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LifeSortName[]) f7310a.clone() : (LifeSortName[]) invokeV.objValue;
+            }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1176531870, "Lcom/baidu/mapapi/search/poi/PoiFilter;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1176531870, "Lcom/baidu/mapapi/search/poi/PoiFilter;");
+                return;
+            }
+        }
+        f7296f = new HashMap();
+        CREATOR = new c();
     }
 
     public PoiFilter(Parcel parcel) {
-        this.f7267a = "";
-        this.f7268b = "";
-        this.f7269c = "";
-        this.f7270d = "";
-        this.f7271e = "";
-        this.f7267a = parcel.readString();
-        this.f7268b = parcel.readString();
-        this.f7269c = parcel.readString();
-        this.f7271e = parcel.readString();
-        this.f7270d = parcel.readString();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f7297a = "";
+        this.f7298b = "";
+        this.f7299c = "";
+        this.f7300d = "";
+        this.f7301e = "";
+        this.f7297a = parcel.readString();
+        this.f7298b = parcel.readString();
+        this.f7299c = parcel.readString();
+        this.f7301e = parcel.readString();
+        this.f7300d = parcel.readString();
     }
 
     public PoiFilter(String str, String str2, String str3, String str4, String str5) {
-        this.f7267a = "";
-        this.f7268b = "";
-        this.f7269c = "";
-        this.f7270d = "";
-        this.f7271e = "";
-        this.f7267a = str;
-        this.f7268b = str2;
-        this.f7269c = str3;
-        this.f7271e = str4;
-        this.f7270d = str5;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, str5};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f7297a = "";
+        this.f7298b = "";
+        this.f7299c = "";
+        this.f7300d = "";
+        this.f7301e = "";
+        this.f7297a = str;
+        this.f7298b = str2;
+        this.f7299c = str3;
+        this.f7301e = str4;
+        this.f7300d = str5;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f7267a)) {
-            sb.append("industry_type:");
-            sb.append(this.f7267a);
-            sb.append("|");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.f7297a)) {
+                sb.append("industry_type:");
+                sb.append(this.f7297a);
+                sb.append("|");
+            }
+            if (!TextUtils.isEmpty(this.f7298b)) {
+                sb.append("sort_name:");
+                sb.append(this.f7298b);
+                sb.append("|");
+            }
+            if (!TextUtils.isEmpty(this.f7299c)) {
+                sb.append("sort_rule:");
+                sb.append(this.f7299c);
+                sb.append("|");
+            }
+            if (!TextUtils.isEmpty(this.f7301e)) {
+                sb.append("discount:");
+                sb.append(this.f7301e);
+                sb.append("|");
+            }
+            if (!TextUtils.isEmpty(this.f7300d)) {
+                sb.append("groupon:");
+                sb.append(this.f7300d);
+                sb.append("|");
+            }
+            if (!TextUtils.isEmpty(sb.toString())) {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            return sb.toString();
         }
-        if (!TextUtils.isEmpty(this.f7268b)) {
-            sb.append("sort_name:");
-            sb.append(this.f7268b);
-            sb.append("|");
-        }
-        if (!TextUtils.isEmpty(this.f7269c)) {
-            sb.append("sort_rule:");
-            sb.append(this.f7269c);
-            sb.append("|");
-        }
-        if (!TextUtils.isEmpty(this.f7271e)) {
-            sb.append("discount:");
-            sb.append(this.f7271e);
-            sb.append("|");
-        }
-        if (!TextUtils.isEmpty(this.f7270d)) {
-            sb.append("groupon:");
-            sb.append(this.f7270d);
-            sb.append("|");
-        }
-        if (!TextUtils.isEmpty(sb.toString())) {
-            sb.deleteCharAt(sb.length() - 1);
-        }
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f7267a);
-        parcel.writeString(this.f7268b);
-        parcel.writeString(this.f7269c);
-        parcel.writeString(this.f7271e);
-        parcel.writeString(this.f7270d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+            parcel.writeString(this.f7297a);
+            parcel.writeString(this.f7298b);
+            parcel.writeString(this.f7299c);
+            parcel.writeString(this.f7301e);
+            parcel.writeString(this.f7300d);
+        }
     }
 }

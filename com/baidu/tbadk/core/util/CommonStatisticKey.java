@@ -1,6 +1,12 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes3.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class CommonStatisticKey {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
     public static final String ALA_FRIEND_ROOM_CARD_SHOW = "c14007";
     public static final String CARD_QUIZ_FLOATING_ENTRANCE_SHOW = "c12912";
@@ -31,12 +37,25 @@ public class CommonStatisticKey {
     public static final String KEY_FLOATING_VIEW_CLICK = "c12913";
     public static final String KEY_FORUM_INSIDE_LIVE_CLICK = "c14137";
     public static final String KEY_FORUM_INSIDE_LIVE_SHOW = "c14136";
+    public static final String KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5 = "c14197";
+    public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
+    public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
     public static final String KEY_FRS_FORUM_FLOAT_CLICK = "c13881";
+    public static final String KEY_FRS_ITEM_TAB_ALBUM_CLICK = "c14187";
+    public static final String KEY_FRS_ITEM_TAB_COMMENT_CLICK = "c14190";
+    public static final String KEY_FRS_ITEM_TAB_RANKING = "c14189";
+    public static final String KEY_FRS_ITEM_TAB_RECOMMEND_CLICK = "c14191";
+    public static final String KEY_FRS_ITEM_TAB_SHOW = "c14186";
+    public static final String KEY_FRS_ITEM_TAB_TAG_CLICK = "c14188";
+    public static final String KEY_FRS_ORDER_DOWNLOAD_CLICK = "c14192";
+    public static final String KEY_FRS_ORDER_DOWNLOAD_EXPORT = "c14193";
     public static final String KEY_FRS_STAR_PIC_CLICK = "c12883";
     public static final String KEY_FRS_TRANSMIT_THREAD = "c12940";
     public static final String KEY_FUNCTION_PANEL_CLIKED = "c12612";
     public static final String KEY_INTEREST_GUIDE_CLICK = "c14096";
     public static final String KEY_INTEREST_GUIDE_SHOW = "c14095";
+    public static final String KEY_ITEM_CARD_BUTTON_CLICK = "c14121";
+    public static final String KEY_ITEM_CARD_BUTTON_SHOW = "c14120";
     public static final String KEY_KEEP_LIVE = "c12662";
     public static final String KEY_LIVE_SECOND_TAB_CLICK = "c14135";
     public static final String KEY_LIVE_SECOND_TAB_SHOW = "c14134";
@@ -93,11 +112,42 @@ public class CommonStatisticKey {
     public static final String VIDEO_PLAY_STATE = "c11685";
     public static final String WINDOW_CLICK = "c14076";
     public static final String WINDOW_EXPOSURE = "c14075";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Transmitthread {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";
         public static final String OBJ_TYPE_SOURCE_PB = "3";
         public static final String OBJ_TYPE_USER = "1";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Transmitthread() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public CommonStatisticKey() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

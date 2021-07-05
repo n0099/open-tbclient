@@ -8,138 +8,192 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.video.player.PlayerPostEvent;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SelectImageHelper {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
     public static final String TMP_IMAGE_NAME = "camera.jpg";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public SelectImageHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static Bitmap AlbumImageResult(Context context, Uri uri, int i2) {
-        try {
-            return BitmapHelper.subSampleBitmap(context, uri, i2);
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            return null;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, uri, i2)) == null) {
+            try {
+                return BitmapHelper.subSampleBitmap(context, uri, i2);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            }
         }
+        return (Bitmap) invokeLLI.objValue;
     }
 
     public static Bitmap ImageResult(int i2, Context context, Uri uri, int i3) {
-        if (i2 == 12001) {
-            return photoResult(i3);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), context, uri, Integer.valueOf(i3)})) == null) {
+            if (i2 == 12001) {
+                return photoResult(i3);
+            }
+            return AlbumImageResult(context, uri, i3);
         }
-        return AlbumImageResult(context, uri, i3);
+        return (Bitmap) invokeCommon.objValue;
     }
 
     public static void getAlbumImage(Activity activity) {
-        getSystemAlbumImage(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, activity) == null) {
+            getSystemAlbumImage(activity);
+        }
     }
 
     public static void getSystemAlbumImage(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_END);
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, activity) == null) {
+            try {
+                Intent intent = new Intent();
+                intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
+                intent.setAction("android.intent.action.GET_CONTENT");
+                activity.startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_END);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
         }
     }
 
     public static Bitmap photoResult(int i2) {
-        try {
-            int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory(TMP_IMAGE_NAME));
-            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i2);
-            return (readPictureDegree == 0 || subSampleBitmap == null) ? subSampleBitmap : BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            return null;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+            try {
+                int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory(TMP_IMAGE_NAME));
+                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i2);
+                return (readPictureDegree == 0 || subSampleBitmap == null) ? subSampleBitmap : BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            }
         }
+        return (Bitmap) invokeI.objValue;
     }
 
     public static int readPictureDegree(String str) {
-        try {
-            int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
-            if (attributeInt != 3) {
-                if (attributeInt != 6) {
-                    return attributeInt != 8 ? 0 : 270;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            try {
+                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
+                if (attributeInt != 3) {
+                    if (attributeInt != 6) {
+                        return attributeInt != 8 ? 0 : 270;
+                    }
+                    return 90;
                 }
-                return 90;
+                return 180;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return 0;
             }
-            return 180;
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            return 0;
         }
+        return invokeL.intValue;
     }
 
     public static void takePhoto(TbPageContext<?> tbPageContext) {
-        try {
-            if (!FileHelper.checkSD()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
-                    return;
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
-                    return;
-                } else {
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, tbPageContext) == null) {
+            try {
+                if (!FileHelper.checkSD()) {
+                    if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                        ((BaseActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
+                        return;
+                    } else if (tbPageContext instanceof BaseFragmentActivity) {
+                        ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
+                        return;
+                    } else {
+                        return;
+                    }
                 }
+                File CreateFile = FileHelper.CreateFile(TMP_IMAGE_NAME);
+                if (CreateFile != null) {
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
+                    tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
+                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
-            File CreateFile = FileHelper.CreateFile(TMP_IMAGE_NAME);
-            if (CreateFile != null) {
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
-            } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-            } else if (tbPageContext instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-            }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
         }
     }
 
     public static void takePhoto(TbPageContext<?> tbPageContext, String str) {
-        try {
-            if (!FileHelper.checkSD()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
-                    return;
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
-                    return;
-                } else {
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, str) == null) {
+            try {
+                if (!FileHelper.checkSD()) {
+                    if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                        ((BaseActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
+                        return;
+                    } else if (tbPageContext instanceof BaseFragmentActivity) {
+                        ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(FileHelper.getSdErrorString());
+                        return;
+                    } else {
+                        return;
+                    }
                 }
-            }
-            String str2 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
-            boolean z = false;
-            if (FileHelper.CheckTempDir(str2)) {
-                File file = new File(str2 + "/" + str);
-                z = !file.exists() ? file.createNewFile() : true;
+                String str2 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+                boolean z = false;
+                if (FileHelper.CheckTempDir(str2)) {
+                    File file = new File(str2 + "/" + str);
+                    z = !file.exists() ? file.createNewFile() : true;
+                    if (z) {
+                        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                        intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
+                        tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
+                    }
+                }
                 if (z) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
+                    return;
                 }
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
-            if (z) {
-                return;
-            }
-            if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-            } else if (tbPageContext instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-            }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
         }
     }
 }

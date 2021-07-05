@@ -1,22 +1,45 @@
 package com.xiaomi.push.service.receivers;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class a implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f41948a;
+    public final /* synthetic */ Context f43691a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ NetworkStatusReceiver f971a;
+    public final /* synthetic */ NetworkStatusReceiver f974a;
 
     public a(NetworkStatusReceiver networkStatusReceiver, Context context) {
-        this.f971a = networkStatusReceiver;
-        this.f41948a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {networkStatusReceiver, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f974a = networkStatusReceiver;
+        this.f43691a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f971a.a(this.f41948a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f974a.a(this.f43691a);
+        }
     }
 }

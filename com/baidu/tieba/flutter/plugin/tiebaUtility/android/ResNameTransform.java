@@ -1,12 +1,35 @@
 package com.baidu.tieba.flutter.plugin.tiebaUtility.android;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ResNameTransform {
-    public static HashMap<String, String> platformImageNameMap = new HashMap<>();
-    public static HashMap<String, String> assetsImageNameMap = new HashMap<>();
+    public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> assetsImageNameMap;
+    public static HashMap<String, String> platformImageNameMap;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1677832477, "Lcom/baidu/tieba/flutter/plugin/tiebaUtility/android/ResNameTransform;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1677832477, "Lcom/baidu/tieba/flutter/plugin/tiebaUtility/android/ResNameTransform;");
+                return;
+            }
+        }
+        platformImageNameMap = new HashMap<>();
+        assetsImageNameMap = new HashMap<>();
         platformImageNameMap.put("full_screen_loading", "lottie_full_screen_refresh");
         platformImageNameMap.put("lottie_pull_refresh", "lottie_common_pull_refresh");
         platformImageNameMap.put("ad_refresh_load", "lottie_frs_refresh");
@@ -15,14 +38,35 @@ public class ResNameTransform {
         assetsImageNameMap.put("lottie_portrait_live", "live/personcenter_live_bg.json");
     }
 
-    public static String getAndroidAssetsNameFromIos(String str) {
-        if (assetsImageNameMap.containsKey(str)) {
-            return assetsImageNameMap.get(str);
+    public ResNameTransform() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return null;
+    }
+
+    public static String getAndroidAssetsNameFromIos(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (assetsImageNameMap.containsKey(str)) {
+                return assetsImageNameMap.get(str);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getAndroidNameFromIos(String str) {
-        return platformImageNameMap.containsKey(str) ? platformImageNameMap.get(str) : str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? platformImageNameMap.containsKey(str) ? platformImageNameMap.get(str) : str : (String) invokeL.objValue;
     }
 }

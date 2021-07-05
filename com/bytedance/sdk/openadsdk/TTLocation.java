@@ -1,33 +1,66 @@
 package com.bytedance.sdk.openadsdk;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class TTLocation {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f27197a;
+    public double f28954a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f27198b;
+    public double f28955b;
 
     public TTLocation(double d2, double d3) {
-        this.f27197a = 0.0d;
-        this.f27198b = 0.0d;
-        this.f27197a = d2;
-        this.f27198b = d3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f28954a = 0.0d;
+        this.f28955b = 0.0d;
+        this.f28954a = d2;
+        this.f28955b = d3;
     }
 
     public double getLatitude() {
-        return this.f27197a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28954a : invokeV.doubleValue;
     }
 
     public double getLongitude() {
-        return this.f27198b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28955b : invokeV.doubleValue;
     }
 
     public void setLatitude(double d2) {
-        this.f27197a = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f28954a = d2;
+        }
     }
 
     public void setLongitude(double d2) {
-        this.f27198b = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f28955b = d2;
+        }
     }
 }

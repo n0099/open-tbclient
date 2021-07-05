@@ -4,136 +4,215 @@ import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CountDownTextView extends TextView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13783e;
+    public int f13870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13784f;
+    public String f13871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f13785g;
+    public b f13872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f13786h;
+    public d f13873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f13787i;
+    public Handler f13874i;
     public final Runnable j;
     public boolean k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
     public interface b {
         void a(int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f13788e;
+        public final WeakReference<CountDownTextView> f13875e;
+
+        public /* synthetic */ c(CountDownTextView countDownTextView, a aVar) {
+            this(countDownTextView);
+        }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.f13788e.get();
-            if (countDownTextView != null) {
-                countDownTextView.b(1);
+            CountDownTextView countDownTextView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTextView = this.f13875e.get()) == null) {
+                return;
             }
+            countDownTextView.b(1);
         }
 
         public c(CountDownTextView countDownTextView) {
-            this.f13788e = new WeakReference<>(countDownTextView);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {countDownTextView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13875e = new WeakReference<>(countDownTextView);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         void a(View view);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CountDownTextView(Context context) {
         super(context);
-        this.f13783e = 0;
-        this.f13784f = "";
-        this.f13785g = null;
-        this.f13786h = null;
-        this.f13787i = new Handler();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13870e = 0;
+        this.f13871f = "";
+        this.f13872g = null;
+        this.f13873h = null;
+        this.f13874i = new Handler();
         this.k = false;
-        this.j = new c();
+        this.j = new c(this, null);
     }
 
     public final void b(int i2) {
-        int i3 = this.f13783e - i2;
-        this.f13783e = i3;
-        b bVar = this.f13785g;
-        if (bVar != null && i2 != 0) {
-            bVar.a(i3);
-        }
-        int i4 = this.f13783e;
-        if (i4 == 0) {
-            d dVar = this.f13786h;
-            if (dVar != null) {
-                dVar.a(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            int i3 = this.f13870e - i2;
+            this.f13870e = i3;
+            b bVar = this.f13872g;
+            if (bVar != null && i2 != 0) {
+                bVar.a(i3);
             }
-            this.f13787i.removeCallbacksAndMessages(null);
-            return;
-        }
-        if (i4 > 0) {
-            if (this.k) {
-                setText(String.format("%s 0%s", this.f13784f, Integer.valueOf(i4)));
-            } else {
-                setText(String.format("%s %s", this.f13784f, Integer.valueOf(i4)));
+            int i4 = this.f13870e;
+            if (i4 == 0) {
+                d dVar = this.f13873h;
+                if (dVar != null) {
+                    dVar.a(this);
+                }
+                this.f13874i.removeCallbacksAndMessages(null);
+                return;
             }
+            if (i4 > 0) {
+                if (this.k) {
+                    setText(String.format("%s 0%s", this.f13871f, Integer.valueOf(i4)));
+                } else {
+                    setText(String.format("%s %s", this.f13871f, Integer.valueOf(i4)));
+                }
+            }
+            this.f13874i.removeCallbacks(this.j);
+            this.f13874i.postDelayed(this.j, 1000L);
         }
-        this.f13787i.removeCallbacks(this.j);
-        this.f13787i.postDelayed(this.j, 1000L);
     }
 
     public final void c() {
-        this.f13787i.removeCallbacksAndMessages(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f13874i.removeCallbacksAndMessages(null);
+        }
     }
 
     public void d(String str, int i2) {
-        this.f13784f = str;
-        if (i2 > 0) {
-            this.f13783e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
+            this.f13871f = str;
+            if (i2 > 0) {
+                this.f13870e = i2;
+            }
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        b(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            b(0);
+        }
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        c();
-    }
-
-    @Override // android.view.View
-    public void onWindowVisibilityChanged(int i2) {
-        super.onWindowVisibilityChanged(i2);
-        if (i2 == 0) {
-            b(0);
-        } else {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDetachedFromWindow();
             c();
         }
     }
 
+    @Override // android.view.View
+    public void onWindowVisibilityChanged(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            super.onWindowVisibilityChanged(i2);
+            if (i2 == 0) {
+                b(0);
+            } else {
+                c();
+            }
+        }
+    }
+
     public void setNumTypeFromBes(boolean z) {
-        this.k = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.k = z;
+        }
     }
 
     public void setTimeoutListener(d dVar) {
-        this.f13786h = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
+            this.f13873h = dVar;
+        }
     }
 
     public void setTimerChangedListener(b bVar) {
-        this.f13785g = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.f13872g = bVar;
+        }
     }
 }

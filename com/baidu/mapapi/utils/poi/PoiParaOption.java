@@ -1,54 +1,104 @@
 package com.baidu.mapapi.utils.poi;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class PoiParaOption {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7467a;
+    public String f7497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7468b;
+    public String f7498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7469c;
+    public LatLng f7499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7470d;
+    public int f7500d;
+
+    public PoiParaOption() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public PoiParaOption center(LatLng latLng) {
-        this.f7469c = latLng;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, latLng)) == null) {
+            this.f7499c = latLng;
+            return this;
+        }
+        return (PoiParaOption) invokeL.objValue;
     }
 
     public LatLng getCenter() {
-        return this.f7469c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7499c : (LatLng) invokeV.objValue;
     }
 
     public String getKey() {
-        return this.f7468b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7498b : (String) invokeV.objValue;
     }
 
     public int getRadius() {
-        return this.f7470d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7500d : invokeV.intValue;
     }
 
     public String getUid() {
-        return this.f7467a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7497a : (String) invokeV.objValue;
     }
 
     public PoiParaOption key(String str) {
-        this.f7468b = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.f7498b = str;
+            return this;
+        }
+        return (PoiParaOption) invokeL.objValue;
     }
 
     public PoiParaOption radius(int i2) {
-        this.f7470d = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            this.f7500d = i2;
+            return this;
+        }
+        return (PoiParaOption) invokeI.objValue;
     }
 
     public PoiParaOption uid(String str) {
-        this.f7467a = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.f7497a = str;
+            return this;
+        }
+        return (PoiParaOption) invokeL.objValue;
     }
 }

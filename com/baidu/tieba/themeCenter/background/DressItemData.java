@@ -1,11 +1,20 @@
 package com.baidu.tieba.themeCenter.background;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.ThemeBgProp;
 /* loaded from: classes5.dex */
 public class DressItemData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int activityFinish;
     public String activityUrl;
     public int dailyPrevilegeStatus;
@@ -19,111 +28,198 @@ public class DressItemData extends OrmObject implements Serializable {
     public String title;
 
     public DressItemData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.dailyPrevilegeStatus = 0;
         this.inUse = 0;
     }
 
     public int getActivityFinish() {
-        return this.activityFinish;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.activityFinish : invokeV.intValue;
     }
 
     public String getActivityUrl() {
-        return this.activityUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.activityUrl : (String) invokeV.objValue;
     }
 
     public int getDailyPrevilegeStatus() {
-        return this.dailyPrevilegeStatus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dailyPrevilegeStatus : invokeV.intValue;
     }
 
     public String getDescription() {
-        return this.description;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.description : (String) invokeV.objValue;
     }
 
     public String getExampleImgUrl() {
-        return this.exampleImgUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.exampleImgUrl : (String) invokeV.objValue;
     }
 
     public int getFreeUserLevel() {
-        return this.freeUserLevel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.freeUserLevel : invokeV.intValue;
     }
 
     public boolean getInUse() {
-        return this.inUse == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.inUse == 1 : invokeV.booleanValue;
     }
 
     public boolean getIsActivity() {
-        return !StringUtils.isNull(this.activityUrl);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !StringUtils.isNull(this.activityUrl) : invokeV.booleanValue;
     }
 
     public String getPermissionImgUrl() {
-        return this.permissionImgUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.permissionImgUrl : (String) invokeV.objValue;
     }
 
     public int getPropsId() {
-        return this.propsId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.propsId : invokeV.intValue;
     }
 
     public String getPropsStateImg() {
-        return this.propsStateImg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.propsStateImg : (String) invokeV.objValue;
     }
 
     public String getTitle() {
-        return this.title;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
     public boolean isDefault() {
-        return this.propsId == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.propsId == 0 : invokeV.booleanValue;
     }
 
     public boolean isPropIdEven() {
-        return this.propsId % 2 == 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.propsId % 2 == 0 : invokeV.booleanValue;
     }
 
     public void setActivityFinish(int i2) {
-        this.activityFinish = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.activityFinish = i2;
+        }
     }
 
     public void setActivityUrl(String str) {
-        this.activityUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.activityUrl = str;
+        }
     }
 
     public void setDailyPrevilegeStatus(int i2) {
-        this.dailyPrevilegeStatus = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.dailyPrevilegeStatus = i2;
+        }
     }
 
     public void setDescription(String str) {
-        this.description = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.description = str;
+        }
     }
 
     public void setExampleImgUrl(String str) {
-        this.exampleImgUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.exampleImgUrl = str;
+        }
     }
 
     public void setFreeUserLevel(int i2) {
-        this.freeUserLevel = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            this.freeUserLevel = i2;
+        }
     }
 
     public void setInUse(boolean z) {
-        this.inUse = z ? 1 : 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.inUse = z ? 1 : 0;
+        }
     }
 
     public void setPermissionImgUrl(String str) {
-        this.permissionImgUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.permissionImgUrl = str;
+        }
     }
 
     public void setPropsId(int i2) {
-        this.propsId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+            this.propsId = i2;
+        }
     }
 
     public void setPropsStateImg(String str) {
-        this.propsStateImg = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.propsStateImg = str;
+        }
     }
 
     public void setTitle(String str) {
-        this.title = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.title = str;
+        }
     }
 
     public DressItemData(ThemeBgProp themeBgProp) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {themeBgProp};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.dailyPrevilegeStatus = 0;
         if (themeBgProp == null) {
             return;

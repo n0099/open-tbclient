@@ -11,189 +11,329 @@ import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.OpenAppUtils;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HkMWebView extends BaseWebView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18288e;
+    public String f18414e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18289f;
+    public int f18415f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18290g;
+    public int f18416g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends c {
-        public a(HkMWebView hkMWebView, Activity activity) {
-            super(hkMWebView, activity);
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ HkMWebView f18417c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(HkMWebView hkMWebView, HkMWebView hkMWebView2, Activity activity) {
+            super(hkMWebView2, activity);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hkMWebView, hkMWebView2, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HkMWebView) objArr2[0], (Activity) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18417c = hkMWebView;
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            super.onPageFinished(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                super.onPageFinished(webView, str);
+            }
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            super.onPageStarted(webView, str, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+                super.onPageStarted(webView, str, bitmap);
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b implements DownloadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HkMWebView f18292a;
+        public HkMWebView f18418a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f18293b;
+        public Activity f18419b;
 
         public b(HkMWebView hkMWebView, Activity activity) {
-            this.f18292a = hkMWebView;
-            this.f18293b = activity;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hkMWebView, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18418a = hkMWebView;
+            this.f18419b = activity;
         }
 
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            if (this.f18293b.getPackageManager().resolveActivity(intent, 0) == null) {
-                l.N(this.f18293b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
-            } else {
-                this.f18293b.startActivity(intent);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                if (this.f18419b.getPackageManager().resolveActivity(intent, 0) == null) {
+                    l.N(this.f18419b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
+                } else {
+                    this.f18419b.startActivity(intent);
+                }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class c extends WebViewClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HkMWebView f18294a;
+        public HkMWebView f18420a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f18295b;
+        public Activity f18421b;
 
         public c(HkMWebView hkMWebView, Activity activity) {
-            this.f18294a = hkMWebView;
-            this.f18295b = activity;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hkMWebView, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18420a = hkMWebView;
+            this.f18421b = activity;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            this.f18294a.setLightTouchEnabled();
-            super.onPageFinished(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                this.f18420a.setLightTouchEnabled();
+                super.onPageFinished(webView, str);
+            }
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            this.f18294a.f18288e = str;
-            super.onPageStarted(webView, str, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+                this.f18420a.f18414e = str;
+                super.onPageStarted(webView, str, bitmap);
+            }
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            try {
-                if (this.f18295b != null) {
-                    if (str.startsWith("tel:")) {
-                        this.f18295b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
-                        return true;
-                    } else if (str.startsWith(OpenAppUtils.SCHEME_WTAI_MC)) {
-                        this.f18295b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
-                        return true;
-                    } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
-                        this.f18295b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
-                        return true;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
+                try {
+                    if (this.f18421b != null) {
+                        if (str.startsWith("tel:")) {
+                            this.f18421b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            return true;
+                        } else if (str.startsWith(OpenAppUtils.SCHEME_WTAI_MC)) {
+                            this.f18421b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                            return true;
+                        } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
+                            this.f18421b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                            return true;
+                        }
                     }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                return super.shouldOverrideUrlLoading(webView, str);
             }
-            return super.shouldOverrideUrlLoading(webView, str);
+            return invokeLL.booleanValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HkMWebView(Context context) {
         super(context);
-        this.f18289f = 16777216;
-        this.f18290g = 16777216;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f18415f = 16777216;
+        this.f18416g = 16777216;
         a();
     }
 
     public void a() {
-        setScrollbarFadingEnabled(true);
-        setVerticalScrollBarEnabled(true);
-        setHorizontalScrollBarEnabled(false);
-        getSettings().setLightTouchEnabled(true);
-        getSettings().setDefaultTextEncodingName("UTF-8");
-        getSettings().setSupportZoom(true);
-        getSettings().setJavaScriptEnabled(true);
-        getSettings().setAllowFileAccess(false);
-        getSettings().setUseWideViewPort(true);
-        getSettings().setSupportMultipleWindows(true);
-        getSettings().setPluginState(WebSettings.PluginState.ON);
-        getSettings().setCacheMode(-1);
-        getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        getSettings().setAllowContentAccess(true);
-        if (getContext() instanceof Activity) {
-            ((Activity) getContext()).getWindow().setFlags(this.f18289f, this.f18290g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setScrollbarFadingEnabled(true);
+            setVerticalScrollBarEnabled(true);
+            setHorizontalScrollBarEnabled(false);
+            getSettings().setLightTouchEnabled(true);
+            getSettings().setDefaultTextEncodingName("UTF-8");
+            getSettings().setSupportZoom(true);
+            getSettings().setJavaScriptEnabled(true);
+            getSettings().setAllowFileAccess(false);
+            getSettings().setUseWideViewPort(true);
+            getSettings().setSupportMultipleWindows(true);
+            getSettings().setPluginState(WebSettings.PluginState.ON);
+            getSettings().setCacheMode(-1);
+            getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            getSettings().setAllowContentAccess(true);
+            if (getContext() instanceof Activity) {
+                ((Activity) getContext()).getWindow().setFlags(this.f18415f, this.f18416g);
+            }
+            getSettings().setDomStorageEnabled(true);
+            if (Build.VERSION.SDK_INT >= 21) {
+                getSettings().setMixedContentMode(0);
+            }
+            setWebViewClient(new a(this, this, (Activity) getContext()));
+            clearFocus();
+            clearHistory();
+            clearView();
+            setScrollBarStyle(0);
+            initCommonJsBridge(getContext());
         }
-        getSettings().setDomStorageEnabled(true);
-        if (Build.VERSION.SDK_INT >= 21) {
-            getSettings().setMixedContentMode(0);
-        }
-        setWebViewClient(new a(this, (Activity) getContext()));
-        clearFocus();
-        clearHistory();
-        clearView();
-        setScrollBarStyle(0);
-        initCommonJsBridge(getContext());
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
     public void destroy() {
-        super.removeAllViews();
-        super.destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.removeAllViews();
+            super.destroy();
+        }
     }
 
     @Override // android.webkit.WebView
     public String getUrl() {
-        return this.f18288e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18414e : (String) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView
     public void loadData(String str, String str2, String str3) {
-        super.loadData(str, str2, str3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+            super.loadData(str, str2, str3);
+        }
     }
 
     @Override // android.webkit.WebView
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
-        super.loadDataWithBaseURL(str, str2, str3, str4, str5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5) == null) {
+            super.loadDataWithBaseURL(str, str2, str3, str4, str5);
+        }
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        super.loadUrl(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            super.loadUrl(str);
+        }
     }
 
     public void setLightTouchEnabled() {
-        loadUrl("javascript:eval(\"window.SetBodyStyleTapColor=function() {   var bodystyle = document.body.style.cssText;   if (bodystyle == undefined || bodystyle == null)      bodystyle = '';   var tapstylekey = '-webkit-tap-highlight-color';   if (bodystyle.indexOf(tapstylekey) < 0) {      bodystyle += (bodystyle == '' ? '' : ';') + tapstylekey + ':rgba(0,0,0,0);';      document.body.style.cssText = bodystyle;   }}\");");
-        loadUrl("javascript:SetBodyStyleTapColor();");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            loadUrl("javascript:eval(\"window.SetBodyStyleTapColor=function() {   var bodystyle = document.body.style.cssText;   if (bodystyle == undefined || bodystyle == null)      bodystyle = '';   var tapstylekey = '-webkit-tap-highlight-color';   if (bodystyle.indexOf(tapstylekey) < 0) {      bodystyle += (bodystyle == '' ? '' : ';') + tapstylekey + ':rgba(0,0,0,0);';      document.body.style.cssText = bodystyle;   }}\");");
+            loadUrl("javascript:SetBodyStyleTapColor();");
+        }
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str, Map<String, String> map) {
-        super.loadUrl(str, map);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, map) == null) {
+            super.loadUrl(str, map);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HkMWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18289f = 16777216;
-        this.f18290g = 16777216;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f18415f = 16777216;
+        this.f18416g = 16777216;
         a();
     }
 }

@@ -1,14 +1,37 @@
 package com.google.zxing.pdf417.decoder;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.pdf417.PDF417Common;
 import java.lang.reflect.Array;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class PDF417CodewordDecoder {
-    public static final float[][] RATIOS_TABLE = (float[][]) Array.newInstance(float.class, PDF417Common.SYMBOL_TABLE.length, 8);
+    public static /* synthetic */ Interceptable $ic;
+    public static final float[][] RATIOS_TABLE;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
         int i2;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(423460673, "Lcom/google/zxing/pdf417/decoder/PDF417CodewordDecoder;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(423460673, "Lcom/google/zxing/pdf417/decoder/PDF417CodewordDecoder;");
+                return;
+            }
+        }
+        RATIOS_TABLE = (float[][]) Array.newInstance(float.class, PDF417Common.SYMBOL_TABLE.length, 8);
         int i3 = 0;
         while (true) {
             int[] iArr = PDF417Common.SYMBOL_TABLE;
@@ -35,22 +58,46 @@ public final class PDF417CodewordDecoder {
         }
     }
 
-    public static int getBitValue(int[] iArr) {
-        long j = 0;
-        for (int i2 = 0; i2 < iArr.length; i2++) {
-            for (int i3 = 0; i3 < iArr[i2]; i3++) {
-                int i4 = 1;
-                long j2 = j << 1;
-                if (i2 % 2 != 0) {
-                    i4 = 0;
-                }
-                j = j2 | i4;
+    public PDF417CodewordDecoder() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (int) j;
+    }
+
+    public static int getBitValue(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
+            long j = 0;
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                for (int i3 = 0; i3 < iArr[i2]; i3++) {
+                    int i4 = 1;
+                    long j2 = j << 1;
+                    if (i2 % 2 != 0) {
+                        i4 = 0;
+                    }
+                    j = j2 | i4;
+                }
+            }
+            return (int) j;
+        }
+        return invokeL.intValue;
     }
 
     public static int getClosestDecodedValue(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, iArr)) != null) {
+            return invokeL.intValue;
+        }
         int sum = MathUtils.sum(iArr);
         float[] fArr = new float[8];
         for (int i2 = 0; i2 < 8; i2++) {
@@ -82,30 +129,45 @@ public final class PDF417CodewordDecoder {
     }
 
     public static int getDecodedCodewordValue(int[] iArr) {
-        int bitValue = getBitValue(iArr);
-        if (PDF417Common.getCodeword(bitValue) == -1) {
-            return -1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iArr)) == null) {
+            int bitValue = getBitValue(iArr);
+            if (PDF417Common.getCodeword(bitValue) == -1) {
+                return -1;
+            }
+            return bitValue;
         }
-        return bitValue;
+        return invokeL.intValue;
     }
 
     public static int getDecodedValue(int[] iArr) {
-        int decodedCodewordValue = getDecodedCodewordValue(sampleBitCounts(iArr));
-        return decodedCodewordValue != -1 ? decodedCodewordValue : getClosestDecodedValue(iArr);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iArr)) == null) {
+            int decodedCodewordValue = getDecodedCodewordValue(sampleBitCounts(iArr));
+            return decodedCodewordValue != -1 ? decodedCodewordValue : getClosestDecodedValue(iArr);
+        }
+        return invokeL.intValue;
     }
 
     public static int[] sampleBitCounts(int[] iArr) {
-        float sum = MathUtils.sum(iArr);
-        int[] iArr2 = new int[8];
-        int i2 = 0;
-        int i3 = 0;
-        for (int i4 = 0; i4 < 17; i4++) {
-            if (iArr[i3] + i2 <= (sum / 34.0f) + ((i4 * sum) / 17.0f)) {
-                i2 += iArr[i3];
-                i3++;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, iArr)) == null) {
+            float sum = MathUtils.sum(iArr);
+            int[] iArr2 = new int[8];
+            int i2 = 0;
+            int i3 = 0;
+            for (int i4 = 0; i4 < 17; i4++) {
+                if (iArr[i3] + i2 <= (sum / 34.0f) + ((i4 * sum) / 17.0f)) {
+                    i2 += iArr[i3];
+                    i3++;
+                }
+                iArr2[i3] = iArr2[i3] + 1;
             }
-            iArr2[i3] = iArr2[i3] + 1;
+            return iArr2;
         }
-        return iArr2;
+        return (int[]) invokeL.objValue;
     }
 }

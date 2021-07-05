@@ -2,169 +2,300 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 import android.os.SystemClock;
-import d.a.j.f;
-import d.a.j.g.a;
-import d.a.j.i.c;
-import d.a.j.j;
-import d.a.j.k;
-import d.a.j.l;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.k.f;
+import d.a.k.g.a;
+import d.a.k.i.c;
+import d.a.k.j;
+import d.a.k.k;
+import d.a.k.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class DeviceId {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2573a = "DeviceId";
+    public static final String f2571a = "DeviceId";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f2574b = false;
+    public static final boolean f2572b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static l.a f2575d = null;
+    public static l.a f2573d = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile DeviceId f2576g = null;
+    public static volatile DeviceId f2574g = null;
     public static boolean sDataCuidInfoShable = true;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f2577c;
+    public final Context f2575c;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f2578e;
+    public l f2576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f2579f;
+    public k f2577f;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f2580h = new f();
+    public f f2578h;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-893770989, "Lcom/baidu/android/common/util/DeviceId;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-893770989, "Lcom/baidu/android/common/util/DeviceId;");
+        }
+    }
 
     public DeviceId(Context context) {
-        this.f2577c = context.getApplicationContext();
-        this.f2578e = new l(this.f2577c, new a(this.f2577c), this.f2580h);
-        this.f2579f = new k(this.f2577c, this.f2580h);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f2575c = context.getApplicationContext();
+        this.f2578h = new f();
+        this.f2576e = new l(this.f2575c, new a(this.f2575c), this.f2578h);
+        this.f2577f = new k(this.f2575c, this.f2578h);
     }
 
     public static DeviceId a(Context context) {
+        InterceptResult invokeL;
         DeviceId deviceId;
-        synchronized (j.class) {
-            if (f2576g == null) {
-                f2576g = new DeviceId(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (j.class) {
+                if (f2574g == null) {
+                    f2574g = new DeviceId(context);
+                }
+                deviceId = f2574g;
             }
-            deviceId = f2576g;
+            return deviceId;
         }
-        return deviceId;
+        return (DeviceId) invokeL.objValue;
     }
 
     private l.a a(String str) {
-        l.a o = this.f2578e.o();
-        return o == null ? b(str) : o;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+            l.a o = this.f2576e.o();
+            return o == null ? b(str) : o;
+        }
+        return (l.a) invokeL.objValue;
     }
 
     private synchronized void a(l.a aVar) {
-        new Thread(b(aVar)).start();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) == null) {
+            synchronized (this) {
+                new Thread(b(aVar)).start();
+            }
+        }
     }
 
     private l.a b() {
-        this.f2578e.l();
-        try {
-            l.a c2 = c();
-            if (c2 == null) {
-                c2 = a((String) null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            this.f2576e.l();
+            try {
+                l.a c2 = c();
+                if (c2 == null) {
+                    c2 = a((String) null);
+                }
+                if (c2 == null) {
+                    c2 = c((String) null);
+                }
+                a(c2);
+                return c2;
+            } catch (Throwable th) {
+                this.f2576e.n();
+                throw th;
             }
-            if (c2 == null) {
-                c2 = c((String) null);
-            }
-            a(c2);
-            return c2;
-        } catch (Throwable th) {
-            this.f2578e.n();
-            throw th;
         }
+        return (l.a) invokeV.objValue;
     }
 
     public static l.a b(Context context) {
-        if (f2575d == null) {
-            synchronized (j.class) {
-                if (f2575d == null) {
-                    SystemClock.uptimeMillis();
-                    f2575d = a(context).b();
-                    SystemClock.uptimeMillis();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (f2573d == null) {
+                synchronized (j.class) {
+                    if (f2573d == null) {
+                        SystemClock.uptimeMillis();
+                        f2573d = a(context).b();
+                        SystemClock.uptimeMillis();
+                    }
                 }
             }
+            return f2573d;
         }
-        return f2575d;
+        return (l.a) invokeL.objValue;
     }
 
     private l.a b(String str) {
-        j b2 = this.f2579f.b(str);
-        if (b2 != null) {
-            return this.f2578e.b(b2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
+            j b2 = this.f2577f.b(str);
+            if (b2 != null) {
+                return this.f2576e.b(b2);
+            }
+            return null;
         }
-        return null;
+        return (l.a) invokeL.objValue;
     }
 
-    private Runnable b(final l.a aVar) {
-        return new Runnable() { // from class: com.baidu.android.common.util.DeviceId.1
+    private Runnable b(l.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, aVar)) == null) ? new Runnable(this, aVar) { // from class: com.baidu.android.common.util.DeviceId.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ l.a f2579a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ DeviceId f2580b;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, aVar};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f2580b = this;
+                this.f2579a = aVar;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                try {
-                    DeviceId.this.c(aVar);
-                } finally {
-                    DeviceId.this.f2578e.n();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    try {
+                        this.f2580b.c(this.f2579a);
+                    } finally {
+                        this.f2580b.f2576e.n();
+                    }
                 }
             }
-        };
+        } : (Runnable) invokeL.objValue;
     }
 
     private l.a c() {
-        l.a d2 = d();
-        return d2 == null ? e() : d2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            l.a d2 = d();
+            return d2 == null ? e() : d2;
+        }
+        return (l.a) invokeV.objValue;
     }
 
     private l.a c(String str) {
-        return this.f2578e.k(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? this.f2576e.k(str) : (l.a) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(l.a aVar) {
-        if (aVar == null) {
-            throw new NullPointerException("cuidV270Info should not be null");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, this, aVar) == null) {
+            if (aVar == null) {
+                throw new NullPointerException("cuidV270Info should not be null");
+            }
+            j l = aVar.l();
+            this.f2576e.j(aVar, true, false);
+            this.f2577f.c(l);
+            this.f2576e.i(aVar);
         }
-        j l = aVar.l();
-        this.f2578e.j(aVar, true, false);
-        this.f2579f.c(l);
-        this.f2578e.i(aVar);
     }
 
     private l.a d() {
-        return this.f2578e.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? this.f2576e.a() : (l.a) invokeV.objValue;
     }
 
     private l.a e() {
+        InterceptResult invokeV;
         j e2;
-        File file = new File(this.f2577c.getFilesDir(), "libcuid.so");
-        if (!file.exists() || (e2 = j.e(c.a(file))) == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            File file = new File(this.f2575c.getFilesDir(), "libcuid.so");
+            if (!file.exists() || (e2 = j.e(c.a(file))) == null) {
+                return null;
+            }
+            return this.f2576e.b(e2);
         }
-        return this.f2578e.b(e2);
+        return (l.a) invokeV.objValue;
     }
 
     public static String getCUID(Context context) {
-        return b(context).n();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? b(context).n() : (String) invokeL.objValue;
     }
 
     public static String getDeviceID(Context context) {
-        return b(context).e();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? b(context).e() : (String) invokeL.objValue;
     }
 
     public static boolean isMySelfTrusted(Context context) {
-        return a(context).f2580h.d(context.getApplicationContext());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) ? a(context).f2578h.d(context.getApplicationContext()) : invokeL.booleanValue;
     }
 
     @Deprecated
     public static void setCuidDataShable(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65555, null, context, z) == null) {
+        }
     }
 
     public l a() {
-        return this.f2578e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2576e : (l) invokeV.objValue;
     }
 }

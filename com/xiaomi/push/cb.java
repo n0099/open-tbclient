@@ -2,47 +2,82 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.database.Cursor;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cb extends cg.b<Long> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f41161a;
+    public long f42904a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f169a;
+    public String f172a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cb(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2, String str6) {
         super(str, list, str2, strArr, str3, str4, str5, i2);
-        this.f41161a = 0L;
-        this.f169a = str6;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r5;
+            Object[] objArr = {str, list, str2, strArr, str3, str4, str5, Integer.valueOf(i2), str6};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (List) objArr2[1], (String) objArr2[2], (String[]) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], ((Integer) objArr2[7]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42904a = 0L;
+        this.f172a = str6;
     }
 
     public static cb a(String str) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("count(*)");
-        return new cb(str, arrayList, null, null, null, null, null, 0, "job to get count of all message");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("count(*)");
+            return new cb(str, arrayList, null, null, null, null, null, 0, "job to get count of all message");
+        }
+        return (cb) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.xiaomi.push.cg.b
     public Long a(Context context, Cursor cursor) {
-        return Long.valueOf(cursor.getLong(0));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cursor)) == null) ? Long.valueOf(cursor.getLong(0)) : (Long) invokeLL.objValue;
     }
 
     @Override // com.xiaomi.push.cg.b, com.xiaomi.push.cg.a
     public Object a() {
-        return Long.valueOf(this.f41161a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.f42904a) : invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.cg.b
     public void a(Context context, List<Long> list) {
-        if (context == null || list == null || list.size() <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, list) == null) || context == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f41161a = list.get(0).longValue();
+        this.f42904a = list.get(0).longValue();
     }
 }

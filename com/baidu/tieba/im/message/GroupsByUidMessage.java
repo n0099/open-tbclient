@@ -1,17 +1,42 @@
 package com.baidu.tieba.im.message;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.QueryGroupsByUid.DataReq;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GroupsByUidMessage extends TbSocketMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public long friendUid;
     public int height;
     public int isFriend;
     public int width;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupsByUidMessage(int i2, int i3) {
         super(103003);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.width = i2;
         this.height = i3;
         this.friendUid = 0L;
@@ -20,52 +45,93 @@ public class GroupsByUidMessage extends TbSocketMessage {
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.width = Integer.valueOf(getWidth());
-        builder.height = Integer.valueOf(getHeight());
-        if (this.isFriend == 1) {
-            builder.friendId = Long.valueOf(getFriendUid());
-            builder.isGuest = Integer.valueOf(getIsFriend());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.width = Integer.valueOf(getWidth());
+            builder.height = Integer.valueOf(getHeight());
+            if (this.isFriend == 1) {
+                builder.friendId = Long.valueOf(getFriendUid());
+                builder.isGuest = Integer.valueOf(getIsFriend());
+            }
+            QueryGroupsByUidReqIdl.Builder builder2 = new QueryGroupsByUidReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
         }
-        QueryGroupsByUidReqIdl.Builder builder2 = new QueryGroupsByUidReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+        return invokeV.objValue;
     }
 
     public long getFriendUid() {
-        return this.friendUid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.friendUid : invokeV.longValue;
     }
 
     public int getHeight() {
-        return this.height;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.height : invokeV.intValue;
     }
 
     public int getIsFriend() {
-        return this.isFriend;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isFriend : invokeV.intValue;
     }
 
     public int getWidth() {
-        return this.width;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.width : invokeV.intValue;
     }
 
     public void setFriendUid(long j) {
-        this.friendUid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.friendUid = j;
+        }
     }
 
     public void setHeight(int i2) {
-        this.height = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.height = i2;
+        }
     }
 
     public void setIsGuest(int i2) {
-        this.isFriend = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.isFriend = i2;
+        }
     }
 
     public void setWidth(int i2) {
-        this.width = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.width = i2;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupsByUidMessage(long j, int i2, int i3) {
         super(103003);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.width = i2;
         this.height = i3;
         this.friendUid = j;

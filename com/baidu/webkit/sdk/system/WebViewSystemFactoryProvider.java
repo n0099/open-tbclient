@@ -8,6 +8,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.webkit.WebChromeClient;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import com.baidu.webkit.sdk.GeolocationPermissions;
@@ -29,14 +36,16 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGTAG = "WebViewSystemFactoryProvider";
     public static WebViewSystemFactoryProvider mInstance;
+    public transient /* synthetic */ FieldHolder $fh;
     public CookieManagerImpl mCookieManager;
     public CookieSyncManagerImpl mCookieSyncManager;
     public GeolocationPermissionsImpl mGeolocationPermissions;
-    public final Object mLock = new Object();
+    public final Object mLock;
     public MimeTypeMapImpl mMimeTypeMap;
     public ServiceWorkerControllerImpl mServiceWorkerController;
     public TracingControllerImpl mTracingController;
@@ -45,6 +54,19 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     public WebViewDatabaseImpl mWebViewDatabase;
 
     public WebViewSystemFactoryProvider() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mLock = new Object();
         if (this.mStaticWebSettings == null) {
             this.mStaticWebSettings = new HashMap<>(16);
         }
@@ -59,1080 +81,1984 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     }
 
     public static synchronized WebViewSystemFactoryProvider getInstance() {
+        InterceptResult invokeV;
         WebViewSystemFactoryProvider webViewSystemFactoryProvider;
-        synchronized (WebViewSystemFactoryProvider.class) {
-            if (mInstance == null) {
-                Log.i(LOGTAG, "create WebViewSystemFactoryProvider");
-                mInstance = new WebViewSystemFactoryProvider();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (WebViewSystemFactoryProvider.class) {
+                if (mInstance == null) {
+                    Log.i(LOGTAG, "create WebViewSystemFactoryProvider");
+                    mInstance = new WebViewSystemFactoryProvider();
+                }
+                webViewSystemFactoryProvider = mInstance;
             }
-            webViewSystemFactoryProvider = mInstance;
+            return webViewSystemFactoryProvider;
         }
-        return webViewSystemFactoryProvider;
+        return (WebViewSystemFactoryProvider) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final CookieSyncManager createCookieSyncManager(Context context) {
-        android.webkit.CookieSyncManager.createInstance(context);
-        return getCookieSyncManager();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            android.webkit.CookieSyncManager.createInstance(context);
+            return getCookieSyncManager();
+        }
+        return (CookieSyncManager) invokeL.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final WebViewProvider createWebView(WebView webView, WebView.PrivateAccess privateAccess) {
-        if (webView == null || privateAccess == null) {
-            throw new IllegalArgumentException("webView or privateAccess can not be null");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, privateAccess)) == null) {
+            if (webView == null || privateAccess == null) {
+                throw new IllegalArgumentException("webView or privateAccess can not be null");
+            }
+            return new WebViewImpl(webView, privateAccess);
         }
-        return new WebViewImpl(webView, privateAccess);
+        return (WebViewProvider) invokeLL.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final CookieManager getCookieManager() {
-        synchronized (this.mLock) {
-            if (this.mCookieManager == null) {
-                this.mCookieManager = new CookieManagerImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mCookieManager == null) {
+                    this.mCookieManager = new CookieManagerImpl();
+                }
             }
+            return this.mCookieManager;
         }
-        return this.mCookieManager;
+        return (CookieManager) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final CookieSyncManager getCookieSyncManager() {
-        synchronized (this.mLock) {
-            if (this.mCookieSyncManager == null) {
-                this.mCookieSyncManager = new CookieSyncManagerImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mCookieSyncManager == null) {
+                    this.mCookieSyncManager = new CookieSyncManagerImpl();
+                }
             }
+            return this.mCookieSyncManager;
         }
-        return this.mCookieSyncManager;
+        return (CookieSyncManager) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final GeolocationPermissions getGeolocationPermissions() {
-        synchronized (this.mLock) {
-            if (this.mGeolocationPermissions == null) {
-                this.mGeolocationPermissions = new GeolocationPermissionsImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mGeolocationPermissions == null) {
+                    this.mGeolocationPermissions = new GeolocationPermissionsImpl();
+                }
             }
+            return this.mGeolocationPermissions;
         }
-        return this.mGeolocationPermissions;
+        return (GeolocationPermissions) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final GeolocationServiceBridge getGeolocationServiceBridge() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (GeolocationServiceBridge) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final MimeTypeMap getMimeTypeMap() {
-        synchronized (this.mLock) {
-            if (this.mMimeTypeMap == null) {
-                this.mMimeTypeMap = new MimeTypeMapImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mMimeTypeMap == null) {
+                    this.mMimeTypeMap = new MimeTypeMapImpl();
+                }
             }
+            return this.mMimeTypeMap;
         }
-        return this.mMimeTypeMap;
+        return (MimeTypeMap) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final NativeRestore getNativeRestoreImpl(String str) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return null;
+        }
+        return (NativeRestore) invokeL.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final ServiceWorkerController getServiceWorkerController() {
-        synchronized (this.mLock) {
-            if (this.mServiceWorkerController == null) {
-                this.mServiceWorkerController = new ServiceWorkerControllerImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mServiceWorkerController == null) {
+                    this.mServiceWorkerController = new ServiceWorkerControllerImpl();
+                }
             }
+            return this.mServiceWorkerController;
         }
-        return this.mServiceWorkerController;
+        return (ServiceWorkerController) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final WebViewFactoryProvider.SettingsStatics getSettingsStatics() {
-        return new WebViewFactoryProvider.SettingsStatics() { // from class: com.baidu.webkit.sdk.system.WebViewSystemFactoryProvider.2
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new WebViewFactoryProvider.SettingsStatics(this) { // from class: com.baidu.webkit.sdk.system.WebViewSystemFactoryProvider.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WebViewSystemFactoryProvider this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void addPreConnectPrefixes(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean canUseFreeFlow() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void clearNetworkFlow() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void clearSavingBytes() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public long generateBKDRHash(String str) {
-                return -1L;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, str)) == null) {
+                    return -1L;
+                }
+                return invokeL.longValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getAppId() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048581, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getChromiunNetInit() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048582, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getCloudHost() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048583, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getCloudSettingUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getCronetEnable() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048585, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getCuid() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048586, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getDNSStatistic() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048587, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getDitingMaxForceLoadSwitch() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048588, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getDnsInfo(String str) {
-                return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048589, this, str)) == null) {
+                    return null;
+                }
+                return (String) invokeL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getDownTraffic() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048590, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getEnableEngineStat() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048591, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getEnableProxy() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048592, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getEnableSpdy() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048593, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getEnableZeusManager() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048594, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getEngineStatUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048595, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getFakeBaiduUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048596, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getGifOneFrameEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048597, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getHttp2Enabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048598, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getHttpCode() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048599, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getHttpDnsCache() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048600, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getHttpDnsUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048601, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public HttpURLConnection getHttpUrlConnection(String str) {
-                return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048602, this, str)) == null) {
+                    return null;
+                }
+                return (HttpURLConnection) invokeL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public WebSettings.ImgQuality getImgQuality() {
-                return WebSettings.ImgQuality.NO_COMPRESS;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048603, this)) == null) ? WebSettings.ImgQuality.NO_COMPRESS : (WebSettings.ImgQuality) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getInNovelSiteList(String str) {
-                return false;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048604, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getInVideoSiteList(String str) {
-                return false;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048605, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getIpv6Env() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048606, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getKeepAliveTime() {
-                return -1;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048607, this)) == null) {
+                    return -1;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public Context getKernelContext() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048608, this)) == null) {
+                    return null;
+                }
+                return (Context) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getLevelInfo(String str) {
-                return -1;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048609, this, str)) == null) {
+                    return -1;
+                }
+                return invokeL.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getLocalDns() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048610, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getLogLevel() {
-                return -1;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048611, this)) == null) {
+                    return -1;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getMF30Inited() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048612, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getMLModelUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048613, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getMainFrameIdInfo(int i2) {
-                return null;
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048614, this, i2)) == null) {
+                    return null;
+                }
+                return (String) invokeI.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getMainFrameIdReferrer(int i2) {
-                return null;
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048615, this, i2)) == null) {
+                    return null;
+                }
+                return (String) invokeI.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getMainLinkDirectEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048616, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getMfJsUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048617, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getNQE() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048618, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getNetworkFlow() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048619, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getNetworkRtt() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048620, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getNetworkSpeed() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048621, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getOnePacketEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048622, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getPFLogEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048623, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getPacUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048624, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getPageFeature(String str) {
-                return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048625, this, str)) == null) {
+                    return null;
+                }
+                return (String) invokeL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getPageWormHoleErrors() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048626, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getPopupWindowNum() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048627, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getProxyInfo() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048628, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getQuicHost() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048629, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getQuicInfo() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048630, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getQuicInit() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048631, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getQuicThreshold() {
-                return -1;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048632, this)) == null) {
+                    return -1;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getRc4SecrectKey() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048633, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public WebSettings.RemoveAdLevel getRemoveAdLevel() {
-                return WebSettings.RemoveAdLevel.DISABLE;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048634, this)) == null) ? WebSettings.RemoveAdLevel.DISABLE : (WebSettings.RemoveAdLevel) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getSavingBytes() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048635, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getSearchDnsMiss() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048636, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSendEngineUsageInfoEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048637, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSendRequestEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048638, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSessionHeaderEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048639, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getSessionUploadUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048640, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getSiteTypeInfo(String str) {
-                return -1;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048641, this, str)) == null) {
+                    return -1;
+                }
+                return invokeL.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getSkeletonJsUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048642, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getSocketGroupNumber() {
-                return -1;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048643, this)) == null) {
+                    return -1;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSpdy31Enabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048644, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSpdyCompressEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048645, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSpdyEncryptionEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048646, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSubResourceMonitorEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048647, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getSubResourceTiming() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048648, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getSysProxyEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048649, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getTimgConfUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048650, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getUpTraffic() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048651, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getVideoPlayerMode() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048652, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getWebessenseEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048653, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getWormholeEnabled() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048654, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getWormholeForbidenHost() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048655, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getWormholeNum(int i2) {
-                return 0;
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048656, this, i2)) == null) {
+                    return 0;
+                }
+                return invokeI.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getZeusManagerPkgName() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048657, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getZeusResourceUrl() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048658, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean hasQuicAltService(String str) {
-                return false;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048659, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void initCronet(Context context) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048660, this, context) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean isFeedNoProxyAdUrl(String str) {
-                return false;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048661, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean isFeedProxyAdUrl(String str) {
-                return false;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048662, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean isShowWebProviderBy() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048663, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public ByteBuffer kernelBrotliCreate(long[] jArr) {
-                return ByteBuffer.allocate(0);
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048664, this, jArr)) == null) ? ByteBuffer.allocate(0) : (ByteBuffer) invokeL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void kernelBrotliDestroy(long[] jArr) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048665, this, jArr) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public ByteBuffer kernelBrotliPull(long[] jArr) {
-                return ByteBuffer.allocate(0);
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048666, this, jArr)) == null) ? ByteBuffer.allocate(0) : (ByteBuffer) invokeL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void kernelBrotliPush(long[] jArr, int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048667, this, jArr, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void kernelEncrypt(byte[] bArr, int i2, byte[] bArr2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIL(1048668, this, bArr, i2, bArr2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void notifyBdAppStatusChange(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048669, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void removeDnsInfo(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048670, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void removeMainFrameIdInfo(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048671, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setAbTestSwitch(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048672, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setAltServiceToBlink(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048673, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setAppId(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048674, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setAppStatus(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048675, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setBackupDnsJobDelayTime(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048676, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setBackupJobDelayTime(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048677, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setBackupLandingJobDelayTime(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048678, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setClientIP(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048679, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setCloudSettingsToT5(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048680, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setConThreshold(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048681, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setCuid(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048682, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setDitingMaxEnabled(boolean z, boolean z2, boolean z3) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048683, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setEnableEngineStat(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048684, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setEnableProxy(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048685, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setEnableSpdy(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048686, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setEnableZeusManager(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048687, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setEngineStatUrl(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048688, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setEvilPageWhiteBlackListPath(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048689, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setFakeBaiduWhiteList(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048690, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setFastPac(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048691, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setFileInIOEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048692, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setFreeFlow(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048693, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setGifOneFrameEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048694, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setHijackEnv(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048695, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setHisHijackStopAbEnable(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048696, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setHttpDnsCache(String str, int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048697, this, str, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setHttpDnsDnFailed(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048698, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setIPV6CheckList(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048699, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setIPV6Timeout(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048700, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setImgQuality(WebSettings.ImgQuality imgQuality) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048701, this, imgQuality) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setImproveContentCache(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048702, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setInPageJudgeWhiteList(boolean z, boolean z2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048703, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setIpv6First(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048704, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setKeepAliveTime(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048705, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setMLModel(String str, String str2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048706, this, str, str2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setMainLinkDirectEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048707, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setMaxFatalAllocationFailureSize(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048708, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setMulripleConnectEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048709, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setNativeHttpdnsEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048710, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setNavigationInterceptionEnable(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048711, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setNeedDownloadCloudResource(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048712, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setNetWorkChangeNotifyEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048713, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setOnePacketEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048714, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setPacData(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048715, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setPacDataFreeFlow(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048716, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setPacUrl(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048717, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setPopupWindowOptEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048718, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setPreConnectEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048719, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setProxyInfo(String str, String[] strArr) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048720, this, str, strArr) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setProxyType(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048721, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setQuicDefaultOpen(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048722, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setQuicThreshold(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048723, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setRefererPattern(String str, String str2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048724, this, str, str2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setRemoveAdLevel(WebSettings.RemoveAdLevel removeAdLevel) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048725, this, removeAdLevel) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSearchFrameQuicEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048726, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSendEngineUsageInfoEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048727, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSessionHeaderEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048728, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setShowWebProviderBy(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048729, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSocketGroupNumber(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048730, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSpdyCompressEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048731, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSpdyEncryptionEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048732, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSpdyTimeout(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048733, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setStatisticParam(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048734, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setSubResourceMonitorEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048735, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setT5SDKSpdyEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048736, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setTcSpeedUpEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048737, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setTimgConfData(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048738, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setTimgConfUrl(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048739, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setVideoPlayerMode(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048740, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setWebessenseEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048741, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setWhiteAndBlackList(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048742, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setWormholeEnabled(boolean z) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeZ(1048743, this, z) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setZeusManagerPkgName(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048744, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean shouldAccessNetworkOverSpdy(String str) {
-                return false;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048745, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void updateFixAdblockLevelInfo(String str, int i2, int i3) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLII(1048746, this, str, i2, i3) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean useCronet() {
-                return false;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048747, this)) == null) {
+                    return false;
+                }
+                return invokeV2.booleanValue;
             }
-        };
+        } : (WebViewFactoryProvider.SettingsStatics) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final WebViewFactoryProvider.Statics getStatics() {
-        return new WebViewFactoryProvider.Statics() { // from class: com.baidu.webkit.sdk.system.WebViewSystemFactoryProvider.1
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new WebViewFactoryProvider.Statics(this) { // from class: com.baidu.webkit.sdk.system.WebViewSystemFactoryProvider.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WebViewSystemFactoryProvider this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public int AdBlockInit(String str, boolean z) {
-                return -1;
+                InterceptResult invokeLZ;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLZ = interceptable2.invokeLZ(1048576, this, str, z)) == null) {
+                    return -1;
+                }
+                return invokeLZ.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), map}) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void addVirtualMemoryListener(WebView.IVirtualMemoryListener iVirtualMemoryListener) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVirtualMemoryListener) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void cancelPrefetch(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048579, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void cancelResourcePrefetch(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048580, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void clearClientCertPreferences(Runnable runnable) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    android.webkit.WebView.clearClientCertPreferences(runnable);
-                } else if (runnable != null) {
-                    new Handler().post(runnable);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048581, this, runnable) == null) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        android.webkit.WebView.clearClientCertPreferences(runnable);
+                    } else if (runnable != null) {
+                        new Handler().post(runnable);
+                    }
                 }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void clearPageCacheCounts() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void crashIntentionally(int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048583, this, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void enableSlowWholeDocumentDraw() {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    android.webkit.WebView.enableSlowWholeDocumentDraw();
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || Build.VERSION.SDK_INT < 21) {
+                    return;
                 }
+                android.webkit.WebView.enableSlowWholeDocumentDraw();
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public String findAddress(String str) {
-                return android.webkit.WebView.findAddress(str);
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048585, this, str)) == null) ? android.webkit.WebView.findAddress(str) : (String) invokeL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void freeMemoryForTests() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048586, this) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public HashMap<String, Long> getCurrentSystemInfraInfo() {
-                return null;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048587, this)) == null) {
+                    return null;
+                }
+                return (HashMap) invokeV2.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public String getDefaultUserAgent(Context context) {
-                return Build.VERSION.SDK_INT >= 17 ? android.webkit.WebSettings.getDefaultUserAgent(context) : "";
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048588, this, context)) == null) ? Build.VERSION.SDK_INT >= 17 ? android.webkit.WebSettings.getDefaultUserAgent(context) : "" : (String) invokeL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public String getZeusSeriesNum(int i2, int i3, int i4) {
-                return "";
+                InterceptResult invokeIII;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeIII = interceptable2.invokeIII(1048589, this, i2, i3, i4)) == null) ? "" : (String) invokeIII.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public int historyNavigationCount() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048590, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void initPageCacheCounts(Context context) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048591, this, context) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public boolean isInWebCache(String str) {
-                return false;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048592, this, str)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void makeMF30Inited() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048593, this) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void onMemoryPresure(int i2, Activity activity) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(1048594, this, i2, activity) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public int pageCacheCount() {
-                return 0;
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048595, this)) == null) {
+                    return 0;
+                }
+                return invokeV2.intValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public Uri[] parseFileChooserResult(int i2, Intent intent) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    return WebChromeClient.FileChooserParams.parseResult(i2, intent);
+                InterceptResult invokeIL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(1048596, this, i2, intent)) == null) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        return WebChromeClient.FileChooserParams.parseResult(i2, intent);
+                    }
+                    Uri data = (intent == null || i2 != -1) ? null : intent.getData();
+                    if (data == null) {
+                        return null;
+                    }
+                    return new Uri[]{data};
                 }
-                Uri data = (intent == null || i2 != -1) ? null : intent.getData();
-                if (data == null) {
-                    return null;
-                }
-                return new Uri[]{data};
+                return (Uri[]) invokeIL.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void preconnectUrl(String str, int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048597, this, str, i2) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void prefetch(String str, Map<String, String> map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLLL(1048598, this, str, map, mainResourcePrefetchListener) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void prefetchResource(String str, String[] strArr, Map<String, String> map) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLLL(1048599, this, str, strArr, map) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void removeFromWebCache(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048600, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void removeVirtualMemoryWatcher(WebView.IVirtualMemoryListener iVirtualMemoryListener) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048601, this, iVirtualMemoryListener) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void resolveUrl(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048602, this, str) == null) {
+                }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void setWebContentsDebuggingEnabled(boolean z) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    android.webkit.WebView.setWebContentsDebuggingEnabled(z);
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeZ(1048603, this, z) == null) || Build.VERSION.SDK_INT < 19) {
+                    return;
                 }
+                android.webkit.WebView.setWebContentsDebuggingEnabled(z);
             }
-        };
+        } : (WebViewFactoryProvider.Statics) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final TracingController getTracingController() {
-        synchronized (this.mLock) {
-            if (this.mTracingController == null) {
-                this.mTracingController = new TracingControllerImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mTracingController == null) {
+                    this.mTracingController = new TracingControllerImpl();
+                }
             }
+            return this.mTracingController;
         }
-        return this.mTracingController;
+        return (TracingController) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final WebIconDatabase getWebIconDatabase() {
-        synchronized (this.mLock) {
-            if (this.mWebIconDatabase == null) {
-                this.mWebIconDatabase = new WebIconDatabaseImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mWebIconDatabase == null) {
+                    this.mWebIconDatabase = new WebIconDatabaseImpl();
+                }
             }
+            return this.mWebIconDatabase;
         }
-        return this.mWebIconDatabase;
+        return (WebIconDatabase) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final WebStorage getWebStorage() {
-        synchronized (this.mLock) {
-            if (this.mWebStorage == null) {
-                this.mWebStorage = new WebStorageImpl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mWebStorage == null) {
+                    this.mWebStorage = new WebStorageImpl();
+                }
             }
+            return this.mWebStorage;
         }
-        return this.mWebStorage;
+        return (WebStorage) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     @TargetApi(28)
     public final ClassLoader getWebViewClassLoader() {
-        if (Build.VERSION.SDK_INT >= 28) {
-            return android.webkit.WebView.getWebViewClassLoader();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return android.webkit.WebView.getWebViewClassLoader();
+            }
+            return null;
         }
-        return null;
+        return (ClassLoader) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final WebViewDatabase getWebViewDatabase(Context context) {
-        synchronized (this.mLock) {
-            if (this.mWebViewDatabase == null && context != null) {
-                this.mWebViewDatabase = new WebViewDatabaseImpl(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            synchronized (this.mLock) {
+                if (this.mWebViewDatabase == null && context != null) {
+                    this.mWebViewDatabase = new WebViewDatabaseImpl(context);
+                }
             }
+            return this.mWebViewDatabase;
         }
-        return this.mWebViewDatabase;
+        return (WebViewDatabase) invokeL.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final String getZeusJarVersion() {
-        return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final String getZeusNativeLibraryVersion() {
-        return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final void initPageCacheCounts(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final void setLocation(ZeusGeoLocationInfo zeusGeoLocationInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048595, this, zeusGeoLocationInfo, z) == null) {
+        }
     }
 }

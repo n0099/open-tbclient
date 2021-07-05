@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.callback.GetContactCallback;
 import com.baidu.pass.ecommerce.result.GetContactResult;
 import com.baidu.pass.permissions.PassPermissions;
@@ -13,85 +14,181 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.ecommerce.activity.GetContactActivty;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class ContactUtil {
+    public static /* synthetic */ Interceptable $ic;
     public static ContactUtil instance;
+    public transient /* synthetic */ FieldHolder $fh;
     public GetContactCallback getContactCallback;
 
-    public static synchronized ContactUtil getInstance() {
-        ContactUtil contactUtil;
-        synchronized (ContactUtil.class) {
-            if (instance == null) {
-                instance = new ContactUtil();
+    public ContactUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            contactUtil = instance;
         }
-        return contactUtil;
+    }
+
+    public static synchronized ContactUtil getInstance() {
+        InterceptResult invokeV;
+        ContactUtil contactUtil;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ContactUtil.class) {
+                if (instance == null) {
+                    instance = new ContactUtil();
+                }
+                contactUtil = instance;
+            }
+            return contactUtil;
+        }
+        return (ContactUtil) invokeV.objValue;
     }
 
     public static String hidePhoneNumber(String str) {
-        if (str.length() <= 0) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str.length() <= 0) {
+                return "";
+            }
+            if (str.length() == 11 && str.startsWith("1")) {
+                return new StringBuilder(str).replace(3, 9, "******").toString();
+            }
+            if (str.length() == 14 && str.startsWith("+861")) {
+                return new StringBuilder(str).replace(6, 12, "******").toString();
+            }
+            if (str.length() < 7) {
+                return str;
+            }
+            int indexOf = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+            if (indexOf != -1 && ((str.length() - indexOf) + 1 == 8 || (str.length() - indexOf) + 1 == 7)) {
+                return new StringBuilder(str).replace(indexOf, str.length() - 3, "*****").toString();
+            }
+            return new StringBuilder(str).replace(0, str.length() - 3, "*****").toString();
         }
-        if (str.length() == 11 && str.startsWith("1")) {
-            return new StringBuilder(str).replace(3, 9, "******").toString();
-        }
-        if (str.length() == 14 && str.startsWith("+861")) {
-            return new StringBuilder(str).replace(6, 12, "******").toString();
-        }
-        if (str.length() < 7) {
-            return str;
-        }
-        int indexOf = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
-        if (indexOf != -1 && ((str.length() - indexOf) + 1 == 8 || (str.length() - indexOf) + 1 == 7)) {
-            return new StringBuilder(str).replace(indexOf, str.length() - 3, "*****").toString();
-        }
-        return new StringBuilder(str).replace(0, str.length() - 3, "*****").toString();
+        return (String) invokeL.objValue;
     }
 
     public GetContactCallback getGetContactCallback() {
-        return this.getContactCallback;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.getContactCallback : (GetContactCallback) invokeV.objValue;
     }
 
     public void release() {
-        this.getContactCallback = null;
-        instance = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.getContactCallback = null;
+            instance = null;
+        }
     }
 
-    public void requestContact(final Context context, final GetContactCallback getContactCallback) {
-        this.getContactCallback = new GetContactCallback() { // from class: com.baidu.pass.ecommerce.ContactUtil.1
-            @Override // com.baidu.pass.ecommerce.callback.GetContactCallback
-            public void onCall(GetContactResult getContactResult) {
-                getContactCallback.onCall(getContactResult);
-                ContactUtil.this.release();
-            }
-        };
-        boolean z = SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode;
-        PermissionsDTO permissionsDTO = new PermissionsDTO();
-        permissionsDTO.isDarkMode = z;
-        permissionsDTO.context = context.getApplicationContext();
-        permissionsDTO.permissions = new String[]{"android.permission.READ_CONTACTS"};
-        permissionsDTO.dialogTitle = "通讯录权限";
-        permissionsDTO.dialogMsg = "如你选择通过通讯录添加联系人信息，则请允许" + SapiUtils.getAppName(context) + "使用通讯录权限。你可以通过系统\"设置\"进行权限的管理";
-        PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.pass.ecommerce.ContactUtil.2
-            @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onFailure(int i2) {
-                GetContactResult getContactResult = new GetContactResult();
-                getContactResult.setResultCode(-901);
-                ContactUtil.this.getContactCallback.onCall(getContactResult);
-            }
+    public void requestContact(Context context, GetContactCallback getContactCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, getContactCallback) == null) {
+            this.getContactCallback = new GetContactCallback(this, getContactCallback) { // from class: com.baidu.pass.ecommerce.ContactUtil.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ContactUtil this$0;
+                public final /* synthetic */ GetContactCallback val$callback;
 
-            @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onSuccess() {
-                Intent intent = new Intent(context, GetContactActivty.class);
-                Context context2 = context;
-                if (context2 instanceof Activity) {
-                    context2.startActivity(intent);
-                    return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, getContactCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$callback = getContactCallback;
                 }
-                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                context.startActivity(intent);
-            }
-        });
+
+                @Override // com.baidu.pass.ecommerce.callback.GetContactCallback
+                public void onCall(GetContactResult getContactResult) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, getContactResult) == null) {
+                        this.val$callback.onCall(getContactResult);
+                        this.this$0.release();
+                    }
+                }
+            };
+            boolean z = SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode;
+            PermissionsDTO permissionsDTO = new PermissionsDTO();
+            permissionsDTO.isDarkMode = z;
+            permissionsDTO.context = context.getApplicationContext();
+            permissionsDTO.permissions = new String[]{"android.permission.READ_CONTACTS"};
+            permissionsDTO.dialogTitle = "通讯录权限";
+            permissionsDTO.dialogMsg = "如你选择通过通讯录添加联系人信息，则请允许" + SapiUtils.getAppName(context) + "使用通讯录权限。你可以通过系统\"设置\"进行权限的管理";
+            PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback(this, context) { // from class: com.baidu.pass.ecommerce.ContactUtil.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ContactUtil this$0;
+                public final /* synthetic */ Context val$context;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$context = context;
+                }
+
+                @Override // com.baidu.pass.permissions.PermissionsCallback
+                public void onFailure(int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        GetContactResult getContactResult = new GetContactResult();
+                        getContactResult.setResultCode(-901);
+                        this.this$0.getContactCallback.onCall(getContactResult);
+                    }
+                }
+
+                @Override // com.baidu.pass.permissions.PermissionsCallback
+                public void onSuccess() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        Intent intent = new Intent(this.val$context, GetContactActivty.class);
+                        Context context2 = this.val$context;
+                        if (context2 instanceof Activity) {
+                            context2.startActivity(intent);
+                            return;
+                        }
+                        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        this.val$context.startActivity(intent);
+                    }
+                }
+            });
+        }
     }
 }

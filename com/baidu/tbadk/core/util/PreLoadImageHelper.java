@@ -8,6 +8,10 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEmotionInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.l.d;
 import d.a.c.e.p.j;
 import d.a.c.k.c.c;
@@ -18,14 +22,31 @@ import d.a.c.k.e.q;
 import d.a.c.k.e.r;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PreLoadImageHelper {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_MAX_CACHE_SIZE_PERCENT = 0.8f;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public PreLoadImageHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static void addPreloadSuggestSize(o oVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
-        a<n, TypeAdapter.ViewHolder> b2;
+        a<n, TypeAdapter.ViewHolder> c2;
         c G;
-        if (oVar == null || obj == null || preLoadImageInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, oVar, obj, preLoadImageInfo) == null) || oVar == null || obj == null || preLoadImageInfo == null) {
             return;
         }
         if (preLoadImageInfo.width <= 0 || preLoadImageInfo.height <= 0) {
@@ -38,7 +59,7 @@ public class PreLoadImageHelper {
                     rVar = (r) bdRecyclerAdapter.p();
                 }
             }
-            if (rVar == null || !(obj instanceof n) || (b2 = rVar.b((n) obj)) == null || (G = b2.G(preLoadImageInfo.preloadType)) == null || G.b() <= 0 || G.a() <= 0) {
+            if (rVar == null || !(obj instanceof n) || (c2 = rVar.c((n) obj)) == null || (G = c2.G(preLoadImageInfo.preloadType)) == null || G.b() <= 0 || G.a() <= 0) {
                 return;
             }
             preLoadImageInfo.width = G.b();
@@ -47,7 +68,10 @@ public class PreLoadImageHelper {
     }
 
     public static void load(q qVar, BdUniqueId bdUniqueId) {
-        load(qVar, bdUniqueId, 13);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, qVar, bdUniqueId) == null) {
+            load(qVar, bdUniqueId, 13);
+        }
     }
 
     public static void load(q qVar, BdUniqueId bdUniqueId, int i2) {
@@ -60,7 +84,8 @@ public class PreLoadImageHelper {
         int i4;
         int i5;
         int i6;
-        if (qVar == null || !j.H() || (adapter = qVar.getAdapter()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, qVar, bdUniqueId, i2) == null) || qVar == null || !j.H() || (adapter = qVar.getAdapter()) == null) {
             return;
         }
         int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);

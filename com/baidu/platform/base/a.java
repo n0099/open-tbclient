@@ -11,143 +11,206 @@ import com.baidu.mapapi.search.district.DistrictResult;
 import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
-
-    /* renamed from: f  reason: collision with root package name */
-    public SearchType f9308f;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AsyncHttpClient f9304b = new AsyncHttpClient();
-
-    /* renamed from: c  reason: collision with root package name */
-    public Handler f9305c = new Handler(Looper.getMainLooper());
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lock f9303a = new ReentrantLock();
+    public final Lock f9377a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AsyncHttpClient f9378b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Handler f9379c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9306d = true;
+    public boolean f9380d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DistrictResult f9307e = null;
+    public DistrictResult f9381e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SearchType f9382f;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9378b = new AsyncHttpClient();
+        this.f9379c = new Handler(Looper.getMainLooper());
+        this.f9377a = new ReentrantLock();
+        this.f9380d = true;
+        this.f9381e = null;
+    }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(String str) {
-        byte[] bArr = {102, 97, 105, 108, 100};
-        try {
-            bArr = AlgorithmUtil.getUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), Base64.decode(str.getBytes(), 0));
-        } catch (Exception e2) {
-            Log.e("BaseSearch", "transform result failed", e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+            byte[] bArr = {102, 97, 105, 108, 100};
+            try {
+                bArr = AlgorithmUtil.getUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), Base64.decode(str.getBytes(), 0));
+            } catch (Exception e2) {
+                Log.e("BaseSearch", "transform result failed", e2);
+            }
+            return new String(bArr).trim();
         }
-        return new String(bArr).trim();
+        return (String) invokeL.objValue;
     }
 
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
-        asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f9308f), protoResultCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65540, this, asyncHttpClient, protoResultCallback, searchResult) == null) {
+            asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f9382f), protoResultCallback);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HttpClient.HttpStateError httpStateError, d dVar, Object obj) {
-        a(dVar.a("{SDK_InnerError:{httpStateError:" + httpStateError + "}}"), obj, dVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, httpStateError, dVar, obj) == null) {
+            a(dVar.a("{SDK_InnerError:{httpStateError:" + httpStateError + "}}"), obj, dVar);
+        }
     }
 
     private void a(SearchResult searchResult, Object obj, d dVar) {
-        this.f9305c.post(new c(this, dVar, searchResult, obj));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, searchResult, obj, dVar) == null) {
+            this.f9379c.post(new c(this, dVar, searchResult, obj));
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, d dVar, Object obj, AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback) {
-        SearchResult a2 = dVar.a(str);
-        a2.status = b(str);
-        if (a(dVar, a2)) {
-            a(asyncHttpClient, protoResultCallback, a2);
-        } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
-            a(a2, obj, dVar);
-        } else {
-            DistrictResult districtResult = this.f9307e;
-            if (districtResult != null) {
-                DistrictResult districtResult2 = (DistrictResult) a2;
-                districtResult2.setCityCode(districtResult.getCityCode());
-                districtResult2.setCenterPt(this.f9307e.getCenterPt());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65545, this, str, dVar, obj, asyncHttpClient, protoResultCallback) == null) {
+            SearchResult a2 = dVar.a(str);
+            a2.status = b(str);
+            if (a(dVar, a2)) {
+                a(asyncHttpClient, protoResultCallback, a2);
+            } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
+                a(a2, obj, dVar);
+            } else {
+                DistrictResult districtResult = this.f9381e;
+                if (districtResult != null) {
+                    DistrictResult districtResult2 = (DistrictResult) a2;
+                    districtResult2.setCityCode(districtResult.getCityCode());
+                    districtResult2.setCenterPt(this.f9381e.getCenterPt());
+                }
+                a(a2, obj, dVar);
+                this.f9380d = true;
+                this.f9381e = null;
+                ((com.baidu.platform.core.a.b) dVar).a(false);
             }
-            a(a2, obj, dVar);
-            this.f9306d = true;
-            this.f9307e = null;
-            ((com.baidu.platform.core.a.b) dVar).a(false);
         }
     }
 
     private boolean a(d dVar, SearchResult searchResult) {
-        if (dVar instanceof com.baidu.platform.core.a.b) {
-            DistrictResult districtResult = (DistrictResult) searchResult;
-            if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f9306d) {
-                this.f9306d = false;
-                this.f9307e = districtResult;
-                ((com.baidu.platform.core.a.b) dVar).a(true);
-                return true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, dVar, searchResult)) == null) {
+            if (dVar instanceof com.baidu.platform.core.a.b) {
+                DistrictResult districtResult = (DistrictResult) searchResult;
+                if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f9380d) {
+                    this.f9380d = false;
+                    this.f9381e = districtResult;
+                    ((com.baidu.platform.core.a.b) dVar).a(true);
+                    return true;
+                }
+                return false;
             }
             return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 
     private int b(String str) {
+        InterceptResult invokeL;
         JSONObject optJSONObject;
-        if (str != null && !str.equals("")) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.has("status")) {
-                    return jSONObject.getInt("status");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
+            if (str != null && !str.equals("")) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("status")) {
+                        return jSONObject.getInt("status");
+                    }
+                    if (jSONObject.has("status_sp")) {
+                        return jSONObject.getInt("status_sp");
+                    }
+                    if (!jSONObject.has("result") || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
+                        return 10204;
+                    }
+                    return optJSONObject.optInt("error");
+                } catch (JSONException unused) {
+                    Log.e("BaseSearch", "Create JSONObject failed when get response result status");
                 }
-                if (jSONObject.has("status_sp")) {
-                    return jSONObject.getInt("status_sp");
-                }
-                if (!jSONObject.has("result") || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
-                    return 10204;
-                }
-                return optJSONObject.optInt("error");
-            } catch (JSONException unused) {
-                Log.e("BaseSearch", "Create JSONObject failed when get response result status");
             }
+            return 10204;
         }
-        return 10204;
+        return invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
         int permissionCheck;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.has("status") || jSONObject.has("status_sp")) {
-                int i2 = jSONObject.has("status") ? jSONObject.getInt("status") : jSONObject.getInt("status_sp");
-                if ((i2 == 105 || i2 == 106) && (permissionCheck = PermissionCheck.permissionCheck()) != 0) {
-                    Log.e("BaseSearch", "permissionCheck result is: " + permissionCheck);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.has("status") || jSONObject.has("status_sp")) {
+                    int i2 = jSONObject.has("status") ? jSONObject.getInt("status") : jSONObject.getInt("status_sp");
+                    if ((i2 == 105 || i2 == 106) && (permissionCheck = PermissionCheck.permissionCheck()) != 0) {
+                        Log.e("BaseSearch", "permissionCheck result is: " + permissionCheck);
+                    }
                 }
+            } catch (JSONException e2) {
+                Log.e("BaseSearch", "Parse json happened exception", e2);
             }
-        } catch (JSONException e2) {
-            Log.e("BaseSearch", "Parse json happened exception", e2);
         }
     }
 
     public boolean a(e eVar, Object obj, d dVar) {
-        if (dVar == null) {
-            Log.e(a.class.getSimpleName(), "The SearchParser is null, must be applied.");
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, obj, dVar)) == null) {
+            if (dVar == null) {
+                Log.e(a.class.getSimpleName(), "The SearchParser is null, must be applied.");
+                return false;
+            }
+            SearchType a2 = dVar.a();
+            this.f9382f = a2;
+            String a3 = eVar.a(a2);
+            if (a3 != null) {
+                this.f9378b.get(a3, new b(this, dVar, obj));
+                return true;
+            }
+            Log.e("BaseSearch", "The sendurl is: " + a3);
+            a(dVar.a("{SDK_InnerError:{PermissionCheckError:Error}}"), obj, dVar);
             return false;
         }
-        SearchType a2 = dVar.a();
-        this.f9308f = a2;
-        String a3 = eVar.a(a2);
-        if (a3 != null) {
-            this.f9304b.get(a3, new b(this, dVar, obj));
-            return true;
-        }
-        Log.e("BaseSearch", "The sendurl is: " + a3);
-        a(dVar.a("{SDK_InnerError:{PermissionCheckError:Error}}"), obj, dVar);
-        return false;
+        return invokeLLL.booleanValue;
     }
 }

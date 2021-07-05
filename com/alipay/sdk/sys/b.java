@@ -2,53 +2,97 @@ package com.alipay.sdk.sys;
 
 import android.content.Context;
 import com.alipay.sdk.data.c;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ta.utdid2.device.UTDevice;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f1934a;
+    public static b f1937a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1935b;
+    public Context f1938b;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static b a() {
-        if (f1934a == null) {
-            f1934a = new b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f1937a == null) {
+                f1937a = new b();
+            }
+            return f1937a;
         }
-        return f1934a;
+        return (b) invokeV.objValue;
     }
 
     public static boolean d() {
-        String[] strArr = {"/system/app/Superuser.apk", "/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su", "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su", "/su/bin/su"};
-        for (int i2 = 0; i2 < 10; i2++) {
-            if (new File(strArr[i2]).exists()) {
-                return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String[] strArr = {"/system/app/Superuser.apk", "/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su", "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su", "/su/bin/su"};
+            for (int i2 = 0; i2 < 10; i2++) {
+                if (new File(strArr[i2]).exists()) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public Context b() {
-        return this.f1935b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1938b : (Context) invokeV.objValue;
     }
 
     public c c() {
-        return c.b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.b() : (c) invokeV.objValue;
     }
 
     public String e() {
-        try {
-            return UTDevice.getUtdid(this.f1935b);
-        } catch (Throwable th) {
-            com.alipay.sdk.util.c.a(th);
-            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1823e, com.alipay.sdk.app.statistic.c.k, th);
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                return UTDevice.getUtdid(this.f1938b);
+            } catch (Throwable th) {
+                com.alipay.sdk.util.c.a(th);
+                com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1826e, com.alipay.sdk.app.statistic.c.k, th);
+                return "";
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public void a(Context context, c cVar) {
-        this.f1935b = context.getApplicationContext();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
+            this.f1938b = context.getApplicationContext();
+        }
     }
 }

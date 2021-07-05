@@ -2,9 +2,15 @@ package com.kwai.player.debuginfo.model;
 
 import android.os.Bundle;
 import androidx.annotation.Keep;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
 /* loaded from: classes7.dex */
 public class AppLiveQosDebugInfo {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String LiveQosDebugInfo_acType = "acType";
     public static final String LiveQosDebugInfo_aencInit = "aencInit";
     public static final String LiveQosDebugInfo_audioBufferByteLength = "audioBufferByteLength";
@@ -65,6 +71,7 @@ public class AppLiveQosDebugInfo {
     public static final String LiveQosDebugInfo_videoDisplayFramesPerSecond = "videoDisplayFramesPerSecond";
     public static final String LiveQosDebugInfo_videoReadFramesPerSecond = "videoReadFramesPerSecond";
     public static final String LiveQosDebugInfo_videoTotalDataSize = "videoTotalDataSize";
+    public transient /* synthetic */ FieldHolder $fh;
     public int acType;
     public String aencInit;
     public int audioBufferByteLength;
@@ -126,71 +133,90 @@ public class AppLiveQosDebugInfo {
     public float videoReadFramesPerSecond;
     public long videoTotalDataSize;
 
-    public static AppLiveQosDebugInfo from(Bundle bundle) {
-        if (bundle == null) {
-            return null;
+    public AppLiveQosDebugInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        AppLiveQosDebugInfo appLiveQosDebugInfo = new AppLiveQosDebugInfo();
-        appLiveQosDebugInfo.comment = bundle.getString("comment", "");
-        appLiveQosDebugInfo.videoDecoder = bundle.getString(LiveQosDebugInfo_videoDecoder, "");
-        appLiveQosDebugInfo.audioDecoder = bundle.getString(LiveQosDebugInfo_audioDecoder, "");
-        appLiveQosDebugInfo.vencDynamic = bundle.getString(LiveQosDebugInfo_vencDynamic, "");
-        appLiveQosDebugInfo.hostInfo = bundle.getString(LiveQosDebugInfo_hostInfo, "");
-        appLiveQosDebugInfo.host = bundle.getString("host", "");
-        appLiveQosDebugInfo.vencInit = bundle.getString(LiveQosDebugInfo_vencInit, "");
-        appLiveQosDebugInfo.aencInit = bundle.getString(LiveQosDebugInfo_aencInit, "");
-        appLiveQosDebugInfo.audioBufferTimeLength = bundle.getInt(LiveQosDebugInfo_audioBufferTimeLength, 0);
-        appLiveQosDebugInfo.videoBufferTimeLength = bundle.getInt(LiveQosDebugInfo_videoBufferTimeLength, 0);
-        appLiveQosDebugInfo.audioDelay = bundle.getInt(LiveQosDebugInfo_audioDelay, 0);
-        appLiveQosDebugInfo.videoDelayRecv = bundle.getInt(LiveQosDebugInfo_videoDelayRecv, 0);
-        appLiveQosDebugInfo.videoDelayBefDec = bundle.getInt(LiveQosDebugInfo_videoDelayBefDec, 0);
-        appLiveQosDebugInfo.videoDelayAftDec = bundle.getInt(LiveQosDebugInfo_videoDelayAftDec, 0);
-        appLiveQosDebugInfo.videoDelayRender = bundle.getInt(LiveQosDebugInfo_videoDelayRender, 0);
-        appLiveQosDebugInfo.firstScreenTimeDroppedDuration = bundle.getInt(LiveQosDebugInfo_droppedDurationBefFirstScreen, 0);
-        appLiveQosDebugInfo.totalDroppedDuration = bundle.getInt(LiveQosDebugInfo_droppedDurationTotal, 0);
-        appLiveQosDebugInfo.audioBufferByteLength = bundle.getInt(LiveQosDebugInfo_audioBufferByteLength, 0);
-        appLiveQosDebugInfo.videoBufferByteLength = bundle.getInt(LiveQosDebugInfo_videoBufferByteLength, 0);
-        appLiveQosDebugInfo.audioTotalDataSize = bundle.getLong(LiveQosDebugInfo_audioTotalDataSize, 0L);
-        appLiveQosDebugInfo.videoTotalDataSize = bundle.getLong(LiveQosDebugInfo_videoTotalDataSize, 0L);
-        appLiveQosDebugInfo.totalDataSize = bundle.getLong(LiveQosDebugInfo_totalDataSize, 0L);
-        appLiveQosDebugInfo.isLiveManifest = bundle.getInt(LiveQosDebugInfo_isLiveManifest, 0) == 1;
-        appLiveQosDebugInfo.kflvPlayingBitrate = bundle.getInt(LiveQosDebugInfo_kflvPlayingBitrate, 0);
-        appLiveQosDebugInfo.kflvBandwidthCurrent = bundle.getInt(LiveQosDebugInfo_kflvBandwidthCurrent, 0);
-        appLiveQosDebugInfo.kflvBandwidthFragment = bundle.getInt(LiveQosDebugInfo_kflvBandwidthFragment, 0);
-        appLiveQosDebugInfo.kflvCurrentBufferMs = bundle.getInt(LiveQosDebugInfo_kflvCurrentBufferMs, 0);
-        appLiveQosDebugInfo.kflvEstimateBufferMs = bundle.getInt(LiveQosDebugInfo_kflvEstimateBufferMs, 0);
-        appLiveQosDebugInfo.kflvPredictedBufferMs = bundle.getInt(LiveQosDebugInfo_kflvPredictedBufferMs, 0);
-        appLiveQosDebugInfo.kflvSpeedupThresholdMs = bundle.getInt(LiveQosDebugInfo_kflvSpeedupThresholdMs, 0);
-        appLiveQosDebugInfo.firstScreenTimeDnsAnalyze = bundle.getLong(LiveQosDebugInfo_firstScreenTimeDnsAnalyze, 0L);
-        appLiveQosDebugInfo.firstScreenTimeHttpConnect = bundle.getLong(LiveQosDebugInfo_firstScreenTimeHttpConnect, 0L);
-        appLiveQosDebugInfo.firstScreenTimePktReceive = bundle.getLong(LiveQosDebugInfo_firstScreenTimePktReceive, 0L);
-        appLiveQosDebugInfo.firstScreenTimeTotal = bundle.getLong(LiveQosDebugInfo_firstScreenTimeTotal, 0L);
-        appLiveQosDebugInfo.firstScreenTimeWaitForPlay = bundle.getLong(LiveQosDebugInfo_firstScreenTimeWaitForPlay, 0L);
-        appLiveQosDebugInfo.firstScreenTimeInputOpen = bundle.getLong(LiveQosDebugInfo_firstScreenTimeInputOpen, 0L);
-        appLiveQosDebugInfo.firstScreenTimeStreamFind = bundle.getLong(LiveQosDebugInfo_firstScreenTimeStreamFind, 0L);
-        appLiveQosDebugInfo.firstScreenTimeCodecOpen = bundle.getLong(LiveQosDebugInfo_firstScreenTimeCodecOpen, 0L);
-        appLiveQosDebugInfo.firstScreenTimePreDecode = bundle.getLong(LiveQosDebugInfo_firstScreenTimePreDecode, 0L);
-        appLiveQosDebugInfo.firstScreenTimeDecode = bundle.getLong(LiveQosDebugInfo_firstScreenTimeDecode, 0L);
-        appLiveQosDebugInfo.firstScreenTimeRender = bundle.getLong(LiveQosDebugInfo_firstScreenTimeRender, 0L);
-        appLiveQosDebugInfo.firstFrameReceived = bundle.getLong(LiveQosDebugInfo_firstFrameReceived, 0L);
-        appLiveQosDebugInfo.blockCnt = bundle.getInt(LiveQosDebugInfo_blockCnt, 0);
-        appLiveQosDebugInfo.blockDuration = bundle.getLong(LiveQosDebugInfo_blockDuration, 0L);
-        appLiveQosDebugInfo.videoReadFramesPerSecond = bundle.getFloat(LiveQosDebugInfo_videoReadFramesPerSecond, 0.0f);
-        appLiveQosDebugInfo.videoDecodeFramesPerSecond = bundle.getFloat(LiveQosDebugInfo_videoDecodeFramesPerSecond, 0.0f);
-        appLiveQosDebugInfo.videoDisplayFramesPerSecond = bundle.getFloat(LiveQosDebugInfo_videoDisplayFramesPerSecond, 0.0f);
-        appLiveQosDebugInfo.sourceDeviceType = bundle.getInt(LiveQosDebugInfo_sourceDeviceType, 0);
-        appLiveQosDebugInfo.acType = bundle.getInt(LiveQosDebugInfo_acType, -1);
-        appLiveQosDebugInfo.p2spEnabled = bundle.getInt(LiveQosDebugInfo_p2spEnabled, 0);
-        appLiveQosDebugInfo.p2spUsedBytes = bundle.getLong(LiveQosDebugInfo_p2spUsedBytes, 0L);
-        appLiveQosDebugInfo.cdnUsedBytes = bundle.getLong(LiveQosDebugInfo_cdnUsedBytes, 0L);
-        appLiveQosDebugInfo.p2spDownloadBytes = bundle.getLong(LiveQosDebugInfo_p2spDownloadBytes, 0L);
-        appLiveQosDebugInfo.cdnDownloadBytes = bundle.getLong(LiveQosDebugInfo_cdnDownloadBytes, 0L);
-        appLiveQosDebugInfo.p2spSwitchAttempts = bundle.getInt(LiveQosDebugInfo_p2spSwitchAttempts, 0);
-        appLiveQosDebugInfo.cdnSwitchAttempts = bundle.getInt(LiveQosDebugInfo_cdnSwitchAttempts, 0);
-        appLiveQosDebugInfo.p2spSwitchSuccessAttempts = bundle.getInt(LiveQosDebugInfo_p2spSwitchSuccessAttempts, 0);
-        appLiveQosDebugInfo.cdnSwitchSuccessAttempts = bundle.getInt(LiveQosDebugInfo_cdnSwitchSuccessAttempts, 0);
-        appLiveQosDebugInfo.p2spSwitchDurationMs = bundle.getInt(LiveQosDebugInfo_p2spSwitchDurationMs, 0);
-        appLiveQosDebugInfo.cdnSwitchDurationMs = bundle.getInt(LiveQosDebugInfo_cdnSwitchDurationMs, 0);
-        return appLiveQosDebugInfo;
+    }
+
+    public static AppLiveQosDebugInfo from(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
+            if (bundle == null) {
+                return null;
+            }
+            AppLiveQosDebugInfo appLiveQosDebugInfo = new AppLiveQosDebugInfo();
+            appLiveQosDebugInfo.comment = bundle.getString("comment", "");
+            appLiveQosDebugInfo.videoDecoder = bundle.getString(LiveQosDebugInfo_videoDecoder, "");
+            appLiveQosDebugInfo.audioDecoder = bundle.getString(LiveQosDebugInfo_audioDecoder, "");
+            appLiveQosDebugInfo.vencDynamic = bundle.getString(LiveQosDebugInfo_vencDynamic, "");
+            appLiveQosDebugInfo.hostInfo = bundle.getString(LiveQosDebugInfo_hostInfo, "");
+            appLiveQosDebugInfo.host = bundle.getString("host", "");
+            appLiveQosDebugInfo.vencInit = bundle.getString(LiveQosDebugInfo_vencInit, "");
+            appLiveQosDebugInfo.aencInit = bundle.getString(LiveQosDebugInfo_aencInit, "");
+            appLiveQosDebugInfo.audioBufferTimeLength = bundle.getInt(LiveQosDebugInfo_audioBufferTimeLength, 0);
+            appLiveQosDebugInfo.videoBufferTimeLength = bundle.getInt(LiveQosDebugInfo_videoBufferTimeLength, 0);
+            appLiveQosDebugInfo.audioDelay = bundle.getInt(LiveQosDebugInfo_audioDelay, 0);
+            appLiveQosDebugInfo.videoDelayRecv = bundle.getInt(LiveQosDebugInfo_videoDelayRecv, 0);
+            appLiveQosDebugInfo.videoDelayBefDec = bundle.getInt(LiveQosDebugInfo_videoDelayBefDec, 0);
+            appLiveQosDebugInfo.videoDelayAftDec = bundle.getInt(LiveQosDebugInfo_videoDelayAftDec, 0);
+            appLiveQosDebugInfo.videoDelayRender = bundle.getInt(LiveQosDebugInfo_videoDelayRender, 0);
+            appLiveQosDebugInfo.firstScreenTimeDroppedDuration = bundle.getInt(LiveQosDebugInfo_droppedDurationBefFirstScreen, 0);
+            appLiveQosDebugInfo.totalDroppedDuration = bundle.getInt(LiveQosDebugInfo_droppedDurationTotal, 0);
+            appLiveQosDebugInfo.audioBufferByteLength = bundle.getInt(LiveQosDebugInfo_audioBufferByteLength, 0);
+            appLiveQosDebugInfo.videoBufferByteLength = bundle.getInt(LiveQosDebugInfo_videoBufferByteLength, 0);
+            appLiveQosDebugInfo.audioTotalDataSize = bundle.getLong(LiveQosDebugInfo_audioTotalDataSize, 0L);
+            appLiveQosDebugInfo.videoTotalDataSize = bundle.getLong(LiveQosDebugInfo_videoTotalDataSize, 0L);
+            appLiveQosDebugInfo.totalDataSize = bundle.getLong(LiveQosDebugInfo_totalDataSize, 0L);
+            appLiveQosDebugInfo.isLiveManifest = bundle.getInt(LiveQosDebugInfo_isLiveManifest, 0) == 1;
+            appLiveQosDebugInfo.kflvPlayingBitrate = bundle.getInt(LiveQosDebugInfo_kflvPlayingBitrate, 0);
+            appLiveQosDebugInfo.kflvBandwidthCurrent = bundle.getInt(LiveQosDebugInfo_kflvBandwidthCurrent, 0);
+            appLiveQosDebugInfo.kflvBandwidthFragment = bundle.getInt(LiveQosDebugInfo_kflvBandwidthFragment, 0);
+            appLiveQosDebugInfo.kflvCurrentBufferMs = bundle.getInt(LiveQosDebugInfo_kflvCurrentBufferMs, 0);
+            appLiveQosDebugInfo.kflvEstimateBufferMs = bundle.getInt(LiveQosDebugInfo_kflvEstimateBufferMs, 0);
+            appLiveQosDebugInfo.kflvPredictedBufferMs = bundle.getInt(LiveQosDebugInfo_kflvPredictedBufferMs, 0);
+            appLiveQosDebugInfo.kflvSpeedupThresholdMs = bundle.getInt(LiveQosDebugInfo_kflvSpeedupThresholdMs, 0);
+            appLiveQosDebugInfo.firstScreenTimeDnsAnalyze = bundle.getLong(LiveQosDebugInfo_firstScreenTimeDnsAnalyze, 0L);
+            appLiveQosDebugInfo.firstScreenTimeHttpConnect = bundle.getLong(LiveQosDebugInfo_firstScreenTimeHttpConnect, 0L);
+            appLiveQosDebugInfo.firstScreenTimePktReceive = bundle.getLong(LiveQosDebugInfo_firstScreenTimePktReceive, 0L);
+            appLiveQosDebugInfo.firstScreenTimeTotal = bundle.getLong(LiveQosDebugInfo_firstScreenTimeTotal, 0L);
+            appLiveQosDebugInfo.firstScreenTimeWaitForPlay = bundle.getLong(LiveQosDebugInfo_firstScreenTimeWaitForPlay, 0L);
+            appLiveQosDebugInfo.firstScreenTimeInputOpen = bundle.getLong(LiveQosDebugInfo_firstScreenTimeInputOpen, 0L);
+            appLiveQosDebugInfo.firstScreenTimeStreamFind = bundle.getLong(LiveQosDebugInfo_firstScreenTimeStreamFind, 0L);
+            appLiveQosDebugInfo.firstScreenTimeCodecOpen = bundle.getLong(LiveQosDebugInfo_firstScreenTimeCodecOpen, 0L);
+            appLiveQosDebugInfo.firstScreenTimePreDecode = bundle.getLong(LiveQosDebugInfo_firstScreenTimePreDecode, 0L);
+            appLiveQosDebugInfo.firstScreenTimeDecode = bundle.getLong(LiveQosDebugInfo_firstScreenTimeDecode, 0L);
+            appLiveQosDebugInfo.firstScreenTimeRender = bundle.getLong(LiveQosDebugInfo_firstScreenTimeRender, 0L);
+            appLiveQosDebugInfo.firstFrameReceived = bundle.getLong(LiveQosDebugInfo_firstFrameReceived, 0L);
+            appLiveQosDebugInfo.blockCnt = bundle.getInt(LiveQosDebugInfo_blockCnt, 0);
+            appLiveQosDebugInfo.blockDuration = bundle.getLong(LiveQosDebugInfo_blockDuration, 0L);
+            appLiveQosDebugInfo.videoReadFramesPerSecond = bundle.getFloat(LiveQosDebugInfo_videoReadFramesPerSecond, 0.0f);
+            appLiveQosDebugInfo.videoDecodeFramesPerSecond = bundle.getFloat(LiveQosDebugInfo_videoDecodeFramesPerSecond, 0.0f);
+            appLiveQosDebugInfo.videoDisplayFramesPerSecond = bundle.getFloat(LiveQosDebugInfo_videoDisplayFramesPerSecond, 0.0f);
+            appLiveQosDebugInfo.sourceDeviceType = bundle.getInt(LiveQosDebugInfo_sourceDeviceType, 0);
+            appLiveQosDebugInfo.acType = bundle.getInt(LiveQosDebugInfo_acType, -1);
+            appLiveQosDebugInfo.p2spEnabled = bundle.getInt(LiveQosDebugInfo_p2spEnabled, 0);
+            appLiveQosDebugInfo.p2spUsedBytes = bundle.getLong(LiveQosDebugInfo_p2spUsedBytes, 0L);
+            appLiveQosDebugInfo.cdnUsedBytes = bundle.getLong(LiveQosDebugInfo_cdnUsedBytes, 0L);
+            appLiveQosDebugInfo.p2spDownloadBytes = bundle.getLong(LiveQosDebugInfo_p2spDownloadBytes, 0L);
+            appLiveQosDebugInfo.cdnDownloadBytes = bundle.getLong(LiveQosDebugInfo_cdnDownloadBytes, 0L);
+            appLiveQosDebugInfo.p2spSwitchAttempts = bundle.getInt(LiveQosDebugInfo_p2spSwitchAttempts, 0);
+            appLiveQosDebugInfo.cdnSwitchAttempts = bundle.getInt(LiveQosDebugInfo_cdnSwitchAttempts, 0);
+            appLiveQosDebugInfo.p2spSwitchSuccessAttempts = bundle.getInt(LiveQosDebugInfo_p2spSwitchSuccessAttempts, 0);
+            appLiveQosDebugInfo.cdnSwitchSuccessAttempts = bundle.getInt(LiveQosDebugInfo_cdnSwitchSuccessAttempts, 0);
+            appLiveQosDebugInfo.p2spSwitchDurationMs = bundle.getInt(LiveQosDebugInfo_p2spSwitchDurationMs, 0);
+            appLiveQosDebugInfo.cdnSwitchDurationMs = bundle.getInt(LiveQosDebugInfo_cdnSwitchDurationMs, 0);
+            return appLiveQosDebugInfo;
+        }
+        return (AppLiveQosDebugInfo) invokeL.objValue;
     }
 }

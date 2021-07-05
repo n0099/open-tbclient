@@ -4,8 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.utils.BaiduWalletUtils;
@@ -16,56 +22,118 @@ import com.baidu.wallet.passport.LoginBackListenerProxy;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class StartWalletHomeAction implements RouterAction {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "StartWalletHomeAction";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    private void a(final Context context, final boolean z, boolean z2) {
-        final Intent intent = new Intent();
-        intent.setClass(context, WalletNewHomeActivity.class);
-        if (context instanceof Activity) {
-            LogUtil.d(BEAN_TAG, "context is activity!");
-        } else {
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+    public StartWalletHomeAction() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        intent.putExtra("pageType", z2 ? HomeCfgBean.PAGE_CREDIT : HomeCfgBean.PAGE_HOME);
-        intent.putExtra("with_anim", z);
-        WalletLoginHelper.getInstance().verifyPassLogin(true, new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.home.entrance.StartWalletHomeAction.1
-            @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i2, String str) {
-                Context context2;
-                if (i2 == 603 && (context2 = context) != null) {
-                    GlobalUtils.toast(context2, ResUtils.getString(context2, "wallet_home_login_invalid_dialog_tips"));
-                }
-                context.startActivity(intent);
-                Context context3 = context;
-                if (context3 instanceof Activity) {
-                    if (z) {
-                        BaiduWalletUtils.startActivityAnim(context3);
-                    } else {
-                        BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context3);
-                    }
-                }
-            }
+    }
 
-            @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i2, String str) {
-                context.startActivity(intent);
-                Context context2 = context;
-                if (context2 instanceof Activity) {
-                    if (z) {
-                        BaiduWalletUtils.startActivityAnim(context2);
-                    } else {
-                        BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);
+    private void a(Context context, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            Intent intent = new Intent();
+            intent.setClass(context, WalletNewHomeActivity.class);
+            if (context instanceof Activity) {
+                LogUtil.d(BEAN_TAG, "context is activity!");
+            } else {
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            intent.putExtra("pageType", z2 ? HomeCfgBean.PAGE_CREDIT : HomeCfgBean.PAGE_HOME);
+            intent.putExtra("with_anim", z);
+            WalletLoginHelper.getInstance().verifyPassLogin(true, new LoginBackListenerProxy(context, new ILoginBackListener(this, context, intent, z) { // from class: com.baidu.wallet.home.entrance.StartWalletHomeAction.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ Context f24881a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Intent f24882b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ boolean f24883c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ StartWalletHomeAction f24884d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, context, intent, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f24884d = this;
+                    this.f24881a = context;
+                    this.f24882b = intent;
+                    this.f24883c = z;
+                }
+
+                @Override // com.baidu.wallet.api.ILoginBackListener
+                public void onFail(int i2, String str) {
+                    Context context2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        if (i2 == 603 && (context2 = this.f24881a) != null) {
+                            GlobalUtils.toast(context2, ResUtils.getString(context2, "wallet_home_login_invalid_dialog_tips"));
+                        }
+                        this.f24881a.startActivity(this.f24882b);
+                        Context context3 = this.f24881a;
+                        if (context3 instanceof Activity) {
+                            if (this.f24883c) {
+                                BaiduWalletUtils.startActivityAnim(context3);
+                            } else {
+                                BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context3);
+                            }
+                        }
                     }
                 }
-            }
-        }));
+
+                @Override // com.baidu.wallet.api.ILoginBackListener
+                public void onSuccess(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                        this.f24881a.startActivity(this.f24882b);
+                        Context context2 = this.f24881a;
+                        if (context2 instanceof Activity) {
+                            if (this.f24883c) {
+                                BaiduWalletUtils.startActivityAnim(context2);
+                            } else {
+                                BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);
+                            }
+                        }
+                    }
+                }
+            }));
+        }
     }
 
     @Override // com.baidu.wallet.router.RouterAction
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
-        if (a(context, hashMap, routerCallback)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, hashMap, routerCallback) == null) || a(context, hashMap, routerCallback)) {
             return;
         }
         a(context, Boolean.parseBoolean((String) hashMap.get("withAnim")), Boolean.parseBoolean((String) hashMap.get("pageType")));
@@ -77,15 +145,20 @@ public class StartWalletHomeAction implements RouterAction {
     }
 
     private boolean a(Context context, HashMap hashMap, RouterCallback routerCallback) {
-        if (context == null || hashMap == null || !hashMap.containsKey("withAnim")) {
-            if (routerCallback != null) {
-                HashMap hashMap2 = new HashMap();
-                hashMap2.put("errorMsg", "params-error");
-                routerCallback.onResult(3, hashMap2);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, context, hashMap, routerCallback)) == null) {
+            if (context == null || hashMap == null || !hashMap.containsKey("withAnim")) {
+                if (routerCallback != null) {
+                    HashMap hashMap2 = new HashMap();
+                    hashMap2.put("errorMsg", "params-error");
+                    routerCallback.onResult(3, hashMap2);
+                    return true;
+                }
                 return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeLLL.booleanValue;
     }
 }

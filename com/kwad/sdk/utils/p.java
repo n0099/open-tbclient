@@ -8,33 +8,70 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 /* loaded from: classes7.dex */
 public class p {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f37640a = new Handler(Looper.getMainLooper());
+    public static Handler f39403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f37641b = false;
+    public static volatile boolean f39404b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835260, "Lcom/kwad/sdk/utils/p;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1510835260, "Lcom/kwad/sdk/utils/p;");
+                return;
+            }
+        }
+        f39403a = new Handler(Looper.getMainLooper());
+        f39404b = false;
+    }
 
     public static void a(Context context) {
-        a(context, q.c(context));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            a(context, q.c(context));
+        }
     }
 
     public static void a(Context context, String str) {
-        a(context, str, R.layout.ksad_content_alliance_toast_2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            a(context, str, R.layout.ksad_content_alliance_toast_2);
+        }
     }
 
     public static void a(Context context, String str, int i2) {
-        a(context, str, i2, 800L);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, str, i2) == null) {
+            a(context, str, i2, 800L);
+        }
     }
 
     public static void a(Context context, String str, int i2, long j) {
-        if (f37641b) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || f39404b) {
             return;
         }
-        f37641b = true;
+        f39404b = true;
         View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -42,23 +79,52 @@ public class p {
         toast.setDuration(0);
         toast.setView(inflate);
         toast.show();
-        f37640a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.p.1
+        f39403a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.p.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                boolean unused = p.f37641b = false;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    boolean unused = p.f39404b = false;
+                }
             }
         }, j);
     }
 
     public static void a(Context context, String str, long j) {
-        a(context, str, R.layout.ksad_content_alliance_toast_2, j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            a(context, str, R.layout.ksad_content_alliance_toast_2, j);
+        }
     }
 
     public static void b(Context context) {
-        a(context, q.f(context));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+            a(context, q.f(context));
+        }
     }
 
     public static void c(Context context) {
-        a(context, q.b(context));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            a(context, q.b(context));
+        }
     }
 }

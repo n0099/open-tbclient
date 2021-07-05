@@ -11,6 +11,12 @@ import android.provider.Settings;
 import android.util.Base64;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -26,8 +32,9 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
+    public static /* synthetic */ Interceptable $ic = null;
     public static float A = 2.2f;
     public static float B = 2.3f;
     public static float C = 3.8f;
@@ -56,7 +63,7 @@ public class k {
     public static int Z = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6762a = false;
+    public static boolean f6792a = false;
     public static String aA = "http://loc.map.baidu.com/oqur.php";
     public static String aB = "http://loc.map.baidu.com/tcu.php";
     public static String aC = "http://loc.map.baidu.com/rtbu.php";
@@ -90,28 +97,28 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f6763b = false;
+    public static boolean f6793b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f6764c = false;
+    public static boolean f6794c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6765d = 0;
+    public static int f6795d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6766e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f6796e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6767f = "https://loc.map.baidu.com/sdk.php";
+    public static String f6797f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6768g = "no";
+    public static String f6798g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f6769h = false;
+    public static boolean f6799h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f6770i = false;
+    public static boolean f6800i = false;
     public static boolean j = false;
     public static boolean k = false;
     public static boolean l = false;
@@ -129,22 +136,48 @@ public class k {
     public static boolean x = false;
     public static int y = 0;
     public static float z = 1.1f;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Context context) {
-        try {
-            return Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0);
-        } catch (Exception unused) {
-            return 2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1037812966, "Lcom/baidu/location/e/k;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1037812966, "Lcom/baidu/location/e/k;");
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0017 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0016 A[RETURN] */
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0);
+            } catch (Exception unused) {
+                return 2;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001a A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x001b A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static int a(Context context, String str) {
+        InterceptResult invokeLL;
         boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, context, str)) != null) {
+            return invokeLL.intValue;
+        }
         if (context.checkPermission(str, Process.myPid(), Process.myUid()) != 0) {
             z2 = false;
             return z2 ? 0 : 1;
@@ -155,81 +188,102 @@ public class k {
     }
 
     public static int a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         int indexOf;
         int length;
         int indexOf2;
         String substring;
-        if (str != null && !str.equals("") && (indexOf = str.indexOf(str2)) != -1 && (indexOf2 = str.indexOf(str3, (length = indexOf + str2.length()))) != -1 && (substring = str.substring(length, indexOf2)) != null && !substring.equals("")) {
-            try {
-                return Integer.parseInt(substring);
-            } catch (NumberFormatException unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            if (str != null && !str.equals("") && (indexOf = str.indexOf(str2)) != -1 && (indexOf2 = str.indexOf(str3, (length = indexOf + str2.length()))) != -1 && (substring = str.substring(length, indexOf2)) != null && !substring.equals("")) {
+                try {
+                    return Integer.parseInt(substring);
+                } catch (NumberFormatException unused) {
+                }
             }
+            return Integer.MIN_VALUE;
         }
-        return Integer.MIN_VALUE;
+        return invokeLLL.intValue;
     }
 
     public static String a() {
-        Calendar calendar = Calendar.getInstance();
-        int i2 = calendar.get(5);
-        return String.format(Locale.CHINA, "%d-%02d-%02d %02d:%02d:%02d", Integer.valueOf(calendar.get(1)), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(i2), Integer.valueOf(calendar.get(11)), Integer.valueOf(calendar.get(12)), Integer.valueOf(calendar.get(13)));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            return String.format(Locale.CHINA, "%d-%02d-%02d %02d:%02d:%02d", Integer.valueOf(calendar.get(1)), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)), Integer.valueOf(calendar.get(11)), Integer.valueOf(calendar.get(12)), Integer.valueOf(calendar.get(13)));
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String a(com.baidu.location.c.a aVar, com.baidu.location.c.h hVar, Location location, String str, int i2) {
-        return a(aVar, hVar, location, str, i2, false);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{aVar, hVar, location, str, Integer.valueOf(i2)})) == null) ? a(aVar, hVar, location, str, i2, false) : (String) invokeCommon.objValue;
     }
 
     public static String a(com.baidu.location.c.a aVar, com.baidu.location.c.h hVar, Location location, String str, int i2, boolean z2) {
+        InterceptResult invokeCommon;
         String a2;
         String b2;
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (b2 = com.baidu.location.c.b.a().b(aVar)) != null) {
-            stringBuffer.append(b2);
-        }
-        if (hVar != null) {
-            String b3 = i2 == 0 ? z2 ? hVar.b() : hVar.c() : hVar.d();
-            if (b3 != null) {
-                stringBuffer.append(b3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{aVar, hVar, location, str, Integer.valueOf(i2), Boolean.valueOf(z2)})) == null) {
+            StringBuffer stringBuffer = new StringBuffer(1024);
+            if (aVar != null && (b2 = com.baidu.location.c.b.a().b(aVar)) != null) {
+                stringBuffer.append(b2);
             }
-        }
-        if (location != null) {
-            String b4 = (f6765d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
-            if (b4 != null) {
-                stringBuffer.append(b4);
-            }
-        }
-        String a3 = b.a().a(i2 == 0);
-        if (a3 != null) {
-            stringBuffer.append(a3);
-        }
-        if (str != null) {
-            stringBuffer.append(str);
-        }
-        if (aVar != null && (a2 = com.baidu.location.c.b.a().a(aVar)) != null && a2.length() + stringBuffer.length() < 750) {
-            stringBuffer.append(a2);
-        }
-        String stringBuffer2 = stringBuffer.toString();
-        if (location != null && hVar != null) {
-            try {
-                float speed = location.getSpeed();
-                int i3 = f6765d;
-                int h2 = hVar.h();
-                int a4 = hVar.a();
-                boolean i4 = hVar.i();
-                if (speed < as && ((i3 == 1 || i3 == 0) && (h2 < au || i4))) {
-                    q = 1;
-                } else if (speed < at && ((i3 == 1 || i3 == 0 || i3 == 3) && (h2 < av || a4 > aw))) {
-                    q = 2;
+            if (hVar != null) {
+                String b3 = i2 == 0 ? z2 ? hVar.b() : hVar.c() : hVar.d();
+                if (b3 != null) {
+                    stringBuffer.append(b3);
                 }
-            } catch (Exception unused) {
-                q = 3;
             }
+            if (location != null) {
+                String b4 = (f6795d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                if (b4 != null) {
+                    stringBuffer.append(b4);
+                }
+            }
+            String a3 = b.a().a(i2 == 0);
+            if (a3 != null) {
+                stringBuffer.append(a3);
+            }
+            if (str != null) {
+                stringBuffer.append(str);
+            }
+            if (aVar != null && (a2 = com.baidu.location.c.b.a().a(aVar)) != null && a2.length() + stringBuffer.length() < 750) {
+                stringBuffer.append(a2);
+            }
+            String stringBuffer2 = stringBuffer.toString();
+            if (location != null && hVar != null) {
+                try {
+                    float speed = location.getSpeed();
+                    int i3 = f6795d;
+                    int h2 = hVar.h();
+                    int a4 = hVar.a();
+                    boolean i4 = hVar.i();
+                    if (speed < as && ((i3 == 1 || i3 == 0) && (h2 < au || i4))) {
+                        q = 1;
+                    } else if (speed < at && ((i3 == 1 || i3 == 0 || i3 == 3) && (h2 < av || a4 > aw))) {
+                        q = 2;
+                    }
+                } catch (Exception unused) {
+                    q = 3;
+                }
+                return stringBuffer2;
+            }
+            q = 3;
             return stringBuffer2;
         }
-        q = 3;
-        return stringBuffer2;
+        return (String) invokeCommon.objValue;
     }
 
     public static String a(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65543, null, file, str)) != null) {
+            return (String) invokeLL.objValue;
+        }
         if (!file.isFile()) {
             return null;
         }
@@ -252,165 +306,236 @@ public class k {
     }
 
     public static String a(String str) {
-        return Jni.en1(o + ";" + str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return Jni.en1(o + ";" + str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean a(BDLocation bDLocation) {
-        int locType = bDLocation.getLocType();
-        return (locType > 100 && locType < 200) || locType == 62;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bDLocation)) == null) {
+            int locType = bDLocation.getLocType();
+            return (locType > 100 && locType < 200) || locType == 62;
+        }
+        return invokeL.booleanValue;
     }
 
     public static int b(Context context) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            try {
-                return Settings.Secure.getInt(context.getContentResolver(), "location_mode", -1);
-            } catch (Exception unused) {
-                return -1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                try {
+                    return Settings.Secure.getInt(context.getContentResolver(), "location_mode", -1);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
+            return -2;
         }
-        return -2;
+        return invokeL.intValue;
     }
 
     public static boolean b() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean b(String str, String str2, String str3) {
-        try {
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes(), 0)));
-            Signature signature = Signature.getInstance("SHA1WithRSA");
-            signature.initVerify(generatePublic);
-            signature.update(str.getBytes());
-            return signature.verify(Base64.decode(str2.getBytes(), 0));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, str, str2, str3)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes(), 0)));
+                Signature signature = Signature.getInstance("SHA1WithRSA");
+                signature.initVerify(generatePublic);
+                signature.update(str.getBytes());
+                return signature.verify(Base64.decode(str2.getBytes(), 0));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
         }
+        return invokeLLL.booleanValue;
     }
 
     public static String c() {
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (inetAddresses.hasMoreElements()) {
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    if (!nextElement.isLoopbackAddress() && (nextElement instanceof Inet4Address)) {
-                        byte[] address = nextElement.getAddress();
-                        String str = "";
-                        for (byte b2 : address) {
-                            String hexString = Integer.toHexString(b2 & 255);
-                            if (hexString.length() == 1) {
-                                hexString = '0' + hexString;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                while (networkInterfaces.hasMoreElements()) {
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!nextElement.isLoopbackAddress() && (nextElement instanceof Inet4Address)) {
+                            byte[] address = nextElement.getAddress();
+                            String str = "";
+                            for (byte b2 : address) {
+                                String hexString = Integer.toHexString(b2 & 255);
+                                if (hexString.length() == 1) {
+                                    hexString = '0' + hexString;
+                                }
+                                str = str + hexString;
                             }
-                            str = str + hexString;
+                            return str;
                         }
-                        return str;
                     }
                 }
+                return null;
+            } catch (Exception unused) {
+                return null;
             }
-            return null;
-        } catch (Exception unused) {
-            return null;
         }
+        return (String) invokeV.objValue;
     }
 
     public static String c(Context context) {
-        int a2 = a(context, "android.permission.ACCESS_COARSE_LOCATION");
-        int a3 = a(context, "android.permission.ACCESS_FINE_LOCATION");
-        int a4 = a(context, "android.permission.READ_PHONE_STATE");
-        return "&per=" + a2 + "|" + a3 + "|" + a4;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            int a2 = a(context, "android.permission.ACCESS_COARSE_LOCATION");
+            int a3 = a(context, "android.permission.ACCESS_FINE_LOCATION");
+            int a4 = a(context, "android.permission.READ_PHONE_STATE");
+            return "&per=" + a2 + "|" + a3 + "|" + a4;
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX DEBUG: Throwable added to exception handler: 'SocketException', keep only Throwable */
     public static String d() {
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (inetAddresses.hasMoreElements()) {
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    if (!nextElement.isLoopbackAddress() && (nextElement instanceof Inet6Address) && nextElement.getHostAddress() != null && !nextElement.getHostAddress().startsWith("fe80:")) {
-                        return nextElement.getHostAddress();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                while (networkInterfaces.hasMoreElements()) {
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!nextElement.isLoopbackAddress() && (nextElement instanceof Inet6Address) && nextElement.getHostAddress() != null && !nextElement.getHostAddress().startsWith("fe80:")) {
+                            return nextElement.getHostAddress();
+                        }
                     }
                 }
+                return "";
+            } catch (Throwable unused) {
+                return "";
             }
-            return "";
-        } catch (Throwable unused) {
-            return "";
         }
+        return (String) invokeV.objValue;
     }
 
     public static String d(Context context) {
-        int i2 = -1;
-        if (context != null) {
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-                if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                    i2 = activeNetworkInfo.getType();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            int i2 = -1;
+            if (context != null) {
+                try {
+                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+                    if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+                        i2 = activeNetworkInfo.getType();
+                    }
+                } catch (Exception unused) {
                 }
-            } catch (Exception unused) {
             }
+            return "&netc=" + i2;
         }
-        return "&netc=" + i2;
+        return (String) invokeL.objValue;
     }
 
     public static String e() {
-        return ay;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? ay : (String) invokeV.objValue;
     }
 
     public static String f() {
-        return aB;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? aB : (String) invokeV.objValue;
     }
 
     public static String g() {
-        return "https://daup.map.baidu.com/cltr/rcvr";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? "https://daup.map.baidu.com/cltr/rcvr" : (String) invokeV.objValue;
     }
 
     public static String h() {
-        try {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                String path = Environment.getExternalStorageDirectory().getPath();
-                File file = new File(path + "/baidu/tempdata");
-                if (!file.exists()) {
-                    file.mkdirs();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            try {
+                if (Environment.getExternalStorageState().equals("mounted")) {
+                    String path = Environment.getExternalStorageDirectory().getPath();
+                    File file = new File(path + "/baidu/tempdata");
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    return path;
                 }
-                return path;
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            return null;
         }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public static String i() {
-        String h2 = h();
-        if (h2 == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            String h2 = h();
+            if (h2 == null) {
+                return null;
+            }
+            return h2 + "/baidu/tempdata";
         }
-        return h2 + "/baidu/tempdata";
+        return (String) invokeV.objValue;
     }
 
     public static String j() {
-        try {
-            File file = new File(com.baidu.location.f.getServiceContext().getFilesDir() + File.separator + "lldt");
-            if (!file.exists()) {
-                file.mkdirs();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            try {
+                File file = new File(com.baidu.location.f.getServiceContext().getFilesDir() + File.separator + "lldt");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file.getAbsolutePath();
+            } catch (Exception unused) {
+                return null;
             }
-            return file.getAbsolutePath();
-        } catch (Exception unused) {
-            return null;
         }
+        return (String) invokeV.objValue;
     }
 
     public static String k() {
-        try {
-            File file = new File(com.baidu.location.f.getServiceContext().getFilesDir() + File.separator + "/baidu/tempdata");
-            if (!file.exists()) {
-                file.mkdirs();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            try {
+                File file = new File(com.baidu.location.f.getServiceContext().getFilesDir() + File.separator + "/baidu/tempdata");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return com.baidu.location.f.getServiceContext().getFilesDir().getPath();
+            } catch (Exception unused) {
+                return null;
             }
-            return com.baidu.location.f.getServiceContext().getFilesDir().getPath();
-        } catch (Exception unused) {
-            return null;
         }
+        return (String) invokeV.objValue;
     }
 }

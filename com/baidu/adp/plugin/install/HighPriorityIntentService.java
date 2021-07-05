@@ -7,9 +7,17 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class HighPriorityIntentService extends Service {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public String mName;
     public boolean mRedelivery;
     public volatile a mServiceHandler;
@@ -17,57 +25,119 @@ public abstract class HighPriorityIntentService extends Service {
 
     /* loaded from: classes.dex */
     public final class a extends Handler {
-        public a(Looper looper) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ HighPriorityIntentService f2212a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(HighPriorityIntentService highPriorityIntentService, Looper looper) {
             super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {highPriorityIntentService, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2212a = highPriorityIntentService;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            HighPriorityIntentService.this.onHandleIntent((Intent) message.obj);
-            HighPriorityIntentService.this.stopSelf(message.arg1);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                this.f2212a.onHandleIntent((Intent) message.obj);
+                this.f2212a.stopSelf(message.arg1);
+            }
         }
     }
 
     public HighPriorityIntentService(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mName = str;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        super.onCreate();
-        HandlerThread handlerThread = new HandlerThread("IntentService[" + this.mName + PreferencesUtil.RIGHT_MOUNT, -8);
-        handlerThread.start();
-        this.mServiceLooper = handlerThread.getLooper();
-        this.mServiceHandler = new a(this.mServiceLooper);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            HandlerThread handlerThread = new HandlerThread("IntentService[" + this.mName + PreferencesUtil.RIGHT_MOUNT, -8);
+            handlerThread.start();
+            this.mServiceLooper = handlerThread.getLooper();
+            this.mServiceHandler = new a(this, this.mServiceLooper);
+        }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        this.mServiceLooper.quit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mServiceLooper.quit();
+        }
     }
 
     public abstract void onHandleIntent(Intent intent);
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i2) {
-        Message obtainMessage = this.mServiceHandler.obtainMessage();
-        obtainMessage.arg1 = i2;
-        obtainMessage.obj = intent;
-        this.mServiceHandler.sendMessage(obtainMessage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i2) == null) {
+            Message obtainMessage = this.mServiceHandler.obtainMessage();
+            obtainMessage.arg1 = i2;
+            obtainMessage.obj = intent;
+            this.mServiceHandler.sendMessage(obtainMessage);
+        }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i2, int i3) {
-        onStart(intent, i3);
-        return this.mRedelivery ? 3 : 2;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, intent, i2, i3)) == null) {
+            onStart(intent, i3);
+            return this.mRedelivery ? 3 : 2;
+        }
+        return invokeLII.intValue;
     }
 
     public void setIntentRedelivery(boolean z) {
-        this.mRedelivery = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.mRedelivery = z;
+        }
     }
 }

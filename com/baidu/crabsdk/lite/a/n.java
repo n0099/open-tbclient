@@ -3,28 +3,34 @@ package com.baidu.crabsdk.lite.a;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public final class n {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4684a;
+    public static Context f4714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4685b;
+    public static PackageManager f4715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PackageInfo f4686c;
+    public static PackageInfo f4716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4687d;
+    public static String f4717d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, Context context) {
-        if (f4684a == null) {
-            f4684a = context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) && f4714a == null) {
+            f4714a = context;
             PackageManager packageManager = context.getPackageManager();
-            f4685b = packageManager;
+            f4715b = packageManager;
             try {
-                f4686c = packageManager.getPackageInfo(f4684a.getPackageName(), 0);
+                f4716c = packageManager.getPackageInfo(f4714a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e2) {
                 com.baidu.crabsdk.lite.b.a.e(str, "PackageCollector.init fail.", e2);
             }
@@ -32,30 +38,47 @@ public final class n {
     }
 
     public static String b() {
-        return f4684a.getPackageName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4714a.getPackageName() : (String) invokeV.objValue;
     }
 
     public static String c() {
-        if (f4687d == null) {
-            PackageInfo packageInfo = f4686c;
-            if (packageInfo == null) {
-                return "N/A";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f4717d == null) {
+                PackageInfo packageInfo = f4716c;
+                if (packageInfo == null) {
+                    return "N/A";
+                }
+                f4717d = packageInfo.applicationInfo.loadLabel(f4715b).toString();
             }
-            f4687d = packageInfo.applicationInfo.loadLabel(f4685b).toString();
+            return f4717d;
         }
-        return f4687d;
+        return (String) invokeV.objValue;
     }
 
     public static String d() {
-        PackageInfo packageInfo = f4686c;
-        return packageInfo == null ? "N/A" : packageInfo.versionName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            PackageInfo packageInfo = f4716c;
+            return packageInfo == null ? "N/A" : packageInfo.versionName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static int e() {
-        PackageInfo packageInfo = f4686c;
-        if (packageInfo == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            PackageInfo packageInfo = f4716c;
+            if (packageInfo == null) {
+                return 0;
+            }
+            return packageInfo.versionCode;
         }
-        return packageInfo.versionCode;
+        return invokeV.intValue;
     }
 }

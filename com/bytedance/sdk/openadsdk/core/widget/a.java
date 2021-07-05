@@ -1,317 +1,100 @@
 package com.bytedance.sdk.openadsdk.core.widget;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.ad;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.openadsdk.core.o;
 /* loaded from: classes6.dex */
 public class a extends AlertDialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28790a;
+    public Context f30690a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28791b;
+    public String f30691b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f28792c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f28793d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f28794e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f28795f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ListView f28796g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Button f28797h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0305a f28798i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public HashMap<String, String> o;
-    public View p;
-    public TextView q;
-    public boolean r;
-    public List<c> s;
-
-    /* renamed from: com.bytedance.sdk.openadsdk.core.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0305a {
-        void a(Dialog dialog);
-
-        void b(Dialog dialog);
-
-        void c(Dialog dialog);
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ArrayAdapter<c> {
-
-        /* renamed from: com.bytedance.sdk.openadsdk.core.widget.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0306a {
-
-            /* renamed from: a  reason: collision with root package name */
-            public TextView f28803a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public TextView f28804b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public ImageView f28805c;
-
-            public C0306a() {
-            }
-        }
-
-        public b(Context context, int i2, List<c> list) {
-            super(context, i2, list);
-        }
-
-        @Override // android.widget.ArrayAdapter, android.widget.Adapter
-        @NonNull
-        public View getView(int i2, @Nullable View view, @NonNull ViewGroup viewGroup) {
-            C0306a c0306a;
-            c item = getItem(i2);
-            if (view == null) {
-                view = LayoutInflater.from(getContext()).inflate(ad.f(a.this.f28790a, "tt_app_detail_listview_item"), viewGroup, false);
-                c0306a = new C0306a();
-                c0306a.f28803a = (TextView) view.findViewById(ad.e(a.this.f28790a, "tt_item_title_tv"));
-                c0306a.f28804b = (TextView) view.findViewById(ad.e(a.this.f28790a, "tt_item_desc_tv"));
-                c0306a.f28805c = (ImageView) view.findViewById(ad.e(a.this.f28790a, "tt_item_select_img"));
-                view.setTag(c0306a);
-            } else {
-                c0306a = (C0306a) view.getTag();
-            }
-            c0306a.f28805c.setVisibility(0);
-            if ("补充中，可于应用官网查看".equals(item.a())) {
-                c0306a.f28805c.setVisibility(4);
-            }
-            c0306a.f28803a.setText(item.a());
-            c0306a.f28804b.setText(item.b());
-            return view;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c {
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f28808b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f28809c;
-
-        public c(String str, String str2) {
-            this.f28808b = str;
-            this.f28809c = str2;
-        }
-
-        public String a() {
-            return this.f28808b;
-        }
-
-        public String b() {
-            return this.f28809c;
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str) {
-        super(context, ad.g(context, "tt_dialog_full"));
-        this.j = "补充中，可于应用官网查看";
-        this.k = "暂无";
-        this.m = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
-        this.r = false;
-        this.s = new ArrayList();
-        this.f28790a = context;
+        super(context, r.g(context, "tt_custom_dialog"));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30690a = context;
         if (context == null) {
-            this.f28790a = p.a();
+            this.f30690a = o.a();
         }
-        this.n = str;
+        this.f30691b = str;
     }
 
-    private void c() {
-        if (this.f28791b != null) {
-            this.f28791b.setText(String.format(ad.a(this.f28790a, "tt_open_app_detail_developer"), this.j));
-        }
-        if (this.f28792c != null) {
-            this.f28792c.setText(String.format(ad.a(this.f28790a, "tt_open_app_version"), this.k));
-        }
-        String str = this.m;
-        if (str != null) {
-            this.f28793d.setText(str);
-        }
-        if (this.f28795f != null) {
-            this.f28795f.setText(String.format(ad.a(this.f28790a, "tt_open_app_name"), this.l));
-        }
-    }
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            ((TextView) findViewById(r.e(this.f30690a, "tt_dialog_content"))).setText(this.f30691b);
+            findViewById(r.e(this.f30690a, "tt_button_ok")).setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public void b() {
-        View inflate = getLayoutInflater().inflate(ad.f(this.f28790a, "tt_app_detail_full_dialog_list_head"), (ViewGroup) null);
-        this.p = inflate;
-        this.f28791b = (TextView) inflate.findViewById(ad.e(this.f28790a, "tt_app_developer_tv"));
-        this.f28793d = (TextView) this.p.findViewById(ad.e(this.f28790a, "tt_app_privacy_url_tv"));
-        this.q = (TextView) this.p.findViewById(ad.e(this.f28790a, "tt_app_privacy_tv"));
-        this.f28795f = (TextView) this.p.findViewById(ad.e(this.f28790a, "tt_app_name_tv"));
-        this.f28792c = (TextView) this.p.findViewById(ad.e(this.f28790a, "tt_app_version_tv"));
-        this.f28797h = (Button) findViewById(ad.e(this.f28790a, "tt_download_app_btn"));
-        this.f28796g = (ListView) findViewById(ad.e(this.f28790a, "tt_privacy_list"));
-        this.f28794e = (TextView) findViewById(ad.e(this.f28790a, "tt_app_detail_back_tv"));
-        this.f28796g.addHeaderView(this.p);
-        if (this.r) {
-            this.f28797h.setVisibility(0);
-            this.f28797h.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ a f30692a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30692a = this;
+                }
+
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.f28798i != null) {
-                        a.this.f28798i.a(a.this);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f30692a.dismiss();
                     }
                 }
             });
-        } else {
-            this.f28797h.setVisibility(8);
-        }
-        this.f28794e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (a.this.f28798i != null) {
-                    a.this.f28798i.b(a.this);
-                }
-            }
-        });
-        this.f28793d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (a.this.f28798i != null) {
-                    a.this.f28798i.c(a.this);
-                }
-            }
-        });
-        List<c> list = this.s;
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        Context context = this.f28790a;
-        this.f28796g.setAdapter((ListAdapter) new b(context, ad.f(context, "tt_app_detail_listview_item"), this.s));
-    }
-
-    @Override // android.app.Dialog
-    public void onBackPressed() {
-        InterfaceC0305a interfaceC0305a = this.f28798i;
-        if (interfaceC0305a != null) {
-            interfaceC0305a.b(this);
         }
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(ad.f(this.f28790a, "tt_app_detail_full_dialog"));
-        a();
-        b();
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        super.show();
-        c();
-    }
-
-    public a a(InterfaceC0305a interfaceC0305a) {
-        this.f28798i = interfaceC0305a;
-        return this;
-    }
-
-    public void a() {
-        if (TextUtils.isEmpty(this.n)) {
-            this.k = "暂无";
-            this.j = "补充中，可于应用官网查看";
-            this.m = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
-            a(this.o);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(r.f(this.f30690a, "tt_adinfo_dialog_layout"));
+            a();
         }
-        try {
-            com.bytedance.sdk.openadsdk.core.d.c b2 = com.bytedance.sdk.openadsdk.core.c.b(new JSONObject(this.n));
-            if (b2 != null) {
-                String b3 = b2.b();
-                this.k = b3;
-                if (TextUtils.isEmpty(b3)) {
-                    this.k = "暂无";
-                }
-                String c2 = b2.c();
-                this.j = c2;
-                if (TextUtils.isEmpty(c2)) {
-                    this.j = "补充中，可于应用官网查看";
-                }
-                String d2 = b2.d();
-                this.m = d2;
-                if (TextUtils.isEmpty(d2)) {
-                    this.m = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
-                }
-                String g2 = b2.g();
-                if (!TextUtils.isEmpty(g2)) {
-                    this.l = g2;
-                }
-                HashMap<String, String> a2 = b2.a();
-                this.o = a2;
-                a(a2);
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    private void a(HashMap<String, String> hashMap) {
-        List<c> list = this.s;
-        if (list != null && list.size() > 0) {
-            this.s.clear();
-        }
-        if (this.s == null) {
-            this.s = new ArrayList();
-        }
-        if (hashMap != null && hashMap.size() > 0) {
-            for (String str : hashMap.keySet()) {
-                this.s.add(new c(str, hashMap.get(str)));
-            }
-            return;
-        }
-        this.s.add(new c("补充中，可于应用官网查看", ""));
-    }
-
-    public a a(String str) {
-        this.l = str;
-        return this;
-    }
-
-    public void a(boolean z) {
-        this.r = z;
     }
 }

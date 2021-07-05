@@ -1,78 +1,136 @@
 package com.baidu.searchbox.elasticthread.queue;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
 import com.baidu.searchbox.elasticthread.task.ElasticTaskBuilder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ElasticQueue implements Recordable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "ElasticQueue";
-    public List<ElasticTask> mElasticTasks = new LinkedList();
-    public long waitingTimeInRecordLifeCycle = 0;
-    public long outputTaskNumInRecordLifeCycle = 0;
-    public Recordable.RecordStatus mRecordStatus = Recordable.RecordStatus.UNINITIATED;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<ElasticTask> mElasticTasks;
+    public Recordable.RecordStatus mRecordStatus;
+    public long outputTaskNumInRecordLifeCycle;
+    public long waitingTimeInRecordLifeCycle;
+
+    public ElasticQueue() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mElasticTasks = new LinkedList();
+        this.waitingTimeInRecordLifeCycle = 0L;
+        this.outputTaskNumInRecordLifeCycle = 0L;
+        this.mRecordStatus = Recordable.RecordStatus.UNINITIATED;
+    }
 
     public long getCurrentWaitingTime() {
-        long j = 0;
-        for (ElasticTask elasticTask : this.mElasticTasks) {
-            j += elasticTask.getWaitingTime();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = 0;
+            for (ElasticTask elasticTask : this.mElasticTasks) {
+                j += elasticTask.getWaitingTime();
+            }
+            return j;
         }
-        return j;
+        return invokeV.longValue;
     }
 
     public ElasticTask getNext() {
-        if (this.mElasticTasks.isEmpty()) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mElasticTasks.isEmpty()) {
+                return null;
+            }
+            return this.mElasticTasks.get(0);
         }
-        return this.mElasticTasks.get(0);
+        return (ElasticTask) invokeV.objValue;
     }
 
     public long getOutputTaskNumInRecordLifeCycle() {
-        return this.outputTaskNumInRecordLifeCycle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.outputTaskNumInRecordLifeCycle : invokeV.longValue;
     }
 
     public int getTaskNum() {
-        return this.mElasticTasks.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mElasticTasks.size() : invokeV.intValue;
     }
 
     public long getWaitingTimeInRecordLifeCycle() {
-        return this.waitingTimeInRecordLifeCycle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.waitingTimeInRecordLifeCycle : invokeV.longValue;
     }
 
     public void insertTask(Runnable runnable, String str, int i2) {
-        if (runnable != null && !TextUtils.isEmpty(str)) {
-            ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i2);
-            this.mElasticTasks.add(build);
-            build.recordEnqueueTime();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, runnable, str, i2) == null) {
+            if (runnable != null && !TextUtils.isEmpty(str)) {
+                ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i2);
+                this.mElasticTasks.add(build);
+                build.recordEnqueueTime();
+                return;
+            }
+            throw new IllegalArgumentException("illegal params");
         }
-        throw new IllegalArgumentException("illegal params");
     }
 
     public boolean isEmpty() {
-        return this.mElasticTasks.isEmpty();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mElasticTasks.isEmpty() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
     public void onRecordBegin() {
-        this.waitingTimeInRecordLifeCycle = 0L;
-        this.outputTaskNumInRecordLifeCycle = 0L;
-        this.mRecordStatus = Recordable.RecordStatus.RECORDING;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.waitingTimeInRecordLifeCycle = 0L;
+            this.outputTaskNumInRecordLifeCycle = 0L;
+            this.mRecordStatus = Recordable.RecordStatus.RECORDING;
+        }
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
     public void onRecordEnd() {
-        this.mRecordStatus = Recordable.RecordStatus.RECORD_END;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mRecordStatus = Recordable.RecordStatus.RECORD_END;
+        }
     }
 
     public void remove(ElasticTask elasticTask) {
-        this.mElasticTasks.remove(elasticTask);
-        if (this.mRecordStatus == Recordable.RecordStatus.RECORDING) {
-            this.waitingTimeInRecordLifeCycle += elasticTask.getWaitingTime();
-            this.outputTaskNumInRecordLifeCycle++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, elasticTask) == null) {
+            this.mElasticTasks.remove(elasticTask);
+            if (this.mRecordStatus == Recordable.RecordStatus.RECORDING) {
+                this.waitingTimeInRecordLifeCycle += elasticTask.getWaitingTime();
+                this.outputTaskNumInRecordLifeCycle++;
+            }
         }
     }
 }

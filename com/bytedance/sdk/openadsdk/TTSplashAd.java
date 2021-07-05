@@ -22,6 +22,8 @@ public interface TTSplashAd {
 
     Map<String, Object> getMediaExtraInfo();
 
+    int[] getSplashClickEyeSizeToDp();
+
     @NonNull
     View getSplashView();
 
@@ -31,5 +33,9 @@ public interface TTSplashAd {
 
     void setNotAllowSdkCountdown();
 
+    void setSplashClickEyeListener(ISplashClickEyeListener iSplashClickEyeListener);
+
     void setSplashInteractionListener(AdInteractionListener adInteractionListener);
+
+    void splashClickEyeAnimationFinish();
 }

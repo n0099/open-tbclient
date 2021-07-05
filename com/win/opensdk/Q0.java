@@ -2,6 +2,11 @@ package com.win.opensdk;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiOptions;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.win.opensdk.core.Info;
 import java.util.ArrayList;
@@ -10,39 +15,64 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class Q0 {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a */
-    public static String f40699a = "https://pp.xdplt.com/";
+    public static String f42442a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f40700b = f40699a + "behavior?";
+    public static final String f42443b;
 
     /* renamed from: c */
-    public static final String f40701c = f40699a + "report?";
+    public static final String f42444c;
 
     /* renamed from: d */
-    public static String f40702d = "https://cd.xdplt.com/";
+    public static String f42445d;
 
     /* renamed from: e */
-    public static String f40703e = "jy/da?";
+    public static String f42446e;
 
     /* renamed from: f */
-    public static String f40704f = "?";
+    public static String f42447f;
 
     /* renamed from: g */
-    public static String f40705g = "jy/da?";
+    public static String f42448g;
 
     /* renamed from: h */
-    public static String f40706h = "jy/da?";
+    public static String f42449h;
 
     /* renamed from: i */
-    public static String f40707i = "jy/da?";
+    public static String f42450i;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1639730384, "Lcom/win/opensdk/Q0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1639730384, "Lcom/win/opensdk/Q0;");
+                return;
+            }
+        }
+        f42443b = f42442a + "behavior?";
+        f42444c = f42442a + "report?";
+        f42445d = "https://cd.xdplt.com/";
+        f42446e = "jy/da?";
+        f42447f = "?";
+        f42448g = "jy/da?";
+        f42449h = "jy/da?";
+        f42450i = "jy/da?";
+    }
 
     public static /* synthetic */ void a(P0 p0) {
         String str;
         if (p0 != null) {
-            str = p0.f40675c;
-            if (TextUtils.isEmpty(str) || p0.f40673a == null || TextUtils.isEmpty(p0.f40674b)) {
+            str = p0.f42418c;
+            if (TextUtils.isEmpty(str) || p0.f42416a == null || TextUtils.isEmpty(p0.f42417b)) {
                 return;
             }
             u1.a(new O0(p0));
@@ -54,8 +84,8 @@ public class Q0 {
             try {
                 if (jSONObject.length() != 0) {
                     w wVar = new w();
-                    wVar.f40938c = jSONObject.optString("traceid", "");
-                    wVar.f40937b = jSONObject.optString("pid", "");
+                    wVar.f42681c = jSONObject.optString("traceid", "");
+                    wVar.f42680b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -64,7 +94,7 @@ public class Q0 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(wVar.f40938c);
+                                info.setTraceid(wVar.f42681c);
                                 info.setPid(wVar.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -120,7 +150,7 @@ public class Q0 {
                             }
                         }
                     }
-                    wVar.f40936a = arrayList;
+                    wVar.f42679a = arrayList;
                     return wVar;
                 }
             } catch (Exception unused) {
@@ -130,13 +160,13 @@ public class Q0 {
     }
 
     public static /* synthetic */ void a(P0 p0, HashMap hashMap) {
-        if (p0.f40674b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
-            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f40673a)));
-            float a2 = s1.a(p0.f40673a, "splash_width", 0.0f);
+        if (p0.f42417b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f42416a)));
+            float a2 = s1.a(p0.f42416a, "splash_width", 0.0f);
             if (a2 > 0.0f) {
                 hashMap.put("sp_w", String.valueOf(a2));
             }
-            float a3 = s1.a(p0.f40673a, "splash_height", 0.0f);
+            float a3 = s1.a(p0.f42416a, "splash_height", 0.0f);
             if (a3 > 0.0f) {
                 hashMap.put("sp_h", String.valueOf(a3));
             }

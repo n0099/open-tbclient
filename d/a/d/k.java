@@ -1,5 +1,5 @@
 package d.a.d;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public interface k {
     void setTrigger(j jVar);
 }

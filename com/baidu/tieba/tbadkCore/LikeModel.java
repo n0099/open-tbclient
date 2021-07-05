@@ -2,12 +2,14 @@ package com.baidu.tieba.tbadkCore;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,160 +18,100 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.a.n0.z0.f;
-import d.a.o0.e3.q0.e;
-import d.a.o0.e3.w;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
+import d.a.r0.z0.f;
+import d.a.s0.h3.q0.e;
+import d.a.s0.h3.w;
 /* loaded from: classes5.dex */
 public class LikeModel extends BdBaseModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20918e;
+    public String f21067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20919f;
+    public String f21068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20920g;
+    public String f21069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f20921h;
+    public String f21070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f20922i;
+    public String f21071i;
     public String j;
     public TbPageContext k;
     public b l;
     public BlockPopInfoData m;
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<Object, Integer, w> {
-
-        /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f20923a;
-
-        public b() {
-            this.f20923a = null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public w doInBackground(Object... objArr) {
-            try {
-                this.f20923a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS);
-                this.f20923a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, LikeModel.this.f20918e);
-                this.f20923a.addPostData("fid", LikeModel.this.f20919f);
-                this.f20923a.addPostData("st_type", LikeModel.this.f20921h);
-                this.f20923a.addPostData("authsid", LikeModel.this.f20922i);
-                if (!StringUtils.isNull(LikeModel.this.j)) {
-                    this.f20923a.addPostData("dev_id", LikeModel.this.j);
-                }
-                if (!TextUtils.isEmpty(LikeModel.this.f20920g)) {
-                    this.f20923a.addPostData("pagefrom", LikeModel.this.f20920g);
-                }
-                this.f20923a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                this.f20923a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.f20923a.addPostData("forum_name", LikeModel.this.f20918e);
-                this.f20923a.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f20923a.setNeedSig(true);
-                String postNetData = this.f20923a.postNetData();
-                int serverErrorCode = this.f20923a.getServerErrorCode();
-                String errorString = this.f20923a.getErrorString();
-                LikeModel.this.setErrorCode(serverErrorCode);
-                LikeModel.this.setErrorString(errorString);
-                AuthTokenData.parse(postNetData);
-                if (postNetData != null) {
-                    w wVar = new w();
-                    wVar.o(postNetData);
-                    if (this.f20923a.getNetContext().getResponse().isRequestSuccess()) {
-                        wVar.q(null);
-                    }
-                    LikeModel.this.m = wVar.a();
-                    wVar.s(LikeModel.this.f20919f);
-                    return wVar;
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-            }
-            w wVar2 = new w();
-            wVar2.v(0);
-            wVar2.s(LikeModel.this.f20919f);
-            return wVar2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(w wVar) {
-            LikeModel.this.l = null;
-            if (this.f20923a == null || wVar == null || AntiHelper.a(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), wVar.b())) {
-                return;
-            }
-            e eVar = new e();
-            eVar.f58037a = d.a.c.e.m.b.f(wVar.g(), 0L);
-            wVar.j();
-            if (wVar != null && this.f20923a.getNetContext().getResponse().isRequestSuccess()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(d.a.c.e.m.b.f(wVar.g(), 0L))));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new f.a(LikeModel.this.f20918e, wVar.k())));
-                TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.f20918e);
-                eVar.f58038b = true;
-                eVar.f58039c = LikeModel.this.getErrorString();
-            } else {
-                eVar.f58038b = false;
-                eVar.f58039c = LikeModel.this.getErrorString();
-            }
-            if (LikeModel.this.mLoadDataCallBack != null) {
-                LikeModel.this.mLoadDataCallBack.c(wVar);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, eVar));
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            if (this.f20923a != null) {
-                this.f20923a.cancelNetConnect();
-                this.f20923a = null;
-            }
-            LikeModel.this.l = null;
-            super.cancel(true);
-            if (LikeModel.this.mLoadDataCallBack != null) {
-                LikeModel.this.mLoadDataCallBack.c(null);
-            }
-        }
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LikeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f20918e = null;
-        this.f20919f = null;
-        this.f20920g = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f21067e = null;
+        this.f21068f = null;
+        this.f21069g = null;
         this.l = null;
         this.k = tbPageContext;
     }
 
     public void I() {
-        b bVar = this.l;
-        if (bVar != null) {
-            bVar.cancel();
-            this.l = null;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.l) == null) {
+            return;
         }
+        bVar.cancel();
+        this.l = null;
     }
 
     public BlockPopInfoData J() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (BlockPopInfoData) invokeV.objValue;
     }
 
     public boolean K() {
-        return this.l != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l != null : invokeV.booleanValue;
     }
 
     public void L(String str, String str2) {
-        if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.l != null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.l != null) {
             return;
         }
-        this.f20918e = str;
-        this.f20919f = str2;
-        b bVar = new b();
+        this.f21067e = str;
+        this.f21068f = str2;
+        b bVar = new b(this, null);
         this.l = bVar;
         bVar.setPriority(2);
         this.l.execute(new Object[0]);
@@ -177,28 +119,181 @@ public class LikeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void M(String str, String str2, String str3) {
-        L(str, str2);
-        this.f20920g = str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) {
+            L(str, str2);
+            this.f21069g = str3;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public Context getContext() {
-        TbPageContext tbPageContext = this.k;
-        if (tbPageContext != null) {
-            return tbPageContext.getPageActivity();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            TbPageContext tbPageContext = this.k;
+            if (tbPageContext != null) {
+                return tbPageContext.getPageActivity();
+            }
+            return null;
         }
-        return null;
+        return (Context) invokeV.objValue;
     }
 
     public void setFrom(String str) {
-        this.f20921h = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f21070h = str;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<Object, Integer, w> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public volatile NetWork f21072a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ LikeModel f21073b;
+
+        public b(LikeModel likeModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {likeModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21073b = likeModel;
+            this.f21072a = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public w doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                try {
+                    this.f21072a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS);
+                    this.f21072a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f21073b.f21067e);
+                    this.f21072a.addPostData("fid", this.f21073b.f21068f);
+                    this.f21072a.addPostData("st_type", this.f21073b.f21070h);
+                    this.f21072a.addPostData("authsid", this.f21073b.f21071i);
+                    if (!StringUtils.isNull(this.f21073b.j)) {
+                        this.f21072a.addPostData("dev_id", this.f21073b.j);
+                    }
+                    if (!TextUtils.isEmpty(this.f21073b.f21069g)) {
+                        this.f21072a.addPostData("pagefrom", this.f21073b.f21069g);
+                    }
+                    this.f21072a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.f21072a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    this.f21072a.addPostData("forum_name", this.f21073b.f21067e);
+                    this.f21072a.getNetContext().getRequest().mIsNeedTbs = true;
+                    this.f21072a.setNeedSig(true);
+                    String postNetData = this.f21072a.postNetData();
+                    int serverErrorCode = this.f21072a.getServerErrorCode();
+                    String errorString = this.f21072a.getErrorString();
+                    this.f21073b.setErrorCode(serverErrorCode);
+                    this.f21073b.setErrorString(errorString);
+                    AuthTokenData.parse(postNetData);
+                    if (postNetData != null) {
+                        w wVar = new w();
+                        wVar.o(postNetData);
+                        if (this.f21072a.getNetContext().getResponse().isRequestSuccess()) {
+                            wVar.q(null);
+                        }
+                        this.f21073b.m = wVar.a();
+                        wVar.s(this.f21073b.f21068f);
+                        return wVar;
+                    }
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                }
+                w wVar2 = new w();
+                wVar2.v(0);
+                wVar2.s(this.f21073b.f21068f);
+                return wVar2;
+            }
+            return (w) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(w wVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wVar) == null) {
+                this.f21073b.l = null;
+                if (this.f21072a == null || wVar == null || AntiHelper.a(this.f21073b.getContext(), this.f21073b.getErrorCode(), wVar.b())) {
+                    return;
+                }
+                e eVar = new e();
+                eVar.f61442a = d.a.c.e.m.b.f(wVar.g(), 0L);
+                wVar.j();
+                if (wVar != null && this.f21072a.getNetContext().getResponse().isRequestSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(d.a.c.e.m.b.f(wVar.g(), 0L))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new f.a(this.f21073b.f21067e, wVar.k())));
+                    TbadkCoreApplication.getInst().addLikeForum(this.f21073b.f21067e);
+                    eVar.f61443b = true;
+                    eVar.f61444c = this.f21073b.getErrorString();
+                } else {
+                    eVar.f61443b = false;
+                    eVar.f61444c = this.f21073b.getErrorString();
+                }
+                if (this.f21073b.mLoadDataCallBack != null) {
+                    this.f21073b.mLoadDataCallBack.c(wVar);
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, eVar));
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.f21072a != null) {
+                    this.f21072a.cancelNetConnect();
+                    this.f21072a = null;
+                }
+                this.f21073b.l = null;
+                super.cancel(true);
+                if (this.f21073b.mLoadDataCallBack != null) {
+                    this.f21073b.mLoadDataCallBack.c(null);
+                }
+            }
+        }
+
+        public /* synthetic */ b(LikeModel likeModel, a aVar) {
+            this(likeModel);
+        }
     }
 }

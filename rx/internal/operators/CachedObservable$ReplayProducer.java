@@ -1,5 +1,11 @@
 package rx.internal.operators;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.f;
 import h.j;
 import h.k;
@@ -7,9 +13,11 @@ import h.m.a;
 import h.o.a.b;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class CachedObservable$ReplayProducer<T> extends AtomicLong implements f, k {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2557562030197141021L;
+    public transient /* synthetic */ FieldHolder $fh;
     public final j<? super T> child;
     public Object[] currentBuffer;
     public int currentIndexInBuffer;
@@ -19,25 +27,47 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
     public final b<T> state;
 
     public CachedObservable$ReplayProducer(j<? super T> jVar, b<T> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jVar, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.child = jVar;
         this.state = bVar;
     }
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return get() < 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() < 0 : invokeV.booleanValue;
     }
 
     public long produced(long j) {
-        return addAndGet(-j);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? addAndGet(-j) : invokeJ.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00db  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x00df  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void replay() {
         boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+            return;
+        }
         synchronized (this) {
             boolean z2 = true;
             if (this.emitting) {
@@ -105,6 +135,9 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                                 } catch (Throwable th2) {
                                                     th = th2;
                                                     if (!z) {
+                                                        synchronized (this) {
+                                                            this.emitting = false;
+                                                        }
                                                     }
                                                     throw th;
                                                 }
@@ -154,9 +187,6 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                         z = z2;
                         th = th7;
                         if (!z) {
-                            synchronized (this) {
-                                this.emitting = false;
-                            }
                         }
                         throw th;
                     }
@@ -172,22 +202,26 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
     public void request(long j) {
         long j2;
         long j3;
-        do {
-            j2 = get();
-            if (j2 < 0) {
-                return;
-            }
-            j3 = j2 + j;
-            if (j3 < 0) {
-                j3 = Long.MAX_VALUE;
-            }
-        } while (!compareAndSet(j2, j3));
-        replay();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            do {
+                j2 = get();
+                if (j2 < 0) {
+                    return;
+                }
+                j3 = j2 + j;
+                if (j3 < 0) {
+                    j3 = Long.MAX_VALUE;
+                }
+            } while (!compareAndSet(j2, j3));
+            replay();
+        }
     }
 
     @Override // h.k
     public void unsubscribe() {
-        if (get() < 0 || getAndSet(-1L) < 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || get() < 0 || getAndSet(-1L) < 0) {
             return;
         }
         this.state.e(this);

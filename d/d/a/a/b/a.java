@@ -1,5 +1,5 @@
 package d.d.a.a.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface a extends b {
     String getAppVersionCode();
 

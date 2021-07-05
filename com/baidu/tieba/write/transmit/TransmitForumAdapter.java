@@ -8,62 +8,127 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
 import d.a.c.k.e.w;
 /* loaded from: classes5.dex */
 public class TransmitForumAdapter extends d.a.c.k.e.a<TransmitForumData, TransmitForumViewHolder> {
-    public d.a.o0.w3.q.a m;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public d.a.s0.a4.q.a m;
     public w n;
 
     /* loaded from: classes5.dex */
     public static class TransmitForumViewHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f22047a;
+        public TextView f22562a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CheckBox f22048b;
+        public CheckBox f22563b;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TransmitForumViewHolder(View view) {
             super(view);
-            this.f22047a = (TextView) view.findViewById(R.id.transmit_forum_name);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22562a = (TextView) view.findViewById(R.id.transmit_forum_name);
             CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.f22048b = checkBox;
+            this.f22563b = checkBox;
             checkBox.setButtonDrawable(SkinManager.getDrawable(R.drawable.transmit_check_box));
         }
     }
 
     /* loaded from: classes5.dex */
     public class a implements w {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TransmitForumAdapter f22564e;
+
+        public a(TransmitForumAdapter transmitForumAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {transmitForumAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22564e = transmitForumAdapter;
         }
 
         @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
-            if (nVar instanceof TransmitForumData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof TransmitForumData)) {
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                 boolean isChecked = checkBox.isChecked();
-                boolean c2 = TransmitForumAdapter.this.m != null ? TransmitForumAdapter.this.m.c() : false;
+                boolean c2 = this.f22564e.m != null ? this.f22564e.m.c() : false;
                 if (!isChecked && c2) {
-                    TransmitForumAdapter.this.m.b();
+                    this.f22564e.m.b();
                 }
                 if (isChecked || !c2) {
                     checkBox.setChecked(!checkBox.isChecked());
                     ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                    if (TransmitForumAdapter.this.m != null) {
-                        TransmitForumAdapter.this.m.a();
+                    if (this.f22564e.m != null) {
+                        this.f22564e.m.a();
                     }
                 }
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TransmitForumAdapter(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        a aVar = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this);
         this.n = aVar;
         a0(aVar);
     }
@@ -79,17 +144,27 @@ public class TransmitForumAdapter extends d.a.c.k.e.a<TransmitForumData, Transmi
     @Override // d.a.c.k.e.a
     /* renamed from: g0 */
     public TransmitForumViewHolder Q(ViewGroup viewGroup) {
-        return new TransmitForumViewHolder(LayoutInflater.from(this.f43012e).inflate(R.layout.transmit_forum_layout, (ViewGroup) null));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f44821e).inflate(R.layout.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
     }
 
     public View h0(int i2, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {
-        transmitForumViewHolder.f22047a.setText(transmitForumData.forumName);
-        transmitForumViewHolder.f22048b.setChecked(transmitForumData.checked);
-        SkinManager.setViewTextColor(transmitForumViewHolder.f22047a, R.color.CAM_X0105);
-        return view;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, transmitForumData, transmitForumViewHolder})) == null) {
+            transmitForumViewHolder.f22562a.setText(transmitForumData.forumName);
+            transmitForumViewHolder.f22563b.setChecked(transmitForumData.checked);
+            SkinManager.setViewTextColor(transmitForumViewHolder.f22562a, R.color.CAM_X0105);
+            return view;
+        }
+        return (View) invokeCommon.objValue;
     }
 
-    public void i0(d.a.o0.w3.q.a aVar) {
-        this.m = aVar;
+    public void i0(d.a.s0.a4.q.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.m = aVar;
+        }
     }
 }

@@ -1,29 +1,72 @@
 package com.baidu.fsg.base.router;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RouterManager {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5220a = "MaApplication";
+    public static final String f5250a = "MaApplication";
 
     /* renamed from: b  reason: collision with root package name */
-    public static RouterManager f5221b = new RouterManager();
+    public static RouterManager f5251b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<ApplicationLogicWrapper> f5222c = new ArrayList<>();
+    public ArrayList<ApplicationLogicWrapper> f5252c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1262005246, "Lcom/baidu/fsg/base/router/RouterManager;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1262005246, "Lcom/baidu/fsg/base/router/RouterManager;");
+                return;
+            }
+        }
+        f5251b = new RouterManager();
+    }
+
+    public RouterManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f5252c = new ArrayList<>();
+    }
 
     private void a(Context context, HashMap<String, Object> hashMap) {
+        ArrayList<ApplicationLogicWrapper> arrayList;
         BaseApplicationLogic baseApplicationLogic;
-        ArrayList<ApplicationLogicWrapper> arrayList = this.f5222c;
-        if (arrayList == null || arrayList.size() < 1) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, hashMap) == null) || (arrayList = this.f5252c) == null || arrayList.size() < 1) {
             return;
         }
-        Iterator<ApplicationLogicWrapper> it = this.f5222c.iterator();
+        Iterator<ApplicationLogicWrapper> it = this.f5252c.iterator();
         while (it.hasNext()) {
             ApplicationLogicWrapper next = it.next();
             if (next != null) {
@@ -41,44 +84,60 @@ public class RouterManager {
     }
 
     public static RouterManager getInstance() {
-        return f5221b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f5251b : (RouterManager) invokeV.objValue;
     }
 
     public void init(Context context, HashMap<String, Object> hashMap) {
-        if (context != null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                LogUtil.d(f5220a, "Application onCreate start: " + System.currentTimeMillis());
-                LocalRouter.init(applicationContext);
-                a(applicationContext, hashMap);
-                LogUtil.d(f5220a, "Application onCreate end: " + System.currentTimeMillis());
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
+            if (context != null) {
+                Context applicationContext = context.getApplicationContext();
+                if (applicationContext != null) {
+                    LogUtil.d(f5250a, "Application onCreate start: " + System.currentTimeMillis());
+                    LocalRouter.init(applicationContext);
+                    a(applicationContext, hashMap);
+                    LogUtil.d(f5250a, "Application onCreate end: " + System.currentTimeMillis());
+                    return;
+                }
+                throw new RuntimeException("Router manager init with applciation context null");
             }
-            throw new RuntimeException("Router manager init with applciation context null");
+            throw new RuntimeException("Router manager init with context null");
         }
-        throw new RuntimeException("Router manager init with context null");
     }
 
     public boolean registerApplicationLogic(Class<? extends BaseApplicationLogic> cls) {
-        ArrayList<ApplicationLogicWrapper> arrayList = this.f5222c;
-        if (arrayList != null) {
-            Iterator<ApplicationLogicWrapper> it = arrayList.iterator();
-            while (it.hasNext()) {
-                if (it.next().logicClass.equals(cls)) {
-                    throw new RuntimeException(cls.getName() + " has registered.");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            ArrayList<ApplicationLogicWrapper> arrayList = this.f5252c;
+            if (arrayList != null) {
+                Iterator<ApplicationLogicWrapper> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    if (it.next().logicClass.equals(cls)) {
+                        throw new RuntimeException(cls.getName() + " has registered.");
+                    }
                 }
+                this.f5252c.add(new ApplicationLogicWrapper(cls));
+                return true;
             }
-            this.f5222c.add(new ApplicationLogicWrapper(cls));
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public void registerProvider(String str, RouterProvider routerProvider) {
-        LocalRouter.getInstance().a(str, routerProvider);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, routerProvider) == null) {
+            LocalRouter.getInstance().a(str, routerProvider);
+        }
     }
 
     public void route(Context context, RouterRequest routerRequest, RouterCallback routerCallback) {
-        LocalRouter.getInstance().a(context, routerRequest, routerCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, routerRequest, routerCallback) == null) {
+            LocalRouter.getInstance().a(context, routerRequest, routerCallback);
+        }
     }
 }

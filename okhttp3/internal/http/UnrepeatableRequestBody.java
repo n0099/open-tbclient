@@ -1,4 +1,4 @@
 package okhttp3.internal.http;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface UnrepeatableRequestBody {
 }

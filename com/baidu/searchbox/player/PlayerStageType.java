@@ -1,6 +1,12 @@
 package com.baidu.searchbox.player;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class PlayerStageType {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int AD = 23;
     public static final int APS = 14;
     public static final int BAIKE = 10;
@@ -27,4 +33,19 @@ public class PlayerStageType {
     public static final int TALOS = 50;
     public static final int TIEBA = 24;
     public static final int UGC = 7;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public PlayerStageType() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -1,32 +1,55 @@
 package com.baidu.ufosdk;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class d implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f22678a;
+    public final /* synthetic */ int f23194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f22679b;
+    public final /* synthetic */ int f23195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f22680c;
+    public final /* synthetic */ int f23196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ int f22681d;
+    public final /* synthetic */ int f23197d;
 
     public d(int i2, int i3, int i4, int i5) {
-        this.f22678a = i2;
-        this.f22679b = i3;
-        this.f22680c = i4;
-        this.f22681d = i5;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23194a = i2;
+        this.f23195b = i3;
+        this.f23196c = i4;
+        this.f23197d = i5;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        context = UfoSDK.mApplication;
-        com.baidu.ufosdk.e.a.a(context, this.f22678a, this.f22679b, this.f22680c, this.f22681d, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            context = UfoSDK.mApplication;
+            com.baidu.ufosdk.e.a.a(context, this.f23194a, this.f23195b, this.f23196c, this.f23197d, false);
+        }
     }
 }

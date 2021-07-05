@@ -1,6 +1,13 @@
 package com.facebook.imagepipeline.core;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.ByteArrayPool;
@@ -17,6 +24,8 @@ import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
 import com.facebook.imagepipeline.image.CloseableImage;
 /* loaded from: classes6.dex */
 public class ImagePipelineExperiments {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mBitmapPrepareToDrawForPrefetch;
     public final int mBitmapPrepareToDrawMaxSizeBytes;
     public final int mBitmapPrepareToDrawMinSizeBytes;
@@ -34,112 +43,233 @@ public class ImagePipelineExperiments {
     public final WebpBitmapFactory.WebpErrorLogger mWebpErrorLogger;
     public final boolean mWebpSupportEnabled;
 
+    /* renamed from: com.facebook.imagepipeline.core.ImagePipelineExperiments$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
     /* loaded from: classes6.dex */
     public static class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean mBitmapPrepareToDrawForPrefetch;
+        public int mBitmapPrepareToDrawMaxSizeBytes;
+        public int mBitmapPrepareToDrawMinSizeBytes;
         public final ImagePipelineConfig.Builder mConfigBuilder;
+        public boolean mDecodeCancellationEnabled;
         public boolean mDownscaleFrameToDrawableDimensions;
         public boolean mGingerbreadDecoderEnabled;
         public Supplier<Boolean> mLazyDataSource;
+        public int mMaxBitmapSize;
+        public boolean mNativeCodeDisabled;
+        public boolean mPartialImageCachingEnabled;
         public ProducerFactoryMethod mProducerFactoryMethod;
+        public boolean mUseBitmapPrepareToDraw;
+        public boolean mUseDownsamplingRatioForResizing;
         public WebpBitmapFactory mWebpBitmapFactory;
         public WebpBitmapFactory.WebpErrorLogger mWebpErrorLogger;
-        public boolean mWebpSupportEnabled = false;
-        public boolean mDecodeCancellationEnabled = false;
-        public boolean mUseDownsamplingRatioForResizing = false;
-        public boolean mUseBitmapPrepareToDraw = false;
-        public int mBitmapPrepareToDrawMinSizeBytes = 0;
-        public int mBitmapPrepareToDrawMaxSizeBytes = 0;
-        public boolean mBitmapPrepareToDrawForPrefetch = false;
-        public int mMaxBitmapSize = 2048;
-        public boolean mNativeCodeDisabled = false;
-        public boolean mPartialImageCachingEnabled = false;
+        public boolean mWebpSupportEnabled;
 
         public Builder(ImagePipelineConfig.Builder builder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {builder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mWebpSupportEnabled = false;
+            this.mDecodeCancellationEnabled = false;
+            this.mUseDownsamplingRatioForResizing = false;
+            this.mUseBitmapPrepareToDraw = false;
+            this.mBitmapPrepareToDrawMinSizeBytes = 0;
+            this.mBitmapPrepareToDrawMaxSizeBytes = 0;
+            this.mBitmapPrepareToDrawForPrefetch = false;
+            this.mMaxBitmapSize = 2048;
+            this.mNativeCodeDisabled = false;
+            this.mPartialImageCachingEnabled = false;
             this.mConfigBuilder = builder;
         }
 
         public ImagePipelineExperiments build() {
-            return new ImagePipelineExperiments(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ImagePipelineExperiments(this, null) : (ImagePipelineExperiments) invokeV.objValue;
         }
 
         public boolean isPartialImageCachingEnabled() {
-            return this.mPartialImageCachingEnabled;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPartialImageCachingEnabled : invokeV.booleanValue;
         }
 
         public ImagePipelineConfig.Builder setBitmapPrepareToDraw(boolean z, int i2, int i3, boolean z2) {
-            this.mUseBitmapPrepareToDraw = z;
-            this.mBitmapPrepareToDrawMinSizeBytes = i2;
-            this.mBitmapPrepareToDrawMaxSizeBytes = i3;
-            this.mBitmapPrepareToDrawForPrefetch = z2;
-            return this.mConfigBuilder;
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2)})) == null) {
+                this.mUseBitmapPrepareToDraw = z;
+                this.mBitmapPrepareToDrawMinSizeBytes = i2;
+                this.mBitmapPrepareToDrawMaxSizeBytes = i3;
+                this.mBitmapPrepareToDrawForPrefetch = z2;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeCommon.objValue;
         }
 
         public ImagePipelineConfig.Builder setDecodeCancellationEnabled(boolean z) {
-            this.mDecodeCancellationEnabled = z;
-            return this.mConfigBuilder;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.mDecodeCancellationEnabled = z;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
         public ImagePipelineConfig.Builder setGingerbreadDecoderEnabled(boolean z) {
-            this.mGingerbreadDecoderEnabled = z;
-            return this.mConfigBuilder;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.mGingerbreadDecoderEnabled = z;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
         public ImagePipelineConfig.Builder setLazyDataSource(Supplier<Boolean> supplier) {
-            this.mLazyDataSource = supplier;
-            return this.mConfigBuilder;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, supplier)) == null) {
+                this.mLazyDataSource = supplier;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeL.objValue;
         }
 
         public ImagePipelineConfig.Builder setMaxBitmapSize(int i2) {
-            this.mMaxBitmapSize = i2;
-            return this.mConfigBuilder;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+                this.mMaxBitmapSize = i2;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeI.objValue;
         }
 
         public ImagePipelineConfig.Builder setNativeCodeDisabled(boolean z) {
-            this.mNativeCodeDisabled = z;
-            return this.mConfigBuilder;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.mNativeCodeDisabled = z;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
         public ImagePipelineConfig.Builder setPartialImageCachingEnabled(boolean z) {
-            this.mPartialImageCachingEnabled = z;
-            return this.mConfigBuilder;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+                this.mPartialImageCachingEnabled = z;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
         public ImagePipelineConfig.Builder setProducerFactoryMethod(ProducerFactoryMethod producerFactoryMethod) {
-            this.mProducerFactoryMethod = producerFactoryMethod;
-            return this.mConfigBuilder;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, producerFactoryMethod)) == null) {
+                this.mProducerFactoryMethod = producerFactoryMethod;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeL.objValue;
         }
 
         public ImagePipelineConfig.Builder setShouldDownscaleFrameToDrawableDimensions(boolean z) {
-            this.mDownscaleFrameToDrawableDimensions = z;
-            return this.mConfigBuilder;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+                this.mDownscaleFrameToDrawableDimensions = z;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
         public ImagePipelineConfig.Builder setUseDownsampligRatioForResizing(boolean z) {
-            this.mUseDownsamplingRatioForResizing = z;
-            return this.mConfigBuilder;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
+                this.mUseDownsamplingRatioForResizing = z;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
         public ImagePipelineConfig.Builder setWebpBitmapFactory(WebpBitmapFactory webpBitmapFactory) {
-            this.mWebpBitmapFactory = webpBitmapFactory;
-            return this.mConfigBuilder;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, webpBitmapFactory)) == null) {
+                this.mWebpBitmapFactory = webpBitmapFactory;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeL.objValue;
         }
 
         public ImagePipelineConfig.Builder setWebpErrorLogger(WebpBitmapFactory.WebpErrorLogger webpErrorLogger) {
-            this.mWebpErrorLogger = webpErrorLogger;
-            return this.mConfigBuilder;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, webpErrorLogger)) == null) {
+                this.mWebpErrorLogger = webpErrorLogger;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeL.objValue;
         }
 
         public ImagePipelineConfig.Builder setWebpSupportEnabled(boolean z) {
-            this.mWebpSupportEnabled = z;
-            return this.mConfigBuilder;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+                this.mWebpSupportEnabled = z;
+                return this.mConfigBuilder;
+            }
+            return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
     public static class DefaultProducerFactoryMethod implements ProducerFactoryMethod {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public DefaultProducerFactoryMethod() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.facebook.imagepipeline.core.ImagePipelineExperiments.ProducerFactoryMethod
         public ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i2, int i3, boolean z4, int i4, CloseableReferenceFactory closeableReferenceFactory) {
-            return new ProducerFactory(context, byteArrayPool, imageDecoder, progressiveJpegConfig, z, z2, z3, executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, i2, i3, z4, i4, closeableReferenceFactory);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, byteArrayPool, imageDecoder, progressiveJpegConfig, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z4), Integer.valueOf(i4), closeableReferenceFactory})) == null) ? new ProducerFactory(context, byteArrayPool, imageDecoder, progressiveJpegConfig, z, z2, z3, executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, i2, i3, z4, i4, closeableReferenceFactory) : (ProducerFactory) invokeCommon.objValue;
         }
     }
 
@@ -148,75 +278,127 @@ public class ImagePipelineExperiments {
         ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i2, int i3, boolean z4, int i4, CloseableReferenceFactory closeableReferenceFactory);
     }
 
+    public /* synthetic */ ImagePipelineExperiments(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
     public static Builder newBuilder(ImagePipelineConfig.Builder builder) {
-        return new Builder(builder);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, builder)) == null) ? new Builder(builder) : (Builder) invokeL.objValue;
     }
 
     public boolean getBitmapPrepareToDrawForPrefetch() {
-        return this.mBitmapPrepareToDrawForPrefetch;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBitmapPrepareToDrawForPrefetch : invokeV.booleanValue;
     }
 
     public int getBitmapPrepareToDrawMaxSizeBytes() {
-        return this.mBitmapPrepareToDrawMaxSizeBytes;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBitmapPrepareToDrawMaxSizeBytes : invokeV.intValue;
     }
 
     public int getBitmapPrepareToDrawMinSizeBytes() {
-        return this.mBitmapPrepareToDrawMinSizeBytes;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBitmapPrepareToDrawMinSizeBytes : invokeV.intValue;
     }
 
     public int getMaxBitmapSize() {
-        return this.mMaxBitmapSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMaxBitmapSize : invokeV.intValue;
     }
 
     public ProducerFactoryMethod getProducerFactoryMethod() {
-        return this.mProducerFactoryMethod;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mProducerFactoryMethod : (ProducerFactoryMethod) invokeV.objValue;
     }
 
     public boolean getUseBitmapPrepareToDraw() {
-        return this.mUseBitmapPrepareToDraw;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUseBitmapPrepareToDraw : invokeV.booleanValue;
     }
 
     public boolean getUseDownsamplingRatioForResizing() {
-        return this.mUseDownsamplingRatioForResizing;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mUseDownsamplingRatioForResizing : invokeV.booleanValue;
     }
 
     public WebpBitmapFactory getWebpBitmapFactory() {
-        return this.mWebpBitmapFactory;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mWebpBitmapFactory : (WebpBitmapFactory) invokeV.objValue;
     }
 
     public WebpBitmapFactory.WebpErrorLogger getWebpErrorLogger() {
-        return this.mWebpErrorLogger;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mWebpErrorLogger : (WebpBitmapFactory.WebpErrorLogger) invokeV.objValue;
     }
 
     public boolean isDecodeCancellationEnabled() {
-        return this.mDecodeCancellationEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mDecodeCancellationEnabled : invokeV.booleanValue;
     }
 
     public boolean isGingerbreadDecoderEnabled() {
-        return this.mGingerbreadDecoderEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mGingerbreadDecoderEnabled : invokeV.booleanValue;
     }
 
     public Supplier<Boolean> isLazyDataSource() {
-        return this.mLazyDataSource;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mLazyDataSource : (Supplier) invokeV.objValue;
     }
 
     public boolean isNativeCodeDisabled() {
-        return this.mNativeCodeDisabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mNativeCodeDisabled : invokeV.booleanValue;
     }
 
     public boolean isPartialImageCachingEnabled() {
-        return this.mPartialImageCachingEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mPartialImageCachingEnabled : invokeV.booleanValue;
     }
 
     public boolean isWebpSupportEnabled() {
-        return this.mWebpSupportEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mWebpSupportEnabled : invokeV.booleanValue;
     }
 
     public boolean shouldDownscaleFrameToDrawableDimensions() {
-        return this.mDownscaleFrameToDrawableDimensions;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mDownscaleFrameToDrawableDimensions : invokeV.booleanValue;
     }
 
     public ImagePipelineExperiments(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mWebpSupportEnabled = builder.mWebpSupportEnabled;
         this.mWebpErrorLogger = builder.mWebpErrorLogger;
         this.mDecodeCancellationEnabled = builder.mDecodeCancellationEnabled;

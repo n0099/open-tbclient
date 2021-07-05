@@ -1,5 +1,10 @@
 package io.reactivex.internal.operators.completable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
@@ -10,44 +15,92 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class CompletableTimeout extends Completable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource other;
     public final Scheduler scheduler;
     public final CompletableSource source;
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public final class DisposeTask implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean once;
         public final CompletableObserver s;
         public final CompositeDisposable set;
+        public final /* synthetic */ CompletableTimeout this$0;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes10.dex */
         public final class DisposeObserver implements CompletableObserver {
-            public DisposeObserver() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DisposeTask this$1;
+
+            public DisposeObserver(DisposeTask disposeTask) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {disposeTask};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$1 = disposeTask;
             }
 
             @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
             public void onComplete() {
-                DisposeTask.this.set.dispose();
-                DisposeTask.this.s.onComplete();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.this$1.set.dispose();
+                    this.this$1.s.onComplete();
+                }
             }
 
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
-                DisposeTask.this.set.dispose();
-                DisposeTask.this.s.onError(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.this$1.set.dispose();
+                    this.this$1.s.onError(th);
+                }
             }
 
             @Override // io.reactivex.CompletableObserver
             public void onSubscribe(Disposable disposable) {
-                DisposeTask.this.set.add(disposable);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) {
+                    this.this$1.set.add(disposable);
+                }
             }
         }
 
-        public DisposeTask(AtomicBoolean atomicBoolean, CompositeDisposable compositeDisposable, CompletableObserver completableObserver) {
+        public DisposeTask(CompletableTimeout completableTimeout, AtomicBoolean atomicBoolean, CompositeDisposable compositeDisposable, CompletableObserver completableObserver) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {completableTimeout, atomicBoolean, compositeDisposable, completableObserver};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = completableTimeout;
             this.once = atomicBoolean;
             this.set = compositeDisposable;
             this.s = completableObserver;
@@ -55,25 +108,42 @@ public final class CompletableTimeout extends Completable {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.once.compareAndSet(false, true)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.once.compareAndSet(false, true)) {
                 this.set.clear();
-                CompletableSource completableSource = CompletableTimeout.this.other;
+                CompletableSource completableSource = this.this$0.other;
                 if (completableSource == null) {
                     this.s.onError(new TimeoutException());
                 } else {
-                    completableSource.subscribe(new DisposeObserver());
+                    completableSource.subscribe(new DisposeObserver(this));
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class TimeOutObserver implements CompletableObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean once;
         public final CompletableObserver s;
         public final CompositeDisposable set;
 
         public TimeOutObserver(CompositeDisposable compositeDisposable, AtomicBoolean atomicBoolean, CompletableObserver completableObserver) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {compositeDisposable, atomicBoolean, completableObserver};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.set = compositeDisposable;
             this.once = atomicBoolean;
             this.s = completableObserver;
@@ -81,7 +151,8 @@ public final class CompletableTimeout extends Completable {
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
-            if (this.once.compareAndSet(false, true)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.once.compareAndSet(false, true)) {
                 this.set.dispose();
                 this.s.onComplete();
             }
@@ -89,21 +160,41 @@ public final class CompletableTimeout extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
-            if (this.once.compareAndSet(false, true)) {
-                this.set.dispose();
-                this.s.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.once.compareAndSet(false, true)) {
+                    this.set.dispose();
+                    this.s.onError(th);
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
-            this.set.add(disposable);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) {
+                this.set.add(disposable);
+            }
         }
     }
 
     public CompletableTimeout(CompletableSource completableSource, long j, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {completableSource, Long.valueOf(j), timeUnit, scheduler, completableSource2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.source = completableSource;
         this.timeout = j;
         this.unit = timeUnit;
@@ -113,10 +204,13 @@ public final class CompletableTimeout extends Completable {
 
     @Override // io.reactivex.Completable
     public void subscribeActual(CompletableObserver completableObserver) {
-        CompositeDisposable compositeDisposable = new CompositeDisposable();
-        completableObserver.onSubscribe(compositeDisposable);
-        AtomicBoolean atomicBoolean = new AtomicBoolean();
-        compositeDisposable.add(this.scheduler.scheduleDirect(new DisposeTask(atomicBoolean, compositeDisposable, completableObserver), this.timeout, this.unit));
-        this.source.subscribe(new TimeOutObserver(compositeDisposable, atomicBoolean, completableObserver));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, completableObserver) == null) {
+            CompositeDisposable compositeDisposable = new CompositeDisposable();
+            completableObserver.onSubscribe(compositeDisposable);
+            AtomicBoolean atomicBoolean = new AtomicBoolean();
+            compositeDisposable.add(this.scheduler.scheduleDirect(new DisposeTask(this, atomicBoolean, compositeDisposable, completableObserver), this.timeout, this.unit));
+            this.source.subscribe(new TimeOutObserver(compositeDisposable, atomicBoolean, completableObserver));
+        }
     }
 }

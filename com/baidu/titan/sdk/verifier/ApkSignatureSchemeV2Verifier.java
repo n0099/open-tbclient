@@ -651,7 +651,7 @@ public class ApkSignatureSchemeV2Verifier {
 
     public static boolean hasSignature(String str) throws IOException {
         boolean z;
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7715a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7745a);
         try {
             findSignature(randomAccessFile);
             z = true;
@@ -728,7 +728,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     public static X509Certificate[][] verify(String str) throws SignatureNotFoundException, SecurityException, IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7715a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7745a);
         try {
             return verify(randomAccessFile);
         } finally {
@@ -893,7 +893,7 @@ public class ApkSignatureSchemeV2Verifier {
 
     public static boolean hasSignature(File file) throws IOException {
         boolean z;
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7715a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7745a);
         try {
             findSignature(randomAccessFile);
             z = true;
@@ -908,7 +908,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     public static X509Certificate[][] verify(File file) throws SignatureNotFoundException, SecurityException, IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7715a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7745a);
         try {
             return verify(randomAccessFile);
         } finally {

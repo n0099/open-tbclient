@@ -1,5 +1,11 @@
 package com.baidu.media.kernelnet;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
 public class KernelNetApi {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static native synchronized int nativeKernelNetInit(long j);
 }

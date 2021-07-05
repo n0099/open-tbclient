@@ -1,11 +1,20 @@
 package com.baidu.media.duplayer;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class SystemInfraInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8036a = false;
+    public boolean f8066a;
     @Keep
     public long mBuildDateUTC;
     @Keep
@@ -26,6 +35,18 @@ public class SystemInfraInfo {
     public long mVmSizeInSmaps;
 
     public SystemInfraInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mVmSize = 0L;
         this.mVmPeak = 0L;
         this.mVmSizeInSmaps = 0L;
@@ -35,6 +56,7 @@ public class SystemInfraInfo {
         this.mMaxCpuFreq = 0L;
         this.mBuildDateUTC = 0L;
         this.mPmSizeAvailable = 0L;
+        this.f8066a = false;
         this.mVmSize = -1L;
         this.mVmPeak = -1L;
         this.mVmSizeInSmaps = -1L;
@@ -55,48 +77,76 @@ public class SystemInfraInfo {
     private native void nativeGetCurrentMemInfo();
 
     public void a() {
-        nativeGetCurrentInfoVm();
-        CyberLog.i("", "SystemInfraInfo mVmSize:" + this.mVmSize + " mVmPeak:" + this.mVmPeak);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            nativeGetCurrentInfoVm();
+            CyberLog.i("", "SystemInfraInfo mVmSize:" + this.mVmSize + " mVmPeak:" + this.mVmPeak);
+        }
     }
 
     public void b() {
-        nativeGetCurrentMemInfo();
-        CyberLog.i("", "SystemInfraInfo mPmSizeAvailable:" + this.mPmSizeAvailable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            nativeGetCurrentMemInfo();
+            CyberLog.i("", "SystemInfraInfo mPmSizeAvailable:" + this.mPmSizeAvailable);
+        }
     }
 
     public long c() {
-        return this.mVmSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mVmSize : invokeV.longValue;
     }
 
     public long d() {
-        return this.mVmPeak;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVmPeak : invokeV.longValue;
     }
 
     public long e() {
-        i();
-        return this.mNumProcessors;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            i();
+            return this.mNumProcessors;
+        }
+        return invokeV.longValue;
     }
 
     public long f() {
-        i();
-        return this.mMaxCpuFreq;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            i();
+            return this.mMaxCpuFreq;
+        }
+        return invokeV.longValue;
     }
 
     public long g() {
-        i();
-        return this.mBuildDateUTC;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            i();
+            return this.mBuildDateUTC;
+        }
+        return invokeV.longValue;
     }
 
     public long h() {
-        return this.mPmSizeAvailable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPmSizeAvailable : invokeV.longValue;
     }
 
     public final void i() {
-        if (this.f8036a) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f8066a) {
             return;
         }
         nativeGetConstInfo();
         CyberLog.i("", "SystemInfraInfo mNumProcessors:" + this.mNumProcessors + " \nmMaxCpuFreq:" + this.mMaxCpuFreq + " \nmBuildDateUTC" + this.mBuildDateUTC);
-        this.f8036a = true;
+        this.f8066a = true;
     }
 }

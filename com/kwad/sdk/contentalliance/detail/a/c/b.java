@@ -2,169 +2,319 @@ package com.kwad.sdk.contentalliance.detail.a.c;
 
 import android.os.SystemClock;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.contentalliance.detail.video.e;
 import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.contentalliance.home.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32652b = false;
+    public static boolean f34415b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f32653c;
+    public AdTemplate f34416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32654d;
+    public int f34417d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32655e;
+    public com.kwad.sdk.core.i.a f34418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SceneImpl f32656f;
-    public volatile long j;
+    public SceneImpl f34419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f32657g = 0;
+    public long f34420g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32658h = false;
+    public boolean f34421h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32659i = true;
-    public boolean k = false;
-    public e l = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.1
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void b() {
-            super.b();
-            b.this.f32659i = false;
-            if (!b.this.k) {
-                b.this.f32657g = SystemClock.elapsedRealtime();
-            }
-            b.this.j = SystemClock.elapsedRealtime();
-            if (b.f32652b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32654d + " onVideoPlayStart");
-            }
-        }
+    public boolean f34422i;
+    public volatile long j;
+    public boolean k;
+    public e l;
+    public com.kwad.sdk.contentalliance.a.a m;
+    public com.kwad.sdk.core.i.c n;
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void c() {
-            super.c();
-            b.this.f32659i = true;
-            if (b.this.f32658h) {
-                com.kwad.sdk.core.report.e.a(b.this.f32656f, b.this.f32653c, b.this.j > 0 ? SystemClock.elapsedRealtime() - b.this.j : -1L);
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1939533673, "Lcom/kwad/sdk/contentalliance/detail/a/c/b;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1939533673, "Lcom/kwad/sdk/contentalliance/detail/a/c/b;");
+        }
+    }
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void d() {
-            super.d();
-            if (b.f32652b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32654d + " onVideoPlaying");
-            }
-            b.this.g();
-            b.this.j = SystemClock.elapsedRealtime();
-            if (b.this.f32658h && b.this.f32659i) {
-                com.kwad.sdk.core.report.e.b(b.this.f32653c);
-            }
-            b.this.f32659i = false;
-        }
-    };
-    public com.kwad.sdk.contentalliance.a.a m = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.2
-        @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
-        public void j() {
-            super.j();
-            if (b.f32652b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32654d + " becomesAttachedOnPageSelected");
-            }
-            b.this.f32657g = SystemClock.elapsedRealtime();
-            if (b.this.f32655e == null) {
-                com.kwad.sdk.core.d.a.c("DetailLogVideoPresenter", "mVisibleHelper is null");
-            } else {
-                b.this.f32655e.a(b.this.n);
-            }
-        }
-
-        @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
-        public void k() {
-            super.k();
-            if (b.f32652b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32654d + " becomesDetachedOnPageSelected");
-            }
-            if (b.this.f32655e == null) {
-                com.kwad.sdk.core.d.a.c("DetailLogVideoPresenter", "mVisibleHelper is null");
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            b.this.f32655e.b(b.this.n);
-            b.this.f();
         }
-    };
-    public com.kwad.sdk.core.i.c n = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.3
-        @Override // com.kwad.sdk.core.i.c
-        public void b() {
-            b.this.k = false;
-        }
+        this.f34420g = 0L;
+        this.f34421h = false;
+        this.f34422i = true;
+        this.k = false;
+        this.l = new f(this) { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.kwad.sdk.core.i.c
-        public void c_() {
-            if (b.f32652b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32654d + " onPageVisible");
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ b f34423a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34423a = this;
             }
-            b.this.k = true;
-            b.this.f32657g = SystemClock.elapsedRealtime();
-        }
-    };
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void b() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    super.b();
+                    this.f34423a.f34422i = false;
+                    if (!this.f34423a.k) {
+                        this.f34423a.f34420g = SystemClock.elapsedRealtime();
+                    }
+                    this.f34423a.j = SystemClock.elapsedRealtime();
+                    if (b.f34415b) {
+                        com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f34423a.f34417d + " onVideoPlayStart");
+                    }
+                }
+            }
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void c() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    super.c();
+                    this.f34423a.f34422i = true;
+                    if (this.f34423a.f34421h) {
+                        com.kwad.sdk.core.report.e.a(this.f34423a.f34419f, this.f34423a.f34416c, this.f34423a.j > 0 ? SystemClock.elapsedRealtime() - this.f34423a.j : -1L);
+                    }
+                }
+            }
+
+            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+            public void d() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    super.d();
+                    if (b.f34415b) {
+                        com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f34423a.f34417d + " onVideoPlaying");
+                    }
+                    this.f34423a.g();
+                    this.f34423a.j = SystemClock.elapsedRealtime();
+                    if (this.f34423a.f34421h && this.f34423a.f34422i) {
+                        com.kwad.sdk.core.report.e.b(this.f34423a.f34416c);
+                    }
+                    this.f34423a.f34422i = false;
+                }
+            }
+        };
+        this.m = new com.kwad.sdk.contentalliance.a.b(this) { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ b f34424a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34424a = this;
+            }
+
+            @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
+            public void j() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    super.j();
+                    if (b.f34415b) {
+                        com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f34424a.f34417d + " becomesAttachedOnPageSelected");
+                    }
+                    this.f34424a.f34420g = SystemClock.elapsedRealtime();
+                    if (this.f34424a.f34418e == null) {
+                        com.kwad.sdk.core.d.a.c("DetailLogVideoPresenter", "mVisibleHelper is null");
+                    } else {
+                        this.f34424a.f34418e.a(this.f34424a.n);
+                    }
+                }
+            }
+
+            @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
+            public void k() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    super.k();
+                    if (b.f34415b) {
+                        com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f34424a.f34417d + " becomesDetachedOnPageSelected");
+                    }
+                    if (this.f34424a.f34418e == null) {
+                        com.kwad.sdk.core.d.a.c("DetailLogVideoPresenter", "mVisibleHelper is null");
+                        return;
+                    }
+                    this.f34424a.f34418e.b(this.f34424a.n);
+                    this.f34424a.f();
+                }
+            }
+        };
+        this.n = new com.kwad.sdk.core.i.c(this) { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ b f34425a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34425a = this;
+            }
+
+            @Override // com.kwad.sdk.core.i.c
+            public void b() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.f34425a.k = false;
+                }
+            }
+
+            @Override // com.kwad.sdk.core.i.c
+            public void c_() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    if (b.f34415b) {
+                        com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f34425a.f34417d + " onPageVisible");
+                    }
+                    this.f34425a.k = true;
+                    this.f34425a.f34420g = SystemClock.elapsedRealtime();
+                }
+            }
+        };
+    }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.k = false;
-        this.f32658h = false;
-        this.f32659i = false;
-        this.j = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            this.k = false;
+            this.f34421h = false;
+            this.f34422i = false;
+            this.j = 0L;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        if (this.f32658h) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || this.f34421h) {
             return;
         }
-        this.f32658h = true;
-        long elapsedRealtime = SystemClock.elapsedRealtime() - this.f32657g;
-        if (f32652b) {
-            com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f32654d + " startPlayDuration startPlayDuration: " + elapsedRealtime);
+        this.f34421h = true;
+        long elapsedRealtime = SystemClock.elapsedRealtime() - this.f34420g;
+        if (f34415b) {
+            com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f34417d + " startPlayDuration startPlayDuration: " + elapsedRealtime);
         }
-        com.kwad.sdk.core.report.e.a(this.f32653c, elapsedRealtime);
+        com.kwad.sdk.core.report.e.a(this.f34416c, elapsedRealtime);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
-        super.a();
-        h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32811a;
-        if (hVar != null) {
-            this.f32655e = hVar.f33477a;
-            this.f32656f = hVar.k;
-        }
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a;
-        this.f32653c = cVar.j;
-        this.f32654d = cVar.f32819i;
-        f();
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.add(this.m);
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
-        if (bVar != null) {
-            bVar.a(this.l);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
+            h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.f34574a;
+            if (hVar != null) {
+                this.f34418e = hVar.f35240a;
+                this.f34419f = hVar.k;
+            }
+            com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a;
+            this.f34416c = cVar.j;
+            this.f34417d = cVar.f34582i;
+            f();
+            ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.f34575b.add(this.m);
+            com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.m;
+            if (bVar != null) {
+                bVar.a(this.l);
+            }
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
-        super.b_();
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.f32812b.remove(this.m);
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32790a.m;
-        if (bVar != null) {
-            bVar.b(this.l);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.b_();
+            ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.f34575b.remove(this.m);
+            com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f34553a.m;
+            if (bVar != null) {
+                bVar.b(this.l);
+            }
         }
     }
 }

@@ -1,6 +1,12 @@
 package com.baidu.mobads.sdk.internal;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class ISecurityInfo {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ADSERV_PHP_URL = "http://mobads.baidu.com/ads/pa/8/reconfig/__pasys_remote_banner.php";
     public static final String AD_CLICK_THRU = "AdClickThru";
     public static final String AD_DATA_LOADED = "AdLoadData";
@@ -61,4 +67,19 @@ public class ISecurityInfo {
     public static final String VIDEO_CACHE_FAILED = "vdieoCacheFailed";
     public static final String VIDEO_CACHE_SUCC = "vdieoCacheSucc";
     public static final String __SP_NAME_APK_LOADER__ = "com.baidu.mobads.loader";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ISecurityInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

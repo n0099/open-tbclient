@@ -4,67 +4,90 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
-import com.qq.e.comm.managers.status.SDKStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
 /* loaded from: classes7.dex */
 public final class MediaView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f39030a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f39031b;
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MediaView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MediaView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MediaView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     @SuppressLint({"NewApi"})
     public final void onAttachedToWindow() {
-        GDTLogger.d("onAttachedToWindow");
-        super.onAttachedToWindow();
-        if (Build.VERSION.SDK_INT < 11 || isHardwareAccelerated()) {
-            return;
-        }
-        GDTLogger.e("Hardware acceleration is off");
-    }
-
-    @Override // android.widget.FrameLayout, android.view.View
-    public final void onMeasure(int i2, int i3) {
-        if ((SDKStatus.getSDKVersionCode() == 11 || SDKStatus.getSDKVersionCode() == 12) && this.f39030a > 0 && this.f39031b > 0) {
-            int size = View.MeasureSpec.getSize(i2);
-            int size2 = View.MeasureSpec.getSize(i3);
-            int i4 = this.f39031b;
-            int i5 = size * i4;
-            int i6 = this.f39030a;
-            if (i5 < i6 * size2 || size2 == 0) {
-                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
-                i3 = View.MeasureSpec.makeMeasureSpec((size * this.f39031b) / this.f39030a, 1073741824);
-                i2 = makeMeasureSpec;
-            } else {
-                if (i4 * size > i6 * size2 || size == 0) {
-                    size = (this.f39030a * size2) / this.f39031b;
-                }
-                i2 = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
-                i3 = View.MeasureSpec.makeMeasureSpec(size2, 1073741824);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GDTLogger.d("onAttachedToWindow");
+            super.onAttachedToWindow();
+            if (Build.VERSION.SDK_INT < 11 || isHardwareAccelerated()) {
+                return;
             }
+            GDTLogger.e("Hardware acceleration is off");
         }
-        super.onMeasure(i2, i3);
-    }
-
-    public final void setRatio(int i2, int i3) {
-        this.f39030a = i2;
-        this.f39031b = i3;
     }
 }

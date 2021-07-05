@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -15,24 +16,30 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.a.n0.z0.o;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.o;
+/* loaded from: classes5.dex */
 public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActivity> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f14740e;
+    public NavigationBar f14831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GifView f14741f;
+    public GifView f14832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f14742g;
+    public TbImageView f14833g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f14743h;
+    public TextView f14834h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14744i;
+    public TextView f14835i;
     public String j;
     public String k;
     public String l;
@@ -43,131 +50,213 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
     public int q;
     public int r;
     public int s;
-    public int t = 0;
+    public int t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ EmotionImageActivity f14836e;
+
+        public a(EmotionImageActivity emotionImageActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionImageActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14836e = emotionImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            EmotionImageActivity.this.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f14836e.finish();
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ EmotionImageActivity f14837e;
+
+        public b(EmotionImageActivity emotionImageActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {emotionImageActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14837e = emotionImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i2 = EmotionImageActivity.this.t;
-            EmotionImageActivity.this.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(EmotionImageActivity.this.getPageContext().getPageActivity(), EmotionImageActivity.this.j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                int i2 = this.f14837e.t;
+                this.f14837e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f14837e.getPageContext().getPageActivity(), this.f14837e.j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+            }
         }
+    }
+
+    public EmotionImageActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.t = 0;
     }
 
     public final void h(Bundle bundle) {
-        int i2 = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
-        this.r = i2 < 0 ? 160 : 240;
-        this.s = i2 >= 0 ? 240 : 160;
-        if (bundle != null) {
-            this.j = bundle.getString("pid");
-            this.k = bundle.getString("panme");
-            this.l = bundle.getString("iconUrl");
-            this.m = bundle.getString("gifUrl");
-            this.n = bundle.getString("staticUrl");
-            this.o = bundle.getString("sharpText");
-            this.p = bundle.getInt("width");
-            this.q = bundle.getInt("height");
-        } else {
-            Intent intent = getIntent();
-            this.j = intent.getStringExtra("pid");
-            this.k = intent.getStringExtra("panme");
-            this.l = intent.getStringExtra("iconUrl");
-            this.m = intent.getStringExtra("gifUrl");
-            this.n = intent.getStringExtra("staticUrl");
-            this.o = intent.getStringExtra("sharpText");
-            this.p = intent.getIntExtra("width", this.r);
-            this.q = intent.getIntExtra("height", this.s);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            int i2 = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
+            this.r = i2 < 0 ? 160 : 240;
+            this.s = i2 >= 0 ? 240 : 160;
+            if (bundle != null) {
+                this.j = bundle.getString("pid");
+                this.k = bundle.getString("panme");
+                this.l = bundle.getString("iconUrl");
+                this.m = bundle.getString("gifUrl");
+                this.n = bundle.getString("staticUrl");
+                this.o = bundle.getString("sharpText");
+                this.p = bundle.getInt("width");
+                this.q = bundle.getInt("height");
+            } else {
+                Intent intent = getIntent();
+                this.j = intent.getStringExtra("pid");
+                this.k = intent.getStringExtra("panme");
+                this.l = intent.getStringExtra("iconUrl");
+                this.m = intent.getStringExtra("gifUrl");
+                this.n = intent.getStringExtra("staticUrl");
+                this.o = intent.getStringExtra("sharpText");
+                this.p = intent.getIntExtra("width", this.r);
+                this.q = intent.getIntExtra("height", this.s);
+            }
+            this.t = getIntent().getIntExtra("from", 0);
         }
-        this.t = getIntent().getIntExtra("from", 0);
     }
 
     public final void i() {
         FrameLayout.LayoutParams layoutParams;
-        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.f14740e = navigationBar;
-        navigationBar.setTitleText(getString(R.string.emotion_image_title));
-        this.f14740e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
-        this.f14741f = (GifView) findViewById(R.id.gifview);
-        if (this.p != 0 && this.q != 0) {
-            layoutParams = new FrameLayout.LayoutParams(this.p, this.q, 17);
-        } else {
-            layoutParams = new FrameLayout.LayoutParams(this.r, this.s, 17);
-        }
-        this.f14741f.setLayoutParams(layoutParams);
-        boolean f2 = o.f();
-        GifInfo gifInfo = new GifInfo();
-        gifInfo.mSharpText = this.o;
-        gifInfo.mGid = this.j;
-        gifInfo.mGifHeight = this.q;
-        gifInfo.mGifWidth = this.p;
-        if (f2) {
-            gifInfo.mDynamicUrl = this.m;
-        } else {
-            gifInfo.mStaticUrl = this.n;
-        }
-        this.f14741f.w0(gifInfo);
-        this.f14742g = (TbImageView) findViewById(R.id.emotion_icon);
-        if (!TextUtils.isEmpty(this.l)) {
-            this.f14742g.U(this.l, 10, false);
-        } else {
-            Bitmap f3 = d.a.o0.m0.b.f(this.j, "panel.png");
-            if (f3 != null) {
-                new d.a.c.k.d.a(f3, false).h(this.f14742g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            this.f14831e = navigationBar;
+            navigationBar.setTitleText(getString(R.string.emotion_image_title));
+            this.f14831e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.f14832f = (GifView) findViewById(R.id.gifview);
+            if (this.p != 0 && this.q != 0) {
+                layoutParams = new FrameLayout.LayoutParams(this.p, this.q, 17);
+            } else {
+                layoutParams = new FrameLayout.LayoutParams(this.r, this.s, 17);
             }
+            this.f14832f.setLayoutParams(layoutParams);
+            boolean f2 = o.f();
+            GifInfo gifInfo = new GifInfo();
+            gifInfo.mSharpText = this.o;
+            gifInfo.mGid = this.j;
+            gifInfo.mGifHeight = this.q;
+            gifInfo.mGifWidth = this.p;
+            if (f2) {
+                gifInfo.mDynamicUrl = this.m;
+            } else {
+                gifInfo.mStaticUrl = this.n;
+            }
+            this.f14832f.k0(gifInfo);
+            this.f14833g = (TbImageView) findViewById(R.id.emotion_icon);
+            if (!TextUtils.isEmpty(this.l)) {
+                this.f14833g.M(this.l, 10, false);
+            } else {
+                Bitmap f3 = d.a.s0.p0.b.f(this.j, "panel.png");
+                if (f3 != null) {
+                    new d.a.c.k.d.a(f3, false).h(this.f14833g);
+                }
+            }
+            TextView textView = (TextView) findViewById(R.id.emotion_pname);
+            this.f14834h = textView;
+            textView.setText(this.k);
+            TextView textView2 = (TextView) findViewById(R.id.emotion_detail);
+            this.f14835i = textView2;
+            textView2.setOnClickListener(new b(this));
         }
-        TextView textView = (TextView) findViewById(R.id.emotion_pname);
-        this.f14743h = textView;
-        textView.setText(this.k);
-        TextView textView2 = (TextView) findViewById(R.id.emotion_detail);
-        this.f14744i = textView2;
-        textView2.setOnClickListener(new b());
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        getLayoutMode().k(i2 == 1);
-        getLayoutMode().j(findViewById(R.id.emotion_image_root));
-        this.f14740e.onChangeSkinType(getPageContext(), i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            getLayoutMode().k(i2 == 1);
+            getLayoutMode().j(findViewById(R.id.emotion_image_root));
+            this.f14831e.onChangeSkinType(getPageContext(), i2);
+        }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.emotion_activity);
-        h(bundle);
-        i();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.emotion_activity);
+            h(bundle);
+            i();
+        }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
-        super.onDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+        }
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putString("pid", this.j);
-        bundle.putString("panme", this.k);
-        bundle.putString("iconUrl", this.l);
-        bundle.putString("gifUrl", this.m);
-        bundle.putString("staticUrl", this.n);
-        bundle.putString("sharpText", this.o);
-        bundle.putInt("width", this.p);
-        bundle.putInt("height", this.q);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putString("pid", this.j);
+            bundle.putString("panme", this.k);
+            bundle.putString("iconUrl", this.l);
+            bundle.putString("gifUrl", this.m);
+            bundle.putString("staticUrl", this.n);
+            bundle.putString("sharpText", this.o);
+            bundle.putInt("width", this.p);
+            bundle.putInt("height", this.q);
+        }
     }
 }

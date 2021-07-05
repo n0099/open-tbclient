@@ -1,29 +1,60 @@
 package com.google.zxing.client.result;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SMSMMSResultParser extends ResultParser {
-    public static void addNumberVia(Collection<String> collection, Collection<String> collection2, String str) {
-        int indexOf = str.indexOf(59);
-        if (indexOf < 0) {
-            collection.add(str);
-            collection2.add(null);
-            return;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public SMSMMSResultParser() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        collection.add(str.substring(0, indexOf));
-        String substring = str.substring(indexOf + 1);
-        collection2.add(substring.startsWith("via=") ? substring.substring(4) : null);
+    }
+
+    public static void addNumberVia(Collection<String> collection, Collection<String> collection2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, collection, collection2, str) == null) {
+            int indexOf = str.indexOf(59);
+            if (indexOf < 0) {
+                collection.add(str);
+                collection2.add(null);
+                return;
+            }
+            collection.add(str.substring(0, indexOf));
+            String substring = str.substring(indexOf + 1);
+            collection2.add(substring.startsWith("via=") ? substring.substring(4) : null);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
     public SMSParsedResult parse(Result result) {
+        InterceptResult invokeL;
         String str;
         String substring;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result)) != null) {
+            return (SMSParsedResult) invokeL.objValue;
+        }
         String massagedText = ResultParser.getMassagedText(result);
         String str2 = null;
         if (!massagedText.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS) && !massagedText.startsWith("SMS:") && !massagedText.startsWith("mms:") && !massagedText.startsWith("MMS:")) {

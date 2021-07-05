@@ -1,5 +1,10 @@
 package com.yy.hiidostatis.message.sender;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.SharedTimerTask;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
@@ -16,28 +21,51 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultListener, ISingleton {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_LIMIT_SIZE_THRESHOLD = 3;
     public static final int LIMIT_SIZE = 40960;
     public static final int LIMIT_SIZE_STEP = 10240;
     public static final long MAX_WAIT_MILLIS = 30000;
     public static final int SENDING_CAPACITY = 10;
     public static final int STOP_SEND_THRESHOLD = 3;
+    public transient /* synthetic */ FieldHolder $fh;
     public MessageConfig config;
+    public volatile AtomicInteger errorCount;
+    public volatile int limitSize;
+    public List<MessageProcessor> messageProcessors;
+    public int preRunTime;
     public volatile boolean running;
     public MessageSender sender;
+    public AtomicInteger sendingCount;
+    public AtomicInteger sfCount;
+    public volatile int state;
     public MessageSupplier supplier;
     public SharedTimerTask timerTask;
-    public List<MessageProcessor> messageProcessors = new ArrayList();
-    public volatile int state = 0;
-    public volatile AtomicInteger errorCount = new AtomicInteger();
-    public volatile int limitSize = LIMIT_SIZE;
-    public AtomicInteger sendingCount = new AtomicInteger(0);
-    public AtomicInteger sfCount = new AtomicInteger();
-    public int preRunTime = 0;
 
     public SendMsgDispatcher(MessageSupplier messageSupplier, MessageSender messageSender, List<MessageProcessor> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageSupplier, messageSender, list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.messageProcessors = new ArrayList();
+        this.state = 0;
+        this.errorCount = new AtomicInteger();
+        this.limitSize = LIMIT_SIZE;
+        this.sendingCount = new AtomicInteger(0);
+        this.sfCount = new AtomicInteger();
+        this.preRunTime = 0;
         this.supplier = messageSupplier;
         this.sender = messageSender;
         if (list != null) {
@@ -47,105 +75,128 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
     }
 
     public void appendMessageProcessor(MessageProcessor messageProcessor) {
-        this.messageProcessors.add(messageProcessor);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, messageProcessor) == null) {
+            this.messageProcessors.add(messageProcessor);
+        }
     }
 
     @Override // com.yy.hiidostatis.message.Task
     public void execute() {
-        synchronized (this) {
-            if (this.state == 0 || TimeUtil.currentTimeInSecond() - this.preRunTime > 30000) {
-                this.state = 1;
-                this.preRunTime = TimeUtil.currentTimeInSecond();
-                ThreadPool.getPool().execute(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.state == 0 || TimeUtil.currentTimeInSecond() - this.preRunTime > 30000) {
+                    this.state = 1;
+                    this.preRunTime = TimeUtil.currentTimeInSecond();
+                    ThreadPool.getPool().execute(this);
+                }
             }
         }
     }
 
     public void insertMessageProcessor(int i2, MessageProcessor messageProcessor) {
-        this.messageProcessors.add(i2, messageProcessor);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, messageProcessor) == null) {
+            this.messageProcessors.add(i2, messageProcessor);
+        }
     }
 
     @Override // com.yy.hiidostatis.message.MessageSender.ResultListener
     public void onResult(int i2, Message message, String str) {
-        int decrementAndGet = this.sendingCount.decrementAndGet();
-        if (i2 == 0) {
-            L.infoLimitTime(this, "Send Success:%s", message.getMsgId());
-            TraceLog.successMessageLog(message.getMsgId());
-            this.supplier.removeMessage(message.getMsgId());
-            this.errorCount.set(this.errorCount.get() / 2);
-            if (decrementAndGet < 5) {
-                execute();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, message, str) == null) {
+            int decrementAndGet = this.sendingCount.decrementAndGet();
+            if (i2 == 0) {
+                L.infoLimitTime(this, "Send Success:%s", message.getMsgId());
+                TraceLog.successMessageLog(message.getMsgId());
+                this.supplier.removeMessage(message.getMsgId());
+                this.errorCount.set(this.errorCount.get() / 2);
+                if (decrementAndGet < 5) {
+                    execute();
+                }
+                int incrementAndGet = this.sfCount.incrementAndGet();
+                if (!message.isSingle() && incrementAndGet > 3) {
+                    this.sfCount.set(0);
+                    this.limitSize = Math.min(this.limitSize + 10240, (int) LIMIT_SIZE);
+                    L.debug(this, "change limit size:%d add", Integer.valueOf(this.limitSize));
+                    return;
+                } else if (incrementAndGet > 9) {
+                    this.sfCount.set(0);
+                    this.limitSize = Math.min(this.limitSize + 10240, (int) LIMIT_SIZE);
+                    L.debug(this, "change limit size:%d add", Integer.valueOf(this.limitSize));
+                    return;
+                } else {
+                    return;
+                }
             }
-            int incrementAndGet = this.sfCount.incrementAndGet();
-            if (!message.isSingle() && incrementAndGet > 3) {
-                this.sfCount.set(0);
-                this.limitSize = Math.min(this.limitSize + 10240, (int) LIMIT_SIZE);
-                L.debug(this, "change limit size:%d add", Integer.valueOf(this.limitSize));
-                return;
-            } else if (incrementAndGet > 9) {
-                this.sfCount.set(0);
-                this.limitSize = Math.min(this.limitSize + 10240, (int) LIMIT_SIZE);
-                L.debug(this, "change limit size:%d add", Integer.valueOf(this.limitSize));
-                return;
-            } else {
+            TraceLog.failedMessageLog(message.getMsgId());
+            L.error(this, "Send Error:%s", message.getMsgId());
+            this.supplier.restoreMessage(message.getMsgId());
+            int incrementAndGet2 = this.errorCount.incrementAndGet();
+            if (incrementAndGet2 > 3) {
+                execute(Math.min(incrementAndGet2 * 1000, 30000L));
+            }
+            if (message.isSingle() || this.sfCount.decrementAndGet() >= -3) {
                 return;
             }
+            this.sfCount.set(0);
+            this.limitSize = Math.max(this.limitSize - 10240, 0);
+            L.debug(this, "change limit size:%d reduce", Integer.valueOf(this.limitSize));
         }
-        TraceLog.failedMessageLog(message.getMsgId());
-        L.error(this, "Send Error:%s", message.getMsgId());
-        this.supplier.restoreMessage(message.getMsgId());
-        int incrementAndGet2 = this.errorCount.incrementAndGet();
-        if (incrementAndGet2 > 3) {
-            execute(Math.min(incrementAndGet2 * 1000, 30000L));
-        }
-        if (message.isSingle() || this.sfCount.decrementAndGet() >= -3) {
-            return;
-        }
-        this.sfCount.set(0);
-        this.limitSize = Math.max(this.limitSize - 10240, 0);
-        L.debug(this, "change limit size:%d reduce", Integer.valueOf(this.limitSize));
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        try {
-            if (this.running) {
-                return;
-            }
-            synchronized (this) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
                 if (this.running) {
                     return;
                 }
-                this.running = true;
-                int i2 = 0;
-                while (true) {
-                    if (!this.running || i2 >= 10) {
-                        break;
+                synchronized (this) {
+                    if (this.running) {
+                        return;
                     }
-                    synchronized (this) {
-                        this.state = 1;
-                    }
-                    this.preRunTime = TimeUtil.currentTimeInSecond();
-                    Message fetchMessage = this.supplier.fetchMessage(this.limitSize);
-                    if (fetchMessage == null) {
+                    this.running = true;
+                    int i2 = 0;
+                    while (true) {
+                        if (!this.running || i2 >= 10) {
+                            break;
+                        }
                         synchronized (this) {
-                            if (this.state != 2) {
-                                this.state = 0;
+                            this.state = 1;
+                        }
+                        this.preRunTime = TimeUtil.currentTimeInSecond();
+                        Message fetchMessage = this.supplier.fetchMessage(this.limitSize);
+                        if (fetchMessage == null) {
+                            synchronized (this) {
+                                if (this.state != 2) {
+                                    this.state = 0;
+                                }
+                            }
+                        } else {
+                            if (this.limitSize > fetchMessage.getContent().length) {
+                                this.running = false;
+                            }
+                            Iterator<MessageProcessor> it = this.messageProcessors.iterator();
+                            while (it.hasNext() && (fetchMessage = it.next().process(fetchMessage)) != null) {
+                            }
+                            if (fetchMessage != null) {
+                                i2 = this.sendingCount.incrementAndGet();
+                                this.sender.asyncSend(fetchMessage);
                             }
                         }
-                    } else {
-                        if (this.limitSize > fetchMessage.getContent().length) {
-                            this.running = false;
+                    }
+                    synchronized (this) {
+                        if (this.state == 1) {
+                            this.state = 0;
                         }
-                        Iterator<MessageProcessor> it = this.messageProcessors.iterator();
-                        while (it.hasNext() && (fetchMessage = it.next().process(fetchMessage)) != null) {
-                        }
-                        if (fetchMessage != null) {
-                            i2 = this.sendingCount.incrementAndGet();
-                            this.sender.asyncSend(fetchMessage);
-                        }
+                        this.running = false;
                     }
                 }
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 synchronized (this) {
                     if (this.state == 1) {
                         this.state = 0;
@@ -153,40 +204,60 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
                     this.running = false;
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            synchronized (this) {
-                if (this.state == 1) {
-                    this.state = 0;
-                }
-                this.running = false;
-            }
         }
     }
 
     @Override // com.yy.hiidostatis.message.ISingleton
     public void setMainConfig(MessageConfig messageConfig) {
-        if (this.config != null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, messageConfig) == null) && this.config == null) {
+            this.config = messageConfig;
+            this.timerTask = new SharedTimerTask(this) { // from class: com.yy.hiidostatis.message.sender.SendMsgDispatcher.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SendMsgDispatcher this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.execute();
+                    }
+                }
+            };
+            long max = messageConfig.getInterval() > 0 ? Math.max(messageConfig.getInterval(), 5) * 1000 : 30000L;
+            ThreadPool.getPool().getTimer().schedule(this.timerTask, max, max);
         }
-        this.config = messageConfig;
-        this.timerTask = new SharedTimerTask() { // from class: com.yy.hiidostatis.message.sender.SendMsgDispatcher.1
-            @Override // java.lang.Runnable
-            public void run() {
-                SendMsgDispatcher.this.execute();
-            }
-        };
-        long max = messageConfig.getInterval() > 0 ? Math.max(messageConfig.getInterval(), 5) * 1000 : 30000L;
-        ThreadPool.getPool().getTimer().schedule(this.timerTask, max, max);
     }
 
     private void execute(long j) {
-        synchronized (this) {
-            if (this.state != 2 || TimeUtil.currentTimeInSecond() - this.preRunTime > 30000) {
-                this.state = 2;
-                this.running = false;
-                this.preRunTime = TimeUtil.currentTimeInSecond();
-                ThreadPool.getPool().execute(this, j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
+            synchronized (this) {
+                if (this.state != 2 || TimeUtil.currentTimeInSecond() - this.preRunTime > 30000) {
+                    this.state = 2;
+                    this.running = false;
+                    this.preRunTime = TimeUtil.currentTimeInSecond();
+                    ThreadPool.getPool().execute(this, j);
+                }
             }
         }
     }

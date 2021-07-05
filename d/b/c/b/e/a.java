@@ -1,90 +1,281 @@
 package d.b.c.b.e;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.ImageView;
-import androidx.annotation.VisibleForTesting;
-import d.b.c.b.b.d;
-/* loaded from: classes6.dex */
-public class a implements d.j {
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.pose.PoseAR;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.b.c.b.l;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes10.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Bitmap.Config f69660a;
+    public JSONObject f71845a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final int f69661b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final int f69662c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final ImageView.ScaleType f69663d;
-
-    public a(int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
-        this.f69660a = config;
-        this.f69661b = i2;
-        this.f69662c = i3;
-        this.f69663d = scaleType;
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f71845a = new JSONObject();
     }
 
-    @VisibleForTesting
-    public static int a(int i2, int i3, int i4, int i5) {
-        double min = Math.min(i2 / i4, i3 / i5);
-        float f2 = 1.0f;
-        while (true) {
-            float f3 = 2.0f * f2;
-            if (f3 > min) {
-                return (int) f2;
+    public static a c(long j, Context context, @Nullable Thread thread, @NonNull Throwable th) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), context, thread, th})) == null) {
+            if (j == 0) {
+                j = System.currentTimeMillis();
             }
-            f2 = f3;
+            a aVar = new a();
+            aVar.k("isJava", 1);
+            aVar.k(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, "java_crash");
+            aVar.k("timestamp", Long.valueOf(System.currentTimeMillis()));
+            aVar.k("data", l.n.a(th));
+            aVar.k("isOOM", Boolean.valueOf(l.n.h(th)));
+            aVar.k("crash_time", Long.valueOf(j));
+            aVar.k("process_name", l.b.k(context));
+            if (!l.b.i(context)) {
+                aVar.k("remote_process", 1);
+            }
+            l.b.d(context, aVar.j());
+            String name = thread == null ? null : thread.getName();
+            if (name != null) {
+                aVar.k("crash_thread_name", name);
+            }
+            aVar.k("all_thread_stacks", l.n.d(name));
+            return aVar;
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public a a(int i2, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) {
+            try {
+                this.f71845a.put("miniapp_id", i2);
+                this.f71845a.put("miniapp_version", str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return this;
+        }
+        return (a) invokeIL.objValue;
+    }
+
+    public a b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            try {
+                k("start_time", Long.valueOf(j));
+                k("app_start_time_readable", new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault()).format(new Date(j)));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return this;
+        }
+        return (a) invokeJ.objValue;
+    }
+
+    public a d(b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
+            k("header", bVar.b());
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a e(d.b.c.b.h.a.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
+            k("activity_trace", bVar.d());
+            k("running_tasks", bVar.i());
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a f(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                k("session_id", str);
+            }
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a g(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (list != null && !list.isEmpty()) {
+                for (String str : list) {
+                    jSONArray.put(str);
+                }
+                k("patch_info", jSONArray);
+                return this;
+            }
+            k("patch_info", jSONArray);
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a h(Map<String, Integer> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (map == null) {
+                this.f71845a.put("plugin_info", jSONArray);
+                return this;
+            }
+            for (String str : map.keySet()) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("package_name", str);
+                jSONObject.put("version_code", map.get(str));
+                jSONArray.put(jSONObject);
+            }
+            this.f71845a.put("plugin_info", jSONArray);
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a i(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
+            k("storage", jSONObject);
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public JSONObject j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71845a : (JSONObject) invokeV.objValue;
+    }
+
+    public void k(@NonNull String str, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) {
+            try {
+                this.f71845a.put(str, obj);
+            } catch (Exception e2) {
+                l.k.c(e2);
+            }
         }
     }
 
-    public static int b(int i2, int i3, int i4, int i5, ImageView.ScaleType scaleType) {
-        if (i2 == 0 && i3 == 0) {
-            return i4;
-        }
-        if (scaleType == ImageView.ScaleType.FIT_XY) {
-            return i2 == 0 ? i4 : i2;
-        } else if (i2 == 0) {
-            return (int) (i4 * (i3 / i5));
-        } else if (i3 == 0) {
-            return i2;
-        } else {
-            double d2 = i5 / i4;
-            if (scaleType == ImageView.ScaleType.CENTER_CROP) {
-                double d3 = i3;
-                return ((double) i2) * d2 < d3 ? (int) (d3 / d2) : i2;
+    public a l(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, list)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (String str : list) {
+                jSONArray.put(str);
             }
-            double d4 = i3;
-            return ((double) i2) * d2 > d4 ? (int) (d4 / d2) : i2;
+            k("logcat", jSONArray);
+            return this;
         }
+        return (a) invokeL.objValue;
     }
 
-    @Override // d.b.c.b.b.d.j
-    public Bitmap a(byte[] bArr) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        if (this.f69661b == 0 && this.f69662c == 0) {
-            options.inPreferredConfig = this.f69660a;
-            return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-        }
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-        int i2 = options.outWidth;
-        int i3 = options.outHeight;
-        int b2 = b(this.f69661b, this.f69662c, i2, i3, this.f69663d);
-        int b3 = b(this.f69662c, this.f69661b, i3, i2, this.f69663d);
-        options.inJustDecodeBounds = false;
-        options.inSampleSize = a(i2, i3, b2, b3);
-        Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-        if (decodeByteArray != null) {
-            if (decodeByteArray.getWidth() > b2 || decodeByteArray.getHeight() > b3) {
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(decodeByteArray, b2, b3, true);
-                decodeByteArray.recycle();
-                return createScaledBitmap;
+    public a m(Map<Integer, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, map)) == null) {
+            if (map != null && map.size() > 0) {
+                JSONObject jSONObject = new JSONObject();
+                for (Integer num : map.keySet()) {
+                    try {
+                        jSONObject.put(String.valueOf(num), map.get(num));
+                    } catch (JSONException e2) {
+                        l.k.c(e2);
+                    }
+                }
+                try {
+                    this.f71845a.put("sdk_info", jSONObject);
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
             }
-            return decodeByteArray;
+            return this;
         }
-        return decodeByteArray;
+        return (a) invokeL.objValue;
+    }
+
+    public a n(Map<? extends String, ? extends String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, map)) == null) {
+            if (map != null) {
+                JSONObject jSONObject = new JSONObject();
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                k("filters", jSONObject);
+            }
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f71845a = jSONObject;
     }
 }

@@ -2,160 +2,239 @@ package com.baidu.tieba.pb.videopb;
 
 import android.content.Intent;
 import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import d.a.n0.r.q.a2;
-import d.a.o0.e2.h.e;
-import d.a.o0.e2.o.k;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.b2;
+import d.a.s0.h2.h.e;
+import d.a.s0.h2.o.d;
 /* loaded from: classes5.dex */
 public class VideoPbViewModel extends ViewModel {
-
-    /* renamed from: b  reason: collision with root package name */
-    public PbModel f19615b;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public k f19614a = new k();
+    public d f19764a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PbModel f19765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19616c = 0;
+    public int f19766c;
+
+    public VideoPbViewModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f19764a = new d();
+        this.f19766c = 0;
+    }
 
     public void a(PbModel pbModel) {
-        this.f19615b = pbModel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) {
+            this.f19765b = pbModel;
+        }
     }
 
     public MutableLiveData<Integer> b() {
-        return this.f19614a.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19764a.a() : (MutableLiveData) invokeV.objValue;
     }
 
     public e c() {
-        return this.f19614a.b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19764a.b() : (e) invokeV.objValue;
     }
 
     public e d() {
-        return this.f19614a.c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19764a.c() : (e) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> e() {
-        return this.f19614a.d();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19764a.d() : (MutableLiveData) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> f() {
-        return this.f19614a.e();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19764a.e() : (MutableLiveData) invokeV.objValue;
     }
 
-    public MutableLiveData<a2> g() {
-        return this.f19614a.f();
+    public MutableLiveData<b2> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19764a.f() : (MutableLiveData) invokeV.objValue;
     }
 
     public Rect h() {
-        if (this.f19614a.g() == null || this.f19614a.g().isEmpty()) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.f19764a.g() == null || this.f19764a.g().isEmpty()) {
+                return null;
+            }
+            return this.f19764a.g();
         }
-        return this.f19614a.g();
+        return (Rect) invokeV.objValue;
     }
 
-    public MutableLiveData<a2> i() {
-        return this.f19614a.h();
+    public MutableLiveData<b2> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19764a.h() : (MutableLiveData) invokeV.objValue;
     }
 
-    public MutableLiveData<a2> j() {
-        return this.f19614a.i();
+    public MutableLiveData<b2> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f19764a.i() : (MutableLiveData) invokeV.objValue;
     }
 
     public void k(Intent intent) {
-        this.f19614a.v((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.f19614a.t(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
+            this.f19764a.v((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+            this.f19764a.t(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        }
     }
 
     public boolean l() {
-        return this.f19614a.k();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f19764a.k() : invokeV.booleanValue;
     }
 
     public boolean m() {
-        return this.f19614a.l();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f19764a.l() : invokeV.booleanValue;
     }
 
     public MutableLiveData<Boolean> n() {
-        return this.f19614a.m();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f19764a.m() : (MutableLiveData) invokeV.objValue;
     }
 
     public void o(boolean z) {
-        if (this.f19614a.f().getValue() != null) {
-            e Q = this.f19615b.Q(this.f19614a.f().getValue());
-            if (Q != null) {
-                this.f19614a.j().addLast(this.f19614a.b());
-                this.f19614a.n(Q);
-                this.f19614a.u(!ListUtils.isEmpty(Q.f()) ? Q.f().get(0) : null);
-                this.f19614a.w(this.f19614a.j().getLast() != null ? this.f19614a.j().getLast().L() : null);
-                this.f19615b.Q1(z ? 21 : 22);
-                this.f19615b.l1(Q);
-                this.f19614a.r(true);
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || this.f19764a.f().getValue() == null) {
+            return;
+        }
+        e Q = this.f19765b.Q(this.f19764a.f().getValue());
+        if (Q != null) {
+            this.f19764a.j().addLast(this.f19764a.b());
+            this.f19764a.n(Q);
+            this.f19764a.u(!ListUtils.isEmpty(Q.f()) ? Q.f().get(0) : null);
+            this.f19764a.w(this.f19764a.j().getLast() != null ? this.f19764a.j().getLast().N() : null);
+            this.f19765b.R1(z ? 21 : 22);
+            this.f19765b.m1(Q);
+            this.f19764a.r(true);
         }
     }
 
     public void p() {
-        e pollLast = this.f19614a.j().pollLast();
-        if (pollLast != null) {
-            this.f19614a.n(pollLast);
-            this.f19614a.u(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
-            this.f19614a.w(this.f19614a.j().peekLast() != null ? this.f19614a.j().peekLast().L() : null);
-            this.f19615b.l1(pollLast);
-            this.f19614a.r(true);
-        }
-    }
-
-    public void q(a2 a2Var) {
-        e Q;
-        if (a2Var == null || (Q = this.f19615b.Q(a2Var)) == null) {
+        e pollLast;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (pollLast = this.f19764a.j().pollLast()) == null) {
             return;
         }
-        this.f19614a.j().addLast(this.f19614a.b());
-        this.f19614a.n(Q);
-        this.f19614a.u(!ListUtils.isEmpty(Q.f()) ? Q.f().get(0) : null);
-        this.f19614a.w(this.f19614a.j().getLast() != null ? this.f19614a.j().getLast().L() : null);
-        this.f19615b.Q1(20);
-        this.f19615b.l1(Q);
-        this.f19614a.r(true);
+        this.f19764a.n(pollLast);
+        this.f19764a.u(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
+        this.f19764a.w(this.f19764a.j().peekLast() != null ? this.f19764a.j().peekLast().N() : null);
+        this.f19765b.m1(pollLast);
+        this.f19764a.r(true);
+    }
+
+    public void q(b2 b2Var) {
+        e Q;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, b2Var) == null) || b2Var == null || (Q = this.f19765b.Q(b2Var)) == null) {
+            return;
+        }
+        this.f19764a.j().addLast(this.f19764a.b());
+        this.f19764a.n(Q);
+        this.f19764a.u(!ListUtils.isEmpty(Q.f()) ? Q.f().get(0) : null);
+        this.f19764a.w(this.f19764a.j().getLast() != null ? this.f19764a.j().getLast().N() : null);
+        this.f19765b.R1(20);
+        this.f19765b.m1(Q);
+        this.f19764a.r(true);
     }
 
     public void r(e eVar, int i2) {
-        if (i2 >= this.f19616c) {
-            this.f19616c = i2;
-            this.f19614a.o(eVar);
-            if (eVar != null) {
-                k kVar = this.f19614a;
-                boolean z = true;
-                if (eVar.s() != 1 && !eVar.a0()) {
-                    z = false;
-                }
-                kVar.p(z);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048593, this, eVar, i2) == null) || i2 < this.f19766c) {
+            return;
+        }
+        this.f19766c = i2;
+        this.f19764a.o(eVar);
+        if (eVar != null) {
+            d dVar = this.f19764a;
+            boolean z = true;
+            if (eVar.t() != 1 && !eVar.e0()) {
+                z = false;
             }
+            dVar.p(z);
         }
     }
 
     public void s(e eVar, int i2) {
-        if (i2 == 3) {
-            this.f19614a.n(eVar);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048594, this, eVar, i2) == null) && i2 == 3) {
+            this.f19764a.n(eVar);
         }
     }
 
     public void t(boolean z) {
-        this.f19614a.q(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.f19764a.q(z);
+        }
     }
 
     public void u(boolean z) {
-        this.f19614a.r(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.f19764a.r(z);
+        }
     }
 
     public void v(boolean z) {
-        this.f19614a.s(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.f19764a.s(z);
+        }
     }
 
     public void w(boolean z) {
-        this.f19614a.t(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.f19764a.t(z);
+        }
     }
 }

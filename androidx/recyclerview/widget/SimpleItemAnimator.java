@@ -3,139 +3,239 @@ package androidx.recyclerview.widget;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "SimpleItemAnimator";
-    public boolean mSupportsChangeAnimations = true;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean mSupportsChangeAnimations;
+
+    public SimpleItemAnimator() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mSupportsChangeAnimations = true;
+    }
 
     public abstract boolean animateAdd(RecyclerView.ViewHolder viewHolder);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animateAppearance(@NonNull RecyclerView.ViewHolder viewHolder, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
-        if (itemHolderInfo != null && (itemHolderInfo.left != itemHolderInfo2.left || itemHolderInfo.top != itemHolderInfo2.top)) {
-            return animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.top, itemHolderInfo2.left, itemHolderInfo2.top);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder, itemHolderInfo, itemHolderInfo2)) == null) {
+            if (itemHolderInfo != null && (itemHolderInfo.left != itemHolderInfo2.left || itemHolderInfo.top != itemHolderInfo2.top)) {
+                return animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.top, itemHolderInfo2.left, itemHolderInfo2.top);
+            }
+            return animateAdd(viewHolder);
         }
-        return animateAdd(viewHolder);
+        return invokeLLL.booleanValue;
     }
 
     public abstract boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4, int i5);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animateChange(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+        InterceptResult invokeLLLL;
         int i2;
         int i3;
-        int i4 = itemHolderInfo.left;
-        int i5 = itemHolderInfo.top;
-        if (viewHolder2.shouldIgnore()) {
-            int i6 = itemHolderInfo.left;
-            i3 = itemHolderInfo.top;
-            i2 = i6;
-        } else {
-            i2 = itemHolderInfo2.left;
-            i3 = itemHolderInfo2.top;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewHolder, viewHolder2, itemHolderInfo, itemHolderInfo2)) == null) {
+            int i4 = itemHolderInfo.left;
+            int i5 = itemHolderInfo.top;
+            if (viewHolder2.shouldIgnore()) {
+                int i6 = itemHolderInfo.left;
+                i3 = itemHolderInfo.top;
+                i2 = i6;
+            } else {
+                i2 = itemHolderInfo2.left;
+                i3 = itemHolderInfo2.top;
+            }
+            return animateChange(viewHolder, viewHolder2, i4, i5, i2, i3);
         }
-        return animateChange(viewHolder, viewHolder2, i4, i5, i2, i3);
+        return invokeLLLL.booleanValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animateDisappearance(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
-        int i2 = itemHolderInfo.left;
-        int i3 = itemHolderInfo.top;
-        View view = viewHolder.itemView;
-        int left = itemHolderInfo2 == null ? view.getLeft() : itemHolderInfo2.left;
-        int top = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.top;
-        if (!viewHolder.isRemoved() && (i2 != left || i3 != top)) {
-            view.layout(left, top, view.getWidth() + left, view.getHeight() + top);
-            return animateMove(viewHolder, i2, i3, left, top);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, viewHolder, itemHolderInfo, itemHolderInfo2)) == null) {
+            int i2 = itemHolderInfo.left;
+            int i3 = itemHolderInfo.top;
+            View view = viewHolder.itemView;
+            int left = itemHolderInfo2 == null ? view.getLeft() : itemHolderInfo2.left;
+            int top = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.top;
+            if (!viewHolder.isRemoved() && (i2 != left || i3 != top)) {
+                view.layout(left, top, view.getWidth() + left, view.getHeight() + top);
+                return animateMove(viewHolder, i2, i3, left, top);
+            }
+            return animateRemove(viewHolder);
         }
-        return animateRemove(viewHolder);
+        return invokeLLL.booleanValue;
     }
 
     public abstract boolean animateMove(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animatePersistence(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
-        if (itemHolderInfo.left == itemHolderInfo2.left && itemHolderInfo.top == itemHolderInfo2.top) {
-            dispatchMoveFinished(viewHolder);
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, viewHolder, itemHolderInfo, itemHolderInfo2)) == null) {
+            if (itemHolderInfo.left == itemHolderInfo2.left && itemHolderInfo.top == itemHolderInfo2.top) {
+                dispatchMoveFinished(viewHolder);
+                return false;
+            }
+            return animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.top, itemHolderInfo2.left, itemHolderInfo2.top);
         }
-        return animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.top, itemHolderInfo2.left, itemHolderInfo2.top);
+        return invokeLLL.booleanValue;
     }
 
     public abstract boolean animateRemove(RecyclerView.ViewHolder viewHolder);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean canReuseUpdatedViewHolder(@NonNull RecyclerView.ViewHolder viewHolder) {
-        return !this.mSupportsChangeAnimations || viewHolder.isInvalid();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewHolder)) == null) ? !this.mSupportsChangeAnimations || viewHolder.isInvalid() : invokeL.booleanValue;
     }
 
     public final void dispatchAddFinished(RecyclerView.ViewHolder viewHolder) {
-        onAddFinished(viewHolder);
-        dispatchAnimationFinished(viewHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, viewHolder) == null) {
+            onAddFinished(viewHolder);
+            dispatchAnimationFinished(viewHolder);
+        }
     }
 
     public final void dispatchAddStarting(RecyclerView.ViewHolder viewHolder) {
-        onAddStarting(viewHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, viewHolder) == null) {
+            onAddStarting(viewHolder);
+        }
     }
 
     public final void dispatchChangeFinished(RecyclerView.ViewHolder viewHolder, boolean z) {
-        onChangeFinished(viewHolder, z);
-        dispatchAnimationFinished(viewHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, viewHolder, z) == null) {
+            onChangeFinished(viewHolder, z);
+            dispatchAnimationFinished(viewHolder);
+        }
     }
 
     public final void dispatchChangeStarting(RecyclerView.ViewHolder viewHolder, boolean z) {
-        onChangeStarting(viewHolder, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048588, this, viewHolder, z) == null) {
+            onChangeStarting(viewHolder, z);
+        }
     }
 
     public final void dispatchMoveFinished(RecyclerView.ViewHolder viewHolder) {
-        onMoveFinished(viewHolder);
-        dispatchAnimationFinished(viewHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, viewHolder) == null) {
+            onMoveFinished(viewHolder);
+            dispatchAnimationFinished(viewHolder);
+        }
     }
 
     public final void dispatchMoveStarting(RecyclerView.ViewHolder viewHolder) {
-        onMoveStarting(viewHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, viewHolder) == null) {
+            onMoveStarting(viewHolder);
+        }
     }
 
     public final void dispatchRemoveFinished(RecyclerView.ViewHolder viewHolder) {
-        onRemoveFinished(viewHolder);
-        dispatchAnimationFinished(viewHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, viewHolder) == null) {
+            onRemoveFinished(viewHolder);
+            dispatchAnimationFinished(viewHolder);
+        }
     }
 
     public final void dispatchRemoveStarting(RecyclerView.ViewHolder viewHolder) {
-        onRemoveStarting(viewHolder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, viewHolder) == null) {
+            onRemoveStarting(viewHolder);
+        }
     }
 
     public boolean getSupportsChangeAnimations() {
-        return this.mSupportsChangeAnimations;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mSupportsChangeAnimations : invokeV.booleanValue;
     }
 
     public void onAddFinished(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, viewHolder) == null) {
+        }
     }
 
     public void onAddStarting(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, viewHolder) == null) {
+        }
     }
 
     public void onChangeFinished(RecyclerView.ViewHolder viewHolder, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048596, this, viewHolder, z) == null) {
+        }
     }
 
     public void onChangeStarting(RecyclerView.ViewHolder viewHolder, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048597, this, viewHolder, z) == null) {
+        }
     }
 
     public void onMoveFinished(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, viewHolder) == null) {
+        }
     }
 
     public void onMoveStarting(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, viewHolder) == null) {
+        }
     }
 
     public void onRemoveFinished(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, viewHolder) == null) {
+        }
     }
 
     public void onRemoveStarting(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, viewHolder) == null) {
+        }
     }
 
     public void setSupportsChangeAnimations(boolean z) {
-        this.mSupportsChangeAnimations = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+            this.mSupportsChangeAnimations = z;
+        }
     }
 }

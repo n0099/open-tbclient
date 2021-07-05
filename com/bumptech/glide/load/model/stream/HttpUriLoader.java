@@ -2,6 +2,14 @@ package com.bumptech.glide.load.model.stream;
 
 import android.net.Uri;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.ModelLoader;
@@ -14,35 +22,93 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class HttpUriLoader implements ModelLoader<Uri, InputStream> {
-    public static final Set<String> SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
+    public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> SCHEMES;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoader<GlideUrl, InputStream> urlLoader;
 
     /* loaded from: classes6.dex */
     public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Factory() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull
         public ModelLoader<Uri, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
-            return new HttpUriLoader(multiModelLoaderFactory.build(GlideUrl.class, InputStream.class));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) ? new HttpUriLoader(multiModelLoaderFactory.build(GlideUrl.class, InputStream.class)) : (ModelLoader) invokeL.objValue;
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public void teardown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2003234839, "Lcom/bumptech/glide/load/model/stream/HttpUriLoader;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2003234839, "Lcom/bumptech/glide/load/model/stream/HttpUriLoader;");
+                return;
+            }
+        }
+        SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
+    }
+
     public HttpUriLoader(ModelLoader<GlideUrl, InputStream> modelLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {modelLoader};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.urlLoader = modelLoader;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
-        return this.urlLoader.buildLoadData(new GlideUrl(uri.toString()), i2, i3, options);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? this.urlLoader.buildLoadData(new GlideUrl(uri.toString()), i2, i3, options) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(@NonNull Uri uri) {
-        return SCHEMES.contains(uri.getScheme());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) ? SCHEMES.contains(uri.getScheme()) : invokeL.booleanValue;
     }
 }

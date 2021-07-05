@@ -7,63 +7,115 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class FragmentTabRootView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f12297e;
+    public Matrix f12350e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f12298f;
+    public Paint f12351f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f12299g;
+    public Rect f12352g;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FragmentTabRootView(Context context) {
         super(context);
-        this.f12297e = new Matrix();
-        this.f12298f = new Paint(6);
-        this.f12299g = new Rect();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12350e = new Matrix();
+        this.f12351f = new Paint(6);
+        this.f12352g = new Rect();
         a();
     }
 
     public final void a() {
-        setDrawingCacheEnabled(false);
-        this.f12298f.setAntiAlias(true);
-        this.f12298f.setStyle(Paint.Style.FILL);
-        this.f12298f.setColor(-16777216);
-        this.f12298f.setAlpha(0);
-        setWillNotDraw(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setDrawingCacheEnabled(false);
+            this.f12351f.setAntiAlias(true);
+            this.f12351f.setStyle(Paint.Style.FILL);
+            this.f12351f.setColor(-16777216);
+            this.f12351f.setAlpha(0);
+            setWillNotDraw(false);
+        }
     }
 
     public void b(float f2, float f3, float f4, float f5, float f6, float f7, int i2) {
-        this.f12297e.reset();
-        this.f12297e.postTranslate(f2, f3);
-        this.f12297e.postScale(f4, f5, f6, f7);
-        this.f12298f.setAlpha(i2);
-        postInvalidateDelayed(16L);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Integer.valueOf(i2)}) == null) {
+            this.f12350e.reset();
+            this.f12350e.postTranslate(f2, f3);
+            this.f12350e.postScale(f4, f5, f6, f7);
+            this.f12351f.setAlpha(i2);
+            postInvalidateDelayed(16L);
+        }
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        super.draw(canvas);
-        canvas.save();
-        canvas.concat(this.f12297e);
-        canvas.drawRect(this.f12299g, this.f12298f);
-        canvas.restore();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.draw(canvas);
+            canvas.save();
+            canvas.concat(this.f12350e);
+            canvas.drawRect(this.f12352g, this.f12351f);
+            canvas.restore();
+        }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        this.f12299g.set(0, 0, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            this.f12352g.set(0, 0, i2, i3);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FragmentTabRootView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12297e = new Matrix();
-        this.f12298f = new Paint(6);
-        this.f12299g = new Rect();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f12350e = new Matrix();
+        this.f12351f = new Paint(6);
+        this.f12352g = new Rect();
         a();
     }
 }

@@ -4,111 +4,176 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class STSManager {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final long RETRY_TIME_LIMIT_HOUR;
     public static final String STS_FILE = ".sts";
     public static final String STS_FILE_PATH = "stsfile";
     public static final String TAG = "STSManager";
-    public static final HashMap<String, STSInfo> infoMap = new HashMap<>();
-    public static HashMap<String, Long> retryTime = new HashMap<>();
-    public static final long RETRY_TIME_LIMIT_HOUR = TimeUnit.MINUTES.toMillis(20);
+    public static final HashMap<String, STSInfo> infoMap;
+    public static HashMap<String, Long> retryTime;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-186508794, "Lcom/baidu/searchbox/aperf/bosuploader/STSManager;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-186508794, "Lcom/baidu/searchbox/aperf/bosuploader/STSManager;");
+                return;
+            }
+        }
+        infoMap = new HashMap<>();
+        retryTime = new HashMap<>();
+        RETRY_TIME_LIMIT_HOUR = TimeUnit.MINUTES.toMillis(20L);
+    }
+
+    public STSManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static boolean checkRetry(@NonNull String str) {
-        long longValue = retryTime.containsKey(str) ? retryTime.get(str).longValue() : 0L;
-        long currentTimeMillis = System.currentTimeMillis();
-        if (Math.abs(currentTimeMillis - longValue) > RETRY_TIME_LIMIT_HOUR) {
-            retryTime.put(str, Long.valueOf(currentTimeMillis));
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            long longValue = retryTime.containsKey(str) ? retryTime.get(str).longValue() : 0L;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (Math.abs(currentTimeMillis - longValue) > RETRY_TIME_LIMIT_HOUR) {
+                retryTime.put(str, Long.valueOf(currentTimeMillis));
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public static STSInfo getCurrentStsInfo(@NonNull String str) {
-        STSInfo sTSInfo = infoMap.get(str);
-        if (sTSInfo == null && (sTSInfo = loadStsFromFile(str)) != null) {
-            synchronized (infoMap) {
-                infoMap.put(str, sTSInfo);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            STSInfo sTSInfo = infoMap.get(str);
+            if (sTSInfo == null && (sTSInfo = loadStsFromFile(str)) != null) {
+                synchronized (infoMap) {
+                    infoMap.put(str, sTSInfo);
+                }
             }
+            return ContentUtil.checkStsValid(sTSInfo) ? sTSInfo : retryGetStsInfo(str);
         }
-        return ContentUtil.checkStsValid(sTSInfo) ? sTSInfo : retryGetStsInfo(str);
+        return (STSInfo) invokeL.objValue;
     }
 
     public static STSInfo loadStsFromFile(String str) {
+        InterceptResult invokeL;
         Throwable th;
         FileInputStream fileInputStream;
         File file;
-        try {
-            file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
-        } catch (FileNotFoundException e2) {
-            e = e2;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
-            Closeables.closeSafely(fileInputStream);
-            throw th;
-        }
-        if (!file.exists()) {
-            Closeables.closeSafely((Closeable) null);
-            return null;
-        }
-        File file2 = new File(file, ".sts_" + str + ".log");
-        if (!file2.exists()) {
-            Closeables.closeSafely((Closeable) null);
-            return null;
-        } else if (!file2.isFile()) {
-            Closeables.closeSafely((Closeable) null);
-            return null;
-        } else {
-            fileInputStream = new FileInputStream(file2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
             try {
-                try {
-                    String readFromFileInputStream = FileUtil.readFromFileInputStream(fileInputStream);
-                    if (!TextUtils.isEmpty(readFromFileInputStream)) {
-                        STSInfo createSTSInfo = ContentUtil.createSTSInfo(readFromFileInputStream);
-                        Closeables.closeSafely(fileInputStream);
-                        return createSTSInfo;
-                    }
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    Log.e(TAG, e.getMessage(), e);
-                    Closeables.closeSafely(fileInputStream);
-                    return null;
-                }
-                Closeables.closeSafely(fileInputStream);
-                return null;
-            } catch (Throwable th3) {
-                th = th3;
+                file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = null;
                 Closeables.closeSafely(fileInputStream);
                 throw th;
             }
+            if (!file.exists()) {
+                Closeables.closeSafely((Closeable) null);
+                return null;
+            }
+            File file2 = new File(file, ".sts_" + str + ".log");
+            if (!file2.exists()) {
+                Closeables.closeSafely((Closeable) null);
+                return null;
+            } else if (!file2.isFile()) {
+                Closeables.closeSafely((Closeable) null);
+                return null;
+            } else {
+                fileInputStream = new FileInputStream(file2);
+                try {
+                    try {
+                        String readFromFileInputStream = FileUtil.readFromFileInputStream(fileInputStream);
+                        if (!TextUtils.isEmpty(readFromFileInputStream)) {
+                            STSInfo createSTSInfo = ContentUtil.createSTSInfo(readFromFileInputStream);
+                            Closeables.closeSafely(fileInputStream);
+                            return createSTSInfo;
+                        }
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
+                        Log.e(TAG, e.getMessage(), e);
+                        Closeables.closeSafely(fileInputStream);
+                        return null;
+                    }
+                    Closeables.closeSafely(fileInputStream);
+                    return null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    Closeables.closeSafely(fileInputStream);
+                    throw th;
+                }
+            }
         }
+        return (STSInfo) invokeL.objValue;
     }
 
     public static STSInfo retryGetStsInfo(String str) {
-        STSInfo bosStsInfo = BOSTokenRequest.getBosStsInfo(str);
-        if (bosStsInfo != null) {
-            synchronized (infoMap) {
-                infoMap.put(str, bosStsInfo);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            STSInfo bosStsInfo = BOSTokenRequest.getBosStsInfo(str);
+            if (bosStsInfo != null) {
+                synchronized (infoMap) {
+                    infoMap.put(str, bosStsInfo);
+                }
+                writeStsInfoToFile(str, bosStsInfo.getOrigin());
+                return bosStsInfo;
             }
-            writeStsInfoToFile(str, bosStsInfo.getOrigin());
-            return bosStsInfo;
+            return null;
         }
-        return null;
+        return (STSInfo) invokeL.objValue;
     }
 
     public static void writeStsInfoToFile(String str, String str2) {
-        File file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
-        if (!file.exists()) {
-            file.mkdirs();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            FileUtil.writeDataToFile(new File(file, ".sts_" + str + ".log"), str2);
         }
-        FileUtil.writeDataToFile(new File(file, ".sts_" + str + ".log"), str2);
     }
 }

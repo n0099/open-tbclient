@@ -1,16 +1,25 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.a.o0.k1.o.j.c;
-import d.a.o0.k1.o.k.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.n1.o.j.c;
+import d.a.s0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HorRankCard extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final double displayNum;
     public final String itemStatistics;
     public final int picType;
@@ -24,43 +33,75 @@ public class HorRankCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18029a;
+        public int f18155a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18030b;
+        public String f18156b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18031c;
+        public String f18157c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f18032d;
+        public String f18158d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18033e;
+        public String f18159e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18034f;
+        public String f18160f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f18035g;
+        public boolean f18161g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f18036h;
+        public String f18162h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f18037i;
+        public String f18163i;
         public String j;
         public int k;
         public int l;
         public HorRankCard m;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HorRankCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.titleColor = b.b(jSONObject.optString("tColor", ""));
         this.titleColorNight = b.b(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
@@ -79,18 +120,18 @@ public class HorRankCard extends BaseCardInfo {
         JSONArray optJSONArray = jSONObject.optJSONArray("ranks");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.rankInfoList = new ArrayList(length);
-        for (int i2 = 0; i2 < length; i2++) {
+        for (int i4 = 0; i4 < length; i4++) {
             a aVar = new a();
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-            aVar.f18029a = optJSONObject.optInt("rank");
-            aVar.f18030b = optJSONObject.optString("picUrl");
-            aVar.f18031c = optJSONObject.optString("picIcon");
-            aVar.f18032d = optJSONObject.optString("title");
-            aVar.f18033e = optJSONObject.optString("subTitle");
-            aVar.f18034f = optJSONObject.optString("postUrl");
-            aVar.f18035g = optJSONObject.optInt("isDone") == 1;
-            aVar.f18036h = optJSONObject.optString("btnText");
-            aVar.f18037i = optJSONObject.optString("btnDone");
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
+            aVar.f18155a = optJSONObject.optInt("rank");
+            aVar.f18156b = optJSONObject.optString("picUrl");
+            aVar.f18157c = optJSONObject.optString("picIcon");
+            aVar.f18158d = optJSONObject.optString("title");
+            aVar.f18159e = optJSONObject.optString("subTitle");
+            aVar.f18160f = optJSONObject.optString("postUrl");
+            aVar.f18161g = optJSONObject.optInt("isDone") == 1;
+            aVar.f18162h = optJSONObject.optString("btnText");
+            aVar.f18163i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
             aVar.k = b.b(optJSONObject.optString("bgColor", ""));
             aVar.l = b.b(optJSONObject.optString("bgColorNight", ""));
@@ -102,80 +143,116 @@ public class HorRankCard extends BaseCardInfo {
     }
 
     public double getDisplayNum() {
-        return this.displayNum;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.displayNum : invokeV.doubleValue;
     }
 
     public String getItemStatistics() {
-        return this.itemStatistics;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.itemStatistics : (String) invokeV.objValue;
     }
 
     public int getPicType() {
-        return this.picType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.picType : invokeV.intValue;
     }
 
     public int getPosition() {
-        return this.position;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.position : invokeV.intValue;
     }
 
     public List<a> getRankInfoList() {
-        return this.rankInfoList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.rankInfoList : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
-        return this.ratio;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.ratio : invokeV.doubleValue;
     }
 
     public c getRightText() {
-        return this.rightText;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.rightText : (c) invokeV.objValue;
     }
 
     public int getTitleColor() {
-        return this.titleColor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.titleColor : invokeV.intValue;
     }
 
     public int getTitleColorNight() {
-        return this.titleColorNight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.titleColorNight : invokeV.intValue;
     }
 
     public boolean isScrollEnabled() {
-        return this.scrollEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.scrollEnabled : invokeV.booleanValue;
     }
 
     public boolean isShowLeft() {
-        return this.showLeft;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.showLeft : invokeV.booleanValue;
     }
 
     public boolean isShowSep() {
-        return this.showSep;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.showSep : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
     public boolean responseAttentionForum(String str, boolean z) {
-        boolean z2 = false;
-        for (a aVar : this.rankInfoList) {
-            if (!TextUtils.isEmpty(aVar.f18034f) && !TextUtils.isEmpty(aVar.f18036h) && !TextUtils.isEmpty(aVar.f18037i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f18034f))) {
-                aVar.f18035g = z;
-                z2 = true;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
+            boolean z2 = false;
+            for (a aVar : this.rankInfoList) {
+                if (!TextUtils.isEmpty(aVar.f18160f) && !TextUtils.isEmpty(aVar.f18162h) && !TextUtils.isEmpty(aVar.f18163i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f18160f))) {
+                    aVar.f18161g = z;
+                    z2 = true;
+                }
             }
+            return z2;
         }
-        return z2;
+        return invokeLZ.booleanValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
     public boolean responseAttentionUser(String str, boolean z) {
-        boolean z2 = false;
-        for (a aVar : this.rankInfoList) {
-            if (!TextUtils.isEmpty(aVar.f18034f) && !TextUtils.isEmpty(aVar.f18036h) && !TextUtils.isEmpty(aVar.f18037i) && TextUtils.equals(getTouidFromPostUrl(aVar.f18034f), str)) {
-                aVar.f18035g = z;
-                z2 = true;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
+            boolean z2 = false;
+            for (a aVar : this.rankInfoList) {
+                if (!TextUtils.isEmpty(aVar.f18160f) && !TextUtils.isEmpty(aVar.f18162h) && !TextUtils.isEmpty(aVar.f18163i) && TextUtils.equals(getTouidFromPostUrl(aVar.f18160f), str)) {
+                    aVar.f18161g = z;
+                    z2 = true;
+                }
             }
+            return z2;
         }
-        return z2;
+        return invokeLZ.booleanValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
     public boolean shouldResponseAttention() {
-        return !ListUtils.isEmpty(this.rankInfoList);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? !ListUtils.isEmpty(this.rankInfoList) : invokeV.booleanValue;
     }
 }

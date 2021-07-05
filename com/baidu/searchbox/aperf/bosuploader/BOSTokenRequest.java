@@ -3,6 +3,11 @@ package com.baidu.searchbox.aperf.bosuploader;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
@@ -10,8 +15,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BOSTokenRequest {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT = "accept";
     public static final String ACCEPT_VALUE = "application/json";
     public static final String CHARSET = "Charset";
@@ -22,19 +28,39 @@ public class BOSTokenRequest {
     public static final String CONTENT_TYPE_VALUE = "application/json";
     public static final String POST_METHOD = "POST";
     public static final int READ_TIMEOUT = 30000;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public BOSTokenRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v13, resolved type: java.io.BufferedReader */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c6  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00d5  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00ca  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00d9  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static STSInfo getBosStsInfo(@NonNull String str) {
+        InterceptResult invokeL;
         Closeable closeable;
         HttpURLConnection httpURLConnection;
         Closeable closeable2;
         OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return (STSInfo) invokeL.objValue;
+        }
         StringBuilder sb = new StringBuilder();
         OutputStream outputStream2 = null;
         try {
@@ -64,6 +90,7 @@ public class BOSTokenRequest {
                         Closeables.closeSafely(outputStream);
                         Closeables.closeSafely(closeable2);
                         if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
                         }
                         return null;
                     } catch (Throwable th) {
@@ -73,6 +100,7 @@ public class BOSTokenRequest {
                         Closeables.closeSafely(outputStream2);
                         Closeables.closeSafely(closeable);
                         if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
                         }
                         throw th;
                     }
@@ -91,7 +119,6 @@ public class BOSTokenRequest {
                             Closeables.closeSafely(outputStream);
                             Closeables.closeSafely(closeable2);
                             if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
                             }
                             return null;
                         } catch (Throwable th2) {
@@ -101,7 +128,6 @@ public class BOSTokenRequest {
                             Closeables.closeSafely(outputStream2);
                             Closeables.closeSafely(closeable);
                             if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
                             }
                             throw th;
                         }

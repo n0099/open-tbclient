@@ -5,113 +5,192 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemSearchMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class RelevanceItemListFragment extends BaseFragment {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f22329e;
+    public View f22845e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelevanceItemListController f22330f;
+    public RelevanceItemListController f22846f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22331g;
+    public String f22847g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f22332h = new a(2921529);
+    public CustomMessageListener f22848h;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ RelevanceItemListFragment f22849a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(RelevanceItemListFragment relevanceItemListFragment, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {relevanceItemListFragment, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22849a = relevanceItemListFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
+                this.f22849a.G0(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+            }
+        }
+    }
+
+    public RelevanceItemListFragment() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            RelevanceItemListFragment.this.G0(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
         }
+        this.f22848h = new a(this, 2921529);
     }
 
     public void G0(String str) {
-        RelevanceItemListController relevanceItemListController = this.f22330f;
-        if (relevanceItemListController == null) {
+        RelevanceItemListController relevanceItemListController;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (relevanceItemListController = this.f22846f) == null) {
             return;
         }
         relevanceItemListController.g(str);
-        this.f22330f.i().setVisibility(8);
-        showLoadingView(this.f22329e);
+        this.f22846f.i().setVisibility(8);
+        showLoadingView(this.f22845e);
     }
 
     public final void H0() {
-        registerListener(this.f22332h);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            registerListener(this.f22848h);
+        }
     }
 
     public void I0() {
-        if (isLoadingViewAttached()) {
-            hideLoadingView(this.f22329e);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && isLoadingViewAttached()) {
+            hideLoadingView(this.f22845e);
         }
     }
 
     public void J0(String str) {
-        hideLoadingView(this.f22329e);
-        showNetRefreshView(this.f22329e, str, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            hideLoadingView(this.f22845e);
+            showNetRefreshView(this.f22845e, str, false);
+        }
     }
 
     public void K0() {
-        hideLoadingView(this.f22329e);
-        showNoDataNoRefreshView(this.f22329e, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            hideLoadingView(this.f22845e);
+            showNoDataNoRefreshView(this.f22845e, false);
+        }
     }
 
     public void L0(String str) {
-        this.f22331g = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f22847g = str;
+        }
     }
 
     public final void initData() {
-        this.f22330f = new RelevanceItemListController(this, this.f22329e, this.f22331g, getUniqueId());
-        String obj = (((RelevanceItemSearchActivity) getActivity()).getSearchView() == null || ((RelevanceItemSearchActivity) getActivity()).getSearchView().h() == null) ? "" : ((RelevanceItemSearchActivity) getActivity()).getSearchView().h().getText().toString();
-        if (!TextUtils.isEmpty(obj)) {
-            G0(obj);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f22846f = new RelevanceItemListController(this, this.f22845e, this.f22847g, getUniqueId());
+            String obj = (((RelevanceItemSearchActivity) getActivity()).getSearchView() == null || ((RelevanceItemSearchActivity) getActivity()).getSearchView().h() == null) ? "" : ((RelevanceItemSearchActivity) getActivity()).getSearchView().h().getText().toString();
+            if (!TextUtils.isEmpty(obj)) {
+                G0(obj);
+                return;
+            }
+            showLoadingView(this.f22845e);
+            this.f22846f.h();
         }
-        showLoadingView(this.f22329e);
-        this.f22330f.h();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            super.onCreate(bundle);
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f22329e == null) {
-            this.f22329e = layoutInflater.inflate(R.layout.fragment_relevance_item_list, (ViewGroup) null);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (this.f22845e == null) {
+                this.f22845e = layoutInflater.inflate(R.layout.fragment_relevance_item_list, (ViewGroup) null);
+            }
+            initData();
+            H0();
+            return this.f22845e;
         }
-        initData();
-        H0();
-        return this.f22329e;
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        super.onDestroy();
-        this.f22330f.k();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onDestroy();
+            this.f22846f.k();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.f22329e);
-        this.f22330f.h();
-        showLoadingView(this.f22329e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            hideNetRefreshView(this.f22845e);
+            this.f22846f.h();
+            showLoadingView(this.f22845e);
+        }
     }
 }

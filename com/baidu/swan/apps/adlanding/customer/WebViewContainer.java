@@ -7,24 +7,33 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
-import d.a.m0.a.v2.n0;
-/* loaded from: classes2.dex */
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.v2.n0;
+/* loaded from: classes4.dex */
 public class WebViewContainer extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public OverScroller f10538e;
+    public OverScroller f10610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f10539f;
+    public float f10611f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f10540g;
+    public float f10612g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f10541h;
+    public GestureDetector f10613h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VelocityTracker f10542i;
+    public VelocityTracker f10614i;
     public int j;
     public int k;
     public c l;
@@ -38,56 +47,98 @@ public class WebViewContainer extends FrameLayout {
     public float t;
     public int u;
     public int v;
-    public d.a.m0.a.p.e.c w;
+    public d.a.q0.a.p.e.c w;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         boolean a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class d extends GestureDetector.SimpleOnGestureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final WebViewContainer f10543e;
+        public final WebViewContainer f10615e;
 
         public d(WebViewContainer webViewContainer) {
-            this.f10543e = webViewContainer;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webViewContainer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10615e = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            this.f10543e.f10540g = motionEvent.getRawY();
-            return false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                this.f10615e.f10612g = motionEvent.getRawY();
+                return false;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            InterceptResult invokeCommon;
             WebViewContainer webViewContainer;
-            if (Math.abs(f3) <= Math.abs(f2) || (webViewContainer = this.f10543e) == null || webViewContainer.w.getWebViewScrollY() > 10) {
-                return false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                if (Math.abs(f3) <= Math.abs(f2) || (webViewContainer = this.f10615e) == null || webViewContainer.w.getWebViewScrollY() > 10) {
+                    return false;
+                }
+                if (f3 > 0.0f) {
+                    this.f10615e.o = true;
+                    return this.f10615e.j > this.f10615e.u;
+                }
+                this.f10615e.o = false;
+                return (this.f10615e.r && this.f10615e.s && this.f10615e.j < this.f10615e.k) || this.f10615e.j < this.f10615e.k;
             }
-            if (f3 > 0.0f) {
-                this.f10543e.o = true;
-                return this.f10543e.j > this.f10543e.u;
-            }
-            this.f10543e.o = false;
-            return (this.f10543e.r && this.f10543e.s && this.f10543e.j < this.f10543e.k) || this.f10543e.j < this.f10543e.k;
+            return invokeCommon.booleanValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewContainer(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.j = 0;
         this.k = 0;
         this.q = 2000;
@@ -100,179 +151,255 @@ public class WebViewContainer extends FrameLayout {
     @Override // android.view.View
     public void computeScroll() {
         b bVar;
-        if (this.f10538e.computeScrollOffset()) {
-            int i2 = i(this.f10538e.getCurrY());
-            if (this.n) {
-                scrollTo(0, i2);
-            } else {
-                scrollBy(0, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.f10610e.computeScrollOffset()) {
+                int i2 = i(this.f10610e.getCurrY());
+                if (this.n) {
+                    scrollTo(0, i2);
+                } else {
+                    scrollBy(0, i2);
+                }
+                this.f10612g -= i2;
+                invalidate();
             }
-            this.f10540g -= i2;
-            invalidate();
+            if (!this.n || (bVar = this.m) == null) {
+                return;
+            }
+            bVar.a();
+            this.n = false;
         }
-        if (!this.n || (bVar = this.m) == null) {
-            return;
-        }
-        bVar.a();
-        this.n = false;
     }
 
     public int getMinTopMargin() {
-        return this.u;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.u : invokeV.intValue;
     }
 
     public int getTopMargin() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.intValue;
     }
 
     public float getYVelocity() {
-        return this.v;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.v : invokeV.floatValue;
     }
 
     public final int i(int i2) {
-        if (this.n) {
-            this.j = this.k - i2;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            if (this.n) {
+                this.j = this.k - i2;
+                return i2;
+            }
+            int i3 = this.j;
+            int i4 = i3 - i2;
+            int i5 = this.u;
+            if (i4 < i5) {
+                int i6 = i3 - i5;
+                this.j = i5;
+                return i6;
+            }
+            int i7 = this.k;
+            if (i4 > i7) {
+                int i8 = i3 - i7;
+                this.j = i7;
+                return i8;
+            }
+            this.j = i3 - i2;
             return i2;
         }
-        int i3 = this.j;
-        int i4 = i3 - i2;
-        int i5 = this.u;
-        if (i4 < i5) {
-            int i6 = i3 - i5;
-            this.j = i5;
-            return i6;
-        }
-        int i7 = this.k;
-        if (i4 > i7) {
-            int i8 = i3 - i7;
-            this.j = i7;
-            return i8;
-        }
-        this.j = i3 - i2;
-        return i2;
+        return invokeI.intValue;
     }
 
     public final boolean j(int i2) {
-        OverScroller overScroller = this.f10538e;
-        if (overScroller == null || this.j < this.k) {
-            return false;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            OverScroller overScroller = this.f10610e;
+            if (overScroller == null || this.j < this.k) {
+                return false;
+            }
+            overScroller.fling(0, (int) this.f10612g, 0, i2, 0, 0, -500, 10000);
+            invalidate();
+            return true;
         }
-        overScroller.fling(0, (int) this.f10540g, 0, i2, 0, 0, -500, 10000);
-        invalidate();
-        return true;
+        return invokeI.booleanValue;
     }
 
     public final void k() {
         c cVar;
-        this.f10542i.computeCurrentVelocity(1000);
-        int yVelocity = (int) this.f10542i.getYVelocity();
-        this.v = yVelocity;
-        if (this.o) {
-            float f2 = this.t;
-            if (f2 > 0.0f) {
-                this.v = (int) (yVelocity * f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f10614i.computeCurrentVelocity(1000);
+            int yVelocity = (int) this.f10614i.getYVelocity();
+            this.v = yVelocity;
+            if (this.o) {
+                float f2 = this.t;
+                if (f2 > 0.0f) {
+                    this.v = (int) (yVelocity * f2);
+                }
             }
-        }
-        if (Math.abs(this.v) > this.q && ((this.v > 0 && this.j < this.k) || (this.v < 0 && this.j >= this.u))) {
-            a aVar = this.p;
-            r0 = aVar != null ? aVar.a(this.o) : false;
-            if (!r0) {
-                j(-this.v);
+            if (Math.abs(this.v) > this.q && ((this.v > 0 && this.j < this.k) || (this.v < 0 && this.j >= this.u))) {
+                a aVar = this.p;
+                r0 = aVar != null ? aVar.a(this.o) : false;
+                if (!r0) {
+                    j(-this.v);
+                }
             }
+            if (!r0 && (cVar = this.l) != null) {
+                cVar.a(this.o);
+            }
+            this.f10614i.recycle();
+            this.f10614i = null;
         }
-        if (!r0 && (cVar = this.l) != null) {
-            cVar.a(this.o);
-        }
-        this.f10542i.recycle();
-        this.f10542i = null;
     }
 
     public final void l(Context context) {
-        this.f10538e = new OverScroller(context);
-        this.f10541h = new GestureDetector(context, new d(this));
-        setMotionEventSplittingEnabled(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            this.f10610e = new OverScroller(context);
+            this.f10613h = new GestureDetector(context, new d(this));
+            setMotionEventSplittingEnabled(false);
+        }
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        boolean z = this.j > ((int) motionEvent.getY());
-        this.s = z;
-        if ((!z || this.r) && this.f10541h.onTouchEvent(motionEvent)) {
-            if (getParent() != null) {
-                getParent().requestDisallowInterceptTouchEvent(true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+            boolean z = this.j > ((int) motionEvent.getY());
+            this.s = z;
+            if ((!z || this.r) && this.f10613h.onTouchEvent(motionEvent)) {
+                if (getParent() != null) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.n = false;
-        int y = (int) motionEvent.getY();
-        if (this.j <= y || this.r) {
-            super.onTouchEvent(motionEvent);
-            if (this.f10542i == null) {
-                this.f10542i = VelocityTracker.obtain();
-            }
-            this.f10542i.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action == 1) {
-                    k();
-                } else if (action != 2) {
-                    if (action == 3 && this.r) {
-                        k();
-                    }
-                } else {
-                    float rawY = motionEvent.getRawY();
-                    this.f10539f = rawY;
-                    int i2 = i((int) (this.f10540g - rawY));
-                    scrollBy(0, i2);
-                    this.f10540g -= i2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            this.n = false;
+            int y = (int) motionEvent.getY();
+            if (this.j <= y || this.r) {
+                super.onTouchEvent(motionEvent);
+                if (this.f10614i == null) {
+                    this.f10614i = VelocityTracker.obtain();
                 }
-            } else if (!this.f10538e.isFinished()) {
-                this.f10538e.abortAnimation();
+                this.f10614i.addMovement(motionEvent);
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action == 1) {
+                        k();
+                    } else if (action != 2) {
+                        if (action == 3 && this.r) {
+                            k();
+                        }
+                    } else {
+                        float rawY = motionEvent.getRawY();
+                        this.f10611f = rawY;
+                        int i2 = i((int) (this.f10612g - rawY));
+                        scrollBy(0, i2);
+                        this.f10612g -= i2;
+                    }
+                } else if (!this.f10610e.isFinished()) {
+                    this.f10610e.abortAnimation();
+                }
+                return this.j <= y;
             }
-            return this.j <= y;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public void setAutoScroll2TopListener(b bVar) {
-        this.m = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
+            this.m = bVar;
+        }
     }
 
     public void setInterceptFlingListener(a aVar) {
-        this.p = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
+            this.p = aVar;
+        }
     }
 
-    public void setInternalWebView(d.a.m0.a.p.e.c cVar) {
-        this.w = cVar;
+    public void setInternalWebView(d.a.q0.a.p.e.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
+            this.w = cVar;
+        }
     }
 
     public void setMinFlingVelocity(int i2) {
-        this.q = n0.g(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.q = n0.g(i2);
+        }
     }
 
     public void setOnUpListener(c cVar) {
-        this.l = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) {
+            this.l = cVar;
+        }
     }
 
     public void setTopLimit(int i2) {
-        this.k = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.k = i2;
+        }
     }
 
     public void setTopMargin(int i2) {
-        this.j = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.j = i2;
+        }
     }
 
     public void setUpYVelocityRatio(float f2) {
-        this.t = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
+            this.t = f2;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.j = 0;
         this.k = 0;
         this.q = 2000;
@@ -282,8 +409,25 @@ public class WebViewContainer extends FrameLayout {
         l(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewContainer(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.j = 0;
         this.k = 0;
         this.q = 2000;

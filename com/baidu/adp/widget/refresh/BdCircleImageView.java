@@ -12,68 +12,122 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import androidx.core.view.ViewCompat;
 import androidx.swiperefreshlayout.widget.CircleImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BdCircleImageView extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation.AnimationListener f2489e;
+    public Animation.AnimationListener f2487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2490f;
+    public int f2488f;
 
     /* loaded from: classes.dex */
     public class a extends OvalShape {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public RadialGradient f2491e;
+        public RadialGradient f2489e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f2492f = new Paint();
+        public Paint f2490f;
 
-        public a(int i2) {
-            BdCircleImageView.this.f2490f = i2;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ BdCircleImageView f2491g;
+
+        public a(BdCircleImageView bdCircleImageView, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdCircleImageView, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2491g = bdCircleImageView;
+            this.f2490f = new Paint();
+            bdCircleImageView.f2488f = i2;
             a((int) rect().width());
         }
 
         public final void a(int i2) {
-            float f2 = i2 / 2;
-            RadialGradient radialGradient = new RadialGradient(f2, f2, BdCircleImageView.this.f2490f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
-            this.f2491e = radialGradient;
-            this.f2492f.setShader(radialGradient);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                float f2 = i2 / 2;
+                RadialGradient radialGradient = new RadialGradient(f2, f2, this.f2491g.f2488f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
+                this.f2489e = radialGradient;
+                this.f2490f.setShader(radialGradient);
+            }
         }
 
         @Override // android.graphics.drawable.shapes.OvalShape, android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
         public void draw(Canvas canvas, Paint paint) {
             int width;
-            float width2 = BdCircleImageView.this.getWidth() / 2;
-            float height = BdCircleImageView.this.getHeight() / 2;
-            canvas.drawCircle(width2, height, width2, this.f2492f);
-            canvas.drawCircle(width2, height, width - BdCircleImageView.this.f2490f, paint);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, paint) == null) {
+                float width2 = this.f2491g.getWidth() / 2;
+                float height = this.f2491g.getHeight() / 2;
+                canvas.drawCircle(width2, height, width2, this.f2490f);
+                canvas.drawCircle(width2, height, width - this.f2491g.f2488f, paint);
+            }
         }
 
         @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
         public void onResize(float f2, float f3) {
-            super.onResize(f2, f3);
-            a((int) f2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                super.onResize(f2, f3);
+                a((int) f2);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdCircleImageView(Context context, int i2) {
         super(context);
         ShapeDrawable shapeDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         float f2 = getContext().getResources().getDisplayMetrics().density;
-        int i3 = (int) (1.75f * f2);
-        int i4 = (int) (0.0f * f2);
-        this.f2490f = (int) (3.5f * f2);
+        int i5 = (int) (1.75f * f2);
+        int i6 = (int) (0.0f * f2);
+        this.f2488f = (int) (3.5f * f2);
         if (a()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
             ViewCompat.setElevation(this, f2 * 4.0f);
         } else {
-            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this.f2490f));
+            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this, this.f2488f));
             ViewCompat.setLayerType(this, 1, shapeDrawable2.getPaint());
-            shapeDrawable2.getPaint().setShadowLayer(this.f2490f, i4, i3, CircleImageView.KEY_SHADOW_COLOR);
-            int i5 = this.f2490f;
-            setPadding(i5, i5, i5, i5);
+            shapeDrawable2.getPaint().setShadowLayer(this.f2488f, i6, i5, CircleImageView.KEY_SHADOW_COLOR);
+            int i7 = this.f2488f;
+            setPadding(i7, i7, i7, i7);
             shapeDrawable = shapeDrawable2;
         }
         shapeDrawable.getPaint().setColor(i2);
@@ -81,48 +135,66 @@ public class BdCircleImageView extends ImageView {
     }
 
     public final boolean a() {
-        return Build.VERSION.SDK_INT >= 21;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onAnimationEnd() {
-        super.onAnimationEnd();
-        Animation.AnimationListener animationListener = this.f2489e;
-        if (animationListener != null) {
-            animationListener.onAnimationEnd(getAnimation());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onAnimationEnd();
+            Animation.AnimationListener animationListener = this.f2487e;
+            if (animationListener != null) {
+                animationListener.onAnimationEnd(getAnimation());
+            }
         }
     }
 
     @Override // android.view.View
     public void onAnimationStart() {
-        super.onAnimationStart();
-        Animation.AnimationListener animationListener = this.f2489e;
-        if (animationListener != null) {
-            animationListener.onAnimationStart(getAnimation());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onAnimationStart();
+            Animation.AnimationListener animationListener = this.f2487e;
+            if (animationListener != null) {
+                animationListener.onAnimationStart(getAnimation());
+            }
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        if (a()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            if (a()) {
+                return;
+            }
+            setMeasuredDimension(getMeasuredWidth() + (this.f2488f * 2), getMeasuredHeight() + (this.f2488f * 2));
         }
-        setMeasuredDimension(getMeasuredWidth() + (this.f2490f * 2), getMeasuredHeight() + (this.f2490f * 2));
     }
 
     public void setAnimationListener(Animation.AnimationListener animationListener) {
-        this.f2489e = animationListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, animationListener) == null) {
+            this.f2487e = animationListener;
+        }
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
-        if (getBackground() instanceof ShapeDrawable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i2) == null) && (getBackground() instanceof ShapeDrawable)) {
             ((ShapeDrawable) getBackground()).getPaint().setColor(i2);
         }
     }
 
     public void setBackgroundColorRes(int i2) {
-        setBackgroundColor(getContext().getResources().getColor(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            setBackgroundColor(getContext().getResources().getColor(i2));
+        }
     }
 }

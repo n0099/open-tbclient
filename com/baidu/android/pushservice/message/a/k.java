@@ -2,86 +2,128 @@ package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
 import com.baidu.android.pushservice.j.m;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class k {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3536a;
+    public Context f3534a;
 
     /* renamed from: com.baidu.android.pushservice.message.a.k$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3537a;
+        public static final /* synthetic */ int[] f3535a;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            int[] iArr = new int[l.values().length];
-            f3537a = iArr;
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1053386149, "Lcom/baidu/android/pushservice/message/a/k$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1053386149, "Lcom/baidu/android/pushservice/message/a/k$1;");
+                    return;
+                }
+            }
+            int[] iArr = new int[l.a().length];
+            f3535a = iArr;
             try {
-                iArr[l.MSG_TYPE_SINGLE_PRIVATE.ordinal()] = 1;
+                iArr[l.f3537b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f3537a[l.MSG_TYPE_MULTI_PRIVATE.ordinal()] = 2;
+                f3535a[l.f3538c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f3537a[l.MSG_TYPE_PRIVATE_MESSAGE.ordinal()] = 3;
+                f3535a[l.f3542g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f3537a[l.MSG_TYPE_SINGLE_PUBLIC.ordinal()] = 4;
+                f3535a[l.f3539d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f3537a[l.MSG_TYPE_MULTI_PUBLIC.ordinal()] = 5;
+                f3535a[l.f3540e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f3537a[l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.ordinal()] = 6;
+                f3535a[l.f3541f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f3537a[l.MSG_TYPE_CLEAR_MESSAGE.ordinal()] = 7;
+                f3535a[l.f3543h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f3537a[l.MSG_TYPE_CROSS_PUSH.ordinal()] = 8;
+                f3535a[l.f3544i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f3537a[l.MSG_TYPE_APP_PRIORITY.ordinal()] = 9;
+                f3535a[l.j.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
     }
 
     public k(Context context) {
-        this.f3536a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3534a = context;
     }
 
     public d a(l lVar) {
-        switch (AnonymousClass1.f3537a[lVar.ordinal()]) {
-            case 1:
-            case 2:
-                return new g(this.f3536a);
-            case 3:
-                return new h(this.f3536a);
-            case 4:
-            case 5:
-                return new i(this.f3536a);
-            case 6:
-                return new e(this.f3536a);
-            case 7:
-                return new b(this.f3536a);
-            case 8:
-                return new c(this.f3536a);
-            case 9:
-                return new a(this.f3536a);
-            default:
-                m.a(">>> Unknown msg_type : " + lVar, this.f3536a);
-                return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) {
+            switch (AnonymousClass1.f3535a[lVar.ordinal()]) {
+                case 1:
+                case 2:
+                    return new g(this.f3534a);
+                case 3:
+                    return new h(this.f3534a);
+                case 4:
+                case 5:
+                    return new i(this.f3534a);
+                case 6:
+                    return new e(this.f3534a);
+                case 7:
+                    return new b(this.f3534a);
+                case 8:
+                    return new c(this.f3534a);
+                case 9:
+                    return new a(this.f3534a);
+                default:
+                    m.a(">>> Unknown msg_type : " + lVar, this.f3534a);
+                    return null;
+            }
         }
+        return (d) invokeL.objValue;
     }
 }

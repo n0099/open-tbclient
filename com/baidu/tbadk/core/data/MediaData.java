@@ -1,108 +1,179 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Media;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MediaData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int EXT_TYPE_XIAOYING = 12;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int during_time;
+    public int e_type;
+    public boolean isLongPic;
     public String origin_pic;
+    public long original_size;
+    public String original_url;
+    public int picHeight;
+    public int picWidth;
+    public String pic_url;
     public long postId;
+    public boolean showOriginBtn;
     public String small_pic_url;
-    public int e_type = -1;
-    public int picWidth = 0;
-    public int picHeight = 0;
-    public int type = -1;
-    public String pic_url = null;
-    public String video_url = null;
-    public String src_pic = null;
-    public String original_url = null;
-    public long original_size = 0;
-    public String thumbnails_url = null;
-    public int during_time = 0;
-    public boolean isLongPic = false;
-    public boolean showOriginBtn = false;
-    public double smartCropCenterPointWidthRatio = 0.0d;
-    public double smartCropCenterPointHeightRatio = 0.0d;
+    public double smartCropCenterPointHeightRatio;
+    public double smartCropCenterPointWidthRatio;
+    public String src_pic;
+    public String thumbnails_url;
+    public int type;
+    public String video_url;
 
     public MediaData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e_type = -1;
         this.postId = -1L;
+        this.picWidth = 0;
+        this.picHeight = 0;
+        this.type = -1;
+        this.pic_url = null;
+        this.video_url = null;
+        this.src_pic = null;
+        this.original_url = null;
+        this.original_size = 0L;
         this.postId = -1L;
+        this.thumbnails_url = null;
+        this.during_time = 0;
+        this.isLongPic = false;
+        this.showOriginBtn = false;
+        this.smartCropCenterPointWidthRatio = 0.0d;
+        this.smartCropCenterPointHeightRatio = 0.0d;
     }
 
     public int getDuration() {
-        return this.during_time;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.during_time : invokeV.intValue;
     }
 
     public long getOriginalSize() {
-        return this.original_size;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.original_size : invokeV.longValue;
     }
 
     public String getOriginalUrl() {
-        return this.original_url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.original_url : (String) invokeV.objValue;
     }
 
     public String getPicUrl() {
-        return this.pic_url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pic_url : (String) invokeV.objValue;
     }
 
     public long getPostId() {
-        return this.postId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.postId : invokeV.longValue;
     }
 
     public String getSmallPicUrl() {
-        return this.small_pic_url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.small_pic_url : (String) invokeV.objValue;
     }
 
     public String getSmallUrl() {
-        return this.pic_url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pic_url : (String) invokeV.objValue;
     }
 
     public double getSmartCropCenterPointHeightRatio() {
-        return this.smartCropCenterPointHeightRatio;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.smartCropCenterPointHeightRatio : invokeV.doubleValue;
     }
 
     public double getSmartCropCenterPointWidthRatio() {
-        return this.smartCropCenterPointWidthRatio;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.smartCropCenterPointWidthRatio : invokeV.doubleValue;
     }
 
     public String getSrc_pic() {
-        return this.src_pic;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.src_pic : (String) invokeV.objValue;
     }
 
     public String getThumbnails_url() {
-        return this.thumbnails_url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.thumbnails_url : (String) invokeV.objValue;
     }
 
     public int getType() {
-        return this.type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.type : invokeV.intValue;
     }
 
     public String getVideoUrl() {
-        return this.video_url;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.video_url : (String) invokeV.objValue;
     }
 
     public boolean isLongPic() {
-        return this.isLongPic;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isLongPic : invokeV.booleanValue;
     }
 
     public boolean isShowOriginBtn() {
-        return this.showOriginBtn;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.showOriginBtn : invokeV.booleanValue;
     }
 
     public boolean isSmartCrop() {
-        return this.smartCropCenterPointWidthRatio > 0.0d && this.smartCropCenterPointHeightRatio > 0.0d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.smartCropCenterPointWidthRatio > 0.0d && this.smartCropCenterPointHeightRatio > 0.0d : invokeV.booleanValue;
     }
 
     public boolean isXiaoying() {
-        return this.type == 5 && this.e_type == 12;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.type == 5 && this.e_type == 12 : invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -146,7 +217,8 @@ public class MediaData extends OrmObject implements Serializable {
     }
 
     public void parserProtobuf(Media media) {
-        if (media == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, media) == null) || media == null) {
             return;
         }
         int intValue = media.type.intValue();
@@ -191,38 +263,65 @@ public class MediaData extends OrmObject implements Serializable {
     }
 
     public void setDuration(int i2) {
-        this.during_time = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            this.during_time = i2;
+        }
     }
 
     public void setIsLongPic(boolean z) {
-        this.isLongPic = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.isLongPic = z;
+        }
     }
 
     public void setOriginalSize(long j) {
-        this.original_size = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.original_size = j;
+        }
     }
 
     public void setOriginalUrl(String str) {
-        this.original_url = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.original_url = str;
+        }
     }
 
     public void setPic(String str) {
-        this.pic_url = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.pic_url = str;
+        }
     }
 
     public void setSrc_pic(String str) {
-        this.src_pic = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.src_pic = str;
+        }
     }
 
     public void setThumbnails_url(String str) {
-        this.thumbnails_url = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.thumbnails_url = str;
+        }
     }
 
     public void setType(int i2) {
-        this.type = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
+            this.type = i2;
+        }
     }
 
     public void setVideo(String str) {
-        this.video_url = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.video_url = str;
+        }
     }
 }

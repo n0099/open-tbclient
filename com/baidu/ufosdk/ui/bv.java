@@ -4,27 +4,50 @@ import android.text.ClipboardManager;
 import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class bv implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f22862a;
+    public final /* synthetic */ View f23378a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PopupWindow f22863b;
+    public final /* synthetic */ PopupWindow f23379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22864c;
+    public final /* synthetic */ FeedbackInputActivity f23380c;
 
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
-        this.f22864c = feedbackInputActivity;
-        this.f22862a = view;
-        this.f22863b = popupWindow;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackInputActivity, view, popupWindow};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23380c = feedbackInputActivity;
+        this.f23378a = view;
+        this.f23379b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        ((ClipboardManager) this.f22864c.getSystemService("clipboard")).setText(((TextView) this.f22862a).getText().toString());
-        this.f22863b.dismiss();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            ((ClipboardManager) this.f23380c.getSystemService("clipboard")).setText(((TextView) this.f23378a).getText().toString());
+            this.f23379b.dismiss();
+        }
     }
 }

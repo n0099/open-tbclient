@@ -5,28 +5,49 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.DownloadListener;
 import android.widget.Toast;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.downloader.WDownLoadService;
 import org.json.JSONException;
 /* loaded from: classes7.dex */
 public class D1 implements DownloadListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E1 f40589a;
+    public final /* synthetic */ E1 f42332a;
 
     public D1(E1 e1) {
-        this.f40589a = e1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e1};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42332a = e1;
     }
 
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-        Info info = this.f40589a.f40600c;
-        if (info == null || info.getOpent() != 1 || j <= 10) {
+        Info info;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) || (info = this.f42332a.f42343c) == null || info.getOpent() != 1 || j <= 10) {
             return;
         }
-        E1 e1 = this.f40589a;
-        Context context = e1.f40598a;
-        Info info2 = e1.f40600c;
+        E1 e1 = this.f42332a;
+        Context context = e1.f42341a;
+        Info info2 = e1.f42343c;
         if (!z.e(context)) {
             Toast.makeText(context, context.getString(R.string.win_wdownload_no_netwrok) + info2.getDl_name(), 0).show();
             x0.a(context).b(new y0(info2), 1).a();
@@ -38,7 +59,7 @@ public class D1 implements DownloadListener {
                 y0 y0Var = new y0(info2);
                 String open = info2.getOpen();
                 try {
-                    a2.f40940b = x0.a("wii", y0Var);
+                    a2.f42683b = x0.a("wii", y0Var);
                     a2.a("msg", x0.a(open));
                 } catch (JSONException unused) {
                 }

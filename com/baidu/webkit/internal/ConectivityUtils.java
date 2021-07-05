@@ -5,8 +5,16 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.telephony.TelephonyManager;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class ConectivityUtils implements INoProGuard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String APN_3GNET = "3gnet";
     public static final String APN_3GWAP = "3gwap";
     public static final String APN_CMNET = "cmnet";
@@ -23,49 +31,90 @@ public class ConectivityUtils implements INoProGuard {
     public static final String NET_TYPE_4G = "4g";
     public static final String NET_TYPE_UNKNOWN = "unknown";
     public static final String NET_TYPE_WIFI = "wifi";
-    public static final Uri PREFERRED_APN_URI = Uri.parse("content://telephony/carriers/preferapn");
+    public static final Uri PREFERRED_APN_URI;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1318558460, "Lcom/baidu/webkit/internal/ConectivityUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1318558460, "Lcom/baidu/webkit/internal/ConectivityUtils;");
+                return;
+            }
+        }
+        PREFERRED_APN_URI = Uri.parse("content://telephony/carriers/preferapn");
+    }
+
+    public ConectivityUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String getNetType(Context context) {
+        InterceptResult invokeL;
         Context applicationContext;
         ConnectivityManager connectivityManager;
-        if (context == null) {
-            return "unknown";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return "unknown";
+            }
+            try {
+                applicationContext = context.getApplicationContext();
+                connectivityManager = (ConnectivityManager) applicationContext.getSystemService("connectivity");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            if (connectivityManager == null) {
+                return "unknown";
+            }
+            NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
+            if (networkInfo != null && networkInfo.isConnected()) {
+                return isFastMobileNetwork(applicationContext) ? ((TelephonyManager) context.getSystemService("phone")).getNetworkType() == 13 ? "4g" : "3g" : "2g";
+            }
+            NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
+            return (networkInfo2 == null || !networkInfo2.isConnected()) ? "unknown" : "wifi";
         }
-        try {
-            applicationContext = context.getApplicationContext();
-            connectivityManager = (ConnectivityManager) applicationContext.getSystemService("connectivity");
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        if (connectivityManager == null) {
-            return "unknown";
-        }
-        NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
-        if (networkInfo != null && networkInfo.isConnected()) {
-            return isFastMobileNetwork(applicationContext) ? ((TelephonyManager) context.getSystemService("phone")).getNetworkType() == 13 ? "4g" : "3g" : "2g";
-        }
-        NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
-        return (networkInfo2 == null || !networkInfo2.isConnected()) ? "unknown" : "wifi";
+        return (String) invokeL.objValue;
     }
 
     public static boolean isFastMobileNetwork(Context context) {
-        switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-            case 3:
-            case 5:
-            case 6:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-            case 13:
-            case 14:
-            case 15:
-                return true;
-            case 4:
-            case 7:
-            case 11:
-            default:
-                return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    return true;
+                case 4:
+                case 7:
+                case 11:
+                default:
+                    return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 }

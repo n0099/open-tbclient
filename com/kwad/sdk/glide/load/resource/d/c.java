@@ -12,237 +12,367 @@ import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.glide.load.resource.d.g;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f36508a;
+    public final a f38271a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36509b;
+    public boolean f38272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36510c;
+    public boolean f38273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36511d;
+    public boolean f38274d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36512e;
+    public boolean f38275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36513f;
+    public int f38276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36514g;
+    public int f38277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36515h;
+    public boolean f38278h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f36516i;
+    public Paint f38279i;
     public Rect j;
     public List<Animatable2Compat.AnimationCallback> k;
 
     /* loaded from: classes7.dex */
     public static final class a extends Drawable.ConstantState {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         @VisibleForTesting
 
         /* renamed from: a  reason: collision with root package name */
-        public final g f36517a;
+        public final g f38280a;
 
         public a(g gVar) {
-            this.f36517a = gVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f38280a = gVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         @NonNull
         public Drawable newDrawable() {
-            return new c(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this) : (Drawable) invokeV.objValue;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         @NonNull
         public Drawable newDrawable(Resources resources) {
-            return newDrawable();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources)) == null) ? newDrawable() : (Drawable) invokeL.objValue;
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(Context context, com.kwad.sdk.glide.b.a aVar, com.kwad.sdk.glide.load.h<Bitmap> hVar, int i2, int i3, Bitmap bitmap) {
         this(new a(new g(com.kwad.sdk.glide.c.a(context), aVar, i2, i3, hVar, bitmap)));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar, hVar, Integer.valueOf(i2), Integer.valueOf(i3), bitmap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                this((a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public c(a aVar) {
-        this.f36512e = true;
-        this.f36514g = -1;
-        this.f36508a = (a) com.kwad.sdk.glide.g.j.a(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f38275e = true;
+        this.f38277g = -1;
+        this.f38271a = (a) com.kwad.sdk.glide.g.j.a(aVar);
     }
 
     private void h() {
-        this.f36513f = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.f38276f = 0;
+        }
     }
 
     private void i() {
-        com.kwad.sdk.glide.g.j.a(!this.f36511d, "You cannot start a recycled Drawable. Ensure thatyou clear any references to the Drawable when clearing the corresponding request.");
-        if (this.f36508a.f36517a.g() != 1) {
-            if (this.f36509b) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            com.kwad.sdk.glide.g.j.a(!this.f38274d, "You cannot start a recycled Drawable. Ensure thatyou clear any references to the Drawable when clearing the corresponding request.");
+            if (this.f38271a.f38280a.g() != 1) {
+                if (this.f38272b) {
+                    return;
+                }
+                this.f38272b = true;
+                this.f38271a.f38280a.a(this);
             }
-            this.f36509b = true;
-            this.f36508a.f36517a.a(this);
+            invalidateSelf();
         }
-        invalidateSelf();
     }
 
     private void j() {
-        this.f36509b = false;
-        this.f36508a.f36517a.b(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            this.f38272b = false;
+            this.f38271a.f38280a.b(this);
+        }
     }
 
     private Rect k() {
-        if (this.j == null) {
-            this.j = new Rect();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (this.j == null) {
+                this.j = new Rect();
+            }
+            return this.j;
         }
-        return this.j;
+        return (Rect) invokeV.objValue;
     }
 
     private Paint l() {
-        if (this.f36516i == null) {
-            this.f36516i = new Paint(2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (this.f38279i == null) {
+                this.f38279i = new Paint(2);
+            }
+            return this.f38279i;
         }
-        return this.f36516i;
+        return (Paint) invokeV.objValue;
     }
 
     private Drawable.Callback m() {
-        Drawable.Callback callback = getCallback();
-        while (callback instanceof Drawable) {
-            callback = ((Drawable) callback).getCallback();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            Drawable.Callback callback = getCallback();
+            while (callback instanceof Drawable) {
+                callback = ((Drawable) callback).getCallback();
+            }
+            return callback;
         }
-        return callback;
+        return (Drawable.Callback) invokeV.objValue;
     }
 
     private void n() {
-        List<Animatable2Compat.AnimationCallback> list = this.k;
-        if (list != null) {
-            int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.k.get(i2).onAnimationEnd(this);
-            }
+        List<Animatable2Compat.AnimationCallback> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (list = this.k) == null) {
+            return;
+        }
+        int size = list.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            this.k.get(i2).onAnimationEnd(this);
         }
     }
 
     public int a() {
-        return this.f36508a.f36517a.d();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38271a.f38280a.d() : invokeV.intValue;
     }
 
     public void a(com.kwad.sdk.glide.load.h<Bitmap> hVar, Bitmap bitmap) {
-        this.f36508a.f36517a.a(hVar, bitmap);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, bitmap) == null) {
+            this.f38271a.f38280a.a(hVar, bitmap);
+        }
     }
 
     public Bitmap b() {
-        return this.f36508a.f36517a.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38271a.f38280a.a() : (Bitmap) invokeV.objValue;
     }
 
     public ByteBuffer c() {
-        return this.f36508a.f36517a.f();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38271a.f38280a.f() : (ByteBuffer) invokeV.objValue;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
     public void clearAnimationCallbacks() {
-        List<Animatable2Compat.AnimationCallback> list = this.k;
-        if (list != null) {
-            list.clear();
+        List<Animatable2Compat.AnimationCallback> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.k) == null) {
+            return;
         }
+        list.clear();
     }
 
     public int d() {
-        return this.f36508a.f36517a.g();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38271a.f38280a.g() : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        if (this.f36511d) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || this.f38274d) {
             return;
         }
-        if (this.f36515h) {
+        if (this.f38278h) {
             Gravity.apply(119, getIntrinsicWidth(), getIntrinsicHeight(), getBounds(), k());
-            this.f36515h = false;
+            this.f38278h = false;
         }
-        canvas.drawBitmap(this.f36508a.f36517a.i(), (Rect) null, k(), l());
+        canvas.drawBitmap(this.f38271a.f38280a.i(), (Rect) null, k(), l());
     }
 
     public int e() {
-        return this.f36508a.f36517a.e();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38271a.f38280a.e() : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.glide.load.resource.d.g.b
     public void f() {
-        if (m() == null) {
-            stop();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (m() == null) {
+                stop();
+                invalidateSelf();
+                return;
+            }
             invalidateSelf();
-            return;
+            if (e() == d() - 1) {
+                this.f38276f++;
+            }
+            int i2 = this.f38277g;
+            if (i2 == -1 || this.f38276f < i2) {
+                return;
+            }
+            n();
+            stop();
         }
-        invalidateSelf();
-        if (e() == d() - 1) {
-            this.f36513f++;
-        }
-        int i2 = this.f36514g;
-        if (i2 == -1 || this.f36513f < i2) {
-            return;
-        }
-        n();
-        stop();
     }
 
     public void g() {
-        this.f36511d = true;
-        this.f36508a.f36517a.h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f38274d = true;
+            this.f38271a.f38280a.h();
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        return this.f36508a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f38271a : (Drawable.ConstantState) invokeV.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.f36508a.f36517a.c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f38271a.f38280a.c() : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.f36508a.f36517a.b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f38271a.f38280a.b() : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return -2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return -2;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
-        return this.f36509b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f38272b : invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        super.onBoundsChange(rect);
-        this.f36515h = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, rect) == null) {
+            super.onBoundsChange(rect);
+            this.f38278h = true;
+        }
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
     public void registerAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
-        if (animationCallback == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, animationCallback) == null) || animationCallback == null) {
             return;
         }
         if (this.k == null) {
@@ -253,47 +383,69 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i2) {
-        l().setAlpha(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            l().setAlpha(i2);
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        l().setColorFilter(colorFilter);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, colorFilter) == null) {
+            l().setColorFilter(colorFilter);
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        com.kwad.sdk.glide.g.j.a(!this.f36511d, "Cannot change the visibility of a recycled resource. Ensure that you unset the Drawable from your View before changing the View's visibility.");
-        this.f36512e = z;
-        if (!z) {
-            j();
-        } else if (this.f36510c) {
-            i();
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            com.kwad.sdk.glide.g.j.a(!this.f38274d, "Cannot change the visibility of a recycled resource. Ensure that you unset the Drawable from your View before changing the View's visibility.");
+            this.f38275e = z;
+            if (!z) {
+                j();
+            } else if (this.f38273c) {
+                i();
+            }
+            return super.setVisible(z, z2);
         }
-        return super.setVisible(z, z2);
+        return invokeCommon.booleanValue;
     }
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        this.f36510c = true;
-        h();
-        if (this.f36512e) {
-            i();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.f38273c = true;
+            h();
+            if (this.f38275e) {
+                i();
+            }
         }
     }
 
     @Override // android.graphics.drawable.Animatable
     public void stop() {
-        this.f36510c = false;
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.f38273c = false;
+            j();
+        }
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
     public boolean unregisterAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
-        List<Animatable2Compat.AnimationCallback> list = this.k;
-        if (list == null || animationCallback == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, animationCallback)) == null) {
+            List<Animatable2Compat.AnimationCallback> list = this.k;
+            if (list == null || animationCallback == null) {
+                return false;
+            }
+            return list.remove(animationCallback);
         }
-        return list.remove(animationCallback);
+        return invokeL.booleanValue;
     }
 }

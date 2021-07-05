@@ -1,4 +1,11 @@
 package com.bytedance.sdk.openadsdk.k.c;
 /* loaded from: classes6.dex */
-public class a extends Exception {
+public interface a {
+    void a();
+
+    void a(com.bytedance.sdk.openadsdk.k.a.a aVar);
+
+    void a(com.bytedance.sdk.openadsdk.k.a.a aVar, boolean z);
+
+    void b();
 }

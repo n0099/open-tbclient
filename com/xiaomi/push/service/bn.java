@@ -2,6 +2,12 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hj;
 import com.xiaomi.push.ip;
 import java.io.BufferedOutputStream;
@@ -10,47 +16,80 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bn {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f41895a = new Object();
+    public static final Object f43638a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1071163418, "Lcom/xiaomi/push/service/bn;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1071163418, "Lcom/xiaomi/push/service/bn;");
+                return;
+            }
+        }
+        f43638a = new Object();
+    }
 
     public static void a(Context context, hj hjVar) {
-        if (bm.a(hjVar.e())) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, hjVar) == null) && bm.a(hjVar.e())) {
             com.xiaomi.push.ai.a(context).a(new bo(context, hjVar));
         }
     }
 
     public static byte[] a(Context context) {
-        String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
-        if (TextUtils.isEmpty(a2)) {
-            a2 = com.xiaomi.push.bm.a(20);
-            com.xiaomi.push.p.a(context).m526a("mipush", "td_key", a2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
+            if (TextUtils.isEmpty(a2)) {
+                a2 = com.xiaomi.push.bm.a(20);
+                com.xiaomi.push.p.a(context).m540a("mipush", "td_key", a2);
+            }
+            return a(a2);
         }
-        return a(a2);
+        return (byte[]) invokeL.objValue;
     }
 
     public static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m166a(str), 16);
-        copyOf[0] = 68;
-        copyOf[15] = 84;
-        return copyOf;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m180a(str), 16);
+            copyOf[0] = 68;
+            copyOf[15] = 84;
+            return copyOf;
+        }
+        return (byte[]) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x00db */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0005 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x00df */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0009 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v0, types: [byte[]] */
-    /* JADX WARN: Type inference failed for: r0v19 */
-    /* JADX WARN: Type inference failed for: r0v20 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v7, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [byte[]] */
+    /* JADX WARN: Type inference failed for: r0v21 */
+    /* JADX WARN: Type inference failed for: r0v22 */
+    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v9, types: [java.io.Closeable] */
     public static void c(Context context, hj hjVar) {
         BufferedOutputStream bufferedOutputStream;
         BufferedOutputStream bufferedOutputStream2;
         String str;
         String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, hjVar) != null) {
+            return;
+        }
         BufferedOutputStream a2 = a(context);
         try {
             try {
@@ -58,7 +97,7 @@ public class bn {
                 if (b2 != null && b2.length >= 1) {
                     if (b2.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m56a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m70a(str2);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) null);
                     }
@@ -97,7 +136,7 @@ public class bn {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m56a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m70a(str2);
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a((Closeable) null);
             } catch (Throwable th2) {

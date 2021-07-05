@@ -1,84 +1,140 @@
 package com.cmic.sso.sdk.b.b;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b extends g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30680a;
+    public String f32473a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30681b;
+    public String f32474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30682c;
+    public String f32475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30683d;
+    public String f32476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30684e;
+    public String f32477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30685f;
+    public String f32478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30686g;
+    public String f32479g;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30685f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32478f : (String) invokeV.objValue;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public JSONObject b() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("version", this.f30680a);
-            jSONObject.put("apptype", this.f30681b);
-            jSONObject.put("phone_ID", this.f30682c);
-            jSONObject.put("certflag", this.f30683d);
-            jSONObject.put("sdkversion", this.f30684e);
-            jSONObject.put("appid", this.f30685f);
-            jSONObject.put("expandparams", "");
-            jSONObject.put("sign", this.f30686g);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("version", this.f32473a);
+                jSONObject.put("apptype", this.f32474b);
+                jSONObject.put("phone_ID", this.f32475c);
+                jSONObject.put("certflag", this.f32476d);
+                jSONObject.put("sdkversion", this.f32477e);
+                jSONObject.put("appid", this.f32478f);
+                jSONObject.put("expandparams", "");
+                jSONObject.put("sign", this.f32479g);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject;
         }
-        return jSONObject;
+        return (JSONObject) invokeV.objValue;
     }
 
     public void c(String str) {
-        this.f30681b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f32474b = str;
+        }
     }
 
     public void d(String str) {
-        this.f30682c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f32475c = str;
+        }
     }
 
     public void e(String str) {
-        this.f30683d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f32476d = str;
+        }
     }
 
     public void f(String str) {
-        this.f30684e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f32477e = str;
+        }
     }
 
     public void g(String str) {
-        this.f30685f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f32478f = str;
+        }
     }
 
     public void h(String str) {
-        this.f30686g = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f32479g = str;
+        }
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a(String str) {
-        return this.f30680a + this.f30684e + this.f30685f + "iYm0HAnkxQtpvN44";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.f32473a + this.f32477e + this.f32478f + "iYm0HAnkxQtpvN44";
+        }
+        return (String) invokeL.objValue;
     }
 
     public void b(String str) {
-        this.f30680a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f32473a = str;
+        }
     }
 }

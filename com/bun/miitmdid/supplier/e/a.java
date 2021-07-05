@@ -7,59 +7,131 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.a;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f26970c = "OpenDeviceId library";
+    public static String f27513c = "OpenDeviceId library";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f26971d = false;
+    public static boolean f27514d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26972a;
+    public Context f27515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.zui.deviceidservice.a f26973b;
+    public com.zui.deviceidservice.a f27516b;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f26974e;
+    public ServiceConnection f27517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bun.miitmdid.supplier.c.a f26975f;
+    public com.bun.miitmdid.supplier.c.a f27518f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-536295265, "Lcom/bun/miitmdid/supplier/e/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-536295265, "Lcom/bun/miitmdid/supplier/e/a;");
+        }
+    }
 
     public a(Context context, com.bun.miitmdid.supplier.c.a aVar) {
-        this.f26972a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f27515a = null;
         if (context == null) {
             throw new NullPointerException("Context can not be null.");
         }
-        this.f26972a = context;
-        this.f26975f = aVar;
-        this.f26974e = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
+        this.f27515a = context;
+        this.f27518f = aVar;
+        this.f27517e = new ServiceConnection(this) { // from class: com.bun.miitmdid.supplier.e.a.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f27519a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f27519a = this;
+            }
+
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.f26973b = a.AbstractBinderC0532a.a(iBinder);
-                if (a.this.f26975f != null) {
-                    a.this.f26975f.a(true);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
+                    synchronized (this) {
+                        this.f27519a.f27516b = a.AbstractBinderC0576a.a(iBinder);
+                        if (this.f27519a.f27518f != null) {
+                            this.f27519a.f27518f.a(true);
+                        }
+                        this.f27519a.a("Service onServiceConnected");
+                    }
                 }
-                a.this.a("Service onServiceConnected");
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                a.this.f26973b = null;
-                a.this.a("Service onServiceDisconnected");
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                    this.f27519a.f27516b = null;
+                    this.f27519a.a("Service onServiceDisconnected");
+                }
             }
         };
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        if (this.f26972a.bindService(intent, this.f26974e, 1)) {
+        if (this.f27515a.bindService(intent, this.f27517e, 1)) {
             a("bindService Successful!");
             return;
         }
         a("bindService Failed!");
-        com.bun.miitmdid.supplier.c.a aVar2 = this.f26975f;
+        com.bun.miitmdid.supplier.c.a aVar2 = this.f27518f;
         if (aVar2 != null) {
             aVar2.a();
         }
@@ -67,118 +139,148 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        if (f26971d) {
-            Log.i(f26970c, str);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) && f27514d) {
+            Log.i(f27513c, str);
         }
     }
 
     private void b(String str) {
-        if (f26971d) {
-            Log.e(f26970c, str);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) && f27514d) {
+            Log.e(f27513c, str);
         }
     }
 
     public String a() {
-        if (this.f26972a == null) {
-            b("Context is null.");
-            throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-        }
-        try {
-            if (this.f26973b != null) {
-                return this.f26973b.a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f27515a == null) {
+                b("Context is null.");
+                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
             }
-            return null;
-        } catch (RemoteException e2) {
-            b("getOAID error, RemoteException!");
-            e2.printStackTrace();
-            return null;
+            try {
+                if (this.f27516b != null) {
+                    return this.f27516b.a();
+                }
+                return null;
+            } catch (RemoteException e2) {
+                b("getOAID error, RemoteException!");
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public String b() {
-        if (this.f26972a == null) {
-            b("Context is null.");
-            throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-        }
-        try {
-            if (this.f26973b != null) {
-                return this.f26973b.b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f27515a == null) {
+                b("Context is null.");
+                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
             }
-            return null;
-        } catch (RemoteException e2) {
-            b("getUDID error, RemoteException!");
-            e2.printStackTrace();
-            return null;
+            try {
+                if (this.f27516b != null) {
+                    return this.f27516b.b();
+                }
+                return null;
+            } catch (RemoteException e2) {
+                b("getUDID error, RemoteException!");
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public boolean c() {
-        try {
-            if (this.f26973b != null) {
-                a("Device support opendeviceid");
-                return this.f26973b.c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                if (this.f27516b != null) {
+                    a("Device support opendeviceid");
+                    return this.f27516b.c();
+                }
+                return false;
+            } catch (RemoteException unused) {
+                b("isSupport error, RemoteException!");
+                return false;
             }
-            return false;
-        } catch (RemoteException unused) {
-            b("isSupport error, RemoteException!");
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public String d() {
-        Context context = this.f26972a;
-        if (context == null) {
-            a("Context is null.");
-            throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-        }
-        String packageName = context.getPackageName();
-        a("liufeng, getVAID package：" + packageName);
-        if (packageName == null || packageName.equals("")) {
-            a("input package is null!");
-            return null;
-        }
-        try {
-            if (this.f26973b != null) {
-                return this.f26973b.a(packageName);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Context context = this.f27515a;
+            if (context == null) {
+                a("Context is null.");
+                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
             }
-            return null;
-        } catch (RemoteException e2) {
-            b("getVAID error, RemoteException!");
-            e2.printStackTrace();
-            return null;
+            String packageName = context.getPackageName();
+            a("liufeng, getVAID package：" + packageName);
+            if (packageName == null || packageName.equals("")) {
+                a("input package is null!");
+                return null;
+            }
+            try {
+                if (this.f27516b != null) {
+                    return this.f27516b.a(packageName);
+                }
+                return null;
+            } catch (RemoteException e2) {
+                b("getVAID error, RemoteException!");
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public String e() {
-        Context context = this.f26972a;
-        if (context == null) {
-            a("Context is null.");
-            throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-        }
-        String packageName = context.getPackageName();
-        a("liufeng, getAAID package：" + packageName);
-        if (packageName == null || packageName.equals("")) {
-            a("input package is null!");
-            return null;
-        }
-        try {
-            if (this.f26973b != null) {
-                return this.f26973b.b(packageName);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Context context = this.f27515a;
+            if (context == null) {
+                a("Context is null.");
+                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
             }
-            return null;
-        } catch (RemoteException unused) {
-            b("getAAID error, RemoteException!");
-            return null;
+            String packageName = context.getPackageName();
+            a("liufeng, getAAID package：" + packageName);
+            if (packageName == null || packageName.equals("")) {
+                a("input package is null!");
+                return null;
+            }
+            try {
+                if (this.f27516b != null) {
+                    return this.f27516b.b(packageName);
+                }
+                return null;
+            } catch (RemoteException unused) {
+                b("getAAID error, RemoteException!");
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public void f() {
-        try {
-            this.f26972a.unbindService(this.f26974e);
-            a("unBind Service successful");
-        } catch (IllegalArgumentException unused) {
-            b("unBind Service exception");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            try {
+                this.f27515a.unbindService(this.f27517e);
+                a("unBind Service successful");
+            } catch (IllegalArgumentException unused) {
+                b("unBind Service exception");
+            }
+            this.f27516b = null;
         }
-        this.f26973b = null;
     }
 }

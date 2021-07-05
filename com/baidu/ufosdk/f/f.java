@@ -5,71 +5,139 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.StatFs;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f22705c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+    public static String f23221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f22706d = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f22708b = "ufo";
+    public static f f23222d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f22707a = 1209600000;
+    public final int f23223a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final String f23224b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2041467331, "Lcom/baidu/ufosdk/f/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2041467331, "Lcom/baidu/ufosdk/f/f;");
+                return;
+            }
+        }
+        f23221c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+        f23222d = null;
+    }
+
+    public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f23224b = "ufo";
+        this.f23223a = 1209600000;
+    }
 
     public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Bitmap decodeFile;
-        String b2 = b(str);
-        if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-            new File(f22705c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
-            return decodeFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String b2 = b(str);
+            if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
+                new File(f23221c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+                return decodeFile;
+            }
+            return null;
         }
-        return null;
+        return (Bitmap) invokeL.objValue;
     }
 
     public static f a() {
-        if (f22706d == null) {
-            f22706d = new f();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (f23222d == null) {
+                f23222d = new f();
+            }
+            return f23222d;
         }
-        return f22706d;
+        return (f) invokeV.objValue;
     }
 
     public static String b(String str) {
-        return f22705c + "/cache/image/" + str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            return f23221c + "/cache/image/" + str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void b() {
-        String str = f22705c + "/cache/image/";
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles == null) {
-            return;
-        }
-        c.b("ufo ->Clear all cache files,dir=" + str);
-        for (File file : listFiles) {
-            file.delete();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            String str = f23221c + "/cache/image/";
+            File[] listFiles = new File(str).listFiles();
+            if (listFiles == null) {
+                return;
+            }
+            c.b("ufo ->Clear all cache files,dir=" + str);
+            for (File file : listFiles) {
+                file.delete();
+            }
         }
     }
 
     public static int c() {
-        if (Environment.getExternalStorageState().equals("mounted")) {
-            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-            return (int) ((statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1048576.0d);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                return (int) ((statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1048576.0d);
+            }
+            c.a("sdCard is not exist");
+            return 0;
         }
-        c.a("sdCard is not exist");
-        return 0;
+        return invokeV.intValue;
     }
 
     private void c(String str) {
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles == null) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, this, str) == null) || (listFiles = new File(str).listFiles()) == null) {
             return;
         }
         int i2 = 0;
@@ -87,39 +155,42 @@ public final class f {
     }
 
     public final void a(Bitmap bitmap, String str) {
-        try {
-            boolean equals = Environment.getExternalStorageState().equals("mounted");
-            if (equals) {
-                File file = new File(b(str));
-                if (20 > c()) {
-                    c.c("ufo ->Low free space onsd, do not cache");
-                    return;
-                }
-                c(f22705c + "/cache/image/");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bitmap, str) == null) {
+            try {
+                boolean equals = Environment.getExternalStorageState().equals("mounted");
                 if (equals) {
-                    File file2 = new File(f22705c);
-                    File file3 = new File(f22705c + "/cache");
-                    File file4 = new File(f22705c + "/cache/image");
-                    if (!file2.exists()) {
-                        file2.mkdir();
+                    File file = new File(b(str));
+                    if (20 > c()) {
+                        c.c("ufo ->Low free space onsd, do not cache");
+                        return;
                     }
-                    if (!file3.exists()) {
-                        file3.mkdir();
+                    c(f23221c + "/cache/image/");
+                    if (equals) {
+                        File file2 = new File(f23221c);
+                        File file3 = new File(f23221c + "/cache");
+                        File file4 = new File(f23221c + "/cache/image");
+                        if (!file2.exists()) {
+                            file2.mkdir();
+                        }
+                        if (!file3.exists()) {
+                            file3.mkdir();
+                        }
+                        if (!file4.exists()) {
+                            file4.mkdir();
+                        }
+                        if (!file.exists()) {
+                            file.createNewFile();
+                        }
                     }
-                    if (!file4.exists()) {
-                        file4.mkdir();
-                    }
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, bufferedOutputStream);
+                    bufferedOutputStream.flush();
+                    bufferedOutputStream.close();
                 }
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bufferedOutputStream);
-                bufferedOutputStream.flush();
-                bufferedOutputStream.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
         }
     }
 }

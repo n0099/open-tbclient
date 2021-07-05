@@ -1,43 +1,105 @@
 package com.baidu.mapsdkplatform.comapi.b.a;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements Thread.UncaughtExceptionHandler {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f7559b = false;
+    public static volatile boolean f7589b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7560a;
+    public String f7590a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f7561c;
+    public Thread.UncaughtExceptionHandler f7591c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0099a {
+    /* loaded from: classes3.dex */
+    public static class C0117a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f7562a = new a();
+        public static final a f7592a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1179758334, "Lcom/baidu/mapsdkplatform/comapi/b/a/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1179758334, "Lcom/baidu/mapsdkplatform/comapi/b/a/a$a;");
+                    return;
+                }
+            }
+            f7592a = new a(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(363238427, "Lcom/baidu/mapsdkplatform/comapi/b/a/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(363238427, "Lcom/baidu/mapsdkplatform/comapi/b/a/a;");
+        }
     }
 
     public a() {
-        this.f7560a = "";
-        this.f7561c = Thread.getDefaultUncaughtExceptionHandler();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f7590a = "";
+        this.f7591c = Thread.getDefaultUncaughtExceptionHandler();
+    }
+
+    public /* synthetic */ a(b bVar) {
+        this();
     }
 
     public static a a() {
-        return C0099a.f7562a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0117a.f7592a : (a) invokeV.objValue;
     }
 
     private void a(Throwable th) {
-        if (th == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, this, th) == null) || th == null) {
             return;
         }
         String th2 = th.toString();
@@ -55,8 +117,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 }
                 printWriter.close();
                 String obj = stringWriter.toString();
-                if (!obj.isEmpty() && this.f7560a != null && !this.f7560a.isEmpty()) {
-                    File file = new File(URLEncoder.encode(this.f7560a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
+                if (!obj.isEmpty() && this.f7590a != null && !this.f7590a.isEmpty()) {
+                    File file = new File(URLEncoder.encode(this.f7590a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
                     if (file.exists() || file.createNewFile()) {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         fileOutputStream.write(obj.getBytes());
@@ -69,21 +131,25 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     public void a(String str) {
-        this.f7560a = str;
-        if (Thread.getDefaultUncaughtExceptionHandler() instanceof a) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f7590a = str;
+            if (Thread.getDefaultUncaughtExceptionHandler() instanceof a) {
+                return;
+            }
+            Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        Thread.setDefaultUncaughtExceptionHandler(this);
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
-        if (f7559b) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f7589b) {
             return;
         }
-        f7559b = true;
+        f7589b = true;
         a(th);
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f7561c;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f7591c;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }

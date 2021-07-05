@@ -1,0 +1,29 @@
+package com.baidu.ar.arplay.core.engine3d;
+
+import com.baidu.ar.arplay.representation.Quaternion;
+import com.baidu.ar.arplay.representation.Vector3f;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes.dex */
+public class ARPNumber {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static Quaternion a(Vector3f vector3f, Vector3f vector3f2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, vector3f, vector3f2)) == null) {
+            float[] nativeRotationBetweenVector = nativeRotationBetweenVector(vector3f.x(), vector3f.y(), vector3f.z(), vector3f2.x(), vector3f2.y(), vector3f2.z());
+            if (nativeRotationBetweenVector.length != 4) {
+                return new Quaternion();
+            }
+            Quaternion quaternion = new Quaternion();
+            quaternion.setXYZW(nativeRotationBetweenVector[0], nativeRotationBetweenVector[1], nativeRotationBetweenVector[2], nativeRotationBetweenVector[3]);
+            return quaternion;
+        }
+        return (Quaternion) invokeLL.objValue;
+    }
+
+    public static native float[] nativeRotationBetweenVector(float f2, float f3, float f4, float f5, float f6, float f7);
+}

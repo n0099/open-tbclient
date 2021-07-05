@@ -1,41 +1,60 @@
 package com.xiaomi.mipush.sdk;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hf;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public /* synthetic */ class am {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f41018a;
+    public static final /* synthetic */ int[] f42761a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1871206693, "Lcom/xiaomi/mipush/sdk/am;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1871206693, "Lcom/xiaomi/mipush/sdk/am;");
+                return;
+            }
+        }
         int[] iArr = new int[hf.values().length];
-        f41018a = iArr;
+        f42761a = iArr;
         try {
-            iArr[hf.SendMessage.ordinal()] = 1;
+            iArr[hf.f43240e.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f41018a[hf.Registration.ordinal()] = 2;
+            f42761a[hf.f43236a.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f41018a[hf.UnRegistration.ordinal()] = 3;
+            f42761a[hf.f43237b.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f41018a[hf.Subscription.ordinal()] = 4;
+            f42761a[hf.f43238c.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f41018a[hf.UnSubscription.ordinal()] = 5;
+            f42761a[hf.f43239d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f41018a[hf.Command.ordinal()] = 6;
+            f42761a[hf.j.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f41018a[hf.Notification.ordinal()] = 7;
+            f42761a[hf.f43244i.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
     }

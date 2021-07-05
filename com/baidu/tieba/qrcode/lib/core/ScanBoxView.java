@@ -20,12 +20,22 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.a.o0.q2.b.a.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.t2.b.a.a;
 /* loaded from: classes5.dex */
 public class ScanBoxView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Drawable A;
     public Bitmap B;
     public int C;
@@ -54,19 +64,19 @@ public class ScanBoxView extends View {
     public Bitmap c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20275e;
+    public Bitmap f20424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f20276f;
+    public Bitmap f20425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f20277g;
+    public Bitmap f20426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f20278h;
+    public Bitmap f20427h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20279i;
+    public int f20428i;
     public Bitmap i0;
     public int j;
     public Bitmap j0;
@@ -93,8 +103,24 @@ public class ScanBoxView extends View {
     public int y;
     public boolean z;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScanBoxView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.o0 = context;
         Paint paint = new Paint();
         this.n = paint;
@@ -117,7 +143,7 @@ public class ScanBoxView extends View {
         this.F = false;
         this.G = 0;
         this.H = false;
-        this.f20279i = a.b(context, 2.0f);
+        this.f20428i = a.b(context, 2.0f);
         this.K = null;
         this.L = a.f(context, 14.0f);
         this.M = -1;
@@ -141,171 +167,199 @@ public class ScanBoxView extends View {
     }
 
     private int getBitmapOffset() {
-        return this.C / 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.C / 2 : invokeV.intValue;
     }
 
     private int getMainFrameBottom() {
-        return this.k.bottom + getBitmapOffset();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.k.bottom + getBitmapOffset() : invokeV.intValue;
     }
 
     private int getMainFrameLeft() {
-        return (this.k.left - getBitmapOffset()) - 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (this.k.left - getBitmapOffset()) - 1 : invokeV.intValue;
     }
 
     private int getMainFrameRight() {
-        return this.k.right + getBitmapOffset();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.k.right + getBitmapOffset() : invokeV.intValue;
     }
 
     private int getMainFrameTop() {
-        return (this.k.top - getBitmapOffset()) - 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? (this.k.top - getBitmapOffset()) - 1 : invokeV.intValue;
     }
 
     public final void a() {
-        Drawable drawable = this.U;
-        if (drawable != null) {
-            this.i0 = ((BitmapDrawable) drawable).getBitmap();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Drawable drawable = this.U;
+            if (drawable != null) {
+                this.i0 = ((BitmapDrawable) drawable).getBitmap();
+            }
+            if (this.i0 == null) {
+                Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
+                this.i0 = decodeResource;
+                this.i0 = a.e(decodeResource, this.x);
+            }
+            Bitmap a2 = a.a(this.i0, 90);
+            this.j0 = a2;
+            Bitmap a3 = a.a(a2, 90);
+            this.j0 = a3;
+            this.j0 = a.a(a3, 90);
+            Drawable drawable2 = this.A;
+            if (drawable2 != null) {
+                this.b0 = ((BitmapDrawable) drawable2).getBitmap();
+            }
+            if (this.b0 == null) {
+                Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
+                this.b0 = decodeResource2;
+                this.b0 = a.e(decodeResource2, this.x);
+            }
+            this.c0 = a.a(this.b0, 90);
+            this.k0 = (this.r * 1.0f) / 2.0f;
+            this.o.setTextSize(this.L);
+            this.o.setColor(this.M);
+            setIsBarcode(this.H);
         }
-        if (this.i0 == null) {
-            Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
-            this.i0 = decodeResource;
-            this.i0 = a.e(decodeResource, this.x);
-        }
-        Bitmap a2 = a.a(this.i0, 90);
-        this.j0 = a2;
-        Bitmap a3 = a.a(a2, 90);
-        this.j0 = a3;
-        this.j0 = a.a(a3, 90);
-        Drawable drawable2 = this.A;
-        if (drawable2 != null) {
-            this.b0 = ((BitmapDrawable) drawable2).getBitmap();
-        }
-        if (this.b0 == null) {
-            Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
-            this.b0 = decodeResource2;
-            this.b0 = a.e(decodeResource2, this.x);
-        }
-        this.c0 = a.a(this.b0, 90);
-        this.k0 = (this.r * 1.0f) / 2.0f;
-        this.o.setTextSize(this.L);
-        this.o.setColor(this.M);
-        setIsBarcode(this.H);
     }
 
     public final void b() {
         int i2;
-        if (this.H) {
-            i2 = this.v + this.G;
-        } else {
-            i2 = this.v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.H) {
+                i2 = this.v + this.G;
+            } else {
+                i2 = this.v;
+            }
+            int width = (getWidth() - this.s) / 2;
+            Rect rect = new Rect(width, i2, this.s + width, this.t + i2);
+            this.k = rect;
+            if (this.H) {
+                float f2 = rect.left + this.k0 + 0.5f;
+                this.m = f2;
+                this.a0 = f2;
+                return;
+            }
+            float f3 = rect.top + this.k0 + 0.5f;
+            this.l = f3;
+            this.W = f3;
         }
-        int width = (getWidth() - this.s) / 2;
-        Rect rect = new Rect(width, i2, this.s + width, this.t + i2);
-        this.k = rect;
-        if (this.H) {
-            float f2 = rect.left + this.k0 + 0.5f;
-            this.m = f2;
-            this.a0 = f2;
-            return;
-        }
-        float f3 = rect.top + this.k0 + 0.5f;
-        this.l = f3;
-        this.W = f3;
     }
 
     public final void c(Canvas canvas) {
-        if (this.C > 0) {
-            this.n.setStyle(Paint.Style.STROKE);
-            this.n.setColor(this.D);
-            this.n.setAntiAlias(false);
-            this.n.setStrokeWidth(this.C);
-            canvas.drawRect(this.k, this.n);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.C <= 0) {
+            return;
         }
+        this.n.setStyle(Paint.Style.STROKE);
+        this.n.setColor(this.D);
+        this.n.setAntiAlias(false);
+        this.n.setStrokeWidth(this.C);
+        canvas.drawRect(this.k, this.n);
     }
 
     public final void d(Canvas canvas) {
-        this.n.reset();
-        this.n.setAntiAlias(false);
-        canvas.drawBitmap(this.f20275e, getMainFrameLeft(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20276f, getMainFrameRight() - this.f20275e.getWidth(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20277g, getMainFrameLeft(), getMainFrameBottom() - this.f20275e.getHeight(), this.n);
-        canvas.drawBitmap(this.f20278h, getMainFrameRight() - this.f20275e.getWidth(), getMainFrameBottom() - this.f20275e.getHeight(), this.n);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            this.n.reset();
+            this.n.setAntiAlias(false);
+            canvas.drawBitmap(this.f20424e, getMainFrameLeft(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f20425f, getMainFrameRight() - this.f20424e.getWidth(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f20426g, getMainFrameLeft(), getMainFrameBottom() - this.f20424e.getHeight(), this.n);
+            canvas.drawBitmap(this.f20427h, getMainFrameRight() - this.f20424e.getWidth(), getMainFrameBottom() - this.f20424e.getHeight(), this.n);
+        }
     }
 
     public final void e(Canvas canvas) {
-        int width = canvas.getWidth();
-        int height = canvas.getHeight();
-        if (this.p != 0) {
-            this.n.setStyle(Paint.Style.FILL);
-            this.n.setColor(this.p);
-            float f2 = width;
-            canvas.drawRect(0.0f, 0.0f, f2, this.k.top, this.n);
-            Rect rect = this.k;
-            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.n);
-            Rect rect2 = this.k;
-            canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.n);
-            canvas.drawRect(0.0f, this.k.bottom + 1, f2, height, this.n);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            int width = canvas.getWidth();
+            int height = canvas.getHeight();
+            if (this.p != 0) {
+                this.n.setStyle(Paint.Style.FILL);
+                this.n.setColor(this.p);
+                float f2 = width;
+                canvas.drawRect(0.0f, 0.0f, f2, this.k.top, this.n);
+                Rect rect = this.k;
+                canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.n);
+                Rect rect2 = this.k;
+                canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.n);
+                canvas.drawRect(0.0f, this.k.bottom + 1, f2, height, this.n);
+            }
         }
     }
 
     public final void f(Canvas canvas) {
-        if (this.H) {
-            if (this.V != null) {
-                Rect rect = this.k;
-                float f2 = this.k0;
-                int i2 = this.y;
-                RectF rectF = new RectF(rect.left + f2 + 0.5f, rect.top + f2 + i2, this.a0, (rect.bottom - f2) - i2);
-                Rect rect2 = new Rect((int) (this.V.getWidth() - rectF.width()), 0, this.V.getWidth(), this.V.getHeight());
-                if (rect2.left < 0) {
-                    rect2.left = 0;
-                    rectF.left = rectF.right - rect2.width();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            if (this.H) {
+                if (this.V != null) {
+                    Rect rect = this.k;
+                    float f2 = this.k0;
+                    int i2 = this.y;
+                    RectF rectF = new RectF(rect.left + f2 + 0.5f, rect.top + f2 + i2, this.a0, (rect.bottom - f2) - i2);
+                    Rect rect2 = new Rect((int) (this.V.getWidth() - rectF.width()), 0, this.V.getWidth(), this.V.getHeight());
+                    if (rect2.left < 0) {
+                        rect2.left = 0;
+                        rectF.left = rectF.right - rect2.width();
+                    }
+                    canvas.drawBitmap(this.V, rect2, rectF, this.n);
+                } else if (this.B != null) {
+                    float f3 = this.m;
+                    canvas.drawBitmap(this.B, (Rect) null, new RectF(f3, this.k.top + this.k0 + this.y, this.B.getWidth() + f3, (this.k.bottom - this.k0) - this.y), this.n);
+                } else {
+                    this.n.setStyle(Paint.Style.FILL);
+                    this.n.setColor(this.x);
+                    float f4 = this.m;
+                    Rect rect3 = this.k;
+                    float f5 = this.k0;
+                    int i3 = this.y;
+                    canvas.drawRect(f4, rect3.top + f5 + i3, this.w + f4, (rect3.bottom - f5) - i3, this.n);
                 }
-                canvas.drawBitmap(this.V, rect2, rectF, this.n);
+            } else if (this.V != null) {
+                Rect rect4 = this.k;
+                float f6 = this.k0;
+                int i4 = this.y;
+                RectF rectF2 = new RectF(rect4.left + f6 + i4, rect4.top + f6 + 0.5f, (rect4.right - f6) - i4, this.W);
+                Rect rect5 = new Rect(0, (int) (this.V.getHeight() - rectF2.height()), this.V.getWidth(), this.V.getHeight());
+                if (rect5.top < 0) {
+                    rect5.top = 0;
+                    rectF2.top = rectF2.bottom - rect5.height();
+                }
+                this.n.setColorFilter(this.p0);
+                canvas.drawBitmap(this.V, rect5, rectF2, this.n);
             } else if (this.B != null) {
-                float f3 = this.m;
-                canvas.drawBitmap(this.B, (Rect) null, new RectF(f3, this.k.top + this.k0 + this.y, this.B.getWidth() + f3, (this.k.bottom - this.k0) - this.y), this.n);
+                Rect rect6 = this.k;
+                float f7 = this.k0;
+                int i5 = this.y;
+                float f8 = rect6.left + f7 + i5;
+                float f9 = this.l;
+                canvas.drawBitmap(this.B, (Rect) null, new RectF(f8, f9, (rect6.right - f7) - i5, this.B.getHeight() + f9), this.n);
             } else {
                 this.n.setStyle(Paint.Style.FILL);
                 this.n.setColor(this.x);
-                float f4 = this.m;
-                Rect rect3 = this.k;
-                float f5 = this.k0;
-                int i3 = this.y;
-                canvas.drawRect(f4, rect3.top + f5 + i3, this.w + f4, (rect3.bottom - f5) - i3, this.n);
+                Rect rect7 = this.k;
+                float f10 = this.k0;
+                int i6 = this.y;
+                float f11 = this.l;
+                canvas.drawRect(rect7.left + f10 + i6, f11, (rect7.right - f10) - i6, f11 + this.w, this.n);
             }
-        } else if (this.V != null) {
-            Rect rect4 = this.k;
-            float f6 = this.k0;
-            int i4 = this.y;
-            RectF rectF2 = new RectF(rect4.left + f6 + i4, rect4.top + f6 + 0.5f, (rect4.right - f6) - i4, this.W);
-            Rect rect5 = new Rect(0, (int) (this.V.getHeight() - rectF2.height()), this.V.getWidth(), this.V.getHeight());
-            if (rect5.top < 0) {
-                rect5.top = 0;
-                rectF2.top = rectF2.bottom - rect5.height();
-            }
-            this.n.setColorFilter(this.p0);
-            canvas.drawBitmap(this.V, rect5, rectF2, this.n);
-        } else if (this.B != null) {
-            Rect rect6 = this.k;
-            float f7 = this.k0;
-            int i5 = this.y;
-            float f8 = rect6.left + f7 + i5;
-            float f9 = this.l;
-            canvas.drawBitmap(this.B, (Rect) null, new RectF(f8, f9, (rect6.right - f7) - i5, this.B.getHeight() + f9), this.n);
-        } else {
-            this.n.setStyle(Paint.Style.FILL);
-            this.n.setColor(this.x);
-            Rect rect7 = this.k;
-            float f10 = this.k0;
-            int i6 = this.y;
-            float f11 = this.l;
-            canvas.drawRect(rect7.left + f10 + i6, f11, (rect7.right - f10) - i6, f11 + this.w, this.n);
         }
     }
 
     public final void g(Canvas canvas) {
         Rect rect;
         Rect rect2;
-        if (TextUtils.isEmpty(this.K) || this.l0 == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || TextUtils.isEmpty(this.K) || this.l0 == null) {
             return;
         }
         if (this.N) {
@@ -374,297 +428,372 @@ public class ScanBoxView extends View {
     }
 
     public int getAnimTime() {
-        return this.E;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.E : invokeV.intValue;
     }
 
     public String getBarCodeTipText() {
-        return this.J;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.J : (String) invokeV.objValue;
     }
 
     public int getBarcodeRectHeight() {
-        return this.u;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.u : invokeV.intValue;
     }
 
     public int getBorderColor() {
-        return this.D;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.D : invokeV.intValue;
     }
 
     public int getBorderSize() {
-        return this.C;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.C : invokeV.intValue;
     }
 
     public int getCornerLength() {
-        return this.q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.q : invokeV.intValue;
     }
 
     public int getCornerSize() {
-        return this.r;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.r : invokeV.intValue;
     }
 
     public Drawable getCustomScanLineDrawable() {
-        return this.A;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.A : (Drawable) invokeV.objValue;
     }
 
     public float getHalfCornerSize() {
-        return this.k0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k0 : invokeV.floatValue;
     }
 
     public boolean getIsBarcode() {
-        return this.H;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.H : invokeV.booleanValue;
     }
 
     public int getMaskColor() {
-        return this.p;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.p : invokeV.intValue;
     }
 
     public String getQRCodeTipText() {
-        return this.I;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.I : (String) invokeV.objValue;
     }
 
     public int getRectHeight() {
-        return this.t;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.t : invokeV.intValue;
     }
 
     public int getRectWidth() {
-        return this.s;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.s : invokeV.intValue;
     }
 
     public Bitmap getScanLineBitmap() {
-        return this.B;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.B : (Bitmap) invokeV.objValue;
     }
 
     public int getScanLineColor() {
-        return this.x;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.x : invokeV.intValue;
     }
 
     public int getScanLineMargin() {
-        return this.y;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.y : invokeV.intValue;
     }
 
     public int getScanLineSize() {
-        return this.w;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.w : invokeV.intValue;
     }
 
     public int getTipBackgroundColor() {
-        return this.Q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.Q : invokeV.intValue;
     }
 
     public int getTipBackgroundRadius() {
-        return this.m0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.m0 : invokeV.intValue;
     }
 
     public String getTipText() {
-        return this.K;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.K : (String) invokeV.objValue;
     }
 
     public int getTipTextColor() {
-        return this.M;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.M : invokeV.intValue;
     }
 
     public int getTipTextMargin() {
-        return this.O;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.O : invokeV.intValue;
     }
 
     public int getTipTextSize() {
-        return this.L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.L : invokeV.intValue;
     }
 
     public StaticLayout getTipTextSl() {
-        return this.l0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.l0 : (StaticLayout) invokeV.objValue;
     }
 
     public int getToolbarHeight() {
-        return this.G;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.G : invokeV.intValue;
     }
 
     public int getTopOffset() {
-        return this.v;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.v : invokeV.intValue;
     }
 
     public Rect h(int i2) {
-        if (this.n0) {
-            Rect rect = new Rect(this.k);
-            float measuredHeight = (i2 * 1.0f) / getMeasuredHeight();
-            rect.left = (int) (rect.left * measuredHeight);
-            rect.right = (int) (rect.right * measuredHeight);
-            rect.top = (int) (rect.top * measuredHeight);
-            rect.bottom = (int) (rect.bottom * measuredHeight);
-            return rect;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
+            if (this.n0) {
+                Rect rect = new Rect(this.k);
+                float measuredHeight = (i2 * 1.0f) / getMeasuredHeight();
+                rect.left = (int) (rect.left * measuredHeight);
+                rect.right = (int) (rect.right * measuredHeight);
+                rect.top = (int) (rect.top * measuredHeight);
+                rect.bottom = (int) (rect.bottom * measuredHeight);
+                return rect;
+            }
+            return null;
         }
-        return null;
+        return (Rect) invokeI.objValue;
     }
 
     public final void i() {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        int i2 = this.q;
-        options.outWidth = i2;
-        options.outHeight = i2;
-        this.f20275e = BitmapHelper.getResBitmap(this.o0, R.drawable.icon_scan_upperleft, options);
-        Matrix matrix = new Matrix();
-        matrix.postRotate(90.0f);
-        Bitmap bitmap = this.f20275e;
-        this.f20276f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20275e.getHeight(), matrix, false);
-        matrix.postRotate(180.0f);
-        Bitmap bitmap2 = this.f20275e;
-        this.f20277g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20275e.getHeight(), matrix, false);
-        matrix.postRotate(270.0f);
-        Bitmap bitmap3 = this.f20275e;
-        this.f20278h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20275e.getHeight(), matrix, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            int i2 = this.q;
+            options.outWidth = i2;
+            options.outHeight = i2;
+            this.f20424e = BitmapHelper.getResBitmap(this.o0, R.drawable.icon_scan_upperleft, options);
+            Matrix matrix = new Matrix();
+            matrix.postRotate(90.0f);
+            Bitmap bitmap = this.f20424e;
+            this.f20425f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20424e.getHeight(), matrix, false);
+            matrix.postRotate(180.0f);
+            Bitmap bitmap2 = this.f20424e;
+            this.f20426g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20424e.getHeight(), matrix, false);
+            matrix.postRotate(270.0f);
+            Bitmap bitmap3 = this.f20424e;
+            this.f20427h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20424e.getHeight(), matrix, false);
+        }
     }
 
     public final void j(int i2, TypedArray typedArray) {
-        if (i2 == R$styleable.QRCodeView_qrcv_topOffset) {
-            this.v = typedArray.getDimensionPixelSize(i2, this.v);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_cornerSize) {
-            this.r = typedArray.getDimensionPixelSize(i2, this.r);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_cornerLength) {
-            this.q = typedArray.getDimensionPixelSize(i2, this.q);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineSize) {
-            this.w = typedArray.getDimensionPixelSize(i2, this.w);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_rectWidth) {
-            this.s = typedArray.getDimensionPixelSize(i2, this.s);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_maskColor) {
-            this.p = typedArray.getColor(i2, this.p);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineColor) {
-            this.x = typedArray.getColor(i2, this.x);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineMargin) {
-            this.y = typedArray.getDimensionPixelSize(i2, this.y);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isShowDefaultScanLineDrawable) {
-            this.z = typedArray.getBoolean(i2, this.z);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_customScanLineDrawable) {
-            this.A = typedArray.getDrawable(i2);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_borderSize) {
-            this.C = typedArray.getDimensionPixelSize(i2, this.C);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_borderColor) {
-            this.D = typedArray.getColor(i2, this.D);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_animTime) {
-            this.E = typedArray.getInteger(i2, this.E);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isCenterVertical) {
-            this.F = typedArray.getBoolean(i2, this.F);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_toolbarHeight) {
-            this.G = typedArray.getDimensionPixelSize(i2, this.G);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_barcodeRectHeight) {
-            this.u = typedArray.getDimensionPixelSize(i2, this.u);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isBarcode) {
-            this.H = typedArray.getBoolean(i2, this.H);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_barCodeTipText) {
-            this.J = typedArray.getString(i2);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_qrCodeTipText) {
-            this.I = typedArray.getString(i2);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextSize) {
-            this.L = typedArray.getDimensionPixelSize(i2, this.L);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextColor) {
-            this.M = typedArray.getColor(i2, this.M);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isTipTextBelowRect) {
-            this.N = typedArray.getBoolean(i2, this.N);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextMargin) {
-            this.O = typedArray.getDimensionPixelSize(i2, this.O);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isShowTipTextAsSingleLine) {
-            this.P = typedArray.getBoolean(i2, this.P);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isShowTipBackground) {
-            this.R = typedArray.getBoolean(i2, this.R);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_tipBackgroundColor) {
-            this.Q = typedArray.getColor(i2, this.Q);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isScanLineReverse) {
-            this.S = typedArray.getBoolean(i2, this.S);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isShowDefaultGridScanLineDrawable) {
-            this.T = typedArray.getBoolean(i2, this.T);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_customGridScanLineDrawable) {
-            this.U = typedArray.getDrawable(i2);
-        } else if (i2 == R$styleable.QRCodeView_qrcv_isOnlyDecodeScanBoxArea) {
-            this.n0 = typedArray.getBoolean(i2, this.n0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048612, this, i2, typedArray) == null) {
+            if (i2 == R$styleable.QRCodeView_qrcv_topOffset) {
+                this.v = typedArray.getDimensionPixelSize(i2, this.v);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_cornerSize) {
+                this.r = typedArray.getDimensionPixelSize(i2, this.r);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_cornerLength) {
+                this.q = typedArray.getDimensionPixelSize(i2, this.q);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineSize) {
+                this.w = typedArray.getDimensionPixelSize(i2, this.w);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_rectWidth) {
+                this.s = typedArray.getDimensionPixelSize(i2, this.s);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_maskColor) {
+                this.p = typedArray.getColor(i2, this.p);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineColor) {
+                this.x = typedArray.getColor(i2, this.x);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineMargin) {
+                this.y = typedArray.getDimensionPixelSize(i2, this.y);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowDefaultScanLineDrawable) {
+                this.z = typedArray.getBoolean(i2, this.z);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_customScanLineDrawable) {
+                this.A = typedArray.getDrawable(i2);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_borderSize) {
+                this.C = typedArray.getDimensionPixelSize(i2, this.C);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_borderColor) {
+                this.D = typedArray.getColor(i2, this.D);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_animTime) {
+                this.E = typedArray.getInteger(i2, this.E);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isCenterVertical) {
+                this.F = typedArray.getBoolean(i2, this.F);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_toolbarHeight) {
+                this.G = typedArray.getDimensionPixelSize(i2, this.G);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_barcodeRectHeight) {
+                this.u = typedArray.getDimensionPixelSize(i2, this.u);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isBarcode) {
+                this.H = typedArray.getBoolean(i2, this.H);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_barCodeTipText) {
+                this.J = typedArray.getString(i2);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_qrCodeTipText) {
+                this.I = typedArray.getString(i2);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextSize) {
+                this.L = typedArray.getDimensionPixelSize(i2, this.L);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextColor) {
+                this.M = typedArray.getColor(i2, this.M);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isTipTextBelowRect) {
+                this.N = typedArray.getBoolean(i2, this.N);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextMargin) {
+                this.O = typedArray.getDimensionPixelSize(i2, this.O);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowTipTextAsSingleLine) {
+                this.P = typedArray.getBoolean(i2, this.P);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowTipBackground) {
+                this.R = typedArray.getBoolean(i2, this.R);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_tipBackgroundColor) {
+                this.Q = typedArray.getColor(i2, this.Q);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isScanLineReverse) {
+                this.S = typedArray.getBoolean(i2, this.S);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowDefaultGridScanLineDrawable) {
+                this.T = typedArray.getBoolean(i2, this.T);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_customGridScanLineDrawable) {
+                this.U = typedArray.getDrawable(i2);
+            } else if (i2 == R$styleable.QRCodeView_qrcv_isOnlyDecodeScanBoxArea) {
+                this.n0 = typedArray.getBoolean(i2, this.n0);
+            }
         }
     }
 
     public void k(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.QRCodeView);
-        int indexCount = obtainStyledAttributes.getIndexCount();
-        for (int i2 = 0; i2 < indexCount; i2++) {
-            j(obtainStyledAttributes.getIndex(i2), obtainStyledAttributes);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048613, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.QRCodeView);
+            int indexCount = obtainStyledAttributes.getIndexCount();
+            for (int i2 = 0; i2 < indexCount; i2++) {
+                j(obtainStyledAttributes.getIndex(i2), obtainStyledAttributes);
+            }
+            obtainStyledAttributes.recycle();
+            a();
+            i();
         }
-        obtainStyledAttributes.recycle();
-        a();
-        i();
     }
 
     public final void l() {
-        if (this.H) {
-            if (this.V == null) {
-                this.m += this.f20279i;
-                int i2 = this.w;
-                Bitmap bitmap = this.B;
-                if (bitmap != null) {
-                    i2 = bitmap.getWidth();
-                }
-                if (this.S) {
-                    float f2 = this.m;
-                    Rect rect = this.k;
-                    float f3 = this.k0;
-                    if (i2 + f2 > rect.right - f3 || f2 < rect.left + f3) {
-                        this.f20279i = -this.f20279i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            if (this.H) {
+                if (this.V == null) {
+                    this.m += this.f20428i;
+                    int i2 = this.w;
+                    Bitmap bitmap = this.B;
+                    if (bitmap != null) {
+                        i2 = bitmap.getWidth();
+                    }
+                    if (this.S) {
+                        float f2 = this.m;
+                        Rect rect = this.k;
+                        float f3 = this.k0;
+                        if (i2 + f2 > rect.right - f3 || f2 < rect.left + f3) {
+                            this.f20428i = -this.f20428i;
+                        }
+                    } else {
+                        float f4 = this.m + i2;
+                        Rect rect2 = this.k;
+                        float f5 = this.k0;
+                        if (f4 > rect2.right - f5) {
+                            this.m = rect2.left + f5 + 0.5f;
+                        }
                     }
                 } else {
-                    float f4 = this.m + i2;
-                    Rect rect2 = this.k;
-                    float f5 = this.k0;
-                    if (f4 > rect2.right - f5) {
-                        this.m = rect2.left + f5 + 0.5f;
+                    float f6 = this.a0 + this.f20428i;
+                    this.a0 = f6;
+                    Rect rect3 = this.k;
+                    float f7 = this.k0;
+                    if (f6 > rect3.right - f7) {
+                        this.a0 = rect3.left + f7 + 0.5f;
+                    }
+                }
+            } else if (this.V == null) {
+                this.l += this.f20428i;
+                int i3 = this.w;
+                Bitmap bitmap2 = this.B;
+                if (bitmap2 != null) {
+                    i3 = bitmap2.getHeight();
+                }
+                if (this.S) {
+                    float f8 = this.l;
+                    Rect rect4 = this.k;
+                    float f9 = this.k0;
+                    if (i3 + f8 > rect4.bottom - f9 || f8 < rect4.top + f9) {
+                        this.f20428i = -this.f20428i;
+                    }
+                } else {
+                    float f10 = this.l + i3;
+                    Rect rect5 = this.k;
+                    float f11 = this.k0;
+                    if (f10 > rect5.bottom - f11) {
+                        this.l = rect5.top + f11 + 0.5f;
                     }
                 }
             } else {
-                float f6 = this.a0 + this.f20279i;
-                this.a0 = f6;
-                Rect rect3 = this.k;
-                float f7 = this.k0;
-                if (f6 > rect3.right - f7) {
-                    this.a0 = rect3.left + f7 + 0.5f;
+                float f12 = this.W + this.f20428i;
+                this.W = f12;
+                Rect rect6 = this.k;
+                float f13 = this.k0;
+                if (f12 > rect6.bottom - f13) {
+                    this.W = rect6.top + f13 + 0.5f;
                 }
             }
-        } else if (this.V == null) {
-            this.l += this.f20279i;
-            int i3 = this.w;
-            Bitmap bitmap2 = this.B;
-            if (bitmap2 != null) {
-                i3 = bitmap2.getHeight();
-            }
-            if (this.S) {
-                float f8 = this.l;
-                Rect rect4 = this.k;
-                float f9 = this.k0;
-                if (i3 + f8 > rect4.bottom - f9 || f8 < rect4.top + f9) {
-                    this.f20279i = -this.f20279i;
-                }
-            } else {
-                float f10 = this.l + i3;
-                Rect rect5 = this.k;
-                float f11 = this.k0;
-                if (f10 > rect5.bottom - f11) {
-                    this.l = rect5.top + f11 + 0.5f;
-                }
-            }
-        } else {
-            float f12 = this.W + this.f20279i;
-            this.W = f12;
-            Rect rect6 = this.k;
-            float f13 = this.k0;
-            if (f12 > rect6.bottom - f13) {
-                this.W = rect6.top + f13 + 0.5f;
-            }
+            long j = this.j;
+            Rect rect7 = this.k;
+            postInvalidateDelayed(j, rect7.left, rect7.top, rect7.right, rect7.bottom);
         }
-        long j = this.j;
-        Rect rect7 = this.k;
-        postInvalidateDelayed(j, rect7.left, rect7.top, rect7.right, rect7.bottom);
     }
 
     public void m() {
-        this.o.setColor(this.M);
-        setIsBarcode(false);
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            this.o.setColor(this.M);
+            setIsBarcode(false);
+            invalidate();
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.k == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, canvas) == null) || this.k == null) {
             return;
         }
         e(canvas);
@@ -677,190 +806,298 @@ public class ScanBoxView extends View {
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048617, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            b();
+        }
     }
 
     public void setAnimTime(int i2) {
-        this.E = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+            this.E = i2;
+        }
     }
 
     public void setBarCodeTipText(String str) {
-        this.J = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+            this.J = str;
+        }
     }
 
     public void setBarcodeRectHeight(int i2) {
-        this.u = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+            this.u = i2;
+        }
     }
 
     public void setBorderColor(int i2) {
-        this.D = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+            this.D = i2;
+        }
     }
 
     public void setBorderSize(int i2) {
-        this.C = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            this.C = i2;
+        }
     }
 
     public void setCenterVertical(boolean z) {
-        this.F = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+            this.F = z;
+        }
     }
 
     public void setCornerLength(int i2) {
-        this.q = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
+            this.q = i2;
+        }
     }
 
     public void setCornerSize(int i2) {
-        this.r = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+            this.r = i2;
+        }
     }
 
     public void setCustomScanLineDrawable(Drawable drawable) {
-        this.A = drawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, drawable) == null) {
+            this.A = drawable;
+        }
     }
 
     public void setHalfCornerSize(float f2) {
-        this.k0 = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048627, this, f2) == null) {
+            this.k0 = f2;
+        }
     }
 
     public void setIsBarcode(boolean z) {
-        this.H = z;
-        if (this.U == null && !this.T) {
-            if (this.A != null || this.z) {
-                if (this.H) {
-                    this.B = this.c0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
+            this.H = z;
+            if (this.U == null && !this.T) {
+                if (this.A != null || this.z) {
+                    if (this.H) {
+                        this.B = this.c0;
+                    } else {
+                        this.B = this.b0;
+                    }
+                }
+            } else if (this.H) {
+                this.V = this.j0;
+            } else {
+                this.V = this.i0;
+            }
+            if (this.H) {
+                this.K = this.J;
+                this.t = this.u;
+                this.j = (int) (((this.E * 1.0f) * this.f20428i) / this.s);
+            } else {
+                this.K = this.I;
+                int i2 = this.s;
+                this.t = i2;
+                this.j = (int) (((this.E * 1.0f) * this.f20428i) / i2);
+            }
+            if (!TextUtils.isEmpty(this.K)) {
+                if (this.P) {
+                    this.l0 = new StaticLayout(this.K, this.o, a.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 } else {
-                    this.B = this.b0;
+                    this.l0 = new StaticLayout(this.K, this.o, this.s - (this.m0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 }
             }
-        } else if (this.H) {
-            this.V = this.j0;
-        } else {
-            this.V = this.i0;
-        }
-        if (this.H) {
-            this.K = this.J;
-            this.t = this.u;
-            this.j = (int) (((this.E * 1.0f) * this.f20279i) / this.s);
-        } else {
-            this.K = this.I;
-            int i2 = this.s;
-            this.t = i2;
-            this.j = (int) (((this.E * 1.0f) * this.f20279i) / i2);
-        }
-        if (!TextUtils.isEmpty(this.K)) {
-            if (this.P) {
-                this.l0 = new StaticLayout(this.K, this.o, a.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
-            } else {
-                this.l0 = new StaticLayout(this.K, this.o, this.s - (this.m0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+            if (this.F) {
+                int i3 = a.d(getContext()).y;
+                int i4 = this.G;
+                if (i4 == 0) {
+                    this.v = (i3 - this.t) / 2;
+                } else if (this.H) {
+                    this.v = ((i3 - this.t) / 2) + (i4 / 2);
+                } else {
+                    this.v = (i3 - this.t) / 2;
+                }
             }
+            b();
+            postInvalidate();
         }
-        if (this.F) {
-            int i3 = a.d(getContext()).y;
-            int i4 = this.G;
-            if (i4 == 0) {
-                this.v = (i3 - this.t) / 2;
-            } else if (this.H) {
-                this.v = ((i3 - this.t) / 2) + (i4 / 2);
-            } else {
-                this.v = (i3 - this.t) / 2;
-            }
-        }
-        b();
-        postInvalidate();
     }
 
     public void setMaskColor(int i2) {
-        this.p = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+            this.p = i2;
+        }
     }
 
     public void setOnlyDecodeScanBoxArea(boolean z) {
-        this.n0 = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+            this.n0 = z;
+        }
     }
 
     public void setQRCodeTipText(String str) {
-        this.I = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
+            this.I = str;
+        }
     }
 
     public void setRectHeight(int i2) {
-        this.t = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
+            this.t = i2;
+        }
     }
 
     public void setRectWidth(int i2) {
-        this.s = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
+            this.s = i2;
+        }
     }
 
     public void setScanLineBitmap(Bitmap bitmap) {
-        this.B = bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, bitmap) == null) {
+            this.B = bitmap;
+        }
     }
 
     public void setScanLineColor(int i2) {
-        this.x = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
+            this.x = i2;
+        }
     }
 
     public void setScanLineMargin(int i2) {
-        this.y = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+            this.y = i2;
+        }
     }
 
     public void setScanLineReverse(boolean z) {
-        this.S = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048637, this, z) == null) {
+            this.S = z;
+        }
     }
 
     public void setScanLineSize(int i2) {
-        this.w = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
+            this.w = i2;
+        }
     }
 
     public void setShowDefaultGridScanLineDrawable(boolean z) {
-        this.T = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048639, this, z) == null) {
+            this.T = z;
+        }
     }
 
     public void setShowDefaultScanLineDrawable(boolean z) {
-        this.z = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
+            this.z = z;
+        }
     }
 
     public void setShowTipBackground(boolean z) {
-        this.R = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048641, this, z) == null) {
+            this.R = z;
+        }
     }
 
     public void setShowTipTextAsSingleLine(boolean z) {
-        this.P = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+            this.P = z;
+        }
     }
 
     public void setTipBackgroundColor(int i2) {
-        this.Q = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048643, this, i2) == null) {
+            this.Q = i2;
+        }
     }
 
     public void setTipBackgroundRadius(int i2) {
-        this.m0 = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
+            this.m0 = i2;
+        }
     }
 
     public void setTipText(String str) {
-        this.K = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
+            this.K = str;
+        }
     }
 
     public void setTipTextBelowRect(boolean z) {
-        this.N = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+            this.N = z;
+        }
     }
 
     public void setTipTextColor(int i2) {
-        this.M = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
+            this.M = i2;
+        }
     }
 
     public void setTipTextMargin(int i2) {
-        this.O = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
+            this.O = i2;
+        }
     }
 
     public void setTipTextSize(int i2) {
-        this.L = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
+            this.L = i2;
+        }
     }
 
     public void setTipTextSl(StaticLayout staticLayout) {
-        this.l0 = staticLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048650, this, staticLayout) == null) {
+            this.l0 = staticLayout;
+        }
     }
 
     public void setToolbarHeight(int i2) {
-        this.G = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
+            this.G = i2;
+        }
     }
 
     public void setTopOffset(int i2) {
-        this.v = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
+            this.v = i2;
+        }
     }
 }

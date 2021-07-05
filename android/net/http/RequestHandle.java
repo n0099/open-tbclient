@@ -1,73 +1,164 @@
 package android.net.http;
 
 import android.net.compatibility.WebAddress;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class RequestHandle {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_REDIRECT_COUNT = 16;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i2, Request request) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {requestQueue, str, webAddress, str2, map, inputStream, Integer.valueOf(i2), request};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new RuntimeException("Stub!");
     }
 
     public static String authorizationHeader(boolean z) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeZ.objValue;
     }
 
     public static String computeBasicAuthResponse(String str, String str2) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeLL.objValue;
     }
 
     public void cancel() {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public String getMethod() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getRedirectCount() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
     }
 
     public void handleSslErrorResponse(boolean z) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public boolean isRedirectMax() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
     }
 
     public void pauseRequest(boolean z) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void processRequest() {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setRedirectCount(int i2) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setupBasicAuthResponse(boolean z, String str, String str2) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void setupDigestAuthResponse(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), str, str2, str3, str4, str5, str6, str7}) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public boolean setupRedirect(String str, int i2, Map<String, String> map) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, str, i2, map)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLIL.booleanValue;
     }
 
     public void waitUntilComplete() {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i2, Request request, Connection connection) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {requestQueue, str, webAddress, str2, map, inputStream, Integer.valueOf(i2), request, connection};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         throw new RuntimeException("Stub!");
     }
 }

@@ -5,73 +5,118 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class dh implements Application.ActivityLifecycleCallbacks {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41220a;
+    public Context f42963a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f234a;
+    public String f237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41221b;
+    public String f42964b;
 
     public dh(Context context, String str) {
-        this.f234a = "";
-        this.f41220a = context;
-        this.f234a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f237a = "";
+        this.f42963a = context;
+        this.f237a = str;
     }
 
     private void a(String str) {
-        hn hnVar = new hn();
-        hnVar.a(str);
-        hnVar.a(System.currentTimeMillis());
-        hnVar.a(hh.ActivityActiveTimeStamp);
-        dq.a(this.f41220a, hnVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
+            hn hnVar = new hn();
+            hnVar.a(str);
+            hnVar.a(System.currentTimeMillis());
+            hnVar.a(hh.s);
+            dq.a(this.f42963a, hnVar);
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f234a) || TextUtils.isEmpty(localClassName)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            String localClassName = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.f237a) || TextUtils.isEmpty(localClassName)) {
+                return;
+            }
+            this.f42964b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f42964b, localClassName)) {
+                this.f237a = "";
+                return;
+            }
+            a(this.f42963a.getPackageName() + "|" + localClassName + ":" + this.f237a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+            this.f237a = "";
+            this.f42964b = "";
         }
-        this.f41221b = "";
-        if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f41221b, localClassName)) {
-            this.f234a = "";
-            return;
-        }
-        a(this.f41220a.getPackageName() + "|" + localClassName + ":" + this.f234a + "," + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f234a = "";
-        this.f41221b = "";
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        if (TextUtils.isEmpty(this.f41221b)) {
-            this.f41221b = activity.getLocalClassName();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (TextUtils.isEmpty(this.f42964b)) {
+                this.f42964b = activity.getLocalClassName();
+            }
+            this.f237a = String.valueOf(System.currentTimeMillis() / 1000);
         }
-        this.f234a = String.valueOf(System.currentTimeMillis() / 1000);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
     }
 }

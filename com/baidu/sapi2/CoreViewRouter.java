@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.common.SecurityUtil;
@@ -86,6 +89,11 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -97,39 +105,41 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CoreViewRouter implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String C = "https://wappass.baidu.com/v6/securitySettings/deviceManage?adapter=3";
     public static CoreViewRouter D;
+    public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<String> A;
-    public Context B = SapiAccountManager.getInstance().getSapiConfiguration().context;
+    public Context B;
 
     /* renamed from: a  reason: collision with root package name */
-    public AbstractThirdPartyService f9474a;
+    public AbstractThirdPartyService f9546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebAuthListener f9475b;
+    public WebAuthListener f9547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebLoginDTO f9476c;
+    public WebLoginDTO f9548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WebRegDTO f9477d;
+    public WebRegDTO f9549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebBindWidgetDTO f9478e;
+    public WebBindWidgetDTO f9550e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebSocialLoginDTO f9479f;
+    public WebSocialLoginDTO f9551f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AccountCenterDTO f9480g;
+    public AccountCenterDTO f9552g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NormalizeGuestAccountDTO f9481h;
+    public NormalizeGuestAccountDTO f9553h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RealNameDTO f9482i;
+    public RealNameDTO f9554i;
     public SwitchAccountDTO j;
     public IdCardOcrDTO k;
     public AccountCenterCallback l;
@@ -148,372 +158,640 @@ public class CoreViewRouter implements NoProguard {
     public String y;
     public SparseArray<SmsViewLoginCallback> z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends PassFaceRecogCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f9489a;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f9561a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f9490b;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f9562b;
 
-        public a(ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-            this.f9489a = extendSysWebViewMethodResult;
-            this.f9490b = extendSysWebViewMethodCallback;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9563c;
+
+        public a(CoreViewRouter coreViewRouter, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, extendSysWebViewMethodResult, extendSysWebViewMethodCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9563c = coreViewRouter;
+            this.f9561a = extendSysWebViewMethodResult;
+            this.f9562b = extendSysWebViewMethodCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: a */
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9489a;
-            extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-            this.f9490b.onFinish(extendSysWebViewMethodResult);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, passFaceRecogResult) == null) {
+                ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9561a;
+                extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
+                this.f9562b.onFinish(extendSysWebViewMethodResult);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: b */
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9489a;
-            extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-            this.f9490b.onFinish(extendSysWebViewMethodResult);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
+                ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f9561a;
+                extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
+                this.f9562b.onFinish(extendSysWebViewMethodResult);
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends GetTplStokenCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f9492a;
+        public final /* synthetic */ Activity f9564a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9493b;
+        public final /* synthetic */ String f9565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Map f9494c;
+        public final /* synthetic */ Map f9566c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f9495d;
+        public final /* synthetic */ String f9567d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SapiAccount f9496e;
+        public final /* synthetic */ SapiAccount f9568e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f9497f;
+        public final /* synthetic */ PassFaceRecogCallback f9569f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f9498g;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f9570g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f9499h;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f9571h;
 
-        public b(Activity activity, String str, Map map, String str2, SapiAccount sapiAccount, PassFaceRecogCallback passFaceRecogCallback, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-            this.f9492a = activity;
-            this.f9493b = str;
-            this.f9494c = map;
-            this.f9495d = str2;
-            this.f9496e = sapiAccount;
-            this.f9497f = passFaceRecogCallback;
-            this.f9498g = extendSysWebViewMethodResult;
-            this.f9499h = extendSysWebViewMethodCallback;
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9572i;
+
+        public b(CoreViewRouter coreViewRouter, Activity activity, String str, Map map, String str2, SapiAccount sapiAccount, PassFaceRecogCallback passFaceRecogCallback, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, activity, str, map, str2, sapiAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9572i = coreViewRouter;
+            this.f9564a = activity;
+            this.f9565b = str;
+            this.f9566c = map;
+            this.f9567d = str2;
+            this.f9568e = sapiAccount;
+            this.f9569f = passFaceRecogCallback;
+            this.f9570g = extendSysWebViewMethodResult;
+            this.f9571h = extendSysWebViewMethodCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: a */
         public void onFailure(GetTplStokenResult getTplStokenResult) {
-            this.f9498g.params.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(getTplStokenResult.getResultCode()));
-            this.f9498g.params.put("retMsg", getTplStokenResult.getResultMsg());
-            this.f9499h.onFinish(this.f9498g);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) {
+                this.f9570g.params.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(getTplStokenResult.getResultCode()));
+                this.f9570g.params.put("retMsg", getTplStokenResult.getResultMsg());
+                this.f9571h.onFinish(this.f9570g);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: b */
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            BiometricsManager.getInstance().recogWithBduss(this.f9492a, this.f9493b, this.f9494c, this.f9495d, this.f9496e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f9497f);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
+                BiometricsManager.getInstance().recogWithBduss(this.f9564a, this.f9565b, this.f9566c, this.f9567d, this.f9568e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f9569f);
+            }
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends ShareCallPacking.ShareLoginCallBack {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9573a;
+
+        public c(CoreViewRouter coreViewRouter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9573a = coreViewRouter;
         }
 
         @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
         public void onFailed(int i2, String str) {
-            super.onFailed(i2, str);
-            WebAuthResult webAuthResult = new WebAuthResult();
-            webAuthResult.setResultCode(i2);
-            webAuthResult.setResultMsg(str);
-            WebAuthListener webAuthListener = CoreViewRouter.this.f9475b;
-            CoreViewRouter.getInstance().release();
-            if (webAuthListener != null) {
-                webAuthListener.onFailure(webAuthResult);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+                super.onFailed(i2, str);
+                WebAuthResult webAuthResult = new WebAuthResult();
+                webAuthResult.setResultCode(i2);
+                webAuthResult.setResultMsg(str);
+                WebAuthListener webAuthListener = this.f9573a.f9547b;
+                CoreViewRouter.getInstance().release();
+                if (webAuthListener != null) {
+                    webAuthListener.onFailure(webAuthResult);
+                }
             }
         }
 
         @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
         public void onSuccess() {
-            WebAuthResult webAuthResult = new WebAuthResult();
-            webAuthResult.accountType = AccountType.NORMAL;
-            webAuthResult.setResultCode(0);
-            if (CoreViewRouter.this.f9475b != null) {
-                CoreViewRouter.this.f9475b.onSuccess(webAuthResult);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                WebAuthResult webAuthResult = new WebAuthResult();
+                webAuthResult.accountType = AccountType.NORMAL;
+                webAuthResult.setResultCode(0);
+                if (this.f9573a.f9547b != null) {
+                    this.f9573a.f9547b.onSuccess(webAuthResult);
+                }
+                CoreViewRouter.getInstance().release();
             }
-            CoreViewRouter.getInstance().release();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ QrLoginCallback f9502a;
+        public final /* synthetic */ QrLoginCallback f9574a;
 
-        public d(QrLoginCallback qrLoginCallback) {
-            this.f9502a = qrLoginCallback;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9575b;
+
+        public d(CoreViewRouter coreViewRouter, QrLoginCallback qrLoginCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, qrLoginCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9575b = coreViewRouter;
+            this.f9574a = qrLoginCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            QrLoginCallback qrLoginCallback = this.f9502a;
-            if (qrLoginCallback != null) {
-                qrLoginCallback.onLocalLogin(webAuthResult);
+            QrLoginCallback qrLoginCallback;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (qrLoginCallback = this.f9574a) == null) {
+                return;
             }
+            qrLoginCallback.onLocalLogin(webAuthResult);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            QrLoginCallback qrLoginCallback = this.f9502a;
-            if (qrLoginCallback != null) {
-                qrLoginCallback.onLocalLogin(webAuthResult);
+            QrLoginCallback qrLoginCallback;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) || (qrLoginCallback = this.f9574a) == null) {
+                return;
             }
+            qrLoginCallback.onLocalLogin(webAuthResult);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e extends QrLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ QrLoginCallback f9504a;
+        public final /* synthetic */ QrLoginCallback f9576a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f9505b;
+        public final /* synthetic */ List f9577b;
 
-        public e(QrLoginCallback qrLoginCallback, List list) {
-            this.f9504a = qrLoginCallback;
-            this.f9505b = list;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9578c;
+
+        public e(CoreViewRouter coreViewRouter, QrLoginCallback qrLoginCallback, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, qrLoginCallback, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9578c = coreViewRouter;
+            this.f9576a = qrLoginCallback;
+            this.f9577b = list;
         }
 
         @Override // com.baidu.sapi2.callback.QrLoginCallback
         public void onFinish(QrLoginResult qrLoginResult) {
-            this.f9504a.onFinish(qrLoginResult);
-            if (this.f9505b.size() == 1) {
-                ((WebAuthResult) this.f9505b.get(0)).finishActivity();
-                this.f9504a.onLocalLogin((WebAuthResult) this.f9505b.get(0));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, qrLoginResult) == null) {
+                this.f9576a.onFinish(qrLoginResult);
+                if (this.f9577b.size() == 1) {
+                    ((WebAuthResult) this.f9577b.get(0)).finishActivity();
+                    this.f9576a.onLocalLogin((WebAuthResult) this.f9577b.get(0));
+                }
             }
         }
 
         @Override // com.baidu.sapi2.callback.QrLoginCallback
         public void onLocalLogin(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f9507a;
+        public final /* synthetic */ List f9579a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9508b;
+        public final /* synthetic */ String f9580b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f9509c;
+        public final /* synthetic */ boolean f9581c;
 
-        public f(List list, String str, boolean z) {
-            this.f9507a = list;
-            this.f9508b = str;
-            this.f9509c = z;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9582d;
+
+        public f(CoreViewRouter coreViewRouter, List list, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, list, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9582d = coreViewRouter;
+            this.f9579a = list;
+            this.f9580b = str;
+            this.f9581c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            this.f9507a.add(webAuthResult);
-            String str = this.f9508b.indexOf("?") > 0 ? "&" : "?";
-            CoreViewRouter.this.a(this.f9508b + str + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", this.f9509c);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
+                this.f9579a.add(webAuthResult);
+                String str = this.f9580b.indexOf("?") > 0 ? "&" : "?";
+                this.f9582d.a(this.f9580b + str + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", this.f9581c);
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g extends AuthWidgetCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f9511a;
+        public final /* synthetic */ Activity f9583a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ RegisterUserFaceIDCallback f9512b;
+        public final /* synthetic */ RegisterUserFaceIDCallback f9584b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FaceIDRegDTO f9513c;
+        public final /* synthetic */ FaceIDRegDTO f9585c;
 
-        public g(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
-            this.f9511a = activity;
-            this.f9512b = registerUserFaceIDCallback;
-            this.f9513c = faceIDRegDTO;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9586d;
+
+        public g(CoreViewRouter coreViewRouter, Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, activity, registerUserFaceIDCallback, faceIDRegDTO};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9586d = coreViewRouter;
+            this.f9583a = activity;
+            this.f9584b = registerUserFaceIDCallback;
+            this.f9585c = faceIDRegDTO;
         }
 
         @Override // com.baidu.sapi2.callback.AuthWidgetCallback
         public void onFailure(SapiResult sapiResult) {
-            this.f9512b.onFailure(sapiResult);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
+                this.f9584b.onFailure(sapiResult);
+            }
         }
 
         @Override // com.baidu.sapi2.callback.AuthWidgetCallback
         public void onSuccess(String str) {
-            CoreViewRouter coreViewRouter = CoreViewRouter.this;
-            Activity activity = this.f9511a;
-            RegisterUserFaceIDCallback registerUserFaceIDCallback = this.f9512b;
-            FaceIDRegDTO faceIDRegDTO = this.f9513c;
-            coreViewRouter.b(activity, registerUserFaceIDCallback, "faceDetect", str, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                CoreViewRouter coreViewRouter = this.f9586d;
+                Activity activity = this.f9583a;
+                RegisterUserFaceIDCallback registerUserFaceIDCallback = this.f9584b;
+                FaceIDRegDTO faceIDRegDTO = this.f9585c;
+                coreViewRouter.b(activity, registerUserFaceIDCallback, "faceDetect", str, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class h extends GetTplStokenCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f9515a;
+        public final /* synthetic */ Activity f9587a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FaceIDVerifyDTO f9516b;
+        public final /* synthetic */ FaceIDVerifyDTO f9588b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ VerifyUserFaceIDCallback f9517c;
+        public final /* synthetic */ VerifyUserFaceIDCallback f9589c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ RealNameFaceIDResult f9518d;
+        public final /* synthetic */ RealNameFaceIDResult f9590d;
 
-        public h(Activity activity, FaceIDVerifyDTO faceIDVerifyDTO, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
-            this.f9515a = activity;
-            this.f9516b = faceIDVerifyDTO;
-            this.f9517c = verifyUserFaceIDCallback;
-            this.f9518d = realNameFaceIDResult;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9591e;
+
+        public h(CoreViewRouter coreViewRouter, Activity activity, FaceIDVerifyDTO faceIDVerifyDTO, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, activity, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9591e = coreViewRouter;
+            this.f9587a = activity;
+            this.f9588b = faceIDVerifyDTO;
+            this.f9589c = verifyUserFaceIDCallback;
+            this.f9590d = realNameFaceIDResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: a */
         public void onFailure(GetTplStokenResult getTplStokenResult) {
-            this.f9518d.setResultCode(getTplStokenResult.getResultCode());
-            this.f9518d.setResultMsg(getTplStokenResult.getResultMsg());
-            this.f9517c.onFailure(this.f9518d);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) {
+                this.f9590d.setResultCode(getTplStokenResult.getResultCode());
+                this.f9590d.setResultMsg(getTplStokenResult.getResultMsg());
+                this.f9589c.onFailure(this.f9590d);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: b */
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            String str = getTplStokenResult.tplStokenMap.get("pp");
-            if (!TextUtils.isEmpty(str)) {
-                CoreViewRouter coreViewRouter = CoreViewRouter.this;
-                Activity activity = this.f9515a;
-                FaceIDVerifyDTO faceIDVerifyDTO = this.f9516b;
-                coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.f9517c, this.f9518d);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
+                String str = getTplStokenResult.tplStokenMap.get("pp");
+                if (!TextUtils.isEmpty(str)) {
+                    CoreViewRouter coreViewRouter = this.f9591e;
+                    Activity activity = this.f9587a;
+                    FaceIDVerifyDTO faceIDVerifyDTO = this.f9588b;
+                    coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.f9589c, this.f9590d);
+                    return;
+                }
+                this.f9590d.setResultCode(-402);
+                this.f9590d.setResultMsg("服务异常，请稍后再试");
+                this.f9589c.onFailure(this.f9590d);
             }
-            this.f9518d.setResultCode(-402);
-            this.f9518d.setResultMsg("服务异常，请稍后再试");
-            this.f9517c.onFailure(this.f9518d);
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class i extends PassFaceRecogCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RealNameFaceIDResult f9520a;
+        public final /* synthetic */ RealNameFaceIDResult f9592a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VerifyUserFaceIDCallback f9521b;
+        public final /* synthetic */ VerifyUserFaceIDCallback f9593b;
 
-        public i(RealNameFaceIDResult realNameFaceIDResult, VerifyUserFaceIDCallback verifyUserFaceIDCallback) {
-            this.f9520a = realNameFaceIDResult;
-            this.f9521b = verifyUserFaceIDCallback;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9594c;
+
+        public i(CoreViewRouter coreViewRouter, RealNameFaceIDResult realNameFaceIDResult, VerifyUserFaceIDCallback verifyUserFaceIDCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, realNameFaceIDResult, verifyUserFaceIDCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9594c = coreViewRouter;
+            this.f9592a = realNameFaceIDResult;
+            this.f9593b = verifyUserFaceIDCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: a */
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-            this.f9520a.setResultCode(passFaceRecogResult.getResultCode());
-            this.f9520a.setResultMsg(passFaceRecogResult.getResultMsg());
-            this.f9521b.onFailure(this.f9520a);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, passFaceRecogResult) == null) {
+                this.f9592a.setResultCode(passFaceRecogResult.getResultCode());
+                this.f9592a.setResultMsg(passFaceRecogResult.getResultMsg());
+                this.f9593b.onFailure(this.f9592a);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: b */
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-            this.f9520a.setResultCode(passFaceRecogResult.getResultCode());
-            this.f9520a.setResultMsg(passFaceRecogResult.getResultMsg());
-            RealNameFaceIDResult realNameFaceIDResult = this.f9520a;
-            realNameFaceIDResult.authSid = passFaceRecogResult.authSid;
-            realNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
-            realNameFaceIDResult.setResultCode(0);
-            this.f9521b.onSuccess(this.f9520a);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
+                this.f9592a.setResultCode(passFaceRecogResult.getResultCode());
+                this.f9592a.setResultMsg(passFaceRecogResult.getResultMsg());
+                RealNameFaceIDResult realNameFaceIDResult = this.f9592a;
+                realNameFaceIDResult.authSid = passFaceRecogResult.authSid;
+                realNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
+                realNameFaceIDResult.setResultCode(0);
+                this.f9593b.onSuccess(this.f9592a);
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class j extends PassFaceRecogCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnRealNameFaceIDResult f9523a;
+        public final /* synthetic */ UnRealNameFaceIDResult f9595a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9524b;
+        public final /* synthetic */ String f9596b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FaceIDCallback f9525c;
+        public final /* synthetic */ FaceIDCallback f9597c;
 
-        public j(UnRealNameFaceIDResult unRealNameFaceIDResult, String str, FaceIDCallback faceIDCallback) {
-            this.f9523a = unRealNameFaceIDResult;
-            this.f9524b = str;
-            this.f9525c = faceIDCallback;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9598d;
+
+        public j(CoreViewRouter coreViewRouter, UnRealNameFaceIDResult unRealNameFaceIDResult, String str, FaceIDCallback faceIDCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, unRealNameFaceIDResult, str, faceIDCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9598d = coreViewRouter;
+            this.f9595a = unRealNameFaceIDResult;
+            this.f9596b = str;
+            this.f9597c = faceIDCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
         /* renamed from: a */
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-            this.f9523a.setResultCode(passFaceRecogResult.getResultCode());
-            this.f9525c.onFailure(this.f9523a);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, passFaceRecogResult) == null) {
+                this.f9595a.setResultCode(passFaceRecogResult.getResultCode());
+                this.f9597c.onFailure(this.f9595a);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -521,737 +799,1038 @@ public class CoreViewRouter implements NoProguard {
         /* renamed from: b */
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
             JSONObject jSONObject;
-            this.f9523a.setResultMsg(passFaceRecogResult.getResultMsg());
-            if (this.f9524b.equals("faceDetect") && (jSONObject = passFaceRecogResult.extraJson) != null) {
-                this.f9523a.registerResult = jSONObject.toString();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
+                this.f9595a.setResultMsg(passFaceRecogResult.getResultMsg());
+                if (this.f9596b.equals("faceDetect") && (jSONObject = passFaceRecogResult.extraJson) != null) {
+                    this.f9595a.registerResult = jSONObject.toString();
+                }
+                UnRealNameFaceIDResult unRealNameFaceIDResult = this.f9595a;
+                String str = passFaceRecogResult.callbackkey;
+                unRealNameFaceIDResult.callBackKey = str;
+                if (TextUtils.isEmpty(str)) {
+                    this.f9595a.setResultCode(-205);
+                    this.f9597c.onFailure(this.f9595a);
+                    return;
+                }
+                this.f9595a.setResultCode(0);
+                this.f9597c.onSuccess(this.f9595a);
             }
-            UnRealNameFaceIDResult unRealNameFaceIDResult = this.f9523a;
-            String str = passFaceRecogResult.callbackkey;
-            unRealNameFaceIDResult.callBackKey = str;
-            if (TextUtils.isEmpty(str)) {
-                this.f9523a.setResultCode(-205);
-                this.f9525c.onFailure(this.f9523a);
-                return;
-            }
-            this.f9523a.setResultCode(0);
-            this.f9525c.onSuccess(this.f9523a);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class k implements SapiCallback<SapiResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f9527a;
+        public final /* synthetic */ int f9599a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f9528b;
+        public final /* synthetic */ Activity f9600b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f9529c;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f9601c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9530d;
+        public final /* synthetic */ JSONObject f9602d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f9531e;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f9603e;
 
-        public k(int i2, Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
-            this.f9527a = i2;
-            this.f9528b = activity;
-            this.f9529c = extendSysWebViewMethodCallback;
-            this.f9530d = jSONObject;
-            this.f9531e = extendSysWebViewMethodResult;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ CoreViewRouter f9604f;
+
+        public k(CoreViewRouter coreViewRouter, int i2, Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coreViewRouter, Integer.valueOf(i2), activity, extendSysWebViewMethodCallback, jSONObject, extendSysWebViewMethodResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9604f = coreViewRouter;
+            this.f9599a = i2;
+            this.f9600b = activity;
+            this.f9601c = extendSysWebViewMethodCallback;
+            this.f9602d = jSONObject;
+            this.f9603e = extendSysWebViewMethodResult;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(SapiResult sapiResult) {
-            this.f9531e.setResultCode(sapiResult.getResultCode());
-            this.f9531e.setResultMsg(sapiResult.getResultMsg());
-            this.f9529c.onFinish(this.f9531e);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
+                this.f9603e.setResultCode(sapiResult.getResultCode());
+                this.f9603e.setResultMsg(sapiResult.getResultMsg());
+                this.f9601c.onFinish(this.f9603e);
+            }
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(SapiResult sapiResult) {
-            int i2 = this.f9527a;
-            switch (i2) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    CoreViewRouter.this.a(this.f9528b, this.f9529c, this.f9530d, i2, this.f9531e);
-                    return;
-                case 5:
-                    CoreViewRouter.this.u = this.f9529c;
-                    String optString = this.f9530d.optString("url");
-                    String optString2 = this.f9530d.optString("title");
-                    Intent intent = new Intent(CoreViewRouter.this.B, LoadExternalWebViewActivity.class);
-                    intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, optString2);
-                    intent.putExtra("extra_external_url", optString);
-                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                    CoreViewRouter.this.B.startActivity(intent);
-                    return;
-                case 6:
-                    JSONArray optJSONArray = this.f9530d.optJSONArray("di_keys");
-                    ArrayList arrayList = new ArrayList();
-                    int length = optJSONArray.length();
-                    for (int i3 = 0; i3 < length; i3++) {
-                        if (!TextUtils.isEmpty(optJSONArray.optString(i3))) {
-                            arrayList.add(optJSONArray.optString(i3));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, sapiResult) == null) {
+                int i2 = this.f9599a;
+                switch (i2) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        this.f9604f.a(this.f9600b, this.f9601c, this.f9602d, i2, this.f9603e);
+                        return;
+                    case 5:
+                        this.f9604f.u = this.f9601c;
+                        String optString = this.f9602d.optString("url");
+                        String optString2 = this.f9602d.optString("title");
+                        Intent intent = new Intent(this.f9604f.B, LoadExternalWebViewActivity.class);
+                        intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, optString2);
+                        intent.putExtra("extra_external_url", optString);
+                        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        this.f9604f.B.startActivity(intent);
+                        return;
+                    case 6:
+                        JSONArray optJSONArray = this.f9602d.optJSONArray("di_keys");
+                        ArrayList arrayList = new ArrayList();
+                        int length = optJSONArray.length();
+                        for (int i3 = 0; i3 < length; i3++) {
+                            if (!TextUtils.isEmpty(optJSONArray.optString(i3))) {
+                                arrayList.add(optJSONArray.optString(i3));
+                            }
                         }
-                    }
-                    String diCookieInfo = SapiDeviceInfo.getDiCookieInfo(arrayList, false);
-                    this.f9531e.params.put(BaiduRimConstants.RETCODE_KEY, "0");
-                    this.f9531e.params.put("result", diCookieInfo);
-                    this.f9529c.onFinish(this.f9531e);
-                    return;
-                default:
-                    this.f9531e.params.put(BaiduRimConstants.RETCODE_KEY, "-301");
-                    Map<String, Object> map = this.f9531e.params;
-                    map.put("retMsg", "action :" + this.f9527a + " is not support");
-                    this.f9529c.onFinish(this.f9531e);
-                    return;
+                        String diCookieInfo = SapiDeviceInfo.getDiCookieInfo(arrayList, false);
+                        this.f9603e.params.put(BaiduRimConstants.RETCODE_KEY, "0");
+                        this.f9603e.params.put("result", diCookieInfo);
+                        this.f9601c.onFinish(this.f9603e);
+                        return;
+                    default:
+                        this.f9603e.params.put(BaiduRimConstants.RETCODE_KEY, "-301");
+                        Map<String, Object> map = this.f9603e.params;
+                        map.put("retMsg", "action :" + this.f9599a + " is not support");
+                        this.f9601c.onFinish(this.f9603e);
+                        return;
+                }
             }
         }
+    }
+
+    public CoreViewRouter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.B = SapiAccountManager.getInstance().getSapiConfiguration().context;
     }
 
     public static synchronized CoreViewRouter getInstance() {
+        InterceptResult invokeV;
         CoreViewRouter coreViewRouter;
-        synchronized (CoreViewRouter.class) {
-            if (D == null) {
-                D = new CoreViewRouter();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            synchronized (CoreViewRouter.class) {
+                if (D == null) {
+                    D = new CoreViewRouter();
+                }
+                coreViewRouter = D;
             }
-            coreViewRouter = D;
+            return coreViewRouter;
         }
-        return coreViewRouter;
+        return (CoreViewRouter) invokeV.objValue;
     }
 
     public void extendSysWebViewMethod(Activity activity, String str, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-        ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            int optInt = jSONObject.optInt("action");
-            JSONObject optJSONObject = jSONObject.optJSONObject("params");
-            String optString = optJSONObject.optString("open_appid");
-            String optString2 = optJSONObject.optString("open_apikey");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new k(optInt, activity, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult), optString, optString2);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, extendSysWebViewMethodCallback) == null) {
+            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("action");
+                JSONObject optJSONObject = jSONObject.optJSONObject("params");
+                String optString = optJSONObject.optString("open_appid");
+                String optString2 = optJSONObject.optString("open_apikey");
+                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                    SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new k(this, optInt, activity, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult), optString, optString2);
+                    return;
+                }
+                extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-310");
+                extendSysWebViewMethodResult.params.put("retMsg", "因安全原因，操作失败");
+                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
+            } catch (JSONException e2) {
+                Log.e(e2);
+                extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-3");
+                extendSysWebViewMethodResult.params.put("retMsg", "params is not json");
+                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
             }
-            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-310");
-            extendSysWebViewMethodResult.params.put("retMsg", "因安全原因，操作失败");
-            extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-        } catch (JSONException e2) {
-            Log.e(e2);
-            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-3");
-            extendSysWebViewMethodResult.params.put("retMsg", "params is not json");
-            extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
         }
     }
 
     public AccountCenterCallback getAccountCenterCallback() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (AccountCenterCallback) invokeV.objValue;
     }
 
     public AccountCenterDTO getAccountCenterDTO() {
-        return this.f9480g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9552g : (AccountCenterDTO) invokeV.objValue;
     }
 
     public AccountRealNameCallback getAccountRealNameCallback() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : (AccountRealNameCallback) invokeV.objValue;
     }
 
     public AccountToolsCallback getAccountToolsCallback() {
-        return this.w;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.w : (AccountToolsCallback) invokeV.objValue;
     }
 
     public ActivityResultCallback getActivityResultCallback() {
-        return this.p;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.p : (ActivityResultCallback) invokeV.objValue;
     }
 
     public AuthWidgetCallback getAuthWidgetCallback() {
-        return this.t;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.t : (AuthWidgetCallback) invokeV.objValue;
     }
 
     public ExtendSysWebViewMethodCallback getExtendSysWebViewMethodCallback() {
-        return this.u;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.u : (ExtendSysWebViewMethodCallback) invokeV.objValue;
     }
 
     public IdCardOcrDTO getIDCardOcrDTO() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : (IdCardOcrDTO) invokeV.objValue;
     }
 
     public IdCardOcrCallback getIdCardOcrCallback() {
-        return this.x;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.x : (IdCardOcrCallback) invokeV.objValue;
     }
 
     public ImageCropCallback getImageCropCallback() {
-        return this.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.o : (ImageCropCallback) invokeV.objValue;
     }
 
     public NormalizeGuestAccountCallback getNormalizeGuestAccountCallback() {
-        return this.s;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.s : (NormalizeGuestAccountCallback) invokeV.objValue;
     }
 
     public NormalizeGuestAccountDTO getNormalizeGuestAccountDTO() {
-        return this.f9481h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f9553h : (NormalizeGuestAccountDTO) invokeV.objValue;
     }
 
     public OneKeyLoginCallback getOneKeyLoginCallback() {
-        return this.v;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.v : (OneKeyLoginCallback) invokeV.objValue;
     }
 
     public QrLoginCallback getQrLoginCallback() {
-        return this.q;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.q : (QrLoginCallback) invokeV.objValue;
     }
 
     public RealNameDTO getRealNameDTO() {
-        return this.f9482i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f9554i : (RealNameDTO) invokeV.objValue;
     }
 
     public String getSmsLoginStatExtra() {
-        return WebLoginDTO.getStatExtraDecode(this.y);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? WebLoginDTO.getStatExtraDecode(this.y) : (String) invokeV.objValue;
     }
 
     public SmsViewLoginCallback getSmsViewLoginCallback(int i2) {
+        InterceptResult invokeI;
         SparseArray<SmsViewLoginCallback> sparseArray;
-        if (i2 >= 0 && (sparseArray = this.z) != null) {
-            return sparseArray.get(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            if (i2 >= 0 && (sparseArray = this.z) != null) {
+                return sparseArray.get(i2);
+            }
+            return this.r;
         }
-        return this.r;
+        return (SmsViewLoginCallback) invokeI.objValue;
     }
 
     public WebSocialLoginDTO getSocialLoginDTO() {
-        return this.f9479f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f9551f : (WebSocialLoginDTO) invokeV.objValue;
     }
 
     public SwitchAccountDTO getSwitchAccountDTO() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.j : (SwitchAccountDTO) invokeV.objValue;
     }
 
     public AbstractThirdPartyService getThirdPartyService() {
-        if (this.f9474a == null) {
-            a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (this.f9546a == null) {
+                a();
+            }
+            return this.f9546a;
         }
-        return this.f9474a;
+        return (AbstractThirdPartyService) invokeV.objValue;
     }
 
     public WebAuthListener getWebAuthListener() {
-        return this.f9475b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f9547b : (WebAuthListener) invokeV.objValue;
     }
 
     public WebBindWidgetCallback getWebBindWidgetCallback() {
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.n : (WebBindWidgetCallback) invokeV.objValue;
     }
 
     public WebBindWidgetDTO getWebBindWidgetDTO() {
-        return this.f9478e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f9550e : (WebBindWidgetDTO) invokeV.objValue;
     }
 
     public WebLoginDTO getWebLoginDTO() {
-        return this.f9476c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f9548c : (WebLoginDTO) invokeV.objValue;
     }
 
     public WebRegDTO getWebRegDTO() {
-        return this.f9477d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f9549d : (WebRegDTO) invokeV.objValue;
     }
 
     public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
-        AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-        this.f9474a = thirdPartyService;
-        if (thirdPartyService == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048602, this, activity, str, str2, i2) == null) {
+            AbstractThirdPartyService thirdPartyService = getThirdPartyService();
+            this.f9546a = thirdPartyService;
+            if (thirdPartyService == null) {
+                return;
+            }
+            thirdPartyService.handleWXLoginResp(activity, str, str2, i2);
         }
-        thirdPartyService.handleWXLoginResp(activity, str, str2, i2);
     }
 
     public void invokeV2ShareLogin(Activity activity, ShareStorage.StorageModel storageModel, WebAuthListener webAuthListener, String str) {
-        if (activity == null) {
-            throw new IllegalArgumentException("method invokeV2ShareLogin() invokeActivity param cat't be null !");
-        }
-        if (storageModel == null) {
-            throw new IllegalArgumentException("method invokeV2ShareLogin() param shareModel cat't be null !");
-        }
-        if (webAuthListener != null) {
-            if (!SapiUtils.isAppInstalled(activity, storageModel.pkg)) {
-                WebAuthResult webAuthResult = new WebAuthResult();
-                webAuthResult.setResultCode(ShareResult.ERROR_CODE_TARGET_APP_NOT_INSTALLED);
-                webAuthResult.setResultMsg(ShareResult.ERROR_MSG_TARGET_APP_NOT_INSTALLED);
-                webAuthListener.onFailure(webAuthResult);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048603, this, activity, storageModel, webAuthListener, str) == null) {
+            if (activity == null) {
+                throw new IllegalArgumentException("method invokeV2ShareLogin() invokeActivity param cat't be null !");
             }
-            this.f9475b = webAuthListener;
-            ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(str)) {
-                arrayList.add(new PassNameValuePair("extrajson", str));
+            if (storageModel == null) {
+                throw new IllegalArgumentException("method invokeV2ShareLogin() param shareModel cat't be null !");
             }
-            Intent intent = new Intent(activity, ShareResultProxyActivity.class);
-            intent.putExtra(ShareResultProxyActivity.KEY_PKG, storageModel.pkg);
-            intent.putExtra("key_url", storageModel.url);
-            intent.putExtra("key_version", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
-            intent.putParcelableArrayListExtra(ShareResultProxyActivity.KEY_EXTRA_PARAMS, arrayList);
-            activity.startActivity(intent);
-            return;
+            if (webAuthListener != null) {
+                if (!SapiUtils.isAppInstalled(activity, storageModel.pkg)) {
+                    WebAuthResult webAuthResult = new WebAuthResult();
+                    webAuthResult.setResultCode(ShareResult.ERROR_CODE_TARGET_APP_NOT_INSTALLED);
+                    webAuthResult.setResultMsg(ShareResult.ERROR_MSG_TARGET_APP_NOT_INSTALLED);
+                    webAuthListener.onFailure(webAuthResult);
+                }
+                this.f9547b = webAuthListener;
+                ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
+                if (!TextUtils.isEmpty(str)) {
+                    arrayList.add(new PassNameValuePair("extrajson", str));
+                }
+                Intent intent = new Intent(activity, ShareResultProxyActivity.class);
+                intent.putExtra(ShareResultProxyActivity.KEY_PKG, storageModel.pkg);
+                intent.putExtra("key_url", storageModel.url);
+                intent.putExtra("key_version", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
+                intent.putParcelableArrayListExtra(ShareResultProxyActivity.KEY_EXTRA_PARAMS, arrayList);
+                activity.startActivity(intent);
+                return;
+            }
+            throw new IllegalArgumentException("method invokeV2ShareLogin() param webAuthListener cat't be null !");
         }
-        throw new IllegalArgumentException("method invokeV2ShareLogin() param webAuthListener cat't be null !");
     }
 
     public void loadAccountCenter(AccountCenterCallback accountCenterCallback, AccountCenterDTO accountCenterDTO) {
         SapiAccount currentAccount;
-        if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-            accountCenterDTO.bduss = currentAccount.bduss;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, accountCenterCallback, accountCenterDTO) == null) {
+            if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
+                accountCenterDTO.bduss = currentAccount.bduss;
+            }
+            this.l = accountCenterCallback;
+            this.f9552g = accountCenterDTO;
+            Intent intent = new Intent(this.B, AccountCenterActivity.class);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        this.l = accountCenterCallback;
-        this.f9480g = accountCenterDTO;
-        Intent intent = new Intent(this.B, AccountCenterActivity.class);
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
-        this.m = accountRealNameCallback;
-        this.f9482i = realNameDTO;
-        Intent intent = new Intent(context, AccountRealNameActivity.class);
-        if (realNameDTO != null) {
-            intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
-            intent.putExtra(AccountRealNameActivity.EXTRA_SCENE, realNameDTO.scene);
-            intent.putExtra(AccountRealNameActivity.EXTRA_NEED_CB_KEY, realNameDTO.needCbKey);
-            intent.putExtra(AccountRealNameActivity.EXTRA_CUSTOM_LINK, realNameDTO.customRealNameUrl);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048605, this, context, accountRealNameCallback, realNameDTO) == null) {
+            this.m = accountRealNameCallback;
+            this.f9554i = realNameDTO;
+            Intent intent = new Intent(context, AccountRealNameActivity.class);
+            if (realNameDTO != null) {
+                intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
+                intent.putExtra(AccountRealNameActivity.EXTRA_SCENE, realNameDTO.scene);
+                intent.putExtra(AccountRealNameActivity.EXTRA_NEED_CB_KEY, realNameDTO.needCbKey);
+                intent.putExtra(AccountRealNameActivity.EXTRA_CUSTOM_LINK, realNameDTO.customRealNameUrl);
+            }
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
-        }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     public void loadAccountTools(AccountToolsDTO accountToolsDTO, AccountToolsCallback accountToolsCallback) {
-        this.w = accountToolsCallback;
-        Intent intent = new Intent(accountToolsDTO.context, AccountToolsActivity.class);
-        intent.putExtra(AccountToolsActivity.EXTRA_ACCOUNT_TOOLS_TYPE, accountToolsDTO.toolsType);
-        intent.putExtra(AccountToolsActivity.EXTRA_SWEEP_LIGHT_LOADING, accountToolsDTO.sweepLightLoading);
-        Context context = accountToolsDTO.context;
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048606, this, accountToolsDTO, accountToolsCallback) == null) {
+            this.w = accountToolsCallback;
+            Intent intent = new Intent(accountToolsDTO.context, AccountToolsActivity.class);
+            intent.putExtra(AccountToolsActivity.EXTRA_ACCOUNT_TOOLS_TYPE, accountToolsDTO.toolsType);
+            intent.putExtra(AccountToolsActivity.EXTRA_SWEEP_LIGHT_LOADING, accountToolsDTO.sweepLightLoading);
+            Context context = accountToolsDTO.context;
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            accountToolsDTO.context.startActivity(intent);
         }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        accountToolsDTO.context.startActivity(intent);
     }
 
     public void loadBindWidget(WebBindWidgetCallback webBindWidgetCallback, WebBindWidgetDTO webBindWidgetDTO) {
         SapiAccount currentAccount;
-        this.n = webBindWidgetCallback;
-        if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-            webBindWidgetDTO.bduss = currentAccount.bduss;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048607, this, webBindWidgetCallback, webBindWidgetDTO) == null) {
+            this.n = webBindWidgetCallback;
+            if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
+                webBindWidgetDTO.bduss = currentAccount.bduss;
+            }
+            this.f9550e = webBindWidgetDTO;
+            Intent intent = new Intent(this.B, BindWidgetActivity.class);
+            intent.putExtra(BindWidgetActivity.EXTRA_BIND_WIDGET_ACTION, webBindWidgetDTO.bindWidgetAction);
+            intent.putExtra("EXTRA_BDUSS", webBindWidgetDTO.bduss);
+            Context context = webBindWidgetDTO.context;
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                webBindWidgetDTO.context = this.B;
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        this.f9478e = webBindWidgetDTO;
-        Intent intent = new Intent(this.B, BindWidgetActivity.class);
-        intent.putExtra(BindWidgetActivity.EXTRA_BIND_WIDGET_ACTION, webBindWidgetDTO.bindWidgetAction);
-        intent.putExtra("EXTRA_BDUSS", webBindWidgetDTO.bduss);
-        Context context = webBindWidgetDTO.context;
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            webBindWidgetDTO.context = this.B;
-            return;
-        }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     public void loadChildActivity(Context context, AccountRealNameCallback accountRealNameCallback) {
-        this.m = accountRealNameCallback;
-        Intent intent = new Intent(context, ChildVerifyActivity.class);
-        intent.putExtra("external_url", SapiAccountManager.getInstance().getAccountService().getChildVerifyUrl());
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048608, this, context, accountRealNameCallback) == null) {
+            this.m = accountRealNameCallback;
+            Intent intent = new Intent(context, ChildVerifyActivity.class);
+            intent.putExtra("external_url", SapiAccountManager.getInstance().getAccountService().getChildVerifyUrl());
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     public void loadIdCardOcr(IdCardOcrDTO idCardOcrDTO, IdCardOcrCallback idCardOcrCallback) {
-        this.x = idCardOcrCallback;
-        Intent intent = new Intent(idCardOcrDTO.context, IdCardOcrCameraActivity.class);
-        intent.putExtra(IdCardOcrCameraActivity.PARAM_KEY_ID_CARD_TYPE, idCardOcrDTO.type);
-        Context context = idCardOcrDTO.context;
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048609, this, idCardOcrDTO, idCardOcrCallback) == null) {
+            this.x = idCardOcrCallback;
+            Intent intent = new Intent(idCardOcrDTO.context, IdCardOcrCameraActivity.class);
+            intent.putExtra(IdCardOcrCameraActivity.PARAM_KEY_ID_CARD_TYPE, idCardOcrDTO.type);
+            Context context = idCardOcrDTO.context;
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            idCardOcrDTO.context.startActivity(intent);
         }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        idCardOcrDTO.context.startActivity(intent);
     }
 
     public void loadOneKeyLogin(Context context, OneKeyLoginCallback oneKeyLoginCallback) {
-        loadOneKeyLogin(context, a(context, OneKeyLoginSdkCall.signFromAbilityApi), true, oneKeyLoginCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048610, this, context, oneKeyLoginCallback) == null) {
+            loadOneKeyLogin(context, a(context, OneKeyLoginSdkCall.signFromAbilityApi), true, oneKeyLoginCallback);
+        }
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
-        loadQrLogin(qrLoginCallback, str, null, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048613, this, qrLoginCallback, str) == null) {
+            loadQrLogin(qrLoginCallback, str, null, true);
+        }
     }
 
     public void loadQrLoginWithEncuid(QrLoginCallback qrLoginCallback, String str) {
-        WebLoginDTO webLoginDTO = new WebLoginDTO();
-        webLoginDTO.encryptedId = SapiUtils.urlParamsToMap(str).get(SapiUtils.KEY_QR_LOGIN_ENCUID);
-        webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
-        startLogin(new d(qrLoginCallback), webLoginDTO);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048616, this, qrLoginCallback, str) == null) {
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.encryptedId = SapiUtils.urlParamsToMap(str).get(SapiUtils.KEY_QR_LOGIN_ENCUID);
+            webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
+            startLogin(new d(this, qrLoginCallback), webLoginDTO);
+        }
     }
 
     public void loadRemoteProcessWebViewActivity(Context context, String str, String str2) {
-        Intent intent = new Intent(context, RemoteProcessWebviewActivity.class);
-        intent.putExtra(RemoteProcessWebviewActivity.EXTRA_EXTERNAL_TITLE, str);
-        intent.putExtra("external_url", str2 + "&adapter=3");
-        intent.putExtra(RemoteProcessWebviewActivity.EXTRA_IS_DARK_MODE, SapiAccountManager.getInstance().getConfignation().isDarkMode);
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048617, this, context, str, str2) == null) {
+            Intent intent = new Intent(context, RemoteProcessWebviewActivity.class);
+            intent.putExtra(RemoteProcessWebviewActivity.EXTRA_EXTERNAL_TITLE, str);
+            intent.putExtra("external_url", str2 + "&adapter=3");
+            intent.putExtra(RemoteProcessWebviewActivity.EXTRA_IS_DARK_MODE, SapiAccountManager.getInstance().getConfignation().isDarkMode);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
-        this.j = switchAccountDTO;
-        this.f9475b = webAuthListener;
-        Intent intent = new Intent(this.B, SwitchAccountActivity.class);
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
-        LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-        linkedHashMap.put("eventType", "switch_account_enter");
-        StatService.onEventAutoStatistic(linkedHashMap);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048618, this, switchAccountDTO, webAuthListener) == null) {
+            this.j = switchAccountDTO;
+            this.f9547b = webAuthListener;
+            Intent intent = new Intent(this.B, SwitchAccountActivity.class);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
+            LinkedHashMap linkedHashMap = new LinkedHashMap(1);
+            linkedHashMap.put("eventType", "switch_account_enter");
+            StatService.onEventAutoStatistic(linkedHashMap);
+        }
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
-        WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-        this.f9479f = webSocialLoginDTO;
-        webSocialLoginDTO.socialType = socialType;
-        loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048620, this, webAuthListener, socialType) == null) {
+            WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
+            this.f9551f = webSocialLoginDTO;
+            webSocialLoginDTO.socialType = socialType;
+            loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
+        }
     }
 
     public void loadYYSSOLogin(Context context, String str, WebAuthListener webAuthListener) {
-        AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-        this.f9474a = thirdPartyService;
-        if (thirdPartyService == null) {
-            if (webAuthListener != null) {
-                WebAuthResult webAuthResult = new WebAuthResult();
-                webAuthResult.setResultCode(-100);
-                webAuthResult.setResultMsg("thirdPartyService is null");
-                webAuthListener.onFailure(webAuthResult);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048621, this, context, str, webAuthListener) == null) {
+            AbstractThirdPartyService thirdPartyService = getThirdPartyService();
+            this.f9546a = thirdPartyService;
+            if (thirdPartyService == null) {
+                if (webAuthListener != null) {
+                    WebAuthResult webAuthResult = new WebAuthResult();
+                    webAuthResult.setResultCode(-100);
+                    webAuthResult.setResultMsg("thirdPartyService is null");
+                    webAuthListener.onFailure(webAuthResult);
+                    return;
+                }
                 return;
             }
-            return;
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.finishActivityAfterSuc = true;
+            this.f9548c = webLoginDTO;
+            WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
+            webSocialLoginDTO.finishActivityAfterSuc = true;
+            this.f9551f = webSocialLoginDTO;
+            this.f9547b = webAuthListener;
+            this.f9546a.loadYYSSOLogin(context, str);
         }
-        WebLoginDTO webLoginDTO = new WebLoginDTO();
-        webLoginDTO.finishActivityAfterSuc = true;
-        this.f9476c = webLoginDTO;
-        WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-        webSocialLoginDTO.finishActivityAfterSuc = true;
-        this.f9479f = webSocialLoginDTO;
-        this.f9475b = webAuthListener;
-        this.f9474a.loadYYSSOLogin(context, str);
     }
 
     public void onShareLoginActivityResult(int i2, int i3, Intent intent, String str) {
-        ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(str)) {
-            arrayList.add(new PassNameValuePair("extrajson", str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent, str}) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!TextUtils.isEmpty(str)) {
+                arrayList.add(new PassNameValuePair("extrajson", str));
+            }
+            new ShareCallPacking().onLoginActivityActivityResult(new c(this), i2, i3, intent, arrayList, "product");
         }
-        new ShareCallPacking().onLoginActivityActivityResult(new c(), i2, i3, intent, arrayList, "product");
     }
 
     public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
-        if (TextUtils.isEmpty(faceIDRegDTO.authsid)) {
-            startAuth(new g(activity, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
-        } else {
-            b(activity, registerUserFaceIDCallback, "faceDetect", faceIDRegDTO.authsid, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048623, this, activity, registerUserFaceIDCallback, faceIDRegDTO) == null) {
+            if (TextUtils.isEmpty(faceIDRegDTO.authsid)) {
+                startAuth(new g(this, activity, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
+            } else {
+                b(activity, registerUserFaceIDCallback, "faceDetect", faceIDRegDTO.authsid, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
+            }
         }
     }
 
     public synchronized void release() {
-        this.f9475b = null;
-        this.f9476c = null;
-        this.f9478e = null;
-        this.f9479f = null;
-        this.f9481h = null;
-        this.l = null;
-        this.n = null;
-        this.o = null;
-        this.p = null;
-        this.f9480g = null;
-        this.m = null;
-        this.q = null;
-        this.r = null;
-        this.y = null;
-        this.z = null;
-        this.A = null;
-        this.s = null;
-        this.t = null;
-        this.u = null;
-        this.v = null;
-        this.j = null;
-        PassportViewManager.getInstance().release();
-        D = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            synchronized (this) {
+                this.f9547b = null;
+                this.f9548c = null;
+                this.f9550e = null;
+                this.f9551f = null;
+                this.f9553h = null;
+                this.l = null;
+                this.n = null;
+                this.o = null;
+                this.p = null;
+                this.f9552g = null;
+                this.m = null;
+                this.q = null;
+                this.r = null;
+                this.y = null;
+                this.z = null;
+                this.A = null;
+                this.s = null;
+                this.t = null;
+                this.u = null;
+                this.v = null;
+                this.j = null;
+                PassportViewManager.getInstance().release();
+                D = null;
+            }
+        }
     }
 
     public void setActivityResultCallback(ActivityResultCallback activityResultCallback) {
-        this.p = activityResultCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, activityResultCallback) == null) {
+            this.p = activityResultCallback;
+        }
     }
 
     public void setImageCropCallback(ImageCropCallback imageCropCallback) {
-        this.o = imageCropCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, imageCropCallback) == null) {
+            this.o = imageCropCallback;
+        }
     }
 
     public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
-        this.f9474a = abstractThirdPartyService;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, abstractThirdPartyService) == null) {
+            this.f9546a = abstractThirdPartyService;
+        }
     }
 
     public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
-        this.t = authWidgetCallback;
-        Intent intent = new Intent(this.B, AuthWidgetActivity.class);
-        intent.putExtra(AuthWidgetActivity.EXTRA_PARAM_AUTH_URL, str);
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048628, this, authWidgetCallback, str) == null) {
+            this.t = authWidgetCallback;
+            Intent intent = new Intent(this.B, AuthWidgetActivity.class);
+            intent.putExtra(AuthWidgetActivity.EXTRA_PARAM_AUTH_URL, str);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
+        }
     }
 
     public void startHorizontalScreenLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        webLoginDTO.screenType = 1;
-        a(context, HorizontalScreenLoginActivity.class, webAuthListener, webLoginDTO);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048629, this, context, webAuthListener, webLoginDTO) == null) {
+            webLoginDTO.screenType = 1;
+            a(context, HorizontalScreenLoginActivity.class, webAuthListener, webLoginDTO);
+        }
     }
 
     public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        startLogin(this.B, webAuthListener, webLoginDTO);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048631, this, webAuthListener, webLoginDTO) == null) {
+            startLogin(this.B, webAuthListener, webLoginDTO);
+        }
     }
 
     public void startLoginDeviceManager(Context context) {
-        Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
-        intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, "设备管理");
-        intent.putExtra("extra_external_url", C);
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, context) == null) {
+            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
+            intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, "设备管理");
+            intent.putExtra("extra_external_url", C);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
-        this.s = normalizeGuestAccountCallback;
-        this.f9481h = normalizeGuestAccountDTO;
-        Intent intent = new Intent(context, NormalizeGuestAccountActivity.class);
-        intent.putExtra("EXTRA_BDUSS", normalizeGuestAccountDTO.bduss);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048633, this, context, normalizeGuestAccountCallback, normalizeGuestAccountDTO) == null) {
+            this.s = normalizeGuestAccountCallback;
+            this.f9553h = normalizeGuestAccountDTO;
+            Intent intent = new Intent(context, NormalizeGuestAccountActivity.class);
+            intent.putExtra("EXTRA_BDUSS", normalizeGuestAccountDTO.bduss);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            context.startActivity(intent);
         }
-        context.startActivity(intent);
     }
 
     public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
-        this.f9475b = webAuthListener;
-        this.f9477d = webRegDTO;
-        Intent intent = new Intent(this.B, RegisterActivity.class);
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048634, this, webAuthListener, webRegDTO) == null) {
+            this.f9547b = webAuthListener;
+            this.f9549d = webRegDTO;
+            Intent intent = new Intent(this.B, RegisterActivity.class);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
+        }
     }
 
     public void startSchemeLoginForQA(Context context, String str) {
-        Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
-        intent.putExtra("extra_external_url", str);
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048635, this, context, str) == null) {
+            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
+            intent.putExtra("extra_external_url", str);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
-        this.r = smsViewLoginCallback;
-        this.y = str;
-        SmsLoginView.notifyStartLogin();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048637, this, smsViewLoginCallback, str) == null) {
+            this.r = smsViewLoginCallback;
+            this.y = str;
+            SmsLoginView.notifyStartLogin();
+        }
     }
 
     public void verifyUserFaceIDWithCertInfo(Activity activity, PassFaceRecogCallback passFaceRecogCallback, FaceIDVerifyCertInfoDTO faceIDVerifyCertInfoDTO) {
-        BiometricsManager.getInstance().recogWithCertInfo(activity, BiometricsManager.buildSubPro("", faceIDVerifyCertInfoDTO.subpro), faceIDVerifyCertInfoDTO.transParamsList, faceIDVerifyCertInfoDTO.imageFlag, faceIDVerifyCertInfoDTO.realName, faceIDVerifyCertInfoDTO.idCardNo, null, passFaceRecogCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048639, this, activity, passFaceRecogCallback, faceIDVerifyCertInfoDTO) == null) {
+            BiometricsManager.getInstance().recogWithCertInfo(activity, BiometricsManager.buildSubPro("", faceIDVerifyCertInfoDTO.subpro), faceIDVerifyCertInfoDTO.transParamsList, faceIDVerifyCertInfoDTO.imageFlag, faceIDVerifyCertInfoDTO.realName, faceIDVerifyCertInfoDTO.idCardNo, null, passFaceRecogCallback);
+        }
     }
 
     public void verifyUserFaceId(Activity activity, VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
         SapiAccount currentAccount;
-        if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-            faceIDVerifyDTO.bduss = currentAccount.bduss;
-            faceIDVerifyDTO.uid = currentAccount.uid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048640, this, activity, verifyUserFaceIDCallback, faceIDVerifyDTO) == null) {
+            if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
+                faceIDVerifyDTO.bduss = currentAccount.bduss;
+                faceIDVerifyDTO.uid = currentAccount.uid;
+            }
+            if (TextUtils.isEmpty(faceIDVerifyDTO.livingUname)) {
+                RealNameFaceIDResult realNameFaceIDResult = new RealNameFaceIDResult();
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("pp");
+                SapiAccountManager.getInstance().getAccountService().getTplStoken(new h(this, activity, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
+                return;
+            }
+            b(activity, verifyUserFaceIDCallback, "outer", "", faceIDVerifyDTO.livingUname, faceIDVerifyDTO.showGuidePage, faceIDVerifyDTO.subpro, faceIDVerifyDTO.businessSence);
         }
-        if (TextUtils.isEmpty(faceIDVerifyDTO.livingUname)) {
-            RealNameFaceIDResult realNameFaceIDResult = new RealNameFaceIDResult();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new h(activity, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
-            return;
-        }
-        b(activity, verifyUserFaceIDCallback, "outer", "", faceIDVerifyDTO.livingUname, faceIDVerifyDTO.showGuidePage, faceIDVerifyDTO.subpro, faceIDVerifyDTO.businessSence);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Activity activity, FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5) {
-        a(activity, faceIDCallback, str, str2, str3, z, str4, str5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{activity, faceIDCallback, str, str2, str3, Boolean.valueOf(z), str4, str5}) == null) {
+            a(activity, faceIDCallback, str, str2, str3, z, str4, str5);
+        }
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2) {
-        loadQrLogin(qrLoginCallback, str, str2, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048614, this, qrLoginCallback, str, str2) == null) {
+            loadQrLogin(qrLoginCallback, str, str2, true);
+        }
     }
 
     public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
         Class<?> cls;
-        if (webLoginDTO != null && webLoginDTO.isWithYouthStyle) {
-            cls = YouthStyleLoginActivity.class;
-        } else {
-            cls = LoginActivity.class;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048630, this, context, webAuthListener, webLoginDTO) == null) {
+            if (webLoginDTO != null && webLoginDTO.isWithYouthStyle) {
+                cls = YouthStyleLoginActivity.class;
+            } else {
+                cls = LoginActivity.class;
+            }
+            a(context, cls, webAuthListener, webLoginDTO);
         }
-        a(context, cls, webAuthListener, webLoginDTO);
     }
 
     public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
-        loadOneKeyLogin(context, str, true, oneKeyLoginCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048611, this, context, str, oneKeyLoginCallback) == null) {
+            loadOneKeyLogin(context, str, true, oneKeyLoginCallback);
+        }
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
         JSONObject jSONObject;
-        ArrayList arrayList = new ArrayList(1);
-        this.q = new e(qrLoginCallback, arrayList);
-        if (SapiAccountManager.getInstance().isLogin()) {
-            a(str, z);
-            return;
-        }
-        WebLoginDTO webLoginDTO = new WebLoginDTO();
-        webLoginDTO.finishActivityAfterSuc = false;
-        webLoginDTO.encryptedId = SapiUtils.parseQrLoginSchema(str).get("enuid");
-        try {
-            if (TextUtils.isEmpty(str2)) {
-                jSONObject = new JSONObject();
-            } else {
-                jSONObject = new JSONObject(URLDecoder.decode(str2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{qrLoginCallback, str, str2, Boolean.valueOf(z)}) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            this.q = new e(this, qrLoginCallback, arrayList);
+            if (SapiAccountManager.getInstance().isLogin()) {
+                a(str, z);
+                return;
             }
-            jSONObject.put("scenario", "1");
-            webLoginDTO.statExtra = URLEncoder.encode(jSONObject.toString());
-        } catch (JSONException unused) {
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.finishActivityAfterSuc = false;
+            webLoginDTO.encryptedId = SapiUtils.parseQrLoginSchema(str).get("enuid");
+            try {
+                if (TextUtils.isEmpty(str2)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(URLDecoder.decode(str2));
+                }
+                jSONObject.put("scenario", "1");
+                webLoginDTO.statExtra = URLEncoder.encode(jSONObject.toString());
+            } catch (JSONException unused) {
+            }
+            startLogin(new f(this, arrayList, str, z), webLoginDTO);
         }
-        startLogin(new f(arrayList, str, z), webLoginDTO);
     }
 
-    public void loadOneKeyLogin(final Context context, final String str, final boolean z, final OneKeyLoginCallback oneKeyLoginCallback) {
-        if (oneKeyLoginCallback == null) {
-            Log.e(Log.TAG, "When load oneKeyLogin, oneKeyLoginCallback can't be null!");
-        } else if (TextUtils.isEmpty(str)) {
-            Log.d(Log.TAG, "oneKeyLogin sign is empty!");
-            new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -108, null);
-        } else {
-            this.v = oneKeyLoginCallback;
-            new OneKeyLoginSdkCall().getToken(SapiAccountManager.getInstance().getSapiConfiguration(), new OneKeyLoginSdkCall.TokenListener() { // from class: com.baidu.sapi2.CoreViewRouter.12
+    public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{context, str, Boolean.valueOf(z), oneKeyLoginCallback}) == null) {
+            if (oneKeyLoginCallback == null) {
+                Log.e(Log.TAG, "When load oneKeyLogin, oneKeyLoginCallback can't be null!");
+            } else if (TextUtils.isEmpty(str)) {
+                Log.d(Log.TAG, "oneKeyLogin sign is empty!");
+                new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -108, null);
+            } else {
+                this.v = oneKeyLoginCallback;
+                new OneKeyLoginSdkCall().getToken(SapiAccountManager.getInstance().getSapiConfiguration(), new OneKeyLoginSdkCall.TokenListener(this, oneKeyLoginCallback, str, z, context) { // from class: com.baidu.sapi2.CoreViewRouter.12
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                /* renamed from: com.baidu.sapi2.CoreViewRouter$12$a */
-                /* loaded from: classes2.dex */
-                public class a implements LoadExternalWebViewActivityCallback {
-                    public a() {
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ OneKeyLoginCallback f9555a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ String f9556b;
+
+                    /* renamed from: c  reason: collision with root package name */
+                    public final /* synthetic */ boolean f9557c;
+
+                    /* renamed from: d  reason: collision with root package name */
+                    public final /* synthetic */ Context f9558d;
+
+                    /* renamed from: e  reason: collision with root package name */
+                    public final /* synthetic */ CoreViewRouter f9559e;
+
+                    /* renamed from: com.baidu.sapi2.CoreViewRouter$12$a */
+                    /* loaded from: classes3.dex */
+                    public class a implements LoadExternalWebViewActivityCallback {
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ AnonymousClass12 f9560a;
+
+                        public a(AnonymousClass12 anonymousClass12) {
+                            Interceptable interceptable = $ic;
+                            if (interceptable != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {anonymousClass12};
+                                interceptable.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f9560a = anonymousClass12;
+                        }
+
+                        @Override // com.baidu.sapi2.callback.inner.LoadExternalWebViewActivityCallback
+                        public void needLoadExternalWebView(String str, String str2) {
+                            Interceptable interceptable = $ic;
+                            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+                                AnonymousClass12 anonymousClass12 = this.f9560a;
+                                if (anonymousClass12.f9557c) {
+                                    Intent intent = new Intent(anonymousClass12.f9558d, LoadExternalWebViewActivity.class);
+                                    intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, str);
+                                    String str3 = (str2 + "&adapter=3") + "&lastLoginType=oneKeyLogin";
+                                    if (SapiAccountManager.getInstance().getSapiConfiguration().supportFaceLogin) {
+                                        str3 = str3 + "&liveAbility=1";
+                                    }
+                                    intent.putExtra("extra_external_url", str3);
+                                    intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_FROM, "business_from_one_key_login");
+                                    Context context = this.f9560a.f9558d;
+                                    if (context instanceof Activity) {
+                                        context.startActivity(intent);
+                                        return;
+                                    }
+                                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                                    this.f9560a.f9559e.B.startActivity(intent);
+                                    return;
+                                }
+                                new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f9560a.f9555a, -111, null);
+                            }
+                        }
                     }
 
-                    @Override // com.baidu.sapi2.callback.inner.LoadExternalWebViewActivityCallback
-                    public void needLoadExternalWebView(String str, String str2) {
-                        AnonymousClass12 anonymousClass12 = AnonymousClass12.this;
-                        if (z) {
-                            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
-                            intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, str);
-                            String str3 = (str2 + "&adapter=3") + "&lastLoginType=oneKeyLogin";
-                            if (SapiAccountManager.getInstance().getSapiConfiguration().supportFaceLogin) {
-                                str3 = str3 + "&liveAbility=1";
-                            }
-                            intent.putExtra("extra_external_url", str3);
-                            intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_FROM, "business_from_one_key_login");
-                            Context context = context;
-                            if (context instanceof Activity) {
-                                context.startActivity(intent);
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, oneKeyLoginCallback, str, Boolean.valueOf(z), context};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
-                            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                            CoreViewRouter.this.B.startActivity(intent);
-                            return;
                         }
-                        new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -111, null);
+                        this.f9559e = this;
+                        this.f9555a = oneKeyLoginCallback;
+                        this.f9556b = str;
+                        this.f9557c = z;
+                        this.f9558d = context;
                     }
-                }
 
-                @Override // com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.TokenListener
-                public void onGetTokenComplete(JSONObject jSONObject) {
-                    String optString = jSONObject.optString("token");
-                    if (!TextUtils.isEmpty(optString)) {
-                        SapiAccountManager.getInstance().getAccountService().loadOneKeyLogin(oneKeyLoginCallback, optString, str, new a());
-                    } else {
-                        new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -102, null);
+                    @Override // com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.TokenListener
+                    public void onGetTokenComplete(JSONObject jSONObject) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                            String optString = jSONObject.optString("token");
+                            if (!TextUtils.isEmpty(optString)) {
+                                SapiAccountManager.getInstance().getAccountService().loadOneKeyLogin(this.f9555a, optString, this.f9556b, new a(this));
+                            } else {
+                                new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f9555a, -102, null);
+                            }
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, WebSocialLoginDTO webSocialLoginDTO) {
-        this.f9475b = webAuthListener;
-        this.f9479f = webSocialLoginDTO;
-        AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-        this.f9474a = thirdPartyService;
-        if (thirdPartyService == null) {
-            return;
-        }
-        if (webAuthListener instanceof ThirdLoginCallback) {
-            ThirdLoginCallback thirdLoginCallback = (ThirdLoginCallback) webAuthListener;
-            Context context = webSocialLoginDTO.context;
-            if (context == null) {
-                context = this.B;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048619, this, webAuthListener, webSocialLoginDTO) == null) {
+            this.f9547b = webAuthListener;
+            this.f9551f = webSocialLoginDTO;
+            AbstractThirdPartyService thirdPartyService = getThirdPartyService();
+            this.f9546a = thirdPartyService;
+            if (thirdPartyService == null) {
+                return;
             }
-            thirdPartyService.loadThirdPartyLogin(context, webSocialLoginDTO.socialType, 2002, thirdLoginCallback);
-        } else {
-            Context context2 = webSocialLoginDTO.context;
-            if (context2 == null) {
-                context2 = this.B;
+            if (webAuthListener instanceof ThirdLoginCallback) {
+                ThirdLoginCallback thirdLoginCallback = (ThirdLoginCallback) webAuthListener;
+                Context context = webSocialLoginDTO.context;
+                if (context == null) {
+                    context = this.B;
+                }
+                thirdPartyService.loadThirdPartyLogin(context, webSocialLoginDTO.socialType, 2002, thirdLoginCallback);
+            } else {
+                Context context2 = webSocialLoginDTO.context;
+                if (context2 == null) {
+                    context2 = this.B;
+                }
+                thirdPartyService.loadThirdPartyLogin(context2, webSocialLoginDTO.socialType, 2002);
             }
-            thirdPartyService.loadThirdPartyLogin(context2, webSocialLoginDTO.socialType, 2002);
+            webSocialLoginDTO.context = null;
         }
-        webSocialLoginDTO.context = null;
     }
 
     public void startSmsViewLogin(SmsLoginView smsLoginView, SmsViewLoginCallback smsViewLoginCallback, String str) {
-        int i2 = SmsLoginView.smgLoginViewIndexStat;
-        SmsLoginView.smgLoginViewIndexStat = i2 + 1;
-        if (smsLoginView != null) {
-            smsLoginView.setSmsLoginViewIndex(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048638, this, smsLoginView, smsViewLoginCallback, str) == null) {
+            int i2 = SmsLoginView.smgLoginViewIndexStat;
+            SmsLoginView.smgLoginViewIndexStat = i2 + 1;
+            if (smsLoginView != null) {
+                smsLoginView.setSmsLoginViewIndex(i2);
+            }
+            if (this.z == null) {
+                this.z = new SparseArray<>();
+            }
+            if (this.A == null) {
+                this.A = new SparseArray<>();
+            }
+            this.z.put(i2, smsViewLoginCallback);
+            this.A.put(i2, str);
+            SmsLoginView.notifyStartLogin();
         }
-        if (this.z == null) {
-            this.z = new SparseArray<>();
-        }
-        if (this.A == null) {
-            this.A = new SparseArray<>();
-        }
-        this.z.put(i2, smsViewLoginCallback);
-        this.A.put(i2, str);
-        SmsLoginView.notifyStartLogin();
     }
 
     private void a(Context context, Class<?> cls, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65545, this, context, cls, webAuthListener, webLoginDTO) == null) || context == null) {
             return;
         }
         StatLoadLogin statLoadLogin = new StatLoadLogin();
         SapiWebView.statLoadLogin = statLoadLogin;
         statLoadLogin.tOpenLoginPage = System.currentTimeMillis();
-        this.f9475b = webAuthListener;
-        this.f9476c = webLoginDTO;
+        this.f9547b = webAuthListener;
+        this.f9548c = webLoginDTO;
         Intent intent = new Intent(context, cls);
         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, webLoginDTO.loginType);
         intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, webLoginDTO.finishActivityAfterSuc);
@@ -1274,124 +1853,150 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public void startSchemeLoginForQA(Context context, String str, WebAuthListener webAuthListener) {
-        this.f9475b = webAuthListener;
-        Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
-        intent.putExtra("extra_external_url", str);
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048636, this, context, str, webAuthListener) == null) {
+            this.f9547b = webAuthListener;
+            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
+            intent.putExtra("extra_external_url", str);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
         }
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z) {
-        Intent intent = new Intent(this.B, QrLoginActivity.class);
-        intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
-        intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.B.startActivity(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65550, this, str, z) == null) {
+            Intent intent = new Intent(this.B, QrLoginActivity.class);
+            intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
+            intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            this.B.startActivity(intent);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
-        BiometricsManager.getInstance().recogWithBduss(activity, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new i(realNameFaceIDResult, verifyUserFaceIDCallback));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{activity, str, map, str2, str3, str4, str5, verifyUserFaceIDCallback, realNameFaceIDResult}) == null) {
+            BiometricsManager.getInstance().recogWithBduss(activity, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new i(this, realNameFaceIDResult, verifyUserFaceIDCallback));
+        }
     }
 
     private void a(Activity activity, FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5) {
-        if (!TextUtils.isEmpty(str5)) {
-            BiometricsManager biometricsManager = BiometricsManager.getInstance();
-            String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
-            HashMap hashMap = new HashMap();
-            j jVar = new j(new UnRealNameFaceIDResult(), str, faceIDCallback);
-            if (str.equals("faceDetect")) {
-                biometricsManager.recogWithFaceDetect(activity, buildSubPro, hashMap, "0", str3, str2, jVar);
-                return;
-            } else if (str.equals("outer")) {
-                biometricsManager.recogWithFaceOuter(activity, buildSubPro, hashMap, "0", str3, jVar);
-                return;
-            } else {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{activity, faceIDCallback, str, str2, str3, Boolean.valueOf(z), str4, str5}) == null) {
+            if (!TextUtils.isEmpty(str5)) {
+                BiometricsManager biometricsManager = BiometricsManager.getInstance();
+                String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
+                HashMap hashMap = new HashMap();
+                j jVar = new j(this, new UnRealNameFaceIDResult(), str, faceIDCallback);
+                if (str.equals("faceDetect")) {
+                    biometricsManager.recogWithFaceDetect(activity, buildSubPro, hashMap, "0", str3, str2, jVar);
+                    return;
+                } else if (str.equals("outer")) {
+                    biometricsManager.recogWithFaceOuter(activity, buildSubPro, hashMap, "0", str3, jVar);
+                    return;
+                } else {
+                    return;
+                }
             }
+            throw new IllegalArgumentException("scene can't be empty");
         }
-        throw new IllegalArgumentException("scene can't be empty");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, int i2, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
         String str;
         HashMap hashMap;
-        BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        a aVar = new a(extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
-        int optInt = jSONObject.optInt("imageFlag", 0);
-        String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
-        HashMap hashMap2 = new HashMap();
-        JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
-        if (optJSONObject != null) {
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString2 = optJSONObject.optString(next);
-                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString2)) {
-                    hashMap2.put(next, optString2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{activity, extendSysWebViewMethodCallback, jSONObject, Integer.valueOf(i2), extendSysWebViewMethodResult}) == null) {
+            BiometricsManager biometricsManager = BiometricsManager.getInstance();
+            a aVar = new a(this, extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
+            int optInt = jSONObject.optInt("imageFlag", 0);
+            String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
+            HashMap hashMap2 = new HashMap();
+            JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
+            if (optJSONObject != null) {
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    String optString2 = optJSONObject.optString(next);
+                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString2)) {
+                        hashMap2.put(next, optString2);
+                    }
                 }
             }
-        }
-        if (i2 == 1) {
-            biometricsManager.getClass();
-            BiometricsManager.e eVar = new BiometricsManager.e();
-            str = "";
-            hashMap = hashMap2;
-            a(activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, aVar, optString, hashMap2, optInt + "");
-        } else {
-            str = "";
-            hashMap = hashMap2;
-        }
-        if (i2 == 2) {
-            biometricsManager.recogWithCertInfo(activity, optString, hashMap, optInt + str, jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), aVar);
-        }
-        if (i2 == 3) {
-            biometricsManager.recogWithAuthToken(activity, optString, hashMap, optInt + str, jSONObject.optString("authtoken"), aVar);
-        }
-        if (i2 == 4) {
-            if (jSONObject.optInt("type") == 1) {
-                biometricsManager.recogWithFaceDetect(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), "", aVar);
-                return;
+            if (i2 == 1) {
+                biometricsManager.getClass();
+                BiometricsManager.e eVar = new BiometricsManager.e(biometricsManager);
+                str = "";
+                hashMap = hashMap2;
+                a(activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, aVar, optString, hashMap2, optInt + "");
+            } else {
+                str = "";
+                hashMap = hashMap2;
             }
-            biometricsManager.recogWithFaceOuter(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), aVar);
+            if (i2 == 2) {
+                biometricsManager.recogWithCertInfo(activity, optString, hashMap, optInt + str, jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), aVar);
+            }
+            if (i2 == 3) {
+                biometricsManager.recogWithAuthToken(activity, optString, hashMap, optInt + str, jSONObject.optString("authtoken"), aVar);
+            }
+            if (i2 == 4) {
+                if (jSONObject.optInt("type") == 1) {
+                    biometricsManager.recogWithFaceDetect(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), "", aVar);
+                    return;
+                }
+                biometricsManager.recogWithFaceOuter(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), aVar);
+            }
         }
     }
 
     private void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.e eVar, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, PassFaceRecogCallback passFaceRecogCallback, String str, Map<String, String> map, String str2) {
-        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (currentAccount == null) {
-            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-302");
-            extendSysWebViewMethodResult.params.put("retMsg", "please login first");
-            extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, passFaceRecogCallback, str, map, str2}) == null) {
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+            if (currentAccount == null) {
+                extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-302");
+                extendSysWebViewMethodResult.params.put("retMsg", "please login first");
+                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
+                return;
+            }
+            eVar.j = currentAccount.bduss;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("pp");
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new b(this, activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.j, arrayList);
         }
-        eVar.j = currentAccount.bduss;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("pp");
-        SapiAccountManager.getInstance().getAccountService().getTplStoken(new b(activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.j, arrayList);
     }
 
     private String a(Context context, String str) {
-        if (TextUtils.isEmpty(str) || str.length() <= 7) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.length() <= 7) {
+                return null;
+            }
+            String substring = str.substring(0, 8);
+            String substring2 = str.substring(8, str.length());
+            String upperCase = SapiUtils.getClientId(context).toUpperCase();
+            return substring + SecurityUtil.md5((substring2 + SecurityUtil.md5(upperCase.getBytes(), false)).getBytes(), false);
         }
-        String substring = str.substring(0, 8);
-        String substring2 = str.substring(8, str.length());
-        String upperCase = SapiUtils.getClientId(context).toUpperCase();
-        return substring + SecurityUtil.md5((substring2 + SecurityUtil.md5(upperCase.getBytes(), false)).getBytes(), false);
+        return (String) invokeLL.objValue;
     }
 
     private void a() {
-        try {
-            Class.forName("com.baidu.sapi2.ThirdPartyService").getConstructor(new Class[0]).newInstance(new Object[0]);
-        } catch (Exception e2) {
-            Log.e(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            try {
+                Class.forName("com.baidu.sapi2.ThirdPartyService").getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception e2) {
+                Log.e(e2);
+            }
         }
     }
 }

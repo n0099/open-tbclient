@@ -3,63 +3,104 @@ package com.baidu.pass.biometrics.base.utils;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassBioDataEncryptor {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9039a = "PassBioDataEncryptor";
+    public static final String f9113a = "PassBioDataEncryptor";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public PassBioDataEncryptor() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static String a(int i2) {
-        Random random = new Random();
-        StringBuffer stringBuffer = new StringBuffer();
-        for (int i3 = 0; i3 < i2; i3++) {
-            stringBuffer.append("0123456789abcdefghijklmnopqrstuvwxyz".charAt(random.nextInt(36)));
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+            Random random = new Random();
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i3 = 0; i3 < i2; i3++) {
+                stringBuffer.append("0123456789abcdefghijklmnopqrstuvwxyz".charAt(random.nextInt(36)));
+            }
+            return stringBuffer.toString();
         }
-        return stringBuffer.toString();
+        return (String) invokeI.objValue;
     }
 
     public static String decryptAccountInfo(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new String(SecurityUtil.base64Decode(new AES().decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
+            } catch (Throwable th) {
+                Log.e(f9113a, f9113a, th);
+                return "";
+            }
         }
-        try {
-            return new String(SecurityUtil.base64Decode(new AES().decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
-        } catch (Throwable th) {
-            Log.e(f9039a, f9039a, th);
-            return "";
-        }
+        return (String) invokeLL.objValue;
     }
 
     public static String encryptAccountInfo(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return SecurityUtil.base64Encode(new AES().encrypt(SecurityUtil.base64Encode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2));
+            } catch (Throwable th) {
+                Log.e(f9113a, f9113a, th);
+                return "";
+            }
         }
-        try {
-            return SecurityUtil.base64Encode(new AES().encrypt(SecurityUtil.base64Encode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2));
-        } catch (Throwable th) {
-            Log.e(f9039a, f9039a, th);
-            return "";
-        }
+        return (String) invokeLL.objValue;
     }
 
     public static String encryptParams(String str) {
+        InterceptResult invokeL;
         String str2;
-        String str3 = "";
-        String a2 = a(16);
-        try {
-            str2 = SecurityUtil.base64Encode(new AES().encrypt(str, new StringBuffer(a2).reverse().toString(), a2));
-        } catch (Exception e2) {
-            e = e2;
-            str2 = "";
-        }
-        try {
-            str3 = SecurityUtil.base64Encode(RSA.encrypt(a2));
-        } catch (Exception e3) {
-            e = e3;
-            Log.e(f9039a, f9039a, e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            String str3 = "";
+            String a2 = a(16);
+            try {
+                str2 = SecurityUtil.base64Encode(new AES().encrypt(str, new StringBuffer(a2).reverse().toString(), a2));
+            } catch (Exception e2) {
+                e = e2;
+                str2 = "";
+            }
+            try {
+                str3 = SecurityUtil.base64Encode(RSA.encrypt(a2));
+            } catch (Exception e3) {
+                e = e3;
+                Log.e(f9113a, f9113a, e);
+                return TextUtils.join("_", new String[]{str3, str2});
+            }
             return TextUtils.join("_", new String[]{str3, str2});
         }
-        return TextUtils.join("_", new String[]{str3, str2});
+        return (String) invokeL.objValue;
     }
 }

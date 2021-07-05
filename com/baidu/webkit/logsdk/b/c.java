@@ -1,46 +1,71 @@
 package com.baidu.webkit.logsdk.b;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26859a;
+    public String f27402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f26860b = new HashSet<>();
+    public HashSet<String> f27403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f26861c = new HashSet<>();
+    public HashSet<String> f27404c;
 
     public c(String str) {
-        this.f26859a = "full";
-        this.f26859a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f27402a = "full";
+        this.f27402a = str;
+        this.f27403b = new HashSet<>();
+        this.f27404c = new HashSet<>();
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
-        if (jSONArray == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f26860b.add(string);
+                this.f27403b.add(string);
             }
         }
     }
 
     public final void b(JSONArray jSONArray) throws JSONException {
-        if (jSONArray == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f26861c.add(string);
+                this.f27404c.add(string);
             }
         }
     }

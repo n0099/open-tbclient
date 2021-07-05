@@ -2,7 +2,14 @@ package com.baidu.wallet.paysdk.payresult.adapters;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.eventbus.EventBus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.paysdk.a.b;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
@@ -13,202 +20,309 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BasePayResultAdapter implements IPayResultDataAdapter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<BaseActivity> f25493a;
+    public WeakReference<BaseActivity> f26036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f25494b;
+    public PayRequest f26037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayResultContent f25495c;
-    public HashMap<String, String> contents = new HashMap<>();
+    public PayResultContent f26038c;
+    public HashMap<String, String> contents;
 
     public BasePayResultAdapter(BaseActivity baseActivity) {
-        this.f25493a = new WeakReference<>(baseActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.contents = new HashMap<>();
+        this.f26036a = new WeakReference<>(baseActivity);
     }
 
     public void a(String str) {
-        EventBus eventBus = EventBus.getInstance();
-        eventBus.getClass();
-        EventBus.getInstance().post(new EventBus.Event(str, null));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            EventBus eventBus = EventBus.getInstance();
+            eventBus.getClass();
+            EventBus.getInstance().post(new EventBus.Event(eventBus, str, null));
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void clearDataOnDestroy() {
-        PayDataCache.getInstance().setPayReslutContent(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PayDataCache.getInstance().setPayReslutContent(null);
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getActionBarTextId() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getAuthorizeMsg() {
-        return this.f25495c.authorize_msg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26038c.authorize_msg : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getCouponContent() {
-        PayResultContent payResultContent = this.f25495c;
-        if (payResultContent == null || TextUtils.isEmpty(payResultContent.coupon_msg)) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            PayResultContent payResultContent = this.f26038c;
+            if (payResultContent == null || TextUtils.isEmpty(payResultContent.coupon_msg)) {
+                return null;
+            }
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add(this.f26038c.coupon_msg);
+            arrayList.add(this.f26038c.coupon_find_prompt);
+            return arrayList;
         }
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(this.f25495c.coupon_msg);
-        arrayList.add(this.f25495c.coupon_find_prompt);
-        return arrayList;
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public ArrayList<String> getEventValue() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        PayRequest payRequest = this.f25494b;
-        arrayList.add(payRequest != null ? payRequest.mSpNO : "");
-        PayRequest payRequest2 = this.f25494b;
-        arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            PayRequest payRequest = this.f26037b;
+            arrayList.add(payRequest != null ? payRequest.mSpNO : "");
+            PayRequest payRequest2 = this.f26037b;
+            arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getExpectedTime() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getFpOpenMsg() {
-        return this.f25495c.fp_open_or_update_msg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26038c.fp_open_or_update_msg : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getLBSPayText() {
-        return isShowLBSPayText() ? this.f25494b.mRemotePayHostName : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? isShowLBSPayText() ? this.f26037b.mRemotePayHostName : "" : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getOKBtnOnClickEventValue() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        PayRequest payRequest = this.f25494b;
-        arrayList.add(payRequest != null ? payRequest.mSpNO : "");
-        PayRequest payRequest2 = this.f25494b;
-        arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            PayRequest payRequest = this.f26037b;
+            arrayList.add(payRequest != null ? payRequest.mSpNO : "");
+            PayRequest payRequest2 = this.f26037b;
+            arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public PayResultContent getPayResultContent() {
-        return this.f25495c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26038c : (PayResultContent) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPaySuccessContents() {
+        InterceptResult invokeV;
         PayRequest payRequest;
-        this.contents.clear();
-        PayResultContent payResultContent = this.f25495c;
-        if (payResultContent == null || (payRequest = this.f25494b) == null) {
-            return null;
-        }
-        if (payResultContent.isPaySuccess) {
-            if (!TextUtils.isEmpty(payRequest.withholding_auth) && this.f25494b.withholding_auth.equals("1")) {
-                this.contents.put("mainTip", "bd_wallet_withhold_success");
-            } else {
-                this.contents.put("mainTip", "ebpay_pay_success");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            this.contents.clear();
+            PayResultContent payResultContent = this.f26038c;
+            if (payResultContent == null || (payRequest = this.f26037b) == null) {
+                return null;
             }
-            this.contents.put("statusDrawableName", "wallet_base_result_main_success");
-            this.contents.put("okBtnText", "ebpay_result_btn_success");
-            this.contents.put("payDetailInfo", this.f25495c.pay_detail_info);
+            if (payResultContent.isPaySuccess) {
+                if (!TextUtils.isEmpty(payRequest.withholding_auth) && this.f26037b.withholding_auth.equals("1")) {
+                    this.contents.put("mainTip", "bd_wallet_withhold_success");
+                } else {
+                    this.contents.put("mainTip", "ebpay_pay_success");
+                }
+                this.contents.put("statusDrawableName", "wallet_base_result_main_success");
+                this.contents.put("okBtnText", "ebpay_result_btn_success");
+                this.contents.put("payDetailInfo", this.f26038c.pay_detail_info);
+            }
+            return this.contents;
         }
-        return this.contents;
+        return (HashMap) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPayingContents() {
-        this.contents.clear();
-        PayResultContent payResultContent = this.f25495c;
-        if (payResultContent == null || this.f25494b == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            this.contents.clear();
+            PayResultContent payResultContent = this.f26038c;
+            if (payResultContent == null || this.f26037b == null) {
+                return null;
+            }
+            if (!payResultContent.isPaySuccess) {
+                this.contents.put("statusDrawableName", "wallet_base_result_paying");
+                this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
+                this.contents.put("errorMsg", this.f26038c.mErrorMsg);
+            }
+            return this.contents;
         }
-        if (!payResultContent.isPaySuccess) {
-            this.contents.put("statusDrawableName", "wallet_base_result_paying");
-            this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
-            this.contents.put("errorMsg", this.f25495c.mErrorMsg);
-        }
-        return this.contents;
+        return (HashMap) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void handleOKBtnOnclick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean isBelongPaySdk() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean isPaySuccess() {
-        PayResultContent payResultContent = this.f25495c;
-        if (payResultContent == null || this.f25494b == null) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            PayResultContent payResultContent = this.f26038c;
+            if (payResultContent == null || this.f26037b == null) {
+                return false;
+            }
+            return payResultContent.isPaySuccess;
         }
-        return payResultContent.isPaySuccess;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean isShowLBSPayText() {
-        return PayDataCache.getInstance().isRemotePay() && !TextUtils.isEmpty(this.f25494b.mRemotePayHostName);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? PayDataCache.getInstance().isRemotePay() && !TextUtils.isEmpty(this.f26037b.mRemotePayHostName) : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean onCreateCheckInvalide(Bundle bundle) {
-        if (bundle != null) {
-            this.f25495c = (PayResultContent) bundle.getSerializable("mPayModle");
-            this.f25494b = (PayRequest) bundle.getSerializable("mPayRequest");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, bundle)) == null) {
+            if (bundle != null) {
+                this.f26038c = (PayResultContent) bundle.getSerializable("mPayModle");
+                this.f26037b = (PayRequest) bundle.getSerializable("mPayRequest");
+                return true;
+            }
+            this.f26038c = PayDataCache.getInstance().getPayStateContent();
+            this.f26037b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             return true;
         }
-        this.f25495c = PayDataCache.getInstance().getPayStateContent();
-        this.f25494b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void onSaveInstanceState(Bundle bundle) {
-        PayResultContent payResultContent = this.f25495c;
-        if (payResultContent != null) {
-            bundle.putSerializable("mPayModle", payResultContent);
-        }
-        PayRequest payRequest = this.f25494b;
-        if (payRequest != null) {
-            bundle.putSerializable("mPayRequest", payRequest);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
+            PayResultContent payResultContent = this.f26038c;
+            if (payResultContent != null) {
+                bundle.putSerializable("mPayModle", payResultContent);
+            }
+            PayRequest payRequest = this.f26037b;
+            if (payRequest != null) {
+                bundle.putSerializable("mPayRequest", payRequest);
+            }
         }
     }
 
     public boolean showCashbackDetail() {
-        PayResultContent payResultContent = this.f25495c;
-        return (payResultContent == null || payResultContent.payResultCashbackDetail == null) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            PayResultContent payResultContent = this.f26038c;
+            return (payResultContent == null || payResultContent.payResultCashbackDetail == null) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean showMonkeylayout() {
-        PayResultContent payResultContent = this.f25495c;
-        if (payResultContent != null) {
-            if (TextUtils.isEmpty(payResultContent.total_amount) && TextUtils.isEmpty(this.f25495c.cash_amount) && TextUtils.isEmpty(this.f25495c.discount_amount)) {
-                String[][] strArr = this.f25495c.paytype_info;
-                return strArr != null && strArr.length > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            PayResultContent payResultContent = this.f26038c;
+            if (payResultContent != null) {
+                if (TextUtils.isEmpty(payResultContent.total_amount) && TextUtils.isEmpty(this.f26038c.cash_amount) && TextUtils.isEmpty(this.f26038c.discount_amount)) {
+                    String[][] strArr = this.f26038c.paytype_info;
+                    return strArr != null && strArr.length > 0;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean showResultPage() {
-        PayResultContent payResultContent = this.f25495c;
-        return (payResultContent == null || "0".equalsIgnoreCase(payResultContent.redirect_sp_succpage_remain_time)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            PayResultContent payResultContent = this.f26038c;
+            return (payResultContent == null || "0".equalsIgnoreCase(payResultContent.redirect_sp_succpage_remain_time)) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void a(String str, String str2) {
-        EventBus eventBus = EventBus.getInstance();
-        eventBus.getClass();
-        EventBus.getInstance().post(new EventBus.Event(str, str2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            EventBus eventBus = EventBus.getInstance();
+            eventBus.getClass();
+            EventBus.getInstance().post(new EventBus.Event(eventBus, str, str2));
+        }
     }
 }

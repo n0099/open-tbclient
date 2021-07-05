@@ -1,201 +1,279 @@
 package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.os.Environment;
-import com.bytedance.sdk.openadsdk.core.d.s;
-import com.bytedance.sdk.openadsdk.core.h;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.l.g;
-import com.bytedance.sdk.openadsdk.utils.j;
-import com.bytedance.sdk.openadsdk.utils.u;
-import d.b.c.b.b.i;
-import d.b.c.b.d.o;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.e.g;
+import com.bytedance.sdk.component.net.NetResponse;
+import com.bytedance.sdk.component.net.executor.DownloadExecutor;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.bytedance.sdk.openadsdk.core.e.u;
+import com.bytedance.sdk.openadsdk.core.o;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes6.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f28915a;
+    public static File f30818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f28916b;
+    public static volatile b f30819b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f28917c = new AtomicBoolean(true);
+    public AtomicBoolean f30820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f28918d = new AtomicBoolean(false);
+    public AtomicBoolean f30821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28919e = false;
+    public boolean f30822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f28920f = new AtomicInteger(0);
+    public AtomicInteger f30823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicLong f28921g = new AtomicLong();
+    public AtomicLong f30824g;
 
     public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30820c = new AtomicBoolean(true);
+        this.f30821d = new AtomicBoolean(false);
+        this.f30822e = false;
+        this.f30823f = new AtomicInteger(0);
+        this.f30824g = new AtomicLong();
         f();
     }
 
     public static File e() {
+        InterceptResult invokeV;
         File externalCacheDir;
-        if (f28915a == null) {
-            try {
-                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
-                    externalCacheDir = p.a().getExternalCacheDir();
-                } else {
-                    externalCacheDir = p.a().getCacheDir();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            if (f30818a == null) {
+                try {
+                    if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && o.a().getExternalCacheDir() != null) {
+                        externalCacheDir = o.a().getExternalCacheDir();
+                    } else {
+                        externalCacheDir = o.a().getCacheDir();
+                    }
+                    File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), MediaTrackConfig.AE_IMPORT_TEMPLATE);
+                    file.mkdirs();
+                    f30818a = file;
+                } catch (Throwable th) {
+                    j.c("TemplateManager", "getTemplateDir error", th);
                 }
-                File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), "template");
-                file.mkdirs();
-                f28915a = file;
-            } catch (Throwable th) {
-                u.c("TemplateManager", "getTemplateDir error", th);
             }
+            return f30818a;
         }
-        return f28915a;
+        return (File) invokeV.objValue;
     }
 
     private void f() {
-        com.bytedance.sdk.openadsdk.l.e.a(new g("init") { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                f.a();
-                b.this.f28917c.set(false);
-                b.this.g();
-                b.this.d();
-            }
-        }, 10);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            com.bytedance.sdk.component.e.e.a(new g(this, "init") { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.b.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ b f30825a;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r8);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            super((String) newInitContext.callArgs[0]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f30825a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        f.a();
+                        this.f30825a.f30820c.set(false);
+                        this.f30825a.g();
+                        this.f30825a.d();
+                    }
+                }
+            }, 10);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0028  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void g() {
-        u.b("TemplateManager", "check template usable1");
-        s b2 = f.b();
-        if (b2 != null && b2.f()) {
-            boolean z = true;
-            for (s.a aVar : b2.e()) {
-                String a2 = aVar.a();
-                File file = new File(e(), j.a(a2));
-                String a3 = j.a(file);
-                if (!file.exists() || !file.isFile() || aVar.b() == null || !aVar.b().equals(a3)) {
-                    z = false;
-                    u.b("TemplateManager", "check template usable3: " + a2 + "," + file.getAbsolutePath());
-                    break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            j.b("TemplateManager", "check template usable1");
+            u b2 = f.b();
+            if (b2 != null && b2.f()) {
+                boolean z = true;
+                for (u.a aVar : b2.e()) {
+                    String a2 = aVar.a();
+                    File file = new File(e(), com.bytedance.sdk.component.utils.e.a(a2));
+                    String a3 = com.bytedance.sdk.component.utils.e.a(file);
+                    if (!file.exists() || !file.isFile() || aVar.b() == null || !aVar.b().equals(a3)) {
+                        z = false;
+                        j.b("TemplateManager", "check template usable3: " + a2 + "," + file.getAbsolutePath());
+                        break;
+                    }
+                    while (r1.hasNext()) {
+                    }
                 }
-                while (r1.hasNext()) {
+                if (!z) {
+                    f.d();
                 }
+                j.b("TemplateManager", "check template usable4: " + z);
+                this.f30822e = z;
+                return;
             }
-            if (!z) {
-                f.d();
-            }
-            u.b("TemplateManager", "check template usable4: " + z);
-            this.f28919e = z;
-            return;
+            j.b("TemplateManager", "check template usable2");
         }
-        u.b("TemplateManager", "check template usable2");
     }
 
     private void h() {
-        if (this.f28920f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f28921g.get() <= 600000) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f30823f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f30824g.get() <= TTAdConstant.AD_MAX_EVENT_TIME) {
             return;
         }
         d();
     }
 
-    public s c() {
-        return f.b();
+    public u c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f.b() : (u) invokeV.objValue;
     }
 
     public void d() {
-        a(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a(false);
+        }
     }
 
     public static b a() {
-        if (f28916b == null) {
-            synchronized (b.class) {
-                if (f28916b == null) {
-                    f28916b = new b();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f30819b == null) {
+                synchronized (b.class) {
+                    if (f30819b == null) {
+                        f30819b = new b();
+                    }
                 }
             }
+            return f30819b;
         }
-        return f28916b;
+        return (b) invokeV.objValue;
     }
 
     public boolean b() {
-        return this.f28919e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30822e : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x0194 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0123 A[Catch: all -> 0x021f, TRY_ENTER, TRY_LEAVE, TryCatch #5 {all -> 0x021f, blocks: (B:6:0x0010, B:9:0x001a, B:10:0x001f, B:12:0x0034, B:14:0x0049, B:17:0x0051, B:19:0x005b, B:21:0x006f, B:23:0x007b, B:26:0x0087, B:28:0x0091, B:50:0x0117, B:51:0x011b, B:54:0x0123, B:57:0x0157, B:60:0x0160, B:65:0x0180, B:67:0x0186, B:69:0x0194, B:70:0x0198, B:72:0x019e, B:75:0x01d2, B:79:0x01dc, B:29:0x009f, B:30:0x00a7, B:32:0x00ad, B:34:0x00bd, B:35:0x00c1, B:37:0x00cb, B:39:0x00d1, B:41:0x00df, B:42:0x00e3, B:43:0x00eb, B:45:0x00f1, B:47:0x0101, B:48:0x0105, B:49:0x010b, B:80:0x020f), top: B:99:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0127 A[Catch: all -> 0x0242, TRY_ENTER, TRY_LEAVE, TryCatch #0 {all -> 0x0242, blocks: (B:8:0x0014, B:11:0x001e, B:12:0x0023, B:14:0x0038, B:16:0x004d, B:19:0x0055, B:21:0x005f, B:23:0x0073, B:25:0x007f, B:28:0x008b, B:30:0x0095, B:52:0x011b, B:53:0x011f, B:56:0x0127, B:59:0x015b, B:62:0x0164, B:64:0x0184, B:66:0x018a, B:68:0x0190, B:71:0x019b, B:72:0x01a9, B:74:0x01b7, B:75:0x01bb, B:77:0x01c1, B:80:0x01f5, B:84:0x01ff, B:31:0x00a3, B:32:0x00ab, B:34:0x00b1, B:36:0x00c1, B:37:0x00c5, B:39:0x00cf, B:41:0x00d5, B:43:0x00e3, B:44:0x00e7, B:45:0x00ef, B:47:0x00f5, B:49:0x0105, B:50:0x0109, B:51:0x010f, B:85:0x0232), top: B:97:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x01c1 A[Catch: all -> 0x0242, TRY_LEAVE, TryCatch #0 {all -> 0x0242, blocks: (B:8:0x0014, B:11:0x001e, B:12:0x0023, B:14:0x0038, B:16:0x004d, B:19:0x0055, B:21:0x005f, B:23:0x0073, B:25:0x007f, B:28:0x008b, B:30:0x0095, B:52:0x011b, B:53:0x011f, B:56:0x0127, B:59:0x015b, B:62:0x0164, B:64:0x0184, B:66:0x018a, B:68:0x0190, B:71:0x019b, B:72:0x01a9, B:74:0x01b7, B:75:0x01bb, B:77:0x01c1, B:80:0x01f5, B:84:0x01ff, B:31:0x00a3, B:32:0x00ab, B:34:0x00b1, B:36:0x00c1, B:37:0x00c5, B:39:0x00cf, B:41:0x00d5, B:43:0x00e3, B:44:0x00e7, B:45:0x00ef, B:47:0x00f5, B:49:0x0105, B:50:0x0109, B:51:0x010f, B:85:0x0232), top: B:97:0x0014 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(boolean z) {
-        Iterator<s.a> it;
-        o oVar;
-        if (this.f28917c.get()) {
-            u.b("TemplateManager", "loadTemplate error1");
-            return;
-        }
-        try {
-            if (this.f28918d.get()) {
-                if (z) {
-                    this.f28920f.getAndIncrement();
-                }
-                u.b("TemplateManager", "loadTemplate error2: " + z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (this.f30820c.get()) {
+                j.b("TemplateManager", "loadTemplate error1");
                 return;
             }
-            this.f28918d.set(true);
-            s a2 = p.f().a();
-            s b2 = f.b();
-            if (a2 != null && a2.f()) {
-                if (!f.b(a2.b())) {
-                    this.f28918d.set(false);
-                    this.f28921g.set(System.currentTimeMillis());
-                    u.b("TemplateManager", "loadTemplate error4");
+            try {
+                if (this.f30821d.get()) {
+                    if (z) {
+                        this.f30823f.getAndIncrement();
+                    }
+                    j.b("TemplateManager", "loadTemplate error2: " + z);
                     return;
                 }
-                ArrayList<s.a> arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                if (b2 != null && !b2.e().isEmpty()) {
-                    if (a2.e().isEmpty()) {
-                        arrayList.addAll(b2.e());
-                        u.b("TemplateManager", "loadTemplate update2");
-                    } else {
-                        for (s.a aVar : a2.e()) {
-                            if (!b2.e().contains(aVar)) {
-                                arrayList2.add(aVar);
-                            } else {
-                                s.a a3 = f.a(aVar.a());
-                                if (a3 != null && aVar.b() != null && !aVar.b().equals(a3.b())) {
+                this.f30821d.set(true);
+                u a2 = o.f().a();
+                u b2 = f.b();
+                if (a2 != null && a2.f()) {
+                    if (!f.b(a2.b())) {
+                        this.f30821d.set(false);
+                        this.f30824g.set(System.currentTimeMillis());
+                        j.b("TemplateManager", "loadTemplate error4");
+                        return;
+                    }
+                    ArrayList<u.a> arrayList = new ArrayList();
+                    ArrayList<u.a> arrayList2 = new ArrayList();
+                    if (b2 != null && !b2.e().isEmpty()) {
+                        if (a2.e().isEmpty()) {
+                            arrayList.addAll(b2.e());
+                            j.b("TemplateManager", "loadTemplate update2");
+                        } else {
+                            for (u.a aVar : a2.e()) {
+                                if (!b2.e().contains(aVar)) {
                                     arrayList2.add(aVar);
+                                } else {
+                                    u.a a3 = f.a(aVar.a());
+                                    if (a3 != null && aVar.b() != null && !aVar.b().equals(a3.b())) {
+                                        arrayList2.add(aVar);
+                                    }
                                 }
                             }
-                        }
-                        for (s.a aVar2 : b2.e()) {
-                            if (!a2.e().contains(aVar2)) {
-                                arrayList.add(aVar2);
+                            for (u.a aVar2 : b2.e()) {
+                                if (!a2.e().contains(aVar2)) {
+                                    arrayList.add(aVar2);
+                                }
                             }
+                            j.b("TemplateManager", "loadTemplate update3");
                         }
-                        u.b("TemplateManager", "loadTemplate update3");
-                    }
-                    it = arrayList2.iterator();
-                    do {
-                        if (!it.hasNext()) {
-                            String a4 = it.next().a();
-                            File file = new File(e(), j.a(a4));
+                        for (u.a aVar3 : arrayList2) {
+                            String a4 = aVar3.a();
+                            String a5 = com.bytedance.sdk.component.utils.e.a(a4);
+                            File file = new File(e(), a5);
                             File file2 = new File(file + ".tmp");
                             if (file.exists()) {
                                 try {
@@ -209,78 +287,81 @@ public class b {
                                 } catch (Throwable unused2) {
                                 }
                             }
-                            i c2 = i.c();
-                            new d.b.c.b.b.c(file.getAbsolutePath(), a4, c2).build(com.bytedance.sdk.openadsdk.i.e.c().d());
-                            try {
-                                oVar = c2.get();
-                            } catch (Throwable unused3) {
-                                oVar = null;
+                            DownloadExecutor downloadExecutor = com.bytedance.sdk.openadsdk.l.e.b().c().getDownloadExecutor();
+                            downloadExecutor.setUrl(a4);
+                            downloadExecutor.setFileInfo(e().getAbsolutePath(), a5);
+                            NetResponse execute = downloadExecutor.execute();
+                            if (execute != null && execute.isSuccess() && execute.getFile() != null && execute.getFile().exists()) {
+                                j.a("TemplateManager", "loadTemplate success ulr=", a4);
                             }
-                            if (oVar == null) {
-                                break;
-                            }
-                        } else {
-                            for (s.a aVar3 : arrayList) {
-                                File file3 = new File(e(), j.a(aVar3.a()));
-                                File file4 = new File(file3 + ".tmp");
-                                if (file3.exists()) {
-                                    try {
-                                        file3.delete();
-                                    } catch (Throwable unused4) {
-                                    }
-                                }
-                                if (file4.exists()) {
-                                    try {
-                                        file4.delete();
-                                    } catch (Throwable unused5) {
-                                    }
-                                }
-                            }
-                            f.a(a2);
-                            f.c();
-                            u.b("TemplateManager", "loadTemplate update success: " + a2.b());
-                            g();
-                            this.f28918d.set(false);
-                            this.f28921g.set(System.currentTimeMillis());
-                            h();
+                            this.f30821d.set(false);
+                            a(arrayList2);
+                            j.b("TemplateManager", "loadTemplate error5");
                             return;
                         }
-                    } while (oVar.f());
-                    this.f28918d.set(false);
-                    a(arrayList2);
-                    u.b("TemplateManager", "loadTemplate error5");
+                        for (u.a aVar4 : arrayList) {
+                            File file3 = new File(e(), com.bytedance.sdk.component.utils.e.a(aVar4.a()));
+                            File file4 = new File(file3 + ".tmp");
+                            if (file3.exists()) {
+                                try {
+                                    file3.delete();
+                                } catch (Throwable unused3) {
+                                }
+                            }
+                            if (file4.exists()) {
+                                try {
+                                    file4.delete();
+                                } catch (Throwable unused4) {
+                                }
+                            }
+                        }
+                        f.a(a2);
+                        f.c();
+                        j.b("TemplateManager", "loadTemplate update success: " + a2.b());
+                        g();
+                        this.f30821d.set(false);
+                        this.f30824g.set(System.currentTimeMillis());
+                        h();
+                        return;
+                    }
+                    arrayList2.addAll(a2.e());
+                    j.b("TemplateManager", "loadTemplate update1");
+                    while (r2.hasNext()) {
+                    }
+                    while (r0.hasNext()) {
+                    }
+                    f.a(a2);
+                    f.c();
+                    j.b("TemplateManager", "loadTemplate update success: " + a2.b());
+                    g();
+                    this.f30821d.set(false);
+                    this.f30824g.set(System.currentTimeMillis());
+                    h();
                     return;
                 }
-                arrayList2.addAll(a2.e());
-                u.b("TemplateManager", "loadTemplate update1");
-                it = arrayList2.iterator();
-                do {
-                    if (!it.hasNext()) {
-                    }
-                } while (oVar.f());
-                this.f28918d.set(false);
-                a(arrayList2);
-                u.b("TemplateManager", "loadTemplate error5");
-                return;
+                this.f30821d.set(false);
+                a(109);
+                j.b("TemplateManager", "loadTemplate error3");
+            } catch (Throwable th) {
+                j.a("TemplateManager", "loadTemplate error: ", th);
             }
-            this.f28918d.set(false);
-            a(109);
-            u.b("TemplateManager", "loadTemplate error3");
-        } catch (Throwable th) {
-            u.a("TemplateManager", "loadTemplate error: ", th);
         }
     }
 
     private void a(int i2) {
-        com.bytedance.sdk.openadsdk.h.a.a().h(com.bytedance.sdk.openadsdk.h.a.c.b().b(i2).g(h.a(i2)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
+            com.bytedance.sdk.openadsdk.k.a.a().h(com.bytedance.sdk.openadsdk.k.a.c.b().b(i2).h(com.bytedance.sdk.openadsdk.core.g.a(i2)));
+        }
     }
 
-    private void a(List<s.a> list) {
-        if (list == null || list.isEmpty()) {
+    private void a(List<u.a> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        for (s.a aVar : list) {
-            File file = new File(e(), j.a(aVar.a()));
+        for (u.a aVar : list) {
+            File file = new File(e(), com.bytedance.sdk.component.utils.e.a(aVar.a()));
             File file2 = new File(file + ".tmp");
             if (file.exists()) {
                 try {

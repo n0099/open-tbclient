@@ -1,8 +1,99 @@
 package com.faceunity.wrapper;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class faceunity {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int FU_ADM_FLAG_ENABLE_READBACK = 2;
+    public static final int FU_ADM_FLAG_EXTERNAL_OES_TEXTURE = 1;
+    public static final int FU_ADM_FLAG_FLIP_X = 32;
+    public static final int FU_ADM_FLAG_FLIP_Y = 64;
+    public static final int FU_ADM_FLAG_I420_BUFFER = 16;
+    public static final int FU_ADM_FLAG_I420_TEXTURE = 8;
+    public static final int FU_ADM_FLAG_NV21_TEXTURE = 4;
+    public static final int FU_ADM_FLAG_RGBA_BUFFER = 128;
+    public static final int FU_ADM_FLAG_TEXTURE_AND_READBACK_BUFFER_OPPOSITE_X = 256;
+    public static final int FU_ADM_FLAG_TEXTURE_AND_READBACK_BUFFER_OPPOSITE_Y = 512;
+    public static final int FU_ADM_FLAG_TEXTURE_AND_READBACK_BUFFER_ROTATE_180 = 2048;
+    public static final int FU_ADM_FLAG_TEXTURE_AND_READBACK_BUFFER_ROTATE_270 = 4096;
+    public static final int FU_ADM_FLAG_TEXTURE_AND_READBACK_BUFFER_ROTATE_90 = 1024;
+    public static final int FU_ADM_FLAG_TEXTURE_ROTATE_180 = 16384;
+    public static final int FU_ADM_FLAG_TEXTURE_ROTATE_270 = 32768;
+    public static final int FU_ADM_FLAG_TEXTURE_ROTATE_90 = 8192;
+    public static final int FU_FORMAT_GL_CURRENT_FRAMEBUFFER = 3;
+    public static final int FU_FORMAT_I420_BUFFER = 13;
+    public static final int FU_FORMAT_NV12_BUFFER = 8;
+    public static final int FU_FORMAT_NV21_BUFFER = 2;
+    public static final int FU_FORMAT_RGBA_BUFFER = 4;
+    public static final int FU_FORMAT_RGBA_TEXTURE = 1;
+    public static final String TAG = "faceunity-wrapper";
+    public static boolean isDebug;
+    public static int[] ret_tex;
+    public static int[] ret_wh;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class FUImage {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: h  reason: collision with root package name */
+        public int f32573h;
+        public byte[] nv21_data;
+        public int tex;
+        public int w;
+
+        public FUImage() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-881944240, "Lcom/faceunity/wrapper/faceunity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-881944240, "Lcom/faceunity/wrapper/faceunity;");
+                return;
+            }
+        }
+        ret_wh = new int[2];
+        ret_tex = new int[1];
         System.loadLibrary("nama");
+    }
+
+    public faceunity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     @Deprecated

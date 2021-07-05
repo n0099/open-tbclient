@@ -2,76 +2,158 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class PlaneInfo extends TransitBaseInfo {
-    public static final Parcelable.Creator<PlaneInfo> CREATOR = new d();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<PlaneInfo> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f7195a;
+    public double f7225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7196b;
+    public String f7226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f7197c;
+    public double f7227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7198d;
+    public String f7228d;
 
-    public PlaneInfo() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-647873507, "Lcom/baidu/mapapi/search/core/PlaneInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-647873507, "Lcom/baidu/mapapi/search/core/PlaneInfo;");
+                return;
+            }
+        }
+        CREATOR = new d();
     }
 
+    public PlaneInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaneInfo(Parcel parcel) {
         super(parcel);
-        this.f7195a = parcel.readDouble();
-        this.f7196b = parcel.readString();
-        this.f7197c = parcel.readDouble();
-        this.f7198d = parcel.readString();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f7225a = parcel.readDouble();
+        this.f7226b = parcel.readString();
+        this.f7227c = parcel.readDouble();
+        this.f7228d = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public String getAirlines() {
-        return this.f7196b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7226b : (String) invokeV.objValue;
     }
 
     public String getBooking() {
-        return this.f7198d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7228d : (String) invokeV.objValue;
     }
 
     public double getDiscount() {
-        return this.f7195a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7225a : invokeV.doubleValue;
     }
 
     public double getPrice() {
-        return this.f7197c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7227c : invokeV.doubleValue;
     }
 
     public void setAirlines(String str) {
-        this.f7196b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f7226b = str;
+        }
     }
 
     public void setBooking(String str) {
-        this.f7198d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f7228d = str;
+        }
     }
 
     public void setDiscount(double d2) {
-        this.f7195a = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f7225a = d2;
+        }
     }
 
     public void setPrice(double d2) {
-        this.f7197c = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f7227c = d2;
+        }
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        super.writeToParcel(parcel, i2);
-        parcel.writeDouble(this.f7195a);
-        parcel.writeString(this.f7196b);
-        parcel.writeDouble(this.f7197c);
-        parcel.writeString(this.f7198d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+            super.writeToParcel(parcel, i2);
+            parcel.writeDouble(this.f7225a);
+            parcel.writeString(this.f7226b);
+            parcel.writeDouble(this.f7227c);
+            parcel.writeString(this.f7228d);
+        }
     }
 }

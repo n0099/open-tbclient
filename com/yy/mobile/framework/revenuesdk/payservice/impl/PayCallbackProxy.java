@@ -1,5 +1,10 @@
 package com.yy.mobile.framework.revenuesdk.payservice.impl;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -14,9 +19,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventType;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
-    public final String TAG = "AppPayServiceImpl";
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final String TAG;
     public IAppPayService appPayService;
     public IPayCallback iPayCallback;
     public ISDKReporter mSDKRepoter;
@@ -30,6 +37,21 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public long requestTime;
 
     public PayCallbackProxy(PayType payType, String str, ChargeCurrencyReqParams chargeCurrencyReqParams, String str2, PollingModeInfo pollingModeInfo, String str3, ISDKReporter iSDKReporter, IAppPayService iAppPayService, IPayInnerLogic iPayInnerLogic, IPayCallback iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payType, str, chargeCurrencyReqParams, str2, pollingModeInfo, str3, iSDKReporter, iAppPayService, iPayInnerLogic, iPayCallback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.TAG = "AppPayServiceImpl";
         this.orderId = "";
         this.payType = payType;
         if (str != null) {
@@ -54,69 +76,84 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     }
 
     private void failCallBackInternal(int i2, String str, PayCallBackBean payCallBackBean) {
-        if (payCallBackBean == null) {
-            new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_FAIL, this.params.getAppClientExpand());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65537, this, i2, str, payCallBackBean) == null) {
+            if (payCallBackBean == null) {
+                new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_FAIL, this.params.getAppClientExpand());
+            }
+            if (this.iPayCallback != null) {
+                PayCallBackBean payCallBackBean2 = new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_FAIL, this.params.getAppClientExpand());
+                this.iPayCallback.onPayStatus(PurchaseStatus.PAY_FAIL, payCallBackBean2);
+                this.iPayCallback.onFail(i2, "pay fail! failReason:" + str, payCallBackBean2);
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = this.requestTime;
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "---PayCallbackProxy, pay onFail: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j), (currentTimeMillis - j) + "", Long.valueOf(this.params.getUid()), this.orderId));
+            ISDKReporter iSDKReporter = this.mSDKRepoter;
+            if (iSDKReporter != null) {
+                iSDKReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, i2 + "", "pay fail! failReason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
+            }
+            RLog.warn("AppPayServiceImpl", "payingaddpaymentrespone pay fail! failReason:" + str + " code:" + i2 + " orderId:" + this.orderId);
         }
-        if (this.iPayCallback != null) {
-            PayCallBackBean payCallBackBean2 = new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_FAIL, this.params.getAppClientExpand());
-            this.iPayCallback.onPayStatus(PurchaseStatus.PAY_FAIL, payCallBackBean2);
-            this.iPayCallback.onFail(i2, "pay fail! failReason:" + str, payCallBackBean2);
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = this.requestTime;
-        RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "---PayCallbackProxy, pay onFail: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j), (currentTimeMillis - j) + "", Long.valueOf(this.params.getUid()), this.orderId));
-        ISDKReporter iSDKReporter = this.mSDKRepoter;
-        if (iSDKReporter != null) {
-            iSDKReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, i2 + "", "pay fail! failReason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
-        }
-        RLog.warn("AppPayServiceImpl", "payingaddpaymentrespone pay fail! failReason:" + str + " code:" + i2 + " orderId:" + this.orderId);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
     public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
-        failCallBackInternal(i2, str, payCallBackBean);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, payCallBackBean) == null) {
+            failCallBackInternal(i2, str, payCallBackBean);
+        }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
     public void onPayStart() {
-        if (this.iPayCallback != null) {
-            this.iPayCallback.onPayStatus(PurchaseStatus.PAY_START, new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, JsonDataParerUtil.getChOrderidByPayload(this.payLoad), this.payLoad, null, null, PurchaseStatus.PAY_START, this.params.getAppClientExpand()));
-            this.iPayCallback.onPayStart();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.iPayCallback != null) {
+                this.iPayCallback.onPayStatus(PurchaseStatus.PAY_START, new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, JsonDataParerUtil.getChOrderidByPayload(this.payLoad), this.payLoad, null, null, PurchaseStatus.PAY_START, this.params.getAppClientExpand()));
+                this.iPayCallback.onPayStart();
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = this.requestTime;
+            Locale locale = Locale.ENGLISH;
+            RLog.info("AppPayServiceImpl", String.format(locale, "---PayCallbackProxy-onPayStart: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j), (currentTimeMillis - j) + "", Long.valueOf(this.params.getUid()), this.orderId));
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = this.requestTime;
-        Locale locale = Locale.ENGLISH;
-        RLog.info("AppPayServiceImpl", String.format(locale, "---PayCallbackProxy-onPayStart: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j), (currentTimeMillis - j) + "", Long.valueOf(this.params.getUid()), this.orderId));
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
     public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-        this.iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
+            this.iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
     public void onSuccess(PurchaseInfo purchaseInfo, PayCallBackBean payCallBackBean) {
         PayCallBackBean payCallBackBean2;
-        long currentTimeMillis = System.currentTimeMillis() - this.requestTime;
-        if (purchaseInfo != null) {
-            payCallBackBean2 = payCallBackBean == null ? new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_SUCCESS, this.params.getAppClientExpand()) : payCallBackBean;
-            this.iPayCallback.onSuccess("pay success!", payCallBackBean2);
-            Locale locale = Locale.ENGLISH;
-            RLog.info("AppPayServiceImpl", String.format(locale, "---PayCallbackProxy-pay-onSuccess: requestTime = %s, delay = %s, Uid =%s, OrderId =%s", Long.valueOf(this.requestTime), currentTimeMillis + "", Long.valueOf(this.params.getUid()), this.orderId));
-        } else {
-            payCallBackBean2 = payCallBackBean;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseInfo, payCallBackBean) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.requestTime;
+            if (purchaseInfo != null) {
+                payCallBackBean2 = payCallBackBean == null ? new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_SUCCESS, this.params.getAppClientExpand()) : payCallBackBean;
+                this.iPayCallback.onSuccess("pay success!", payCallBackBean2);
+                Locale locale = Locale.ENGLISH;
+                RLog.info("AppPayServiceImpl", String.format(locale, "---PayCallbackProxy-pay-onSuccess: requestTime = %s, delay = %s, Uid =%s, OrderId =%s", Long.valueOf(this.requestTime), currentTimeMillis + "", Long.valueOf(this.params.getUid()), this.orderId));
+            } else {
+                payCallBackBean2 = payCallBackBean;
+            }
+            IPayCallback iPayCallback = this.iPayCallback;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStatus(PurchaseStatus.PAY_SUCCESS, payCallBackBean2);
+            }
+            this.payInnerLogic.pollingForChargeResult(this.params, this.orderId, this.pollingModeInfo);
+            ISDKReporter iSDKReporter = this.mSDKRepoter;
+            if (iSDKReporter != null) {
+                String str = this.orderId;
+                iSDKReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, "0", "pay success!", str, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
+            }
+            RLog.warn("AppPayServiceImpl", "payingaddpaymentrespone pay success! orderId=" + this.orderId);
         }
-        IPayCallback iPayCallback = this.iPayCallback;
-        if (iPayCallback != null) {
-            iPayCallback.onPayStatus(PurchaseStatus.PAY_SUCCESS, payCallBackBean2);
-        }
-        this.payInnerLogic.pollingForChargeResult(this.params, this.orderId, this.pollingModeInfo);
-        ISDKReporter iSDKReporter = this.mSDKRepoter;
-        if (iSDKReporter != null) {
-            String str = this.orderId;
-            iSDKReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, "0", "pay success!", str, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
-        }
-        RLog.warn("AppPayServiceImpl", "payingaddpaymentrespone pay success! orderId=" + this.orderId);
     }
 }

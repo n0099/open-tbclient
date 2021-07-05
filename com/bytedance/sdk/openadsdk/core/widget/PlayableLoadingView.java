@@ -10,71 +10,143 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.bytedance.sdk.openadsdk.utils.ad;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.r;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class PlayableLoadingView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f28743a;
+    public ProgressBar f30639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28744b;
+    public TextView f30640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28745c;
+    public TextView f30641c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlayableLoadingView(@NonNull Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
     private void a(Context context) {
-        setBackgroundColor(Color.parseColor("#0D1833"));
-        setClickable(true);
-        setVisibility(8);
-        LayoutInflater.from(context).inflate(ad.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-        this.f28743a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
-        this.f28744b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
-        this.f28745c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            setBackgroundColor(Color.parseColor("#0D1833"));
+            setClickable(true);
+            setVisibility(8);
+            LayoutInflater.from(context).inflate(r.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
+            this.f30639a = (ProgressBar) findViewById(r.e(context, "tt_playable_pb_view"));
+            this.f30640b = (TextView) findViewById(r.e(context, "tt_playable_progress_tip"));
+            this.f30641c = (TextView) findViewById(r.e(context, "tt_playable_play"));
+        }
     }
 
     public void b() {
-        setVisibility(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setVisibility(0);
+        }
     }
 
     public TextView getPlayView() {
-        return this.f28745c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30641c : (TextView) invokeV.objValue;
     }
 
     public void setProgress(int i2) {
-        if (i2 < 0) {
-            i2 = 0;
-        }
-        if (i2 > 100) {
-            i2 = 100;
-        }
-        ProgressBar progressBar = this.f28743a;
-        if (progressBar != null) {
-            progressBar.setProgress(i2);
-        }
-        TextView textView = this.f28744b;
-        if (textView != null) {
-            textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i2)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            if (i2 < 0) {
+                i2 = 0;
+            }
+            if (i2 > 100) {
+                i2 = 100;
+            }
+            ProgressBar progressBar = this.f30639a;
+            if (progressBar != null) {
+                progressBar.setProgress(i2);
+            }
+            TextView textView = this.f30640b;
+            if (textView != null) {
+                textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i2)));
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlayableLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlayableLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
     public void a() {
-        setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setVisibility(8);
+        }
     }
 }

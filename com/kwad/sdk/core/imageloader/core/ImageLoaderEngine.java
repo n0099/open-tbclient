@@ -1,5 +1,13 @@
 package com.kwad.sdk.core.imageloader.core;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import java.io.File;
 import java.util.Collections;
@@ -12,125 +20,228 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public class ImageLoaderEngine {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Integer, String> cacheKeysForImageAwares;
     public final ImageLoaderConfiguration configuration;
+    public final AtomicBoolean networkDenied;
+    public final Object pauseLock;
+    public final AtomicBoolean paused;
+    public final AtomicBoolean slowNetwork;
+    public Executor taskDistributor;
     public Executor taskExecutor;
     public Executor taskExecutorForCachedImages;
-    public final Map<Integer, String> cacheKeysForImageAwares = Collections.synchronizedMap(new HashMap());
-    public final Map<String, ReentrantLock> uriLocks = new WeakHashMap();
-    public final AtomicBoolean paused = new AtomicBoolean(false);
-    public final AtomicBoolean networkDenied = new AtomicBoolean(false);
-    public final AtomicBoolean slowNetwork = new AtomicBoolean(false);
-    public final Object pauseLock = new Object();
-    public Executor taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
+    public final Map<String, ReentrantLock> uriLocks;
 
     public ImageLoaderEngine(ImageLoaderConfiguration imageLoaderConfiguration) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageLoaderConfiguration};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.cacheKeysForImageAwares = Collections.synchronizedMap(new HashMap());
+        this.uriLocks = new WeakHashMap();
+        this.paused = new AtomicBoolean(false);
+        this.networkDenied = new AtomicBoolean(false);
+        this.slowNetwork = new AtomicBoolean(false);
+        this.pauseLock = new Object();
         this.configuration = imageLoaderConfiguration;
         this.taskExecutor = imageLoaderConfiguration.taskExecutor;
         this.taskExecutorForCachedImages = imageLoaderConfiguration.taskExecutorForCachedImages;
+        this.taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
     }
 
     private Executor createTaskExecutor() {
-        ImageLoaderConfiguration imageLoaderConfiguration = this.configuration;
-        return DefaultConfigurationFactory.createExecutor(imageLoaderConfiguration.threadPoolSize, imageLoaderConfiguration.threadPriority, imageLoaderConfiguration.tasksProcessingType);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            ImageLoaderConfiguration imageLoaderConfiguration = this.configuration;
+            return DefaultConfigurationFactory.createExecutor(imageLoaderConfiguration.threadPoolSize, imageLoaderConfiguration.threadPriority, imageLoaderConfiguration.tasksProcessingType);
+        }
+        return (Executor) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initExecutorsIfNeed() {
-        if (!this.configuration.customExecutor && ((ExecutorService) this.taskExecutor).isShutdown()) {
-            this.taskExecutor = createTaskExecutor();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            if (!this.configuration.customExecutor && ((ExecutorService) this.taskExecutor).isShutdown()) {
+                this.taskExecutor = createTaskExecutor();
+            }
+            if (this.configuration.customExecutorForCachedImages || !((ExecutorService) this.taskExecutorForCachedImages).isShutdown()) {
+                return;
+            }
+            this.taskExecutorForCachedImages = createTaskExecutor();
         }
-        if (this.configuration.customExecutorForCachedImages || !((ExecutorService) this.taskExecutorForCachedImages).isShutdown()) {
-            return;
-        }
-        this.taskExecutorForCachedImages = createTaskExecutor();
     }
 
     public void cancelDisplayTaskFor(ImageAware imageAware) {
-        this.cacheKeysForImageAwares.remove(Integer.valueOf(imageAware.getId()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, imageAware) == null) {
+            this.cacheKeysForImageAwares.remove(Integer.valueOf(imageAware.getId()));
+        }
     }
 
     public void denyNetworkDownloads(boolean z) {
-        this.networkDenied.set(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.networkDenied.set(z);
+        }
     }
 
     public void fireCallback(Runnable runnable) {
-        this.taskDistributor.execute(runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            this.taskDistributor.execute(runnable);
+        }
     }
 
     public String getLoadingUriForView(ImageAware imageAware) {
-        return this.cacheKeysForImageAwares.get(Integer.valueOf(imageAware.getId()));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imageAware)) == null) ? this.cacheKeysForImageAwares.get(Integer.valueOf(imageAware.getId())) : (String) invokeL.objValue;
     }
 
     public ReentrantLock getLockForUri(String str) {
-        ReentrantLock reentrantLock = this.uriLocks.get(str);
-        if (reentrantLock == null) {
-            ReentrantLock reentrantLock2 = new ReentrantLock();
-            this.uriLocks.put(str, reentrantLock2);
-            return reentrantLock2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            ReentrantLock reentrantLock = this.uriLocks.get(str);
+            if (reentrantLock == null) {
+                ReentrantLock reentrantLock2 = new ReentrantLock();
+                this.uriLocks.put(str, reentrantLock2);
+                return reentrantLock2;
+            }
+            return reentrantLock;
         }
-        return reentrantLock;
+        return (ReentrantLock) invokeL.objValue;
     }
 
     public AtomicBoolean getPause() {
-        return this.paused;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.paused : (AtomicBoolean) invokeV.objValue;
     }
 
     public Object getPauseLock() {
-        return this.pauseLock;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pauseLock : invokeV.objValue;
     }
 
     public void handleSlowNetwork(boolean z) {
-        this.slowNetwork.set(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.slowNetwork.set(z);
+        }
     }
 
     public boolean isNetworkDenied() {
-        return this.networkDenied.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.networkDenied.get() : invokeV.booleanValue;
     }
 
     public boolean isSlowNetwork() {
-        return this.slowNetwork.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.slowNetwork.get() : invokeV.booleanValue;
     }
 
     public void pause() {
-        this.paused.set(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.paused.set(true);
+        }
     }
 
     public void prepareDisplayTaskFor(ImageAware imageAware, String str) {
-        this.cacheKeysForImageAwares.put(Integer.valueOf(imageAware.getId()), str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, imageAware, str) == null) {
+            this.cacheKeysForImageAwares.put(Integer.valueOf(imageAware.getId()), str);
+        }
     }
 
     public void resume() {
-        this.paused.set(false);
-        synchronized (this.pauseLock) {
-            this.pauseLock.notifyAll();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.paused.set(false);
+            synchronized (this.pauseLock) {
+                this.pauseLock.notifyAll();
+            }
         }
     }
 
     public void stop() {
-        if (!this.configuration.customExecutor) {
-            ((ExecutorService) this.taskExecutor).shutdownNow();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (!this.configuration.customExecutor) {
+                ((ExecutorService) this.taskExecutor).shutdownNow();
+            }
+            if (!this.configuration.customExecutorForCachedImages) {
+                ((ExecutorService) this.taskExecutorForCachedImages).shutdownNow();
+            }
+            this.cacheKeysForImageAwares.clear();
+            this.uriLocks.clear();
         }
-        if (!this.configuration.customExecutorForCachedImages) {
-            ((ExecutorService) this.taskExecutorForCachedImages).shutdownNow();
-        }
-        this.cacheKeysForImageAwares.clear();
-        this.uriLocks.clear();
     }
 
-    public void submit(final LoadAndDisplayImageTask loadAndDisplayImageTask) {
-        this.taskDistributor.execute(new Runnable() { // from class: com.kwad.sdk.core.imageloader.core.ImageLoaderEngine.1
-            @Override // java.lang.Runnable
-            public void run() {
-                File file = ImageLoaderEngine.this.configuration.diskCache.get(loadAndDisplayImageTask.getLoadingUri());
-                boolean z = file != null && file.exists();
-                ImageLoaderEngine.this.initExecutorsIfNeed();
-                (z ? ImageLoaderEngine.this.taskExecutorForCachedImages : ImageLoaderEngine.this.taskExecutor).execute(loadAndDisplayImageTask);
-            }
-        });
+    public void submit(LoadAndDisplayImageTask loadAndDisplayImageTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, loadAndDisplayImageTask) == null) {
+            this.taskDistributor.execute(new Runnable(this, loadAndDisplayImageTask) { // from class: com.kwad.sdk.core.imageloader.core.ImageLoaderEngine.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ImageLoaderEngine this$0;
+                public final /* synthetic */ LoadAndDisplayImageTask val$task;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, loadAndDisplayImageTask};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$task = loadAndDisplayImageTask;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        File file = this.this$0.configuration.diskCache.get(this.val$task.getLoadingUri());
+                        boolean z = file != null && file.exists();
+                        this.this$0.initExecutorsIfNeed();
+                        (z ? this.this$0.taskExecutorForCachedImages : this.this$0.taskExecutor).execute(this.val$task);
+                    }
+                }
+            });
+        }
     }
 
     public void submit(ProcessAndDisplayImageTask processAndDisplayImageTask) {
-        initExecutorsIfNeed();
-        this.taskExecutorForCachedImages.execute(processAndDisplayImageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, processAndDisplayImageTask) == null) {
+            initExecutorsIfNeed();
+            this.taskExecutorForCachedImages.execute(processAndDisplayImageTask);
+        }
     }
 }

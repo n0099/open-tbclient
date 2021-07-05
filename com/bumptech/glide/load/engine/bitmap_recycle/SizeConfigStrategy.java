@@ -5,8 +5,17 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Util;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,22 +25,38 @@ import java.util.TreeMap;
 @RequiresApi(19)
 /* loaded from: classes6.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config[] ALPHA_8_IN_CONFIGS;
     public static final Bitmap.Config[] ARGB_4444_IN_CONFIGS;
     public static final Bitmap.Config[] ARGB_8888_IN_CONFIGS;
     public static final int MAX_SIZE_MULTIPLE = 8;
     public static final Bitmap.Config[] RGBA_F16_IN_CONFIGS;
     public static final Bitmap.Config[] RGB_565_IN_CONFIGS;
-    public final KeyPool keyPool = new KeyPool();
-    public final GroupedLinkedMap<Key, Bitmap> groupedMap = new GroupedLinkedMap<>();
-    public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes = new HashMap();
+    public transient /* synthetic */ FieldHolder $fh;
+    public final GroupedLinkedMap<Key, Bitmap> groupedMap;
+    public final KeyPool keyPool;
+    public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes;
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(529323555, "Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(529323555, "Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[Bitmap.Config.values().length];
             $SwitchMap$android$graphics$Bitmap$Config = iArr;
             try {
@@ -56,20 +81,56 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     @VisibleForTesting
     /* loaded from: classes6.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public KeyPool() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public Key get(int i2, Bitmap.Config config) {
-            Key key = get();
-            key.init(i2, config);
-            return key;
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, config)) == null) {
+                Key key = get();
+                key.init(i2, config);
+                return key;
+            }
+            return (Key) invokeIL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
         public Key create() {
-            return new Key(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Key(this) : (Key) invokeV.objValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1505592752, "Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1505592752, "Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;");
+                return;
+            }
+        }
         Bitmap.Config[] configArr = {Bitmap.Config.ARGB_8888, null};
         if (Build.VERSION.SDK_INT >= 26) {
             configArr = (Bitmap.Config[]) Arrays.copyOf(configArr, 3);
@@ -82,181 +143,296 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         ALPHA_8_IN_CONFIGS = new Bitmap.Config[]{Bitmap.Config.ALPHA_8};
     }
 
-    private void decrementBitmapOfSize(Integer num, Bitmap bitmap) {
-        NavigableMap<Integer, Integer> sizesForConfig = getSizesForConfig(bitmap.getConfig());
-        Integer num2 = (Integer) sizesForConfig.get(num);
-        if (num2 != null) {
-            if (num2.intValue() == 1) {
-                sizesForConfig.remove(num);
-                return;
-            } else {
-                sizesForConfig.put(num, Integer.valueOf(num2.intValue() - 1));
+    public SizeConfigStrategy() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        throw new NullPointerException("Tried to decrement empty size, size: " + num + ", removed: " + logBitmap(bitmap) + ", this: " + this);
+        this.keyPool = new KeyPool();
+        this.groupedMap = new GroupedLinkedMap<>();
+        this.sortedSizes = new HashMap();
+    }
+
+    private void decrementBitmapOfSize(Integer num, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, num, bitmap) == null) {
+            NavigableMap<Integer, Integer> sizesForConfig = getSizesForConfig(bitmap.getConfig());
+            Integer num2 = (Integer) sizesForConfig.get(num);
+            if (num2 != null) {
+                if (num2.intValue() == 1) {
+                    sizesForConfig.remove(num);
+                    return;
+                } else {
+                    sizesForConfig.put(num, Integer.valueOf(num2.intValue() - 1));
+                    return;
+                }
+            }
+            throw new NullPointerException("Tried to decrement empty size, size: " + num + ", removed: " + logBitmap(bitmap) + ", this: " + this);
+        }
     }
 
     private Key findBestKey(int i2, Bitmap.Config config) {
+        InterceptResult invokeIL;
         Bitmap.Config[] inConfigs;
-        Key key = this.keyPool.get(i2, config);
-        for (Bitmap.Config config2 : getInConfigs(config)) {
-            Integer ceilingKey = getSizesForConfig(config2).ceilingKey(Integer.valueOf(i2));
-            if (ceilingKey != null && ceilingKey.intValue() <= i2 * 8) {
-                if (ceilingKey.intValue() == i2) {
-                    if (config2 == null) {
-                        if (config == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i2, config)) == null) {
+            Key key = this.keyPool.get(i2, config);
+            for (Bitmap.Config config2 : getInConfigs(config)) {
+                Integer ceilingKey = getSizesForConfig(config2).ceilingKey(Integer.valueOf(i2));
+                if (ceilingKey != null && ceilingKey.intValue() <= i2 * 8) {
+                    if (ceilingKey.intValue() == i2) {
+                        if (config2 == null) {
+                            if (config == null) {
+                                return key;
+                            }
+                        } else if (config2.equals(config)) {
                             return key;
                         }
-                    } else if (config2.equals(config)) {
-                        return key;
                     }
+                    this.keyPool.offer(key);
+                    return this.keyPool.get(ceilingKey.intValue(), config2);
                 }
-                this.keyPool.offer(key);
-                return this.keyPool.get(ceilingKey.intValue(), config2);
             }
+            return key;
         }
-        return key;
+        return (Key) invokeIL.objValue;
     }
 
     public static String getBitmapString(int i2, Bitmap.Config config) {
-        return PreferencesUtil.LEFT_MOUNT + i2 + "](" + config + SmallTailInfo.EMOTION_SUFFIX;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, config)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + i2 + "](" + config + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeIL.objValue;
     }
 
     public static Bitmap.Config[] getInConfigs(Bitmap.Config config) {
-        if (Build.VERSION.SDK_INT >= 26 && Bitmap.Config.RGBA_F16.equals(config)) {
-            return RGBA_F16_IN_CONFIGS;
-        }
-        int i2 = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    return i2 != 4 ? new Bitmap.Config[]{config} : ALPHA_8_IN_CONFIGS;
-                }
-                return ARGB_4444_IN_CONFIGS;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, config)) == null) {
+            if (Build.VERSION.SDK_INT >= 26 && Bitmap.Config.RGBA_F16.equals(config)) {
+                return RGBA_F16_IN_CONFIGS;
             }
-            return RGB_565_IN_CONFIGS;
+            int i2 = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        return i2 != 4 ? new Bitmap.Config[]{config} : ALPHA_8_IN_CONFIGS;
+                    }
+                    return ARGB_4444_IN_CONFIGS;
+                }
+                return RGB_565_IN_CONFIGS;
+            }
+            return ARGB_8888_IN_CONFIGS;
         }
-        return ARGB_8888_IN_CONFIGS;
+        return (Bitmap.Config[]) invokeL.objValue;
     }
 
     private NavigableMap<Integer, Integer> getSizesForConfig(Bitmap.Config config) {
-        NavigableMap<Integer, Integer> navigableMap = this.sortedSizes.get(config);
-        if (navigableMap == null) {
-            TreeMap treeMap = new TreeMap();
-            this.sortedSizes.put(config, treeMap);
-            return treeMap;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, config)) == null) {
+            NavigableMap<Integer, Integer> navigableMap = this.sortedSizes.get(config);
+            if (navigableMap == null) {
+                TreeMap treeMap = new TreeMap();
+                this.sortedSizes.put(config, treeMap);
+                return treeMap;
+            }
+            return navigableMap;
         }
-        return navigableMap;
+        return (NavigableMap) invokeL.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     @Nullable
     public Bitmap get(int i2, int i3, Bitmap.Config config) {
-        Key findBestKey = findBestKey(Util.getBitmapByteSize(i2, i3, config), config);
-        Bitmap bitmap = this.groupedMap.get(findBestKey);
-        if (bitmap != null) {
-            decrementBitmapOfSize(Integer.valueOf(findBestKey.size), bitmap);
-            bitmap.reconfigure(i2, i3, bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888);
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) {
+            Key findBestKey = findBestKey(Util.getBitmapByteSize(i2, i3, config), config);
+            Bitmap bitmap = this.groupedMap.get(findBestKey);
+            if (bitmap != null) {
+                decrementBitmapOfSize(Integer.valueOf(findBestKey.size), bitmap);
+                bitmap.reconfigure(i2, i3, bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888);
+            }
+            return bitmap;
         }
-        return bitmap;
+        return (Bitmap) invokeIIL.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     public int getSize(Bitmap bitmap) {
-        return Util.getBitmapByteSize(bitmap);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) ? Util.getBitmapByteSize(bitmap) : invokeL.intValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     public String logBitmap(Bitmap bitmap) {
-        return getBitmapString(Util.getBitmapByteSize(bitmap), bitmap.getConfig());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bitmap)) == null) ? getBitmapString(Util.getBitmapByteSize(bitmap), bitmap.getConfig()) : (String) invokeL.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     public void put(Bitmap bitmap) {
-        Key key = this.keyPool.get(Util.getBitmapByteSize(bitmap), bitmap.getConfig());
-        this.groupedMap.put(key, bitmap);
-        NavigableMap<Integer, Integer> sizesForConfig = getSizesForConfig(bitmap.getConfig());
-        Integer num = (Integer) sizesForConfig.get(Integer.valueOf(key.size));
-        sizesForConfig.put(Integer.valueOf(key.size), Integer.valueOf(num != null ? 1 + num.intValue() : 1));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
+            Key key = this.keyPool.get(Util.getBitmapByteSize(bitmap), bitmap.getConfig());
+            this.groupedMap.put(key, bitmap);
+            NavigableMap<Integer, Integer> sizesForConfig = getSizesForConfig(bitmap.getConfig());
+            Integer num = (Integer) sizesForConfig.get(Integer.valueOf(key.size));
+            sizesForConfig.put(Integer.valueOf(key.size), Integer.valueOf(num != null ? 1 + num.intValue() : 1));
+        }
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     @Nullable
     public Bitmap removeLast() {
-        Bitmap removeLast = this.groupedMap.removeLast();
-        if (removeLast != null) {
-            decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(removeLast)), removeLast);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Bitmap removeLast = this.groupedMap.removeLast();
+            if (removeLast != null) {
+                decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(removeLast)), removeLast);
+            }
+            return removeLast;
         }
-        return removeLast;
+        return (Bitmap) invokeV.objValue;
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("SizeConfigStrategy{groupedMap=");
-        sb.append(this.groupedMap);
-        sb.append(", sortedSizes=(");
-        for (Map.Entry<Bitmap.Config, NavigableMap<Integer, Integer>> entry : this.sortedSizes.entrySet()) {
-            sb.append(entry.getKey());
-            sb.append('[');
-            sb.append(entry.getValue());
-            sb.append("], ");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("SizeConfigStrategy{groupedMap=");
+            sb.append(this.groupedMap);
+            sb.append(", sortedSizes=(");
+            for (Map.Entry<Bitmap.Config, NavigableMap<Integer, Integer>> entry : this.sortedSizes.entrySet()) {
+                sb.append(entry.getKey());
+                sb.append('[');
+                sb.append(entry.getValue());
+                sb.append("], ");
+            }
+            if (!this.sortedSizes.isEmpty()) {
+                sb.replace(sb.length() - 2, sb.length(), "");
+            }
+            sb.append(")}");
+            return sb.toString();
         }
-        if (!this.sortedSizes.isEmpty()) {
-            sb.replace(sb.length() - 2, sb.length(), "");
-        }
-        sb.append(")}");
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     @VisibleForTesting
     /* loaded from: classes6.dex */
     public static final class Key implements Poolable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Bitmap.Config config;
         public final KeyPool pool;
         public int size;
 
         public Key(KeyPool keyPool) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {keyPool};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.pool = keyPool;
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof Key) {
-                Key key = (Key) obj;
-                return this.size == key.size && Util.bothNullOrEqual(this.config, key.config);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (obj instanceof Key) {
+                    Key key = (Key) obj;
+                    return this.size == key.size && Util.bothNullOrEqual(this.config, key.config);
+                }
+                return false;
             }
-            return false;
+            return invokeL.booleanValue;
         }
 
         public int hashCode() {
-            int i2 = this.size * 31;
-            Bitmap.Config config = this.config;
-            return i2 + (config != null ? config.hashCode() : 0);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int i2 = this.size * 31;
+                Bitmap.Config config = this.config;
+                return i2 + (config != null ? config.hashCode() : 0);
+            }
+            return invokeV.intValue;
         }
 
         public void init(int i2, Bitmap.Config config) {
-            this.size = i2;
-            this.config = config;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, config) == null) {
+                this.size = i2;
+                this.config = config;
+            }
         }
 
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.Poolable
         public void offer() {
-            this.pool.offer(this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.pool.offer(this);
+            }
         }
 
         public String toString() {
-            return SizeConfigStrategy.getBitmapString(this.size, this.config);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SizeConfigStrategy.getBitmapString(this.size, this.config) : (String) invokeV.objValue;
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         @VisibleForTesting
         public Key(KeyPool keyPool, int i2, Bitmap.Config config) {
             this(keyPool);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {keyPool, Integer.valueOf(i2), config};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    this((KeyPool) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             init(i2, config);
         }
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     public String logBitmap(int i2, int i3, Bitmap.Config config) {
-        return getBitmapString(Util.getBitmapByteSize(i2, i3, config), config);
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, config)) == null) ? getBitmapString(Util.getBitmapByteSize(i2, i3, config), config) : (String) invokeIIL.objValue;
     }
 }

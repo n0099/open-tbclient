@@ -29,13 +29,22 @@ import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
 import android.widget.FrameLayout;
 import android.widget.ZoomButtonsController;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.BdSailorWebSettings;
 import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.monitor.MonitorConstant;
@@ -70,8 +79,13 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class BdSailorWebView extends FrameLayout implements INoProGuard {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final FrameLayout.LayoutParams COVER_SCREEN_PARAMS;
     public static final String JAVASCTIPT_URL = "javascript:";
+    public static final String LOG_TAG;
     public static final String SHOW_IMAGE_PREFIX = "imagedisplay:";
+    public static boolean sInitFirstWebView;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mCanHideTitlebar;
     public boolean mCanShowTitlebar;
     public View mCurrentTitleBar;
@@ -106,2009 +120,3015 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public ISailorWebViewExt mWebViewExt;
     public FrameLayout mWebViewLayer;
     public FrameLayout.LayoutParams mWebViewLayerLp;
-    public static final String LOG_TAG = BdSailorWebView.class.getSimpleName();
-    public static final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
-    public static boolean sInitFirstWebView = true;
 
     /* loaded from: classes.dex */
     public class BdSailorWebViewExt implements ISailorWebViewExt {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public ISailorWebSettingsExt mSettingsExt;
         public BdSailorWebChromeClientExt mWebChromeClientExt;
         public BdSailorWebViewClientExt mWebViewClientExt;
+        public final /* synthetic */ BdSailorWebView this$0;
 
-        public BdSailorWebViewExt() {
+        public BdSailorWebViewExt(BdSailorWebView bdSailorWebView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = bdSailorWebView;
         }
 
         public /* synthetic */ BdSailorWebViewExt(BdSailorWebView bdSailorWebView, a aVar) {
-            this();
+            this(bdSailorWebView);
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void addNoStatePrefetch(String str, String str2) {
-            BdSailorWebView.this.mCurrentWebView.addNoStatePrefetch(str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+                this.this$0.mCurrentWebView.addNoStatePrefetch(str, str2);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean canGoToPreloadNextExt() {
-            return BdSailorWebView.this.mCurrentWebView.canGoPrerender();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.mCurrentWebView.canGoPrerender() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void cancelCurrentNoStatePrefetch() {
-            BdSailorWebView.this.mCurrentWebView.cancelCurrentNoStatePrefetch();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.this$0.mCurrentWebView.cancelCurrentNoStatePrefetch();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void changeWapPreloadUrlStyleExt(int i2, String str) {
-            BdSailorWebView.this.mCurrentWebView.changeWapPreloadUrlStyle(i2, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+                this.this$0.mCurrentWebView.changeWapPreloadUrlStyle(i2, str);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void completeSelectionExt() {
-            BdSailorWebView.this.mCurrentWebView.completeSelection();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.this$0.mCurrentWebView.completeSelection();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void destroyCanvasCacheBmpExt() {
-            BdSailorWebView.this.mCurrentWebView.destroyCanvasCacheBmp();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.this$0.mCurrentWebView.destroyCanvasCacheBmp();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void emulateShiftHeldOnLinkExt() {
-            BdSailorWebView.this.mCurrentWebView.emulateShiftHeldOnLink();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.this$0.mCurrentWebView.emulateShiftHeldOnLink();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void emulateShiftHeldOnNormalTextExt() {
-            BdSailorWebView.this.mCurrentWebView.emulateShiftHeldOnNormalText();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.this$0.mCurrentWebView.emulateShiftHeldOnNormalText();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void ensureRemoveSearchBoxImplExt() {
-            BdSailorWebView.this.mCurrentWebView.getSecureProcessor().f();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.this$0.mCurrentWebView.getSecureProcessor().f();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void execJavaScriptExt(String str, String... strArr) {
-            if (strArr == null || strArr.length == 0) {
-                BdSailorWebView.this.mCurrentWebView.loadUrl("javascript:(" + str + ")()");
-                return;
-            }
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append("javascript:" + str + "('");
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                stringBuffer.append(strArr[i2]);
-                if (i2 != strArr.length - 1) {
-                    stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048585, this, str, strArr) == null) {
+                if (strArr == null || strArr.length == 0) {
+                    this.this$0.mCurrentWebView.loadUrl("javascript:(" + str + ")()");
+                    return;
                 }
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append("javascript:" + str + "('");
+                for (int i2 = 0; i2 < strArr.length; i2++) {
+                    stringBuffer.append(strArr[i2]);
+                    if (i2 != strArr.length - 1) {
+                        stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    }
+                }
+                stringBuffer.append("')");
+                this.this$0.mCurrentWebView.loadUrl(stringBuffer.toString());
             }
-            stringBuffer.append("')");
-            BdSailorWebView.this.mCurrentWebView.loadUrl(stringBuffer.toString());
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void exitFullScreenModeExt() {
-            BdSailorWebView.this.mCurrentWebView.exitFullScreenMode();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                this.this$0.mCurrentWebView.exitFullScreenMode();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getActionNodesCountExt() {
-            return BdSailorWebView.this.mCurrentWebView.getActionNodesCount();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.this$0.mCurrentWebView.getActionNodesCount() : invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public float getActualZoomScaleExt() {
-            return BdSailorWebView.this.mCurrentWebView.getActualZoomScale();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.this$0.mCurrentWebView.getActualZoomScale() : invokeV.floatValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getAdCount(String str) {
-            return 0;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+                return 0;
+            }
+            return invokeL.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getBackgroundNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getBigPluginTextNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getBorderNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public Bitmap getCanvasCacheBmpExt() {
-            return BdSailorWebView.this.mCurrentWebView.getCanvasCacheBmp();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.this$0.mCurrentWebView.getCanvasCacheBmp() : (Bitmap) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public float getCurrentScaleExt() {
-            return BdSailorWebView.this.mCurrentWebView.getCurrentScale();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.this$0.mCurrentWebView.getCurrentScale() : invokeV.floatValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getDefaultLinkTextNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getEmbeddedTitleBarHeightExt() {
-            if (BdSailorWebView.this.mEmbeddedTitlebar != null) {
-                return BdSailorWebView.this.mEmbeddedTitlebar.getHeight();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                if (this.this$0.mEmbeddedTitlebar != null) {
+                    return this.this$0.mEmbeddedTitlebar.getHeight();
+                }
+                return 0;
             }
-            return 0;
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getImageNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getLinkTextNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getMagicFilterCount() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public Bitmap getMagnifierBmpExt() {
-            return BdSailorWebView.this.mCurrentWebView.getMagnifierBmp();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.this$0.mCurrentWebView.getMagnifierBmp() : (Bitmap) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public float getMaxZoomScaleExt() {
-            return BdSailorWebView.this.mCurrentWebView.getMaxZoomScale();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.this$0.mCurrentWebView.getMaxZoomScale() : invokeV.floatValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public float getMinZoomScaleExt() {
-            return BdSailorWebView.this.mCurrentWebView.getMinZoomScale();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.this$0.mCurrentWebView.getMinZoomScale() : invokeV.floatValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getNightModeColorStyleExt() {
-            return BdSailorWebView.this.mCurrentWebView.nightModeColorStyle();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.this$0.mCurrentWebView.nightModeColorStyle() : invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public WebView.WebPageInfoList getPageInfo() {
-            return BdSailorWebView.this.mCurrentWebView.getPageInfo();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.this$0.mCurrentWebView.getPageInfo() : (WebView.WebPageInfoList) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public List<String> getPictureUrlListExt() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                return null;
+            }
+            return (List) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public String getSelectionTextExt() {
-            try {
-                return (String) d.a.h.a.k.b.a(WebView.class, this, "nativeGetSelection", null, null, "");
-            } catch (Exception unused) {
-                return "";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+                try {
+                    return (String) d.a.i.a.k.b.a(WebView.class, this, "nativeGetSelection", null, null, "");
+                } catch (Exception unused) {
+                    return "";
+                }
             }
+            return (String) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public ISailorWebSettingsExt getSettingsExt() {
-            if (this.mSettingsExt == null) {
-                BdSailorWebSettings settings = BdSailorWebView.this.getSettings();
-                settings.getClass();
-                this.mSettingsExt = new BdSailorWebSettings.BdSailorWebSettingsExt();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                if (this.mSettingsExt == null) {
+                    BdSailorWebSettings settings = this.this$0.getSettings();
+                    settings.getClass();
+                    this.mSettingsExt = new BdSailorWebSettings.BdSailorWebSettingsExt(settings);
+                }
+                return this.mSettingsExt;
             }
-            return this.mSettingsExt;
+            return (ISailorWebSettingsExt) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getTextNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public int getVisitedLinkNightColorExt() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public BdSailorWebChromeClientExt getWebChromeClientExt() {
-            return this.mWebChromeClientExt;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mWebChromeClientExt : (BdSailorWebChromeClientExt) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public BdSailorWebViewClientExt getWebViewClientExt() {
-            return this.mWebViewClientExt;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mWebViewClientExt : (BdSailorWebViewClientExt) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public ZoomButtonsController getZoomButtonsControllerExt() {
-            try {
-                return (ZoomButtonsController) d.a.h.a.k.b.a(WebView.class, this, "getZoomControls", null, null, null);
-            } catch (Exception unused) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+                try {
+                    return (ZoomButtonsController) d.a.i.a.k.b.a(WebView.class, this, "getZoomControls", null, null, null);
+                } catch (Exception unused) {
+                    return null;
+                }
             }
+            return (ZoomButtonsController) invokeV.objValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void hideMagnifierExt(int i2, int i3) {
-            BdSailorWebView.this.mCurrentWebView.hideMagnifier(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048613, this, i2, i3) == null) {
+                this.this$0.mCurrentWebView.hideMagnifier(i2, i3);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isDestroyedExt() {
-            return BdSailorWebView.this.mCurrentWebView.isDestroyed();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.this$0.mCurrentWebView.isDestroyed() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isDrawSelectionPointerExt() {
-            try {
-                return ((Boolean) d.a.h.a.k.b.a(WebView.class, this, "getDrawSelectionPointer", null, null, Boolean.FALSE)).booleanValue();
-            } catch (Exception unused) {
-                return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+                try {
+                    return ((Boolean) d.a.i.a.k.b.a(WebView.class, this, "getDrawSelectionPointer", null, null, Boolean.FALSE)).booleanValue();
+                } catch (Exception unused) {
+                    return false;
+                }
             }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isExtendSelectionExt() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isFixWebViewSecurityHolesExt() {
-            return BdSailorWebView.this.mCurrentWebView.getSecureProcessor().a();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.this$0.mCurrentWebView.getSecureProcessor().a() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isForegroundExt() {
-            return d.a.h.b.c.b.e(BdSailorWebView.this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? d.a.i.b.c.b.e(this.this$0) : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isMobileSiteExt() {
-            return BdSailorWebView.this.mCurrentWebView.isMobileSite();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.this$0.mCurrentWebView.isMobileSite() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isNeedImpactScriptExt() {
-            return BdSailorWebView.this.mCurrentWebView.getSecureProcessor().b();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.this$0.mCurrentWebView.getSecureProcessor().b() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isShiftPressedModeExt() {
-            try {
-                return ((Boolean) d.a.h.a.k.b.a(WebView.class, this, "getShiftIsPressed", null, null, Boolean.FALSE)).booleanValue();
-            } catch (Exception unused) {
-                return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+                try {
+                    return ((Boolean) d.a.i.a.k.b.a(WebView.class, this, "getShiftIsPressed", null, null, Boolean.FALSE)).booleanValue();
+                } catch (Exception unused) {
+                    return false;
+                }
             }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isTextSelectingModeExt() {
-            return BdSailorWebView.this.mCurrentWebView.getSelectingText();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.this$0.mCurrentWebView.getSelectingText() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isWapAllowScaleExt() {
-            return BdSailorWebView.this.mCurrentWebView.isWapAllowScale();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.this$0.mCurrentWebView.isWapAllowScale() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5, boolean z) {
-            BdSailorWebView.this.mCurrentWebView.loadDataWithBaseURL(str, str2, str3, str4, str5, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) {
+                this.this$0.mCurrentWebView.loadDataWithBaseURL(str, str2, str3, str4, str5, z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void loadUrl(String str, Map<String, String> map, boolean z) {
-            BdSailorWebView.this.mCurrentWebView.loadUrl(str, map, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(1048625, this, str, map, z) == null) {
+                this.this$0.mCurrentWebView.loadUrl(str, map, z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void mediaPlayerStatusChangedExt(int i2, float f2, float f3) {
-            BdSailorWebView.this.mCurrentWebView.mediaPlayerStatusChanged(i2, f2, f3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                this.this$0.mCurrentWebView.mediaPlayerStatusChanged(i2, f2, f3);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void mediaPlayerTimeChangedExt(float f2, float f3) {
-            BdSailorWebView.this.mCurrentWebView.mediaPlayerTimeChanged(f2, f3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                this.this$0.mCurrentWebView.mediaPlayerTimeChanged(f2, f3);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void moveMagnifierExt(int i2, int i3) {
-            BdSailorWebView.this.mCurrentWebView.moveMagnifier(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048628, this, i2, i3) == null) {
+                this.this$0.mCurrentWebView.moveMagnifier(i2, i3);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean notifyNativeExitFullScreenIfNeededExt(int i2) {
-            return BdSailorWebView.this.mCurrentWebView.notifyNativeExitFullScreenIfNeeded(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i2)) == null) ? this.this$0.mCurrentWebView.notifyNativeExitFullScreenIfNeeded(i2) : invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void onPauseAll() {
-            BdSailorWebView.this.mCurrentWebView.onPauseAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
+                this.this$0.mCurrentWebView.onPauseAll();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void onResumeAll() {
-            BdSailorWebView.this.mCurrentWebView.onResumeAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+                this.this$0.mCurrentWebView.onResumeAll();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void onSearchKeyword(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048632, this, str, str2) == null) {
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void onShowCommentPanel(String str, String str2) {
-            BdSailorWebChromeClientExt bdSailorWebChromeClientExt = this.mWebChromeClientExt;
-            if (bdSailorWebChromeClientExt != null) {
-                bdSailorWebChromeClientExt.onShowCommentPanel(BdSailorWebView.this, str, str2);
+            BdSailorWebChromeClientExt bdSailorWebChromeClientExt;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048633, this, str, str2) == null) || (bdSailorWebChromeClientExt = this.mWebChromeClientExt) == null) {
+                return;
             }
+            bdSailorWebChromeClientExt.onShowCommentPanel(this.this$0, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void onShowValidateComponent(String str, String str2) {
-            BdSailorWebChromeClientExt bdSailorWebChromeClientExt = this.mWebChromeClientExt;
-            if (bdSailorWebChromeClientExt != null) {
-                bdSailorWebChromeClientExt.onShowValidateComponent(BdSailorWebView.this, str, str2);
+            BdSailorWebChromeClientExt bdSailorWebChromeClientExt;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048634, this, str, str2) == null) || (bdSailorWebChromeClientExt = this.mWebChromeClientExt) == null) {
+                return;
             }
+            bdSailorWebChromeClientExt.onShowValidateComponent(this.this$0, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void pauseExt(boolean z) {
-            BdSailorWebView.this.mCurrentWebView.pause(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
+                this.this$0.mCurrentWebView.pause(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void pauseMediaExt() {
-            BdSailorWebView.this.mCurrentWebView.pauseMedia();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+                this.this$0.mCurrentWebView.pauseMedia();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void resetLoadingAnimation() {
-            BdSailorWebView.this.mCurrentWebView.resetLoadingAnimation();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
+                this.this$0.mCurrentWebView.resetLoadingAnimation();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void resumeExt(boolean z) {
-            BdSailorWebView.this.mCurrentWebView.resume(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048638, this, z) == null) {
+                this.this$0.mCurrentWebView.resume(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void resumeMediaExt() {
-            BdSailorWebView.this.mCurrentWebView.resumeMedia();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
+                this.this$0.mCurrentWebView.resumeMedia();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean savePageAsLocalFilesExt(String str, String str2, WebView.SaveAsType saveAsType) {
-            return BdSailorWebView.this.mCurrentWebView.savePageAsLocalFiles(str, str2, saveAsType);
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048640, this, str, str2, saveAsType)) == null) ? this.this$0.mCurrentWebView.savePageAsLocalFiles(str, str2, saveAsType) : invokeLLL.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setBackgroundNightColorExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setBeginScaleExt() {
-            BdSailorWebView.this.mCurrentWebView.setBeginScale();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
+                this.this$0.mCurrentWebView.setBeginScale();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setBigPluginTextNightColorExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setBorderNightColorExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048644, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setDefaultLinkTextNightColorExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048645, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setDefaultViewSizeExt(int i2, int i3) {
-            BdSailorWebView.this.mCurrentWebView.setDefaultViewSize(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048646, this, i2, i3) == null) {
+                this.this$0.mCurrentWebView.setDefaultViewSize(i2, i3);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setDrawSelectionPointerExt(boolean z) {
-            try {
-                d.a.h.a.k.b.a(WebView.class, this, "setDrawSelectionPointer", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
-            } catch (Exception unused) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
+                try {
+                    d.a.i.a.k.b.a(WebView.class, this, "setDrawSelectionPointer", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
+                } catch (Exception unused) {
+                }
             }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setEndScaleExt() {
-            BdSailorWebView.this.mCurrentWebView.setEndScale();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
+                this.this$0.mCurrentWebView.setEndScale();
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setExtendSelectionExt(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setFixWebViewSecurityHolesExt(boolean z) {
-            BdSailorWebView.this.mCurrentWebView.getSecureProcessor().a(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048650, this, z) == null) {
+                this.this$0.mCurrentWebView.getSecureProcessor().a(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setImageNightColorExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048651, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setLinkTextNightColorExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048652, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setNeedImpactScriptExt(boolean z) {
-            BdSailorWebView.this.mCurrentWebView.getSecureProcessor().b(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048653, this, z) == null) {
+                this.this$0.mCurrentWebView.getSecureProcessor().b(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setNightModeColorStyleExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048654, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setPreviewZoomScaleExt(float f2) {
-            return BdSailorWebView.this.mCurrentWebView.setPreviewZoomScale(f2);
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048655, this, f2)) == null) ? this.this$0.mCurrentWebView.setPreviewZoomScale(f2) : invokeF.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setShiftPressedModeExt(boolean z) {
-            try {
-                d.a.h.a.k.b.a(WebView.class, this, "setShiftIsPressed", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
-            } catch (Exception unused) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048656, this, z) == null) {
+                try {
+                    d.a.i.a.k.b.a(WebView.class, this, "setShiftIsPressed", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
+                } catch (Exception unused) {
+                }
             }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setSubjectScrollToOnloadExt(int i2) {
-            BdSailorWebView.this.mCurrentWebView.setSubjectScrollToOnload(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
+                this.this$0.mCurrentWebView.setSubjectScrollToOnload(i2);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setTextFieldTextExt(String str) {
-            BdSailorWebView.this.mCurrentWebView.setTextFieldText(str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048658, this, str) == null) {
+                this.this$0.mCurrentWebView.setTextFieldText(str);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setTextFieldTextExt(String str, boolean z) {
-            if (z) {
-                BdSailorWebView.this.mCurrentWebView.insertTextFieldText(str);
-            } else {
-                BdSailorWebView.this.mCurrentWebView.setTextFieldText(str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048659, this, str, z) == null) {
+                if (z) {
+                    this.this$0.mCurrentWebView.insertTextFieldText(str);
+                } else {
+                    this.this$0.mCurrentWebView.setTextFieldText(str);
+                }
             }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setTextNightColorExt(int i2) {
-            return false;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048660, this, i2)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setTextSelectingModeExt(boolean z) {
-            BdSailorWebView.this.mCurrentWebView.setSelectingText(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048661, this, z) == null) {
+                this.this$0.mCurrentWebView.setSelectingText(z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean setVisitedLinkNightColorExt(int i2) {
-            return BdSailorWebView.this.mCurrentWebView.setVisitedLinkNightColor(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048662, this, i2)) == null) ? this.this$0.mCurrentWebView.setVisitedLinkNightColor(i2) : invokeI.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setWebChromeClientExt(BdSailorWebChromeClientExt bdSailorWebChromeClientExt) {
-            this.mWebChromeClientExt = bdSailorWebChromeClientExt;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048663, this, bdSailorWebChromeClientExt) == null) {
+                this.mWebChromeClientExt = bdSailorWebChromeClientExt;
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setWebViewClientExt(BdSailorWebViewClientExt bdSailorWebViewClientExt) {
-            this.mWebViewClientExt = bdSailorWebViewClientExt;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048664, this, bdSailorWebViewClientExt) == null) {
+                this.mWebViewClientExt = bdSailorWebViewClientExt;
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setWebViewStateExt(WebView.WebViewState webViewState) {
-            BdSailorWebView.this.mCurrentWebView.setWebViewState(webViewState);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048665, this, webViewState) == null) {
+                this.this$0.mCurrentWebView.setWebViewState(webViewState);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setWebViewTypeExt(WebView.WebViewType webViewType) {
-            BdSailorWebView.this.mCurrentWebView.setWebViewType(webViewType);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048666, this, webViewType) == null) {
+                this.this$0.mCurrentWebView.setWebViewType(webViewType);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void showMagnifierExt(int i2, int i3, int i4, int i5, boolean z) {
-            BdSailorWebView.this.mCurrentWebView.showMagnifier(i2, i3, i4, i5, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048667, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)}) == null) {
+                this.this$0.mCurrentWebView.showMagnifier(i2, i3, i4, i5, z);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void startCaptureContentExt() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void startLoadingAnimation() {
-            BdSailorWebView.this.mCurrentWebView.startLoadingAnimation(null);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048669, this) == null) {
+                this.this$0.mCurrentWebView.startLoadingAnimation(null);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void startLoadingAnimation(String str) {
-            BdSailorWebView.this.mCurrentWebView.startLoadingAnimation(str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048670, this, str) == null) {
+                this.this$0.mCurrentWebView.startLoadingAnimation(str);
+            }
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean startPreviewZoomScaleExt() {
-            return BdSailorWebView.this.mCurrentWebView.startPreviewZoomScale();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) ? this.this$0.mCurrentWebView.startPreviewZoomScale() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void updatePictureUrlListExt() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048672, this) == null) {
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4322e;
+
+        public a(BdSailorWebView bdSailorWebView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4322e = bdSailorWebView;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             FrameLayout frameLayout;
-            try {
-                Context context = BdSailorWebView.this.getContext();
-                Activity activity = context instanceof Activity ? (Activity) context : null;
-                if (activity != null) {
-                    if (BdSailorWebView.this.getCurrentWebView() != null) {
-                        BdSailorWebView.this.getCurrentWebView().setVisibility(0);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Context context = this.f4322e.getContext();
+                    Activity activity = context instanceof Activity ? (Activity) context : null;
+                    if (activity != null) {
+                        if (this.f4322e.getCurrentWebView() != null) {
+                            this.f4322e.getCurrentWebView().setVisibility(0);
+                        }
+                        this.f4322e.setFullscreen(activity, false);
+                        Window window = activity.getWindow();
+                        if (window == null || (frameLayout = (FrameLayout) window.getDecorView()) == null) {
+                            return;
+                        }
+                        if (this.f4322e.mFullscreenContainer != null) {
+                            frameLayout.removeView(this.f4322e.mFullscreenContainer);
+                            this.f4322e.mFullscreenContainer = null;
+                        }
+                        this.f4322e.mCustomView = null;
+                        if (this.f4322e.mCustomViewCallback != null) {
+                            this.f4322e.mCustomViewCallback.onCustomViewHidden();
+                        }
+                        activity.setRequestedOrientation(this.f4322e.mOriginalOrientation);
                     }
-                    BdSailorWebView.this.setFullscreen(activity, false);
-                    Window window = activity.getWindow();
-                    if (window == null || (frameLayout = (FrameLayout) window.getDecorView()) == null) {
-                        return;
-                    }
-                    if (BdSailorWebView.this.mFullscreenContainer != null) {
-                        frameLayout.removeView(BdSailorWebView.this.mFullscreenContainer);
-                        BdSailorWebView.this.mFullscreenContainer = null;
-                    }
-                    BdSailorWebView.this.mCustomView = null;
-                    if (BdSailorWebView.this.mCustomViewCallback != null) {
-                        BdSailorWebView.this.mCustomViewCallback.onCustomViewHidden();
-                    }
-                    activity.setRequestedOrientation(BdSailorWebView.this.mOriginalOrientation);
+                } catch (Exception e2) {
+                    Log.e(BdSailorWebView.LOG_TAG, "Exception happened when hide custom view");
+                    e2.printStackTrace();
                 }
-            } catch (Exception e2) {
-                Log.e(BdSailorWebView.LOG_TAG, "Exception happened when hide custom view");
-                e2.printStackTrace();
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class b extends WebBackForwardListClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4293a;
+        public WebView f4323a;
 
-        public b(WebView webView) {
-            this.f4293a = webView;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4324b;
+
+        public b(BdSailorWebView bdSailorWebView, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4324b = bdSailorWebView;
+            this.f4323a = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
         public final void onIndexChanged(WebHistoryItem webHistoryItem, int i2) {
-            super.onIndexChanged(webHistoryItem, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, webHistoryItem, i2) == null) {
+                super.onIndexChanged(webHistoryItem, i2);
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
         public final void onNewHistoryItem(WebHistoryItem webHistoryItem) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onNewPage(BdSailorWebView.this);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webHistoryItem) == null) || this.f4324b.mWebViewExt.getWebViewClientExt() == null) {
+                return;
             }
+            this.f4324b.mWebViewExt.getWebViewClientExt().onNewPage(this.f4324b);
         }
     }
 
     /* loaded from: classes.dex */
     public class c implements WebView.PictureListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4325a;
+
+        public c(BdSailorWebView bdSailorWebView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4325a = bdSailorWebView;
         }
 
         public /* synthetic */ c(BdSailorWebView bdSailorWebView, byte b2) {
-            this();
+            this(bdSailorWebView);
         }
 
         @Override // com.baidu.webkit.sdk.WebView.PictureListener
         public final void onNewPicture(WebView webView, Picture picture) {
-            WebView.PictureListener pictureListener = BdSailorWebView.this.mPictureListener;
-            if (pictureListener != null) {
-                pictureListener.onNewPicture(webView, picture);
+            WebView.PictureListener pictureListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, webView, picture) == null) || (pictureListener = this.f4325a.mPictureListener) == null) {
+                return;
             }
+            pictureListener.onNewPicture(webView, picture);
         }
     }
 
     /* loaded from: classes.dex */
     public class d implements DownloadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4296a;
+        public WebView f4326a;
 
-        public d(WebView webView) {
-            this.f4296a = webView;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4327b;
+
+        public d(BdSailorWebView bdSailorWebView, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4327b = bdSailorWebView;
+            this.f4326a = webView;
         }
 
         @Override // android.webkit.DownloadListener
         public final void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            Log.d("// BdSailorMonitorEngine", "BdDownloadListenerBridge.onDownloadStart l=" + j + ", ---> s=" + str + ", --->s1=" + str2 + ", ---> s2=" + str3 + ", --- s3=" + str4);
-            if (BdSailorWebView.this.mDownloadListener != null) {
-                BdSailorWebView.this.mDownloadListener.onDownloadStart(str, str2, str3, str4, j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
+                Log.d("// BdSailorMonitorEngine", "BdDownloadListenerBridge.onDownloadStart l=" + j + ", ---> s=" + str + ", --->s1=" + str2 + ", ---> s2=" + str3 + ", --- s3=" + str4);
+                if (this.f4327b.mDownloadListener != null) {
+                    this.f4327b.mDownloadListener.onDownloadStart(str, str2, str3, str4, j);
+                }
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class e extends WebChromeClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4298a = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
+        public String[] f4328a;
 
-        public e() {
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4329b;
+
+        public e(BdSailorWebView bdSailorWebView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4329b = bdSailorWebView;
+            this.f4328a = new String[]{"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void copyText(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().copyTextExt(BdSailorWebView.this, str);
-            } else {
-                super.copyText(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().copyTextExt(this.f4329b, str);
+                } else {
+                    super.copyText(webView, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void doTextSearch(WebView webView, String str) {
-            super.doTextSearch(webView, str);
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.doTextSearchExt(BdSailorWebView.this, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+                super.doTextSearch(webView, str);
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.doTextSearchExt(this.f4329b, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void doTextTranslate(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.doTextTranslateExt(BdSailorWebView.this, str);
-            } else {
-                super.doTextTranslate(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.doTextTranslateExt(this.f4329b, str);
+                } else {
+                    super.doTextTranslate(webView, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final Bitmap getDefaultVideoPoster() {
-            return BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.getDefaultVideoPoster(BdSailorWebView.this) : super.getDefaultVideoPoster();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.getDefaultVideoPoster(this.f4329b) : super.getDefaultVideoPoster() : (Bitmap) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final View getVideoLoadingProgressView() {
-            return BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.getVideoLoadingProgressView(BdSailorWebView.this) : super.getVideoLoadingProgressView();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.getVideoLoadingProgressView(this.f4329b) : super.getVideoLoadingProgressView() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void getVisitedHistory(ValueCallback<String[]> valueCallback) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.getVisitedHistory(BdSailorWebView.this, valueCallback);
-            } else {
-                super.getVisitedHistory(valueCallback);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, valueCallback) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.getVisitedHistory(this.f4329b, valueCallback);
+                } else {
+                    super.getVisitedHistory(valueCallback);
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(this.f4329b.getCurrentWebView(), this.f4329b.getUrl(), MonitorConstant.KeySectionType.GET_VISITED_HISTORY.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(BdSailorWebView.this.getCurrentWebView(), BdSailorWebView.this.getUrl(), MonitorConstant.KeySectionType.GET_VISITED_HISTORY.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void hideMagnifier(WebView webView, int i2, int i3) {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().hideMagnifierExt(BdSailorWebView.this, i2, i3);
-            } else {
-                super.hideMagnifier(webView, i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048582, this, webView, i2, i3) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().hideMagnifierExt(this.f4329b, i2, i3);
+                } else {
+                    super.hideMagnifier(webView, i2, i3);
+                }
+                this.f4329b.mIsFunctionLayerShowing = false;
             }
-            BdSailorWebView.this.mIsFunctionLayerShowing = false;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void hideSelectionActionDialog(WebView webView) {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().hideSelectionActionDialogExt(BdSailorWebView.this);
-            } else {
-                super.hideSelectionActionDialog(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().hideSelectionActionDialogExt(this.f4329b);
+                } else {
+                    super.hideSelectionActionDialog(webView);
+                }
+                this.f4329b.mIsFunctionLayerShowing = false;
             }
-            BdSailorWebView.this.mIsFunctionLayerShowing = false;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void moveMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().moveMagnifierExt(BdSailorWebView.this, i2, i3, i4, i5);
-            } else {
-                super.moveMagnifier(webView, i2, i3, i4, i5);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().moveMagnifierExt(this.f4329b, i2, i3, i4, i5);
+                } else {
+                    super.moveMagnifier(webView, i2, i3, i4, i5);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean needNotifyNativeExitFullScreen() {
-            return BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null ? BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().needNotifyNativeExitFullScreenExt(BdSailorWebView.this) : super.needNotifyNativeExitFullScreen();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f4329b.mWebViewExt.getWebChromeClientExt() != null ? this.f4329b.mWebViewExt.getWebChromeClientExt().needNotifyNativeExitFullScreenExt(this.f4329b) : super.needNotifyNativeExitFullScreen() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void notifyClickWhenLoad() {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().notifyClickWhenLoadExt(BdSailorWebView.this);
-            } else {
-                super.notifyClickWhenLoad();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().notifyClickWhenLoadExt(this.f4329b);
+                } else {
+                    super.notifyClickWhenLoad();
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void notifyClientStatus(WebView webView, int i2) {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().notifyClientStatusExt(BdSailorWebView.this, i2);
-            } else {
-                super.notifyClientStatus(webView, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048587, this, webView, i2) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().notifyClientStatusExt(this.f4329b, i2);
+                } else {
+                    super.notifyClientStatus(webView, i2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onCloseWindow(WebView webView) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onCloseWindow(BdSailorWebView.this);
-            } else {
-                super.onCloseWindow(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, webView) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onCloseWindow(this.f4329b);
+                } else {
+                    super.onCloseWindow(webView);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            boolean onConsoleMessage = super.onConsoleMessage(consoleMessage);
-            return (BdSailorWebView.this.mWebChromeClient == null || onConsoleMessage) ? onConsoleMessage : BdSailorWebView.this.mWebChromeClient.onConsoleMessage(BdSailorWebView.this, consoleMessage);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, consoleMessage)) == null) {
+                boolean onConsoleMessage = super.onConsoleMessage(consoleMessage);
+                return (this.f4329b.mWebChromeClient == null || onConsoleMessage) ? onConsoleMessage : this.f4329b.mWebChromeClient.onConsoleMessage(this.f4329b, consoleMessage);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
-            return BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.onCreateWindow(BdSailorWebView.this, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) ? this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.onCreateWindow(this.f4329b, z, z2, message) : super.onCreateWindow(webView, z, z2, message) : invokeCommon.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onExceededDatabaseQuota(BdSailorWebView.this, str, str2, j, j2, j3, quotaUpdater);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+                super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onExceededDatabaseQuota(this.f4329b, str, str2, j, j2, j3, quotaUpdater);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onGeolocationPermissionsHidePrompt() {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onGeolocationPermissionsHidePrompt(BdSailorWebView.this);
-            } else {
-                super.onGeolocationPermissionsHidePrompt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onGeolocationPermissionsHidePrompt(this.f4329b);
+                } else {
+                    super.onGeolocationPermissionsHidePrompt();
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onGeolocationPermissionsShowPrompt(BdSailorWebView.this, str, callback);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048593, this, str, callback) == null) || this.f4329b.mWebChromeClient == null) {
+                return;
             }
+            this.f4329b.mWebChromeClient.onGeolocationPermissionsShowPrompt(this.f4329b, str, callback);
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onHideCustomView() {
-            if (BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.onHideCustomView(BdSailorWebView.this) : false) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+                if (this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.onHideCustomView(this.f4329b) : false) {
+                    return;
+                }
+                this.f4329b.hideCustomView();
             }
-            BdSailorWebView.this.hideCustomView();
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            boolean z = BdSailorWebView.this.mWebChromeClient != null && BdSailorWebView.this.mWebChromeClient.onJsAlert(BdSailorWebView.this, str, str2, jsResult);
-            return !z ? super.onJsAlert(webView, str, str2, jsResult) : z;
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048595, this, webView, str, str2, jsResult)) == null) {
+                boolean z = this.f4329b.mWebChromeClient != null && this.f4329b.mWebChromeClient.onJsAlert(this.f4329b, str, str2, jsResult);
+                return !z ? super.onJsAlert(webView, str, str2, jsResult) : z;
+            }
+            return invokeLLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if (!TextUtils.isEmpty(str)) {
-                String host = Uri.parse(str).getHost();
-                if (!TextUtils.isEmpty(host)) {
-                    for (String str3 : this.f4298a) {
-                        if (host.contains(str3)) {
-                            jsResult.confirm();
-                            return true;
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048596, this, webView, str, str2, jsResult)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    String host = Uri.parse(str).getHost();
+                    if (!TextUtils.isEmpty(host)) {
+                        for (String str3 : this.f4328a) {
+                            if (host.contains(str3)) {
+                                jsResult.confirm();
+                                return true;
+                            }
                         }
                     }
                 }
+                if (super.onJsBeforeUnload(webView, str, str2, jsResult)) {
+                    return true;
+                }
+                return this.f4329b.mWebChromeClient != null && this.f4329b.mWebChromeClient.onJsBeforeUnload(this.f4329b, str, str2, jsResult);
             }
-            if (super.onJsBeforeUnload(webView, str, str2, jsResult)) {
-                return true;
-            }
-            return BdSailorWebView.this.mWebChromeClient != null && BdSailorWebView.this.mWebChromeClient.onJsBeforeUnload(BdSailorWebView.this, str, str2, jsResult);
+            return invokeLLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            return BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.onJsConfirm(BdSailorWebView.this, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048597, this, webView, str, str2, jsResult)) == null) ? this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.onJsConfirm(this.f4329b, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult) : invokeLLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            if (super.onJsPrompt(webView, str, str2, str3, jsPromptResult)) {
-                return true;
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048598, this, webView, str, str2, str3, jsPromptResult)) == null) {
+                if (super.onJsPrompt(webView, str, str2, str3, jsPromptResult)) {
+                    return true;
+                }
+                if (this.f4329b.mWebChromeClient != null) {
+                    return this.f4329b.mWebChromeClient.onJsPrompt(this.f4329b, str, str2, str3, jsPromptResult);
+                }
+                return false;
             }
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                return BdSailorWebView.this.mWebChromeClient.onJsPrompt(BdSailorWebView.this, str, str2, str3, jsPromptResult);
-            }
-            return false;
+            return invokeLLLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onJsTimeout() {
-            if (super.onJsTimeout()) {
-                return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                if (super.onJsTimeout()) {
+                    return true;
+                }
+                return this.f4329b.mWebChromeClient != null && this.f4329b.mWebChromeClient.onJsTimeout(this.f4329b);
             }
-            return BdSailorWebView.this.mWebChromeClient != null && BdSailorWebView.this.mWebChromeClient.onJsTimeout(BdSailorWebView.this);
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onNativeElementEnterFullScreen() {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().onNativeElementEnterFullScreenExt(BdSailorWebView.this);
-            } else {
-                super.onNativeElementEnterFullScreen();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().onNativeElementEnterFullScreenExt(this.f4329b);
+                } else {
+                    super.onNativeElementEnterFullScreen();
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onNativeElementExitFullScreen() {
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().onNativeElementExitFullScreenExt(BdSailorWebView.this);
-            } else {
-                super.onNativeElementExitFullScreen();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().onNativeElementExitFullScreenExt(this.f4329b);
+                } else {
+                    super.onNativeElementExitFullScreen();
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onOffsetsForFullscreenChanged(float f2, float f3, float f4) {
-            BdSailorWebView bdSailorWebView = BdSailorWebView.this;
-            bdSailorWebView.setTopControlsHeight(bdSailorWebView.mEmbeddedTitlebarHeightPix, f3 > 0.0f);
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onOffsetsForFullscreenChanged(BdSailorWebView.this, f2, f3, f4);
-            } else {
-                super.onOffsetsForFullscreenChanged(f2, f3, f4);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                BdSailorWebView bdSailorWebView = this.f4329b;
+                bdSailorWebView.setTopControlsHeight(bdSailorWebView.mEmbeddedTitlebarHeightPix, f3 > 0.0f);
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onOffsetsForFullscreenChanged(this.f4329b, f2, f3, f4);
+                } else {
+                    super.onOffsetsForFullscreenChanged(f2, f3, f4);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onPermissionRequest(PermissionRequest permissionRequest) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onPermissionRequest(BdSailorWebView.this, permissionRequest);
-            } else {
-                super.onPermissionRequest(permissionRequest);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048603, this, permissionRequest) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onPermissionRequest(this.f4329b, permissionRequest);
+                } else {
+                    super.onPermissionRequest(permissionRequest);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onPermissionRequestCanceled(BdSailorWebView.this, permissionRequest);
-            } else {
-                super.onPermissionRequestCanceled(permissionRequest);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048604, this, permissionRequest) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onPermissionRequestCanceled(this.f4329b, permissionRequest);
+                } else {
+                    super.onPermissionRequestCanceled(permissionRequest);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onPrerenderChanged(int i2, WebView.PrerenderStatus prerenderStatus) {
-            super.onPrerenderChanged(i2, prerenderStatus);
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().onPrerenderChanged(i2, prerenderStatus);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048605, this, i2, prerenderStatus) == null) {
+                super.onPrerenderChanged(i2, prerenderStatus);
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().onPrerenderChanged(i2, prerenderStatus);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onProgressChanged(WebView webView, int i2) {
-            long currentTimeMillis = System.currentTimeMillis();
-            super.onProgressChanged(webView, i2);
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onProgressChanged(BdSailorWebView.this, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048606, this, webView, i2) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                super.onProgressChanged(webView, i2);
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onProgressChanged(this.f4329b, i2);
+                }
+                if (webView == this.f4329b.mCurrentWebView && i2 == 100) {
+                    this.f4329b.mIsPageLoading = false;
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webView.getUrl(), MonitorConstant.KeySectionType.PROGRESSCHANGED.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            if (webView == BdSailorWebView.this.mCurrentWebView && i2 == 100) {
-                BdSailorWebView.this.mIsPageLoading = false;
-            }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webView.getUrl(), MonitorConstant.KeySectionType.PROGRESSCHANGED.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-            super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onReachedMaxAppCacheSize(BdSailorWebView.this, j, j2, quotaUpdater);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
+                super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onReachedMaxAppCacheSize(this.f4329b, j, j2, quotaUpdater);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onReceivedIcon(WebView webView, Bitmap bitmap) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onReceivedIcon(BdSailorWebView.this, bitmap);
-            } else {
-                super.onReceivedIcon(webView, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048608, this, webView, bitmap) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onReceivedIcon(this.f4329b, bitmap);
+                } else {
+                    super.onReceivedIcon(webView, bitmap);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onReceivedTitle(WebView webView, String str) {
-            super.onReceivedTitle(webView, str);
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onReceivedTitle(BdSailorWebView.this, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048609, this, webView, str) == null) {
+                super.onReceivedTitle(webView, str);
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onReceivedTitle(this.f4329b, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onReceivedTouchIconUrl(BdSailorWebView.this, str, z);
-            } else {
-                super.onReceivedTouchIconUrl(webView, str, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(1048610, this, webView, str, z) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onReceivedTouchIconUrl(this.f4329b, str, z);
+                } else {
+                    super.onReceivedTouchIconUrl(webView, str, z);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onRequestFocus(WebView webView) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.onRequestFocus(BdSailorWebView.this);
-            } else {
-                super.onRequestFocus(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048611, this, webView) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.onRequestFocus(this.f4329b);
+                } else {
+                    super.onRequestFocus(webView);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onSetLoadURL(WebView webView, String str) {
-            super.onSetLoadURL(webView, str);
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().onSetLoadURLExt(BdSailorWebView.this, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048612, this, webView, str) == null) {
+                super.onSetLoadURL(webView, str);
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().onSetLoadURLExt(this.f4329b, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
-            if (BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.onShowCustomView(BdSailorWebView.this, view, i2, customViewCallback) : false) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048613, this, view, i2, customViewCallback) == null) {
+                if (this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.onShowCustomView(this.f4329b, view, i2, customViewCallback) : false) {
+                    return;
+                }
+                BdSailorWebView bdSailorWebView = this.f4329b;
+                bdSailorWebView.showCustomView(bdSailorWebView.getContext(), view, customViewCallback);
             }
-            BdSailorWebView bdSailorWebView = BdSailorWebView.this;
-            bdSailorWebView.showCustomView(bdSailorWebView.getContext(), view, customViewCallback);
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
-            if (BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.onShowCustomView(BdSailorWebView.this, view, customViewCallback) : false) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048614, this, view, customViewCallback) == null) {
+                if (this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.onShowCustomView(this.f4329b, view, customViewCallback) : false) {
+                    return;
+                }
+                BdSailorWebView bdSailorWebView = this.f4329b;
+                bdSailorWebView.showCustomView(bdSailorWebView.getContext(), view, customViewCallback);
             }
-            BdSailorWebView bdSailorWebView = BdSailorWebView.this;
-            bdSailorWebView.showCustomView(bdSailorWebView.getContext(), view, customViewCallback);
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-            return BdSailorWebView.this.mWebChromeClient != null ? BdSailorWebView.this.mWebChromeClient.onShowFileChooser(BdSailorWebView.this, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams);
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048615, this, webView, valueCallback, fileChooserParams)) == null) ? this.f4329b.mWebChromeClient != null ? this.f4329b.mWebChromeClient.onShowFileChooser(this.f4329b, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams) : invokeLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void openFileChooser(ValueCallback<Uri> valueCallback) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.openFileChooser(BdSailorWebView.this, valueCallback);
-            } else {
-                super.openFileChooser(valueCallback);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048616, this, valueCallback) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.openFileChooser(this.f4329b, valueCallback);
+                } else {
+                    super.openFileChooser(valueCallback);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.openFileChooser(BdSailorWebView.this, valueCallback, str);
-            } else {
-                super.openFileChooser(valueCallback, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048617, this, valueCallback, str) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.openFileChooser(this.f4329b, valueCallback, str);
+                } else {
+                    super.openFileChooser(valueCallback, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
-            if (BdSailorWebView.this.mWebChromeClient != null) {
-                BdSailorWebView.this.mWebChromeClient.openFileChooser(BdSailorWebView.this, valueCallback, str, str2);
-            } else {
-                super.openFileChooser(valueCallback, str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048618, this, valueCallback, str, str2) == null) {
+                if (this.f4329b.mWebChromeClient != null) {
+                    this.f4329b.mWebChromeClient.openFileChooser(this.f4329b, valueCallback, str, str2);
+                } else {
+                    super.openFileChooser(valueCallback, str, str2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void performLongClick(WebView webView, int i2, String str, String str2, int i3, int i4) {
-            super.performLongClick(webView, i2, str, str2, i3, i4);
-            if (BdZeusUtil.isWebkitLoaded() || Build.VERSION.SDK_INT >= 19) {
-                if (BdSailorWebView.this.mWebViewExt != null && BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                    BdSailorWebView.this.mIsFunctionLayerShowing = true;
-                    BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().performLongClickExt(BdSailorWebView.this, i2, str, str2, i3, i4);
-                }
-                if (i2 == 5 || i2 == 8) {
-                    BdSailorWebView.this.getWebViewExt().updatePictureUrlListExt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{webView, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+                super.performLongClick(webView, i2, str, str2, i3, i4);
+                if (BdZeusUtil.isWebkitLoaded() || Build.VERSION.SDK_INT >= 19) {
+                    if (this.f4329b.mWebViewExt != null && this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                        this.f4329b.mIsFunctionLayerShowing = true;
+                        this.f4329b.mWebViewExt.getWebChromeClientExt().performLongClickExt(this.f4329b, i2, str, str2, i3, i4);
+                    }
+                    if (i2 == 5 || i2 == 8) {
+                        this.f4329b.getWebViewExt().updatePictureUrlListExt();
+                    }
                 }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void performLongClick(WebView webView, WebView.HitTestResult hitTestResult, int i2, int i3) {
-            super.performLongClick(webView, hitTestResult, i2, i3);
-            if (BdZeusUtil.isWebkitLoaded() || Build.VERSION.SDK_INT >= 19) {
-                if (BdSailorWebView.this.mWebViewExt != null && BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                    BdSailorWebView.this.mIsFunctionLayerShowing = true;
-                    BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().performLongClickExt(BdSailorWebView.this, hitTestResult, i2, i3);
-                }
-                if (hitTestResult.getType() == 5 || hitTestResult.getType() == 8) {
-                    BdSailorWebView.this.getWebViewExt().updatePictureUrlListExt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(1048620, this, webView, hitTestResult, i2, i3) == null) {
+                super.performLongClick(webView, hitTestResult, i2, i3);
+                if (BdZeusUtil.isWebkitLoaded() || Build.VERSION.SDK_INT >= 19) {
+                    if (this.f4329b.mWebViewExt != null && this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                        this.f4329b.mIsFunctionLayerShowing = true;
+                        this.f4329b.mWebViewExt.getWebChromeClientExt().performLongClickExt(this.f4329b, hitTestResult, i2, i3);
+                    }
+                    if (hitTestResult.getType() == 5 || hitTestResult.getType() == 8) {
+                        this.f4329b.getWebViewExt().updatePictureUrlListExt();
+                    }
                 }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void showMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
-            BdSailorWebView.this.mIsFunctionLayerShowing = true;
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().showMagnifierExt(BdSailorWebView.this, i2, i3, i4, i5);
-            } else {
-                super.showMagnifier(webView, i2, i3, i4, i5);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+                this.f4329b.mIsFunctionLayerShowing = true;
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().showMagnifierExt(this.f4329b, i2, i3, i4, i5);
+                } else {
+                    super.showMagnifier(webView, i2, i3, i4, i5);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void showSelectionActionDialog(WebView webView, int i2, int i3, int i4, int i5, String str) {
-            BdSailorWebView.this.mIsFunctionLayerShowing = true;
-            if (BdSailorWebView.this.mWebViewExt.getWebChromeClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebChromeClientExt().showSelectionActionDialogExt(BdSailorWebView.this, i2, i3, i4, i5, str);
-            } else {
-                super.showSelectionActionDialog(webView, i2, i3, i4, i5, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str}) == null) {
+                this.f4329b.mIsFunctionLayerShowing = true;
+                if (this.f4329b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f4329b.mWebViewExt.getWebChromeClientExt().showSelectionActionDialogExt(this.f4329b, i2, i3, i4, i5, str);
+                } else {
+                    super.showSelectionActionDialog(webView, i2, i3, i4, i5, str);
+                }
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class f extends WebViewClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4300a;
+        public String[] f4330a;
 
-        public f() {
-            this.f4300a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4331b;
+
+        public f(BdSailorWebView bdSailorWebView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4331b = bdSailorWebView;
+            this.f4330a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
         }
 
         public /* synthetic */ f(BdSailorWebView bdSailorWebView, byte b2) {
-            this();
+            this(bdSailorWebView);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void AntiHijackSign(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean canHandleImage(WebView webView, String str, String str2, String str3) {
-            boolean z = false;
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebViewClientExt webViewClientExt = BdSailorWebView.this.mWebViewExt.getWebViewClientExt();
-                BdSailorWebView bdSailorWebView = BdSailorWebView.this;
-                z = webViewClientExt.shouldHandleImageExt(bdSailorWebView, str, str2, str3, bdSailorWebView.mCurrentWebView == webView);
-                Log.i("WebViewClient", "canHandleImage ret=".concat(String.valueOf(z)));
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3)) == null) {
+                boolean z = false;
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    BdSailorWebViewClientExt webViewClientExt = this.f4331b.mWebViewExt.getWebViewClientExt();
+                    BdSailorWebView bdSailorWebView = this.f4331b;
+                    z = webViewClientExt.shouldHandleImageExt(bdSailorWebView, str, str2, str3, bdSailorWebView.mCurrentWebView == webView);
+                    Log.i("WebViewClient", "canHandleImage ret=".concat(String.valueOf(z)));
+                }
+                if (z) {
+                    this.f4331b.stopLoading();
+                    return true;
+                }
+                return super.canHandleImage(webView, str, str2, str3);
             }
-            if (z) {
-                BdSailorWebView.this.stopLoading();
-                return true;
-            }
-            return super.canHandleImage(webView, str, str2, str3);
+            return invokeLLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final int computeHookH5NavigationStep(int i2) {
-            Log.i("WebViewClient", "BeeFrame computeHookH5NavigationStep: offset=".concat(String.valueOf(i2)));
-            return BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null ? BdSailorWebView.this.mWebViewExt.getWebViewClientExt().computeHookH5NavigationStep(i2) : super.computeHookH5NavigationStep(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+                Log.i("WebViewClient", "BeeFrame computeHookH5NavigationStep: offset=".concat(String.valueOf(i2)));
+                return this.f4331b.mWebViewExt.getWebViewClientExt() != null ? this.f4331b.mWebViewExt.getWebViewClientExt().computeHookH5NavigationStep(i2) : super.computeHookH5NavigationStep(i2);
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void doUpdateVisitedHistory(WebView webView, String str, boolean z, boolean z2, boolean z3, boolean z4) {
-            long currentTimeMillis = System.currentTimeMillis();
-            super.doUpdateVisitedHistory(webView, str, z, z2, z3, z4);
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.doUpdateVisitedHistory(BdSailorWebView.this, str, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                super.doUpdateVisitedHistory(webView, str, z, z2, z3, z4);
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.doUpdateVisitedHistory(this.f4331b, str, z);
+                }
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().doUpdateVisitedHistory(this.f4331b, str, z, z2, z3, z4);
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DO_UPDATE_VISITED_HISTORY.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().doUpdateVisitedHistory(BdSailorWebView.this, str, z, z2, z3, z4);
-            }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DO_UPDATE_VISITED_HISTORY.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onAbortResourceRequest(WebView webView, String str, String str2, long j) {
-            if (!(webView instanceof WebView) || BdSailorWebView.this.isDestroyed() || BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) || !(webView instanceof WebView) || this.f4331b.isDestroyed() || this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onAbortResourceRequest(BdSailorWebView.this, str, str2, j);
+            this.f4331b.mWebViewExt.getWebViewClientExt().onAbortResourceRequest(this.f4331b, str, str2, j);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onCheckHasManifestAndServiceWorker(WebView webView, String str, String str2, boolean z) {
-            Log.i("pwa", "onCheckHasManifestAndServiceWorker has=" + z + ",url=" + str);
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onCheckHasManifestAndServiceWorker(BdSailorWebView.this, str, str2, z);
-            } else {
-                super.onCheckHasManifestAndServiceWorker(webView, str, str2, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)}) == null) {
+                Log.i("pwa", "onCheckHasManifestAndServiceWorker has=" + z + ",url=" + str);
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onCheckHasManifestAndServiceWorker(this.f4331b, str, str2, z);
+                } else {
+                    super.onCheckHasManifestAndServiceWorker(webView, str, str2, z);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onDidAsyncWiseSearchStatusChanged(WebView webView, String str, int i2, long j) {
-            super.onDidAsyncWiseSearchStatusChanged(webView, str, i2, j);
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                super.onDidAsyncWiseSearchStatusChanged(webView, str, i2, j);
+                if (this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    return;
+                }
+                Log.i("WebViewClient", "onDidAsyncWiseSearchStatusChangedExt status : " + i2 + ", aUrl : " + str);
+                this.f4331b.mWebViewExt.getWebViewClientExt().onDidAsyncWiseSearchStatusChangedExt(this.f4331b, str, i2, j);
             }
-            Log.i("WebViewClient", "onDidAsyncWiseSearchStatusChangedExt status : " + i2 + ", aUrl : " + str);
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onDidAsyncWiseSearchStatusChangedExt(BdSailorWebView.this, str, i2, j);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onDisplaySoftKeyboard(WebView webView) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onDisplaySoftKeyboardExt(BdSailorWebView.this);
-            } else {
-                super.onDisplaySoftKeyboard(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onDisplaySoftKeyboardExt(this.f4331b);
+                } else {
+                    super.onDisplaySoftKeyboard(webView);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstContentfulPaint(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str) == null) || this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
             Log.i("WebViewClient", "FCPCallback onFirstContentfulPaintExt, aUrl : ".concat(String.valueOf(str)));
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstContentfulPaintExt(BdSailorWebView.this, str);
+            this.f4331b.mWebViewExt.getWebViewClientExt().onFirstContentfulPaintExt(this.f4331b, str);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstImagePaint(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) || this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
             Log.i("WebViewClient", "FIPCallback onFirstImagePaintExt, aUrl : ".concat(String.valueOf(str)));
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstImagePaintExt(BdSailorWebView.this, str);
+            this.f4331b.mWebViewExt.getWebViewClientExt().onFirstImagePaintExt(this.f4331b, str);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstLayoutDid(WebView webView, String str) {
-            long currentTimeMillis = System.currentTimeMillis();
-            BdSailorWebView.this.perfLog(webView, "onFirstLayoutDid");
-            super.onFirstLayoutDid(webView, str);
-            if (BdSailorWebView.this.mWebViewExt != null && BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstLayoutDidExt(BdSailorWebView.this, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048586, this, webView, str) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                this.f4331b.perfLog(webView, "onFirstLayoutDid");
+                super.onFirstLayoutDid(webView, str);
+                if (this.f4331b.mWebViewExt != null && this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onFirstLayoutDidExt(this.f4331b, str);
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DID_FIRST_LAYOUT.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DID_FIRST_LAYOUT.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstPaintDid(WebView webView, String str) {
-            long currentTimeMillis = System.currentTimeMillis();
-            BdSailorWebView.this.perfLog(webView, "onFirstPaintDid", "Started");
-            super.onFirstPaintDid(webView, str);
-            if (BdSailorWebView.this.mWebViewExt != null && BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstPaintDidExt(BdSailorWebView.this, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048587, this, webView, str) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                this.f4331b.perfLog(webView, "onFirstPaintDid", "Started");
+                super.onFirstPaintDid(webView, str);
+                if (this.f4331b.mWebViewExt != null && this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onFirstPaintDidExt(this.f4331b, str);
+                }
+                this.f4331b.perfLog(webView, "onFirstPaintDid", "Finished");
+                this.f4331b.perfLog(ETAG.KEY_FIRST_PAINT, str);
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DID_FIRST_PAINT.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            BdSailorWebView.this.perfLog(webView, "onFirstPaintDid", "Finished");
-            BdSailorWebView.this.perfLog(ETAG.KEY_FIRST_PAINT, str);
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DID_FIRST_PAINT.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstScreenImagePaint(WebView webView, WebViewClient.FirstScreenImageInfo firstScreenImageInfo) {
-            BdSailorWebView.this.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint");
-            super.onFirstScreenImagePaint(webView, firstScreenImageInfo);
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048588, this, webView, firstScreenImageInfo) == null) {
+                this.f4331b.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint");
+                super.onFirstScreenImagePaint(webView, firstScreenImageInfo);
+                if (this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    return;
+                }
+                this.f4331b.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint 22");
+                BdSailorWebViewClientExt.FirstScreenImageInfo firstScreenImageInfo2 = new BdSailorWebViewClientExt.FirstScreenImageInfo();
+                firstScreenImageInfo2.setHaveImageInScreen(firstScreenImageInfo.getHaveImageInScreen());
+                firstScreenImageInfo2.setUrl(firstScreenImageInfo.getUrl());
+                firstScreenImageInfo2.setImageCount(firstScreenImageInfo.getImageCount());
+                firstScreenImageInfo2.setErrorOccurredCount(firstScreenImageInfo.getErrorOccurredCount());
+                firstScreenImageInfo2.setPosXForMaxImage(firstScreenImageInfo.getPosXForMaxImage());
+                firstScreenImageInfo2.setPosYForMaxImage(firstScreenImageInfo.getPosYForMaxImage());
+                firstScreenImageInfo2.setPaintWidthForMaxImage(firstScreenImageInfo.getPaintWidthForMaxImage());
+                firstScreenImageInfo2.setPaintHeightForMaxImage(firstScreenImageInfo.getPaintHeightForMaxImage());
+                firstScreenImageInfo2.setTimeStampForMaxImage(firstScreenImageInfo.getTimeStampForMaxImage());
+                firstScreenImageInfo2.setMaxTimeStamp(firstScreenImageInfo.getMaxTimeStamp());
+                this.f4331b.mWebViewExt.getWebViewClientExt().onFirstScreenImagePaint(this.f4331b, firstScreenImageInfo2);
             }
-            BdSailorWebView.this.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint 22");
-            BdSailorWebViewClientExt.FirstScreenImageInfo firstScreenImageInfo2 = new BdSailorWebViewClientExt.FirstScreenImageInfo();
-            firstScreenImageInfo2.setHaveImageInScreen(firstScreenImageInfo.getHaveImageInScreen());
-            firstScreenImageInfo2.setUrl(firstScreenImageInfo.getUrl());
-            firstScreenImageInfo2.setImageCount(firstScreenImageInfo.getImageCount());
-            firstScreenImageInfo2.setErrorOccurredCount(firstScreenImageInfo.getErrorOccurredCount());
-            firstScreenImageInfo2.setPosXForMaxImage(firstScreenImageInfo.getPosXForMaxImage());
-            firstScreenImageInfo2.setPosYForMaxImage(firstScreenImageInfo.getPosYForMaxImage());
-            firstScreenImageInfo2.setPaintWidthForMaxImage(firstScreenImageInfo.getPaintWidthForMaxImage());
-            firstScreenImageInfo2.setPaintHeightForMaxImage(firstScreenImageInfo.getPaintHeightForMaxImage());
-            firstScreenImageInfo2.setTimeStampForMaxImage(firstScreenImageInfo.getTimeStampForMaxImage());
-            firstScreenImageInfo2.setMaxTimeStamp(firstScreenImageInfo.getMaxTimeStamp());
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstScreenImagePaint(BdSailorWebView.this, firstScreenImageInfo2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstScreenPaintFinished(WebView webView, String str, int i2, int i3, int i4, int i5, int i6, int i7) {
-            System.currentTimeMillis();
-            BdSailorWebView.this.perfLog(webView, "onFirstScreenPaintFinished");
-            super.onFirstScreenPaintFinished(webView, str, i2, i3, i4, i5, i6, i7);
-            BdSailorWebViewClientExt.FirstScreenInfo firstScreenInfo = new BdSailorWebViewClientExt.FirstScreenInfo();
-            firstScreenInfo.setDiffDomcompleteAndFspTime(i7);
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+                System.currentTimeMillis();
+                this.f4331b.perfLog(webView, "onFirstScreenPaintFinished");
+                super.onFirstScreenPaintFinished(webView, str, i2, i3, i4, i5, i6, i7);
+                BdSailorWebViewClientExt.FirstScreenInfo firstScreenInfo = new BdSailorWebViewClientExt.FirstScreenInfo();
+                firstScreenInfo.setDiffDomcompleteAndFspTime(i7);
+                if (this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    return;
+                }
+                this.f4331b.perfLog(webView, "onFirstScreenPaintFinished 22");
+                this.f4331b.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(this.f4331b, str);
+                this.f4331b.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(this.f4331b, str, firstScreenInfo);
             }
-            BdSailorWebView.this.perfLog(webView, "onFirstScreenPaintFinished 22");
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(BdSailorWebView.this, str);
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(BdSailorWebView.this, str, firstScreenInfo);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstTextPaint(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048590, this, webView, str) == null) || this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
             Log.i("WebViewClient", "FTPCallback onFirstTextPaintExt, aUrl : ".concat(String.valueOf(str)));
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstTextPaintExt(BdSailorWebView.this, str);
+            this.f4331b.mWebViewExt.getWebViewClientExt().onFirstTextPaintExt(this.f4331b, str);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFormResubmission(WebView webView, Message message, Message message2) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onFormResubmission(BdSailorWebView.this, message, message2);
-            } else {
-                super.onFormResubmission(webView, message, message2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048591, this, webView, message, message2) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onFormResubmission(this.f4331b, message, message2);
+                } else {
+                    super.onFormResubmission(webView, message, message2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFullScreenMode(WebView webView, boolean z, int i2, int i3) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFullScreenModeExt(BdSailorWebView.this, z, i2, i3);
-            } else {
-                super.onFullScreenMode(webView, z, i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onFullScreenModeExt(this.f4331b, z, i2, i3);
+                } else {
+                    super.onFullScreenMode(webView, z, i2, i3);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGestureFlingEnded(WebView webView, int i2, int i3) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLII(1048593, this, webView, i2, i3) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGestureFlingEnded(this.f4331b, i2, i3);
             }
-            webViewClientExt.onGestureFlingEnded(BdSailorWebView.this, i2, i3);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGestureScrollEnded(WebView webView, int i2, int i3) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLII(1048594, this, webView, i2, i3) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGestureScrollEnded(this.f4331b, i2, i3);
             }
-            webViewClientExt.onGestureScrollEnded(BdSailorWebView.this, i2, i3);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGestureScrollStarted(WebView webView, int i2, int i3) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLII(1048595, this, webView, i2, i3) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGestureScrollStarted(this.f4331b, i2, i3);
             }
-            webViewClientExt.onGestureScrollStarted(BdSailorWebView.this, i2, i3);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final String onGetErrorContent(WebView webView, int i2, String str, String str2) {
-            String onGetErrorHtmlExt = (!(webView instanceof WebView) || BdSailorWebView.this.isDestroyed() || BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) ? null : BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onGetErrorHtmlExt(BdSailorWebView.this, i2, str, str2);
-            return onGetErrorHtmlExt != null ? onGetErrorHtmlExt : BdSailorPlatform.getDefaultErrorPageHtml(webView.getContext());
+            InterceptResult invokeLILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048596, this, webView, i2, str, str2)) == null) {
+                String onGetErrorHtmlExt = (!(webView instanceof WebView) || this.f4331b.isDestroyed() || this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) ? null : this.f4331b.mWebViewExt.getWebViewClientExt().onGetErrorHtmlExt(this.f4331b, i2, str, str2);
+                return onGetErrorHtmlExt != null ? onGetErrorHtmlExt : BdSailorPlatform.getDefaultErrorPageHtml(webView.getContext());
+            }
+            return (String) invokeLILL.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGoBackOrForward(WebView webView, int i2) {
-            if (webView == BdSailorWebView.this.mCurrentWebView) {
-                BdSailorWebView.this.goBackOrForward(i2);
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048597, this, webView, i2) == null) && webView == this.f4331b.mCurrentWebView) {
+                this.f4331b.goBackOrForward(i2);
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGoBackOrForwardAnimationFinish(WebView webView, int i2) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048598, this, webView, i2) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGoBackOrForwardAnimationFinish(this.f4331b, i2);
             }
-            webViewClientExt.onGoBackOrForwardAnimationFinish(BdSailorWebView.this, i2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGoBackOrForwardAnimationStart(WebView webView, int i2) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048599, this, webView, i2) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGoBackOrForwardAnimationStart(this.f4331b, i2);
             }
-            webViewClientExt.onGoBackOrForwardAnimationStart(BdSailorWebView.this, i2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGotNotResponse(WebView webView) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onGotNotResponse(BdSailorWebView.this);
-            } else {
-                super.onGotNotResponse(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048600, this, webView) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onGotNotResponse(this.f4331b);
+                } else {
+                    super.onGotNotResponse(webView);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onHandleBackForwardBeyondHistory(int i2) {
-            Log.i("WebViewClient", "BeeFrame onHandleBackForwardBeyondHistory: offset=".concat(String.valueOf(i2)));
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onHandleBackForwardBeyondHistory(i2);
-            } else {
-                super.onHandleBackForwardBeyondHistory(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
+                Log.i("WebViewClient", "BeeFrame onHandleBackForwardBeyondHistory: offset=".concat(String.valueOf(i2)));
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onHandleBackForwardBeyondHistory(i2);
+                } else {
+                    super.onHandleBackForwardBeyondHistory(i2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onHasVideo(WebView webView) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onHasVideoExt(BdSailorWebView.this);
-            } else {
-                super.onHasVideo(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048602, this, webView) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onHasVideoExt(this.f4331b);
+                } else {
+                    super.onHasVideo(webView);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onHideSoftKeyboard(WebView webView) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onHideSoftKeyboardExt(BdSailorWebView.this);
-            } else {
-                super.onHideSoftKeyboard(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048603, this, webView) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onHideSoftKeyboardExt(this.f4331b);
+                } else {
+                    super.onHideSoftKeyboard(webView);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onKeywordExtension(WebView webView, String str, String str2) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null ? BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onKeywordExtensionExt(BdSailorWebView.this, str, str2) : false) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048604, this, webView, str, str2) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null ? this.f4331b.mWebViewExt.getWebViewClientExt().onKeywordExtensionExt(this.f4331b, str, str2) : false) {
+                    return;
+                }
+                super.onKeywordExtension(webView, str, str2);
             }
-            super.onKeywordExtension(webView, str, str2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onLoadResource(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onLoadResource(BdSailorWebView.this, str);
-            } else {
-                super.onLoadResource(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048605, this, webView, str) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onLoadResource(this.f4331b, str);
+                } else {
+                    super.onLoadResource(webView, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onMagicFilterHideElement(WebView webView, String str, int i2, int i3, int i4, int i5, int i6) {
-            super.onMagicFilterHideElement(webView, str, i2, i3, i4, i5, i6);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+                super.onMagicFilterHideElement(webView, str, i2, i3, i4, i5, i6);
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onMainResourceHttpcodeDid(WebView webView, int i2, String str) {
-            super.onMainResourceHttpcodeDid(webView, i2, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048607, this, webView, i2, str) == null) {
+                super.onMainResourceHttpcodeDid(webView, i2, str);
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onMainResourceResponseDid(WebView webView, String str) {
-            super.onMainResourceResponseDid(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048608, this, webView, str) == null) {
+                super.onMainResourceResponseDid(webView, str);
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onNavigationAnimationFinish(WebView webView, boolean z, boolean z2) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onNavigationAnimationFinish(this.f4331b, z, z2);
             }
-            webViewClientExt.onNavigationAnimationFinish(BdSailorWebView.this, z, z2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onNavigationAnimationStart(WebView webView, boolean z) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLZ(1048610, this, webView, z) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onNavigationAnimationStart(this.f4331b, z);
             }
-            webViewClientExt.onNavigationAnimationStart(BdSailorWebView.this, z);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onNewHistoryItem(WebView webView, String str, int i2) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (BdSailorWebView.this.mWebViewExt != null && BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onNewPage(BdSailorWebView.this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048611, this, webView, str, i2) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.f4331b.mWebViewExt != null && this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onNewPage(this.f4331b);
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.NEW_HISTORY_ITEM.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.NEW_HISTORY_ITEM.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageCanBeScaled(WebView webView, boolean z) {
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
-                super.onPageCanBeScaled(webView, z);
-            } else {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onPageCanBeScaledExt(BdSailorWebView.this, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048612, this, webView, z) == null) {
+                if (this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    super.onPageCanBeScaled(webView, z);
+                } else {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onPageCanBeScaledExt(this.f4331b, z);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageCommitVisible(WebView webView, String str, boolean z) {
-            long currentTimeMillis = System.currentTimeMillis();
-            super.onPageCommitVisible(webView, str, z);
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onPageCommitVisible(BdSailorWebView.this, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(1048613, this, webView, str, z) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                super.onPageCommitVisible(webView, str, z);
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onPageCommitVisible(this.f4331b, str);
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGE_COMMIT_VISIBLE.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGE_COMMIT_VISIBLE.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageFinished(WebView webView, String str) {
-            BdSailorWebView.this.perfLog(webView, "onPageFinished");
-            long currentTimeMillis = System.currentTimeMillis();
-            super.onPageFinished(webView, str);
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onPageFinished(BdSailorWebView.this, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048614, this, webView, str) == null) {
+                this.f4331b.perfLog(webView, "onPageFinished");
+                long currentTimeMillis = System.currentTimeMillis();
+                super.onPageFinished(webView, str);
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onPageFinished(this.f4331b, str);
+                }
+                if (webView == this.f4331b.mCurrentWebView) {
+                    this.f4331b.mIsPageLoading = false;
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGEFINISH.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            if (webView == BdSailorWebView.this.mCurrentWebView) {
-                BdSailorWebView.this.mIsPageLoading = false;
-            }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGEFINISH.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            BdSailorWebView.this.perfLog(webView, "onPageStarted");
-            long currentTimeMillis = System.currentTimeMillis();
-            super.onPageStarted(webView, str, bitmap);
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onPageStarted(BdSailorWebView.this, str, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048615, this, webView, str, bitmap) == null) {
+                this.f4331b.perfLog(webView, "onPageStarted");
+                long currentTimeMillis = System.currentTimeMillis();
+                super.onPageStarted(webView, str, bitmap);
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onPageStarted(this.f4331b, str, bitmap);
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGESTART.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGESTART.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageSwitching(WebView webView) {
-            if (BdSailorWebView.this.isAutoShowTitlebar()) {
-                BdSailorWebView.this.showEmbeddedTitleBar(false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048616, this, webView) == null) {
+                if (this.f4331b.isAutoShowTitlebar()) {
+                    this.f4331b.showEmbeddedTitleBar(false);
+                }
+                super.onPageSwitching(webView);
             }
-            super.onPageSwitching(webView);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPausePlugin() {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onPausePluginExt(BdSailorWebView.this);
-            } else {
-                super.onPausePlugin();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onPausePluginExt(this.f4331b);
+                } else {
+                    super.onPausePlugin();
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPlayPlugin() {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onPlayPluginExt(BdSailorWebView.this);
-            } else {
-                super.onPlayPlugin();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onPlayPluginExt(this.f4331b);
+                } else {
+                    super.onPlayPlugin();
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPreloadUrlFound(WebView webView, String str) {
-            super.onPreloadUrlFound(webView, str);
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048619, this, webView, str) == null) {
                 super.onPreloadUrlFound(webView, str);
-            } else {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onPreloadUrlFoundExt(BdSailorWebView.this, str);
+                if (this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    super.onPreloadUrlFound(webView, str);
+                } else {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onPreloadUrlFoundExt(this.f4331b, str);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onProceededAfterSslError(WebView webView, SslError sslError) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onProceededAfterSslErrorExt(BdSailorWebView.this, sslError);
-            } else {
-                super.onProceededAfterSslError(webView, sslError);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048620, this, webView, sslError) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onProceededAfterSslErrorExt(this.f4331b, sslError);
+                } else {
+                    super.onProceededAfterSslError(webView, sslError);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final String onProcessWebSearchUrl(WebView webView, String str) {
-            return (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) ? super.onProcessWebSearchUrl(webView, str) : BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onProcessWebSearchUrl(BdSailorWebView.this, str);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048621, this, webView, str)) == null) ? (this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) ? super.onProcessWebSearchUrl(webView, str) : this.f4331b.mWebViewExt.getWebViewClientExt().onProcessWebSearchUrl(this.f4331b, str) : (String) invokeLL.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onReceivedClientCertRequest(BdSailorWebView.this, clientCertRequest);
-            } else {
-                super.onReceivedClientCertRequest(webView, clientCertRequest);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048622, this, webView, clientCertRequest) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onReceivedClientCertRequest(this.f4331b, clientCertRequest);
+                } else {
+                    super.onReceivedClientCertRequest(webView, clientCertRequest);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedError(WebView webView, int i2, String str, String str2) {
-            super.onReceivedError(webView, i2, str, str2);
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onReceivedError(BdSailorWebView.this, i2, str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048623, this, webView, i2, str, str2) == null) {
+                super.onReceivedError(webView, i2, str, str2);
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onReceivedError(this.f4331b, i2, str, str2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-            long currentTimeMillis = System.currentTimeMillis();
-            super.onReceivedError(webView, webResourceRequest, webResourceError);
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                if (webResourceRequest.isForMainFrame() && (webResourceRequest.getUrl().toString().startsWith("http://") || webResourceRequest.getUrl().toString().startsWith("https://"))) {
-                    BdSailorWebView.this.mWebViewClient.onReceivedError(BdSailorWebView.this, webResourceError.getErrorCode(), webResourceError.getDescription().toString(), webResourceRequest.getUrl().toString());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048624, this, webView, webResourceRequest, webResourceError) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                super.onReceivedError(webView, webResourceRequest, webResourceError);
+                if (this.f4331b.mWebViewClient != null) {
+                    if (webResourceRequest.isForMainFrame() && (webResourceRequest.getUrl().toString().startsWith("http://") || webResourceRequest.getUrl().toString().startsWith("https://"))) {
+                        this.f4331b.mWebViewClient.onReceivedError(this.f4331b, webResourceError.getErrorCode(), webResourceError.getDescription().toString(), webResourceRequest.getUrl().toString());
+                    }
+                    this.f4331b.mWebViewClient.onReceivedError(this.f4331b, webResourceRequest, webResourceError);
                 }
-                BdSailorWebView.this.mWebViewClient.onReceivedError(BdSailorWebView.this, webResourceRequest, webResourceError);
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webView.getUrl(), MonitorConstant.KeySectionType.RECEIVED_ERROR.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webView.getUrl(), MonitorConstant.KeySectionType.RECEIVED_ERROR.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onReceivedHttpAuthRequest(BdSailorWebView.this, httpAuthHandler, str, str2);
-            } else {
-                super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048625, this, webView, httpAuthHandler, str, str2) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onReceivedHttpAuthRequest(this.f4331b, httpAuthHandler, str, str2);
+                } else {
+                    super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onReceivedHttpError(BdSailorWebView.this, webResourceRequest, webResourceResponse);
-            } else {
-                super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048626, this, webView, webResourceRequest, webResourceResponse) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onReceivedHttpError(this.f4331b, webResourceRequest, webResourceResponse);
+                } else {
+                    super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onReceivedLoginRequest(BdSailorWebView.this, str, str2, str3);
-            } else {
-                super.onReceivedLoginRequest(webView, str, str2, str3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048627, this, webView, str, str2, str3) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onReceivedLoginRequest(this.f4331b, str, str2, str3);
+                } else {
+                    super.onReceivedLoginRequest(webView, str, str2, str3);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            com.baidu.browser.sailor.feature.a featureByName = BdSailorPlatform.getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_SSL);
-            if (featureByName != null && featureByName.isEnable()) {
-                super.onReceivedSslError(webView, sslErrorHandler, sslError);
-            } else if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onReceivedSslError(BdSailorWebView.this, sslErrorHandler, sslError);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048628, this, webView, sslErrorHandler, sslError) == null) {
+                com.baidu.browser.sailor.feature.a featureByName = BdSailorPlatform.getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_SSL);
+                if (featureByName != null && featureByName.isEnable()) {
+                    super.onReceivedSslError(webView, sslErrorHandler, sslError);
+                } else if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onReceivedSslError(this.f4331b, sslErrorHandler, sslError);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-            return BdSailorWebView.this.mWebViewClient != null ? BdSailorWebView.this.mWebViewClient.onRenderProcessGone(BdSailorWebView.this, renderProcessGoneDetail) : super.onRenderProcessGone(webView, renderProcessGoneDetail);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048629, this, webView, renderProcessGoneDetail)) == null) ? this.f4331b.mWebViewClient != null ? this.f4331b.mWebViewClient.onRenderProcessGone(this.f4331b, renderProcessGoneDetail) : super.onRenderProcessGone(webView, renderProcessGoneDetail) : invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onResourceLoaded(WebView webView, String str, long j, String str2, String str3, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{webView, str, Long.valueOf(j), str2, str3, Integer.valueOf(i2)}) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onRestoreFromCache(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
-                super.onRestoreFromCache(webView, str);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048631, this, webView, str) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    super.onRestoreFromCache(webView, str);
+                    return;
+                }
+                this.f4331b.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(this.f4331b, str);
+                this.f4331b.mWebViewExt.getWebViewClientExt().onRestoreFromCache(this.f4331b, str);
             }
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(BdSailorWebView.this, str);
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onRestoreFromCache(BdSailorWebView.this, str);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onRestoreFromPageCacheDid(WebView webView, String str) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(BdSailorWebView.this, str);
-            } else {
-                super.onRestoreFromPageCacheDid(webView, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048632, this, webView, str) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(this.f4331b, str);
+                } else {
+                    super.onRestoreFromPageCacheDid(webView, str);
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.RESTORE_FROM_CACHE.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.RESTORE_FROM_CACHE.ordinal(), System.currentTimeMillis() - currentTimeMillis);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onResumePlugin() {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onResumePluginExt(BdSailorWebView.this);
-            } else {
-                super.onResumePlugin();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onResumePluginExt(this.f4331b);
+                } else {
+                    super.onResumePlugin();
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onScaleChanged(WebView webView, float f2, float f3) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onScaleChanged(BdSailorWebView.this, f2, f3);
-            } else {
-                super.onScaleChanged(webView, f2, f3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onScaleChanged(this.f4331b, f2, f3);
+                } else {
+                    super.onScaleChanged(webView, f2, f3);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onSearchLandingPageClicked(WebView webView, String str, String str2, long j) {
-            super.onSearchLandingPageClicked(webView, str, str2, j);
-            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) {
+                super.onSearchLandingPageClicked(webView, str, str2, j);
+                if (this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    return;
+                }
+                this.f4331b.mWebViewExt.getWebViewClientExt().onSearchLandingPageClicked(this.f4331b, str, str2, j);
             }
-            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onSearchLandingPageClicked(BdSailorWebView.this, str, str2, j);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onSecurityCheckResult(WebView webView, String str, WebViewClient.SecurityInfo securityInfo) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onSecurityCheckResultExt(BdSailorWebView.this, str, securityInfo);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048636, this, webView, str, securityInfo) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onSecurityCheckResultExt(this.f4331b, str, securityInfo);
+                }
+                super.onSecurityCheckResult(webView, str, securityInfo);
             }
-            super.onSecurityCheckResult(webView, str, securityInfo);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onStartFirstNavigation(WebView webView, String str, boolean z, boolean z2, boolean z3) {
             BdSailorWebViewClientExt webViewClientExt;
-            if (webView != BdSailorWebView.this.mCurrentWebView || (webViewClientExt = BdSailorWebView.this.getWebViewExt().getWebViewClientExt()) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && webView == this.f4331b.mCurrentWebView && (webViewClientExt = this.f4331b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onStartFirstNavigation(this.f4331b, str, z, z2, z3);
             }
-            webViewClientExt.onStartFirstNavigation(BdSailorWebView.this, str, z, z2, z3);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean onSubFrameBeforeRequest(WebView webView, String str) {
-            if (!(webView instanceof WebView) || BdSailorWebView.this.isDestroyed() || BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
-                return false;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, webView, str)) == null) {
+                if (!(webView instanceof WebView) || this.f4331b.isDestroyed() || this.f4331b.mWebViewExt == null || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                    return false;
+                }
+                return this.f4331b.mWebViewExt.getWebViewClientExt().onSubFrameBeforeRequest(this.f4331b, str);
             }
-            return BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onSubFrameBeforeRequest(BdSailorWebView.this, str);
+            return invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onSubjectsCollected(WebView webView, boolean z, int i2) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onSubjectsCollectedExt(BdSailorWebView.this, z, i2);
-            } else {
-                super.onSubjectsCollected(webView, z, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onSubjectsCollectedExt(this.f4331b, z, i2);
+                } else {
+                    super.onSubjectsCollected(webView, z, i2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean onSupportsForceZoomScale(WebView webView) {
-            return BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null ? BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onSupportsForceZoomScale(BdSailorWebView.this) : super.onSupportsForceZoomScale(webView);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, webView)) == null) ? this.f4331b.mWebViewExt.getWebViewClientExt() != null ? this.f4331b.mWebViewExt.getWebViewClientExt().onSupportsForceZoomScale(this.f4331b) : super.onSupportsForceZoomScale(webView) : invokeL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean onTextCopied(WebView webView) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onTextCopiedExt(BdSailorWebView.this);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, webView)) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().onTextCopiedExt(this.f4331b);
+                }
+                return super.onTextCopied(webView);
             }
-            return super.onTextCopied(webView);
+            return invokeL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                BdSailorWebView.this.mWebViewClient.onUnhandledKeyEvent(BdSailorWebView.this, keyEvent);
-            } else {
-                super.onUnhandledKeyEvent(webView, keyEvent);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048642, this, webView, keyEvent) == null) {
+                if (this.f4331b.mWebViewClient != null) {
+                    this.f4331b.mWebViewClient.onUnhandledKeyEvent(this.f4331b, keyEvent);
+                } else {
+                    super.onUnhandledKeyEvent(webView, keyEvent);
+                }
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onUpdateTextFieldNextPreStatus(WebView webView, boolean z, boolean z2) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onUpdateTextFieldNextPreStatus(BdSailorWebView.this, z, z2);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f4331b.mWebViewExt.getWebViewClientExt() == null) {
+                return;
             }
+            this.f4331b.mWebViewExt.getWebViewClientExt().onUpdateTextFieldNextPreStatus(this.f4331b, z, z2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-            long currentTimeMillis = System.currentTimeMillis();
-            WebResourceResponse shouldInterceptRequest = BdSailorWebView.this.mWebViewClient != null ? BdSailorWebView.this.mWebViewClient.shouldInterceptRequest(BdSailorWebView.this, webResourceRequest) : null;
-            if (shouldInterceptRequest == null) {
-                shouldInterceptRequest = shouldInterceptRequest(webView, webResourceRequest.getUrl().toString());
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, webView, webResourceRequest)) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                WebResourceResponse shouldInterceptRequest = this.f4331b.mWebViewClient != null ? this.f4331b.mWebViewClient.shouldInterceptRequest(this.f4331b, webResourceRequest) : null;
+                if (shouldInterceptRequest == null) {
+                    shouldInterceptRequest = shouldInterceptRequest(webView, webResourceRequest.getUrl().toString());
+                }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webResourceRequest.getUrl().toString(), MonitorConstant.KeySectionType.SHOULD_INTERCEPT_REQUEST.ordinal(), System.currentTimeMillis() - currentTimeMillis);
+                return shouldInterceptRequest;
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webResourceRequest.getUrl().toString(), MonitorConstant.KeySectionType.SHOULD_INTERCEPT_REQUEST.ordinal(), System.currentTimeMillis() - currentTimeMillis);
-            return shouldInterceptRequest;
+            return (WebResourceResponse) invokeLL.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-            WebResourceResponse shouldInterceptRequest = super.shouldInterceptRequest(webView, str);
-            return (shouldInterceptRequest == null && BdSailorWebView.this.mWebViewClient != null) ? BdSailorWebView.this.mWebViewClient.shouldInterceptRequest(BdSailorWebView.this, str) : shouldInterceptRequest;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048645, this, webView, str)) == null) {
+                WebResourceResponse shouldInterceptRequest = super.shouldInterceptRequest(webView, str);
+                return (shouldInterceptRequest == null && this.f4331b.mWebViewClient != null) ? this.f4331b.mWebViewClient.shouldInterceptRequest(this.f4331b, str) : shouldInterceptRequest;
+            }
+            return (WebResourceResponse) invokeLL.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldKeywordExtension(WebView webView, String str) {
-            return BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null ? BdSailorWebView.this.mWebViewExt.getWebViewClientExt().shouldKeywordExtensionExt(BdSailorWebView.this, str) : super.shouldKeywordExtension(webView, str);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048646, this, webView, str)) == null) ? this.f4331b.mWebViewExt.getWebViewClientExt() != null ? this.f4331b.mWebViewExt.getWebViewClientExt().shouldKeywordExtensionExt(this.f4331b, str) : super.shouldKeywordExtension(webView, str) : invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldOpenFlash(WebView webView, String str) {
-            if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
-                BdSailorWebView.this.mWebViewExt.getWebViewClientExt().shouldOpenFlashExt(BdSailorWebView.this, str);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048647, this, webView, str)) == null) {
+                if (this.f4331b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f4331b.mWebViewExt.getWebViewClientExt().shouldOpenFlashExt(this.f4331b, str);
+                }
+                return super.shouldOpenFlash(webView, str);
             }
-            return super.shouldOpenFlash(webView, str);
+            return invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
-            return BdSailorWebView.this.mWebViewClient != null ? BdSailorWebView.this.mWebViewClient.shouldOverrideKeyEvent(BdSailorWebView.this, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048648, this, webView, keyEvent)) == null) ? this.f4331b.mWebViewClient != null ? this.f4331b.mWebViewClient.shouldOverrideKeyEvent(this.f4331b, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent) : invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldOverrideSpecialUrlLoading(WebView webView, String str) {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean shouldOverrideUrlLoading = BdSailorWebView.this.mWebViewClient != null ? BdSailorWebView.this.mWebViewClient.shouldOverrideUrlLoading(BdSailorWebView.this, str) : false;
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.SHOULD_SPECIAL_LOADING.ordinal(), System.currentTimeMillis() - currentTimeMillis);
-            return shouldOverrideUrlLoading;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048649, this, webView, str)) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                boolean shouldOverrideUrlLoading = this.f4331b.mWebViewClient != null ? this.f4331b.mWebViewClient.shouldOverrideUrlLoading(this.f4331b, str) : false;
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.SHOULD_SPECIAL_LOADING.ordinal(), System.currentTimeMillis() - currentTimeMillis);
+                return shouldOverrideUrlLoading;
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
-            BdSailorWebView.this.perfLog(webView, "shouldOverrideUrlLoading");
-            long currentTimeMillis = System.currentTimeMillis();
-            String uri = webResourceRequest.getUrl().toString();
-            webView.getSecureProcessor().a(uri);
-            int i2 = 0;
-            boolean shouldOverrideUrlLoading = BdSailorWebView.this.mWebViewClient != null ? BdSailorWebView.this.mWebViewClient.shouldOverrideUrlLoading(BdSailorWebView.this, webResourceRequest) : false;
-            if (!shouldOverrideUrlLoading) {
-                shouldOverrideUrlLoading = super.shouldOverrideUrlLoading(webView, webResourceRequest);
-            }
-            if (!shouldOverrideUrlLoading) {
-                shouldOverrideUrlLoading = shouldOverrideUrlLoading(webView, uri);
-            }
-            if (shouldOverrideUrlLoading && !TextUtils.isEmpty(uri)) {
-                String[] strArr = this.f4300a;
-                int length = strArr.length;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (uri.startsWith(strArr[i2])) {
-                        Log.d("// BdSailorMonitorEngine", "BdWebViewClientProxy.shouldoverridetel handled by external-->onTelRequest ,url=".concat(String.valueOf(uri)));
-                        break;
-                    } else {
-                        i2++;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048650, this, webView, webResourceRequest)) == null) {
+                this.f4331b.perfLog(webView, "shouldOverrideUrlLoading");
+                long currentTimeMillis = System.currentTimeMillis();
+                String uri = webResourceRequest.getUrl().toString();
+                webView.getSecureProcessor().a(uri);
+                int i2 = 0;
+                boolean shouldOverrideUrlLoading = this.f4331b.mWebViewClient != null ? this.f4331b.mWebViewClient.shouldOverrideUrlLoading(this.f4331b, webResourceRequest) : false;
+                if (!shouldOverrideUrlLoading) {
+                    shouldOverrideUrlLoading = super.shouldOverrideUrlLoading(webView, webResourceRequest);
+                }
+                if (!shouldOverrideUrlLoading) {
+                    shouldOverrideUrlLoading = shouldOverrideUrlLoading(webView, uri);
+                }
+                if (shouldOverrideUrlLoading && !TextUtils.isEmpty(uri)) {
+                    String[] strArr = this.f4330a;
+                    int length = strArr.length;
+                    while (true) {
+                        if (i2 >= length) {
+                            break;
+                        } else if (uri.startsWith(strArr[i2])) {
+                            Log.d("// BdSailorMonitorEngine", "BdWebViewClientProxy.shouldoverridetel handled by external-->onTelRequest ,url=".concat(String.valueOf(uri)));
+                            break;
+                        } else {
+                            i2++;
+                        }
                     }
                 }
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, uri, MonitorConstant.KeySectionType.SHOULD_OVERRIDE_URL_LOADING.ordinal(), System.currentTimeMillis() - currentTimeMillis);
+                return shouldOverrideUrlLoading;
             }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, uri, MonitorConstant.KeySectionType.SHOULD_OVERRIDE_URL_LOADING.ordinal(), System.currentTimeMillis() - currentTimeMillis);
-            return shouldOverrideUrlLoading;
+            return invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            boolean shouldOverrideUrlLoading = BdSailorWebView.this.mWebViewClient != null ? BdSailorWebView.this.mWebViewClient.shouldOverrideUrlLoading(BdSailorWebView.this, str) : false;
-            return !shouldOverrideUrlLoading ? super.shouldOverrideUrlLoading(webView, str) : shouldOverrideUrlLoading;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048651, this, webView, str)) == null) {
+                boolean shouldOverrideUrlLoading = this.f4331b.mWebViewClient != null ? this.f4331b.mWebViewClient.shouldOverrideUrlLoading(this.f4331b, str) : false;
+                return !shouldOverrideUrlLoading ? super.shouldOverrideUrlLoading(webView, str) : shouldOverrideUrlLoading;
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void shouldPageRollBack(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048652, this, webView, str) == null) {
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public static class g extends FrameLayout {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(Context context) {
             super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             setBackgroundColor(context.getResources().getColor(context.getResources().getIdentifier("sailor_common_black", "color", context.getPackageName())));
         }
 
         @Override // android.view.View
         public final boolean onTouchEvent(MotionEvent motionEvent) {
-            return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes.dex */
     public class h extends WebViewDelegate {
-        public h(WebView webView) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4332a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(BdSailorWebView bdSailorWebView, WebView webView) {
             super(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdSailorWebView, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((WebView) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4332a = bdSailorWebView;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean canGoBack() {
-            return BdSailorWebView.this.canGoBack();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4332a.canGoBack() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean canGoBackOrForward(int i2) {
-            return BdSailorWebView.this.canGoBackOrForward(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f4332a.canGoBackOrForward(i2) : invokeI.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean canGoForward() {
-            return BdSailorWebView.this.canGoForward();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4332a.canGoForward() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getCurrentTitleBar() {
-            return BdSailorWebView.this.getCurrentTitleBar();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4332a.getCurrentTitleBar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getEmbeddedTitlebar() {
-            return BdSailorWebView.this.getEmbeddedTitlebar();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4332a.getEmbeddedTitlebar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getLandingPageTitleBar() {
-            return BdSailorWebView.this.getLandingPageTitleBar();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4332a.getLandingPageTitleBar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getSearchResultTitleBar() {
-            return BdSailorWebView.this.getSearchResultTitleBar();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4332a.getSearchResultTitleBar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final int getTitlebarHeight() {
-            return BdSailorWebView.this.getTitlebarHeight();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4332a.getTitlebarHeight() : invokeV.intValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void goBack() {
-            BdSailorWebView.this.goBack();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.f4332a.goBack();
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void goBackOrForward(int i2) {
-            BdSailorWebView.this.goBackOrForward(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+                this.f4332a.goBackOrForward(i2);
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void goForward() {
-            BdSailorWebView.this.goForward();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                this.f4332a.goForward();
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean isTitlebarCanShow() {
-            return BdSailorWebView.this.isTitlebarCanShow();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f4332a.isTitlebarCanShow() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean isTitlebarShowing() {
-            return BdSailorWebView.this.isTitlebarShowing();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f4332a.isTitlebarShowing() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
-            BdSailorWebView.this.onOverScrolled(i2, i3, z, z2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                this.f4332a.onOverScrolled(i2, i3, z, z2);
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void onScrollChanged(int i2, int i3, int i4, int i5) {
-            BdSailorWebView.this.onScrollChanged(i2, i3, i4, i5);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
+                this.f4332a.onScrollChanged(i2, i3, i4, i5);
+            }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean onTouchEvent(MotionEvent motionEvent) {
-            return BdSailorWebView.this.onTouchEvent(motionEvent);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) ? this.f4332a.onTouchEvent(motionEvent) : invokeL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void setCurrentTitleBar(boolean z) {
-            BdSailorWebView.this.setCurrentTitleBar(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+                this.f4332a.setCurrentTitleBar(z);
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(206572126, "Lcom/baidu/browser/sailor/BdSailorWebView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(206572126, "Lcom/baidu/browser/sailor/BdSailorWebView;");
+                return;
+            }
+        }
+        LOG_TAG = BdSailorWebView.class.getSimpleName();
+        COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
+        sInitFirstWebView = true;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdSailorWebView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mCurrentWebView = new WebView(context);
         init();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdSailorWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mCurrentWebView = new WebView(context, attributeSet);
         init();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdSailorWebView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.mCurrentWebView = new WebView(context, attributeSet, i2);
         init();
     }
 
     private void addWebView(WebView webView) {
-        addWebView(webView, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65559, this, webView) == null) {
+            addWebView(webView, -1);
+        }
     }
 
     private void addWebView(WebView webView, int i2) {
-        if (webView.getParent() != null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65560, this, webView, i2) == null) && webView.getParent() == null) {
+            h hVar = new h(this, webView);
+            this.mViewDelegate = hVar;
+            webView.setViewDelegate(hVar);
+            if (d.a.i.b.c.b.c() && BdZeusUtil.isWebkitLoaded()) {
+                return;
+            }
+            getWebViewContainer().addView(webView, i2, new FrameLayout.LayoutParams(-1, -1));
         }
-        h hVar = new h(webView);
-        this.mViewDelegate = hVar;
-        webView.setViewDelegate(hVar);
-        if (d.a.h.b.c.b.c() && BdZeusUtil.isWebkitLoaded()) {
-            return;
-        }
-        getWebViewContainer().addView(webView, i2, new FrameLayout.LayoutParams(-1, -1));
     }
 
     private void bringStatusBarToFront() {
         View view;
-        if (!d.a.h.b.c.b.c() || (view = this.mStatusBar) == null || indexOfChild(view) < 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || !d.a.i.b.c.b.c() || (view = this.mStatusBar) == null || indexOfChild(view) < 0) {
             return;
         }
         bringChildToFront(this.mStatusBar);
     }
 
     public static void cancelPreload(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, null, str) == null) {
+        }
     }
 
     private void init() {
-        checkInit();
-        this.mWebSettings = new BdSailorWebSettings(this.mCurrentWebView.getSettings());
-        this.mWebViewExt = new BdSailorWebViewExt(this, null);
-        this.mWebViewLayer = new FrameLayout(this.mCurrentWebView.getContext());
-        this.mWebViewLayerLp = new FrameLayout.LayoutParams(-1, -1);
-        if (!d.a.h.b.c.b.c() || !BdZeusUtil.isWebkitLoaded()) {
-            addView(this.mWebViewLayer, this.mWebViewLayerLp);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            checkInit();
+            this.mWebSettings = new BdSailorWebSettings(this.mCurrentWebView.getSettings());
+            this.mWebViewExt = new BdSailorWebViewExt(this, null);
+            this.mWebViewLayer = new FrameLayout(this.mCurrentWebView.getContext());
+            this.mWebViewLayerLp = new FrameLayout.LayoutParams(-1, -1);
+            if (!d.a.i.b.c.b.c() || !BdZeusUtil.isWebkitLoaded()) {
+                addView(this.mWebViewLayer, this.mWebViewLayerLp);
+            }
+            initWebView(this.mCurrentWebView);
+            addWebView(this.mCurrentWebView);
+            setFocusableInTouchMode(true);
+            if (BdSailor.getInstance().getSailorClient() != null) {
+                BdSailor.getInstance().getSailorClient().updateSearchUrlProtocol(getContext(), true);
+            }
+            this.mCurrentWebView.setWebViewPagerContainer(this);
+            setNetworkAvailable(NetWorkUtils.getIsOnline());
+            if (sInitFirstWebView) {
+                Log.i(GlobalConstants.LOG_PER_TAG, " timing = \n" + ZeusPerformanceTiming.getWebViewInitTiming());
+                sInitFirstWebView = false;
+            }
+            ZeusPerformanceTiming.recordWebkitInitStatistics(1);
         }
-        initWebView(this.mCurrentWebView);
-        addWebView(this.mCurrentWebView);
-        setFocusableInTouchMode(true);
-        if (BdSailor.getInstance().getSailorClient() != null) {
-            BdSailor.getInstance().getSailorClient().updateSearchUrlProtocol(getContext(), true);
-        }
-        this.mCurrentWebView.setWebViewPagerContainer(this);
-        setNetworkAvailable(NetWorkUtils.getIsOnline());
-        if (sInitFirstWebView) {
-            Log.i(GlobalConstants.LOG_PER_TAG, " timing = \n" + ZeusPerformanceTiming.getWebViewInitTiming());
-            sInitFirstWebView = false;
-        }
-        ZeusPerformanceTiming.recordWebkitInitStatistics(1);
     }
 
     private void initWebView(WebView webView) {
-        webView.setWebChromeClient(new e());
-        webView.setWebViewClient(new f(this, (byte) 0));
-        webView.setPictureListener(new c(this, (byte) 0));
-        webView.setDownloadListener(new d(webView));
-        webView.setWebBackForwardListClient(new b(webView));
-        webView.setVideoPlayerFactory(this.mVideoFactory);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65564, this, webView) == null) {
+            webView.setWebChromeClient(new e(this));
+            webView.setWebViewClient(new f(this, (byte) 0));
+            webView.setPictureListener(new c(this, (byte) 0));
+            webView.setDownloadListener(new d(this, webView));
+            webView.setWebBackForwardListClient(new b(this, webView));
+            webView.setVideoPlayerFactory(this.mVideoFactory);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void perfLog(WebView webView, String str) {
-        perfLog(webView, str, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65565, this, webView, str) == null) {
+            perfLog(webView, str, null);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void perfLog(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65566, this, webView, str, str2) == null) {
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void perfLog(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65567, this, str, str2) == null) {
+        }
     }
 
     private void removeWebView(WebView webView) {
-        try {
-            if (d.a.h.b.c.b.c() && BdZeusUtil.isWebkitLoaded()) {
-                webView.getWebViewPager().removeView(webView);
-            } else {
-                getWebViewContainer().removeView(webView);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65568, this, webView) == null) {
+            try {
+                if (d.a.i.b.c.b.c() && BdZeusUtil.isWebkitLoaded()) {
+                    webView.getWebViewPager().removeView(webView);
+                } else {
+                    getWebViewContainer().removeView(webView);
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
         }
     }
 
     private void setSearchBarTopMargin() {
-        if (d.a.h.b.c.b.c()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65569, this) == null) && d.a.i.b.c.b.c()) {
             setViewTopMargin(this.mSearchResultTitleBar, this.mStatusBarHeight);
             setViewTopMargin(this.mLandingPageTitleBar, this.mStatusBarHeight);
         }
@@ -2116,11 +3136,15 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setTopControlsHeight(int i2, boolean z) {
-        this.mCurrentWebView.setTopControlsHeight(i2, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65570, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            this.mCurrentWebView.setTopControlsHeight(i2, z);
+        }
     }
 
     private void setViewSize(View view, int i2, int i3) {
-        if (view == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(65571, this, view, i2, i3) == null) || view == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -2134,7 +3158,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     private void setViewTopMargin(View view, int i2) {
-        if (view == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65572, this, view, i2) == null) || view == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -2148,161 +3173,232 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     private void setWebViewLayerMarginInternal(int i2, int i3, int i4, int i5) {
-        this.mWebViewLayerLp.setMargins(i2, i3, i4, i5);
-        this.mWebViewLayer.setLayoutParams(this.mWebViewLayerLp);
-        onWebViewLayerMarginChanged(i2, i3, i4, i5);
-        this.mWebViewLayer.invalidate();
-        this.mCurrentWebView.setWebViewMargin(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(65573, this, i2, i3, i4, i5) == null) {
+            this.mWebViewLayerLp.setMargins(i2, i3, i4, i5);
+            this.mWebViewLayer.setLayoutParams(this.mWebViewLayerLp);
+            onWebViewLayerMarginChanged(i2, i3, i4, i5);
+            this.mWebViewLayer.invalidate();
+            this.mCurrentWebView.setWebViewMargin(i2, i3, i4, i5);
+        }
     }
 
     public void addJavascriptInterface(Object obj, String str) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.addJavascriptInterface(obj, str);
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, obj, str) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.addJavascriptInterface(obj, str);
     }
 
     public void addJavascriptInterfaceExt(IJsAbility iJsAbility, String str) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.addJavascriptInterfaceExt(iJsAbility, str);
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iJsAbility, str) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.addJavascriptInterfaceExt(iJsAbility, str);
     }
 
     public void addWebMessageListener(WebMessageListener webMessageListener, String str, String[] strArr) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.addWebMessageListener(webMessageListener, str, strArr);
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webMessageListener, str, strArr) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.addWebMessageListener(webMessageListener, str, strArr);
     }
 
     public boolean canGoBack() {
-        return this.mCurrentWebView.canGoBack();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCurrentWebView.canGoBack() : invokeV.booleanValue;
     }
 
     public boolean canGoBackOrForward(int i2) {
-        return this.mCurrentWebView.canGoBackOrForward(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.mCurrentWebView.canGoBackOrForward(i2) : invokeI.booleanValue;
     }
 
     public boolean canGoForward() {
-        return this.mCurrentWebView.canGoForward();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCurrentWebView.canGoForward() : invokeV.booleanValue;
     }
 
     public boolean canZoomIn() {
-        return this.mCurrentWebView.canZoomIn();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mCurrentWebView.canZoomIn() : invokeV.booleanValue;
     }
 
     public boolean canZoomOut() {
-        return this.mCurrentWebView.canZoomOut();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCurrentWebView.canZoomOut() : invokeV.booleanValue;
     }
 
     public Bitmap captureBitmap() {
+        InterceptResult invokeV;
         Bitmap captureBitmap;
-        try {
-            WebView currentWebView = getCurrentWebView();
-            if (currentWebView != null && currentWebView.getMeasuredWidth() > 0 && currentWebView.getMeasuredHeight() > 0) {
-                if (BdZeusUtil.isWebkitLoaded()) {
-                    captureBitmap = getCurrentWebView().captureBitmap();
-                } else {
-                    captureBitmap = Bitmap.createBitmap(currentWebView.getMeasuredWidth(), currentWebView.getMeasuredHeight(), Bitmap.Config.RGB_565);
-                    Canvas canvas = new Canvas(captureBitmap);
-                    int save = canvas.save();
-                    this.mWebViewLayer.draw(canvas);
-                    canvas.restoreToCount(save);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            try {
+                WebView currentWebView = getCurrentWebView();
+                if (currentWebView != null && currentWebView.getMeasuredWidth() > 0 && currentWebView.getMeasuredHeight() > 0) {
+                    if (BdZeusUtil.isWebkitLoaded()) {
+                        captureBitmap = getCurrentWebView().captureBitmap();
+                    } else {
+                        captureBitmap = Bitmap.createBitmap(currentWebView.getMeasuredWidth(), currentWebView.getMeasuredHeight(), Bitmap.Config.RGB_565);
+                        Canvas canvas = new Canvas(captureBitmap);
+                        int save = canvas.save();
+                        this.mWebViewLayer.draw(canvas);
+                        canvas.restoreToCount(save);
+                    }
+                    if (captureBitmap != null && captureBitmap.getWidth() > 0 && captureBitmap.getHeight() > 0) {
+                        return getTitlebarHeight() != 0 && isTitlebarShowing() ? Bitmap.createBitmap(captureBitmap, 0, getTitlebarHeight(), captureBitmap.getWidth(), captureBitmap.getHeight() - getTitlebarHeight()) : captureBitmap;
+                    }
                 }
-                if (captureBitmap != null && captureBitmap.getWidth() > 0 && captureBitmap.getHeight() > 0) {
-                    return getTitlebarHeight() != 0 && isTitlebarShowing() ? Bitmap.createBitmap(captureBitmap, 0, getTitlebarHeight(), captureBitmap.getWidth(), captureBitmap.getHeight() - getTitlebarHeight()) : captureBitmap;
-                }
+            } catch (Throwable unused) {
             }
-        } catch (Throwable unused) {
+            return null;
         }
-        return null;
+        return (Bitmap) invokeV.objValue;
     }
 
     public Bitmap captureBitmap(int i2, int i3) {
-        return this.mCurrentWebView.captureBitmap(i2, i3);
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) ? this.mCurrentWebView.captureBitmap(i2, i3) : (Bitmap) invokeII.objValue;
     }
 
     public Picture capturePicture() {
-        return this.mCurrentWebView.capturePicture();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mCurrentWebView.capturePicture() : (Picture) invokeV.objValue;
     }
 
     public void checkInit() {
-        if (!BdSailor.getInstance().isInit()) {
-            throw new RuntimeException("Must Call BdSailor.init(Context aContext, String aWorkspace) first!");
-        }
-        if (!BdSailorPlatform.getInstance().isWebkitInit()) {
-            throw new RuntimeException("Must Call BdSailor.initWebkit(String aAppId, boolean aIsZeusIntegrate) first!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (!BdSailor.getInstance().isInit()) {
+                throw new RuntimeException("Must Call BdSailor.init(Context aContext, String aWorkspace) first!");
+            }
+            if (!BdSailorPlatform.getInstance().isWebkitInit()) {
+                throw new RuntimeException("Must Call BdSailor.initWebkit(String aAppId, boolean aIsZeusIntegrate) first!");
+            }
         }
     }
 
     public void clearCache(boolean z) {
-        this.mCurrentWebView.clearCache(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.mCurrentWebView.clearCache(z);
+        }
     }
 
     public void clearFormData() {
-        this.mCurrentWebView.clearFormData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.mCurrentWebView.clearFormData();
+        }
     }
 
     public void clearHistory() {
-        this.mCurrentWebView.clearHistory();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.mCurrentWebView.clearHistory();
+        }
     }
 
     public void clearMatches() {
-        this.mCurrentWebView.clearMatches();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.mCurrentWebView.clearMatches();
+        }
     }
 
     public void clearSslPreferences() {
-        this.mCurrentWebView.clearSslPreferences();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.mCurrentWebView.clearSslPreferences();
+        }
     }
 
     public void clearView() {
-        this.mCurrentWebView.clearView();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.mCurrentWebView.clearView();
+        }
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        this.mCurrentWebView.computeScroll();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.mCurrentWebView.computeScroll();
+        }
     }
 
     @Override // android.view.View
     public int computeVerticalScrollRange() {
-        return this.mCurrentWebView.computeVerticalScrollRange();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mCurrentWebView.computeVerticalScrollRange() : invokeV.intValue;
     }
 
     public BdSailorWebBackForwardList copyBackForwardList() {
         WebBackForwardList copyBackForwardList;
-        try {
-            if (this.mCurrentWebView == null || (copyBackForwardList = this.mCurrentWebView.copyBackForwardList()) == null) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            try {
+                if (this.mCurrentWebView == null || (copyBackForwardList = this.mCurrentWebView.copyBackForwardList()) == null) {
+                    return null;
+                }
+                return new BdSailorWebBackForwardList(copyBackForwardList);
+            } catch (Throwable th) {
+                Log.printStackTrace(th);
                 return null;
             }
-            return new BdSailorWebBackForwardList(copyBackForwardList);
-        } catch (Throwable th) {
-            Log.printStackTrace(th);
-            return null;
         }
+        return (BdSailorWebBackForwardList) invokeV.objValue;
     }
 
     public void destroy() {
-        setDownloadListener(null);
-        setEmbeddedTitleBar(null);
-        this.mCurrentWebView.destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            setDownloadListener(null);
+            setEmbeddedTitleBar(null);
+            this.mCurrentWebView.destroy();
+        }
     }
 
     public void disableFeature(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        }
     }
 
     public void disableMedia() {
-        this.mCurrentWebView.disableMedia();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.mCurrentWebView.disableMedia();
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return this.mCurrentWebView.dispatchKeyEvent(keyEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, keyEvent)) == null) ? this.mCurrentWebView.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
     }
 
     public void doRealGoBack() {
-        if (canGoBack()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && canGoBack()) {
             this.mCurrentWebView.goBack();
             if (this.mWebViewExt.getWebViewClientExt() != null) {
                 this.mWebViewExt.getWebViewClientExt().onPageBackOrForwardExt(this, -1);
@@ -2311,7 +3407,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void doRealGoForward() {
-        if (canGoForward()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && canGoForward()) {
             this.mCurrentWebView.goForward();
             if (this.mWebViewExt.getWebViewClientExt() != null) {
                 this.mWebViewExt.getWebViewClientExt().onPageBackOrForwardExt(this, 1);
@@ -2320,270 +3417,407 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void documentHasImages(Message message) {
-        this.mCurrentWebView.documentHasImages(message);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, message) == null) {
+            this.mCurrentWebView.documentHasImages(message);
+        }
     }
 
     public void dumpInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        }
     }
 
     public void emulateShiftHeld() {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.emulateShiftHeld();
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.emulateShiftHeld();
     }
 
     public void enableFeature(String str) {
-    }
-
-    public void enableMedia() {
-        this.mCurrentWebView.enableMedia();
-    }
-
-    public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.evaluateJavascript(str, valueCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
         }
     }
 
+    public void enableMedia() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            this.mCurrentWebView.enableMedia();
+        }
+    }
+
+    public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048608, this, str, valueCallback) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
+        }
+        webView.evaluateJavascript(str, valueCallback);
+    }
+
     public int findAll(String str) {
-        return this.mCurrentWebView.findAll(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) ? this.mCurrentWebView.findAll(str) : invokeL.intValue;
     }
 
     public void findAllAsync(String str) {
-        this.mCurrentWebView.findAllAsync(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+            this.mCurrentWebView.findAllAsync(str);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public View findFocus() {
-        WebView webView = this.mCurrentWebView;
-        return webView != null ? webView.findFocus() : super.findFocus();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            return webView != null ? webView.findFocus() : super.findFocus();
+        }
+        return (View) invokeV.objValue;
     }
 
     public void findNext(boolean z) {
-        this.mCurrentWebView.findNext(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            this.mCurrentWebView.findNext(z);
+        }
     }
 
     public void flingScroll(int i2, int i3) {
-        this.mCurrentWebView.flingScroll(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048613, this, i2, i3) == null) {
+            this.mCurrentWebView.flingScroll(i2, i3);
+        }
     }
 
     public void freeMemory() {
-        this.mCurrentWebView.freeMemory();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            this.mCurrentWebView.freeMemory();
+        }
     }
 
     public SslCertificate getCertificate() {
-        return this.mCurrentWebView.getCertificate();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mCurrentWebView.getCertificate() : (SslCertificate) invokeV.objValue;
     }
 
     public int getContentHeight() {
-        return this.mCurrentWebView.getContentHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mCurrentWebView.getContentHeight() : invokeV.intValue;
     }
 
     public int getContentWidth() {
-        return this.mCurrentWebView.getContentWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mCurrentWebView.getContentWidth() : invokeV.intValue;
     }
 
     public View getCurrentTitleBar() {
-        return this.mCurrentTitleBar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mCurrentTitleBar : (View) invokeV.objValue;
     }
 
     public WebView getCurrentWebView() {
-        return this.mCurrentWebView;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mCurrentWebView : (WebView) invokeV.objValue;
     }
 
     public ISailorDownloadListener getDownloadListener() {
-        return this.mDownloadListener;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mDownloadListener : (ISailorDownloadListener) invokeV.objValue;
     }
 
     public View getEmbeddedTitlebar() {
-        return this.mEmbeddedTitlebar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mEmbeddedTitlebar : (View) invokeV.objValue;
     }
 
     public Bitmap getFavicon() {
-        return this.mCurrentWebView.getFavicon();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mCurrentWebView.getFavicon() : (Bitmap) invokeV.objValue;
     }
 
     public ViewGroup getFunctionLayer() {
-        if (this.mFunctionViewLayer == null) {
-            FrameLayout frameLayout = new FrameLayout(getContext());
-            this.mFunctionViewLayer = frameLayout;
-            addView(frameLayout);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            if (this.mFunctionViewLayer == null) {
+                FrameLayout frameLayout = new FrameLayout(getContext());
+                this.mFunctionViewLayer = frameLayout;
+                addView(frameLayout);
+            }
+            return this.mFunctionViewLayer;
         }
-        return this.mFunctionViewLayer;
+        return (ViewGroup) invokeV.objValue;
     }
 
     @Override // android.view.View
     public Handler getHandler() {
-        WebView webView = this.mCurrentWebView;
-        return webView != null ? webView.getHandler() : super.getHandler();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            return webView != null ? webView.getHandler() : super.getHandler();
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public WebView.HitTestResult getHitTestResult() {
-        return this.mCurrentWebView.getHitTestResult();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.mCurrentWebView.getHitTestResult() : (WebView.HitTestResult) invokeV.objValue;
     }
 
     public String[] getHttpAuthUsernamePassword(String str, String str2) {
-        return this.mCurrentWebView.getHttpAuthUsernamePassword(str, str2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048626, this, str, str2)) == null) ? this.mCurrentWebView.getHttpAuthUsernamePassword(str, str2) : (String[]) invokeLL.objValue;
     }
 
     public View getLandingPageTitleBar() {
-        return this.mLandingPageTitleBar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mLandingPageTitleBar : (View) invokeV.objValue;
     }
 
     public String getOriginalUrl() {
-        return this.mCurrentWebView.getOriginalUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mCurrentWebView.getOriginalUrl() : (String) invokeV.objValue;
     }
 
     public int getOuterTitlebarHeight() {
-        return this.mOuterTitlebarHeightPix;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.mOuterTitlebarHeightPix : invokeV.intValue;
     }
 
     public int getProgress() {
-        return this.mCurrentWebView.getProgress();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.mCurrentWebView.getProgress() : invokeV.intValue;
     }
 
     public boolean getRendererPriorityWaivedWhenNotVisible() {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            return webView.getRendererPriorityWaivedWhenNotVisible();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                return webView.getRendererPriorityWaivedWhenNotVisible();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public int getRendererRequestedPriority() {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            return webView.getRendererRequestedPriority();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                return webView.getRendererRequestedPriority();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public float getScale() {
-        return this.mCurrentWebView.getScale();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.mCurrentWebView.getScale() : invokeV.floatValue;
     }
 
     public View getSearchResultTitleBar() {
-        return this.mSearchResultTitleBar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mSearchResultTitleBar : (View) invokeV.objValue;
     }
 
     public BdSailorWebSettings getSettings() {
-        return this.mWebSettings;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.mWebSettings : (BdSailorWebSettings) invokeV.objValue;
     }
 
     public ISailorWebSettingsExt getSettingsExt() {
-        return this.mWebViewExt.getSettingsExt();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.mWebViewExt.getSettingsExt() : (ISailorWebSettingsExt) invokeV.objValue;
     }
 
     public View getStatusBar() {
-        return this.mStatusBar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.mStatusBar : (View) invokeV.objValue;
     }
 
     public int getStatusBarHeight() {
-        return this.mStatusBarHeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.mStatusBarHeight : invokeV.intValue;
     }
 
     public String getTitle() {
-        return this.mCurrentWebView.getTitle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.mCurrentWebView.getTitle() : (String) invokeV.objValue;
     }
 
     public int getTitlebarHeight() {
-        return this.mEmbeddedTitlebarHeightPix;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.mEmbeddedTitlebarHeightPix : invokeV.intValue;
     }
 
     public String getUrl() {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            return webView.getUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                return webView.getUrl();
+            }
+            return null;
         }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener) {
-        Log.i("pwa", "bdsailorwebvew.getWebAppShortcutData");
-        this.mCurrentWebView.getWebAppShortcutData(webAppShortcutDataListener);
-    }
-
-    public void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener, boolean z) {
-        Log.i("pwa", "bdsailorwebvew.getWebAppShortcutData");
-        this.mCurrentWebView.getWebAppShortcutData(webAppShortcutDataListener, z);
-    }
-
-    public BdSailorWebChromeClient getWebChromeClient() {
-        return this.mWebChromeClient;
-    }
-
-    public int[] getWebScrollXY() {
-        try {
-            return new int[]{this.mCurrentWebView.getWebView().getScrollX(), this.mCurrentWebView.getWebView().getScrollY()};
-        } catch (NullPointerException e2) {
-            Log.printStackTrace(e2);
-            return new int[]{0, 0};
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, webAppShortcutDataListener) == null) {
+            Log.i("pwa", "bdsailorwebvew.getWebAppShortcutData");
+            this.mCurrentWebView.getWebAppShortcutData(webAppShortcutDataListener);
         }
     }
 
+    public void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048643, this, webAppShortcutDataListener, z) == null) {
+            Log.i("pwa", "bdsailorwebvew.getWebAppShortcutData");
+            this.mCurrentWebView.getWebAppShortcutData(webAppShortcutDataListener, z);
+        }
+    }
+
+    public BdSailorWebChromeClient getWebChromeClient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.mWebChromeClient : (BdSailorWebChromeClient) invokeV.objValue;
+    }
+
+    public int[] getWebScrollXY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+            try {
+                return new int[]{this.mCurrentWebView.getWebView().getScrollX(), this.mCurrentWebView.getWebView().getScrollY()};
+            } catch (NullPointerException e2) {
+                Log.printStackTrace(e2);
+                return new int[]{0, 0};
+            }
+        }
+        return (int[]) invokeV.objValue;
+    }
+
     public BdSailorWebViewClient getWebViewClient() {
-        return this.mWebViewClient;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.mWebViewClient : (BdSailorWebViewClient) invokeV.objValue;
     }
 
     public FrameLayout getWebViewContainer() {
-        return this.mWebViewLayer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.mWebViewLayer : (FrameLayout) invokeV.objValue;
     }
 
     public ISailorWebViewExt getWebViewExt() {
-        return this.mWebViewExt;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.mWebViewExt : (ISailorWebViewExt) invokeV.objValue;
     }
 
     public Looper getWebViewLooper() {
-        WebView webView = this.mCurrentWebView;
-        return webView != null ? webView.getWebViewLooper() : Looper.myLooper();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            return webView != null ? webView.getWebViewLooper() : Looper.myLooper();
+        }
+        return (Looper) invokeV.objValue;
     }
 
     public void goBack() {
-        if (canGoBack()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048650, this) == null) && canGoBack()) {
             Log.d("bfanim", "BdSailorWebView.Back");
             doRealGoBack();
         }
     }
 
     public void goBackOrForward(int i2) {
-        if (i2 == 0 || !canGoBackOrForward(i2)) {
-            return;
-        }
-        this.mCurrentWebView.goBackOrForward(i2);
-        if (this.mWebViewExt.getWebViewClientExt() != null) {
-            this.mWebViewExt.getWebViewClientExt().onPageBackOrForwardExt(this, i2);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048651, this, i2) == null) && i2 != 0 && canGoBackOrForward(i2)) {
+            this.mCurrentWebView.goBackOrForward(i2);
+            if (this.mWebViewExt.getWebViewClientExt() != null) {
+                this.mWebViewExt.getWebViewClientExt().onPageBackOrForwardExt(this, i2);
+            }
         }
     }
 
     public void goForward() {
-        if (canGoForward()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048652, this) == null) && canGoForward()) {
             doRealGoForward();
         }
     }
 
     public void goNextOrPreTextField(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048653, this, z) == null) {
+        }
     }
 
     public boolean hasCustomView() {
-        return this.mCustomView != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.mCustomView != null : invokeV.booleanValue;
     }
 
     @SuppressLint({"all"})
     public void hideCustomView() {
-        if (this.mCustomView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048655, this) == null) || this.mCustomView == null) {
             return;
         }
         try {
-            getCurrentWebView().getHandler().post(new a());
+            getCurrentWebView().getHandler().post(new a(this));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     public void hideEmbeddedTitleBar(boolean z) {
-        if (this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048656, this, z) == null) || this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
             return;
         }
         this.mCanHideTitlebar = true;
@@ -2592,540 +3826,775 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void invokeZoomPicker() {
-        this.mCurrentWebView.invokeZoomPicker();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
+            this.mCurrentWebView.invokeZoomPicker();
+        }
     }
 
     public boolean isAutoShowTitlebar() {
-        return this.mCurrentWebView.isAutoShowTitlebar();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) ? this.mCurrentWebView.isAutoShowTitlebar() : invokeV.booleanValue;
     }
 
     public boolean isDestroyed() {
-        return this.mCurrentWebView.isDestroyed();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.mCurrentWebView.isDestroyed() : invokeV.booleanValue;
     }
 
     public boolean isFeatureEnable(String str) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean isFocused() {
-        WebView webView = this.mCurrentWebView;
-        return webView != null ? webView.isFocused() : super.isFocused();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            return webView != null ? webView.isFocused() : super.isFocused();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isPageLoading() {
-        return this.mIsPageLoading;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) ? this.mIsPageLoading : invokeV.booleanValue;
     }
 
     public boolean isPrivateBrowsingEnabled() {
-        return this.mCurrentWebView.isPrivateBrowsingEnabled();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) ? this.mCurrentWebView.isPrivateBrowsingEnabled() : invokeV.booleanValue;
     }
 
     public boolean isTitlebarCanHide() {
-        return this.mCanHideTitlebar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.mCanHideTitlebar : invokeV.booleanValue;
     }
 
     public boolean isTitlebarCanShow() {
-        return this.mCanShowTitlebar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) ? this.mCanShowTitlebar : invokeV.booleanValue;
     }
 
     public boolean isTitlebarLock() {
-        return this.mLockEmbeddedTitlebar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.mLockEmbeddedTitlebar : invokeV.booleanValue;
     }
 
     public boolean isTitlebarShowing() {
-        View view = this.mEmbeddedTitlebar;
-        return view != null && view.getTranslationY() == 0.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
+            View view = this.mEmbeddedTitlebar;
+            return view != null && view.getTranslationY() == 0.0f;
+        }
+        return invokeV.booleanValue;
     }
 
     public void loadData(String str, String str2, String str3) {
-        this.mCurrentWebView.loadData(str, str2, str3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048668, this, str, str2, str3) == null) {
+            this.mCurrentWebView.loadData(str, str2, str3);
+        }
     }
 
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
-        this.mCurrentWebView.loadDataWithBaseURL(str, str2, str3, str4, str5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048669, this, str, str2, str3, str4, str5) == null) {
+            this.mCurrentWebView.loadDataWithBaseURL(str, str2, str3, str4, str5);
+        }
     }
 
     public void loadImageInPage(String str) {
-        this.mCurrentWebView.loadUrl(SHOW_IMAGE_PREFIX.concat(String.valueOf(str)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048670, this, str) == null) {
+            this.mCurrentWebView.loadUrl(SHOW_IMAGE_PREFIX.concat(String.valueOf(str)));
+        }
     }
 
     public void loadUrl(String str) {
-        if (str == null || !str.startsWith("javascript:")) {
-            perfLog(this.mCurrentWebView, "sailor-loadUrl", "url = ".concat(String.valueOf(str)));
-            perfLog("load", str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048671, this, str) == null) {
+            if (str == null || !str.startsWith("javascript:")) {
+                perfLog(this.mCurrentWebView, "sailor-loadUrl", "url = ".concat(String.valueOf(str)));
+                perfLog("load", str);
+            }
+            this.mCurrentWebView.loadUrl(str);
         }
-        this.mCurrentWebView.loadUrl(str);
     }
 
     public void loadUrl(String str, Map<String, String> map) {
-        if (str.startsWith("javascript:")) {
-            this.mCurrentWebView.loadUrl(str);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048672, this, str, map) == null) {
+            if (str.startsWith("javascript:")) {
+                this.mCurrentWebView.loadUrl(str);
+                return;
+            }
+            perfLog(this.mCurrentWebView, "sailor-loadUrl", "url = ".concat(String.valueOf(str)));
+            perfLog("load", str);
+            this.mCurrentWebView.loadUrl(str, map);
         }
-        perfLog(this.mCurrentWebView, "sailor-loadUrl", "url = ".concat(String.valueOf(str)));
-        perfLog("load", str);
-        this.mCurrentWebView.loadUrl(str, map);
     }
 
     public void lockEmbeddedTitlebar(boolean z) {
-        this.mLockEmbeddedTitlebar = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048673, this, z) == null) {
+            this.mLockEmbeddedTitlebar = z;
+        }
     }
 
     public void notifyPageActive(String str, WebView webView) {
-        notifyPageActive(str, webView, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048674, this, str, webView) == null) {
+            notifyPageActive(str, webView, false);
+        }
     }
 
     public void notifyPageActive(String str, WebView webView, boolean z) {
-        Log.i("huqin-multiwebview", "BdSailorWebView notifyPageActive, webView = " + webView + ", url = " + str + ", isOpen = " + z);
-        if (!z) {
-            webView.setCurrentSourceIdByIdentifier();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048675, this, str, webView, z) == null) {
+            Log.i("huqin-multiwebview", "BdSailorWebView notifyPageActive, webView = " + webView + ", url = " + str + ", isOpen = " + z);
+            if (!z) {
+                webView.setCurrentSourceIdByIdentifier();
+            }
+            SessionMonitorEngine.getInstance().notifyPageActive(str, webView, z);
+            this.mCurrentWebView.onPageSwapFromWebview(webView, str, true);
         }
-        SessionMonitorEngine.getInstance().notifyPageActive(str, webView, z);
-        this.mCurrentWebView.onPageSwapFromWebview(webView, str, true);
     }
 
     public void notifyPageLeave(String str, WebView webView) {
-        Log.i("huqin-multiwebview", "BdSailorWebView notifyPageLeave, webView = " + webView + ", url = " + str);
-        SessionMonitorEngine.getInstance().notifyPageLeave(str, webView);
-        this.mCurrentWebView.onPageSwapFromWebview(webView, str, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048676, this, str, webView) == null) {
+            Log.i("huqin-multiwebview", "BdSailorWebView notifyPageLeave, webView = " + webView + ", url = " + str);
+            SessionMonitorEngine.getInstance().notifyPageLeave(str, webView);
+            this.mCurrentWebView.onPageSwapFromWebview(webView, str, false);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (d.a.h.b.c.b.e(this)) {
-            BdSailor.getInstance().setCurrentSailorWebView(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048677, this) == null) {
+            super.onAttachedToWindow();
+            if (d.a.i.b.c.b.e(this)) {
+                BdSailor.getInstance().setCurrentSailorWebView(this);
+            }
         }
     }
 
     @Override // android.view.View
     public boolean onCheckIsTextEditor() {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            return webView.onCheckIsTextEditor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                return webView.onCheckIsTextEditor();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        if (BdSailor.getInstance().getCurSailorWebView() == this) {
-            BdSailor.getInstance().setCurrentSailorWebView(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048679, this) == null) {
+            super.onDetachedFromWindow();
+            if (BdSailor.getInstance().getCurSailorWebView() == this) {
+                BdSailor.getInstance().setCurrentSailorWebView(null);
+            }
         }
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        if (hasCustomView()) {
-            hideCustomView();
-            return true;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048680, this, i2, keyEvent)) == null) {
+            if (hasCustomView()) {
+                hideCustomView();
+                return true;
+            }
+            return super.onKeyDown(i2, keyEvent);
         }
-        return super.onKeyDown(i2, keyEvent);
+        return invokeIL.booleanValue;
     }
 
     @Override // android.view.View
     public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
-        this.mCurrentWebView.onOverScrolledSuper(i2, i3, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048681, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.mCurrentWebView.onOverScrolledSuper(i2, i3, z, z2);
+        }
     }
 
     public void onPause() {
-        this.mCurrentWebView.onPause();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048682, this) == null) {
+            this.mCurrentWebView.onPause();
+        }
     }
 
     public void onReinputErrorUrl() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048683, this) == null) {
+        }
     }
 
     public void onResume() {
-        this.mCurrentWebView.onResume();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048684, this) == null) {
+            this.mCurrentWebView.onResume();
+        }
     }
 
     @Override // android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
-        this.mCurrentWebView.onScrollChangedSuper(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048685, this, i2, i3, i4, i5) == null) {
+            this.mCurrentWebView.onScrollChangedSuper(i2, i3, i4, i5);
+        }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean z = false;
-        if (motionEvent.getAction() == 0) {
-            this.mIsFunctionLayerShowing = false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048686, this, motionEvent)) == null) {
+            boolean z = false;
+            if (motionEvent.getAction() == 0) {
+                this.mIsFunctionLayerShowing = false;
+            }
+            if (((this.mIsFunctionLayerShowing || this.mWebViewExt.isTextSelectingModeExt()) ? false : true) && getSettings().isGestrueBackForwardEnabled()) {
+                z = true;
+            }
+            if (z != getSettings().isGestrueBackForwardEnabledInternal()) {
+                getSettings().setBackForwardGestureInternal(z);
+            }
+            return this.mCurrentWebView.onTouchEventSuper(motionEvent);
         }
-        if (((this.mIsFunctionLayerShowing || this.mWebViewExt.isTextSelectingModeExt()) ? false : true) && getSettings().isGestrueBackForwardEnabled()) {
-            z = true;
-        }
-        if (z != getSettings().isGestrueBackForwardEnabledInternal()) {
-            getSettings().setBackForwardGestureInternal(z);
-        }
-        return this.mCurrentWebView.onTouchEventSuper(motionEvent);
+        return invokeL.booleanValue;
     }
 
     public void onWebViewLayerMarginChanged(int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048687, this, i2, i3, i4, i5) == null) {
+        }
     }
 
     public boolean overlayHorizontalScrollbar() {
-        return this.mCurrentWebView.overlayHorizontalScrollbar();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? this.mCurrentWebView.overlayHorizontalScrollbar() : invokeV.booleanValue;
     }
 
     public boolean overlayVerticalScrollbar() {
-        return this.mCurrentWebView.overlayVerticalScrollbar();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) ? this.mCurrentWebView.overlayVerticalScrollbar() : invokeV.booleanValue;
     }
 
     public boolean pageDown(boolean z) {
-        return this.mCurrentWebView.pageDown(z);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048690, this, z)) == null) ? this.mCurrentWebView.pageDown(z) : invokeZ.booleanValue;
     }
 
     public boolean pageUp(boolean z) {
-        return this.mCurrentWebView.pageUp(z);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048691, this, z)) == null) ? this.mCurrentWebView.pageUp(z) : invokeZ.booleanValue;
     }
 
     public void pauseMedia() {
-        this.mCurrentWebView.pauseMedia();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048692, this) == null) {
+            this.mCurrentWebView.pauseMedia();
+        }
     }
 
     public void pauseTimers() {
-        this.mCurrentWebView.pauseTimers();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048693, this) == null) {
+            this.mCurrentWebView.pauseTimers();
+        }
     }
 
     @Override // android.view.View
     public boolean performLongClick() {
-        return this.mCurrentWebView.performLongClick();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) ? this.mCurrentWebView.performLongClick() : invokeV.booleanValue;
     }
 
     public void postUrl(String str, byte[] bArr) {
-        this.mCurrentWebView.postUrl(str, bArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048695, this, str, bArr) == null) {
+            this.mCurrentWebView.postUrl(str, bArr);
+        }
     }
 
     public void reload() {
-        this.mCurrentWebView.stopLoading();
-        this.mCurrentWebView.reload();
-        this.mIsPageLoading = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048696, this) == null) {
+            this.mCurrentWebView.stopLoading();
+            this.mCurrentWebView.reload();
+            this.mIsPageLoading = false;
+        }
     }
 
     public void removeJavascriptInterface(String str) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.removeJavascriptInterface(str);
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048697, this, str) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.removeJavascriptInterface(str);
     }
 
     public void removeJavascriptInterfaceExt(String str) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.removeJavascriptInterfaceExt(str);
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048698, this, str) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.removeJavascriptInterfaceExt(str);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z) {
-        return this.mCurrentWebView.requestChildRectangleOnScreen(view, rect, z);
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048699, this, view, rect, z)) == null) ? this.mCurrentWebView.requestChildRectangleOnScreen(view, rect, z) : invokeLLZ.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean requestFocus(int i2, Rect rect) {
-        return this.mCurrentWebView.requestFocus(i2, rect);
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048700, this, i2, rect)) == null) ? this.mCurrentWebView.requestFocus(i2, rect) : invokeIL.booleanValue;
     }
 
     public void requestFocusNodeHref(Message message) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.requestFocusNodeHref(message);
-        } else {
-            Log.e("current webview is null.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048701, this, message) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                webView.requestFocusNodeHref(message);
+            } else {
+                Log.e("current webview is null.");
+            }
         }
     }
 
     public void requestImageRef(Message message) {
-        this.mCurrentWebView.requestImageRef(message);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048702, this, message) == null) {
+            this.mCurrentWebView.requestImageRef(message);
+        }
     }
 
     public void resetWebViewLayerMargin() {
-        setWebViewLayerMargin(0, 0, 0, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048703, this) == null) {
+            setWebViewLayerMargin(0, 0, 0, 0);
+        }
     }
 
     public BdSailorWebBackForwardList restoreState(Bundle bundle) {
+        InterceptResult invokeL;
         WebBackForwardList restoreState;
-        if (bundle == null || (restoreState = this.mCurrentWebView.restoreState(bundle)) == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048704, this, bundle)) == null) {
+            if (bundle == null || (restoreState = this.mCurrentWebView.restoreState(bundle)) == null) {
+                return null;
+            }
+            return new BdSailorWebBackForwardList(restoreState);
         }
-        return new BdSailorWebBackForwardList(restoreState);
+        return (BdSailorWebBackForwardList) invokeL.objValue;
     }
 
     public void resumeMedia() {
-        this.mCurrentWebView.resumeMedia();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048705, this) == null) {
+            this.mCurrentWebView.resumeMedia();
+        }
     }
 
     public void resumeTimers() {
-        this.mCurrentWebView.resumeTimers();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048706, this) == null) {
+            this.mCurrentWebView.resumeTimers();
+        }
     }
 
     public void runWithThreadProtect(Runnable runnable) {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            runnable.run();
-        } else {
-            this.mCurrentWebView.post(runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048707, this, runnable) == null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                runnable.run();
+            } else {
+                this.mCurrentWebView.post(runnable);
+            }
         }
     }
 
     public void savePassword(String str, String str2, String str3) {
-        this.mCurrentWebView.savePassword(str, str2, str3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048708, this, str, str2, str3) == null) {
+            this.mCurrentWebView.savePassword(str, str2, str3);
+        }
     }
 
     public BdSailorWebBackForwardList saveState(Bundle bundle) {
+        InterceptResult invokeL;
         WebBackForwardList saveState;
-        if (bundle == null || (saveState = this.mCurrentWebView.saveState(bundle)) == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048709, this, bundle)) == null) {
+            if (bundle == null || (saveState = this.mCurrentWebView.saveState(bundle)) == null) {
+                return null;
+            }
+            return new BdSailorWebBackForwardList(saveState);
         }
-        return new BdSailorWebBackForwardList(saveState);
+        return (BdSailorWebBackForwardList) invokeL.objValue;
     }
 
     public void saveWebArchive(String str) {
-        this.mCurrentWebView.saveWebArchive(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048710, this, str) == null) {
+            this.mCurrentWebView.saveWebArchive(str);
+        }
     }
 
     public void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
-        this.mCurrentWebView.saveWebArchive(str, z, valueCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048711, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) {
+            this.mCurrentWebView.saveWebArchive(str, z, valueCallback);
+        }
     }
 
     public void setAutoShowTitlebar(boolean z) {
-        this.mCurrentWebView.setAutoShowTitlebar(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048712, this, z) == null) {
+            this.mCurrentWebView.setAutoShowTitlebar(z);
+        }
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
-        this.mSnapBgColor = i2;
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.setBackgroundColor(i2);
-        } else {
-            super.setBackgroundColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048713, this, i2) == null) {
+            this.mSnapBgColor = i2;
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                webView.setBackgroundColor(i2);
+            } else {
+                super.setBackgroundColor(i2);
+            }
         }
     }
 
     public void setCertificate(SslCertificate sslCertificate) {
-        this.mCurrentWebView.setCertificate(sslCertificate);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048714, this, sslCertificate) == null) {
+            this.mCurrentWebView.setCertificate(sslCertificate);
+        }
     }
 
     public void setCurrentTitleBar(boolean z) {
         View view;
-        View view2 = this.mSearchResultTitleBar;
-        if (view2 == null || (view = this.mLandingPageTitleBar) == null) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048715, this, z) == null) || (view = this.mSearchResultTitleBar) == null || (view2 = this.mLandingPageTitleBar) == null) {
             return;
         }
         if (!z) {
-            view2 = view;
+            view = view2;
         }
-        this.mCurrentTitleBar = view2;
+        this.mCurrentTitleBar = view;
         this.mSearchResultTitleBar.setVisibility(z ? 0 : 8);
         this.mLandingPageTitleBar.setVisibility(z ? 8 : 0);
         this.mEmbeddedTitlebar = this.mCurrentTitleBar;
     }
 
     public void setDownloadListener(ISailorDownloadListener iSailorDownloadListener) {
-        this.mDownloadListener = iSailorDownloadListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048716, this, iSailorDownloadListener) == null) {
+            this.mDownloadListener = iSailorDownloadListener;
+        }
     }
 
     public void setDualTitleBars(View view, View view2, int i2, int i3) {
-        setDualTitleBars(view, view2, i2, i3, true, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048717, this, view, view2, i2, i3) == null) {
+            setDualTitleBars(view, view2, i2, i3, true, true);
+        }
     }
 
     public void setDualTitleBars(View view, View view2, int i2, int i3, boolean z, boolean z2) {
-        this.mSearchResultTitleBar = view;
-        if (view != null) {
-            view.setContentDescription("searchbar");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048718, this, new Object[]{view, view2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.mSearchResultTitleBar = view;
+            if (view != null) {
+                view.setContentDescription("searchbar");
+            }
+            this.mLandingPageTitleBar = view2;
+            if (view2 != null) {
+                view2.setContentDescription("landingbar");
+            }
+            View view3 = i3 == 0 ? this.mSearchResultTitleBar : this.mLandingPageTitleBar;
+            this.mCurrentTitleBar = view3;
+            setNewTitlebar(view3, i2, z, z2);
+            setSearchBarTopMargin();
+            bringStatusBarToFront();
+            this.mCurrentWebView.addEmbeddedTitleBarFinished();
         }
-        this.mLandingPageTitleBar = view2;
-        if (view2 != null) {
-            view2.setContentDescription("landingbar");
-        }
-        View view3 = i3 == 0 ? this.mSearchResultTitleBar : this.mLandingPageTitleBar;
-        this.mCurrentTitleBar = view3;
-        setNewTitlebar(view3, i2, z, z2);
-        setSearchBarTopMargin();
-        bringStatusBarToFront();
-        this.mCurrentWebView.addEmbeddedTitleBarFinished();
     }
 
     public void setEmbeddedTitleBar(View view) {
-        setEmbeddedTitleBar(view, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048719, this, view) == null) {
+            setEmbeddedTitleBar(view, 0);
+        }
     }
 
     public void setEmbeddedTitleBar(View view, int i2) {
-        if (!d.a.h.b.c.b.c()) {
-            setNewTitlebar(view, i2, true, true);
-        } else if (view == null) {
-            setNewTitlebar(view, i2, true, true);
-        } else {
-            this.mSearchResultTitleBar = view;
-            this.mCurrentTitleBar = view;
-            this.mEmbeddedTitlebar = view;
-            this.mEmbeddedTitlebarHeightPix = d.a.h.a.k.d.a(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048720, this, view, i2) == null) {
+            if (!d.a.i.b.c.b.c()) {
+                setNewTitlebar(view, i2, true, true);
+            } else if (view == null) {
+                setNewTitlebar(view, i2, true, true);
+            } else {
+                this.mSearchResultTitleBar = view;
+                this.mCurrentTitleBar = view;
+                this.mEmbeddedTitlebar = view;
+                this.mEmbeddedTitlebarHeightPix = d.a.i.a.k.d.a(i2);
+            }
         }
     }
 
     public void setFindListener(WebView.FindListener findListener) {
-        this.mCurrentWebView.setFindListener(findListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048721, this, findListener) == null) {
+            this.mCurrentWebView.setFindListener(findListener);
+        }
     }
 
     public void setFullscreen(Activity activity, boolean z) {
         Window window;
-        if (activity == null || (window = activity.getWindow()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048722, this, activity, z) == null) || activity == null || (window = activity.getWindow()) == null) {
             return;
         }
         window.setFlags(!z ? 0 : 1024, 1024);
     }
 
     public void setHorizontalScrollbarOverlay(boolean z) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.setHorizontalScrollbarOverlay(z);
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048723, this, z) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.setHorizontalScrollbarOverlay(z);
     }
 
     public void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4) {
-        this.mCurrentWebView.setHttpAuthUsernamePassword(str, str2, str3, str4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048724, this, str, str2, str3, str4) == null) {
+            this.mCurrentWebView.setHttpAuthUsernamePassword(str, str2, str3, str4);
+        }
     }
 
     public void setInitialScale(int i2) {
-        this.mCurrentWebView.setInitialScale(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048725, this, i2) == null) {
+            this.mCurrentWebView.setInitialScale(i2);
+        }
     }
 
     @Override // android.view.View
     public void setLayerType(int i2, Paint paint) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.setLayerType(i2, paint);
-        } else {
-            super.setLayerType(i2, paint);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048726, this, i2, paint) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                webView.setLayerType(i2, paint);
+            } else {
+                super.setLayerType(i2, paint);
+            }
         }
     }
 
     public void setMapTrackballToArrowKeys(boolean z) {
-        this.mCurrentWebView.setMapTrackballToArrowKeys(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048727, this, z) == null) {
+            this.mCurrentWebView.setMapTrackballToArrowKeys(z);
+        }
     }
 
     public void setNetworkAvailable(boolean z) {
-        this.mCurrentWebView.setNetworkAvailable(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048728, this, z) == null) {
+            this.mCurrentWebView.setNetworkAvailable(z);
+        }
     }
 
     public void setNewTitlebar(View view, int i2, boolean z) {
-        setNewTitlebar(view, i2, z, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048729, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            setNewTitlebar(view, i2, z, z);
+        }
     }
 
     public void setNewTitlebar(View view, int i2, boolean z, boolean z2) {
-        Log.d("new-titlebar", "setNewTitlebar :" + view + " allow hide: " + z + " show: " + z2 + " height: " + i2);
-        if (view == null) {
-            View view2 = this.mEmbeddedTitlebar;
-            if (view2 != null) {
-                removeView(view2);
-                if (!BdZeusUtil.isWebkitLoaded()) {
-                    setWebViewLayerMargin(this.mMarginLeft, this.mMarginTop - this.mEmbeddedTitlebarHeightPix, this.mMarginRight, this.mMarginBottom);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048730, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            Log.d("new-titlebar", "setNewTitlebar :" + view + " allow hide: " + z + " show: " + z2 + " height: " + i2);
+            if (view == null) {
+                View view2 = this.mEmbeddedTitlebar;
+                if (view2 != null) {
+                    removeView(view2);
+                    if (!BdZeusUtil.isWebkitLoaded()) {
+                        setWebViewLayerMargin(this.mMarginLeft, this.mMarginTop - this.mEmbeddedTitlebarHeightPix, this.mMarginRight, this.mMarginBottom);
+                    }
                 }
+                this.mEmbeddedTitlebar = null;
+                this.mEmbeddedTitlebarHeightPix = 0;
+                this.mCanHideTitlebar = false;
+                this.mCanShowTitlebar = false;
+                this.mLockEmbeddedTitlebar = false;
+                setTopControlsHeight(0, false);
+                return;
             }
-            this.mEmbeddedTitlebar = null;
-            this.mEmbeddedTitlebarHeightPix = 0;
-            this.mCanHideTitlebar = false;
-            this.mCanShowTitlebar = false;
+            this.mEmbeddedTitlebar = view;
+            this.mCanHideTitlebar = z;
+            this.mCanShowTitlebar = z2;
             this.mLockEmbeddedTitlebar = false;
-            setTopControlsHeight(0, false);
-            return;
-        }
-        this.mEmbeddedTitlebar = view;
-        this.mCanHideTitlebar = z;
-        this.mCanShowTitlebar = z2;
-        this.mLockEmbeddedTitlebar = false;
-        this.mEmbeddedTitlebarHeightPix = d.a.h.a.k.d.a(i2);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        this.mEmbeddedTitlebar.setLayoutParams(layoutParams);
-        if (BdZeusUtil.isWebkitLoaded()) {
-            setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, true);
-            updateTopControlsState(this.mCanHideTitlebar, this.mCanShowTitlebar, false);
-        } else {
-            setWebViewLayerMargin(this.mMarginLeft, this.mMarginTop + this.mEmbeddedTitlebarHeightPix, this.mMarginRight, this.mMarginBottom);
-        }
-        View view3 = this.mEmbeddedTitlebar;
-        if (view3 != null) {
-            if (view3.getParent() != null) {
-                ((ViewGroup) this.mEmbeddedTitlebar.getParent()).removeView(this.mEmbeddedTitlebar);
+            this.mEmbeddedTitlebarHeightPix = d.a.i.a.k.d.a(i2);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            this.mEmbeddedTitlebar.setLayoutParams(layoutParams);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, true);
+                updateTopControlsState(this.mCanHideTitlebar, this.mCanShowTitlebar, false);
+            } else {
+                setWebViewLayerMargin(this.mMarginLeft, this.mMarginTop + this.mEmbeddedTitlebarHeightPix, this.mMarginRight, this.mMarginBottom);
             }
-            addView(this.mEmbeddedTitlebar);
-            if (d.a.h.b.c.b.c()) {
-                View view4 = this.mEmbeddedTitlebar;
-                View view5 = this.mLandingPageTitleBar;
-                if (view4 == view5) {
-                    setCurrentTitleBar(false);
-                } else if (view5 != null) {
-                    if (view5.getParent() != null) {
-                        ((ViewGroup) this.mLandingPageTitleBar.getParent()).removeView(this.mLandingPageTitleBar);
-                    }
-                    this.mLandingPageTitleBar.setLayoutParams(layoutParams);
-                    this.mLandingPageTitleBar.setVisibility(8);
-                    addView(this.mLandingPageTitleBar);
+            View view3 = this.mEmbeddedTitlebar;
+            if (view3 != null) {
+                if (view3.getParent() != null) {
+                    ((ViewGroup) this.mEmbeddedTitlebar.getParent()).removeView(this.mEmbeddedTitlebar);
                 }
-                View view6 = this.mEmbeddedTitlebar;
-                View view7 = this.mSearchResultTitleBar;
-                if (view6 == view7) {
-                    setCurrentTitleBar(true);
-                } else if (view7 != null) {
-                    if (view7.getParent() != null) {
-                        ((ViewGroup) this.mSearchResultTitleBar.getParent()).removeView(this.mSearchResultTitleBar);
+                addView(this.mEmbeddedTitlebar);
+                if (d.a.i.b.c.b.c()) {
+                    View view4 = this.mEmbeddedTitlebar;
+                    View view5 = this.mLandingPageTitleBar;
+                    if (view4 == view5) {
+                        setCurrentTitleBar(false);
+                    } else if (view5 != null) {
+                        if (view5.getParent() != null) {
+                            ((ViewGroup) this.mLandingPageTitleBar.getParent()).removeView(this.mLandingPageTitleBar);
+                        }
+                        this.mLandingPageTitleBar.setLayoutParams(layoutParams);
+                        this.mLandingPageTitleBar.setVisibility(8);
+                        addView(this.mLandingPageTitleBar);
                     }
-                    this.mSearchResultTitleBar.setLayoutParams(layoutParams);
-                    this.mSearchResultTitleBar.setVisibility(8);
-                    addView(this.mSearchResultTitleBar);
+                    View view6 = this.mEmbeddedTitlebar;
+                    View view7 = this.mSearchResultTitleBar;
+                    if (view6 == view7) {
+                        setCurrentTitleBar(true);
+                    } else if (view7 != null) {
+                        if (view7.getParent() != null) {
+                            ((ViewGroup) this.mSearchResultTitleBar.getParent()).removeView(this.mSearchResultTitleBar);
+                        }
+                        this.mSearchResultTitleBar.setLayoutParams(layoutParams);
+                        this.mSearchResultTitleBar.setVisibility(8);
+                        addView(this.mSearchResultTitleBar);
+                    }
                 }
+                this.mCurrentWebView.addEmbeddedTitleBarFinished();
             }
-            this.mCurrentWebView.addEmbeddedTitleBarFinished();
         }
     }
 
     public void setOuterTitlebarHeight(int i2) {
-        if (!BdZeusUtil.isWebkitLoaded() || d.a.h.b.c.b.c()) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048731, this, i2) == null) && BdZeusUtil.isWebkitLoaded() && !d.a.i.b.c.b.c()) {
+            this.mOuterTitlebarHeightPix = i2;
+            setWebViewLayerMarginInternal(this.mMarginLeft, this.mMarginTop + i2, this.mMarginRight, this.mMarginBottom);
         }
-        this.mOuterTitlebarHeightPix = i2;
-        setWebViewLayerMarginInternal(this.mMarginLeft, this.mMarginTop + i2, this.mMarginRight, this.mMarginBottom);
     }
 
     @Override // android.view.View
     public void setOverScrollMode(int i2) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.setOverScrollMode(i2);
-        } else {
-            super.setOverScrollMode(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048732, this, i2) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                webView.setOverScrollMode(i2);
+            } else {
+                super.setOverScrollMode(i2);
+            }
         }
     }
 
     public void setPageTransformer(boolean z, PageTransformer pageTransformer) {
-        this.mCurrentWebView.setPageTransformer(z, pageTransformer);
-    }
-
-    public void setPictureListener(WebView.PictureListener pictureListener) {
-        this.mPictureListener = pictureListener;
-    }
-
-    public void setRendererPriorityPolicy(int i2, boolean z) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.setRendererPriorityPolicy(i2, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048733, this, z, pageTransformer) == null) {
+            this.mCurrentWebView.setPageTransformer(z, pageTransformer);
         }
     }
 
+    public void setPictureListener(WebView.PictureListener pictureListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048734, this, pictureListener) == null) {
+            this.mPictureListener = pictureListener;
+        }
+    }
+
+    public void setRendererPriorityPolicy(int i2, boolean z) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048735, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
+        }
+        webView.setRendererPriorityPolicy(i2, z);
+    }
+
     public void setSailorWebViewSize(int i2, int i3) {
-        setViewSize(this.mWebViewLayer, i2, i3);
-        setViewSize(this.mCurrentWebView, i2, i3);
-        this.mCurrentWebView.setWebViewPagerSize(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048736, this, i2, i3) == null) {
+            setViewSize(this.mWebViewLayer, i2, i3);
+            setViewSize(this.mCurrentWebView, i2, i3);
+            this.mCurrentWebView.setWebViewPagerSize(i2, i3);
+        }
     }
 
     @Override // android.view.View
     public void setScrollBarStyle(int i2) {
-        this.mCurrentWebView.setScrollBarStyle(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048737, this, i2) == null) {
+            this.mCurrentWebView.setScrollBarStyle(i2);
+        }
     }
 
     public void setStatusBar(View view, int i2) {
-        if (d.a.h.b.c.b.c()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048738, this, view, i2) == null) && d.a.i.b.c.b.c()) {
             if (view == null) {
                 View view2 = this.mStatusBar;
                 if (view2 != null) {
@@ -3152,87 +4621,114 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void setVerticalScrollbarOverlay(boolean z) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            webView.setVerticalScrollbarOverlay(z);
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048739, this, z) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
         }
+        webView.setVerticalScrollbarOverlay(z);
     }
 
     public void setVideoPlayerFactory(VideoPlayerFactory videoPlayerFactory) {
-        this.mVideoFactory = videoPlayerFactory;
-        this.mCurrentWebView.setVideoPlayerFactory(videoPlayerFactory);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048740, this, videoPlayerFactory) == null) {
+            this.mVideoFactory = videoPlayerFactory;
+            this.mCurrentWebView.setVideoPlayerFactory(videoPlayerFactory);
+        }
     }
 
     public void setWebBackForwardListClient(WebBackForwardListClient webBackForwardListClient) {
-        this.mCurrentWebView.setWebBackForwardListClient(webBackForwardListClient);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048741, this, webBackForwardListClient) == null) {
+            this.mCurrentWebView.setWebBackForwardListClient(webBackForwardListClient);
+        }
     }
 
     public void setWebChromeClient(BdSailorWebChromeClient bdSailorWebChromeClient) {
-        this.mWebChromeClient = bdSailorWebChromeClient;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048742, this, bdSailorWebChromeClient) == null) {
+            this.mWebChromeClient = bdSailorWebChromeClient;
+        }
     }
 
     public void setWebChromeClientExt(BdSailorWebChromeClientExt bdSailorWebChromeClientExt) {
-        ISailorWebViewExt iSailorWebViewExt = this.mWebViewExt;
-        if (iSailorWebViewExt != null) {
-            iSailorWebViewExt.setWebChromeClientExt(bdSailorWebChromeClientExt);
+        ISailorWebViewExt iSailorWebViewExt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048743, this, bdSailorWebChromeClientExt) == null) || (iSailorWebViewExt = this.mWebViewExt) == null) {
+            return;
         }
+        iSailorWebViewExt.setWebChromeClientExt(bdSailorWebChromeClientExt);
     }
 
     public void setWebViewClient(BdSailorWebViewClient bdSailorWebViewClient) {
-        this.mWebViewClient = bdSailorWebViewClient;
-    }
-
-    public void setWebViewClientExt(BdSailorWebViewClientExt bdSailorWebViewClientExt) {
-        ISailorWebViewExt iSailorWebViewExt = this.mWebViewExt;
-        if (iSailorWebViewExt != null) {
-            iSailorWebViewExt.setWebViewClientExt(bdSailorWebViewClientExt);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048744, this, bdSailorWebViewClient) == null) {
+            this.mWebViewClient = bdSailorWebViewClient;
         }
     }
 
+    public void setWebViewClientExt(BdSailorWebViewClientExt bdSailorWebViewClientExt) {
+        ISailorWebViewExt iSailorWebViewExt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048745, this, bdSailorWebViewClientExt) == null) || (iSailorWebViewExt = this.mWebViewExt) == null) {
+            return;
+        }
+        iSailorWebViewExt.setWebViewClientExt(bdSailorWebViewClientExt);
+    }
+
     public void setWebViewLayerMargin(int i2, int i3, int i4, int i5) {
-        if ((i2 == this.mMarginLeft && i3 == this.mMarginTop && i4 == this.mMarginRight && i5 == this.mMarginBottom) ? false : true) {
-            this.mMarginLeft = i2;
-            this.mMarginTop = i3;
-            this.mMarginRight = i4;
-            this.mMarginBottom = i5;
-            setWebViewLayerMarginInternal(i2, i3 + this.mOuterTitlebarHeightPix, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048746, this, i2, i3, i4, i5) == null) {
+            if ((i2 == this.mMarginLeft && i3 == this.mMarginTop && i4 == this.mMarginRight && i5 == this.mMarginBottom) ? false : true) {
+                this.mMarginLeft = i2;
+                this.mMarginTop = i3;
+                this.mMarginRight = i4;
+                this.mMarginBottom = i5;
+                setWebViewLayerMarginInternal(i2, i3 + this.mOuterTitlebarHeightPix, i4, i5);
+            }
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup
     public boolean shouldDelayChildPressedState() {
-        return this.mCurrentWebView.shouldDelayChildPressedState();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048747, this)) == null) ? this.mCurrentWebView.shouldDelayChildPressedState() : invokeV.booleanValue;
     }
 
     public void showCustomView(Context context, View view, WebChromeClient.CustomViewCallback customViewCallback) {
-        Activity activity = context instanceof Activity ? (Activity) context : null;
-        if (activity != null) {
-            if (this.mCustomView != null) {
-                customViewCallback.onCustomViewHidden();
-                return;
-            }
-            this.mOriginalOrientation = activity.getRequestedOrientation();
-            if (activity.getWindow() != null) {
-                FrameLayout frameLayout = (FrameLayout) activity.getWindow().getDecorView();
-                g gVar = new g(activity);
-                this.mFullscreenContainer = gVar;
-                gVar.addView(view, COVER_SCREEN_PARAMS);
-                if (frameLayout != null) {
-                    frameLayout.addView(this.mFullscreenContainer, COVER_SCREEN_PARAMS);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048748, this, context, view, customViewCallback) == null) {
+            Activity activity = context instanceof Activity ? (Activity) context : null;
+            if (activity != null) {
+                if (this.mCustomView != null) {
+                    customViewCallback.onCustomViewHidden();
+                    return;
                 }
-                this.mCustomView = view;
-                setFullscreen(activity, true);
-                if (getCurrentWebView() != null) {
-                    getCurrentWebView().setVisibility(4);
+                this.mOriginalOrientation = activity.getRequestedOrientation();
+                if (activity.getWindow() != null) {
+                    FrameLayout frameLayout = (FrameLayout) activity.getWindow().getDecorView();
+                    g gVar = new g(activity);
+                    this.mFullscreenContainer = gVar;
+                    gVar.addView(view, COVER_SCREEN_PARAMS);
+                    if (frameLayout != null) {
+                        frameLayout.addView(this.mFullscreenContainer, COVER_SCREEN_PARAMS);
+                    }
+                    this.mCustomView = view;
+                    setFullscreen(activity, true);
+                    if (getCurrentWebView() != null) {
+                        getCurrentWebView().setVisibility(4);
+                    }
+                    this.mCustomViewCallback = customViewCallback;
+                    activity.setRequestedOrientation(2);
                 }
-                this.mCustomViewCallback = customViewCallback;
-                activity.setRequestedOrientation(2);
             }
         }
     }
 
     public void showEmbeddedTitleBar(boolean z) {
-        if (this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048749, this, z) == null) || this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
             return;
         }
         this.mCanShowTitlebar = true;
@@ -3241,19 +4737,27 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public boolean showFindDialog(String str, boolean z) {
-        return this.mCurrentWebView.showFindDialog(str, z);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048750, this, str, z)) == null) ? this.mCurrentWebView.showFindDialog(str, z) : invokeLZ.booleanValue;
     }
 
     public int startPrerender(String str) {
-        WebView webView = this.mCurrentWebView;
-        if (webView != null) {
-            return webView.startPrerender(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048751, this, str)) == null) {
+            WebView webView = this.mCurrentWebView;
+            if (webView != null) {
+                return webView.startPrerender(str);
+            }
+            return -1;
         }
-        return -1;
+        return invokeL.intValue;
     }
 
     public void stopLoading() {
-        if (isDestroyed()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048752, this) == null) || isDestroyed()) {
             return;
         }
         this.mCurrentWebView.stopLoading();
@@ -3261,61 +4765,76 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void suspendScheduledTasks(String str) {
-        if (isDestroyed()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048753, this, str) == null) || isDestroyed()) {
             return;
         }
         this.mCurrentWebView.suspendScheduledTasks(str);
     }
 
     public void switchTitleBar(boolean z) {
-        this.mCurrentWebView.switchTitleBar(z);
-    }
-
-    public void updateEmbeddedTitleBar(boolean z, boolean z2, boolean z3) {
-        if (this.mEmbeddedTitlebar != null) {
-            this.mCanHideTitlebar = z;
-            this.mCanShowTitlebar = z2;
-            updateTopControlsState(z, z2, z3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048754, this, z) == null) {
+            this.mCurrentWebView.switchTitleBar(z);
         }
     }
 
+    public void updateEmbeddedTitleBar(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048755, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.mEmbeddedTitlebar == null) {
+            return;
+        }
+        this.mCanHideTitlebar = z;
+        this.mCanShowTitlebar = z2;
+        updateTopControlsState(z, z2, z3);
+    }
+
     public void updateTopControlOffset(int i2) {
-        this.mCurrentWebView.updateTopControlOffset(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048756, this, i2) == null) {
+            this.mCurrentWebView.updateTopControlOffset(i2);
+        }
     }
 
     public void updateTopControlsState(boolean z, boolean z2, boolean z3) {
-        if (this.mEmbeddedTitlebar != null) {
-            Log.d("new-titlebar", "updateTopControlsState :".concat(String.valueOf(z)));
-            this.mCurrentWebView.updateTopControlsState(z, z2, z3);
-            if (z3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048757, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.mEmbeddedTitlebar == null) {
+            return;
+        }
+        Log.d("new-titlebar", "updateTopControlsState :".concat(String.valueOf(z)));
+        this.mCurrentWebView.updateTopControlsState(z, z2, z3);
+        if (z3) {
+            return;
+        }
+        if (d.a.i.b.c.b.c()) {
+            if (!z) {
+                setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, true);
+                return;
+            } else if (z2) {
+                return;
+            } else {
+                setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, false);
                 return;
             }
-            if (d.a.h.b.c.b.c()) {
-                if (!z) {
-                    setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, true);
-                    return;
-                } else if (z2) {
-                    return;
-                } else {
-                    setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, false);
-                    return;
-                }
-            }
-            WebChromeClient webChromeClient = this.mCurrentWebView.getWebChromeClient();
-            if (!z) {
-                webChromeClient.onOffsetsForFullscreenChanged(0.0f, this.mEmbeddedTitlebarHeightPix, 0.0f);
-            } else if (z2) {
-            } else {
-                webChromeClient.onOffsetsForFullscreenChanged(-this.mEmbeddedTitlebarHeightPix, 0.0f, 0.0f);
-            }
+        }
+        WebChromeClient webChromeClient = this.mCurrentWebView.getWebChromeClient();
+        if (!z) {
+            webChromeClient.onOffsetsForFullscreenChanged(0.0f, this.mEmbeddedTitlebarHeightPix, 0.0f);
+        } else if (z2) {
+        } else {
+            webChromeClient.onOffsetsForFullscreenChanged(-this.mEmbeddedTitlebarHeightPix, 0.0f, 0.0f);
         }
     }
 
     public boolean zoomIn() {
-        return this.mCurrentWebView.zoomIn();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048758, this)) == null) ? this.mCurrentWebView.zoomIn() : invokeV.booleanValue;
     }
 
     public boolean zoomOut() {
-        return this.mCurrentWebView.zoomOut();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048759, this)) == null) ? this.mCurrentWebView.zoomOut() : invokeV.booleanValue;
     }
 }

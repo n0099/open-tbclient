@@ -3,8 +3,17 @@ package com.baidu.wallet.lightapp.multipage;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.core.lollipop.json.JSONArray;
@@ -13,142 +22,224 @@ import com.baidu.wallet.lightapp.multipage.h;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e implements h.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f25099a;
+    public JSONArray f25642a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f25100b;
+    public Long f25643b;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f25101a = new e();
+        public static e f25644a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(549752508, "Lcom/baidu/wallet/lightapp/multipage/e$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(549752508, "Lcom/baidu/wallet/lightapp/multipage/e$a;");
+                    return;
+                }
+            }
+            f25644a = new e(null);
+        }
+    }
+
+    public /* synthetic */ e(AnonymousClass1 anonymousClass1) {
+        this();
     }
 
     public static e a() {
-        return a.f25101a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25644a : (e) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x002f  */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x001b  */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x001f  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0033  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private JSONArray b(Context context) {
+        InterceptResult invokeL;
         JSONArray jSONArray;
         int i2;
-        String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", "");
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (Exception unused) {
-            }
-            if (jSONArray == null) {
-                jSONArray = new JSONArray();
-            }
-            Long valueOf = Long.valueOf(System.currentTimeMillis());
-            for (i2 = 0; i2 < jSONArray.length(); i2++) {
-                if (jSONArray.optLong(i2) + (h.a().a(context).MW_BHM_RECORD_TIME * 1000) < valueOf.longValue()) {
-                    jSONArray.remove(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+            String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", "");
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    jSONArray = new JSONArray(str);
+                } catch (Exception unused) {
                 }
+                if (jSONArray == null) {
+                    jSONArray = new JSONArray();
+                }
+                Long valueOf = Long.valueOf(System.currentTimeMillis());
+                for (i2 = 0; i2 < jSONArray.length(); i2++) {
+                    if (jSONArray.optLong(i2) + (h.a().a(context).MW_BHM_RECORD_TIME * 1000) < valueOf.longValue()) {
+                        jSONArray.remove(i2);
+                    }
+                }
+                return jSONArray;
+            }
+            jSONArray = null;
+            if (jSONArray == null) {
+            }
+            Long valueOf2 = Long.valueOf(System.currentTimeMillis());
+            while (i2 < jSONArray.length()) {
             }
             return jSONArray;
         }
-        jSONArray = null;
-        if (jSONArray == null) {
-        }
-        Long valueOf2 = Long.valueOf(System.currentTimeMillis());
-        while (i2 < jSONArray.length()) {
-        }
-        return jSONArray;
+        return (JSONArray) invokeL.objValue;
     }
 
     private void c(Context context) {
-        JSONArray jSONArray = new JSONArray();
-        this.f25099a = jSONArray;
-        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
+            JSONArray jSONArray = new JSONArray();
+            this.f25642a = jSONArray;
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
+        }
     }
 
     private int d(Context context) {
-        JSONArray a2 = a(context);
-        Long valueOf = Long.valueOf(System.currentTimeMillis());
-        int i2 = 0;
-        for (int i3 = 0; i3 < a2.length(); i3++) {
-            i2 += a2.optLong(i3) + ((long) (h.a().a(context).MW_BHM_RECORD_TIME * 1000)) >= valueOf.longValue() ? 1 : 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, context)) == null) {
+            JSONArray a2 = a(context);
+            Long valueOf = Long.valueOf(System.currentTimeMillis());
+            int i2 = 0;
+            for (int i3 = 0; i3 < a2.length(); i3++) {
+                i2 += a2.optLong(i3) + ((long) (h.a().a(context).MW_BHM_RECORD_TIME * 1000)) >= valueOf.longValue() ? 1 : 0;
+            }
+            return i2;
         }
-        return i2;
+        return invokeL.intValue;
     }
 
     private void e(Context context) {
-        LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
-        DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
-        PayStatisticsUtil.onEvent("#MW_BHM_ColdDown");
-        Long valueOf = Long.valueOf(System.currentTimeMillis());
-        this.f25100b = valueOf;
-        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
-        h.a().b(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
+            LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
+            DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
+            PayStatisticsUtil.onEvent("#MW_BHM_ColdDown");
+            Long valueOf = Long.valueOf(System.currentTimeMillis());
+            this.f25643b = valueOf;
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
+            h.a().b(context);
+        }
     }
 
     public e() {
-        this.f25100b = -1L;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f25643b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
-        LangbridgeSettings a2 = h.a().a(context);
-        if (!a2.MW_BHM_ON || b(context, a2.MW_BHM_COLD_TIME) || i2 < 1) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList(Arrays.asList(str, "" + i2));
-        arrayList.addAll(list);
-        DXMSdkSAUtils.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
-        PayStatisticsUtil.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
-        int i3 = a2.MW_BHM_LIMIT;
-        if (i2 > i3) {
-            i2 = i3;
-        }
-        a(context, i2);
-        if (d(context) >= i3) {
-            e(context);
-            c(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, str, list) == null) {
+            LangbridgeSettings a2 = h.a().a(context);
+            if (!a2.MW_BHM_ON || b(context, a2.MW_BHM_COLD_TIME) || i2 < 1) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList(Arrays.asList(str, "" + i2));
+            arrayList.addAll(list);
+            DXMSdkSAUtils.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
+            PayStatisticsUtil.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
+            int i3 = a2.MW_BHM_LIMIT;
+            if (i2 > i3) {
+                i2 = i3;
+            }
+            a(context, i2);
+            if (d(context) >= i3) {
+                e(context);
+                c(context);
+            }
         }
     }
 
     private boolean b(Context context, int i2) {
-        if (this.f25100b.longValue() == -1) {
-            this.f25100b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, context, i2)) == null) {
+            if (this.f25643b.longValue() == -1) {
+                this.f25643b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+            }
+            return System.currentTimeMillis() < this.f25643b.longValue() + ((long) (i2 * 1000));
         }
-        return System.currentTimeMillis() < this.f25100b.longValue() + ((long) (i2 * 1000));
+        return invokeLI.booleanValue;
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.h.b
     public LangbridgeSettings a(Context context, LangbridgeSettings langbridgeSettings) {
-        if (langbridgeSettings.MW_BHM_ON && b(context, langbridgeSettings.MW_BHM_COLD_TIME)) {
-            LangbridgeSettings m28clone = langbridgeSettings.m28clone();
-            m28clone.MW_ON = false;
-            m28clone.MW_USE_OLD = true;
-            LogUtil.d("LangbridgeSettings", "");
-            return m28clone;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, langbridgeSettings)) == null) {
+            if (langbridgeSettings.MW_BHM_ON && b(context, langbridgeSettings.MW_BHM_COLD_TIME)) {
+                LangbridgeSettings m41clone = langbridgeSettings.m41clone();
+                m41clone.MW_ON = false;
+                m41clone.MW_USE_OLD = true;
+                LogUtil.d("LangbridgeSettings", "");
+                return m41clone;
+            }
+            return langbridgeSettings;
         }
-        return langbridgeSettings;
+        return (LangbridgeSettings) invokeLL.objValue;
     }
 
     private JSONArray a(Context context) {
-        if (this.f25099a == null) {
-            this.f25099a = b(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
+            if (this.f25642a == null) {
+                this.f25642a = b(context);
+            }
+            return this.f25642a;
         }
-        return this.f25099a;
+        return (JSONArray) invokeL.objValue;
     }
 
     private void a(Context context, int i2) {
-        JSONArray a2 = a(context);
-        Long valueOf = Long.valueOf(System.currentTimeMillis());
-        for (int i3 = 0; i3 < i2; i3++) {
-            a2.put(valueOf);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65540, this, context, i2) == null) {
+            JSONArray a2 = a(context);
+            Long valueOf = Long.valueOf(System.currentTimeMillis());
+            for (int i3 = 0; i3 < i2; i3++) {
+                a2.put(valueOf);
+            }
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", a2.toString());
         }
-        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", a2.toString());
     }
 }

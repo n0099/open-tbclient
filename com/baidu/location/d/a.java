@@ -12,6 +12,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.Process;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.LLSInterface;
 import com.baidu.location.b.h;
 import com.baidu.location.b.l;
@@ -24,51 +25,80 @@ import com.baidu.location.c.e;
 import com.baidu.location.c.i;
 import com.baidu.location.e.k;
 import com.baidu.location.f;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends Service implements LLSInterface {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HandlerC0094a f6699a;
+    public static HandlerC0112a f6729a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f6700c;
+    public static long f6730c;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f6701g;
+    public static long f6731g;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Messenger f6702b = null;
+    public Messenger f6732b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Looper f6703d = null;
+    public Looper f6733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f6704e = null;
+    public HandlerThread f6734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6705f = false;
+    public boolean f6735f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6706h = 0;
+    public int f6736h;
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class HandlerC0094a extends Handler {
+    /* loaded from: classes3.dex */
+    public static class HandlerC0112a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f6707a;
+        public final WeakReference<a> f6737a;
 
-        public HandlerC0094a(Looper looper, a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public HandlerC0112a(Looper looper, a aVar) {
             super(looper);
-            this.f6707a = new WeakReference<>(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6737a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            a aVar = this.f6707a.get();
-            if (aVar == null) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f6737a.get()) == null) {
                 return;
             }
             if (f.isServing) {
@@ -104,124 +134,203 @@ public class a extends Service implements LLSInterface {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1037782865, "Lcom/baidu/location/d/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1037782865, "Lcom/baidu/location/d/a;");
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f6732b = null;
+        this.f6733d = null;
+        this.f6734e = null;
+        this.f6735f = false;
+        this.f6736h = 0;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        com.baidu.location.a.a.a().a(f.getServiceContext());
-        com.baidu.location.e.b.a();
-        try {
-            x.a().e();
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            com.baidu.location.a.a.a().a(f.getServiceContext());
+            com.baidu.location.e.b.a();
+            try {
+                x.a().e();
+            } catch (Exception unused) {
+            }
+            h.a().b();
+            e.a().b();
+            com.baidu.location.c.b.a().b();
+            l.c().d();
+            i.a().c();
+            this.f6736h = 2;
         }
-        h.a().b();
-        e.a().b();
-        com.baidu.location.c.b.a().b();
-        l.c().d();
-        i.a().c();
-        this.f6706h = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
-        Log.d("baidu_location_service", "baidu location service register ...");
-        com.baidu.location.b.a.a().a(message);
-        if (k.b()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, message) == null) {
+            Log.d("baidu_location_service", "baidu location service register ...");
+            com.baidu.location.b.a.a().a(message);
+            if (k.b()) {
+                return;
+            }
+            o.b().c();
         }
-        o.b().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        e.a().e();
-        i.a().d();
-        x.a().f();
-        com.baidu.location.c.b.a().c();
-        l.c().e();
-        h.a().c();
-        w.d();
-        com.baidu.location.b.a.a().b();
-        v.a().d();
-        this.f6706h = 4;
-        Log.d("baidu_location_service", "baidu location service has stoped ...");
-        if (this.f6705f) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            e.a().e();
+            i.a().d();
+            x.a().f();
+            com.baidu.location.c.b.a().c();
+            l.c().e();
+            h.a().c();
+            w.d();
+            com.baidu.location.b.a.a().b();
+            v.a().d();
+            this.f6736h = 4;
+            Log.d("baidu_location_service", "baidu location service has stoped ...");
+            if (this.f6735f) {
+                return;
+            }
+            Process.killProcess(Process.myPid());
         }
-        Process.killProcess(Process.myPid());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Message message) {
-        com.baidu.location.b.a.a().b(message);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, message) == null) {
+            com.baidu.location.b.a.a().b(message);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Message message) {
-        com.baidu.location.b.a.a().c(message);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, message) == null) {
+            com.baidu.location.b.a.a().c(message);
+        }
     }
 
     @Override // com.baidu.location.LLSInterface
     public double getVersion() {
-        return 7.929999828338623d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 7.929999828338623d;
+        }
+        return invokeV.doubleValue;
     }
 
     @Override // android.app.Service, com.baidu.location.LLSInterface
     public IBinder onBind(Intent intent) {
-        Bundle extras = intent.getExtras();
-        if (extras != null) {
-            com.baidu.location.e.b.f6722h = extras.getString("key");
-            com.baidu.location.e.b.f6721g = extras.getString("sign");
-            this.f6705f = extras.getBoolean("kill_process");
-            extras.getBoolean("cache_exception");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            Bundle extras = intent.getExtras();
+            if (extras != null) {
+                com.baidu.location.e.b.f6752h = extras.getString("key");
+                com.baidu.location.e.b.f6751g = extras.getString("sign");
+                this.f6735f = extras.getBoolean("kill_process");
+                extras.getBoolean("cache_exception");
+            }
+            return this.f6732b.getBinder();
         }
-        return this.f6702b.getBinder();
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // com.baidu.location.LLSInterface
     public void onCreate(Context context) {
-        try {
-            k.ax = context.getPackageName();
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            try {
+                k.ax = context.getPackageName();
+            } catch (Exception unused) {
+            }
+            f6731g = System.currentTimeMillis();
+            HandlerThread a2 = u.a();
+            this.f6734e = a2;
+            if (a2 != null) {
+                this.f6733d = a2.getLooper();
+            }
+            f6729a = this.f6733d == null ? new HandlerC0112a(Looper.getMainLooper(), this) : new HandlerC0112a(this.f6733d, this);
+            f6730c = System.currentTimeMillis();
+            this.f6732b = new Messenger(f6729a);
+            f6729a.sendEmptyMessage(0);
+            this.f6736h = 1;
+            Log.d("baidu_location_service", "baidu location service start1 ...20190725..." + Process.myPid());
         }
-        f6701g = System.currentTimeMillis();
-        HandlerThread a2 = u.a();
-        this.f6704e = a2;
-        if (a2 != null) {
-            this.f6703d = a2.getLooper();
-        }
-        f6699a = this.f6703d == null ? new HandlerC0094a(Looper.getMainLooper(), this) : new HandlerC0094a(this.f6703d, this);
-        f6700c = System.currentTimeMillis();
-        this.f6702b = new Messenger(f6699a);
-        f6699a.sendEmptyMessage(0);
-        this.f6706h = 1;
-        Log.d("baidu_location_service", "baidu location service start1 ...20190725..." + Process.myPid());
     }
 
     @Override // android.app.Service, com.baidu.location.LLSInterface
     public void onDestroy() {
-        try {
-            f6699a.sendEmptyMessage(1);
-        } catch (Exception unused) {
-            Log.d("baidu_location_service", "baidu location service stop exception...");
-            b();
-            Process.killProcess(Process.myPid());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                f6729a.sendEmptyMessage(1);
+            } catch (Exception unused) {
+                Log.d("baidu_location_service", "baidu location service stop exception...");
+                b();
+                Process.killProcess(Process.myPid());
+            }
+            this.f6736h = 3;
+            new Handler(Looper.getMainLooper()).postDelayed(new b(this, new WeakReference(this)), 1000L);
+            Log.d("baidu_location_service", "baidu location service stop ...");
         }
-        this.f6706h = 3;
-        new Handler(Looper.getMainLooper()).postDelayed(new b(this, new WeakReference(this)), 1000L);
-        Log.d("baidu_location_service", "baidu location service stop ...");
     }
 
     @Override // android.app.Service, com.baidu.location.LLSInterface
     public int onStartCommand(Intent intent, int i2, int i3) {
-        return 1;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i2, i3)) == null) {
+            return 1;
+        }
+        return invokeLII.intValue;
     }
 
     @Override // android.app.Service, com.baidu.location.LLSInterface
     public void onTaskRemoved(Intent intent) {
-        Log.d("baidu_location_service", "baidu location service remove task...");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
+            Log.d("baidu_location_service", "baidu location service remove task...");
+        }
     }
 
     @Override // com.baidu.location.LLSInterface
     public boolean onUnBind(Intent intent) {
-        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intent)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,6 +1,12 @@
 package com.baidu.mapapi.synchronization;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class SynchronizationConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int LBS_DRIVER_POSITION_FRESH_FREQUENCY_DEFAULT = 5;
     public static final int LBS_DRIVER_POSITION_FRESH_FREQUENCY_MAX = 30;
     public static final int LBS_DRIVER_POSITION_FRESH_FREQUENCY_MIN = 2;
@@ -48,4 +54,19 @@ public final class SynchronizationConstants {
     public static final int LBS_TRAFFIC_STATUS_SMOOTH = 1;
     public static final int LBS_TRAFFIC_STATUS_UNKNOW = 0;
     public static final int ROUTE_ID_PASSENGER = 0;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public SynchronizationConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

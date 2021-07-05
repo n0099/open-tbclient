@@ -1,75 +1,194 @@
 package com.bytedance.sdk.openadsdk;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class FilterWord {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27132a;
+    public String f28890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27133b;
+    public String f28891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27134c;
+    public boolean f28892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<FilterWord> f27135d;
+    public List<FilterWord> f28893d;
 
     public FilterWord(String str, String str2) {
-        this.f27132a = str;
-        this.f27133b = str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f28890a = str;
+        this.f28891b = str2;
+    }
+
+    public static FilterWord parseFromJson(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                FilterWord filterWord = new FilterWord();
+                filterWord.setId(jSONObject.optString("id"));
+                filterWord.setName(jSONObject.optString("name"));
+                filterWord.setIsSelected(jSONObject.optBoolean("is_selected"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("options");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        FilterWord parseFromJson = parseFromJson(optJSONArray.optJSONObject(i2));
+                        if (parseFromJson != null && parseFromJson.isValid()) {
+                            filterWord.addOption(parseFromJson);
+                        }
+                    }
+                }
+                return filterWord;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (FilterWord) invokeL.objValue;
     }
 
     public void addOption(FilterWord filterWord) {
-        if (filterWord == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, filterWord) == null) || filterWord == null) {
             return;
         }
-        if (this.f27135d == null) {
-            this.f27135d = new ArrayList();
+        if (this.f28893d == null) {
+            this.f28893d = new ArrayList();
         }
-        this.f27135d.add(filterWord);
+        this.f28893d.add(filterWord);
     }
 
     public String getId() {
-        return this.f27132a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28890a : (String) invokeV.objValue;
     }
 
     public boolean getIsSelected() {
-        return this.f27134c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28892c : invokeV.booleanValue;
     }
 
     public String getName() {
-        return this.f27133b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28891b : (String) invokeV.objValue;
     }
 
     public List<FilterWord> getOptions() {
-        return this.f27135d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28893d : (List) invokeV.objValue;
     }
 
     public boolean hasSecondOptions() {
-        List<FilterWord> list = this.f27135d;
-        return (list == null || list.isEmpty()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<FilterWord> list = this.f28893d;
+            return (list == null || list.isEmpty()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f27132a) || TextUtils.isEmpty(this.f27133b)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (TextUtils.isEmpty(this.f28890a) || TextUtils.isEmpty(this.f28891b)) ? false : true : invokeV.booleanValue;
     }
 
     public void setId(String str) {
-        this.f27132a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f28890a = str;
+        }
     }
 
     public void setIsSelected(boolean z) {
-        this.f27134c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f28892c = z;
+        }
     }
 
     public void setName(String str) {
-        this.f27133b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f28891b = str;
+        }
+    }
+
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            try {
+                if (isValid()) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("id", getId());
+                    jSONObject.put("name", getName());
+                    jSONObject.put("is_selected", getIsSelected());
+                    if (hasSecondOptions()) {
+                        JSONArray jSONArray = new JSONArray();
+                        for (FilterWord filterWord : getOptions()) {
+                            jSONArray.put(filterWord.toJson());
+                        }
+                        if (jSONArray.length() > 0) {
+                            jSONObject.put("options", jSONArray);
+                        }
+                    }
+                    return jSONObject;
+                }
+                return null;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public FilterWord() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

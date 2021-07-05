@@ -7,56 +7,112 @@ import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
-import d.o.a.e.b.g.d;
-import d.o.a.e.b.g.j;
-import d.o.a.e.b.g.s;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.l.a.e.b.g.e;
+import d.l.a.e.b.g.k;
+import d.l.a.e.b.g.t;
+import d.l.a.e.b.m.d;
 /* loaded from: classes7.dex */
 public class SqlDownloadCacheService extends Service {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39774a = SqlDownloadCacheService.class.getSimpleName();
+    public static final String f41517a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1154972622, "Lcom/ss/android/socialbase/downloader/downloader/SqlDownloadCacheService;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1154972622, "Lcom/ss/android/socialbase/downloader/downloader/SqlDownloadCacheService;");
+                return;
+            }
+        }
+        f41517a = SqlDownloadCacheService.class.getSimpleName();
+    }
+
+    public SqlDownloadCacheService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void a(Context context, ServiceConnection serviceConnection) {
-        if (context != null) {
-            try {
-                Intent intent = new Intent(context, SqlDownloadCacheService.class);
-                if (serviceConnection != null) {
-                    context.bindService(intent, serviceConnection, 1);
-                }
-                context.startService(intent);
-            } catch (Throwable th) {
-                Log.w(f39774a, "startServiceAndBind fail", th);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, serviceConnection) == null) || context == null) {
+            return;
+        }
+        try {
+            Intent intent = new Intent(context, SqlDownloadCacheService.class);
+            if (serviceConnection != null) {
+                context.bindService(intent, serviceConnection, 1);
             }
+            context.startService(intent);
+        } catch (Throwable th) {
+            Log.w(f41517a, "startServiceAndBind fail", th);
         }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        s sVar;
-        j I0 = d.I0();
-        if (I0 instanceof d.o.a.e.b.m.d) {
-            sVar = ((d.o.a.e.b.m.d) I0).i();
-        } else {
-            sVar = I0 instanceof s ? (s) I0 : null;
+        InterceptResult invokeL;
+        t tVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            k M0 = e.M0();
+            if (M0 instanceof d) {
+                tVar = ((d) M0).k();
+            } else {
+                tVar = M0 instanceof t ? (t) M0 : null;
+            }
+            if (tVar instanceof IBinder) {
+                return (IBinder) tVar;
+            }
+            return new Binder();
         }
-        if (sVar instanceof IBinder) {
-            return (IBinder) sVar;
-        }
-        return new Binder();
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        super.onCreate();
-        d.y(getApplicationContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            e.C(getApplicationContext());
+        }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i2, int i3) {
-        int onStartCommand = super.onStartCommand(intent, i2, i3);
-        if (d.u0()) {
-            return 2;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
+            int onStartCommand = super.onStartCommand(intent, i2, i3);
+            if (e.y0()) {
+                return 2;
+            }
+            return onStartCommand;
         }
-        return onStartCommand;
+        return invokeLII.intValue;
     }
 }

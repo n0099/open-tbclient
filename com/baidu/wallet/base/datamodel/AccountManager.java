@@ -4,10 +4,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.appcompat.widget.ActivityChooserModel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.Md5Utils;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
@@ -23,129 +29,225 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class AccountManager implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_PREFERENCE_ACCOUNT = "account";
     public static final String PREFERENCES_NAME_PRE = "o2o_service.preferences";
     public static final String TAG = "AccountManager";
     public static AccountManager sInstance;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public final SharedPreferences mPreferences;
     public String mbfbToken;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class User implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountManager this$0;
         public String tokenValue;
         public int userType;
 
-        public User(int i2, String str) {
+        public User(AccountManager accountManager, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {accountManager, Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = accountManager;
             this.userType = i2;
             this.tokenValue = str;
         }
 
         public String toString() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("user_type", this.userType);
-                jSONObject.put(BeanConstants.KEY_TOEKN_VALUE, this.tokenValue);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("user_type", this.userType);
+                    jSONObject.put(BeanConstants.KEY_TOEKN_VALUE, this.tokenValue);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject.toString();
             }
-            return jSONObject.toString();
+            return (String) invokeV.objValue;
         }
     }
 
     public AccountManager(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context.getApplicationContext();
         this.mPreferences = context.getSharedPreferences("account", 0);
     }
 
     private void delScanCodeSP() {
-        String passUid = WalletLoginHelper.getInstance().getPassUid();
-        this.mContext.getPackageName();
-        if (TextUtils.isEmpty(passUid) || !TextUtils.isDigitsOnly(passUid)) {
-            String str = getFileNamePrefix() + PREFERENCES_NAME_PRE;
-            try {
-                SharedPreferencesUtils.clear(this.mContext, str);
-                File file = new File(this.mContext.getFilesDir().getParent() + "/shared_prefs/" + str + ActivityChooserModel.HISTORY_FILE_EXTENSION);
-                if (file.exists()) {
-                    file.delete();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            String passUid = WalletLoginHelper.getInstance().getPassUid();
+            this.mContext.getPackageName();
+            if (TextUtils.isEmpty(passUid) || !TextUtils.isDigitsOnly(passUid)) {
+                String str = getFileNamePrefix() + PREFERENCES_NAME_PRE;
+                try {
+                    SharedPreferencesUtils.clear(this.mContext, str);
+                    File file = new File(this.mContext.getFilesDir().getParent() + "/shared_prefs/" + str + ActivityChooserModel.HISTORY_FILE_EXTENSION);
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
         }
     }
 
     public static synchronized AccountManager getInstance(Context context) {
+        InterceptResult invokeL;
         AccountManager accountManager;
-        synchronized (AccountManager.class) {
-            if (sInstance == null) {
-                sInstance = new AccountManager(context.getApplicationContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (AccountManager.class) {
+                if (sInstance == null) {
+                    sInstance = new AccountManager(context.getApplicationContext());
+                }
+                accountManager = sInstance;
             }
-            accountManager = sInstance;
+            return accountManager;
         }
-        return accountManager;
+        return (AccountManager) invokeL.objValue;
     }
 
     public String getBduss() {
-        return WalletLoginHelper.getInstance().getLoginToken();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? WalletLoginHelper.getInstance().getLoginToken() : (String) invokeV.objValue;
     }
 
     public String getBfbToken() {
-        String str = this.mbfbToken;
-        if (str == null) {
-            LogUtil.d(TAG, "mtoken 为NULL mPreferences=" + this.mPreferences);
-            return this.mPreferences.getString("token", null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.mbfbToken;
+            if (str == null) {
+                LogUtil.d(TAG, "mtoken 为NULL mPreferences=" + this.mPreferences);
+                return this.mPreferences.getString("token", null);
+            }
+            return str;
         }
-        return str;
+        return (String) invokeV.objValue;
     }
 
     public String getFileNamePrefix() {
-        String localEncrypt1 = SafePay.getInstance().localEncrypt1(WalletLoginHelper.getInstance().getPassUid());
-        if (TextUtils.isEmpty(localEncrypt1)) {
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String localEncrypt1 = SafePay.getInstance().localEncrypt1(WalletLoginHelper.getInstance().getPassUid());
+            if (TextUtils.isEmpty(localEncrypt1)) {
+                return "";
+            }
+            LogUtil.i(TAG, "PREFERENCES_NAME_PRE: uid " + localEncrypt1);
+            return Md5Utils.toMD5(localEncrypt1);
         }
-        LogUtil.i(TAG, "PREFERENCES_NAME_PRE: uid " + localEncrypt1);
-        return Md5Utils.toMD5(localEncrypt1);
+        return (String) invokeV.objValue;
     }
 
     public Map<String, String> getLoginData() {
-        return WalletLoginHelper.getInstance().getLoginData();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? WalletLoginHelper.getInstance().getLoginData() : (Map) invokeV.objValue;
     }
 
     public int getLoginType() {
-        return WalletLoginHelper.getInstance().getLoginType();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? WalletLoginHelper.getInstance().getLoginType() : invokeV.intValue;
     }
 
     public String getOpenBduss() {
-        return WalletLoginHelper.getInstance().getOpenLoginToken();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WalletLoginHelper.getInstance().getOpenLoginToken() : (String) invokeV.objValue;
     }
 
     public void logout() {
-        delScanCodeSP();
-        if (LocalRouter.getInstance(this.mContext).isRequestAvailable(new RouterRequest().provider("hce").action("cleanData"))) {
-            LocalRouter.getInstance(this.mContext.getApplicationContext()).route(this.mContext, new RouterRequest().provider("hce").action("cleanData"), new RouterCallback() { // from class: com.baidu.wallet.base.datamodel.AccountManager.1
-                @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i2, HashMap hashMap) {
-                    if (i2 == 5) {
-                        HashMap hashMap2 = new HashMap();
-                        hashMap2.put("provider", "hce");
-                        hashMap2.put("action", "cleanData");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            delScanCodeSP();
+            if (LocalRouter.getInstance(this.mContext).isRequestAvailable(new RouterRequest().provider("hce").action("cleanData"))) {
+                LocalRouter.getInstance(this.mContext.getApplicationContext()).route(this.mContext, new RouterRequest().provider("hce").action("cleanData"), new RouterCallback(this) { // from class: com.baidu.wallet.base.datamodel.AccountManager.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ AccountManager f23917a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f23917a = this;
                     }
-                }
-            });
+
+                    @Override // com.baidu.wallet.router.RouterCallback
+                    public void onResult(int i2, HashMap hashMap) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) && i2 == 5) {
+                            HashMap hashMap2 = new HashMap();
+                            hashMap2.put("provider", "hce");
+                            hashMap2.put("action", "cleanData");
+                            DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                            PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                        }
+                    }
+                });
+            }
         }
     }
 
     public void setBfbToken(String str) {
-        LogUtil.d(TAG, "setBfbToken=" + str);
-        this.mbfbToken = str;
-        SharedPreferences.Editor edit = this.mPreferences.edit();
-        edit.putString("token", str);
-        edit.apply();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            LogUtil.d(TAG, "setBfbToken=" + str);
+            this.mbfbToken = str;
+            SharedPreferences.Editor edit = this.mPreferences.edit();
+            edit.putString("token", str);
+            edit.apply();
+        }
     }
 }

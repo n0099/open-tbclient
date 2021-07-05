@@ -5,6 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.daemon.PacDownload;
 import com.baidu.webkit.internal.daemon.VideoPacDownload;
 import com.baidu.webkit.sdk.WebSettings;
@@ -18,8 +27,9 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class WebViewFactoryProvider {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "WebViewFactoryProvider";
     public static final String SETTING_AD_BLOCK = "ADBlock";
     public static final Boolean SETTING_AD_BLOCK_VALUE;
@@ -30,11 +40,13 @@ public abstract class WebViewFactoryProvider {
     public static final String SETTING_EYE_SHIELD_MODE = "EyeShieldMode";
     public static final Boolean SETTING_EYE_SHIELD_MODE_VALUE;
     public static final String SETTING_FIX_WEBVIEW_HOLES = "FixWebViewSecurityHoles";
+    public static final Boolean SETTING_FIX_WEBVIEW_HOLES_VALUE;
     public static final String SETTING_GIF_FIRST_FRAME = "GifFirstFrameOnly";
     public static final Boolean SETTING_GIF_FIRST_FRAME_VALUE;
     public static final String SETTING_JS_CHECK_POLICY = "JsCheckPolicy";
     public static final BdJsCheckPolicy SETTING_JS_CHECK_POLICY_VALUE;
     public static final String SETTING_JS_ENABLE_ON_FILE_SCHEMA = "JavaScriptEnabledOnFileScheme";
+    public static final Boolean SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE;
     public static final String SETTING_MONITOR = "Monitor";
     public static final Boolean SETTING_MONITOR_VALUE;
     public static final String SETTING_NA2_WEB_ENABLE = "NA2WebEnable";
@@ -55,11 +67,10 @@ public abstract class WebViewFactoryProvider {
     public static final String SETTING_URL_SAFE_CHECK = "UrlSafeCheck";
     public static final Boolean SETTING_URL_SAFE_CHECK_VALUE;
     public static final int STATIC_SETTING_SIZE = 16;
+    public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Object> mStaticWebSettings;
-    public static final Boolean SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE = Boolean.FALSE;
-    public static final Boolean SETTING_FIX_WEBVIEW_HOLES_VALUE = Boolean.TRUE;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface SettingsStatics {
         void addPreConnectPrefixes(String str);
 
@@ -406,7 +417,7 @@ public abstract class WebViewFactoryProvider {
         boolean useCronet();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 
@@ -466,6 +477,20 @@ public abstract class WebViewFactoryProvider {
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-750019643, "Lcom/baidu/webkit/sdk/WebViewFactoryProvider;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-750019643, "Lcom/baidu/webkit/sdk/WebViewFactoryProvider;");
+                return;
+            }
+        }
+        SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE = Boolean.FALSE;
+        SETTING_FIX_WEBVIEW_HOLES_VALUE = Boolean.TRUE;
         Boolean bool = Boolean.FALSE;
         SETTING_AD_BLOCK_VALUE = bool;
         SETTING_URL_SAFE_CHECK_VALUE = bool;
@@ -485,158 +510,334 @@ public abstract class WebViewFactoryProvider {
         SETTING_NA2_WEB_VALUE = bool2;
     }
 
+    public WebViewFactoryProvider() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public String[] GetKernelInfo() {
-        return new String[0];
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
     }
 
     public void RecordUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
     }
 
     public void commonInitialize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
     }
 
     public CookieSyncManager createCookieSyncManager(Context context) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            return null;
+        }
+        return (CookieSyncManager) invokeL.objValue;
     }
 
     public WebViewProvider createWebView(WebView webView, WebView.PrivateAccess privateAccess) {
-        return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, privateAccess)) == null) {
+            return null;
+        }
+        return (WebViewProvider) invokeLL.objValue;
     }
 
     public void disableFeature(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
     }
 
     public void enableFeature(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
     }
 
     public Object getApisInteractWithMario() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
     }
 
     public CookieManager getCookieManager() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (CookieManager) invokeV.objValue;
     }
 
     public CookieSyncManager getCookieSyncManager() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (CookieSyncManager) invokeV.objValue;
     }
 
     public GeolocationPermissions getGeolocationPermissions() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
+        }
+        return (GeolocationPermissions) invokeV.objValue;
     }
 
     public GeolocationServiceBridge getGeolocationServiceBridge() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return null;
+        }
+        return (GeolocationServiceBridge) invokeV.objValue;
     }
 
     public ZeusLogUploader getLogUploader(String str, String str2, boolean z) {
-        return null;
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048588, this, str, str2, z)) == null) {
+            return null;
+        }
+        return (ZeusLogUploader) invokeLLZ.objValue;
     }
 
     public MimeTypeMap getMimeTypeMap() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return null;
+        }
+        return (MimeTypeMap) invokeV.objValue;
     }
 
     public NativeRestore getNativeRestoreImpl(String str) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return null;
+        }
+        return (NativeRestore) invokeL.objValue;
     }
 
     public PermissionRequest getPermissionRequest(String str) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            return null;
+        }
+        return (PermissionRequest) invokeL.objValue;
     }
 
     public WebViewRendererService.ServiceProvider getRendererService() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (WebViewRendererService.ServiceProvider) invokeV.objValue;
     }
 
     public ServiceWorkerController getServiceWorkerController() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (ServiceWorkerController) invokeV.objValue;
     }
 
     public SettingsStatics getSettingsStatics() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return null;
+        }
+        return (SettingsStatics) invokeV.objValue;
     }
 
     public Object getStaticWebSeting(String str) {
+        InterceptResult invokeL;
         HashMap<String, Object> hashMap;
-        if (TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
+                return null;
+            }
+            return this.mStaticWebSettings.get(str);
         }
-        return this.mStaticWebSettings.get(str);
+        return invokeL.objValue;
     }
 
     public Statics getStatics() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (Statics) invokeV.objValue;
     }
 
     public TracingController getTracingController() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return null;
+        }
+        return (TracingController) invokeV.objValue;
     }
 
     public UMALogger getUMALogger() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
+        }
+        return (UMALogger) invokeV.objValue;
     }
 
     public WebIconDatabase getWebIconDatabase() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return null;
+        }
+        return (WebIconDatabase) invokeV.objValue;
     }
 
     public WebStorage getWebStorage() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return null;
+        }
+        return (WebStorage) invokeV.objValue;
     }
 
     public ClassLoader getWebViewClassLoader() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return null;
+        }
+        return (ClassLoader) invokeV.objValue;
     }
 
     public WebViewDatabase getWebViewDatabase(Context context) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, context)) == null) {
+            return null;
+        }
+        return (WebViewDatabase) invokeL.objValue;
     }
 
     public String getZeusJarVersion() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getZeusNativeLibraryVersion() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void initNet() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        }
     }
 
     public void initPageCacheCounts(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, context) == null) {
+        }
     }
 
     public void lazyInitialize() {
-        Log.i(LOG_TAG, "lazyInitialize");
-        VideoPacDownload.tryToDownLoadAsync(WebViewFactory.getContext());
-        PacDownload.tryToDownLoadAsyncFreeFlow(WebViewFactory.getContext());
-        PacDownload.tryToDownLoadAsync(WebViewFactory.getContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            Log.i(LOG_TAG, "lazyInitialize");
+            VideoPacDownload.tryToDownLoadAsync(WebViewFactory.getContext());
+            PacDownload.tryToDownLoadAsyncFreeFlow(WebViewFactory.getContext());
+            PacDownload.tryToDownLoadAsync(WebViewFactory.getContext());
+        }
     }
 
     public void onABTestReady() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        }
     }
 
     public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        }
     }
 
     public void preInitWebView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+        }
     }
 
     public void setLocation(ZeusGeoLocationInfo zeusGeoLocationInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048611, this, zeusGeoLocationInfo, z) == null) {
+        }
     }
 
     public void setStaticWebSeting(String str, Object obj) {
         HashMap<String, Object> hashMap;
-        if (TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048612, this, str, obj) == null) || TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
             return;
         }
         this.mStaticWebSettings.put(str, obj);
     }
 
     public void setWebviewNumber(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        }
     }
 
     public void startBrowserProcess(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+        }
     }
 }

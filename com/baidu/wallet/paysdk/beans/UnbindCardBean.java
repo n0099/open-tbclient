@@ -2,8 +2,14 @@ package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.controllers.PasswordController;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.beans.BaseBean;
@@ -11,78 +17,126 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25291a;
+    public String f25834a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25292b;
+    public String f25835b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25293c;
+    public String f25836c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25294d;
+    public boolean f25837d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> UnbindCardBean(Context context) {
         super(context);
-        this.f25294d = true;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f25837d = true;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        if (!TextUtils.isEmpty(this.f25293c)) {
-            super.execBean(null);
-        } else {
-            this.mRspCallback.onBeanExecFailure(getBeanId(), -10, "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!TextUtils.isEmpty(this.f25836c)) {
+                super.execBean(null);
+            } else {
+                this.mRspCallback.onBeanExecFailure(getBeanId(), -10, "");
+            }
         }
     }
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        if (TextUtils.isEmpty(this.f25293c)) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (TextUtils.isEmpty(this.f25836c)) {
+                return arrayList;
+            }
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25834a)));
+            if (this.f25837d) {
+                String seed = PasswordController.getSeed();
+                String handlePwd = PasswordController.handlePwd(this.f25836c, seed);
+                String encryptProxy = SafePay.getInstance().encryptProxy(seed);
+                arrayList.add(new RestNameValuePair("mobile_pass", handlePwd));
+                arrayList.add(new RestNameValuePair("seed", encryptProxy));
+            } else {
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25835b)));
+                arrayList.add(new RestNameValuePair("vcode", this.f25836c));
+            }
             return arrayList;
         }
-        arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25291a)));
-        if (this.f25294d) {
-            String seed = PasswordController.getSeed();
-            String handlePwd = PasswordController.handlePwd(this.f25293c, seed);
-            String encryptProxy = SafePay.getInstance().encryptProxy(seed);
-            arrayList.add(new RestNameValuePair("mobile_pass", handlePwd));
-            arrayList.add(new RestNameValuePair("seed", encryptProxy));
-        } else {
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25292b)));
-            arrayList.add(new RestNameValuePair("vcode", this.f25293c));
-        }
-        return arrayList;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return 516;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 516;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_UNBIND_CARD;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_UNBIND_CARD;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setCardNo(String str) {
-        this.f25291a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f25834a = str;
+        }
     }
 
     public void setPhoneNo(String str) {
-        this.f25292b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f25835b = str;
+        }
     }
 
     public void setUsePass(boolean z) {
-        this.f25294d = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f25837d = z;
+        }
     }
 
     public void setValue(String str) {
-        this.f25293c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f25836c = str;
+        }
     }
 }

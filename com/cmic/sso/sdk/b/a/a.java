@@ -3,6 +3,10 @@ package com.cmic.sso.sdk.b.a;
 import android.annotation.TargetApi;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.d.q;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -16,17 +20,34 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes6.dex */
 public class a implements b {
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0211  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0214  */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0226  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x0244  */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0267  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x026a  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x027c  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x01cc  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x01df  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x01e3  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x01ee  */
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:100:0x01f6  */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x0219  */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x021c  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x022e  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x024c  */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x026f  */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0272  */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x0284  */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x01d4  */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x01e7  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01eb  */
     @Override // com.cmic.sso.sdk.b.a.b
     @TargetApi(21)
     /*
@@ -41,6 +62,10 @@ public class a implements b {
         HttpURLConnection httpURLConnection;
         int i3;
         HttpURLConnection httpURLConnection2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(1048576, this, cVar, cVar2, aVar) != null) {
+            return;
+        }
         String str2 = "";
         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "请求地址: " + cVar.a());
         try {
@@ -91,20 +116,23 @@ public class a implements b {
                             sb2.append(cVar.a());
                             com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb2.toString());
                             if (e instanceof SSLHandshakeException) {
+                                aVar.a("isNeedToGetCert", true);
                             }
-                            aVar.a().f30729a.add(e);
-                            if (e instanceof EOFException) {
-                            }
+                            aVar.a().f32522a.add(e);
+                            i3 = e instanceof EOFException ? 200050 : 102102;
                             a(outputStream);
                             a(inputStream);
                             if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
                             com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i3);
                             StringBuilder sb3 = new StringBuilder();
                             sb3.append("responseResult: ");
                             sb3.append(TextUtils.isEmpty(sb) ? str : sb.toString());
                             com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb3.toString());
-                            if (i3 == 200) {
+                            if (i3 == 200 && i3 != 301 && i3 != 302) {
+                                cVar2.a(com.cmic.sso.sdk.b.d.a.a(i3));
+                                return;
                             }
                             cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                         } catch (Throwable th) {
@@ -175,7 +203,7 @@ public class a implements b {
                                     com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb22.toString());
                                     if (e instanceof SSLHandshakeException) {
                                     }
-                                    aVar.a().f30729a.add(e);
+                                    aVar.a().f32522a.add(e);
                                     if (e instanceof EOFException) {
                                     }
                                     a(outputStream);
@@ -243,25 +271,22 @@ public class a implements b {
                         sb222.append(cVar.a());
                         com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb222.toString());
                         if (e instanceof SSLHandshakeException) {
-                            aVar.a("isNeedToGetCert", true);
                         }
-                        aVar.a().f30729a.add(e);
-                        i3 = e instanceof EOFException ? 200050 : 102102;
+                        aVar.a().f32522a.add(e);
+                        if (e instanceof EOFException) {
+                        }
                         a(outputStream);
                         a(inputStream);
                         if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
                         }
                         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i3);
                         StringBuilder sb322 = new StringBuilder();
                         sb322.append("responseResult: ");
                         sb322.append(TextUtils.isEmpty(sb) ? str : sb.toString());
                         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb322.toString());
-                        if (i3 == 200 && i3 != 301 && i3 != 302) {
-                            cVar2.a(com.cmic.sso.sdk.b.d.a.a(i3));
-                        } else {
-                            cVar2.a((com.cmic.sso.sdk.b.d.b) null);
+                        if (i3 == 200) {
                         }
+                        cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                     } catch (Throwable th5) {
                         th = th5;
                         str = "";
@@ -325,18 +350,21 @@ public class a implements b {
     }
 
     private void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException e2) {
+            e2.printStackTrace();
         }
     }
 
     private void a(HttpURLConnection httpURLConnection, com.cmic.sso.sdk.a aVar, String str) {
         String a2;
-        if (!(httpURLConnection instanceof HttpsURLConnection) || aVar.b("CLOSE_CERT_VERIFY", true) || str.contains("https://config2.cmpassport.com/client/uniConfig")) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, this, httpURLConnection, aVar, str) == null) || !(httpURLConnection instanceof HttpsURLConnection) || aVar.b("CLOSE_CERT_VERIFY", true) || str.contains("https://config2.cmpassport.com/client/uniConfig")) {
             return;
         }
         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "开启证书校验");

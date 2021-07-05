@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base.utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface PassBioEnv {
     public static final String CONFIG_URI = "/static/appsapi/appdistribute/android.txt";
     public static final String CONF_DOMAIN = "https://wappass.bdimg.com";

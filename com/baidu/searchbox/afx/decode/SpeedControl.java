@@ -1,23 +1,51 @@
 package com.baidu.searchbox.afx.decode;
 
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.afx.decode.VideoPlayer;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class SpeedControl implements VideoPlayer.FrameCallback {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long ONE_MILLION = 1000000;
     public static final String TAG = "SpeedControl";
+    public transient /* synthetic */ FieldHolder $fh;
     public long mFixedFrameDurationUsec;
     public boolean mLoopReset;
     public long mPrevMonoUsec;
     public long mPrevPresentUsec;
 
+    public SpeedControl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.searchbox.afx.decode.VideoPlayer.FrameCallback
     public void loopReset() {
-        this.mLoopReset = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mLoopReset = true;
+        }
     }
 
     @Override // com.baidu.searchbox.afx.decode.VideoPlayer.FrameCallback
     public void preRender(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) {
+            return;
+        }
         long j2 = 0;
         if (this.mPrevMonoUsec == 0) {
             this.mPrevMonoUsec = System.nanoTime() / 1000;
@@ -67,13 +95,19 @@ public class SpeedControl implements VideoPlayer.FrameCallback {
 
     @Override // com.baidu.searchbox.afx.decode.VideoPlayer.FrameCallback
     public void reset() {
-        this.mPrevPresentUsec = 0L;
-        this.mPrevMonoUsec = 0L;
-        this.mFixedFrameDurationUsec = 0L;
-        this.mLoopReset = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mPrevPresentUsec = 0L;
+            this.mPrevMonoUsec = 0L;
+            this.mFixedFrameDurationUsec = 0L;
+            this.mLoopReset = false;
+        }
     }
 
     public void setFixedPlaybackRate(int i2) {
-        this.mFixedFrameDurationUsec = 1000000 / i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.mFixedFrameDurationUsec = 1000000 / i2;
+        }
     }
 }

@@ -1,50 +1,70 @@
 package com.bytedance.sdk.openadsdk.k.a;
 
-import android.content.Context;
-import com.bytedance.sdk.openadsdk.k.e;
-import com.bytedance.sdk.openadsdk.k.g.d;
-import com.bytedance.sdk.openadsdk.l.g;
-import java.io.File;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class b extends a {
+public class b extends c<b> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f29514a;
+    public long f31264a;
 
-    public void a() {
-        d.a(new g("clear") { // from class: com.bytedance.sdk.openadsdk.k.a.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                b.this.b();
+    /* renamed from: b  reason: collision with root package name */
+    public long f31265b;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        });
+        }
     }
 
-    public void b() {
-        com.bytedance.sdk.openadsdk.k.d.c().d();
-        Context a2 = e.a();
-        if (a2 != null) {
-            com.bytedance.sdk.openadsdk.k.b.c.a(a2).a(1);
+    public b a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            this.f31264a = j;
+            return this;
         }
-        for (File file : this.f29514a.listFiles()) {
+        return (b) invokeJ.objValue;
+    }
+
+    public b b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            this.f31265b = j;
+            return this;
+        }
+        return (b) invokeJ.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.k.a.c, com.bytedance.sdk.openadsdk.k.a.a
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject a2 = super.a();
             try {
-                file.delete();
-            } catch (Throwable unused) {
+                a2.put("c_process_time", this.f31264a);
+                a2.put("s_process_time", this.f31265b);
+            } catch (Exception unused) {
             }
+            return a2;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.k.a.a
-    public File c(String str) {
-        return e(str);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.k.a.a
-    public File d(String str) {
-        return e(str);
-    }
-
-    public File e(String str) {
-        return new File(this.f29514a, str);
+        return (JSONObject) invokeV.objValue;
     }
 }

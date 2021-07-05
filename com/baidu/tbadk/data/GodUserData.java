@@ -1,64 +1,113 @@
 package com.baidu.tbadk.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GodInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GodUserData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public long fid;
     public int followed;
     public Long id;
     public String intro;
-    public boolean isFromNetWork = true;
+    public boolean isFromNetWork;
     public String mForumName;
     public String mRecommendReason;
     public int type;
 
+    public GodUserData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isFromNetWork = true;
+    }
+
     public long getFid() {
-        return this.fid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.fid : invokeV.longValue;
     }
 
     public String getForumName() {
-        return this.mForumName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumName : (String) invokeV.objValue;
     }
 
     public Long getId() {
-        return this.id;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.id : (Long) invokeV.objValue;
     }
 
     public String getIntro() {
-        return this.intro;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.intro : (String) invokeV.objValue;
     }
 
     public boolean getIsFromNetWork() {
-        return this.isFromNetWork;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isFromNetWork : invokeV.booleanValue;
     }
 
     public boolean getIsLike() {
-        return this.followed == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.followed == 1 : invokeV.booleanValue;
     }
 
     public String getRecommendReason() {
-        return this.mRecommendReason;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRecommendReason : (String) invokeV.objValue;
     }
 
     public int getType() {
-        return this.type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.type : invokeV.intValue;
     }
 
     public boolean isBigV() {
-        int i2 = this.type;
-        return i2 == 2 || i2 == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i2 = this.type;
+            return i2 == 2 || i2 == 1;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isGod() {
-        return this.type == 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.type == 2 : invokeV.booleanValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.id = Long.valueOf(jSONObject.optLong("id"));
@@ -71,7 +120,8 @@ public class GodUserData extends OrmObject implements Serializable {
     }
 
     public void parserProtobuf(GodInfo godInfo) {
-        if (godInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, godInfo) == null) || godInfo == null) {
             return;
         }
         this.id = godInfo.id;
@@ -84,26 +134,44 @@ public class GodUserData extends OrmObject implements Serializable {
     }
 
     public void setFid(long j) {
-        this.fid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.fid = j;
+        }
     }
 
     public void setId(Long l) {
-        this.id = l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, l) == null) {
+            this.id = l;
+        }
     }
 
     public void setIntro(String str) {
-        this.intro = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.intro = str;
+        }
     }
 
     public void setIsFromNetWork(boolean z) {
-        this.isFromNetWork = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.isFromNetWork = z;
+        }
     }
 
     public void setIsLike(boolean z) {
-        this.followed = z ? 1 : 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.followed = z ? 1 : 0;
+        }
     }
 
     public void setType(int i2) {
-        this.type = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            this.type = i2;
+        }
     }
 }

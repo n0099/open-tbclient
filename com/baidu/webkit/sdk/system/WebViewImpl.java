@@ -1,6 +1,7 @@
 package com.baidu.webkit.sdk.system;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Picture;
 import android.net.Uri;
@@ -13,6 +14,13 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.ManifestInfoCallback;
 import com.baidu.webkit.sdk.PageTransformer;
@@ -32,8 +40,10 @@ import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final WebView.DelegateAdapter mDelegate;
     public WebSettings mSettings;
     public WebChromeClient mWebChromeClient;
@@ -41,797 +51,1363 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public WebViewClient mWebViewClient;
     public final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class FindAdapter implements WebView.FindListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final WebView.FindListener mListener;
+        public final /* synthetic */ WebViewImpl this$0;
 
-        public FindAdapter(WebView.FindListener findListener) {
+        public FindAdapter(WebViewImpl webViewImpl, WebView.FindListener findListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webViewImpl, findListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = webViewImpl;
             this.mListener = findListener;
         }
 
         @Override // android.webkit.WebView.FindListener
         public void onFindResultReceived(int i2, int i3, boolean z) {
-            this.mListener.onFindResultReceived(i2, i3, z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+                this.mListener.onFindResultReceived(i2, i3, z);
+            }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class PictureAdapter implements WebView.PictureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final WebView.PictureListener mListener;
+        public final /* synthetic */ WebViewImpl this$0;
 
-        public PictureAdapter(WebView.PictureListener pictureListener) {
+        public PictureAdapter(WebViewImpl webViewImpl, WebView.PictureListener pictureListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webViewImpl, pictureListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = webViewImpl;
             this.mListener = pictureListener;
         }
 
         @Override // android.webkit.WebView.PictureListener
         public void onNewPicture(android.webkit.WebView webView, Picture picture) {
-            this.mListener.onNewPicture(((WebViewImpl) webView).getWebView(), picture);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, picture) == null) {
+                this.mListener.onNewPicture(((WebViewImpl) webView).getWebView(), picture);
+            }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public WebView.WebViewTransport mTransport;
         public com.baidu.webkit.sdk.WebView mWebViewGeneric;
+        public final /* synthetic */ WebViewImpl this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WebViewTransportImpl(com.baidu.webkit.sdk.WebView webView, WebView.WebViewTransport webViewTransport) {
-            super();
+        public WebViewTransportImpl(WebViewImpl webViewImpl, com.baidu.webkit.sdk.WebView webView, WebView.WebViewTransport webViewTransport) {
+            super(webView);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webViewImpl, webView, webViewTransport};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((com.baidu.webkit.sdk.WebView) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = webViewImpl;
             Objects.requireNonNull(webView);
             this.mTransport = webViewTransport;
         }
 
         public WebView.WebViewTransport getTransport() {
-            return this.mTransport;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mTransport : (WebView.WebViewTransport) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebView.WebViewTransport
         public synchronized com.baidu.webkit.sdk.WebView getWebView() {
-            return this.mWebViewGeneric;
+            InterceptResult invokeV;
+            com.baidu.webkit.sdk.WebView webView;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                synchronized (this) {
+                    webView = this.mWebViewGeneric;
+                }
+                return webView;
+            }
+            return (com.baidu.webkit.sdk.WebView) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebView.WebViewTransport
         public synchronized void setWebView(com.baidu.webkit.sdk.WebView webView) {
-            this.mWebViewGeneric = webView;
-            this.mTransport.setWebView((android.webkit.WebView) webView.getWebView());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView) == null) {
+                synchronized (this) {
+                    this.mWebViewGeneric = webView;
+                    this.mTransport.setWebView((android.webkit.WebView) webView.getWebView());
+                }
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewImpl(com.baidu.webkit.sdk.WebView webView, WebView.PrivateAccess privateAccess) {
         super(webView.getContext());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, privateAccess};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mWebView = webView;
         this.mWebViewPrivateAccess = privateAccess;
         Objects.requireNonNull(webView);
-        this.mDelegate = new WebView.DelegateAdapter(this);
+        this.mDelegate = new WebView.DelegateAdapter(webView, this);
     }
 
     private InputMethodManager getInputMethodManager() {
-        if (this.mWebView.getContext() != null) {
-            return (InputMethodManager) this.mWebView.getContext().getSystemService("input_method");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.mWebView.getContext() != null) {
+                return (InputMethodManager) this.mWebView.getContext().getSystemService("input_method");
+            }
+            return null;
         }
-        return null;
+        return (InputMethodManager) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void addEmbeddedTitleBarFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void addNoStatePrefetch(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void addWebMessageListener(WebMessageListener webMessageListener, String str, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webMessageListener, str, strArr) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void addZeusPluginFactory(ZeusPluginFactory zeusPluginFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, zeusPluginFactory) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean canGoPrerender() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final boolean canZoomIn() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            return super.canZoomIn();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 11) {
+                return super.canZoomIn();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final boolean canZoomOut() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            return super.canZoomOut();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 11) {
+                return super.canZoomOut();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void cancelCurrentNoStatePrefetch() {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final Picture captureHistoryPicture(int i2, int i3, int i4) {
-        return null;
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final Picture capturePicture(int i2, int i3, boolean z) {
-        return super.capturePicture();
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final boolean clearDiskJsCodeCache(String str) {
-        return false;
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void clearPrerender() {
-    }
-
-    @Override // android.webkit.WebView, android.view.View
-    public final int computeVerticalScrollExtent() {
-        return super.computeVerticalScrollExtent();
-    }
-
-    @Override // android.webkit.WebView, android.view.View
-    public final int computeVerticalScrollOffset() {
-        return super.computeVerticalScrollOffset();
-    }
-
-    @Override // android.webkit.WebView, android.view.View
-    public final int computeVerticalScrollRange() {
-        return super.computeVerticalScrollRange();
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final WebBackForwardList copyBackForwardListZeus() {
-        try {
-            return WebBackForwardListImpl.from(copyBackForwardList());
-        } catch (Exception unused) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final Picture captureHistoryPicture(int i2, int i3, int i4) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4)) == null) {
+            return null;
+        }
+        return (Picture) invokeIII.objValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final Picture capturePicture(int i2, int i3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) ? super.capturePicture() : (Picture) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final boolean clearDiskJsCodeCache(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void clearPrerender() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final int computeVerticalScrollExtent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? super.computeVerticalScrollExtent() : invokeV.intValue;
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final int computeVerticalScrollOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? super.computeVerticalScrollOffset() : invokeV.intValue;
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final int computeVerticalScrollRange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? super.computeVerticalScrollRange() : invokeV.intValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final WebBackForwardList copyBackForwardListZeus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            try {
+                return WebBackForwardListImpl.from(copyBackForwardList());
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (WebBackForwardList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void cutdownUserData(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void disableMedia() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048594, this, bufferedWriter, i2) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void emulateShiftHeldOnLink() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void emulateShiftHeldOnNormalText() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void enableMedia() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(19)
     public final void evaluateJavaScript(String str, ValueCallback<String> valueCallback) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            super.evaluateJavascript(str, valueCallback);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048598, this, str, valueCallback) == null) || Build.VERSION.SDK_INT < 19) {
+            return;
         }
+        super.evaluateJavascript(str, valueCallback);
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(19)
     public final void evaluateJavaScriptOnPrerender(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048599, this, str, valueCallback) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void exitFullScreenMode() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void extendSelection() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        }
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(16)
     public final void findAllAsync(String str) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            super.findAllAsync(str);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048602, this, str) == null) || Build.VERSION.SDK_INT < 16) {
+            return;
         }
+        super.findAllAsync(str);
     }
 
     @Override // android.webkit.WebView, android.view.ViewGroup, android.view.View
     public final View findFocus() {
-        return super.findFocus();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? super.findFocus() : (View) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final View findHierarchyView(String str, int i2) {
-        return null;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, str, i2)) == null) {
+            return null;
+        }
+        return (View) invokeLI.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final Bitmap getCanvasCacheBmp() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return null;
+        }
+        return (Bitmap) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final int getContentWidth() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final String getGpuInfo() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public final Handler getHandler() {
-        return super.getHandler();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? super.getHandler() : (Handler) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final WebView.HitTestResult getHitTestResultZeus() {
-        try {
-            return Glue.cast(getHitTestResult());
-        } catch (Exception unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            try {
+                return Glue.cast(getHitTestResult());
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (WebView.HitTestResult) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void getManifestInfo(ManifestInfoCallback manifestInfoCallback) {
-        manifestInfoCallback.onManifestInfoFailed();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, manifestInfoCallback) == null) {
+            manifestInfoCallback.onManifestInfoFailed();
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final float getMaxZoomScale() {
-        return 1.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return 1.0f;
+        }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final float getMinZoomScale() {
-        return 1.0f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return 1.0f;
+        }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final PagePerformanceTiming getPerformanceTiming() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return null;
+        }
+        return (PagePerformanceTiming) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final String getReferer() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(26)
     public final boolean getRendererPriorityWaivedWhenNotVisible() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            return super.getRendererPriorityWaivedWhenNotVisible();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return super.getRendererPriorityWaivedWhenNotVisible();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(26)
     public final int getRendererRequestedPriority() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            return super.getRendererRequestedPriority();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return super.getRendererRequestedPriority();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final WebViewProvider.ScrollDelegate getScrollDelegate() {
-        return this.mDelegate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mDelegate : (WebViewProvider.ScrollDelegate) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean getSelectingText() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final WebSettings getSettingsZeus() {
-        if (this.mSettings == null) {
-            this.mSettings = WebSettingsImpl.from(getSettings());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            if (this.mSettings == null) {
+                this.mSettings = WebSettingsImpl.from(getSettings());
+            }
+            return this.mSettings;
         }
-        return this.mSettings;
+        return (WebSettings) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final CharSequence getTextFieldText() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            return null;
+        }
+        return (CharSequence) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final int getTouchMode() {
-        return 7;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            return 7;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final Object getUserData(int i2, int i3) {
-        return null;
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048622, this, i2, i3)) == null) {
+            return null;
+        }
+        return invokeII.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final WebViewProvider.ViewDelegate getViewDelegate() {
-        return this.mDelegate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.mDelegate : (WebViewProvider.ViewDelegate) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final int getVisibleTitleHeightZeus() {
-        if (Build.VERSION.SDK_INT < 17) {
-            try {
-                Method declaredMethod = android.webkit.WebView.class.getDeclaredMethod("getVisibleTitleHeight", new Class[0]);
-                declaredMethod.setAccessible(true);
-                return ((Integer) declaredMethod.invoke(this, new Object[0])).intValue();
-            } catch (Throwable th) {
-                Log.d("huangweichai", "", th);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            if (Build.VERSION.SDK_INT < 17) {
+                try {
+                    Method declaredMethod = android.webkit.WebView.class.getDeclaredMethod("getVisibleTitleHeight", new Class[0]);
+                    declaredMethod.setAccessible(true);
+                    return ((Integer) declaredMethod.invoke(this, new Object[0])).intValue();
+                } catch (Throwable th) {
+                    Log.d("huangweichai", "", th);
+                }
             }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener, boolean z) {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final WebChromeClient getWebChromeClientZeus() {
-        return this.mWebChromeClient;
-    }
-
-    public final com.baidu.webkit.sdk.WebView getWebView() {
-        return this.mWebView;
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final WebViewClient getWebViewClientZeus() {
-        return this.mWebViewClient;
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final ViewGroup getWebViewPager() {
-        return this;
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void goNextOrPreTextField(boolean z) {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void goPrerender() {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void hitAd(String str) {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void init(Map<String, Object> map, boolean z) {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void initNet() {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void insertTextFieldText(CharSequence charSequence) {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    @TargetApi(23)
-    public final void insertVisualStateCallback(long j, final WebView.VisualStateCallback visualStateCallback) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            postVisualStateCallback(j, new WebView.VisualStateCallback() { // from class: com.baidu.webkit.sdk.system.WebViewImpl.1
-                @Override // android.webkit.WebView.VisualStateCallback
-                public void onComplete(long j2) {
-                    WebView.VisualStateCallback visualStateCallback2 = visualStateCallback;
-                    if (visualStateCallback2 != null) {
-                        visualStateCallback2.onComplete(j2);
-                    }
-                }
-            });
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048625, this, webAppShortcutDataListener, z) == null) {
         }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final WebChromeClient getWebChromeClientZeus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mWebChromeClient : (WebChromeClient) invokeV.objValue;
+    }
+
+    public final com.baidu.webkit.sdk.WebView getWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mWebView : (com.baidu.webkit.sdk.WebView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final WebViewClient getWebViewClientZeus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mWebViewClient : (WebViewClient) invokeV.objValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final ViewGroup getWebViewPager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this : (ViewGroup) invokeV.objValue;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void goNextOrPreTextField(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void goPrerender() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void hitAd(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void init(Map<String, Object> map, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048633, this, map, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void initNet() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void insertTextFieldText(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, charSequence) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(23)
+    public final void insertVisualStateCallback(long j, WebView.VisualStateCallback visualStateCallback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJL(1048636, this, j, visualStateCallback) == null) || Build.VERSION.SDK_INT < 23) {
+            return;
+        }
+        postVisualStateCallback(j, new WebView.VisualStateCallback(this, visualStateCallback) { // from class: com.baidu.webkit.sdk.system.WebViewImpl.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WebViewImpl this$0;
+            public final /* synthetic */ WebView.VisualStateCallback val$callback;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, visualStateCallback};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$callback = visualStateCallback;
+            }
+
+            @Override // android.webkit.WebView.VisualStateCallback
+            public void onComplete(long j2) {
+                WebView.VisualStateCallback visualStateCallback2;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) || (visualStateCallback2 = this.val$callback) == null) {
+                    return;
+                }
+                visualStateCallback2.onComplete(j2);
+            }
+        });
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean isAutoShowTitlebar() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean isMobileSite() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean isPaused() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final boolean isPrivateBrowsingEnabled() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            return super.isPrivateBrowsingEnabled();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 11) {
+                return super.isPrivateBrowsingEnabled();
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean isScrollInProgress() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean isZeusWebViewProvider() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5, boolean z) {
-        super.loadDataWithBaseURL(str, str2, str3, str4, str5);
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void loadUrl(String str, Map<String, String> map, boolean z) {
-        super.loadUrl(str, map);
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void notifyUkmPageLeave() {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void notifyUnsafeInvolved(int i2, String str) {
-    }
-
-    @Override // android.webkit.WebView, android.view.View
-    public final boolean onCheckIsTextEditor() {
-        return super.onCheckIsTextEditor();
-    }
-
-    @Override // android.view.ViewGroup
-    public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.mWebView.onInterceptTouchEvent(motionEvent);
-    }
-
-    @Override // android.webkit.WebView, android.view.View
-    public final void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
-        WebView.PrivateAccess privateAccess = this.mWebViewPrivateAccess;
-        if (privateAccess != null) {
-            privateAccess.onOverScrolled(i2, i3, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) {
+            super.loadDataWithBaseURL(str, str2, str3, str4, str5);
         }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void loadUrl(String str, Map<String, String> map, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048644, this, str, map, z) == null) {
+            super.loadUrl(str, map);
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void notifyUkmPageLeave() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void notifyUnsafeInvolved(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048646, this, i2, str) == null) {
+        }
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final boolean onCheckIsTextEditor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? super.onCheckIsTextEditor() : invokeV.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, motionEvent)) == null) ? this.mWebView.onInterceptTouchEvent(motionEvent) : invokeL.booleanValue;
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+        WebView.PrivateAccess privateAccess;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048649, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (privateAccess = this.mWebViewPrivateAccess) == null) {
+            return;
+        }
+        privateAccess.onOverScrolled(i2, i3, z, z2);
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void onPageSwapFromWebview(com.baidu.webkit.sdk.WebView webView, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048650, this, webView, str, z) == null) {
+        }
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final void onPause() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.onPause();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048651, this) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.onPause();
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void onPauseAll() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.onPause();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048652, this) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.onPause();
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final void onResume() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.onResume();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048653, this) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.onResume();
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void onResumeAll() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.onResume();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048654, this) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.onResume();
     }
 
     @Override // android.webkit.WebView, android.view.View
     public final void onScrollChanged(int i2, int i3, int i4, int i5) {
-        WebView.PrivateAccess privateAccess = this.mWebViewPrivateAccess;
-        if (privateAccess != null) {
-            privateAccess.onScrollChanged(i2, i3, i4, i5);
+        WebView.PrivateAccess privateAccess;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIII(1048655, this, i2, i3, i4, i5) == null) || (privateAccess = this.mWebViewPrivateAccess) == null) {
+            return;
         }
+        privateAccess.onScrollChanged(i2, i3, i4, i5);
     }
 
     @Override // android.webkit.WebView, android.view.View
     public final boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.mWebView.onTouchEvent(motionEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, motionEvent)) == null) ? this.mWebView.onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void pauseMedia() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
+        }
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     public final void pauseTimers() {
-        super.pauseTimers();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
+            super.pauseTimers();
+        }
     }
 
     @Override // android.webkit.WebView, android.view.View
     public final boolean performLongClick() {
-        return this.mWebView.performLongClick();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.mWebView.performLongClick() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(23)
     public final void postMessageToMainFrame(WebMessage webMessage, Uri uri) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            postWebMessage(Glue.cast(webMessage), uri);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048660, this, webMessage, uri) == null) || Build.VERSION.SDK_INT < 23) {
+            return;
         }
+        postWebMessage(Glue.cast(webMessage), uri);
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void removeHistoryItems() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
+        }
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final void removeJavascriptInterface(String str) {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.removeJavascriptInterface(str);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048662, this, str) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.removeJavascriptInterface(str);
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void resetClearView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void resetLoadingAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048664, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final WebBackForwardList restoreStateZeus(Bundle bundle) {
-        return WebBackForwardListImpl.from(restoreState(bundle));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, bundle)) == null) ? WebBackForwardListImpl.from(restoreState(bundle)) : (WebBackForwardList) invokeL.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void resumeMedia() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
+        }
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     public final void resumeTimers() {
-        super.resumeTimers();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048667, this) == null) {
+            super.resumeTimers();
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean savePageAsLocalFiles(String str, String str2, WebView.SaveAsType saveAsType) {
-        return true;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048668, this, str, str2, saveAsType)) == null) {
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final WebBackForwardList saveStateZeus(Bundle bundle) {
-        return WebBackForwardListImpl.from(saveState(bundle));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, bundle)) == null) ? WebBackForwardListImpl.from(saveState(bundle)) : (WebBackForwardList) invokeL.objValue;
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final void saveWebArchive(String str) {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.saveWebArchive(str);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048670, this, str) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.saveWebArchive(str);
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.saveWebArchive(str, z, valueCallback);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048671, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.saveWebArchive(str, z, valueCallback);
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void selectionDone() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048672, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void sendFeedback(String str, String str2) {
-        Log.v("WebViewImpl", "[houyuqi-feedback] do not upload feedback in system webview");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048673, this, str, str2) == null) {
+            Log.v("WebViewImpl", "[houyuqi-feedback] do not upload feedback in system webview");
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setAutoShowTitlebar(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048674, this, z) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setBeginScale() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048675, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setBottomControlsHeight(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048676, this, i2) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setCanvasCacheBmp(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048677, this, bitmap) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setDefaultViewSize(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048678, this, i2, i3) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setEndScale() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048679, this) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(16)
     public final void setFindListener(WebView.FindListener findListener) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            setFindListener(findListener != null ? new FindAdapter(findListener) : null);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048680, this, findListener) == null) || Build.VERSION.SDK_INT < 16) {
+            return;
         }
+        setFindListener(findListener != null ? new FindAdapter(findListener) : null);
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setPageTransformer(boolean z, PageTransformer pageTransformer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048681, this, z, pageTransformer) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setPauseSyncActions(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048682, this, z) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setPictureListener(WebView.PictureListener pictureListener) {
-        setPictureListener(pictureListener != null ? new PictureAdapter(pictureListener) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048683, this, pictureListener) == null) {
+            setPictureListener(pictureListener != null ? new PictureAdapter(pictureListener) : null);
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean setPreviewZoomScale(float f2) {
-        return false;
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048684, this, f2)) == null) {
+            return false;
+        }
+        return invokeF.booleanValue;
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(26)
     public final void setRendererPriorityPolicy(int i2, boolean z) {
-        if (Build.VERSION.SDK_INT >= 26) {
-            super.setRendererPriorityPolicy(i2, z);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048685, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || Build.VERSION.SDK_INT < 26) {
+            return;
         }
+        super.setRendererPriorityPolicy(i2, z);
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean setSelectingText(boolean z) {
-        return false;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048686, this, z)) == null) {
+            return false;
+        }
+        return invokeZ.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setStatusBar(View view, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048687, this, view, i2) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setTextFieldText(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048688, this, charSequence) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setTopControlsHeight(int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048689, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setUserData(int i2, int i3, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048690, this, i2, i3, obj) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setVideoPlayerFactory(VideoPlayerFactory videoPlayerFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048691, this, videoPlayerFactory) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setWebChromeClient(WebChromeClient webChromeClient) {
-        super.setWebChromeClient(webChromeClient == null ? null : new WebChromeClientWrapper(this, webChromeClient));
-        this.mWebChromeClient = webChromeClient;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048692, this, webChromeClient) == null) {
+            super.setWebChromeClient(webChromeClient == null ? null : new WebChromeClientWrapper(this, webChromeClient));
+            this.mWebChromeClient = webChromeClient;
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setWebViewClient(WebViewClient webViewClient) {
-        super.setWebViewClient(webViewClient == null ? null : new WebViewClientWrapper(this, webViewClient));
-        this.mWebViewClient = webViewClient;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048693, this, webViewClient) == null) {
+            super.setWebViewClient(webViewClient == null ? null : new WebViewClientWrapper(this, webViewClient));
+            this.mWebViewClient = webViewClient;
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setWebViewMargin(int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048694, this, i2, i3, i4, i5) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setWebViewPagerContainer(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048695, this, viewGroup) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setWebViewPagerSize(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048696, this, i2, i3) == null) {
+        }
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final boolean showFindDialog(String str, boolean z) {
-        if (Build.VERSION.SDK_INT >= 11) {
-            return super.showFindDialog(str, z);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048697, this, str, z)) == null) {
+            if (Build.VERSION.SDK_INT >= 11) {
+                return super.showFindDialog(str, z);
+            }
+            return false;
         }
-        return false;
+        return invokeLZ.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void startLoadingAnimation(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048698, this, str) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final int startPrerender(String str) {
-        return -1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048699, this, str)) == null) {
+            return -1;
+        }
+        return invokeL.intValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void stopPrerender() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048700, this) == null) {
+        }
     }
 
     public final boolean super_onInterceptTouchEvent(MotionEvent motionEvent) {
-        return super.onInterceptTouchEvent(motionEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048701, this, motionEvent)) == null) ? super.onInterceptTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public final void super_onOverScrolled(int i2, int i3, boolean z, boolean z2) {
-        super.onOverScrolled(i2, i3, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048702, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            super.onOverScrolled(i2, i3, z, z2);
+        }
     }
 
     public final void super_onScrollChanged(int i2, int i3, int i4, int i5) {
-        super.onScrollChanged(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048703, this, i2, i3, i4, i5) == null) {
+            super.onScrollChanged(i2, i3, i4, i5);
+        }
     }
 
     public final boolean super_onTouchEvent(MotionEvent motionEvent) {
-        boolean z = (getInputMethodManager() == null || getInputMethodManager().isActive(this)) ? false : true;
-        if (motionEvent.getAction() == 0 && (!this.mWebView.isFocused() || z)) {
-            this.mWebView.requestFocus();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048704, this, motionEvent)) == null) {
+            boolean z = (getInputMethodManager() == null || getInputMethodManager().isActive(this)) ? false : true;
+            if (motionEvent.getAction() == 0 && (!this.mWebView.isFocused() || z)) {
+                this.mWebView.requestFocus();
+            }
+            return super.onTouchEvent(motionEvent);
         }
-        return super.onTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     public final boolean super_performLongClick() {
-        return super.performLongClick();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) ? super.performLongClick() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void suspendScheduledTasks(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048706, this, str) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void switchTitleBar(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048707, this, z) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void updateTopControlOffset(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048708, this, i2) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void updateTopControlsState(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048709, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(21)
     public final boolean zoomByZeus(float f2) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            super.zoomBy(f2);
-            return true;
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048710, this, f2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                super.zoomBy(f2);
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeF.booleanValue;
     }
 }

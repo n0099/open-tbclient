@@ -1,6 +1,12 @@
 package com.baidu.wallet.base.statistics;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class PayStatServiceEvent {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BIND_CARD_PASS_AGREE = "bind_card_pass_agree";
     public static final String BIND_CARD_PASS_ENTER = "bind_card_pass_enter";
     public static final String BIND_CARD_PASS_FAILED = "bind_card_pass_failed";
@@ -58,4 +64,19 @@ public class PayStatServiceEvent {
     public static final String STD_PAY_ORDER = "std_pay_order";
     public static final String STD_PAY_REORDER = "std_pay_reorder";
     public static final String STD_PAY_SUCCESS = "std_pay_success";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public PayStatServiceEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

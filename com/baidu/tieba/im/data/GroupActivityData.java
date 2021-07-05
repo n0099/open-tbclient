@@ -1,9 +1,18 @@
 package com.baidu.tieba.im.data;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GroupActivityData implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8275677249213550974L;
+    public transient /* synthetic */ FieldHolder $fh;
     public int activityId;
     public String activityPortrait;
     public String gActivityArea;
@@ -17,99 +26,173 @@ public class GroupActivityData implements Serializable {
     public long userId;
     public String userName;
 
+    public GroupActivityData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public int getActivityId() {
-        return this.activityId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.activityId : invokeV.intValue;
     }
 
     public String getActivityPortrait() {
-        return this.activityPortrait;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.activityPortrait : (String) invokeV.objValue;
     }
 
     public long getGroupId() {
-        return this.groupId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.groupId : invokeV.longValue;
     }
 
     public String getGroupName() {
-        return this.groupName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.groupName : (String) invokeV.objValue;
     }
 
     public int getIsEnd() {
-        return this.isEnd;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isEnd : invokeV.intValue;
     }
 
     public String getNameShow() {
-        return this.nameShow;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.nameShow : (String) invokeV.objValue;
     }
 
     public long getUserId() {
-        return this.userId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.userId : invokeV.longValue;
     }
 
     public String getUserName() {
-        return this.userName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.userName : (String) invokeV.objValue;
     }
 
     public String getgActivityArea() {
-        return this.gActivityArea;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.gActivityArea : (String) invokeV.objValue;
     }
 
     public String getgActivityContent() {
-        return this.gActivityContent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.gActivityContent : (String) invokeV.objValue;
     }
 
     public long getgActivityTime() {
-        return this.gActivityTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.gActivityTime : invokeV.longValue;
     }
 
     public String getgActivityTitle() {
-        return this.gActivityTitle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.gActivityTitle : (String) invokeV.objValue;
     }
 
     public void setActivityId(int i2) {
-        this.activityId = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.activityId = i2;
+        }
     }
 
     public void setActivityPortrait(String str) {
-        this.activityPortrait = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.activityPortrait = str;
+        }
     }
 
     public void setGroupId(long j) {
-        this.groupId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.groupId = j;
+        }
     }
 
     public void setGroupName(String str) {
-        this.groupName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.groupName = str;
+        }
     }
 
     public void setIsEnd(int i2) {
-        this.isEnd = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.isEnd = i2;
+        }
     }
 
     public void setNameShow(String str) {
-        this.nameShow = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.nameShow = str;
+        }
     }
 
     public void setUserId(long j) {
-        this.userId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.userId = j;
+        }
     }
 
     public void setUserName(String str) {
-        this.userName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.userName = str;
+        }
     }
 
     public void setgActivityArea(String str) {
-        this.gActivityArea = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.gActivityArea = str;
+        }
     }
 
     public void setgActivityContent(String str) {
-        this.gActivityContent = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.gActivityContent = str;
+        }
     }
 
     public void setgActivityTime(long j) {
-        this.gActivityTime = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.gActivityTime = j;
+        }
     }
 
     public void setgActivityTitle(String str) {
-        this.gActivityTitle = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.gActivityTitle = str;
+        }
     }
 }

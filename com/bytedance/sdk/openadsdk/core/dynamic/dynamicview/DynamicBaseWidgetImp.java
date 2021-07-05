@@ -4,59 +4,102 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
-import com.bytedance.sdk.openadsdk.utils.u;
 /* loaded from: classes6.dex */
 public class DynamicBaseWidgetImp extends DynamicBaseWidget {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DynamicBaseWidgetImp(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context, dynamicRootView, fVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, dynamicRootView, fVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (DynamicRootView) objArr2[1], (f) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         setTag(Integer.valueOf(getClickArea()));
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
     public boolean b() {
-        View view = this.n;
-        if (view == null) {
-            view = this;
-        }
-        view.setBackgroundColor(0);
-        view.setPadding(this.j.c(), this.j.b(), this.j.d(), this.j.a());
-        if (this.o) {
-            view.setVisibility(4);
-            return true;
-        }
-        return true;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
-    public boolean c() {
-        if (e()) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             View view = this.n;
             if (view == null) {
                 view = this;
             }
-            view.setOnTouchListener(getDynamicClickListener());
-            view.setOnClickListener(getDynamicClickListener());
+            view.setBackgroundColor(0);
+            view.setPadding(this.j.c(), this.j.b(), this.j.d(), this.j.a());
+            if (this.o) {
+                view.setVisibility(4);
+                return true;
+            }
             return true;
         }
-        return true;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e()) {
+                View view = this.n;
+                if (view == null) {
+                    view = this;
+                }
+                view.setOnTouchListener(getDynamicClickListener());
+                view.setOnClickListener(getDynamicClickListener());
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public ViewGroup.LayoutParams getWidgetLayoutParams() {
-        return new ViewGroup.LayoutParams(this.f28211e, this.f28212f);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ViewGroup.LayoutParams(this.f29875e, this.f29876f) : (ViewGroup.LayoutParams) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        if (this.n != null) {
-            u.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i2 + "," + i3 + "," + i4 + "," + i5);
-            this.n.layout(0, 0, this.f28211e, this.f28212f);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || this.n == null) {
+            return;
         }
+        j.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i2 + "," + i3 + "," + i4 + "," + i5);
+        this.n.layout(0, 0, this.f29875e, this.f29876f);
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        setMeasuredDimension(this.f28211e, this.f28212f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            setMeasuredDimension(this.f29875e, this.f29876f);
+        }
     }
 }

@@ -1,52 +1,82 @@
 package a.a.a.a.u.a.b;
 
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 /* loaded from: classes.dex */
 public class e implements TTNativeAd.AdInteractionListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1113a;
+    public boolean f1116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1114b;
+    public boolean f1117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ TTNativeAd f1115c;
+    public final /* synthetic */ TTNativeAd f1118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f1116d;
+    public final /* synthetic */ String f1119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ d f1117e;
+    public final /* synthetic */ d f1120e;
 
     public e(d dVar, TTNativeAd tTNativeAd, String str) {
-        this.f1117e = dVar;
-        this.f1115c = tTNativeAd;
-        this.f1116d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dVar, tTNativeAd, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1120e = dVar;
+        this.f1118c = tTNativeAd;
+        this.f1119d = str;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
     public void onAdClicked(View view, TTNativeAd tTNativeAd) {
-        a.a.a.a.y.d.a();
-        this.f1117e.f1014h.a(this.f1114b);
-        this.f1114b = true;
-        this.f1117e.e();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view, tTNativeAd) == null) {
+            a.a.a.a.y.d.a();
+            this.f1120e.f1017h.a(this.f1117b);
+            this.f1117b = true;
+            this.f1120e.e();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
     public void onAdCreativeClick(View view, TTNativeAd tTNativeAd) {
-        a.a.a.a.y.d.a();
-        this.f1117e.f1014h.a(this.f1114b);
-        this.f1114b = true;
-        this.f1117e.e();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, tTNativeAd) == null) {
+            a.a.a.a.y.d.a();
+            this.f1120e.f1017h.a(this.f1117b);
+            this.f1117b = true;
+            this.f1120e.e();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
     public void onAdShow(TTNativeAd tTNativeAd) {
-        a.a.a.a.y.d.a();
-        this.f1117e.f1014h.b(this.f1113a);
-        this.f1113a = true;
-        this.f1117e.a((d) this.f1115c, this.f1116d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            a.a.a.a.y.d.a();
+            this.f1120e.f1017h.b(this.f1116a);
+            this.f1116a = true;
+            this.f1120e.a((d) this.f1118c, this.f1119d);
+        }
     }
 }

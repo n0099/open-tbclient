@@ -1,43 +1,75 @@
 package com.baidu.turbonet.base;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.JNINamespace;
-import d.a.p0.a.a;
+import d.a.t0.a.a;
 @JNINamespace
 /* loaded from: classes5.dex */
 public class ContextUtils {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f22387a;
+    public static Context f22903a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ContextUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static Context a() {
-        return f22387a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f22903a : (Context) invokeV.objValue;
     }
 
     public static void b(Context context) {
-        Context context2 = f22387a;
-        if (context2 != null && context2 != context) {
-            a.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
-        } else {
-            d(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            Context context2 = f22903a;
+            if (context2 != null && context2 != context) {
+                a.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
+            } else {
+                d(context);
+            }
         }
     }
 
     public static void c() {
-        Context context = f22387a;
-        if (context != null) {
-            nativeInitNativeSideApplicationContext(context);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            Context context = f22903a;
+            if (context != null) {
+                nativeInitNativeSideApplicationContext(context);
+                return;
+            }
+            throw new RuntimeException("Cannot have native global application context be null.");
         }
-        throw new RuntimeException("Cannot have native global application context be null.");
     }
 
     public static void d(Context context) {
-        if (context != null) {
-            f22387a = context;
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+            if (context != null) {
+                f22903a = context;
+                return;
+            }
+            throw new RuntimeException("Global application context cannot be set to null.");
         }
-        throw new RuntimeException("Global application context cannot be set to null.");
     }
 
     public static native void nativeInitNativeSideApplicationContext(Context context);

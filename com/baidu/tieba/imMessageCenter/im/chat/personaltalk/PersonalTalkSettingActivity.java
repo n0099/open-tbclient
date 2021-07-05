@@ -8,6 +8,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
@@ -20,325 +22,665 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import d.a.n0.r.s.a;
-import d.a.n0.z0.f0;
-import d.a.n0.z0.h0;
-import d.a.n0.z0.n;
-import d.a.o0.f1.h.m;
-import d.a.o0.g1.a.b.b.f;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.s.a;
+import d.a.r0.z0.f0;
+import d.a.r0.z0.i0;
+import d.a.r0.z0.n;
+import d.a.s0.i1.h.m;
+import d.a.s0.j1.a.b.b.f;
+/* loaded from: classes5.dex */
 public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements f.e, BdSwitchView.b {
-    public d.a.o0.g1.a.b.b.f mModel;
-    public d.a.o0.m3.a mUserReportController;
-    public d.a.o0.g1.a.b.b.g mView;
-    public d.a.c.c.g.c switchListener = new i(104102);
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public d.a.s0.j1.a.b.b.f mModel;
+    public d.a.s0.p3.a mUserReportController;
+    public d.a.s0.j1.a.b.b.g mView;
+    public d.a.c.c.g.c switchListener;
     public long userId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f17616e;
+        public final /* synthetic */ boolean f17742e;
 
-        public a(boolean z) {
-            this.f17616e = z;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17743f;
+
+        public a(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17743f = personalTalkSettingActivity;
+            this.f17742e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            PersonalTalkSettingActivity.this.mView.e(null);
-            PersonalTalkSettingActivity.this.mView.b(!this.f17616e);
-            PersonalTalkSettingActivity.this.mView.e(PersonalTalkSettingActivity.this);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f17743f.mView.e(null);
+                this.f17743f.mView.b(!this.f17742e);
+                this.f17743f.mView.e(this.f17743f);
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements a.e {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17744e;
+
+        public b(PersonalTalkSettingActivity personalTalkSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17744e = personalTalkSettingActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17745e;
+
+        public c(PersonalTalkSettingActivity personalTalkSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17745e = personalTalkSettingActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-            PersonalTalkSettingActivity.this.mModel.q(false);
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                this.f17745e.mModel.q(false);
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.e {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17746e;
+
+        public d(PersonalTalkSettingActivity personalTalkSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17746e = personalTalkSettingActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17747e;
+
+        /* loaded from: classes5.dex */
         public class a extends f0<Boolean> {
-            public a() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ e f17748a;
+
+            public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f17748a = eVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.n0.z0.f0
+            @Override // d.a.r0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(m.t().o(String.valueOf(PersonalTalkSettingActivity.this.userId)));
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m.t().o(String.valueOf(this.f17748a.f17747e.userId))) : (Boolean) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class b implements n<Boolean> {
-            public b() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ e f17749a;
+
+            public b(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f17749a = eVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.n0.z0.n
+            @Override // d.a.r0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                PersonalTalkSettingActivity.this.closeLoadingDialog();
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-                PersonalTalkSettingActivity.this.showToast(R.string.delete_success, false);
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(PersonalTalkSettingActivity.this.userId), 2, null, 1)));
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                    this.f17749a.f17747e.closeLoadingDialog();
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
+                    this.f17749a.f17747e.showToast(R.string.delete_success, false);
+                    MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.f17749a.f17747e.userId), 2, null, 1)));
+                }
             }
         }
 
-        public e() {
+        public e(PersonalTalkSettingActivity personalTalkSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17747e = personalTalkSettingActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-            PersonalTalkSettingActivity.this.showLoadingDialog(null);
-            h0.c(new a(), new b());
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                this.f17747e.showLoadingDialog(null);
+                i0.c(new a(this), new b(this));
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements a.e {
-        public f() {
-        }
-
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class g implements a.e {
-        public g() {
-        }
-
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-            TiebaStatic.log("personalchat_morepage_addblack");
-            PersonalTalkSettingActivity.this.mModel.q(true);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class h implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.r.s.a f17626e;
+        public final /* synthetic */ PersonalTalkSettingActivity f17750e;
 
-        public h(d.a.n0.r.s.a aVar) {
-            this.f17626e = aVar;
+        public f(PersonalTalkSettingActivity personalTalkSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17750e = personalTalkSettingActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            this.f17626e.dismiss();
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
+    public class g implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17751e;
+
+        public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17751e = personalTalkSettingActivity;
+        }
+
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                TiebaStatic.log("personalchat_morepage_addblack");
+                this.f17751e.mModel.q(true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a.r0.r.s.a f17752e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17753f;
+
+        public h(PersonalTalkSettingActivity personalTalkSettingActivity, d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17753f = personalTalkSettingActivity;
+            this.f17752e = aVar;
+        }
+
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                this.f17752e.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public class i extends d.a.c.c.g.c {
-        public i(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17754a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public i(PersonalTalkSettingActivity personalTalkSettingActivity, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17754a = personalTalkSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            PersonalTalkSettingActivity.this.closeLoadingDialog();
-            if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
-                RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage();
-                ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
-                if (requestUpdateMaskInfoMessage.getMaskType() == 9) {
-                    PersonalTalkSettingActivity.this.onSettingChanged(!responseUpdateMaskInfoMessage.hasError(), requestUpdateMaskInfoMessage.isSettingMask());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
+                this.f17754a.closeLoadingDialog();
+                if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
+                    RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage();
+                    ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
+                    if (requestUpdateMaskInfoMessage.getMaskType() == 9) {
+                        this.f17754a.onSettingChanged(!responseUpdateMaskInfoMessage.hasError(), requestUpdateMaskInfoMessage.isSettingMask());
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f17629a;
+        public final /* synthetic */ boolean f17755a;
 
-        public j(boolean z) {
-            this.f17629a = z;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ PersonalTalkSettingActivity f17756b;
+
+        public j(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personalTalkSettingActivity, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17756b = personalTalkSettingActivity;
+            this.f17755a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (!this.f17629a) {
-                d.a.o0.f1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                if (!this.f17755a) {
+                    d.a.s0.i1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17756b.userId), false);
+                    return null;
+                }
+                d.a.s0.i1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17756b.userId), true);
                 return null;
             }
-            d.a.o0.f1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), true);
-            return null;
+            return (Void) invokeL.objValue;
         }
+    }
+
+    public PersonalTalkSettingActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.switchListener = new i(this, 104102);
     }
 
     private void initData(Bundle bundle) {
-        if (bundle == null) {
-            this.userId = getIntent().getLongExtra("userId", 0L);
-        } else {
-            this.userId = bundle.getLong("userId");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bundle) == null) {
+            if (bundle == null) {
+                this.userId = getIntent().getLongExtra("userId", 0L);
+            } else {
+                this.userId = bundle.getLong("userId");
+            }
+            this.mModel = new d.a.s0.j1.a.b.b.f(this, this, this.userId);
         }
-        this.mModel = new d.a.o0.g1.a.b.b.f(this, this, this.userId);
     }
 
     private void initView() {
-        d.a.o0.g1.a.b.b.g gVar = new d.a.o0.g1.a.b.b.g(this);
-        this.mView = gVar;
-        gVar.e(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            d.a.s0.j1.a.b.b.g gVar = new d.a.s0.j1.a.b.b.g(this);
+            this.mView = gVar;
+            gVar.e(this);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onSettingChanged(boolean z, boolean z2) {
-        if (z) {
-            boolean m = this.mModel.m();
-            this.mModel.o(z2);
-            this.mView.b(z2);
-            new j(z2).execute(new Void[0]);
-            if (m != this.mModel.m()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(3));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                boolean m = this.mModel.m();
+                this.mModel.o(z2);
+                this.mView.b(z2);
+                new j(this, z2).execute(new Void[0]);
+                if (m != this.mModel.m()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(3));
+                    return;
+                }
                 return;
             }
-            return;
+            d.a.c.e.m.e.a().postDelayed(new a(this, z2), 500L);
         }
-        d.a.c.e.m.e.a().postDelayed(new a(z2), 500L);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
-        boolean z = BdSwitchView.SwitchState.ON == switchState;
-        if (z) {
-            if (d.a.n0.s.d.d.d().s() && d.a.n0.s.d.d.d().p()) {
-                closeLoadingDialog();
-                showLoadingDialog(null);
-                this.mModel.p(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
+            boolean z = BdSwitchView.SwitchState.ON == switchState;
+            if (z) {
+                if (d.a.r0.s.d.d.d().s() && d.a.r0.s.d.d.d().p()) {
+                    closeLoadingDialog();
+                    showLoadingDialog(null);
+                    this.mModel.p(z);
+                    return;
+                }
+                d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(getActivity());
+                aVar.setMessageId(R.string.error_open_personal_single_alloff);
+                aVar.setNegativeButton(getResources().getString(R.string.group_create_private_isee), new h(this, aVar));
+                aVar.create(getPageContext());
+                aVar.show();
+                onSettingChanged(false, z);
                 return;
             }
-            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getActivity());
-            aVar.setMessageId(R.string.error_open_personal_single_alloff);
-            aVar.setNegativeButton(getResources().getString(R.string.group_create_private_isee), new h(aVar));
-            aVar.create(getPageContext());
-            aVar.show();
-            onSettingChanged(false, z);
-            return;
+            closeLoadingDialog();
+            showLoadingDialog(null);
+            this.mModel.p(z);
         }
-        closeLoadingDialog();
-        showLoadingDialog(null);
-        this.mModel.p(z);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        getLayoutMode().k(i2 == 1);
-        this.mView.d(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            getLayoutMode().k(i2 == 1);
+            this.mView.d(i2);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         CustomResponsedMessage runTask;
-        int id = view.getId();
-        if (id == R.id.user_info_lin) {
-            d.a.o0.g1.a.b.b.f fVar = this.mModel;
-            if (fVar == null || fVar.j() == null) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            int id = view.getId();
+            if (id == R.id.user_info_lin) {
+                d.a.s0.j1.a.b.b.f fVar = this.mModel;
+                if (fVar == null || fVar.j() == null) {
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.mModel.j().name)));
+            } else if (id == R.id.remove_from_black_man) {
+                d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(getPageContext().getPageActivity());
+                aVar.setMessage(getPageContext().getContext().getString(R.string.add_black_alert, this.mModel.j().nameShow)).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.cancel, new b(this)).create(getPageContext());
+                aVar.show();
+            } else if (id == R.id.st_delete_talk_history) {
+                d.a.r0.r.s.a aVar2 = new d.a.r0.r.s.a(getPageContext().getPageActivity());
+                aVar2.setMessage(getPageContext().getContext().getString(R.string.remove_personal_history)).setPositiveButton(R.string.alert_yes_button, new e(this)).setNegativeButton(R.string.cancel, new d(this)).create(getPageContext());
+                aVar2.show();
+            } else if (id == R.id.st_report) {
+                if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, d.a.s0.p3.a.class, getPageContext().getPageActivity())) != null) {
+                    this.mUserReportController = (d.a.s0.p3.a) runTask.getData();
+                }
+                d.a.s0.p3.a aVar3 = this.mUserReportController;
+                if (aVar3 != null) {
+                    aVar3.a(getUniqueId());
+                    this.mUserReportController.b(String.valueOf(this.userId));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 2));
+                }
+            } else if (id == R.id.add_to_black) {
+                d.a.r0.r.s.a aVar4 = new d.a.r0.r.s.a(getPageContext().getPageActivity());
+                aVar4.setTitle(getPageContext().getContext().getString(R.string.sure_add_somebody_to_black, this.mModel.j().nameShow));
+                aVar4.setMessage(getPageContext().getContext().getString(R.string.remove_black_alert)).setPositiveButton(R.string.alert_yes_button, new g(this)).setNegativeButton(R.string.cancel, new f(this)).create(getPageContext());
+                aVar4.show();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.mModel.j().name)));
-        } else if (id == R.id.remove_from_black_man) {
-            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getPageContext().getPageActivity());
-            aVar.setMessage(getPageContext().getContext().getString(R.string.add_black_alert, this.mModel.j().nameShow)).setPositiveButton(R.string.alert_yes_button, new c()).setNegativeButton(R.string.cancel, new b()).create(getPageContext());
-            aVar.show();
-        } else if (id == R.id.st_delete_talk_history) {
-            d.a.n0.r.s.a aVar2 = new d.a.n0.r.s.a(getPageContext().getPageActivity());
-            aVar2.setMessage(getPageContext().getContext().getString(R.string.remove_personal_history)).setPositiveButton(R.string.alert_yes_button, new e()).setNegativeButton(R.string.cancel, new d()).create(getPageContext());
-            aVar2.show();
-        } else if (id == R.id.st_report) {
-            if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, d.a.o0.m3.a.class, getPageContext().getPageActivity())) != null) {
-                this.mUserReportController = (d.a.o0.m3.a) runTask.getData();
-            }
-            d.a.o0.m3.a aVar3 = this.mUserReportController;
-            if (aVar3 != null) {
-                aVar3.a(getUniqueId());
-                this.mUserReportController.b(String.valueOf(this.userId));
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 2));
-            }
-        } else if (id == R.id.add_to_black) {
-            d.a.n0.r.s.a aVar4 = new d.a.n0.r.s.a(getPageContext().getPageActivity());
-            aVar4.setTitle(getPageContext().getContext().getString(R.string.sure_add_somebody_to_black, this.mModel.j().nameShow));
-            aVar4.setMessage(getPageContext().getContext().getString(R.string.remove_black_alert)).setPositiveButton(R.string.alert_yes_button, new g()).setNegativeButton(R.string.cancel, new f()).create(getPageContext());
-            aVar4.show();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        initView();
-        initData(bundle);
-        registerListener(205003, this.mModel.k());
-        registerListener(104102, this.mModel.k());
-        registerListener(2001115, this.mModel.i());
-        registerListener(this.switchListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            initView();
+            initData(bundle);
+            registerListener(205003, this.mModel.k());
+            registerListener(104102, this.mModel.k());
+            registerListener(2001115, this.mModel.i());
+            registerListener(this.switchListener);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        this.mModel.n();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+            this.mModel.n();
+        }
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putLong("userId", this.userId);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putLong("userId", this.userId);
+        }
     }
 
-    @Override // d.a.o0.g1.a.b.b.f.e
+    @Override // d.a.s0.j1.a.b.b.f.e
     public void updateUI() {
-        d.a.o0.g1.a.b.b.f fVar;
-        closeLoadingDialog();
-        d.a.o0.g1.a.b.b.g gVar = this.mView;
-        if (gVar == null || (fVar = this.mModel) == null) {
-            return;
+        d.a.s0.j1.a.b.b.f fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            closeLoadingDialog();
+            d.a.s0.j1.a.b.b.g gVar = this.mView;
+            if (gVar == null || (fVar = this.mModel) == null) {
+                return;
+            }
+            gVar.g(fVar);
         }
-        gVar.g(fVar);
     }
 }

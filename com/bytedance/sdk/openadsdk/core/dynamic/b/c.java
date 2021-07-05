@@ -2,103 +2,178 @@ package com.bytedance.sdk.openadsdk.core.dynamic.b;
 
 import android.text.TextUtils;
 import androidx.lifecycle.SavedStateHandle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f28174a;
+    public static final Map<String, Integer> f29835a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28175b;
+    public String f29836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28176c;
+    public String f29837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f28177d;
+    public d f29838d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d f29839e;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(702898768, "Lcom/bytedance/sdk/openadsdk/core/dynamic/b/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(702898768, "Lcom/bytedance/sdk/openadsdk/core/dynamic/b/c;");
+                return;
+            }
+        }
         HashMap hashMap = new HashMap();
-        f28174a = hashMap;
+        f29835a = hashMap;
         hashMap.put("title", 0);
-        f28174a.put("subtitle", 0);
-        f28174a.put("source", 0);
-        f28174a.put("score-count", 0);
-        f28174a.put("text_star", 0);
-        f28174a.put("image", 1);
-        f28174a.put("image-wide", 1);
-        f28174a.put("image-square", 1);
-        f28174a.put("image-long", 1);
-        f28174a.put("image-splash", 1);
-        f28174a.put("image-cover", 1);
-        f28174a.put("app-icon", 1);
-        f28174a.put("icon-download", 1);
-        f28174a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
-        f28174a.put("logoad", 4);
-        f28174a.put("logounion", 5);
-        f28174a.put("logo-union", 6);
-        f28174a.put("dislike", 3);
-        f28174a.put(IntentConfig.CLOSE, 3);
-        f28174a.put("close-fill", 3);
-        f28174a.put("text", 2);
-        f28174a.put("button", 2);
-        f28174a.put("downloadWithIcon", 2);
-        f28174a.put("downloadButton", 2);
-        f28174a.put("fillButton", 2);
-        f28174a.put("laceButton", 2);
-        f28174a.put("cardButton", 2);
-        f28174a.put("colourMixtureButton", 2);
-        f28174a.put("arrowButton", 2);
-        f28174a.put("vessel", 6);
-        f28174a.put("video-hd", 7);
-        f28174a.put("video-vd", 7);
+        f29835a.put(SubtitleLog.TAG, 0);
+        f29835a.put("source", 0);
+        f29835a.put("score-count", 0);
+        f29835a.put("text_star", 0);
+        f29835a.put("image", 1);
+        f29835a.put("image-wide", 1);
+        f29835a.put("image-square", 1);
+        f29835a.put("image-long", 1);
+        f29835a.put("image-splash", 1);
+        f29835a.put("image-cover", 1);
+        f29835a.put("app-icon", 1);
+        f29835a.put("icon-download", 1);
+        f29835a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
+        f29835a.put("logoad", 4);
+        f29835a.put("logounion", 5);
+        f29835a.put("logo-union", 6);
+        f29835a.put("dislike", 3);
+        f29835a.put(IntentConfig.CLOSE, 3);
+        f29835a.put("close-fill", 3);
+        f29835a.put("text", 2);
+        f29835a.put("button", 2);
+        f29835a.put("downloadWithIcon", 2);
+        f29835a.put("downloadButton", 2);
+        f29835a.put("fillButton", 2);
+        f29835a.put("laceButton", 2);
+        f29835a.put("cardButton", 2);
+        f29835a.put("colourMixtureButton", 2);
+        f29835a.put("arrowButton", 2);
+        f29835a.put("vessel", 6);
+        f29835a.put("video-hd", 7);
+        f29835a.put("video-vd", 7);
+    }
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     public int a() {
-        if (TextUtils.isEmpty(this.f28175b)) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.f29836b)) {
+                return 0;
+            }
+            if (this.f29836b.equals("logo")) {
+                this.f29836b += this.f29837c;
+            }
+            if (f29835a.get(this.f29836b) != null) {
+                return f29835a.get(this.f29836b).intValue();
+            }
             return 0;
         }
-        if (this.f28175b.equals("logo")) {
-            this.f28175b += this.f28176c;
-        }
-        if (f28174a.get(this.f28175b) != null) {
-            return f28174a.get(this.f28175b).intValue();
-        }
-        return 0;
+        return invokeV.intValue;
     }
 
     public String b() {
-        return this.f28176c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29837c : (String) invokeV.objValue;
     }
 
     public d c() {
-        return this.f28177d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29838d : (d) invokeV.objValue;
+    }
+
+    public d d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29839e : (d) invokeV.objValue;
     }
 
     public void b(String str) {
-        this.f28176c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f29837c = str;
+        }
+    }
+
+    public void b(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+            this.f29839e = dVar;
+        }
     }
 
     public void a(String str) {
-        this.f28175b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f29836b = str;
+        }
     }
 
     public void a(d dVar) {
-        this.f28177d = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.f29838d = dVar;
+        }
     }
 
     public static void a(JSONObject jSONObject, c cVar) {
-        if (jSONObject == null || cVar == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, cVar) == null) || jSONObject == null || cVar == null) {
             return;
         }
         cVar.a(jSONObject.optString("type", PrefetchEvent.EVENT_DATA_ROOT_PATH));
         cVar.b(jSONObject.optString("data"));
-        cVar.a(d.a(jSONObject.optJSONObject(SavedStateHandle.VALUES)));
+        d a2 = d.a(jSONObject.optJSONObject(SavedStateHandle.VALUES));
+        d a3 = d.a(jSONObject.optJSONObject("nightThemeValues"));
+        cVar.a(a2);
+        cVar.b(a3);
     }
 }

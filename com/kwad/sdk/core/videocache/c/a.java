@@ -1,24 +1,36 @@
 package com.kwad.sdk.core.videocache.c;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.videocache.f;
 /* loaded from: classes7.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f34906a;
+    public static f f36669a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static f a(Context context) {
-        f fVar = f34906a;
-        if (fVar == null) {
-            f b2 = b(context);
-            f34906a = b2;
-            return b2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            f fVar = f36669a;
+            if (fVar == null) {
+                f b2 = b(context);
+                f36669a = b2;
+                return b2;
+            }
+            return fVar;
         }
-        return fVar;
+        return (f) invokeL.objValue;
     }
 
     public static f b(Context context) {
-        return new f.a(context).a(104857600L).a();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? new f.a(context).a(104857600L).a() : (f) invokeL.objValue;
     }
 }

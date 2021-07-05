@@ -1,37 +1,89 @@
 package com.bytedance.sdk.openadsdk.core.c;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressVideoView;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.net.NetResponse;
+import com.bytedance.sdk.component.net.callback.NetCallback;
+import com.bytedance.sdk.component.net.executor.NetExecutor;
+import com.bytedance.sdk.component.net.executor.PostExecutor;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.openadsdk.l.e;
+import com.bytedance.sdk.openadsdk.r.n;
+import java.io.IOException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class c extends b {
-    public c(Context context, l lVar, AdSlot adSlot) {
-        super(context, lVar, adSlot);
-    }
+public class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.bytedance.sdk.openadsdk.core.c.b
-    public void a(@NonNull Context context, l lVar, AdSlot adSlot, String str) {
-        this.f27978a = new NativeExpressVideoView(context, lVar, adSlot, str);
-    }
+    public static void a(Context context, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            JSONObject a2 = a(str, j);
+            PostExecutor postExecutor = e.b().c().getPostExecutor();
+            postExecutor.setUrl(n.b("https://i.snssdk.com/api/ad/union/sdk/stats/"));
+            postExecutor.setJson(a2.toString());
+            postExecutor.enqueue(new NetCallback() { // from class: com.bytedance.sdk.openadsdk.core.c.c.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
-    public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        NativeExpressView nativeExpressView = this.f27978a;
-        if (nativeExpressView != null) {
-            return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                public void onFailure(NetExecutor netExecutor, IOException iOException) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
+                        j.c("FrequentCallEventHelper", iOException.getMessage());
+                    }
+                }
+
+                @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                public void onResponse(NetExecutor netExecutor, NetResponse netResponse) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
+                        if (netResponse != null) {
+                            j.b("FrequentCallEventHelper", Boolean.valueOf(netResponse.isSuccess()), netResponse.getBody());
+                        } else {
+                            j.c("FrequentCallEventHelper", "NetResponse is null");
+                        }
+                    }
+                }
+            });
         }
-        return null;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
-    public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        NativeExpressView nativeExpressView = this.f27978a;
-        if (nativeExpressView != null) {
-            nativeExpressView.setVideoAdListener(expressVideoAdListener);
+    public static JSONObject a(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, str, j)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "over_freq");
+                jSONObject.put("rit", str);
+                jSONObject.put("ad_sdk_version", "3.6.1.3");
+                jSONObject.put("timestamp", j);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeLJ.objValue;
     }
 }

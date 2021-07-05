@@ -1,56 +1,91 @@
 package com.baidu.mapapi.search.district;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.platform.core.a.d;
 import com.baidu.platform.core.a.e;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class DistrictSearch extends l {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f7239a;
+    public e f7269a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7240b = false;
+    public boolean f7270b;
 
     public DistrictSearch() {
-        this.f7239a = null;
-        this.f7239a = new d();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7269a = null;
+        this.f7270b = false;
+        this.f7269a = new d();
     }
 
     public static DistrictSearch newInstance() {
-        BMapManager.init();
-        return new DistrictSearch();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            BMapManager.init();
+            return new DistrictSearch();
+        }
+        return (DistrictSearch) invokeV.objValue;
     }
 
     public void destroy() {
-        if (this.f7240b) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f7270b) {
             return;
         }
-        this.f7240b = true;
-        this.f7239a.a();
+        this.f7270b = true;
+        this.f7269a.a();
         BMapManager.destroy();
     }
 
     public boolean searchDistrict(DistrictSearchOption districtSearchOption) {
+        InterceptResult invokeL;
         String str;
-        if (this.f7239a != null) {
-            if (districtSearchOption == null || (str = districtSearchOption.mCityName) == null || str.equals("")) {
-                throw new IllegalArgumentException("BDMapSDKException: option or city name can not be null or empty.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, districtSearchOption)) == null) {
+            if (this.f7269a != null) {
+                if (districtSearchOption == null || (str = districtSearchOption.mCityName) == null || str.equals("")) {
+                    throw new IllegalArgumentException("BDMapSDKException: option or city name can not be null or empty.");
+                }
+                return this.f7269a.a(districtSearchOption);
             }
-            return this.f7239a.a(districtSearchOption);
+            throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
-        throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
+        return invokeL.booleanValue;
     }
 
     public void setOnDistrictSearchListener(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
-        e eVar = this.f7239a;
-        if (eVar == null) {
-            throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onGetDistricSearchResultListener) == null) {
+            e eVar = this.f7269a;
+            if (eVar == null) {
+                throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
+            }
+            if (onGetDistricSearchResultListener == null) {
+                throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
+            }
+            eVar.a(onGetDistricSearchResultListener);
         }
-        if (onGetDistricSearchResultListener == null) {
-            throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
-        }
-        eVar.a(onGetDistricSearchResultListener);
     }
 }

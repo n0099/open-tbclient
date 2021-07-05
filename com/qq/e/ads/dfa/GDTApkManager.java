@@ -3,6 +3,11 @@ package com.qq.e.ads.dfa;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.a;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.DFA;
@@ -12,61 +17,149 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class GDTApkManager {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DFA f38974a;
+    public DFA f40721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38975b;
+    public boolean f40722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38976c = false;
+    public boolean f40723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f38977d = new AtomicInteger(0);
+    public AtomicInteger f40724d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38978e;
+    public Context f40725e;
 
-    public GDTApkManager(final Context context, final IGDTApkListener iGDTApkListener) {
+    public GDTApkManager(Context context, IGDTApkListener iGDTApkListener) {
         String str;
-        this.f38975b = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, iGDTApkListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f40722b = false;
+        this.f40723c = false;
+        this.f40724d = new AtomicInteger(0);
         if (GDTADManager.getInstance().isInitialized()) {
-            final String appid = GDTADManager.getInstance().getAppStatus().getAPPID();
+            String appid = GDTADManager.getInstance().getAppStatus().getAPPID();
             if (StringUtil.isEmpty(appid) || context == null || iGDTApkListener == null) {
                 str = String.format("GDTApkManager Constructor params error, appid=%s,context=%s,listener=%s", appid, context, iGDTApkListener);
             } else if (a.a(context)) {
-                this.f38975b = true;
-                this.f38978e = context;
-                GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.dfa.GDTApkManager.1
+                this.f40722b = true;
+                this.f40725e = context;
+                GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, appid, iGDTApkListener) { // from class: com.qq.e.ads.dfa.GDTApkManager.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ IGDTApkListener f40726a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ GDTApkManager f40727b;
+
+                    /* renamed from: c  reason: collision with root package name */
+                    public /* synthetic */ Context f40728c;
+
+                    /* renamed from: d  reason: collision with root package name */
+                    public /* synthetic */ String f40729d;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext2 = TitanRuntime.newInitContext();
+                            newInitContext2.initArgs = r2;
+                            Object[] objArr2 = {this, context, appid, iGDTApkListener};
+                            interceptable2.invokeUnInit(65536, newInitContext2);
+                            int i4 = newInitContext2.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext2.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext2);
+                                return;
+                            }
+                        }
+                        this.f40727b = this;
+                        this.f40728c = context;
+                        this.f40729d = appid;
+                        this.f40726a = iGDTApkListener;
+                    }
+
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!GDTADManager.getInstance().initWith(context, appid)) {
-                            GDTLogger.e("Fail to init ADManager");
-                            return;
-                        }
-                        try {
-                            final POFactory pOFactory = GDTADManager.getInstance().getPM().getPOFactory();
-                            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.qq.e.ads.dfa.GDTApkManager.1.1
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    try {
-                                        if (pOFactory != null) {
-                                            GDTApkManager.this.f38974a = GDTADManager.getInstance().getPM().getPOFactory().getGDTApkDelegate(iGDTApkListener);
-                                            GDTApkManager.this.f38976c = true;
-                                            while (GDTApkManager.this.f38977d.getAndDecrement() > 0) {
-                                                GDTApkManager.this.loadGDTApk();
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            if (!GDTADManager.getInstance().initWith(this.f40728c, this.f40729d)) {
+                                GDTLogger.e("Fail to init ADManager");
+                                return;
+                            }
+                            try {
+                                new Handler(Looper.getMainLooper()).post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.dfa.GDTApkManager.1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public /* synthetic */ POFactory f40730a;
+
+                                    /* renamed from: b  reason: collision with root package name */
+                                    public /* synthetic */ AnonymousClass1 f40731b;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext2 = TitanRuntime.newInitContext();
+                                            newInitContext2.initArgs = r2;
+                                            Object[] objArr2 = {this, r7};
+                                            interceptable3.invokeUnInit(65536, newInitContext2);
+                                            int i4 = newInitContext2.flag;
+                                            if ((i4 & 1) != 0) {
+                                                int i5 = i4 & 2;
+                                                newInitContext2.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext2);
+                                                return;
                                             }
                                         }
-                                    } finally {
-                                        try {
-                                        } finally {
+                                        this.f40731b = this;
+                                        this.f40730a = r7;
+                                    }
+
+                                    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, IGET, IGET, INVOKE, MOVE_EXCEPTION] complete} */
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            try {
+                                                if (this.f40730a != null) {
+                                                    this.f40731b.f40727b.f40721a = GDTADManager.getInstance().getPM().getPOFactory().getGDTApkDelegate(this.f40731b.f40726a);
+                                                    this.f40731b.f40727b.f40723c = true;
+                                                    while (this.f40731b.f40727b.f40724d.getAndDecrement() > 0) {
+                                                        this.f40731b.f40727b.loadGDTApk();
+                                                    }
+                                                }
+                                            } finally {
+                                                try {
+                                                } finally {
+                                                }
+                                            }
                                         }
                                     }
-                                }
-                            });
-                        } catch (Throwable th) {
-                            GDTLogger.e("Exception while init UnifiedBannerView plugin", th);
+                                });
+                            } catch (Throwable th) {
+                                GDTLogger.e("Exception while init UnifiedBannerView plugin", th);
+                            }
                         }
                     }
                 });
@@ -81,24 +174,29 @@ public class GDTApkManager {
     }
 
     public final void loadGDTApk() {
-        if (!this.f38975b) {
-            GDTLogger.e("GDTApkManager init Context error,See More logs while new GDTApkManager");
-        } else if (!this.f38976c) {
-            this.f38977d.incrementAndGet();
-        } else {
-            DFA dfa = this.f38974a;
-            if (dfa != null) {
-                dfa.loadGDTApk();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.f40722b) {
+                GDTLogger.e("GDTApkManager init Context error,See More logs while new GDTApkManager");
+            } else if (!this.f40723c) {
+                this.f40724d.incrementAndGet();
             } else {
-                GDTLogger.e("InterstitialAD Init error,See More Logs");
+                DFA dfa = this.f40721a;
+                if (dfa != null) {
+                    dfa.loadGDTApk();
+                } else {
+                    GDTLogger.e("InterstitialAD Init error,See More Logs");
+                }
             }
         }
     }
 
     public final void startInstall(GDTApk gDTApk) {
-        DFA dfa = this.f38974a;
-        if (dfa != null) {
-            dfa.startInstall(this.f38978e, gDTApk);
+        DFA dfa;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gDTApk) == null) || (dfa = this.f40721a) == null) {
+            return;
         }
+        dfa.startInstall(this.f40725e, gDTApk);
     }
 }

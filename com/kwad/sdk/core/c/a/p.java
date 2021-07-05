@@ -1,35 +1,64 @@
 package com.kwad.sdk.core.c.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.emotion.model.CDNUrl;
 import com.kwad.sdk.emotion.model.EmotionCode;
 import com.kwad.sdk.emotion.model.EmotionInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class p implements com.kwad.sdk.core.c<EmotionInfo> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public p() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(EmotionInfo emotionInfo) {
-        JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "id", emotionInfo.id);
-        com.kwad.sdk.utils.o.a(jSONObject, "name", emotionInfo.name);
-        com.kwad.sdk.utils.o.a(jSONObject, "type", emotionInfo.type);
-        com.kwad.sdk.utils.o.a(jSONObject, "packageId", emotionInfo.packageId);
-        com.kwad.sdk.utils.o.a(jSONObject, "emotionImageSmallUrl", emotionInfo.emotionImageSmallUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "emotionImageBigUrl", emotionInfo.emotionImageBigUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "emotionCodes", emotionInfo.emotionCodes);
-        com.kwad.sdk.utils.o.a(jSONObject, "width", emotionInfo.width);
-        com.kwad.sdk.utils.o.a(jSONObject, "height", emotionInfo.height);
-        com.kwad.sdk.utils.o.a(jSONObject, "mPageIndex", emotionInfo.mPageIndex);
-        com.kwad.sdk.utils.o.a(jSONObject, "mIndex", emotionInfo.mIndex);
-        return jSONObject;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            com.kwad.sdk.utils.o.a(jSONObject, "id", emotionInfo.id);
+            com.kwad.sdk.utils.o.a(jSONObject, "name", emotionInfo.name);
+            com.kwad.sdk.utils.o.a(jSONObject, "type", emotionInfo.type);
+            com.kwad.sdk.utils.o.a(jSONObject, "packageId", emotionInfo.packageId);
+            com.kwad.sdk.utils.o.a(jSONObject, "emotionImageSmallUrl", emotionInfo.emotionImageSmallUrl);
+            com.kwad.sdk.utils.o.a(jSONObject, "emotionImageBigUrl", emotionInfo.emotionImageBigUrl);
+            com.kwad.sdk.utils.o.a(jSONObject, "emotionCodes", emotionInfo.emotionCodes);
+            com.kwad.sdk.utils.o.a(jSONObject, "width", emotionInfo.width);
+            com.kwad.sdk.utils.o.a(jSONObject, "height", emotionInfo.height);
+            com.kwad.sdk.utils.o.a(jSONObject, "mPageIndex", emotionInfo.mPageIndex);
+            com.kwad.sdk.utils.o.a(jSONObject, "mIndex", emotionInfo.mIndex);
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public void a(EmotionInfo emotionInfo, JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, emotionInfo, jSONObject) == null) || jSONObject == null) {
             return;
         }
         emotionInfo.id = jSONObject.optString("id");

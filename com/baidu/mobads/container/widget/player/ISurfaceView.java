@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.widget.player;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ISurfaceView {
     public static final int DISPLAY_MODE_16_9 = 4;
     public static final int DISPLAY_MODE_4_3 = 5;

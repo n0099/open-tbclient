@@ -1,5 +1,13 @@
 package com.coremedia.iso.boxes.mdat;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
@@ -10,60 +18,119 @@ import java.nio.channels.WritableByteChannel;
 import java.util.logging.Logger;
 /* loaded from: classes6.dex */
 public final class MediaDataBox implements Box {
-    public static Logger LOG = Logger.getLogger(MediaDataBox.class.getName());
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Logger LOG = null;
     public static final String TYPE = "mdat";
+    public transient /* synthetic */ FieldHolder $fh;
     public DataSource dataSource;
-    public boolean largeBox = false;
+    public boolean largeBox;
     public long offset;
     public Container parent;
     public long size;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1526142301, "Lcom/coremedia/iso/boxes/mdat/MediaDataBox;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1526142301, "Lcom/coremedia/iso/boxes/mdat/MediaDataBox;");
+                return;
+            }
+        }
+        LOG = Logger.getLogger(MediaDataBox.class.getName());
+    }
+
+    public MediaDataBox() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.largeBox = false;
+    }
+
     public static void transfer(DataSource dataSource, long j, long j2, WritableByteChannel writableByteChannel) throws IOException {
-        long j3 = 0;
-        while (j3 < j2) {
-            j3 += dataSource.transferTo(j + j3, Math.min(67076096L, j2 - j3), writableByteChannel);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{dataSource, Long.valueOf(j), Long.valueOf(j2), writableByteChannel}) == null) {
+            long j3 = 0;
+            while (j3 < j2) {
+                j3 += dataSource.transferTo(j + j3, Math.min(67076096L, j2 - j3), writableByteChannel);
+            }
         }
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-        transfer(this.dataSource, this.offset, this.size, writableByteChannel);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, writableByteChannel) == null) {
+            transfer(this.dataSource, this.offset, this.size, writableByteChannel);
+        }
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public long getOffset() {
-        return this.offset;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.offset : invokeV.longValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public Container getParent() {
-        return this.parent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.parent : (Container) invokeV.objValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public long getSize() {
-        return this.size;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.size : invokeV.longValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public String getType() {
-        return TYPE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TYPE : (String) invokeV.objValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        this.offset = dataSource.position() - byteBuffer.remaining();
-        this.dataSource = dataSource;
-        this.size = byteBuffer.remaining() + j;
-        dataSource.position(dataSource.position() + j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+            this.offset = dataSource.position() - byteBuffer.remaining();
+            this.dataSource = dataSource;
+            this.size = byteBuffer.remaining() + j;
+            dataSource.position(dataSource.position() + j);
+        }
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public void setParent(Container container) {
-        this.parent = container;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, container) == null) {
+            this.parent = container;
+        }
     }
 
     public String toString() {
-        return "MediaDataBox{size=" + this.size + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "MediaDataBox{size=" + this.size + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

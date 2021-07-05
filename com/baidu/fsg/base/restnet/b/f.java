@@ -1,101 +1,152 @@
 package com.baidu.fsg.base.restnet.b;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements com.baidu.fsg.base.restnet.rest.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f5163a;
+    public InputStream f5193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5164b;
+    public int f5194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5165c;
+    public String f5195c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f5166d;
+    public Map<String, List<String>> f5196d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.fsg.base.restnet.http.a f5167e;
+    public com.baidu.fsg.base.restnet.http.a f5197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f5168f;
+    public InputStream f5198f;
 
     public f(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
-        this.f5163a = inputStream;
-        this.f5164b = i2;
-        this.f5165c = str;
-        this.f5166d = map;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i2), str, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f5193a = inputStream;
+        this.f5194b = i2;
+        this.f5195c = str;
+        this.f5196d = map;
     }
 
     private boolean g() {
-        String g2 = d().g();
-        return !TextUtils.isEmpty(g2) && g2.contains(AsyncHttpClient.ENCODING_GZIP);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            String g2 = d().g();
+            return !TextUtils.isEmpty(g2) && g2.contains(AsyncHttpClient.ENCODING_GZIP);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public int a() throws IOException {
-        return this.f5164b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5194b : invokeV.intValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public String b() throws IOException {
-        return this.f5165c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5195c : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public InputStream c() throws IOException {
-        if (g()) {
-            return a(this.f5163a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (g()) {
+                return a(this.f5193a);
+            }
+            return this.f5193a;
         }
-        return this.f5163a;
+        return (InputStream) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public com.baidu.fsg.base.restnet.http.a d() {
-        if (this.f5167e == null) {
-            this.f5167e = new com.baidu.fsg.base.restnet.http.a(this.f5166d, false);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.f5197e == null) {
+                this.f5197e = new com.baidu.fsg.base.restnet.http.a(this.f5196d, false);
+            }
+            return this.f5197e;
         }
-        return this.f5167e;
+        return (com.baidu.fsg.base.restnet.http.a) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public HttpStatus e() throws Exception {
-        return HttpStatus.valueOf(a());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? HttpStatus.valueOf(a()) : (HttpStatus) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public void f() {
-        InputStream inputStream = this.f5168f;
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            InputStream inputStream = this.f5198f;
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
             }
-        }
-        InputStream inputStream2 = this.f5163a;
-        if (inputStream2 != null) {
-            try {
-                inputStream2.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            InputStream inputStream2 = this.f5193a;
+            if (inputStream2 != null) {
+                try {
+                    inputStream2.close();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
             }
         }
     }
 
     private InputStream a(InputStream inputStream) throws IOException {
-        if (this.f5168f == null) {
-            this.f5168f = new GZIPInputStream(inputStream);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, inputStream)) == null) {
+            if (this.f5198f == null) {
+                this.f5198f = new GZIPInputStream(inputStream);
+            }
+            return this.f5198f;
         }
-        return this.f5168f;
+        return (InputStream) invokeL.objValue;
     }
 }

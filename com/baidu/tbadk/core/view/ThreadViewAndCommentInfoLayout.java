@@ -7,36 +7,60 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import d.a.n0.r.q.a2;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.b2;
+/* loaded from: classes4.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12558e;
+    public TextView f12601e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12559f;
+    public TextView f12602f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f12560g;
+    public Context f12603g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12561h;
+    public boolean f12604h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12562i;
+    public boolean f12605i;
     public boolean j;
     public boolean k;
     public boolean l;
     public int m;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.f12561h = false;
-        this.f12562i = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12604h = false;
+        this.f12605i = false;
         this.j = false;
         this.k = false;
         this.l = false;
@@ -44,102 +68,146 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     public final void a(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.f12558e = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.f12559f = (TextView) inflate.findViewById(R.id.thread_comment_num);
-        this.f12560g = context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
+            this.f12601e = (TextView) inflate.findViewById(R.id.thread_view_num);
+            this.f12602f = (TextView) inflate.findViewById(R.id.thread_comment_num);
+            this.f12603g = context;
+        }
     }
 
     public void b() {
-        SkinManager.setViewTextColor(this.f12558e, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f12559f, R.color.CAM_X0109);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setViewTextColor(this.f12601e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f12602f, R.color.CAM_X0109);
+        }
     }
 
-    public final void c(a2 a2Var) {
-        if (this.f12559f == null || a2Var == null || !this.f12562i) {
+    public final void c(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2Var) == null) || this.f12602f == null || b2Var == null || !this.f12605i) {
             return;
         }
-        if (a2Var.b1() >= 0) {
-            this.f12559f.setVisibility(0);
-            this.f12559f.setText(String.format(this.f12560g.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(a2Var.b1())));
+        if (b2Var.P0() >= 0) {
+            this.f12602f.setVisibility(0);
+            this.f12602f.setText(String.format(this.f12603g.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(b2Var.P0())));
             return;
         }
-        this.f12559f.setVisibility(8);
+        this.f12602f.setVisibility(8);
     }
 
-    public final void d(a2 a2Var) {
-        if (this.f12559f == null || a2Var == null || !this.l || !a2Var.t2()) {
-            return;
+    public final void d(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, b2Var) == null) && this.f12602f != null && b2Var != null && this.l && b2Var.g2()) {
+            this.f12602f.setVisibility(0);
+            this.f12602f.setText(String.format(this.f12603g.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat((b2Var.g1() == null || b2Var.g1().share_info == null) ? 0 : b2Var.g1().share_info.share_count)));
         }
-        this.f12559f.setVisibility(0);
-        this.f12559f.setText(String.format(this.f12560g.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat((a2Var.s1() == null || a2Var.s1().share_info == null) ? 0 : a2Var.s1().share_info.share_count)));
     }
 
-    public final void e(a2 a2Var) {
-        if (this.f12558e == null || a2Var == null || !this.f12561h) {
+    public final void e(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, b2Var) == null) || this.f12601e == null || b2Var == null || !this.f12604h) {
             return;
         }
-        if (a2Var.J1() >= 0) {
-            this.f12558e.setVisibility(0);
-            this.f12558e.setText(String.format(this.f12560g.getString(R.string.person_view_num), StringHelper.numberUniformFormat(a2Var.J1())));
+        if (b2Var.w1() >= 0) {
+            this.f12601e.setVisibility(0);
+            this.f12601e.setText(String.format(this.f12603g.getString(R.string.person_view_num), StringHelper.numberUniformFormat(b2Var.w1())));
             return;
         }
-        this.f12558e.setVisibility(8);
+        this.f12601e.setVisibility(8);
     }
 
-    public final void f(a2 a2Var) {
-        if (this.f12558e == null || a2Var == null || !this.j || a2Var.s1() == null || !a2Var.t2()) {
+    public final void f(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, b2Var) == null) || this.f12601e == null || b2Var == null || !this.j || b2Var.g1() == null || !b2Var.g2()) {
             return;
         }
-        this.f12558e.setVisibility(0);
-        this.f12558e.setText(String.format(this.f12560g.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(a2Var.s1().audience_count)));
+        this.f12601e.setVisibility(0);
+        this.f12601e.setText(String.format(this.f12603g.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(b2Var.g1().audience_count)));
     }
 
-    public final void g(a2 a2Var) {
-        if (this.f12559f == null || a2Var == null || !this.k || !a2Var.t2()) {
-            return;
+    public final void g(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, b2Var) == null) && this.f12602f != null && b2Var != null && this.k && b2Var.g2()) {
+            this.f12602f.setVisibility(0);
+            this.f12602f.setText(String.format(this.f12603g.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(b2Var.A())));
         }
-        this.f12559f.setVisibility(0);
-        this.f12559f.setText(String.format(this.f12560g.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(a2Var.M())));
     }
 
-    public void setData(a2 a2Var) {
-        if (a2Var == null) {
-            setVisibility(8);
-            return;
+    public void setData(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, b2Var) == null) {
+            if (b2Var == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            f(b2Var);
+            e(b2Var);
+            c(b2Var);
+            g(b2Var);
+            d(b2Var);
         }
-        setVisibility(0);
-        f(a2Var);
-        e(a2Var);
-        c(a2Var);
-        g(a2Var);
-        d(a2Var);
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.j = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.j = z;
+        }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.f12561h = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f12604h = z;
+        }
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.f12562i = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.f12605i = z;
+        }
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.l = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.l = z;
+        }
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.k = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.k = z;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12561h = false;
-        this.f12562i = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f12604h = false;
+        this.f12605i = false;
         this.j = false;
         this.k = false;
         this.l = false;

@@ -5,9 +5,16 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.beans.BeanConstants;
@@ -15,206 +22,310 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.passport.LoginBackListenerProxy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HomeMainView extends LinearLayout implements b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemLayout> f24388a;
+    public List<BaseItemLayout> f24931a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24389b;
+    public String f24932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24390c;
+    public boolean f24933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f24391d;
+    public d f24934d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24392e;
+    public String f24935e;
     public HomeCfgResponse.AllConfig mAllConfig;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeMainView(Context context) {
         super(context);
-        this.f24388a = new ArrayList();
-        this.f24390c = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24931a = new ArrayList();
+        this.f24933c = false;
     }
 
     private void a() {
-        removeAllViews();
-        this.f24388a.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            removeAllViews();
+            this.f24931a.clear();
+        }
     }
 
     private boolean b() {
-        for (BaseItemLayout baseItemLayout : this.f24388a) {
-            if (baseItemLayout.hasItemShowPoint()) {
-                return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            for (BaseItemLayout baseItemLayout : this.f24931a) {
+                if (baseItemLayout.hasItemShowPoint()) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public void dispatchDot(String str) {
-        for (BaseItemLayout baseItemLayout : this.f24388a) {
-            baseItemLayout.dispatchShowPoint(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            for (BaseItemLayout baseItemLayout : this.f24931a) {
+                baseItemLayout.dispatchShowPoint(str);
+            }
         }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public String getAndroidPrefix() {
-        return TextUtils.isEmpty(this.f24389b) ? "" : this.f24389b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f24932b) ? "" : this.f24932b : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public String getPageType() {
-        return this.f24392e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24935e : (String) invokeV.objValue;
     }
 
     public boolean isApp() {
-        return BeanConstants.CHANNEL_ID_WALLET_APP.equalsIgnoreCase(BeanConstants.CHANNEL_ID);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? BeanConstants.CHANNEL_ID_WALLET_APP.equalsIgnoreCase(BeanConstants.CHANNEL_ID) : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public boolean isLoginData() {
-        return this.f24390c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24933c : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public void jump(String str, String str2, String str3, boolean z) {
-        d dVar = this.f24391d;
-        if (dVar == null || !dVar.a(str, str2, str3)) {
-            com.baidu.wallet.home.a.a().a(getContext(), str, str2, str3, z, this.f24392e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            d dVar = this.f24934d;
+            if (dVar == null || !dVar.a(str, str2, str3)) {
+                com.baidu.wallet.home.a.a().a(getContext(), str, str2, str3, z, this.f24935e);
+            }
         }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public void login() {
-        WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(getContext(), new ILoginBackListener() { // from class: com.baidu.wallet.home.ui.widget.HomeMainView.1
-            @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i2, String str) {
-            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(getContext(), new ILoginBackListener(this) { // from class: com.baidu.wallet.home.ui.widget.HomeMainView.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i2, String str) {
-            }
-        }));
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ HomeMainView f24936a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f24936a = this;
+                }
+
+                @Override // com.baidu.wallet.api.ILoginBackListener
+                public void onFail(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    }
+                }
+
+                @Override // com.baidu.wallet.api.ILoginBackListener
+                public void onSuccess(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                    }
+                }
+            }));
+        }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public void onEyeMaskBtnClick() {
-        boolean z = !com.baidu.wallet.home.storage.a.a(getContext());
-        com.baidu.wallet.home.storage.a.a(getContext(), z);
-        for (BaseItemLayout baseItemLayout : this.f24388a) {
-            baseItemLayout.onEyeMaskChanged();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            boolean z = !com.baidu.wallet.home.storage.a.a(getContext());
+            com.baidu.wallet.home.storage.a.a(getContext(), z);
+            for (BaseItemLayout baseItemLayout : this.f24931a) {
+                baseItemLayout.onEyeMaskChanged();
+            }
+            PayStatisticsUtil.onEventWithValue(com.baidu.wallet.home.a.a.f24869a, z ? "true" : "false");
         }
-        PayStatisticsUtil.onEventWithValue(com.baidu.wallet.home.a.a.f24326a, z ? "true" : "false");
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public void onPointShowChanged() {
-        d dVar = this.f24391d;
-        if (dVar != null) {
-            dVar.a(b());
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (dVar = this.f24934d) == null) {
+            return;
         }
+        dVar.a(b());
     }
 
     public void setAdapter(Context context, HomeCfgResponse homeCfgResponse, String str) {
         HomeCfgResponse.TitleItem[] titleItemArr;
-        this.f24392e = str;
-        a();
-        this.mAllConfig = homeCfgResponse.layout_content;
-        this.f24389b = homeCfgResponse.android_prefix;
-        this.f24390c = homeCfgResponse.isLogin();
-        HomeCfgResponse.AllConfig allConfig = this.mAllConfig;
-        if (allConfig != null && allConfig.data != null) {
-            boolean z = true;
-            for (int i2 = 0; i2 < this.mAllConfig.data.length; i2++) {
-                BaseItemLayout a2 = a.a().a(context, this.mAllConfig.data[i2], this.f24389b);
-                if (a2 != null) {
-                    a2.setConfigData(this.mAllConfig.data[i2], this);
-                    if (a2.isDataValid()) {
-                        if (this.mAllConfig.data[i2].isLayoutHasGap()) {
-                            if (z) {
-                                a(2);
-                            } else {
-                                a(3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, context, homeCfgResponse, str) == null) {
+            this.f24935e = str;
+            a();
+            this.mAllConfig = homeCfgResponse.layout_content;
+            this.f24932b = homeCfgResponse.android_prefix;
+            this.f24933c = homeCfgResponse.isLogin();
+            HomeCfgResponse.AllConfig allConfig = this.mAllConfig;
+            if (allConfig != null && allConfig.data != null) {
+                boolean z = true;
+                for (int i2 = 0; i2 < this.mAllConfig.data.length; i2++) {
+                    BaseItemLayout a2 = a.a().a(context, this.mAllConfig.data[i2], this.f24932b);
+                    if (a2 != null) {
+                        a2.setConfigData(this.mAllConfig.data[i2], this);
+                        if (a2.isDataValid()) {
+                            if (this.mAllConfig.data[i2].isLayoutHasGap()) {
+                                if (z) {
+                                    a(2);
+                                } else {
+                                    a(3);
+                                }
                             }
+                            if (z) {
+                                z = false;
+                            }
+                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                            layoutParams.weight = 0.0f;
+                            addView(a2, layoutParams);
+                            this.f24931a.add(a2);
                         }
-                        if (z) {
-                            z = false;
-                        }
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                        layoutParams.weight = 0.0f;
-                        addView(a2, layoutParams);
-                        this.f24388a.add(a2);
                     }
                 }
+                if (this.f24931a.size() > 0) {
+                    a(1);
+                }
             }
-            if (this.f24388a.size() > 0) {
-                a(1);
+            HomeCfgResponse.TitleConfig titleConfig = homeCfgResponse.layout_title;
+            if (titleConfig != null && (titleItemArr = titleConfig.data) != null && titleItemArr.length > 0) {
+                HomeCfgResponse.TitleItem titleItem = titleItemArr[0];
+                FeedBackLayout feedBackLayout = new FeedBackLayout(context);
+                feedBackLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_background1_color"));
+                feedBackLayout.setData(titleItem, this);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                layoutParams2.weight = 1.0f;
+                addView(feedBackLayout, layoutParams2);
+                this.f24931a.add(feedBackLayout);
             }
+            onPointShowChanged();
         }
-        HomeCfgResponse.TitleConfig titleConfig = homeCfgResponse.layout_title;
-        if (titleConfig != null && (titleItemArr = titleConfig.data) != null && titleItemArr.length > 0) {
-            HomeCfgResponse.TitleItem titleItem = titleItemArr[0];
-            FeedBackLayout feedBackLayout = new FeedBackLayout(context);
-            feedBackLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_background1_color"));
-            feedBackLayout.setData(titleItem, this);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.weight = 1.0f;
-            addView(feedBackLayout, layoutParams2);
-            this.f24388a.add(feedBackLayout);
-        }
-        onPointShowChanged();
     }
 
     public void setClickOuterInterface(d dVar) {
-        this.f24391d = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
+            this.f24934d = dVar;
+        }
     }
 
     private void a(int i2) {
         boolean z;
-        boolean z2 = false;
-        boolean z3 = true;
-        if (i2 != 0) {
-            if (i2 == 1) {
-                z = false;
-                z2 = true;
-            } else if (i2 == 2) {
-                z = true;
-            } else if (i2 != 3) {
-                z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
+            boolean z2 = false;
+            boolean z3 = true;
+            if (i2 != 0) {
+                if (i2 == 1) {
+                    z = false;
+                    z2 = true;
+                } else if (i2 == 2) {
+                    z = true;
+                } else if (i2 != 3) {
+                    z = false;
+                } else {
+                    z = true;
+                    z2 = true;
+                }
+                z3 = false;
             } else {
-                z = true;
-                z2 = true;
+                z = false;
             }
-            z3 = false;
-        } else {
-            z = false;
-        }
-        if (z2) {
-            View view = new View(getContext());
-            view.setLayoutParams(new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 0.5f)));
-            view.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_separateColor"));
-            addView(view);
-        }
-        if (z3) {
-            View view2 = new View(getContext());
-            view2.setLayoutParams(new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 10.0f)));
-            view2.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_background1_color"));
-            addView(view2);
-        }
-        if (z) {
-            View view3 = new View(getContext());
-            view3.setLayoutParams(new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 0.5f)));
-            view3.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_separateColor"));
-            addView(view3);
+            if (z2) {
+                View view = new View(getContext());
+                view.setLayoutParams(new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 0.5f)));
+                view.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_separateColor"));
+                addView(view);
+            }
+            if (z3) {
+                View view2 = new View(getContext());
+                view2.setLayoutParams(new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 10.0f)));
+                view2.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_background1_color"));
+                addView(view2);
+            }
+            if (z) {
+                View view3 = new View(getContext());
+                view3.setLayoutParams(new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 0.5f)));
+                view3.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_separateColor"));
+                addView(view3);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeMainView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24388a = new ArrayList();
-        this.f24390c = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24931a = new ArrayList();
+        this.f24933c = false;
     }
 }

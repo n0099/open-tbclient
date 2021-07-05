@@ -2,6 +2,12 @@ package com.qq.e.comm.managers.plugin;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.CustomPkgConstants;
 import com.qq.e.comm.constants.Sig;
 import com.qq.e.comm.util.FileUtil;
@@ -15,25 +21,49 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f39209a;
+    public String f40964a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f39210b;
+    public final File f40965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39211c;
+    public final File f40966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39212d;
+    public String f40967d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f40968e;
 
     public a(File file, File file2) {
-        this.f39209a = file;
-        this.f39210b = file2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, file2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f40965b = file;
+        this.f40966c = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65537, null, context, file, file2)) != null) {
+            return invokeLLL.booleanValue;
+        }
         AssetManager assets = context.getAssets();
         try {
             if (Arrays.binarySearch(assets.list(CustomPkgConstants.getAssetPluginDir()), CustomPkgConstants.getAssetPluginName()) < 0) {
@@ -44,7 +74,7 @@ public class a {
             if (str2 == null) {
                 str2 = "";
             }
-            StringUtil.writeTo("1203#####" + str2, file2);
+            StringUtil.writeTo("1232#####" + str2, file2);
             if (StringUtil.isEmpty(CustomPkgConstants.getAssetPluginXorKey())) {
                 return FileUtil.copyTo(assets.open(str), file);
             }
@@ -80,52 +110,68 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0045 A[Catch: all -> 0x004b, TRY_LEAVE, TryCatch #0 {all -> 0x004b, blocks: (B:3:0x0001, B:5:0x0009, B:7:0x0011, B:9:0x0021, B:11:0x0032, B:14:0x0039, B:17:0x0045), top: B:23:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x004b A[Catch: all -> 0x0051, TRY_LEAVE, TryCatch #0 {all -> 0x0051, blocks: (B:5:0x0005, B:7:0x000d, B:9:0x0015, B:11:0x0027, B:13:0x0038, B:16:0x003f, B:19:0x004b), top: B:29:0x0005 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean a() {
+        InterceptResult invokeV;
         boolean z;
-        try {
-            if (this.f39210b.exists() && this.f39209a.exists()) {
-                String[] split = StringUtil.readAll(this.f39210b).split("#####");
-                if (split.length == 2) {
-                    String str = split[1];
-                    int parseInteger = StringUtil.parseInteger(split[0], 0);
-                    com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                    File file = this.f39209a;
-                    if (file != null && file.exists()) {
-                        z = a2.b(str, Md5Util.encode(file));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                if (this.f40966c.exists() && this.f40965b.exists()) {
+                    String readAll = StringUtil.readAll(this.f40966c);
+                    this.f40964a = readAll;
+                    String[] split = readAll.split("#####");
+                    if (split.length == 2) {
+                        String str = split[1];
+                        int parseInteger = StringUtil.parseInteger(split[0], 0);
+                        com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
+                        File file = this.f40965b;
+                        if (file != null && file.exists()) {
+                            z = a2.b(str, Md5Util.encode(file));
+                            if (z) {
+                                this.f40967d = str;
+                                this.f40968e = parseInteger;
+                                return true;
+                            }
+                        }
+                        z = false;
                         if (z) {
-                            this.f39211c = str;
-                            this.f39212d = parseInteger;
-                            return true;
                         }
                     }
-                    z = false;
-                    if (z) {
-                    }
                 }
+                return false;
+            } catch (Throwable th) {
+                GDTLogger.report("Exception while checking plugin", th);
+                return false;
             }
-            return false;
-        } catch (Throwable th) {
-            GDTLogger.report("Exception while checking plugin", th);
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public boolean a(File file, File file2) {
-        if (file == null || file2 == null) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) {
+            if (file == null || file2 == null) {
+                return false;
+            }
+            return (file.equals(this.f40965b) || FileUtil.renameTo(this.f40965b, file)) && (file2.equals(this.f40966c) || FileUtil.renameTo(this.f40966c, file2));
         }
-        return (file.equals(this.f39209a) || FileUtil.renameTo(this.f39209a, file)) && (file2.equals(this.f39210b) || FileUtil.renameTo(this.f39210b, file2));
+        return invokeLL.booleanValue;
     }
 
     public int b() {
-        return this.f39212d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40968e : invokeV.intValue;
     }
 
     public String c() {
-        return this.f39211c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40967d : (String) invokeV.objValue;
     }
 }

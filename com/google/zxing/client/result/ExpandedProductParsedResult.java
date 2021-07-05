@@ -1,10 +1,19 @@
 package com.google.zxing.client.result;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ExpandedProductParsedResult extends ParsedResult {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KILOGRAM = "KG";
     public static final String POUND = "LB";
+    public transient /* synthetic */ FieldHolder $fh;
     public final String bestBeforeDate;
     public final String expirationDate;
     public final String lotNumber;
@@ -21,8 +30,24 @@ public final class ExpandedProductParsedResult extends ParsedResult {
     public final String weightIncrement;
     public final String weightType;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExpandedProductParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, Map<String, String> map) {
         super(ParsedResultType.PRODUCT);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((ParsedResultType) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.rawText = str;
         this.productID = str2;
         this.sscc = str3;
@@ -41,93 +66,142 @@ public final class ExpandedProductParsedResult extends ParsedResult {
     }
 
     public static boolean equalsOrNull(Object obj, Object obj2) {
-        if (obj == null) {
-            return obj2 == null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, obj2)) == null) {
+            if (obj == null) {
+                return obj2 == null;
+            }
+            return obj.equals(obj2);
         }
-        return obj.equals(obj2);
+        return invokeLL.booleanValue;
     }
 
     public static int hashNotNull(Object obj) {
-        if (obj == null) {
-            return 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+            if (obj == null) {
+                return 0;
+            }
+            return obj.hashCode();
         }
-        return obj.hashCode();
+        return invokeL.intValue;
     }
 
     public boolean equals(Object obj) {
-        if (obj instanceof ExpandedProductParsedResult) {
-            ExpandedProductParsedResult expandedProductParsedResult = (ExpandedProductParsedResult) obj;
-            return equalsOrNull(this.productID, expandedProductParsedResult.productID) && equalsOrNull(this.sscc, expandedProductParsedResult.sscc) && equalsOrNull(this.lotNumber, expandedProductParsedResult.lotNumber) && equalsOrNull(this.productionDate, expandedProductParsedResult.productionDate) && equalsOrNull(this.bestBeforeDate, expandedProductParsedResult.bestBeforeDate) && equalsOrNull(this.expirationDate, expandedProductParsedResult.expirationDate) && equalsOrNull(this.weight, expandedProductParsedResult.weight) && equalsOrNull(this.weightType, expandedProductParsedResult.weightType) && equalsOrNull(this.weightIncrement, expandedProductParsedResult.weightIncrement) && equalsOrNull(this.price, expandedProductParsedResult.price) && equalsOrNull(this.priceIncrement, expandedProductParsedResult.priceIncrement) && equalsOrNull(this.priceCurrency, expandedProductParsedResult.priceCurrency) && equalsOrNull(this.uncommonAIs, expandedProductParsedResult.uncommonAIs);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj instanceof ExpandedProductParsedResult) {
+                ExpandedProductParsedResult expandedProductParsedResult = (ExpandedProductParsedResult) obj;
+                return equalsOrNull(this.productID, expandedProductParsedResult.productID) && equalsOrNull(this.sscc, expandedProductParsedResult.sscc) && equalsOrNull(this.lotNumber, expandedProductParsedResult.lotNumber) && equalsOrNull(this.productionDate, expandedProductParsedResult.productionDate) && equalsOrNull(this.bestBeforeDate, expandedProductParsedResult.bestBeforeDate) && equalsOrNull(this.expirationDate, expandedProductParsedResult.expirationDate) && equalsOrNull(this.weight, expandedProductParsedResult.weight) && equalsOrNull(this.weightType, expandedProductParsedResult.weightType) && equalsOrNull(this.weightIncrement, expandedProductParsedResult.weightIncrement) && equalsOrNull(this.price, expandedProductParsedResult.price) && equalsOrNull(this.priceIncrement, expandedProductParsedResult.priceIncrement) && equalsOrNull(this.priceCurrency, expandedProductParsedResult.priceCurrency) && equalsOrNull(this.uncommonAIs, expandedProductParsedResult.uncommonAIs);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public String getBestBeforeDate() {
-        return this.bestBeforeDate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bestBeforeDate : (String) invokeV.objValue;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
     public String getDisplayResult() {
-        return String.valueOf(this.rawText);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.valueOf(this.rawText) : (String) invokeV.objValue;
     }
 
     public String getExpirationDate() {
-        return this.expirationDate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.expirationDate : (String) invokeV.objValue;
     }
 
     public String getLotNumber() {
-        return this.lotNumber;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.lotNumber : (String) invokeV.objValue;
     }
 
     public String getPackagingDate() {
-        return this.packagingDate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.packagingDate : (String) invokeV.objValue;
     }
 
     public String getPrice() {
-        return this.price;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.price : (String) invokeV.objValue;
     }
 
     public String getPriceCurrency() {
-        return this.priceCurrency;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.priceCurrency : (String) invokeV.objValue;
     }
 
     public String getPriceIncrement() {
-        return this.priceIncrement;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.priceIncrement : (String) invokeV.objValue;
     }
 
     public String getProductID() {
-        return this.productID;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.productID : (String) invokeV.objValue;
     }
 
     public String getProductionDate() {
-        return this.productionDate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.productionDate : (String) invokeV.objValue;
     }
 
     public String getRawText() {
-        return this.rawText;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.rawText : (String) invokeV.objValue;
     }
 
     public String getSscc() {
-        return this.sscc;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.sscc : (String) invokeV.objValue;
     }
 
     public Map<String, String> getUncommonAIs() {
-        return this.uncommonAIs;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.uncommonAIs : (Map) invokeV.objValue;
     }
 
     public String getWeight() {
-        return this.weight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.weight : (String) invokeV.objValue;
     }
 
     public String getWeightIncrement() {
-        return this.weightIncrement;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.weightIncrement : (String) invokeV.objValue;
     }
 
     public String getWeightType() {
-        return this.weightType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.weightType : (String) invokeV.objValue;
     }
 
     public int hashCode() {
-        return ((((((((((((hashNotNull(this.productID) ^ 0) ^ hashNotNull(this.sscc)) ^ hashNotNull(this.lotNumber)) ^ hashNotNull(this.productionDate)) ^ hashNotNull(this.bestBeforeDate)) ^ hashNotNull(this.expirationDate)) ^ hashNotNull(this.weight)) ^ hashNotNull(this.weightType)) ^ hashNotNull(this.weightIncrement)) ^ hashNotNull(this.price)) ^ hashNotNull(this.priceIncrement)) ^ hashNotNull(this.priceCurrency)) ^ hashNotNull(this.uncommonAIs);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? ((((((((((((hashNotNull(this.productID) ^ 0) ^ hashNotNull(this.sscc)) ^ hashNotNull(this.lotNumber)) ^ hashNotNull(this.productionDate)) ^ hashNotNull(this.bestBeforeDate)) ^ hashNotNull(this.expirationDate)) ^ hashNotNull(this.weight)) ^ hashNotNull(this.weightType)) ^ hashNotNull(this.weightIncrement)) ^ hashNotNull(this.price)) ^ hashNotNull(this.priceIncrement)) ^ hashNotNull(this.priceCurrency)) ^ hashNotNull(this.uncommonAIs) : invokeV.intValue;
     }
 }

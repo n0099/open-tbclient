@@ -1,7 +1,7 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface NormalizeGuestAccountCallback {
     void onFailure(NormalizeGuestAccountResult normalizeGuestAccountResult);
 

@@ -1,30 +1,63 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public final class o extends l {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f30103a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
+    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f31953a;
+
+    public o() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31953a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
+    }
 
     public void a(String str, l lVar) {
-        com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f30103a;
-        if (lVar == null) {
-            lVar = n.f30102a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, lVar) == null) {
+            com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f31953a;
+            if (lVar == null) {
+                lVar = n.f31952a;
+            }
+            hVar.put(str, lVar);
         }
-        hVar.put(str, lVar);
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof o) && ((o) obj).f30103a.equals(this.f30103a));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj == this || ((obj instanceof o) && ((o) obj).f31953a.equals(this.f31953a)) : invokeL.booleanValue;
     }
 
     public int hashCode() {
-        return this.f30103a.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31953a.hashCode() : invokeV.intValue;
     }
 
     public Set<Map.Entry<String, l>> n() {
-        return this.f30103a.entrySet();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31953a.entrySet() : (Set) invokeV.objValue;
     }
 }

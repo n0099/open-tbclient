@@ -1,48 +1,97 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import d.a.o0.k1.m.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.n1.m.b;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseCardInfo(JSONObject jSONObject) {
         super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public String getFidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.C1469b.a(str).d("fid") : "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1604b.a(str).d("fid") : "" : (String) invokeL.objValue;
     }
 
     public String getTouidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.C1469b.a(str).d("touid") : "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1604b.a(str).d("touid") : "" : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public final boolean responseAttention(Object obj) {
-        if (shouldResponseAttention()) {
-            if (obj instanceof UpdateAttentionMessage.a) {
-                UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                return responseAttentionUser(aVar.f12720c, aVar.f12721d);
-            } else if (obj instanceof d.a.o0.k1.p.b) {
-                d.a.o0.k1.p.b bVar = (d.a.o0.k1.p.b) obj;
-                return responseAttentionForum(bVar.f60553a, bVar.f60554b);
-            } else {
-                return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (shouldResponseAttention()) {
+                if (obj instanceof UpdateAttentionMessage.a) {
+                    UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
+                    return responseAttentionUser(aVar.f12802c, aVar.f12803d);
+                } else if (obj instanceof d.a.s0.n1.p.b) {
+                    d.a.s0.n1.p.b bVar = (d.a.s0.n1.p.b) obj;
+                    return responseAttentionForum(bVar.f63884a, bVar.f63885b);
+                } else {
+                    return false;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public boolean responseAttentionForum(String str, boolean z) {
-        return false;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 
     public boolean responseAttentionUser(String str, boolean z) {
-        return false;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 
     public boolean shouldResponseAttention() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

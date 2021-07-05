@@ -10,202 +10,324 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ay implements ar {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41109a;
+    public static boolean f42852a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f137a;
+    public volatile int f139a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f138a;
+    public Context f140a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f136a = 0;
+    public ServiceConnection f141a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f139a = null;
+    public volatile a f142a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f140a = new Object();
+    public final Object f143a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ay f42853a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f141a;
+        public String f144a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41111b;
+        public String f42854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41112c;
+        public String f42855c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f41113d;
+        public String f42856d;
 
-        public a() {
-            this.f141a = null;
-            this.f41111b = null;
-            this.f41112c = null;
-            this.f41113d = null;
+        public a(ay ayVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ayVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f42853a = ayVar;
+            this.f144a = null;
+            this.f42854b = null;
+            this.f42855c = null;
+            this.f42856d = null;
+        }
+
+        public /* synthetic */ a(ay ayVar, az azVar) {
+            this(ayVar);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements ServiceConnection {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ay f42857a;
+
+        public b(ay ayVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ayVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f42857a = ayVar;
+        }
+
+        public /* synthetic */ b(ay ayVar, az azVar) {
+            this(ayVar);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            if (ay.this.f139a != null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.f42857a.f142a == null) {
+                new Thread(new ba(this, iBinder)).start();
             }
-            new Thread(new ba(this, iBinder)).start();
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static String a(IBinder iBinder, String str, String str2, String str3) {
-            Parcel obtain = Parcel.obtain();
-            Parcel obtain2 = Parcel.obtain();
-            try {
-                obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
-                obtain.writeString(str);
-                obtain.writeString(str2);
-                obtain.writeString(str3);
-                iBinder.transact(1, obtain, obtain2, 0);
-                obtain2.readException();
-                return obtain2.readString();
-            } finally {
-                obtain2.recycle();
-                obtain.recycle();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
             }
         }
     }
 
+    /* loaded from: classes8.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(IBinder iBinder, String str, String str2, String str3) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, iBinder, str, str2, str3)) == null) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                    obtain.writeString(str);
+                    obtain.writeString(str2);
+                    obtain.writeString(str3);
+                    iBinder.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+            return (String) invokeLLLL.objValue;
+        }
+    }
+
     public ay(Context context) {
-        this.f137a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f139a = 0;
+        this.f142a = null;
+        this.f143a = new Object();
+        this.f140a = context;
         a();
     }
 
     private void a() {
         boolean z;
-        this.f138a = new b();
-        Intent intent = new Intent();
-        intent.setClassName("com.heytap.openid", "com.heytap.openid.IdentifyService");
-        intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-        try {
-            z = this.f137a.bindService(intent, this.f138a, 1);
-        } catch (Exception unused) {
-            z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            this.f141a = new b(this, null);
+            Intent intent = new Intent();
+            intent.setClassName("com.heytap.openid", "com.heytap.openid.IdentifyService");
+            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+            try {
+                z = this.f140a.bindService(intent, this.f141a, 1);
+            } catch (Exception unused) {
+                z = false;
+            }
+            this.f139a = z ? 1 : 2;
         }
-        this.f136a = z ? 1 : 2;
     }
 
     private void a(String str) {
-        if (this.f136a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
-            return;
-        }
-        synchronized (this.f140a) {
-            try {
-                com.xiaomi.channel.commonutils.logger.b.m56a("oppo's " + str + " wait...");
-                this.f140a.wait(3000L);
-            } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f139a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
+            synchronized (this.f143a) {
+                try {
+                    com.xiaomi.channel.commonutils.logger.b.m70a("oppo's " + str + " wait...");
+                    this.f143a.wait(3000L);
+                } catch (Exception unused) {
+                }
             }
         }
     }
 
     public static boolean a(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.heytap.openid", 128);
-            if (packageInfo != null) {
-                long longVersionCode = Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
-                boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-                f41109a = longVersionCode >= 1;
-                if (z) {
-                    return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.heytap.openid", 128);
+                if (packageInfo != null) {
+                    long longVersionCode = Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
+                    boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
+                    f42852a = longVersionCode >= 1;
+                    if (z) {
+                        return true;
+                    }
                 }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        ServiceConnection serviceConnection = this.f138a;
-        if (serviceConnection != null) {
-            try {
-                this.f137a.unbindService(serviceConnection);
-            } catch (Exception unused) {
-            }
+        ServiceConnection serviceConnection;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (serviceConnection = this.f141a) == null) {
+            return;
+        }
+        try {
+            this.f140a.unbindService(serviceConnection);
+        } catch (Exception unused) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String e() {
-        try {
-            Signature[] signatureArr = this.f137a.getPackageManager().getPackageInfo(this.f137a.getPackageName(), 64).signatures;
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-            StringBuilder sb = new StringBuilder();
-            for (byte b2 : messageDigest.digest(signatureArr[0].toByteArray())) {
-                sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            try {
+                Signature[] signatureArr = this.f140a.getPackageManager().getPackageInfo(this.f140a.getPackageName(), 64).signatures;
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
+                StringBuilder sb = new StringBuilder();
+                for (byte b2 : messageDigest.digest(signatureArr[0].toByteArray())) {
+                    sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+                }
+                return sb.toString();
+            } catch (Exception unused) {
+                return "";
             }
-            return sb.toString();
-        } catch (Exception unused) {
-            return "";
         }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        a("getUDID");
-        if (this.f139a == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            a("getUDID");
+            if (this.f142a == null) {
+                return null;
+            }
+            return this.f142a.f144a;
         }
-        return this.f139a.f141a;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f41109a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f42852a : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo135b() {
-        a("getOAID");
-        if (this.f139a == null) {
-            return null;
+    public String mo149b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            a("getOAID");
+            if (this.f142a == null) {
+                return null;
+            }
+            return this.f142a.f42854b;
         }
-        return this.f139a.f41111b;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        a("getVAID");
-        if (this.f139a == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a("getVAID");
+            if (this.f142a == null) {
+                return null;
+            }
+            return this.f142a.f42855c;
         }
-        return this.f139a.f41112c;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        a("getAAID");
-        if (this.f139a == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            a("getAAID");
+            if (this.f142a == null) {
+                return null;
+            }
+            return this.f142a.f42856d;
         }
-        return this.f139a.f41113d;
+        return (String) invokeV.objValue;
     }
 }

@@ -23,6 +23,8 @@ public interface UIADI extends ApkDownloadComplianceInterface {
 
     String getECPMLevel();
 
+    int getVideoDuration();
+
     boolean isValid();
 
     void loadAd();

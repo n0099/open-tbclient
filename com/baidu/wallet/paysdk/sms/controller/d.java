@@ -5,10 +5,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.controllers.PasswordController;
 import com.baidu.wallet.base.controllers.PayController;
@@ -40,704 +47,974 @@ import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d implements a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayBaseActivity f25621a;
+    public PayBaseActivity f26164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SmsUpdateUiInterface f25622b;
+    public SmsUpdateUiInterface f26165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ErrorContentResponse f25623c;
+    public ErrorContentResponse f26166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PayRequest f25624d;
+    public PayRequest f26167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25625e;
+    public String f26168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PayRequestCache.BindCategory f25626f;
+    public PayRequestCache.BindCategory f26169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BindFastRequest f25627g;
+    public BindFastRequest f26170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.beans.b f25628h;
+    public com.baidu.wallet.paysdk.beans.b f26171h;
 
     /* renamed from: i  reason: collision with root package name */
-    public aj f25629i;
+    public aj f26172i;
     public com.baidu.wallet.paysdk.beans.h j;
     public String k;
+    public boolean l;
+    public boolean m;
     public y n;
     public SmsVerifyHandler o;
+    public boolean p;
     public String q;
-    public boolean l = true;
-    public boolean m = false;
-    public boolean p = false;
+
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l = true;
+        this.m = false;
+        this.p = false;
+    }
 
     private void e() {
-        PayStatisticsUtil.onEvent(StatServiceEvent.BIND_CLICK_PAY);
-        StatisticManager.onEventStart(StatServiceEvent.TIME_PAY);
-        WalletGlobalUtils.safeShowDialog(this.f25621a, 0, "");
-        if (this.n == null) {
-            this.n = (y) PayBeanFactory.getInstance().getBean((Context) this.f25621a, 13, ISmsController.BEAN_TAG);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            PayStatisticsUtil.onEvent(StatServiceEvent.BIND_CLICK_PAY);
+            StatisticManager.onEventStart(StatServiceEvent.TIME_PAY);
+            WalletGlobalUtils.safeShowDialog(this.f26164a, 0, "");
+            if (this.n == null) {
+                this.n = (y) PayBeanFactory.getInstance().getBean((Context) this.f26164a, 13, ISmsController.BEAN_TAG);
+            }
+            this.n.setResponseCallback((WalletSmsActivity) this.f26164a);
+            this.n.b(this.f26164a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) == 5320);
+            this.n.execBean();
         }
-        this.n.setResponseCallback((WalletSmsActivity) this.f25621a);
-        this.n.b(this.f25621a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) == 5320);
-        this.n.execBean();
     }
 
     private void f() {
-        WalletGlobalUtils.safeShowDialog(this.f25621a, 0, "");
-        if (this.f25628h == null) {
-            this.f25628h = (com.baidu.wallet.paysdk.beans.b) PayBeanFactory.getInstance().getBean((Context) this.f25621a, 513, ISmsController.BEAN_TAG);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            WalletGlobalUtils.safeShowDialog(this.f26164a, 0, "");
+            if (this.f26171h == null) {
+                this.f26171h = (com.baidu.wallet.paysdk.beans.b) PayBeanFactory.getInstance().getBean((Context) this.f26164a, 513, ISmsController.BEAN_TAG);
+            }
+            PayStatisticsUtil.onEventStart(StatServiceEvent.BIND_CARD);
+            this.f26171h.a(this.f26170g);
+            this.f26171h.setResponseCallback((WalletSmsActivity) this.f26164a);
+            this.f26171h.execBean();
         }
-        PayStatisticsUtil.onEventStart(StatServiceEvent.BIND_CARD);
-        this.f25628h.a(this.f25627g);
-        this.f25628h.setResponseCallback((WalletSmsActivity) this.f25621a);
-        this.f25628h.execBean();
     }
 
     private void g() {
-        BindFastRequest bindFastRequest = this.f25627g;
-        if (bindFastRequest != null && bindFastRequest.isNeedCheckSms()) {
-            WalletGlobalUtils.safeShowDialog(this.f25621a, 0, "");
-            if (this.f25629i == null) {
-                this.f25629i = (aj) PayBeanFactory.getInstance().getBean((Context) this.f25621a, 11, ISmsController.BEAN_TAG);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            BindFastRequest bindFastRequest = this.f26170g;
+            if (bindFastRequest != null && bindFastRequest.isNeedCheckSms()) {
+                WalletGlobalUtils.safeShowDialog(this.f26164a, 0, "");
+                if (this.f26172i == null) {
+                    this.f26172i = (aj) PayBeanFactory.getInstance().getBean((Context) this.f26164a, 11, ISmsController.BEAN_TAG);
+                }
+                PayStatisticsUtil.onEventStart(StatServiceEvent.VERIFY_SMS);
+                int i2 = this.f26170g.getmBindFrom();
+                if (i2 != 6 && i2 != 7 && i2 != 8) {
+                    this.f26172i.a(false);
+                } else {
+                    this.f26172i.a(true);
+                }
+                this.f26172i.a(this.f26170g);
+                this.f26172i.setResponseCallback((WalletSmsActivity) this.f26164a);
+                this.f26172i.execBean();
+                return;
             }
-            PayStatisticsUtil.onEventStart(StatServiceEvent.VERIFY_SMS);
-            int i2 = this.f25627g.getmBindFrom();
-            if (i2 != 6 && i2 != 7 && i2 != 8) {
-                this.f25629i.a(false);
-            } else {
-                this.f25629i.a(true);
-            }
-            this.f25629i.a(this.f25627g);
-            this.f25629i.setResponseCallback((WalletSmsActivity) this.f25621a);
-            this.f25629i.execBean();
-            return;
+            i();
         }
-        i();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        WalletGlobalUtils.safeShowDialog(this.f25621a, 0, "");
-        if (this.n == null) {
-            this.n = (y) PayBeanFactory.getInstance().getBean((Context) this.f25621a, 13, ISmsController.BEAN_TAG);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            WalletGlobalUtils.safeShowDialog(this.f26164a, 0, "");
+            if (this.n == null) {
+                this.n = (y) PayBeanFactory.getInstance().getBean((Context) this.f26164a, 13, ISmsController.BEAN_TAG);
+            }
+            this.n.setResponseCallback((WalletSmsActivity) this.f26164a);
+            this.n.b(this.f26164a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) == 5320);
+            this.n.execBean();
         }
-        this.n.setResponseCallback((WalletSmsActivity) this.f25621a);
-        this.n.b(this.f25621a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) == 5320);
-        this.n.execBean();
     }
 
     private void i() {
-        if (this.f25627g == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.f26170g == null) {
             return;
         }
-        PasswordController.getPassWordInstance().setPwd(this.f25621a, false, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.sms.controller.d.1
+        PasswordController.getPassWordInstance().setPwd(this.f26164a, false, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.sms.controller.d.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ d f26173a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f26173a = this;
+            }
+
             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
             public void onFail(int i2, String str) {
-                SmsUpdateUiInterface smsUpdateUiInterface = d.this.f25622b;
-                if (smsUpdateUiInterface != null) {
-                    smsUpdateUiInterface.clearSmsEditText();
-                    d.this.f25622b.doStopCountDown();
+                SmsUpdateUiInterface smsUpdateUiInterface;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || (smsUpdateUiInterface = this.f26173a.f26165b) == null) {
+                    return;
                 }
+                smsUpdateUiInterface.clearSmsEditText();
+                this.f26173a.f26165b.doStopCountDown();
             }
 
             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
             public void onSucceed(String str) {
-                int i2 = d.this.f25627g.getmBindFrom();
-                if (i2 == 1) {
-                    PayController.getInstance().bindSuccess(null);
-                } else if (i2 == 3) {
-                    PasswordController.getPassWordInstance().forgetPasswdSucceed(str);
-                } else if (i2 == 4) {
-                    PasswordController.getPassWordInstance().forgetPasswdSucceed(str);
-                } else if (i2 == 6 || i2 == 7 || i2 == 8) {
-                    d.this.h();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                    int i2 = this.f26173a.f26170g.getmBindFrom();
+                    if (i2 == 1) {
+                        PayController.getInstance().bindSuccess(null);
+                    } else if (i2 == 3) {
+                        PasswordController.getPassWordInstance().forgetPasswdSucceed(str);
+                    } else if (i2 == 4) {
+                        PasswordController.getPassWordInstance().forgetPasswdSucceed(str);
+                    } else if (i2 == 6 || i2 == 7 || i2 == 8) {
+                        this.f26173a.h();
+                    }
                 }
             }
-        }, this.f25626f);
+        }, this.f26169f);
         this.p = true;
     }
 
     private boolean j() {
-        BindFastRequest bindFastRequest = this.f25627g;
-        return (bindFastRequest == null || bindFastRequest.mBondCard == null || bindFastRequest.getmBindFrom() != 2 || this.f25627g.mBondCard.isNeedSendSms()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            BindFastRequest bindFastRequest = this.f26170g;
+            return (bindFastRequest == null || bindFastRequest.mBondCard == null || bindFastRequest.getmBindFrom() != 2 || this.f26170g.mBondCard.isNeedSendSms()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String k() {
-        String string = ResUtils.getString(this.f25621a, "ebpay_confirm");
-        BindFastRequest bindFastRequest = this.f25627g;
-        if (bindFastRequest == null) {
-            return string;
-        }
-        int i2 = bindFastRequest.mBindFrom;
-        if (i2 == 0) {
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                PayRequest payRequest = this.f25624d;
-                if (payRequest != null && payRequest.mMktSolution != null) {
-                    return String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25624d.mMktSolution.easypay_amount));
-                }
-                if (this.f25627g != null) {
-                    return String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25627g.getFinalPayAmount()));
-                }
-                return ResUtils.getString(this.f25621a, "ebpay_submit_pay");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            String string = ResUtils.getString(this.f26164a, "ebpay_confirm");
+            BindFastRequest bindFastRequest = this.f26170g;
+            if (bindFastRequest == null) {
+                return string;
             }
-            return ResUtils.getString(this.f25621a, "wallet_base_next_step");
-        } else if (i2 == 1) {
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                return ResUtils.getString(this.f25621a, "ebpay_pwd_done");
-            }
-            return ResUtils.getString(this.f25621a, "wallet_base_next_step");
-        } else if (i2 == 2) {
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                PayRequest payRequest2 = this.f25624d;
-                if (payRequest2 != null) {
-                    if (payRequest2.mMktSolution != null) {
-                        return String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25624d.mMktSolution.easypay_amount));
-                    }
-                    return String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25624d.getFinalPayAmount()));
-                }
-                return ResUtils.getString(this.f25621a, "ebpay_submit_pay");
-            }
-            return ResUtils.getString(this.f25621a, "wallet_base_next_step");
-        } else if (i2 != 3) {
-            if (i2 == 6 || i2 == 7 || i2 == 8) {
+            int i2 = bindFastRequest.mBindFrom;
+            if (i2 == 0) {
                 if (PayDataCache.getInstance().hasMobilePwd()) {
-                    if (com.baidu.wallet.paysdk.a.b.c()) {
-                        PayRequest payRequest3 = this.f25624d;
-                        if (payRequest3 != null && payRequest3.mMktSolution != null) {
-                            return String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25624d.mMktSolution.easypay_amount));
-                        }
-                        if (this.f25627g != null) {
-                            return String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25627g.getFinalPayAmount()));
-                        }
-                        return ResUtils.getString(this.f25621a, "ebpay_submit_pay");
+                    PayRequest payRequest = this.f26167d;
+                    if (payRequest != null && payRequest.mMktSolution != null) {
+                        return String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26167d.mMktSolution.easypay_amount));
                     }
-                    return ResUtils.getString(this.f25621a, "bd_wallet_auth_submit_sign");
+                    if (this.f26170g != null) {
+                        return String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26170g.getFinalPayAmount()));
+                    }
+                    return ResUtils.getString(this.f26164a, "ebpay_submit_pay");
                 }
-                return ResUtils.getString(this.f25621a, "wallet_base_next_step");
+                return ResUtils.getString(this.f26164a, "wallet_base_next_step");
+            } else if (i2 == 1) {
+                if (PayDataCache.getInstance().hasMobilePwd()) {
+                    return ResUtils.getString(this.f26164a, "ebpay_pwd_done");
+                }
+                return ResUtils.getString(this.f26164a, "wallet_base_next_step");
+            } else if (i2 == 2) {
+                if (PayDataCache.getInstance().hasMobilePwd()) {
+                    PayRequest payRequest2 = this.f26167d;
+                    if (payRequest2 != null) {
+                        if (payRequest2.mMktSolution != null) {
+                            return String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26167d.mMktSolution.easypay_amount));
+                        }
+                        return String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26167d.getFinalPayAmount()));
+                    }
+                    return ResUtils.getString(this.f26164a, "ebpay_submit_pay");
+                }
+                return ResUtils.getString(this.f26164a, "wallet_base_next_step");
+            } else if (i2 != 3) {
+                if (i2 == 6 || i2 == 7 || i2 == 8) {
+                    if (PayDataCache.getInstance().hasMobilePwd()) {
+                        if (com.baidu.wallet.paysdk.a.b.c()) {
+                            PayRequest payRequest3 = this.f26167d;
+                            if (payRequest3 != null && payRequest3.mMktSolution != null) {
+                                return String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26167d.mMktSolution.easypay_amount));
+                            }
+                            if (this.f26170g != null) {
+                                return String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26170g.getFinalPayAmount()));
+                            }
+                            return ResUtils.getString(this.f26164a, "ebpay_submit_pay");
+                        }
+                        return ResUtils.getString(this.f26164a, "bd_wallet_auth_submit_sign");
+                    }
+                    return ResUtils.getString(this.f26164a, "wallet_base_next_step");
+                }
+                return string;
+            } else {
+                return ResUtils.getString(this.f26164a, "wallet_base_next_step");
             }
-            return string;
-        } else {
-            return ResUtils.getString(this.f25621a, "wallet_base_next_step");
         }
+        return (String) invokeV.objValue;
     }
 
     private ArrayList<String> l() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        PayRequest payRequest = this.f25624d;
-        arrayList.add(payRequest != null ? payRequest.mSpNO : "");
-        PayRequest payRequest2 = this.f25624d;
-        arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            PayRequest payRequest = this.f26167d;
+            arrayList.add(payRequest != null ? payRequest.mSpNO : "");
+            PayRequest payRequest2 = this.f26167d;
+            arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean doOnBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
-        if (i3 != 80320 && i3 != 80321 && i3 != 80326 && i3 != 80327) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj})) == null) {
+            if (i3 != 80320 && i3 != 80321 && i3 != 80326 && i3 != 80327) {
+                if (obj instanceof ErrorContentResponse) {
+                    ErrorContentResponse errorContentResponse = (ErrorContentResponse) obj;
+                    if (errorContentResponse.card_item_required != null && this.f26170g.getmBindFrom() == 2) {
+                        this.k = str;
+                        this.f26166c = errorContentResponse;
+                        WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+                        WalletGlobalUtils.safeShowDialog(this.f26164a, 40, "");
+                        return true;
+                    } else if (i3 == 15500) {
+                        this.k = str;
+                        PayBaseActivity payBaseActivity = this.f26164a;
+                        payBaseActivity.mPayErrorCode = i3;
+                        payBaseActivity.mBeanId = i2;
+                        this.f26166c = errorContentResponse;
+                        WalletGlobalUtils.safeDismissDialog(payBaseActivity, 0);
+                        WalletGlobalUtils.safeShowDialog(this.f26164a, 65316, "");
+                        return true;
+                    }
+                }
+                return false;
+            }
+            WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+            PayDataCache.getInstance().cleanDetainmentDesc();
             if (obj instanceof ErrorContentResponse) {
-                ErrorContentResponse errorContentResponse = (ErrorContentResponse) obj;
-                if (errorContentResponse.card_item_required != null && this.f25627g.getmBindFrom() == 2) {
+                this.f26166c = (ErrorContentResponse) obj;
+                if (!TextUtils.isEmpty(str)) {
                     this.k = str;
-                    this.f25623c = errorContentResponse;
-                    WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-                    WalletGlobalUtils.safeShowDialog(this.f25621a, 40, "");
-                    return true;
-                } else if (i3 == 15500) {
-                    this.k = str;
-                    PayBaseActivity payBaseActivity = this.f25621a;
-                    payBaseActivity.mPayErrorCode = i3;
-                    payBaseActivity.mBeanId = i2;
-                    this.f25623c = errorContentResponse;
-                    WalletGlobalUtils.safeDismissDialog(payBaseActivity, 0);
-                    WalletGlobalUtils.safeShowDialog(this.f25621a, 65316, "");
-                    return true;
+                    PayBaseActivity payBaseActivity2 = this.f26164a;
+                    payBaseActivity2.mPayErrorCode = i3;
+                    payBaseActivity2.mBeanId = i2;
+                    WalletGlobalUtils.safeShowDialog(payBaseActivity2, ISmsController.DIALOG_CANNOT_DISCOUNT, "");
                 }
             }
-            return false;
+            return true;
         }
-        WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-        PayDataCache.getInstance().cleanDetainmentDesc();
-        if (obj instanceof ErrorContentResponse) {
-            this.f25623c = (ErrorContentResponse) obj;
-            if (!TextUtils.isEmpty(str)) {
-                this.k = str;
-                PayBaseActivity payBaseActivity2 = this.f25621a;
-                payBaseActivity2.mPayErrorCode = i3;
-                payBaseActivity2.mBeanId = i2;
-                WalletGlobalUtils.safeShowDialog(payBaseActivity2, ISmsController.DIALOG_CANNOT_DISCOUNT, "");
-            }
-        }
-        return true;
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public Dialog doOnCreateDialog(int i2) {
-        if (i2 == 65315) {
-            return new PromptDialog(this.f25621a.getActivity());
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            if (i2 == 65315) {
+                return new PromptDialog(this.f26164a.getActivity());
+            }
+            if (i2 == 65316) {
+                return new PromptDialog(this.f26164a.getActivity());
+            }
+            if (i2 == 65283) {
+                return new PromptDialog(this.f26164a.getActivity());
+            }
+            if (i2 == 40) {
+                return new PromptDialog(this.f26164a.getActivity());
+            }
+            return null;
         }
-        if (i2 == 65316) {
-            return new PromptDialog(this.f25621a.getActivity());
-        }
-        if (i2 == 65283) {
-            return new PromptDialog(this.f25621a.getActivity());
-        }
-        if (i2 == 40) {
-            return new PromptDialog(this.f25621a.getActivity());
-        }
-        return null;
+        return (Dialog) invokeI.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void doOnDestroy() {
-        if (this.p) {
-            PasswordController.getPassWordInstance().clearSetPwdListener();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.p) {
+                PasswordController.getPassWordInstance().clearSetPwdListener();
+            }
+            this.f26164a = null;
         }
-        this.f25621a = null;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void doOnEvent() {
-        PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_VCODE);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_VCODE);
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean doOnPrepareDialog(int i2, Dialog dialog) {
-        switch (i2) {
-            case 40:
-                final PromptDialog promptDialog = (PromptDialog) dialog;
-                promptDialog.setMessage(this.k);
-                promptDialog.hideNegativeButton();
-                promptDialog.setPositiveBtn(ResUtils.string(this.f25621a, "ebpay_know"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.sms.controller.d.6
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        PayController payController = PayController.getInstance();
-                        d dVar = d.this;
-                        payController.updateCardInfoPay(dVar.f25621a, dVar.f25623c);
-                        promptDialog.dismiss();
-                        d.this.f25621a.finishWithoutAnim();
-                    }
-                });
-                return true;
-            case ISmsController.DIALOG_PROMPT /* 65283 */:
-                PromptDialog promptDialog2 = (PromptDialog) dialog;
-                promptDialog2.setMessage(this.k);
-                promptDialog2.setCanceledOnTouchOutside(false);
-                promptDialog2.hideNegativeButton();
-                return true;
-            case ISmsController.DIALOG_CANNOT_DISCOUNT /* 65315 */:
-                StatisticManager.onEvent(StatServiceEvent.EVENT_SHOW_ORIGN_PRICE_ALERT);
-                PromptDialog promptDialog3 = (PromptDialog) dialog;
-                promptDialog3.setMessage(this.k);
-                promptDialog3.showCloseBtn(false);
-                promptDialog3.setNegativeBtn(ResUtils.getString(this.f25621a, "ebpay_cancel"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.sms.controller.d.2
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        PayBaseActivity payBaseActivity = d.this.f25621a;
-                        payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "ebpay_cancel"));
-                        WalletGlobalUtils.safeDismissDialog(d.this.f25621a, ISmsController.DIALOG_CANNOT_DISCOUNT);
-                    }
-                });
-                promptDialog3.setPositiveBtn(ResUtils.getString(this.f25621a, "bd_wallet_pay_by_order_price"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.sms.controller.d.3
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        PayBaseActivity payBaseActivity = d.this.f25621a;
-                        payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "bd_wallet_pay_by_order_price"));
-                        StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_ORIGN_PRICE_PAY);
-                        d dVar = d.this;
-                        ErrorContentResponse errorContentResponse = dVar.f25623c;
-                        if (errorContentResponse == null || errorContentResponse.mkt_solution == null) {
-                            return;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, dialog)) == null) {
+            switch (i2) {
+                case 40:
+                    PromptDialog promptDialog = (PromptDialog) dialog;
+                    promptDialog.setMessage(this.k);
+                    promptDialog.hideNegativeButton();
+                    promptDialog.setPositiveBtn(ResUtils.string(this.f26164a, "ebpay_know"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.sms.controller.d.6
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ PromptDialog f26178a;
+
+                        /* renamed from: b  reason: collision with root package name */
+                        public final /* synthetic */ d f26179b;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, promptDialog};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f26179b = this;
+                            this.f26178a = promptDialog;
                         }
-                        if (dVar.j == null) {
-                            d.this.j = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) d.this.f25621a, 5, ISmsController.BEAN_TAG);
-                        }
-                        ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).setMktSolution(d.this.f25623c.mkt_solution);
-                        PayStatisticsUtil.onEventStart(StatServiceEvent.CARD_CHECK);
-                        d.this.j.a(d.this.f25627g);
-                        d.this.j.setResponseCallback((WalletSmsActivity) d.this.f25621a);
-                        d.this.j.execBean();
-                        WalletGlobalUtils.safeShowDialog(d.this.f25621a, 0, "");
-                        WalletGlobalUtils.safeDismissDialog(d.this.f25621a, ISmsController.DIALOG_CANNOT_DISCOUNT);
-                        d dVar2 = d.this;
-                        if (dVar2.f25622b != null) {
-                            String k = dVar2.k();
-                            if (!TextUtils.isEmpty(k)) {
-                                d.this.f25622b.updateButtonTip(k);
+
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View view) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                PayController payController = PayController.getInstance();
+                                d dVar = this.f26179b;
+                                payController.updateCardInfoPay(dVar.f26164a, dVar.f26166c);
+                                this.f26178a.dismiss();
+                                this.f26179b.f26164a.finishWithoutAnim();
                             }
                         }
-                        SmsUpdateUiInterface smsUpdateUiInterface = d.this.f25622b;
-                        if (smsUpdateUiInterface != null) {
-                            smsUpdateUiInterface.clearSmsEditText();
-                            d.this.f25622b.doStartCountDown();
+                    });
+                    return true;
+                case ISmsController.DIALOG_PROMPT /* 65283 */:
+                    PromptDialog promptDialog2 = (PromptDialog) dialog;
+                    promptDialog2.setMessage(this.k);
+                    promptDialog2.setCanceledOnTouchOutside(false);
+                    promptDialog2.hideNegativeButton();
+                    return true;
+                case ISmsController.DIALOG_CANNOT_DISCOUNT /* 65315 */:
+                    StatisticManager.onEvent(StatServiceEvent.EVENT_SHOW_ORIGN_PRICE_ALERT);
+                    PromptDialog promptDialog3 = (PromptDialog) dialog;
+                    promptDialog3.setMessage(this.k);
+                    promptDialog3.showCloseBtn(false);
+                    promptDialog3.setNegativeBtn(ResUtils.getString(this.f26164a, "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.sms.controller.d.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ d f26174a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f26174a = this;
                         }
-                    }
-                });
-                return true;
-            case 65316:
-                StatisticManager.onEvent(StatServiceEvent.EVENT_SHOW_CARD_UPDATE);
-                PayRequest payRequest = this.f25624d;
-                if (payRequest != null && payRequest.mBondCard != null && BaiduPay.PAY_FROM_AUTHORIZE.equals(payRequest.mPayFrom)) {
-                    this.f25624d.mBondCard.hideSMSDialog = true;
-                }
-                PromptDialog promptDialog4 = (PromptDialog) dialog;
-                promptDialog4.setMessage(this.k);
-                promptDialog4.showCloseBtn(false);
-                promptDialog4.setCanceledOnTouchOutside(false);
-                if (j()) {
-                    promptDialog4.hideNegativeButton();
-                }
-                promptDialog4.setNegativeBtn(ResUtils.getString(this.f25621a, "ebpay_cancel"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.sms.controller.d.4
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        PayBaseActivity payBaseActivity = d.this.f25621a;
-                        payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "ebpay_cancel"));
-                        WalletGlobalUtils.safeDismissDialog(d.this.f25621a, 65316);
-                        PayBaseActivity payBaseActivity2 = d.this.f25621a;
-                        if (payBaseActivity2 instanceof WalletSmsActivity) {
-                            payBaseActivity2.finishWithoutAnim();
+
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View view) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                PayBaseActivity payBaseActivity = this.f26174a.f26164a;
+                                payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "ebpay_cancel"));
+                                WalletGlobalUtils.safeDismissDialog(this.f26174a.f26164a, ISmsController.DIALOG_CANNOT_DISCOUNT);
+                            }
                         }
+                    });
+                    promptDialog3.setPositiveBtn(ResUtils.getString(this.f26164a, "bd_wallet_pay_by_order_price"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.sms.controller.d.3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ d f26175a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f26175a = this;
+                        }
+
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View view) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                PayBaseActivity payBaseActivity = this.f26175a.f26164a;
+                                payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "bd_wallet_pay_by_order_price"));
+                                StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_ORIGN_PRICE_PAY);
+                                d dVar = this.f26175a;
+                                ErrorContentResponse errorContentResponse = dVar.f26166c;
+                                if (errorContentResponse == null || errorContentResponse.mkt_solution == null) {
+                                    return;
+                                }
+                                if (dVar.j == null) {
+                                    this.f26175a.j = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) this.f26175a.f26164a, 5, ISmsController.BEAN_TAG);
+                                }
+                                ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).setMktSolution(this.f26175a.f26166c.mkt_solution);
+                                PayStatisticsUtil.onEventStart(StatServiceEvent.CARD_CHECK);
+                                this.f26175a.j.a(this.f26175a.f26170g);
+                                this.f26175a.j.setResponseCallback((WalletSmsActivity) this.f26175a.f26164a);
+                                this.f26175a.j.execBean();
+                                WalletGlobalUtils.safeShowDialog(this.f26175a.f26164a, 0, "");
+                                WalletGlobalUtils.safeDismissDialog(this.f26175a.f26164a, ISmsController.DIALOG_CANNOT_DISCOUNT);
+                                d dVar2 = this.f26175a;
+                                if (dVar2.f26165b != null) {
+                                    String k = dVar2.k();
+                                    if (!TextUtils.isEmpty(k)) {
+                                        this.f26175a.f26165b.updateButtonTip(k);
+                                    }
+                                }
+                                SmsUpdateUiInterface smsUpdateUiInterface = this.f26175a.f26165b;
+                                if (smsUpdateUiInterface != null) {
+                                    smsUpdateUiInterface.clearSmsEditText();
+                                    this.f26175a.f26165b.doStartCountDown();
+                                }
+                            }
+                        }
+                    });
+                    return true;
+                case 65316:
+                    StatisticManager.onEvent(StatServiceEvent.EVENT_SHOW_CARD_UPDATE);
+                    PayRequest payRequest = this.f26167d;
+                    if (payRequest != null && payRequest.mBondCard != null && BaiduPay.PAY_FROM_AUTHORIZE.equals(payRequest.mPayFrom)) {
+                        this.f26167d.mBondCard.hideSMSDialog = true;
                     }
-                });
-                promptDialog4.setPositiveBtn(ResUtils.string(this.f25621a, "ebpay_wallet_continue_pay"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.sms.controller.d.5
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        PayBaseActivity payBaseActivity = d.this.f25621a;
-                        payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "ebpay_wallet_continue_pay"));
-                        StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_CONTINUE_PAY_IN_CARD_UPDATE);
-                        WalletGlobalUtils.safeDismissDialog(d.this.f25621a, 65316);
-                        PayController payController = PayController.getInstance();
-                        d dVar = d.this;
-                        payController.updateCardInfoPay(dVar.f25621a, dVar.f25623c);
-                        d.this.f25621a.finishWithoutAnim();
+                    PromptDialog promptDialog4 = (PromptDialog) dialog;
+                    promptDialog4.setMessage(this.k);
+                    promptDialog4.showCloseBtn(false);
+                    promptDialog4.setCanceledOnTouchOutside(false);
+                    if (j()) {
+                        promptDialog4.hideNegativeButton();
                     }
-                });
-                return true;
-            default:
-                return false;
+                    promptDialog4.setNegativeBtn(ResUtils.getString(this.f26164a, "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.sms.controller.d.4
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ d f26176a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f26176a = this;
+                        }
+
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View view) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                PayBaseActivity payBaseActivity = this.f26176a.f26164a;
+                                payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "ebpay_cancel"));
+                                WalletGlobalUtils.safeDismissDialog(this.f26176a.f26164a, 65316);
+                                PayBaseActivity payBaseActivity2 = this.f26176a.f26164a;
+                                if (payBaseActivity2 instanceof WalletSmsActivity) {
+                                    payBaseActivity2.finishWithoutAnim();
+                                }
+                            }
+                        }
+                    });
+                    promptDialog4.setPositiveBtn(ResUtils.string(this.f26164a, "ebpay_wallet_continue_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.sms.controller.d.5
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ d f26177a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f26177a = this;
+                        }
+
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View view) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                PayBaseActivity payBaseActivity = this.f26177a.f26164a;
+                                payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity, "ebpay_wallet_continue_pay"));
+                                StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_CONTINUE_PAY_IN_CARD_UPDATE);
+                                WalletGlobalUtils.safeDismissDialog(this.f26177a.f26164a, 65316);
+                                PayController payController = PayController.getInstance();
+                                d dVar = this.f26177a;
+                                payController.updateCardInfoPay(dVar.f26164a, dVar.f26166c);
+                                this.f26177a.f26164a.finishWithoutAnim();
+                            }
+                        }
+                    });
+                    return true;
+                default:
+                    return false;
+            }
         }
+        return invokeIL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void doOnSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("mBindRequest", this.f25627g);
-        bundle.putSerializable("mPayRequest", this.f25624d);
-        bundle.putSerializable("mCardInfoUpdateContent", this.f25623c);
-        bundle.putBoolean("isSendSMSForCompletionPay", this.m);
-        bundle.putString("mDialogMsg", this.k);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            bundle.putSerializable("mBindRequest", this.f26170g);
+            bundle.putSerializable("mPayRequest", this.f26167d);
+            bundle.putSerializable("mCardInfoUpdateContent", this.f26166c);
+            bundle.putBoolean("isSendSMSForCompletionPay", this.m);
+            bundle.putString("mDialogMsg", this.k);
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean handleFailure(int i2, int i3, String str) {
-        if (i3 == 65025) {
-            GlobalUtils.toast(this.f25621a, str);
-            PayRequestCache.getInstance().clearPaySdkRequestCache();
-            PayBaseBeanActivity.exitEbpay();
-            return true;
-        } else if (i2 == 5 || i2 == 17) {
-            if (i3 == 5003) {
-                AccountManager.getInstance(this.f25621a).logout();
-                WalletLoginHelper.getInstance().logout(false);
-            }
-            a(i3, str);
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.CARD_CHECK, i3);
-            return true;
-        } else if (i2 == 11) {
-            WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-            if (i3 == 5003) {
-                AccountManager.getInstance(this.f25621a).logout();
-                WalletLoginHelper.getInstance().logout(false);
-            }
-            SmsVerifyHandler smsVerifyHandler = this.o;
-            if (smsVerifyHandler != null) {
-                smsVerifyHandler.onSmsVerifyFailure(i3, str);
-            }
-            PayStatisticsUtil.onEvent(StatServiceEvent.VERFY_SMS_FAIL);
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.VERIFY_SMS, i3);
-            return true;
-        } else if (i2 != 13 && i2 != 513) {
-            if (i2 == 264) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i2, i3, str)) == null) {
+            if (i3 == 65025) {
+                GlobalUtils.toast(this.f26164a, str);
+                PayRequestCache.getInstance().clearPaySdkRequestCache();
+                PayBaseBeanActivity.exitEbpay();
+                return true;
+            } else if (i2 == 5 || i2 == 17) {
+                if (i3 == 5003) {
+                    AccountManager.getInstance(this.f26164a).logout();
+                    WalletLoginHelper.getInstance().logout(false);
+                }
                 a(i3, str);
+                PayStatisticsUtil.onEventEnd(StatServiceEvent.CARD_CHECK, i3);
+                return true;
+            } else if (i2 == 11) {
+                WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+                if (i3 == 5003) {
+                    AccountManager.getInstance(this.f26164a).logout();
+                    WalletLoginHelper.getInstance().logout(false);
+                }
+                SmsVerifyHandler smsVerifyHandler = this.o;
+                if (smsVerifyHandler != null) {
+                    smsVerifyHandler.onSmsVerifyFailure(i3, str);
+                }
+                PayStatisticsUtil.onEvent(StatServiceEvent.VERFY_SMS_FAIL);
+                PayStatisticsUtil.onEventEnd(StatServiceEvent.VERIFY_SMS, i3);
+                return true;
+            } else if (i2 != 13 && i2 != 513) {
+                if (i2 == 264) {
+                    a(i3, str);
+                    return true;
+                }
+                return false;
+            } else {
+                if (i3 == 5003) {
+                    AccountManager.getInstance(this.f26164a).logout();
+                    WalletLoginHelper.getInstance().logout(false);
+                }
+                WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+                if (i3 == 60500) {
+                    this.k = str;
+                    WalletGlobalUtils.safeShowDialog(this.f26164a, ISmsController.DIALOG_PROMPT, "");
+                } else {
+                    SmsVerifyHandler smsVerifyHandler2 = this.o;
+                    if (smsVerifyHandler2 != null) {
+                        smsVerifyHandler2.onSmsVerifyFailure(i3, str);
+                    }
+                }
+                if (i2 == 13) {
+                    BindFastRequest bindFastRequest = this.f26170g;
+                    if (bindFastRequest != null && (bindFastRequest.getmBindFrom() == 0 || this.f26170g.getmBindFrom() == 6)) {
+                        String orderNo = StatHelper.getOrderNo();
+                        StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(orderNo, i3 + "", str));
+                    }
+                    StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, i3);
+                    PayStatisticsUtil.onEventWithValue(StatServiceEvent.BIND_PAY_ACCEPT_FAIL, String.valueOf(i3));
+                } else {
+                    String sessionId = StatHelper.getSessionId();
+                    StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_FAILED, StatHelper.collectData(sessionId, i3 + "", str));
+                    PayStatisticsUtil.onEventEnd(StatServiceEvent.BIND_CARD, i3);
+                }
                 return true;
             }
-            return false;
-        } else {
-            if (i3 == 5003) {
-                AccountManager.getInstance(this.f25621a).logout();
-                WalletLoginHelper.getInstance().logout(false);
-            }
-            WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-            if (i3 == 60500) {
-                this.k = str;
-                WalletGlobalUtils.safeShowDialog(this.f25621a, ISmsController.DIALOG_PROMPT, "");
-            } else {
-                SmsVerifyHandler smsVerifyHandler2 = this.o;
-                if (smsVerifyHandler2 != null) {
-                    smsVerifyHandler2.onSmsVerifyFailure(i3, str);
-                }
-            }
-            if (i2 == 13) {
-                BindFastRequest bindFastRequest = this.f25627g;
-                if (bindFastRequest != null && (bindFastRequest.getmBindFrom() == 0 || this.f25627g.getmBindFrom() == 6)) {
-                    String orderNo = StatHelper.getOrderNo();
-                    StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(orderNo, i3 + "", str));
-                }
-                StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, i3);
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.BIND_PAY_ACCEPT_FAIL, String.valueOf(i3));
-            } else {
-                String sessionId = StatHelper.getSessionId();
-                StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_FAILED, StatHelper.collectData(sessionId, i3 + "", str));
-                PayStatisticsUtil.onEventEnd(StatServiceEvent.BIND_CARD, i3);
-            }
-            return true;
         }
+        return invokeIIL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean handleResponse(int i2, Object obj, String str) {
-        if (i2 == 5 || i2 == 17) {
-            WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-            CheckCardInfoResponse checkCardInfoResponse = (CheckCardInfoResponse) obj;
-            if (checkCardInfoResponse != null && checkCardInfoResponse.checkResponseValidity()) {
-                if (this.f25627g != null) {
-                    this.f25627g.setmNeedSms((1 == checkCardInfoResponse.send_sms_by_bfb || "1".equals(checkCardInfoResponse.need_verify_sms)) ? 1 : 0);
-                    if (!TextUtils.isEmpty(checkCardInfoResponse.channel_no)) {
-                        this.f25627g.setChannelNo(checkCardInfoResponse.channel_no);
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i2, obj, str)) == null) {
+            if (i2 == 5 || i2 == 17) {
+                WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+                CheckCardInfoResponse checkCardInfoResponse = (CheckCardInfoResponse) obj;
+                if (checkCardInfoResponse != null && checkCardInfoResponse.checkResponseValidity()) {
+                    if (this.f26170g != null) {
+                        this.f26170g.setmNeedSms((1 == checkCardInfoResponse.send_sms_by_bfb || "1".equals(checkCardInfoResponse.need_verify_sms)) ? 1 : 0);
+                        if (!TextUtils.isEmpty(checkCardInfoResponse.channel_no)) {
+                            this.f26170g.setChannelNo(checkCardInfoResponse.channel_no);
+                        }
+                    }
+                    if (this.l) {
+                        this.l = false;
+                        SmsUpdateUiInterface smsUpdateUiInterface = this.f26165b;
+                        if (smsUpdateUiInterface != null) {
+                            smsUpdateUiInterface.upDateSafeKeyBoradView(checkCardInfoResponse.sms_length, checkCardInfoResponse.sms_type);
+                        }
+                    }
+                    SmsUpdateUiInterface smsUpdateUiInterface2 = this.f26165b;
+                    if (smsUpdateUiInterface2 != null) {
+                        smsUpdateUiInterface2.updateModifyPhoneUI(!TextUtils.isEmpty(checkCardInfoResponse.update_mobile_desc), checkCardInfoResponse.update_mobile_desc);
                     }
                 }
-                if (this.l) {
-                    this.l = false;
-                    SmsUpdateUiInterface smsUpdateUiInterface = this.f25622b;
-                    if (smsUpdateUiInterface != null) {
-                        smsUpdateUiInterface.upDateSafeKeyBoradView(checkCardInfoResponse.sms_length, checkCardInfoResponse.sms_type);
+                SmsVerifyHandler smsVerifyHandler = this.o;
+                if (smsVerifyHandler != null) {
+                    smsVerifyHandler.onSmsSendSuccess();
+                }
+                PayStatisticsUtil.onEventEnd(StatServiceEvent.CARD_CHECK, 0);
+                return true;
+            } else if (i2 == 11) {
+                WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+                PayStatisticsUtil.onEvent(StatServiceEvent.VERIFY_SMS_SUCCESS);
+                PayStatisticsUtil.onEventEnd(StatServiceEvent.VERIFY_SMS, 0);
+                i();
+                SmsVerifyHandler smsVerifyHandler2 = this.o;
+                if (smsVerifyHandler2 != null) {
+                    smsVerifyHandler2.onSmsVerifySuccess();
+                }
+                return true;
+            } else if (i2 == 513) {
+                WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+                PayStatisticsUtil.onEventEnd(StatServiceEvent.BIND_CARD, 0);
+                PayRequest payRequest = this.f26167d;
+                if (payRequest != null && BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest.getPayFrom())) {
+                    PayController.getInstance().bindExtSuccess(this.f26164a, obj);
+                } else {
+                    PayController.getInstance().bindSuccess(obj);
+                }
+                SmsVerifyHandler smsVerifyHandler3 = this.o;
+                if (smsVerifyHandler3 != null) {
+                    smsVerifyHandler3.onSmsVerifySuccess();
+                }
+                return true;
+            } else if (i2 != 13) {
+                if (i2 != 264) {
+                    if (i2 == 15) {
+                        return a(obj);
                     }
+                    return false;
                 }
-                SmsUpdateUiInterface smsUpdateUiInterface2 = this.f25622b;
-                if (smsUpdateUiInterface2 != null) {
-                    smsUpdateUiInterface2.updateModifyPhoneUI(!TextUtils.isEmpty(checkCardInfoResponse.update_mobile_desc), checkCardInfoResponse.update_mobile_desc);
+                WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+                SmsVerifyHandler smsVerifyHandler4 = this.o;
+                if (smsVerifyHandler4 != null) {
+                    smsVerifyHandler4.onSmsSendSuccess();
                 }
-            }
-            SmsVerifyHandler smsVerifyHandler = this.o;
-            if (smsVerifyHandler != null) {
-                smsVerifyHandler.onSmsSendSuccess();
-            }
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.CARD_CHECK, 0);
-            return true;
-        } else if (i2 == 11) {
-            WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-            PayStatisticsUtil.onEvent(StatServiceEvent.VERIFY_SMS_SUCCESS);
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.VERIFY_SMS, 0);
-            i();
-            SmsVerifyHandler smsVerifyHandler2 = this.o;
-            if (smsVerifyHandler2 != null) {
-                smsVerifyHandler2.onSmsVerifySuccess();
-            }
-            return true;
-        } else if (i2 == 513) {
-            WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.BIND_CARD, 0);
-            PayRequest payRequest = this.f25624d;
-            if (payRequest != null && BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest.getPayFrom())) {
-                PayController.getInstance().bindExtSuccess(this.f25621a, obj);
+                return true;
             } else {
-                PayController.getInstance().bindSuccess(obj);
-            }
-            SmsVerifyHandler smsVerifyHandler3 = this.o;
-            if (smsVerifyHandler3 != null) {
-                smsVerifyHandler3.onSmsVerifySuccess();
-            }
-            return true;
-        } else if (i2 != 13) {
-            if (i2 != 264) {
-                if (i2 == 15) {
-                    return a(obj);
+                BindFastRequest bindFastRequest = this.f26170g;
+                if (bindFastRequest != null && (bindFastRequest.getmBindFrom() == 0 || this.f26170g.getmBindFrom() == 6)) {
+                    StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_BIND_CARD_SUCCESS, StatHelper.getOrderNo());
+                }
+                StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, 0);
+                PayStatisticsUtil.onEvent("paySuccess");
+                SmsVerifyHandler smsVerifyHandler5 = this.o;
+                if (smsVerifyHandler5 != null) {
+                    smsVerifyHandler5.onSmsVerifySuccess();
                 }
                 return false;
             }
-            WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-            SmsVerifyHandler smsVerifyHandler4 = this.o;
-            if (smsVerifyHandler4 != null) {
-                smsVerifyHandler4.onSmsSendSuccess();
-            }
-            return true;
-        } else {
-            BindFastRequest bindFastRequest = this.f25627g;
-            if (bindFastRequest != null && (bindFastRequest.getmBindFrom() == 0 || this.f25627g.getmBindFrom() == 6)) {
-                StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_BIND_CARD_SUCCESS, StatHelper.getOrderNo());
-            }
-            StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, 0);
-            PayStatisticsUtil.onEvent("paySuccess");
-            SmsVerifyHandler smsVerifyHandler5 = this.o;
-            if (smsVerifyHandler5 != null) {
-                smsVerifyHandler5.onSmsVerifySuccess();
-            }
-            return false;
         }
+        return invokeILL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void initSmsActivityView() {
         String unicodeDecode;
-        if (this.f25627g == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f26170g == null) {
             return;
         }
-        if (TextUtils.isEmpty(this.f25625e)) {
-            unicodeDecode = !TextUtils.isEmpty(this.f25627g.getSendSmsphone()) ? this.f25627g.getSendSmsphone() : "";
+        if (TextUtils.isEmpty(this.f26168e)) {
+            unicodeDecode = !TextUtils.isEmpty(this.f26170g.getSendSmsphone()) ? this.f26170g.getSendSmsphone() : "";
         } else {
-            unicodeDecode = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.f25625e));
+            unicodeDecode = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.f26168e));
         }
         String str = unicodeDecode;
         String k = k();
-        SmsUpdateUiInterface smsUpdateUiInterface = this.f25622b;
+        SmsUpdateUiInterface smsUpdateUiInterface = this.f26165b;
         if (smsUpdateUiInterface != null) {
             smsUpdateUiInterface.initSMSActivityView("ebpay_sms_title_tip_security_check", "", k, str, true);
-            this.f25622b.updateModifyPhoneUI(!TextUtils.isEmpty(this.q), this.q);
+            this.f26165b.updateModifyPhoneUI(!TextUtils.isEmpty(this.q), this.q);
         }
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean isBelongPaySDK() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean isSendSmsOnCreate() {
-        BindFastRequest bindFastRequest = this.f25627g;
-        if (bindFastRequest != null) {
-            if (bindFastRequest.mBindFrom == 2 && this.m) {
-                c();
-                return 5320 != this.f25621a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            BindFastRequest bindFastRequest = this.f26170g;
+            if (bindFastRequest != null) {
+                if (bindFastRequest.mBindFrom == 2 && this.m) {
+                    c();
+                    return 5320 != this.f26164a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE);
+                }
+                BindFastRequest bindFastRequest2 = this.f26170g;
+                if (bindFastRequest2.mBindFrom == 8) {
+                    c();
+                    return 5320 != this.f26164a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE);
+                }
+                SmsUpdateUiInterface smsUpdateUiInterface = this.f26165b;
+                if (smsUpdateUiInterface != null) {
+                    smsUpdateUiInterface.upDateSafeKeyBoradView(bindFastRequest2.getSmsLength(), this.f26170g.getSmsType());
+                }
             }
-            BindFastRequest bindFastRequest2 = this.f25627g;
-            if (bindFastRequest2.mBindFrom == 8) {
-                c();
-                return 5320 != this.f25621a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE);
-            }
-            SmsUpdateUiInterface smsUpdateUiInterface = this.f25622b;
-            if (smsUpdateUiInterface != null) {
-                smsUpdateUiInterface.upDateSafeKeyBoradView(bindFastRequest2.getSmsLength(), this.f25627g.getSmsType());
-            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean onCreateCheckInvalide(Bundle bundle) {
+        InterceptResult invokeL;
         PayRequest payRequest;
-        this.q = this.f25621a.getIntent().getStringExtra(BeanConstants.UPDATE_MOBILE_DESC);
-        if (bundle == null) {
-            this.m = this.f25621a.getIntent().getBooleanExtra(BeanConstants.SMS_ACTIVITY_FOR_COMPLETION_PAY, false);
-            if (this.f25627g == null) {
-                this.f25627g = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, bundle)) == null) {
+            this.q = this.f26164a.getIntent().getStringExtra(BeanConstants.UPDATE_MOBILE_DESC);
+            if (bundle == null) {
+                this.m = this.f26164a.getIntent().getBooleanExtra(BeanConstants.SMS_ACTIVITY_FOR_COMPLETION_PAY, false);
+                if (this.f26170g == null) {
+                    this.f26170g = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
+                }
+                if (this.f26169f == null) {
+                    this.f26169f = PayRequestCache.BindCategory.Other;
+                }
+                this.f26167d = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+                Serializable serializableExtra = this.f26164a.getIntent().getSerializableExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA);
+                if (serializableExtra != null) {
+                    this.f26168e = ((ErrorContentResponse.Verify) serializableExtra).getVerifyMobile();
+                }
+            } else {
+                this.m = bundle.getBoolean("isSendSMSForCompletionPay");
+                this.k = bundle.getString("mDialogMsg");
+                Serializable serializable = bundle.getSerializable("mBindRequest");
+                if (serializable != null && (serializable instanceof BindFastRequest)) {
+                    this.f26170g = (BindFastRequest) serializable;
+                }
+                Serializable serializable2 = bundle.getSerializable("mPayRequest");
+                if (serializable2 != null && (serializable2 instanceof PayRequest)) {
+                    this.f26167d = (PayRequest) serializable2;
+                }
+                Serializable serializable3 = bundle.getSerializable("mCardInfoUpdateContent");
+                if (serializable3 != null && (serializable3 instanceof ErrorContentResponse)) {
+                    this.f26166c = (ErrorContentResponse) serializable3;
+                }
+                this.f26168e = bundle.getString("phone_no");
             }
-            if (this.f25626f == null) {
-                this.f25626f = PayRequestCache.BindCategory.Other;
+            BindFastRequest bindFastRequest = this.f26170g;
+            if (bindFastRequest != null && bindFastRequest.checkRequestValidity()) {
+                PayRequestCache.getInstance().addBeanRequestToCache(this.f26170g.getRequestId(), this.f26170g);
+                if (this.f26170g.isRealPay() && (payRequest = this.f26167d) != null && payRequest.checkRequestValidity()) {
+                    PayRequestCache.getInstance().addBeanRequestToCache(this.f26167d.getRequestId(), this.f26167d);
+                } else if (this.f26170g.isRealPay()) {
+                    PayCallBackManager.callBackClientCancel(this.f26164a, "SmsControllerForBindSMS.onCreateCheckInvalide().1");
+                    return false;
+                }
+                this.l = true;
+                return true;
             }
-            this.f25624d = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-            Serializable serializableExtra = this.f25621a.getIntent().getSerializableExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA);
-            if (serializableExtra != null) {
-                this.f25625e = ((ErrorContentResponse.Verify) serializableExtra).getVerifyMobile();
-            }
-        } else {
-            this.m = bundle.getBoolean("isSendSMSForCompletionPay");
-            this.k = bundle.getString("mDialogMsg");
-            Serializable serializable = bundle.getSerializable("mBindRequest");
-            if (serializable != null && (serializable instanceof BindFastRequest)) {
-                this.f25627g = (BindFastRequest) serializable;
-            }
-            Serializable serializable2 = bundle.getSerializable("mPayRequest");
-            if (serializable2 != null && (serializable2 instanceof PayRequest)) {
-                this.f25624d = (PayRequest) serializable2;
-            }
-            Serializable serializable3 = bundle.getSerializable("mCardInfoUpdateContent");
-            if (serializable3 != null && (serializable3 instanceof ErrorContentResponse)) {
-                this.f25623c = (ErrorContentResponse) serializable3;
-            }
-            this.f25625e = bundle.getString("phone_no");
+            PayCallBackManager.callBackClientCancel(this.f26164a, "SmsControllerForBindSMS.onCreateCheckInvalide().2");
+            return false;
         }
-        BindFastRequest bindFastRequest = this.f25627g;
-        if (bindFastRequest != null && bindFastRequest.checkRequestValidity()) {
-            PayRequestCache.getInstance().addBeanRequestToCache(this.f25627g.getRequestId(), this.f25627g);
-            if (this.f25627g.isRealPay() && (payRequest = this.f25624d) != null && payRequest.checkRequestValidity()) {
-                PayRequestCache.getInstance().addBeanRequestToCache(this.f25624d.getRequestId(), this.f25624d);
-            } else if (this.f25627g.isRealPay()) {
-                PayCallBackManager.callBackClientCancel(this.f25621a, "SmsControllerForBindSMS.onCreateCheckInvalide().1");
-                return false;
-            }
-            this.l = true;
-            return true;
-        }
-        PayCallBackManager.callBackClientCancel(this.f25621a, "SmsControllerForBindSMS.onCreateCheckInvalide().2");
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void onNextBtnClick(String str) {
-        PayStatisticsUtil.onEventWithValues(StatServiceEvent.NEXT_THIRD, l());
-        BindFastRequest bindFastRequest = this.f25627g;
-        if (bindFastRequest == null) {
-            return;
-        }
-        bindFastRequest.mSmsVCode = str;
-        int i2 = bindFastRequest.getmBindFrom();
-        if (i2 == 0) {
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                e();
-            } else {
-                g();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            PayStatisticsUtil.onEventWithValues(StatServiceEvent.NEXT_THIRD, l());
+            BindFastRequest bindFastRequest = this.f26170g;
+            if (bindFastRequest == null) {
+                return;
             }
-        } else if (i2 == 1) {
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                f();
-            } else {
+            bindFastRequest.mSmsVCode = str;
+            int i2 = bindFastRequest.getmBindFrom();
+            if (i2 == 0) {
+                if (PayDataCache.getInstance().hasMobilePwd()) {
+                    e();
+                } else {
+                    g();
+                }
+            } else if (i2 == 1) {
+                if (PayDataCache.getInstance().hasMobilePwd()) {
+                    f();
+                } else {
+                    g();
+                }
+            } else if (i2 == 2) {
+                if (PayDataCache.getInstance().hasMobilePwd()) {
+                    e();
+                } else {
+                    g();
+                }
+            } else if (i2 == 3) {
                 g();
-            }
-        } else if (i2 == 2) {
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                e();
-            } else {
-                g();
-            }
-        } else if (i2 == 3) {
-            g();
-        } else if (i2 == 6 || i2 == 7 || i2 == 8) {
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                h();
-            } else {
-                g();
+            } else if (i2 == 6 || i2 == 7 || i2 == 8) {
+                if (PayDataCache.getInstance().hasMobilePwd()) {
+                    h();
+                } else {
+                    g();
+                }
             }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void sendSms() {
-        PayBaseActivity payBaseActivity = this.f25621a;
-        if (payBaseActivity == null) {
+        PayBaseActivity payBaseActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (payBaseActivity = this.f26164a) == null) {
             return;
         }
         if (this.l) {
             WalletGlobalUtils.safeShowDialog(payBaseActivity, 0, "");
         }
-        if (this.f25621a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) == 5320) {
+        if (this.f26164a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) == 5320) {
             d();
         } else if (TextUtils.isEmpty(this.q)) {
             if (this.j == null) {
-                this.j = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) this.f25621a, 5, ISmsController.BEAN_TAG);
+                this.j = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) this.f26164a, 5, ISmsController.BEAN_TAG);
             }
             PayStatisticsUtil.onEventStart(StatServiceEvent.CARD_CHECK);
-            this.j.a(this.f25627g);
-            this.j.setResponseCallback((WalletSmsActivity) this.f25621a);
+            this.j.a(this.f26170g);
+            this.j.setResponseCallback((WalletSmsActivity) this.f26164a);
             this.j.execBean();
         } else {
-            com.baidu.wallet.paysdk.beans.g gVar = (com.baidu.wallet.paysdk.beans.g) PayBeanFactory.getInstance().getBean((Context) this.f25621a, 17, ISmsController.BEAN_TAG);
-            gVar.setResponseCallback(this.f25621a);
+            com.baidu.wallet.paysdk.beans.g gVar = (com.baidu.wallet.paysdk.beans.g) PayBeanFactory.getInstance().getBean((Context) this.f26164a, 17, ISmsController.BEAN_TAG);
+            gVar.setResponseCallback(this.f26164a);
             PayStatisticsUtil.onEventStart(StatServiceEvent.CARD_CHECK);
             gVar.execBean();
         }
@@ -745,85 +1022,119 @@ public class d implements a {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setActivity(PayBaseActivity payBaseActivity) {
-        this.f25621a = payBaseActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, payBaseActivity) == null) {
+            this.f26164a = payBaseActivity;
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setSmsUpdateUIInterface(SmsUpdateUiInterface smsUpdateUiInterface) {
-        this.f25622b = smsUpdateUiInterface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, smsUpdateUiInterface) == null) {
+            this.f26165b = smsUpdateUiInterface;
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setSmsVerifyHandler(SmsVerifyHandler smsVerifyHandler) {
-        this.o = smsVerifyHandler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, smsVerifyHandler) == null) {
+            this.o = smsVerifyHandler;
+        }
     }
 
     private void c() {
-        if (5320 != this.f25621a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) || this.f25622b == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && 5320 == this.f26164a.getIntent().getIntExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, Integer.MIN_VALUE) && this.f26165b != null) {
+            ErrorContentResponse.Verify verify = (ErrorContentResponse.Verify) this.f26164a.getIntent().getSerializableExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA);
+            this.f26165b.upDateSafeKeyBoradView(verify.sms_length, verify.sms_type);
         }
-        ErrorContentResponse.Verify verify = (ErrorContentResponse.Verify) this.f25621a.getIntent().getSerializableExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA);
-        this.f25622b.upDateSafeKeyBoradView(verify.sms_length, verify.sms_type);
     }
 
     private void d() {
-        ag agVar = (ag) PayBeanFactory.getInstance().getBean((Context) this.f25621a, PayBeanFactory.BEAN_ID_SEND_SMS_FOR_VERIFY_BY_BANK, ISmsController.BEAN_TAG);
-        agVar.setResponseCallback(this.f25621a);
-        agVar.execBean();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            ag agVar = (ag) PayBeanFactory.getInstance().getBean((Context) this.f26164a, PayBeanFactory.BEAN_ID_SEND_SMS_FOR_VERIFY_BY_BANK, ISmsController.BEAN_TAG);
+            agVar.setResponseCallback(this.f26164a);
+            agVar.execBean();
+        }
     }
 
     public boolean b() {
-        BindFastRequest bindFastRequest = this.f25627g;
-        if (bindFastRequest == null) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            BindFastRequest bindFastRequest = this.f26170g;
+            if (bindFastRequest == null) {
+                return false;
+            }
+            int i2 = bindFastRequest.getmBindFrom();
+            return i2 == 0 || i2 == 2;
         }
-        int i2 = bindFastRequest.getmBindFrom();
-        return i2 == 0 || i2 == 2;
+        return invokeV.booleanValue;
     }
 
     private boolean a(Object obj) {
-        if (obj instanceof GetCardInfoResponse) {
-            this.f25621a.finishWithoutAnim();
-            PayController.getInstance().completeCardPay(this.f25621a, this.f25624d.mBondCard, (GetCardInfoResponse) obj);
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, obj)) == null) {
+            if (obj instanceof GetCardInfoResponse) {
+                this.f26164a.finishWithoutAnim();
+                PayController.getInstance().completeCardPay(this.f26164a, this.f26167d.mBondCard, (GetCardInfoResponse) obj);
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     private void a(int i2, String str) {
-        WalletGlobalUtils.safeDismissDialog(this.f25621a, 0);
-        if (this.l) {
-            this.l = false;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = ResUtils.getString(this.f25621a.getActivity(), "ebpay_send_fail");
-        }
-        SmsVerifyHandler smsVerifyHandler = this.o;
-        if (smsVerifyHandler != null) {
-            smsVerifyHandler.onSmsSendFailure(i2, str);
-        }
-        SmsUpdateUiInterface smsUpdateUiInterface = this.f25622b;
-        if (smsUpdateUiInterface != null) {
-            smsUpdateUiInterface.doStopCountDown();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, this, i2, str) == null) {
+            WalletGlobalUtils.safeDismissDialog(this.f26164a, 0);
+            if (this.l) {
+                this.l = false;
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = ResUtils.getString(this.f26164a.getActivity(), "ebpay_send_fail");
+            }
+            SmsVerifyHandler smsVerifyHandler = this.o;
+            if (smsVerifyHandler != null) {
+                smsVerifyHandler.onSmsSendFailure(i2, str);
+            }
+            SmsUpdateUiInterface smsUpdateUiInterface = this.f26165b;
+            if (smsUpdateUiInterface != null) {
+                smsUpdateUiInterface.doStopCountDown();
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.a
     public void a() {
-        s sVar = (s) PayBeanFactory.getInstance().getBean((Context) this.f25621a, 15, ISmsController.BEAN_TAG);
-        sVar.setResponseCallback(this.f25621a);
-        WalletGlobalUtils.safeShowDialog(this.f25621a, 0, "");
-        sVar.execBean();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            s sVar = (s) PayBeanFactory.getInstance().getBean((Context) this.f26164a, 15, ISmsController.BEAN_TAG);
+            sVar.setResponseCallback(this.f26164a);
+            WalletGlobalUtils.safeShowDialog(this.f26164a, 0, "");
+            sVar.execBean();
+        }
     }
 
     public void a(BindFastRequest bindFastRequest) {
-        this.f25627g = bindFastRequest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bindFastRequest) == null) {
+            this.f26170g = bindFastRequest;
+        }
     }
 
     public void a(PayRequestCache.BindCategory bindCategory) {
-        if (bindCategory == null) {
-            bindCategory = PayRequestCache.BindCategory.Other;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bindCategory) == null) {
+            if (bindCategory == null) {
+                bindCategory = PayRequestCache.BindCategory.Other;
+            }
+            this.f26169f = bindCategory;
         }
-        this.f25626f = bindCategory;
     }
 }

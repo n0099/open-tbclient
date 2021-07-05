@@ -1,58 +1,103 @@
 package a.a.a.a.u.a.b;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes.dex */
 public class j implements TTNativeExpressAd.ExpressVideoAdListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ h f1133a;
+    public final /* synthetic */ h f1136a;
 
     public j(h hVar) {
-        this.f1133a = hVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1136a = hVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onClickRetry() {
-        a.a.a.a.y.d.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a.a.a.a.y.d.a();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onProgressUpdate(long j, long j2) {
-        a.a.a.a.y.d.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            a.a.a.a.y.d.a();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdComplete() {
-        a.a.a.a.y.d.a();
-        this.f1133a.f1014h.j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a.a.a.a.y.d.a();
+            this.f1136a.f1017h.j();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdContinuePlay() {
-        a.a.a.a.y.d.a();
-        this.f1133a.f1014h.m();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a.a.a.a.y.d.a();
+            this.f1136a.f1017h.m();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdPaused() {
-        a.a.a.a.y.d.a();
-        this.f1133a.f1014h.l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a.a.a.a.y.d.a();
+            this.f1136a.f1017h.l();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdStartPlay() {
-        a.a.a.a.y.d.a();
-        this.f1133a.f1014h.o();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            a.a.a.a.y.d.a();
+            this.f1136a.f1017h.o();
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoError(int i2, int i3) {
-        a.a.a.a.y.d.b("onVideoError errorCode: " + i2 + ", extraCode: " + i3, new Object[0]);
-        this.f1133a.f1014h.b(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            a.a.a.a.y.d.b("onVideoError errorCode: " + i2 + ", extraCode: " + i3, new Object[0]);
+            this.f1136a.f1017h.b(i2);
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoLoad() {
-        a.a.a.a.y.d.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            a.a.a.a.y.d.a();
+        }
     }
 }

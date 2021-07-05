@@ -2,44 +2,85 @@ package com.baidu.fsg.base.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class DisplayUtils {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f5331a = 0.5f;
+    public static final float f5361a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f5332b;
+    public static DisplayMetrics f5362b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public DisplayUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static void a(Context context) {
-        if (f5332b == null) {
-            f5332b = context.getResources().getDisplayMetrics();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f5362b == null) {
+            f5362b = context.getResources().getDisplayMetrics();
         }
     }
 
     public static int dip2px(Context context, float f2) {
-        return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
     public static int getDisplayHeight(Context context) {
-        a(context);
-        return f5332b.heightPixels;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            a(context);
+            return f5362b.heightPixels;
+        }
+        return invokeL.intValue;
     }
 
     public static int getDisplayWidth(Context context) {
-        a(context);
-        return f5332b.widthPixels;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            a(context);
+            return f5362b.widthPixels;
+        }
+        return invokeL.intValue;
     }
 
     public static int px2dip(Context context, float f2) {
-        return (int) ((f2 / context.getResources().getDisplayMetrics().density) + 0.5f);
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.AD_TEXT_ID, null, context, f2)) == null) ? (int) ((f2 / context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
     public static int px2sp(float f2, float f3) {
-        return (int) ((f2 / f3) + 0.5f);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (int) ((f2 / f3) + 0.5f) : invokeCommon.intValue;
     }
 
     public static int sp2px(float f2, float f3) {
-        return (int) ((f2 * f3) + 0.5f);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (int) ((f2 * f3) + 0.5f) : invokeCommon.intValue;
     }
 }

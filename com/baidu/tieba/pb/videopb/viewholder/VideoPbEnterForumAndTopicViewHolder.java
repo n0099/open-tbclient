@@ -4,77 +4,104 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.TopicEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.n0.r.q.a2;
+import d.a.r0.r.q.b2;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f19664a;
+    public Context f19814a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLabelLayout f19665b;
+    public FlowLabelLayout f19815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f19666c;
+    public ThreadForumEnterButton f19816c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<TopicEnterButton> f19667d;
+    public List<TopicEnterButton> f19817d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPbEnterForumAndTopicViewHolder(Context context, View view) {
         super(view);
-        this.f19664a = context;
-        this.f19665b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f19814a = context;
+        this.f19815b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
     }
 
     public void b() {
-        ThreadForumEnterButton threadForumEnterButton = this.f19666c;
-        if (threadForumEnterButton != null) {
-            threadForumEnterButton.d();
-        }
-        List<TopicEnterButton> list = this.f19667d;
-        if (list != null) {
-            for (TopicEnterButton topicEnterButton : list) {
-                topicEnterButton.f();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ThreadForumEnterButton threadForumEnterButton = this.f19816c;
+            if (threadForumEnterButton != null) {
+                threadForumEnterButton.d();
+            }
+            List<TopicEnterButton> list = this.f19817d;
+            if (list != null) {
+                for (TopicEnterButton topicEnterButton : list) {
+                    topicEnterButton.f();
+                }
             }
         }
     }
 
-    public void setData(a2 a2Var) {
-        if (a2Var == null) {
+    public void setData(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2Var) == null) || b2Var == null) {
             return;
         }
-        this.f19665b.removeAllViews();
-        List<TopicEnterButton> list = this.f19667d;
+        this.f19815b.removeAllViews();
+        List<TopicEnterButton> list = this.f19817d;
         if (list != null) {
             list.clear();
         }
-        if (!k.isEmpty(a2Var.i0())) {
-            ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f19664a);
-            this.f19666c = threadForumEnterButton;
-            threadForumEnterButton.a(a2Var);
-            this.f19665b.addView(this.f19666c, new ViewGroup.LayoutParams(-2, -2));
+        if (!k.isEmpty(b2Var.W())) {
+            ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f19814a);
+            this.f19816c = threadForumEnterButton;
+            threadForumEnterButton.a(b2Var);
+            this.f19815b.addView(this.f19816c, new ViewGroup.LayoutParams(-2, -2));
         }
-        WorksInfoData worksInfoData = a2Var.H2;
+        WorksInfoData worksInfoData = b2Var.I2;
         if (worksInfoData == null || ListUtils.isEmpty(worksInfoData.topicListData)) {
             return;
         }
-        if (this.f19667d == null) {
-            this.f19667d = new LinkedList();
+        if (this.f19817d == null) {
+            this.f19817d = new LinkedList();
         }
-        for (RecommendTopicData.RecommendTopicListData recommendTopicListData : a2Var.H2.topicListData) {
-            TopicEnterButton topicEnterButton = new TopicEnterButton(this.f19664a);
+        for (RecommendTopicData.RecommendTopicListData recommendTopicListData : b2Var.I2.topicListData) {
+            TopicEnterButton topicEnterButton = new TopicEnterButton(this.f19814a);
             topicEnterButton.d(recommendTopicListData);
-            this.f19665b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
-            this.f19667d.add(topicEnterButton);
+            this.f19815b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
+            this.f19817d.add(topicEnterButton);
         }
     }
 }

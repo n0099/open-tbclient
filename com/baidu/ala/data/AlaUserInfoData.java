@@ -2,13 +2,20 @@ package com.baidu.ala.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AlaUserInfoData extends OrmObject {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_LIVING = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public long ala_id;
     public long anchor_live;
-    public int app_from = -1;
+    public int app_from;
     public String card_pic;
     public int certify_status;
     public int change_sex;
@@ -67,10 +74,31 @@ public class AlaUserInfoData extends OrmObject {
     public String yy_level_next_name;
     public long yy_levelup_exp;
 
-    public String getNameShow() {
-        if (TextUtils.isEmpty(this.user_nickname)) {
-            return this.user_name;
+    public AlaUserInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return this.user_nickname;
+        this.app_from = -1;
+    }
+
+    public String getNameShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.user_nickname)) {
+                return this.user_name;
+            }
+            return this.user_nickname;
+        }
+        return (String) invokeV.objValue;
     }
 }

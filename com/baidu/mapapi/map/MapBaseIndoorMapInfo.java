@@ -1,54 +1,183 @@
 package com.baidu.mapapi.map;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MapBaseIndoorMapInfo {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f6925d = "MapBaseIndoorMapInfo";
+    public static final String f6955d = "MapBaseIndoorMapInfo";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6926a;
+    public String f6956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6927b;
+    public String f6957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f6928c;
+    public ArrayList<String> f6958c;
 
-    /* loaded from: classes2.dex */
-    public enum SwitchFloorError {
-        SWITCH_OK,
-        FLOOR_INFO_ERROR,
-        FLOOR_OVERLFLOW,
-        FOCUSED_ID_ERROR,
-        SWITCH_ERROR
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
+    public static final class SwitchFloorError {
+        public static /* synthetic */ Interceptable $ic;
+        public static final SwitchFloorError FLOOR_INFO_ERROR;
+        public static final SwitchFloorError FLOOR_OVERLFLOW;
+        public static final SwitchFloorError FOCUSED_ID_ERROR;
+        public static final SwitchFloorError SWITCH_ERROR;
+        public static final SwitchFloorError SWITCH_OK;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ SwitchFloorError[] f6959a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(729239463, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo$SwitchFloorError;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(729239463, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo$SwitchFloorError;");
+                    return;
+                }
+            }
+            SWITCH_OK = new SwitchFloorError("SWITCH_OK", 0);
+            FLOOR_INFO_ERROR = new SwitchFloorError("FLOOR_INFO_ERROR", 1);
+            FLOOR_OVERLFLOW = new SwitchFloorError("FLOOR_OVERLFLOW", 2);
+            FOCUSED_ID_ERROR = new SwitchFloorError("FOCUSED_ID_ERROR", 3);
+            SwitchFloorError switchFloorError = new SwitchFloorError("SWITCH_ERROR", 4);
+            SWITCH_ERROR = switchFloorError;
+            f6959a = new SwitchFloorError[]{SWITCH_OK, FLOOR_INFO_ERROR, FLOOR_OVERLFLOW, FOCUSED_ID_ERROR, switchFloorError};
+        }
+
+        public SwitchFloorError(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static SwitchFloorError valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SwitchFloorError) Enum.valueOf(SwitchFloorError.class, str) : (SwitchFloorError) invokeL.objValue;
+        }
+
+        public static SwitchFloorError[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwitchFloorError[]) f6959a.clone() : (SwitchFloorError[]) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2115653467, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(2115653467, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo;");
+        }
     }
 
     public MapBaseIndoorMapInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     public MapBaseIndoorMapInfo(MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
-        this.f6926a = mapBaseIndoorMapInfo.f6926a;
-        this.f6927b = mapBaseIndoorMapInfo.f6927b;
-        this.f6928c = mapBaseIndoorMapInfo.f6928c;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mapBaseIndoorMapInfo};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f6956a = mapBaseIndoorMapInfo.f6956a;
+        this.f6957b = mapBaseIndoorMapInfo.f6957b;
+        this.f6958c = mapBaseIndoorMapInfo.f6958c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
-        this.f6926a = str;
-        this.f6927b = str2;
-        this.f6928c = arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, arrayList};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f6956a = str;
+        this.f6957b = str2;
+        this.f6958c = arrayList;
     }
 
     public String getCurFloor() {
-        return this.f6927b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6957b : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getFloors() {
-        return this.f6928c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6958c : (ArrayList) invokeV.objValue;
     }
 
     public String getID() {
-        return this.f6926a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6956a : (String) invokeV.objValue;
     }
 }

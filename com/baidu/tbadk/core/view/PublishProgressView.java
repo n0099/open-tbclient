@@ -7,74 +7,111 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import d.a.n0.r.q.i1;
-import d.a.n0.r.u.c;
-import d.a.o0.e3.q0.d;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.j1;
+import d.a.r0.r.u.c;
+import d.a.s0.h3.q0.d;
+/* loaded from: classes4.dex */
 public class PublishProgressView extends RelativeLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PublishProgressBar f12460e;
+    public PublishProgressBar f12514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12461f;
+    public TextView f12515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12462g;
+    public TextView f12516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i1 f12463h;
+    public j1 f12517h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         a(context, attributeSet);
     }
 
     private void setProgress(int i2) {
-        this.f12461f.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.f12460e.c(i2))));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
+            this.f12515f.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.f12514e.c(i2))));
+        }
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-        this.f12460e = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
-        this.f12461f = (TextView) inflate.findViewById(R.id.progress_text);
-        TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
-        this.f12462g = textView;
-        textView.setOnClickListener(this);
-        this.f12460e.setOnClickListener(this);
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
+            this.f12514e = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
+            this.f12515f = (TextView) inflate.findViewById(R.id.progress_text);
+            TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
+            this.f12516g = textView;
+            textView.setOnClickListener(this);
+            this.f12514e.setOnClickListener(this);
+            b();
+        }
     }
 
     public void b() {
-        this.f12460e.b();
-        c d2 = c.d(this.f12461f);
-        d2.s(R.color.CAM_X0101);
-        d2.w(R.dimen.T_X06);
-        d2.x(R.string.F_X01);
-        c d3 = c.d(this.f12462g);
-        d3.s(R.color.CAM_X0101);
-        d3.w(R.dimen.T_X09);
-        d3.x(R.string.F_X01);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f12514e.b();
+            c d2 = c.d(this.f12515f);
+            d2.t(R.color.CAM_X0101);
+            d2.x(R.dimen.T_X06);
+            d2.y(R.string.F_X01);
+            c d3 = c.d(this.f12516g);
+            d3.t(R.color.CAM_X0101);
+            d3.x(R.dimen.T_X09);
+            d3.y(R.string.F_X01);
+        }
     }
 
-    public void c(@NonNull i1 i1Var) {
-        if (i1Var.equals(this.f12463h)) {
-            this.f12463h.f(i1Var);
+    public void c(@NonNull j1 j1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j1Var) == null) {
+            if (j1Var.equals(this.f12517h)) {
+                this.f12517h.f(j1Var);
+                d();
+                return;
+            }
+            this.f12517h = j1Var;
             d();
-            return;
         }
-        this.f12463h = i1Var;
-        d();
     }
 
     public final void d() {
-        i1 i1Var = this.f12463h;
-        if (i1Var == null) {
+        j1 j1Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (j1Var = this.f12517h) == null) {
             return;
         }
-        if (i1Var.d()) {
-            setProgress(this.f12463h.a());
+        if (j1Var.d()) {
+            setProgress(this.f12517h.a());
             setVisibility(0);
             return;
         }
@@ -84,23 +121,57 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == R.id.progress_close_btn) {
-            i1 i1Var = this.f12463h;
-            if (i1Var != null) {
-                i1Var.b();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view.getId() == R.id.progress_close_btn) {
+            j1 j1Var = this.f12517h;
+            if (j1Var != null) {
+                j1Var.b();
                 d();
             }
             d.c();
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a(context, attributeSet);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(context, null);
     }
 }

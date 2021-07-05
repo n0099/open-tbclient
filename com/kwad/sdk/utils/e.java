@@ -10,78 +10,111 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.material.internal.ManufacturerUtils;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f37624a;
+    public static final Map<String, String> f39387a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835601, "Lcom/kwad/sdk/utils/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1510835601, "Lcom/kwad/sdk/utils/e;");
+                return;
+            }
+        }
         HashMap hashMap = new HashMap();
-        f37624a = hashMap;
+        f39387a = hashMap;
         hashMap.put("HUAWEI", "com.huawei.appmarket");
-        f37624a.put("OPPO", "com.oppo.market");
-        f37624a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
-        f37624a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        f37624a.put("OnePlus", "com.oppo.market");
-        f37624a.put("Meizu", "com.meizu.mstore");
-        f37624a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
-        f37624a.put("SMARTISAN", "com.smartisanos.appstore");
-        f37624a.put("Realme", "com.oppo.market");
-        f37624a.put("HONOR", "com.huawei.appmarket");
+        f39387a.put("OPPO", "com.oppo.market");
+        f39387a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
+        f39387a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        f39387a.put("OnePlus", "com.oppo.market");
+        f39387a.put("Meizu", "com.meizu.mstore");
+        f39387a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
+        f39387a.put("SMARTISAN", "com.smartisanos.appstore");
+        f39387a.put("Realme", "com.oppo.market");
+        f39387a.put("HONOR", "com.huawei.appmarket");
     }
 
     public static boolean a(Context context, String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
         }
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        try {
-            context.startActivity(intent);
-            return true;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
-        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean a(Context context, String str, String str2) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (ManufacturerUtils.SAMSUNG.equals(Build.BRAND)) {
-            str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
-        }
-        try {
-            String str3 = f37624a.get(Build.BRAND);
-            Intent parseUri = Intent.parseUri(str, 1);
-            parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {
-                if (!a(resolveInfo)) {
-                    String str4 = resolveInfo.activityInfo.packageName;
-                    if (str4.equals(str3) || a(str4)) {
-                        parseUri.setComponent(new ComponentName(str4, resolveInfo.activityInfo.name));
-                        context.startActivity(parseUri);
-                        return true;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (ManufacturerUtils.SAMSUNG.equals(Build.BRAND)) {
+                str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
+            }
+            try {
+                String str3 = f39387a.get(Build.BRAND);
+                Intent parseUri = Intent.parseUri(str, 1);
+                parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {
+                    if (!a(resolveInfo)) {
+                        String str4 = resolveInfo.activityInfo.packageName;
+                        if (str4.equals(str3) || a(str4)) {
+                            parseUri.setComponent(new ComponentName(str4, resolveInfo.activityInfo.name));
+                            context.startActivity(parseUri);
+                            return true;
+                        }
                     }
                 }
+                return a(context, str);
+            } catch (Exception unused) {
+                return a(context, str);
             }
-            return a(context, str);
-        } catch (Exception unused) {
-            return a(context, str);
         }
+        return invokeLLL.booleanValue;
     }
 
     public static boolean a(ResolveInfo resolveInfo) {
+        InterceptResult invokeL;
         ActivityInfo activityInfo;
-        return resolveInfo == null || (activityInfo = resolveInfo.activityInfo) == null || TextUtils.isEmpty(activityInfo.packageName);
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, resolveInfo)) == null) ? resolveInfo == null || (activityInfo = resolveInfo.activityInfo) == null || TextUtils.isEmpty(activityInfo.packageName) : invokeL.booleanValue;
     }
 
     public static boolean a(String str) {
-        return "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str) : invokeL.booleanValue;
     }
 }

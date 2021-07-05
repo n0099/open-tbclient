@@ -1,6 +1,11 @@
 package com.baidu.pass.main.facesdk.utils;
 
 import android.util.Log;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -11,12 +16,32 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZipUtils {
+    public static /* synthetic */ Interceptable $ic;
     public static boolean isSuccess;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ZipUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static void addEntry(String str, File file, ZipOutputStream zipOutputStream) throws IOException {
         FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65537, null, str, file, zipOutputStream) != null) {
+            return;
+        }
         String str2 = str + file.getName();
         if (file.isDirectory()) {
             for (File file2 : file.listFiles()) {
@@ -58,6 +83,11 @@ public class ZipUtils {
     }
 
     public static boolean unZipFolder(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, str, str2)) != null) {
+            return invokeLL.booleanValue;
+        }
         try {
             ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(str));
             while (true) {
@@ -99,6 +129,11 @@ public class ZipUtils {
     }
 
     public static boolean unzip(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return invokeL.booleanValue;
+        }
         File file = new File(str);
         try {
             SafeZipInputStream safeZipInputStream = new SafeZipInputStream(new BufferedInputStream(new FileInputStream(file)));
@@ -132,20 +167,25 @@ public class ZipUtils {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0055 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0057 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0059 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x005b */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v12, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r6v0 */
+    /* JADX WARN: Type inference failed for: r0v14, types: [java.io.Closeable[]] */
     /* JADX WARN: Type inference failed for: r6v1 */
     /* JADX WARN: Type inference failed for: r6v2 */
     /* JADX WARN: Type inference failed for: r6v3 */
     /* JADX WARN: Type inference failed for: r6v4 */
-    /* JADX WARN: Type inference failed for: r6v5, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r6v6 */
+    /* JADX WARN: Type inference failed for: r6v5 */
+    /* JADX WARN: Type inference failed for: r6v6, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r6v7 */
     public static File zip(String str) {
+        InterceptResult invokeL;
         FileOutputStream fileOutputStream;
         ?? r6;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, str)) != null) {
+            return (File) invokeL.objValue;
+        }
         File file = new File(str);
         FileOutputStream fileOutputStream2 = null;
         if (!file.exists()) {
@@ -157,36 +197,35 @@ public class ZipUtils {
         }
         try {
             fileOutputStream = new FileOutputStream(file2);
+        } catch (IOException e2) {
+            e = e2;
+            r6 = 0;
+        } catch (Throwable th) {
+            th = th;
+            fileOutputStream = null;
+        }
+        try {
+            r6 = new ZipOutputStream(new BufferedOutputStream(fileOutputStream));
             try {
-                r6 = new ZipOutputStream(new BufferedOutputStream(fileOutputStream));
+                addEntry("/", file, r6);
+                IOUtil.closeQuietly(new Closeable[]{r6, fileOutputStream});
+                return file2;
+            } catch (IOException e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                r6 = r6;
                 try {
-                    addEntry("/", file, r6);
-                    IOUtil.closeQuietly(new Closeable[]{r6, fileOutputStream});
-                    return file2;
-                } catch (IOException e2) {
-                    e = e2;
-                    fileOutputStream2 = fileOutputStream;
-                    r6 = r6;
-                    try {
-                        throw new RuntimeException(e);
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        fileOutputStream2 = r6;
-                        IOUtil.closeQuietly(fileOutputStream2, fileOutputStream);
-                        throw th;
-                    }
+                    throw new RuntimeException(e);
                 } catch (Throwable th2) {
                     th = th2;
+                    fileOutputStream = fileOutputStream2;
                     fileOutputStream2 = r6;
                     IOUtil.closeQuietly(fileOutputStream2, fileOutputStream);
                     throw th;
                 }
-            } catch (IOException e3) {
-                e = e3;
-                r6 = 0;
             } catch (Throwable th3) {
                 th = th3;
+                fileOutputStream2 = r6;
                 IOUtil.closeQuietly(fileOutputStream2, fileOutputStream);
                 throw th;
             }
@@ -195,7 +234,8 @@ public class ZipUtils {
             r6 = 0;
         } catch (Throwable th4) {
             th = th4;
-            fileOutputStream = null;
+            IOUtil.closeQuietly(fileOutputStream2, fileOutputStream);
+            throw th;
         }
     }
 }

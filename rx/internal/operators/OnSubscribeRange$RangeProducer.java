@@ -1,40 +1,65 @@
 package rx.internal.operators;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.f;
 import h.j;
 import h.o.a.a;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class OnSubscribeRange$RangeProducer extends AtomicLong implements f {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4114392207069098388L;
+    public transient /* synthetic */ FieldHolder $fh;
     public final j<? super Integer> childSubscriber;
     public long currentIndex;
     public final int endOfRange;
 
     public OnSubscribeRange$RangeProducer(j<? super Integer> jVar, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.childSubscriber = jVar;
         this.currentIndex = i2;
         this.endOfRange = i3;
     }
 
     public void fastPath() {
-        long j = this.endOfRange + 1;
-        j<? super Integer> jVar = this.childSubscriber;
-        for (long j2 = this.currentIndex; j2 != j; j2++) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.endOfRange + 1;
+            j<? super Integer> jVar = this.childSubscriber;
+            for (long j2 = this.currentIndex; j2 != j; j2++) {
+                if (jVar.isUnsubscribed()) {
+                    return;
+                }
+                jVar.onNext(Integer.valueOf((int) j2));
+            }
             if (jVar.isUnsubscribed()) {
                 return;
             }
-            jVar.onNext(Integer.valueOf((int) j2));
+            jVar.onCompleted();
         }
-        if (jVar.isUnsubscribed()) {
-            return;
-        }
-        jVar.onCompleted();
     }
 
     @Override // h.f
     public void request(long j) {
-        if (get() == Long.MAX_VALUE) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || get() == Long.MAX_VALUE) {
             return;
         }
         if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
@@ -46,33 +71,36 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
     }
 
     public void slowPath(long j) {
-        long j2 = this.endOfRange + 1;
-        long j3 = this.currentIndex;
-        j<? super Integer> jVar = this.childSubscriber;
-        do {
-            long j4 = 0;
-            while (true) {
-                if (j4 != j && j3 != j2) {
-                    if (jVar.isUnsubscribed()) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            long j2 = this.endOfRange + 1;
+            long j3 = this.currentIndex;
+            j<? super Integer> jVar = this.childSubscriber;
+            do {
+                long j4 = 0;
+                while (true) {
+                    if (j4 != j && j3 != j2) {
+                        if (jVar.isUnsubscribed()) {
+                            return;
+                        }
+                        jVar.onNext(Integer.valueOf((int) j3));
+                        j3++;
+                        j4++;
+                    } else if (jVar.isUnsubscribed()) {
                         return;
-                    }
-                    jVar.onNext(Integer.valueOf((int) j3));
-                    j3++;
-                    j4++;
-                } else if (jVar.isUnsubscribed()) {
-                    return;
-                } else {
-                    if (j3 == j2) {
-                        jVar.onCompleted();
-                        return;
-                    }
-                    j = get();
-                    if (j == j4) {
-                        this.currentIndex = j3;
-                        j = addAndGet(-j4);
+                    } else {
+                        if (j3 == j2) {
+                            jVar.onCompleted();
+                            return;
+                        }
+                        j = get();
+                        if (j == j4) {
+                            this.currentIndex = j3;
+                            j = addAndGet(-j4);
+                        }
                     }
                 }
-            }
-        } while (j != 0);
+            } while (j != 0);
+        }
     }
 }

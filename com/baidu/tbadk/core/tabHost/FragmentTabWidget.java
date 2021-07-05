@@ -8,13 +8,22 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FragmentTabWidget extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public int B;
     public boolean C;
@@ -22,19 +31,19 @@ public class FragmentTabWidget extends LinearLayout {
     public View E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f12305e;
+    public final Rect f12358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f12306f;
+    public final Rect f12359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f12307g;
+    public final Rect f12360g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12308h;
+    public int f12361h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12309i;
+    public int f12362i;
     public int j;
     public b k;
     public d l;
@@ -53,38 +62,87 @@ public class FragmentTabWidget extends LinearLayout {
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
     public interface b {
         void onTabSelectionChanged(int i2, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12310e;
+        public final int f12363e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ FragmentTabWidget f12364f;
+
+        public /* synthetic */ c(FragmentTabWidget fragmentTabWidget, int i2, a aVar) {
+            this(fragmentTabWidget, i2);
+        }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FragmentTabWidget.this.k.onTabSelectionChanged(this.f12310e, true);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f12364f.k.onTabSelectionChanged(this.f12363e, true);
+            }
         }
 
-        public c(int i2) {
-            this.f12310e = i2;
+        public c(FragmentTabWidget fragmentTabWidget, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fragmentTabWidget, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12364f = fragmentTabWidget;
+            this.f12363e = i2;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void onSizeChanged(int i2, int i3, int i4, int i5);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FragmentTabWidget(Context context) {
         super(context);
-        this.f12305e = new Rect();
-        this.f12306f = new Rect();
-        this.f12307g = new Rect();
-        this.f12308h = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12358e = new Rect();
+        this.f12359f = new Rect();
+        this.f12360g = new Rect();
+        this.f12361h = 0;
         this.j = -1;
         this.n = new Paint();
         this.r = 0;
@@ -98,207 +156,255 @@ public class FragmentTabWidget extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
-        d(view);
-        super.addView(view);
-        view.setOnClickListener(new c(getChildCount() - 1));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            d(view);
+            super.addView(view);
+            view.setOnClickListener(new c(this, getChildCount() - 1, null));
+        }
     }
 
     public void b(View view, int i2, boolean z) {
-        e(view, z);
-        super.addView(view, i2);
-        if (z) {
-            this.E = view;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            e(view, z);
+            super.addView(view, i2);
+            if (z) {
+                this.E = view;
+            }
+            view.setOnClickListener(new c(this, getChildCount() - 1, null));
         }
-        view.setOnClickListener(new c(getChildCount() - 1));
     }
 
     public void c(int i2, float f2) {
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
-        int i3 = this.x;
-        int i4 = (i3 - dimensionPixelSize) / 2;
-        int i5 = i3 * i2;
-        this.m = i5;
-        int i6 = i5 + ((int) (i3 * f2));
-        this.m = i6;
-        int i7 = this.w;
-        int i8 = i7 - this.q;
-        int i9 = this.r;
-        if (i9 == -2) {
-            View childAt = getChildAt(i2);
-            if (childAt != null && (childAt instanceof TbFragmentTabIndicator)) {
-                View contentTv = ((TbFragmentTabIndicator) childAt).getContentTv();
-                if (contentTv != null) {
-                    this.f12305e.set(childAt.getLeft() + contentTv.getLeft(), i8, childAt.getLeft() + contentTv.getRight(), this.w);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
+            int i3 = this.x;
+            int i4 = (i3 - dimensionPixelSize) / 2;
+            int i5 = i3 * i2;
+            this.m = i5;
+            int i6 = i5 + ((int) (i3 * f2));
+            this.m = i6;
+            int i7 = this.w;
+            int i8 = i7 - this.q;
+            int i9 = this.r;
+            if (i9 == -2) {
+                View childAt = getChildAt(i2);
+                if (childAt != null && (childAt instanceof TbFragmentTabIndicator)) {
+                    View contentTv = ((TbFragmentTabIndicator) childAt).getContentTv();
+                    if (contentTv != null) {
+                        this.f12358e.set(childAt.getLeft() + contentTv.getLeft(), i8, childAt.getLeft() + contentTv.getRight(), this.w);
+                    } else {
+                        Rect rect = this.f12358e;
+                        int i10 = this.m;
+                        int i11 = this.x;
+                        int i12 = this.r;
+                        rect.set(((i11 / 2) + i10) - (i12 / 2), i8, i10 + (i11 / 2) + (i12 / 2), this.w);
+                    }
                 } else {
-                    Rect rect = this.f12305e;
-                    int i10 = this.m;
-                    int i11 = this.x;
-                    int i12 = this.r;
-                    rect.set(((i11 / 2) + i10) - (i12 / 2), i8, i10 + (i11 / 2) + (i12 / 2), this.w);
+                    Rect rect2 = this.f12358e;
+                    int i13 = this.m;
+                    int i14 = this.x;
+                    int i15 = this.r;
+                    rect2.set(((i14 / 2) + i13) - (i15 / 2), i8, i13 + (i14 / 2) + (i15 / 2), this.w);
                 }
+            } else if (i9 != 0) {
+                this.f12358e.set(((i3 / 2) + i6) - (i9 / 2), i8, i6 + (i3 / 2) + (i9 / 2), i7);
             } else {
-                Rect rect2 = this.f12305e;
-                int i13 = this.m;
-                int i14 = this.x;
-                int i15 = this.r;
-                rect2.set(((i14 / 2) + i13) - (i15 / 2), i8, i13 + (i14 / 2) + (i15 / 2), this.w);
+                this.f12358e.set(i6 + i4, i8, i6 + i4 + dimensionPixelSize, i7);
             }
-        } else if (i9 != 0) {
-            this.f12305e.set(((i3 / 2) + i6) - (i9 / 2), i8, i6 + (i3 / 2) + (i9 / 2), i7);
-        } else {
-            this.f12305e.set(i6 + i4, i8, i6 + i4 + dimensionPixelSize, i7);
+            postInvalidateDelayed(16L);
         }
-        postInvalidateDelayed(16L);
     }
 
     public final void d(View view) {
         LinearLayout.LayoutParams layoutParams;
-        if (this.C) {
-            layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
-        } else {
-            layoutParams = new LinearLayout.LayoutParams(-2, -1, 1.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            if (this.C) {
+                layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -1, 1.0f);
+            }
+            layoutParams.setMargins(0, 0, 0, 0);
+            if (this.A) {
+                view.setPadding(0, 0, 0, this.B);
+            }
+            view.setLayoutParams(layoutParams);
+            view.setFocusable(true);
+            view.setClickable(true);
         }
-        layoutParams.setMargins(0, 0, 0, 0);
-        if (this.A) {
-            view.setPadding(0, 0, 0, this.B);
-        }
-        view.setLayoutParams(layoutParams);
-        view.setFocusable(true);
-        view.setClickable(true);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        super.draw(canvas);
-        this.n.setColor(this.s);
-        if (this.D) {
-            canvas.drawRect(this.f12306f, this.n);
-        }
-        if (this.z) {
-            canvas.drawRect(this.f12307g, this.n);
-        }
-        if (this.y) {
-            this.n.setColor(this.t);
-            canvas.drawRoundRect(new RectF(this.f12305e), 10.0f, 10.0f, this.n);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            super.draw(canvas);
+            this.n.setColor(this.s);
+            if (this.D) {
+                canvas.drawRect(this.f12359f, this.n);
+            }
+            if (this.z) {
+                canvas.drawRect(this.f12360g, this.n);
+            }
+            if (this.y) {
+                this.n.setColor(this.t);
+                canvas.drawRoundRect(new RectF(this.f12358e), 10.0f, 10.0f, this.n);
+            }
         }
     }
 
     public void e(View view, boolean z) {
         LinearLayout.LayoutParams layoutParams;
-        if (this.C) {
-            layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
-        } else {
-            layoutParams = new LinearLayout.LayoutParams(-2, -1, 1.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, view, z) == null) {
+            if (this.C) {
+                layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -1, 1.0f);
+            }
+            layoutParams.setMargins(0, 0, 0, 0);
+            if (this.A) {
+                view.setPadding(0, 0, 0, this.B);
+            }
+            view.setLayoutParams(layoutParams);
+            view.setFocusable(true);
+            view.setClickable(true);
         }
-        layoutParams.setMargins(0, 0, 0, 0);
-        if (this.A) {
-            view.setPadding(0, 0, 0, this.B);
-        }
-        view.setLayoutParams(layoutParams);
-        view.setFocusable(true);
-        view.setClickable(true);
     }
 
     public final void f() {
-        Paint paint = new Paint(6);
-        this.n = paint;
-        paint.setAntiAlias(true);
-        this.n.setStyle(Paint.Style.FILL);
-        this.o = getResources().getDimensionPixelSize(R.dimen.ds1);
-        this.p = l.e(getContext(), 1.0f);
-        this.q = l.e(getContext(), 2.0f);
-        this.B = getResources().getDimensionPixelSize(R.dimen.ds10);
-        setWillNotDraw(false);
-        this.f12309i = R.color.common_color_10274;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Paint paint = new Paint(6);
+            this.n = paint;
+            paint.setAntiAlias(true);
+            this.n.setStyle(Paint.Style.FILL);
+            this.o = getResources().getDimensionPixelSize(R.dimen.ds1);
+            this.p = l.e(getContext(), 1.0f);
+            this.q = l.e(getContext(), 2.0f);
+            this.B = getResources().getDimensionPixelSize(R.dimen.ds10);
+            setWillNotDraw(false);
+            this.f12362i = R.color.common_color_10274;
+        }
     }
 
     public void g(boolean z, int i2) {
-        this.f12309i = i2;
-        if (z) {
-            this.t = SkinManager.getColor(4, R.color.CAM_X0105);
-            this.s = SkinManager.getColor(4, R.color.CAM_X0204);
-        } else {
-            this.t = SkinManager.getColor(R.color.CAM_X0105);
-            this.s = SkinManager.getColor(R.color.CAM_X0204);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            this.f12362i = i2;
+            if (z) {
+                this.t = SkinManager.getColor(4, R.color.CAM_X0105);
+                this.s = SkinManager.getColor(4, R.color.CAM_X0204);
+            } else {
+                this.t = SkinManager.getColor(R.color.CAM_X0105);
+                this.s = SkinManager.getColor(R.color.CAM_X0204);
+            }
+            if (this.f12362i == 0 || this.f12361h != 0) {
+                return;
+            }
+            SkinManager.setBackgroundColor(this, i2);
         }
-        if (this.f12309i == 0 || this.f12308h != 0) {
-            return;
-        }
-        SkinManager.setBackgroundColor(this, i2);
     }
 
     public View getWriteView() {
-        return this.E;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.E : (View) invokeV.objValue;
     }
 
     public void h(int i2) {
-        int i3 = this.f12309i;
-        if (i3 != 0 && this.f12308h == 0) {
-            SkinManager.setBackgroundColor(this, i3);
-        }
-        this.t = SkinManager.getColor(R.color.CAM_X0105);
-        this.s = SkinManager.getColor(R.color.CAM_X0204);
-        int childCount = getChildCount();
-        for (int i4 = 0; i4 < childCount; i4++) {
-            View childAt = getChildAt(i4);
-            if (childAt instanceof FragmentTabIndicator) {
-                ((FragmentTabIndicator) childAt).e(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            int i3 = this.f12362i;
+            if (i3 != 0 && this.f12361h == 0) {
+                SkinManager.setBackgroundColor(this, i3);
             }
+            this.t = SkinManager.getColor(R.color.CAM_X0105);
+            this.s = SkinManager.getColor(R.color.CAM_X0204);
+            int childCount = getChildCount();
+            for (int i4 = 0; i4 < childCount; i4++) {
+                View childAt = getChildAt(i4);
+                if (childAt instanceof FragmentTabIndicator) {
+                    ((FragmentTabIndicator) childAt).e(i2);
+                }
+            }
+            invalidate();
         }
-        invalidate();
     }
 
     public void i() {
-        removeAllViews();
-        this.j = -1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            removeAllViews();
+            this.j = -1;
+        }
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        int childCount = getChildCount();
-        this.u = childCount;
-        if (childCount == 0) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            int childCount = getChildCount();
+            this.u = childCount;
+            if (childCount == 0) {
+                return;
+            }
+            int i6 = i4 - i2;
+            this.v = i6;
+            this.w = i5 - i3;
+            this.x = i6 / childCount;
+            int i7 = this.j;
+            if (i7 != -1) {
+                c(i7, 0.0f);
+            }
+            int i8 = this.w;
+            int i9 = this.o;
+            int i10 = i8 - i9;
+            this.f12359f.set(0, i10, this.v, i9 + i10);
+            this.f12360g.set(0, 0, this.v, this.p);
         }
-        int i6 = i4 - i2;
-        this.v = i6;
-        this.w = i5 - i3;
-        this.x = i6 / childCount;
-        int i7 = this.j;
-        if (i7 != -1) {
-            c(i7, 0.0f);
-        }
-        int i8 = this.w;
-        int i9 = this.o;
-        int i10 = i8 - i9;
-        this.f12306f.set(0, i10, this.v, i9 + i10);
-        this.f12307g.set(0, 0, this.v, this.p);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        d dVar = this.l;
-        if (dVar != null) {
-            dVar.onSizeChanged(i2, i3, i4, i5);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048589, this, i2, i3, i4, i5) == null) {
+            super.onSizeChanged(i2, i3, i4, i5);
+            d dVar = this.l;
+            if (dVar != null) {
+                dVar.onSizeChanged(i2, i3, i4, i5);
+            }
         }
     }
 
     public void setAbsoluteWeight(boolean z) {
-        this.C = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.C = z;
+        }
     }
 
     public void setBackGroundDrawableResId(int i2) {
-        this.f12309i = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.f12362i = i2;
+        }
     }
 
     public void setBackGroundStyle(int i2) {
-        this.f12308h = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.f12361h = i2;
+        }
     }
 
     public void setCurrentTab(int i2, boolean z, boolean z2) {
-        if (i2 < 0 || i2 >= getChildCount()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || i2 < 0 || i2 >= getChildCount()) {
             return;
         }
         if (z2) {
@@ -325,50 +431,94 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setDiverColor(int i2) {
-        this.t = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.t = i2;
+        }
     }
 
     public void setDviderRectHeight(int i2) {
-        this.q = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            this.q = i2;
+        }
     }
 
     public void setDviderRectWidth(int i2) {
-        this.r = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+            this.r = i2;
+        }
     }
 
     public void setOnSizeChangedListener(d dVar) {
-        this.l = dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, dVar) == null) {
+            this.l = dVar;
+        }
     }
 
     public void setShouldDrawDividerLine(boolean z) {
-        this.D = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.D = z;
+        }
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
-        this.y = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.y = z;
+        }
     }
 
     public void setShouldDrawTopLine(boolean z) {
-        this.z = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            this.z = z;
+        }
     }
 
     public void setTabSelectionListener(b bVar) {
-        this.k = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, bVar) == null) {
+            this.k = bVar;
+        }
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i2) {
-        d(view);
-        super.addView(view, i2);
-        view.setOnClickListener(new c(getChildCount() - 1));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
+            d(view);
+            super.addView(view, i2);
+            view.setOnClickListener(new c(this, getChildCount() - 1, null));
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12305e = new Rect();
-        this.f12306f = new Rect();
-        this.f12307g = new Rect();
-        this.f12308h = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f12358e = new Rect();
+        this.f12359f = new Rect();
+        this.f12360g = new Rect();
+        this.f12361h = 0;
         this.j = -1;
         this.n = new Paint();
         this.r = 0;

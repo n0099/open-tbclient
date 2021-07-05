@@ -1,19 +1,19 @@
 package com.bytedance.sdk.openadsdk.core.dynamic.d;
 
-import com.bytedance.sdk.openadsdk.c.p;
-import com.bytedance.sdk.openadsdk.core.d.l;
+import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.j;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
+import com.bytedance.sdk.openadsdk.e.p;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface b {
     b a(int i2);
 
-    b a(p pVar);
-
-    b a(l lVar);
+    b a(m mVar);
 
     b a(j jVar);
+
+    b a(p pVar);
 
     b a(String str);
 

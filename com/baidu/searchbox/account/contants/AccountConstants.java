@@ -1,6 +1,12 @@
 package com.baidu.searchbox.account.contants;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class AccountConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int FAILURE = 2;
     public static final int FEMALE_CODE = 0;
     public static final String FEMALE_TEXT = "女";
@@ -122,4 +128,19 @@ public class AccountConstants {
     public static final long TYPE_MODIFY_NONE = 0;
     public static final long TYPE_MODIFY_SIGN = 256;
     public static final long TYPE_MODIFY_TEL_SWITCH = 65536;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AccountConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

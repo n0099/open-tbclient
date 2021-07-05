@@ -1,9 +1,18 @@
 package androidx.constraintlayout.solver.widgets;
 
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ChainHead {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mDefined;
     public ConstraintWidget mFirst;
     public ConstraintWidget mFirstMatchConstraintWidget;
@@ -17,12 +26,27 @@ public class ChainHead {
     public ConstraintWidget mLastMatchConstraintWidget;
     public ConstraintWidget mLastVisibleWidget;
     public int mOrientation;
-    public float mTotalWeight = 0.0f;
+    public float mTotalWeight;
     public ArrayList<ConstraintWidget> mWeightedMatchConstraintsWidgets;
     public int mWidgetsCount;
     public int mWidgetsMatchCount;
 
     public ChainHead(ConstraintWidget constraintWidget, int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {constraintWidget, Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mTotalWeight = 0.0f;
         this.mIsRtl = false;
         this.mFirst = constraintWidget;
         this.mOrientation = i2;
@@ -30,133 +54,160 @@ public class ChainHead {
     }
 
     private void defineChainProperties() {
-        int i2 = this.mOrientation * 2;
-        ConstraintWidget constraintWidget = this.mFirst;
-        boolean z = false;
-        ConstraintWidget constraintWidget2 = constraintWidget;
-        boolean z2 = false;
-        while (!z2) {
-            this.mWidgetsCount++;
-            ConstraintWidget[] constraintWidgetArr = constraintWidget.mNextChainWidget;
-            int i3 = this.mOrientation;
-            ConstraintWidget constraintWidget3 = null;
-            constraintWidgetArr[i3] = null;
-            constraintWidget.mListNextMatchConstraintsWidget[i3] = null;
-            if (constraintWidget.getVisibility() != 8) {
-                if (this.mFirstVisibleWidget == null) {
-                    this.mFirstVisibleWidget = constraintWidget;
-                }
-                this.mLastVisibleWidget = constraintWidget;
-                ConstraintWidget.DimensionBehaviour[] dimensionBehaviourArr = constraintWidget.mListDimensionBehaviors;
-                int i4 = this.mOrientation;
-                if (dimensionBehaviourArr[i4] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-                    int[] iArr = constraintWidget.mResolvedMatchConstraintDefault;
-                    if (iArr[i4] == 0 || iArr[i4] == 3 || iArr[i4] == 2) {
-                        this.mWidgetsMatchCount++;
-                        float[] fArr = constraintWidget.mWeight;
-                        int i5 = this.mOrientation;
-                        float f2 = fArr[i5];
-                        if (f2 > 0.0f) {
-                            this.mTotalWeight += fArr[i5];
-                        }
-                        if (isMatchConstraintEqualityCandidate(constraintWidget, this.mOrientation)) {
-                            if (f2 < 0.0f) {
-                                this.mHasUndefinedWeights = true;
-                            } else {
-                                this.mHasDefinedWeights = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            int i2 = this.mOrientation * 2;
+            ConstraintWidget constraintWidget = this.mFirst;
+            boolean z = false;
+            ConstraintWidget constraintWidget2 = constraintWidget;
+            boolean z2 = false;
+            while (!z2) {
+                this.mWidgetsCount++;
+                ConstraintWidget[] constraintWidgetArr = constraintWidget.mNextChainWidget;
+                int i3 = this.mOrientation;
+                ConstraintWidget constraintWidget3 = null;
+                constraintWidgetArr[i3] = null;
+                constraintWidget.mListNextMatchConstraintsWidget[i3] = null;
+                if (constraintWidget.getVisibility() != 8) {
+                    if (this.mFirstVisibleWidget == null) {
+                        this.mFirstVisibleWidget = constraintWidget;
+                    }
+                    this.mLastVisibleWidget = constraintWidget;
+                    ConstraintWidget.DimensionBehaviour[] dimensionBehaviourArr = constraintWidget.mListDimensionBehaviors;
+                    int i4 = this.mOrientation;
+                    if (dimensionBehaviourArr[i4] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                        int[] iArr = constraintWidget.mResolvedMatchConstraintDefault;
+                        if (iArr[i4] == 0 || iArr[i4] == 3 || iArr[i4] == 2) {
+                            this.mWidgetsMatchCount++;
+                            float[] fArr = constraintWidget.mWeight;
+                            int i5 = this.mOrientation;
+                            float f2 = fArr[i5];
+                            if (f2 > 0.0f) {
+                                this.mTotalWeight += fArr[i5];
                             }
-                            if (this.mWeightedMatchConstraintsWidgets == null) {
-                                this.mWeightedMatchConstraintsWidgets = new ArrayList<>();
+                            if (isMatchConstraintEqualityCandidate(constraintWidget, this.mOrientation)) {
+                                if (f2 < 0.0f) {
+                                    this.mHasUndefinedWeights = true;
+                                } else {
+                                    this.mHasDefinedWeights = true;
+                                }
+                                if (this.mWeightedMatchConstraintsWidgets == null) {
+                                    this.mWeightedMatchConstraintsWidgets = new ArrayList<>();
+                                }
+                                this.mWeightedMatchConstraintsWidgets.add(constraintWidget);
                             }
-                            this.mWeightedMatchConstraintsWidgets.add(constraintWidget);
+                            if (this.mFirstMatchConstraintWidget == null) {
+                                this.mFirstMatchConstraintWidget = constraintWidget;
+                            }
+                            ConstraintWidget constraintWidget4 = this.mLastMatchConstraintWidget;
+                            if (constraintWidget4 != null) {
+                                constraintWidget4.mListNextMatchConstraintsWidget[this.mOrientation] = constraintWidget;
+                            }
+                            this.mLastMatchConstraintWidget = constraintWidget;
                         }
-                        if (this.mFirstMatchConstraintWidget == null) {
-                            this.mFirstMatchConstraintWidget = constraintWidget;
-                        }
-                        ConstraintWidget constraintWidget4 = this.mLastMatchConstraintWidget;
-                        if (constraintWidget4 != null) {
-                            constraintWidget4.mListNextMatchConstraintsWidget[this.mOrientation] = constraintWidget;
-                        }
-                        this.mLastMatchConstraintWidget = constraintWidget;
                     }
                 }
-            }
-            if (constraintWidget2 != constraintWidget) {
-                constraintWidget2.mNextChainWidget[this.mOrientation] = constraintWidget;
-            }
-            ConstraintAnchor constraintAnchor = constraintWidget.mListAnchors[i2 + 1].mTarget;
-            if (constraintAnchor != null) {
-                ConstraintWidget constraintWidget5 = constraintAnchor.mOwner;
-                ConstraintAnchor[] constraintAnchorArr = constraintWidget5.mListAnchors;
-                if (constraintAnchorArr[i2].mTarget != null && constraintAnchorArr[i2].mTarget.mOwner == constraintWidget) {
-                    constraintWidget3 = constraintWidget5;
+                if (constraintWidget2 != constraintWidget) {
+                    constraintWidget2.mNextChainWidget[this.mOrientation] = constraintWidget;
                 }
+                ConstraintAnchor constraintAnchor = constraintWidget.mListAnchors[i2 + 1].mTarget;
+                if (constraintAnchor != null) {
+                    ConstraintWidget constraintWidget5 = constraintAnchor.mOwner;
+                    ConstraintAnchor[] constraintAnchorArr = constraintWidget5.mListAnchors;
+                    if (constraintAnchorArr[i2].mTarget != null && constraintAnchorArr[i2].mTarget.mOwner == constraintWidget) {
+                        constraintWidget3 = constraintWidget5;
+                    }
+                }
+                if (constraintWidget3 == null) {
+                    constraintWidget3 = constraintWidget;
+                    z2 = true;
+                }
+                constraintWidget2 = constraintWidget;
+                constraintWidget = constraintWidget3;
             }
-            if (constraintWidget3 == null) {
-                constraintWidget3 = constraintWidget;
-                z2 = true;
+            this.mLast = constraintWidget;
+            if (this.mOrientation == 0 && this.mIsRtl) {
+                this.mHead = constraintWidget;
+            } else {
+                this.mHead = this.mFirst;
             }
-            constraintWidget2 = constraintWidget;
-            constraintWidget = constraintWidget3;
+            if (this.mHasDefinedWeights && this.mHasUndefinedWeights) {
+                z = true;
+            }
+            this.mHasComplexMatchWeights = z;
         }
-        this.mLast = constraintWidget;
-        if (this.mOrientation == 0 && this.mIsRtl) {
-            this.mHead = constraintWidget;
-        } else {
-            this.mHead = this.mFirst;
-        }
-        if (this.mHasDefinedWeights && this.mHasUndefinedWeights) {
-            z = true;
-        }
-        this.mHasComplexMatchWeights = z;
     }
 
     public static boolean isMatchConstraintEqualityCandidate(ConstraintWidget constraintWidget, int i2) {
-        if (constraintWidget.getVisibility() != 8 && constraintWidget.mListDimensionBehaviors[i2] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-            int[] iArr = constraintWidget.mResolvedMatchConstraintDefault;
-            if (iArr[i2] == 0 || iArr[i2] == 3) {
-                return true;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, constraintWidget, i2)) == null) {
+            if (constraintWidget.getVisibility() != 8 && constraintWidget.mListDimensionBehaviors[i2] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                int[] iArr = constraintWidget.mResolvedMatchConstraintDefault;
+                if (iArr[i2] == 0 || iArr[i2] == 3) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        return invokeLI.booleanValue;
     }
 
     public void define() {
-        if (!this.mDefined) {
-            defineChainProperties();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.mDefined) {
+                defineChainProperties();
+            }
+            this.mDefined = true;
         }
-        this.mDefined = true;
     }
 
     public ConstraintWidget getFirst() {
-        return this.mFirst;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFirst : (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getFirstMatchConstraintWidget() {
-        return this.mFirstMatchConstraintWidget;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFirstMatchConstraintWidget : (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getFirstVisibleWidget() {
-        return this.mFirstVisibleWidget;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFirstVisibleWidget : (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getHead() {
-        return this.mHead;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mHead : (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getLast() {
-        return this.mLast;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLast : (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getLastMatchConstraintWidget() {
-        return this.mLastMatchConstraintWidget;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mLastMatchConstraintWidget : (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getLastVisibleWidget() {
-        return this.mLastVisibleWidget;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLastVisibleWidget : (ConstraintWidget) invokeV.objValue;
     }
 
     public float getTotalWeight() {
-        return this.mTotalWeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTotalWeight : invokeV.floatValue;
     }
 }

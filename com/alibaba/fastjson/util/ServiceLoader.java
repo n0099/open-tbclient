@@ -1,5 +1,12 @@
 package com.alibaba.fastjson.util;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,38 +18,79 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class ServiceLoader {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "META-INF/services/";
-    public static final Set<String> loadedUrls = new HashSet();
+    public static final Set<String> loadedUrls;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1228023426, "Lcom/alibaba/fastjson/util/ServiceLoader;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1228023426, "Lcom/alibaba/fastjson/util/ServiceLoader;");
+                return;
+            }
+        }
+        loadedUrls = new HashSet();
+    }
+
+    public ServiceLoader() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static <T> Set<T> load(Class<T> cls, ClassLoader classLoader) {
-        if (classLoader == null) {
-            return Collections.emptySet();
-        }
-        HashSet hashSet = new HashSet();
-        String str = "META-INF/services/" + cls.getName();
-        HashSet<String> hashSet2 = new HashSet();
-        try {
-            Enumeration<URL> resources = classLoader.getResources(str);
-            while (resources.hasMoreElements()) {
-                URL nextElement = resources.nextElement();
-                if (!loadedUrls.contains(nextElement.toString())) {
-                    load(nextElement, hashSet2);
-                    loadedUrls.add(nextElement.toString());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, classLoader)) == null) {
+            if (classLoader == null) {
+                return Collections.emptySet();
+            }
+            HashSet hashSet = new HashSet();
+            String str = "META-INF/services/" + cls.getName();
+            HashSet<String> hashSet2 = new HashSet();
+            try {
+                Enumeration<URL> resources = classLoader.getResources(str);
+                while (resources.hasMoreElements()) {
+                    URL nextElement = resources.nextElement();
+                    if (!loadedUrls.contains(nextElement.toString())) {
+                        load(nextElement, hashSet2);
+                        loadedUrls.add(nextElement.toString());
+                    }
+                }
+            } catch (Throwable unused) {
+            }
+            for (String str2 : hashSet2) {
+                try {
+                    hashSet.add(classLoader.loadClass(str2).newInstance());
+                } catch (Exception unused2) {
                 }
             }
-        } catch (Throwable unused) {
+            return hashSet;
         }
-        for (String str2 : hashSet2) {
-            try {
-                hashSet.add(classLoader.loadClass(str2).newInstance());
-            } catch (Exception unused2) {
-            }
-        }
-        return hashSet;
+        return (Set) invokeLL.objValue;
     }
 
     public static void load(URL url, Set<String> set) throws IOException {
         InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65539, null, url, set) != null) {
+            return;
+        }
         BufferedReader bufferedReader = null;
         try {
             inputStream = url.openStream();

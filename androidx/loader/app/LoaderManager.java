@@ -7,10 +7,17 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.loader.content.Loader;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
 public abstract class LoaderManager {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface LoaderCallbacks<D> {
@@ -25,13 +32,32 @@ public abstract class LoaderManager {
         void onLoaderReset(@NonNull Loader<D> loader);
     }
 
+    public LoaderManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static void enableDebugLogging(boolean z) {
-        LoaderManagerImpl.DEBUG = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            LoaderManagerImpl.DEBUG = z;
+        }
     }
 
     @NonNull
     public static <T extends LifecycleOwner & ViewModelStoreOwner> LoaderManager getInstance(@NonNull T t) {
-        return new LoaderManagerImpl(t, t.getViewModelStore());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? new LoaderManagerImpl(t, t.getViewModelStore()) : (LoaderManager) invokeL.objValue;
     }
 
     @MainThread
@@ -44,7 +70,12 @@ public abstract class LoaderManager {
     public abstract <D> Loader<D> getLoader(int i2);
 
     public boolean hasRunningLoaders() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @NonNull

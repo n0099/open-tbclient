@@ -1,23 +1,48 @@
 package io.reactivex.internal.operators.observable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.observers.SerializedObserver;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstream<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ObservableSource<U> other;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public final class SkipUntil implements Observer<U> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ArrayCompositeDisposable frc;
         public Disposable s;
         public final SerializedObserver<T> serial;
         public final SkipUntilObserver<T> sus;
+        public final /* synthetic */ ObservableSkipUntil this$0;
 
-        public SkipUntil(ArrayCompositeDisposable arrayCompositeDisposable, SkipUntilObserver<T> skipUntilObserver, SerializedObserver<T> serializedObserver) {
+        public SkipUntil(ObservableSkipUntil observableSkipUntil, ArrayCompositeDisposable arrayCompositeDisposable, SkipUntilObserver<T> skipUntilObserver, SerializedObserver<T> serializedObserver) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {observableSkipUntil, arrayCompositeDisposable, skipUntilObserver, serializedObserver};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = observableSkipUntil;
             this.frc = arrayCompositeDisposable;
             this.sus = skipUntilObserver;
             this.serial = serializedObserver;
@@ -25,32 +50,44 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            this.sus.notSkipping = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.sus.notSkipping = true;
+            }
         }
 
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            this.frc.dispose();
-            this.serial.onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.frc.dispose();
+                this.serial.onError(th);
+            }
         }
 
         @Override // io.reactivex.Observer
         public void onNext(U u) {
-            this.s.dispose();
-            this.sus.notSkipping = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
+                this.s.dispose();
+                this.sus.notSkipping = true;
+            }
         }
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.s, disposable)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
                 this.s = disposable;
                 this.frc.setResource(1, disposable);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SkipUntilObserver<T> implements Observer<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Observer<? super T> actual;
         public final ArrayCompositeDisposable frc;
         public volatile boolean notSkipping;
@@ -58,53 +95,96 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
         public Disposable s;
 
         public SkipUntilObserver(Observer<? super T> observer, ArrayCompositeDisposable arrayCompositeDisposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {observer, arrayCompositeDisposable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = observer;
             this.frc = arrayCompositeDisposable;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            this.frc.dispose();
-            this.actual.onComplete();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.frc.dispose();
+                this.actual.onComplete();
+            }
         }
 
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            this.frc.dispose();
-            this.actual.onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.frc.dispose();
+                this.actual.onError(th);
+            }
         }
 
         @Override // io.reactivex.Observer
         public void onNext(T t) {
-            if (this.notSkippingLocal) {
-                this.actual.onNext(t);
-            } else if (this.notSkipping) {
-                this.notSkippingLocal = true;
-                this.actual.onNext(t);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                if (this.notSkippingLocal) {
+                    this.actual.onNext(t);
+                } else if (this.notSkipping) {
+                    this.notSkippingLocal = true;
+                    this.actual.onNext(t);
+                }
             }
         }
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.s, disposable)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
                 this.s = disposable;
                 this.frc.setResource(0, disposable);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservableSkipUntil(ObservableSource<T> observableSource, ObservableSource<U> observableSource2) {
         super(observableSource);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {observableSource, observableSource2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((ObservableSource) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.other = observableSource2;
     }
 
     @Override // io.reactivex.Observable
     public void subscribeActual(Observer<? super T> observer) {
-        SerializedObserver serializedObserver = new SerializedObserver(observer);
-        ArrayCompositeDisposable arrayCompositeDisposable = new ArrayCompositeDisposable(2);
-        serializedObserver.onSubscribe(arrayCompositeDisposable);
-        SkipUntilObserver skipUntilObserver = new SkipUntilObserver(serializedObserver, arrayCompositeDisposable);
-        this.other.subscribe(new SkipUntil(arrayCompositeDisposable, skipUntilObserver, serializedObserver));
-        this.source.subscribe(skipUntilObserver);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
+            SerializedObserver serializedObserver = new SerializedObserver(observer);
+            ArrayCompositeDisposable arrayCompositeDisposable = new ArrayCompositeDisposable(2);
+            serializedObserver.onSubscribe(arrayCompositeDisposable);
+            SkipUntilObserver skipUntilObserver = new SkipUntilObserver(serializedObserver, arrayCompositeDisposable);
+            this.other.subscribe(new SkipUntil(this, arrayCompositeDisposable, skipUntilObserver, serializedObserver));
+            this.source.subscribe(skipUntilObserver);
+        }
     }
 }

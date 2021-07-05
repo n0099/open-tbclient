@@ -1,37 +1,73 @@
 package com.baidu.wallet.paysdk.sms.controller;
 
 import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.StringUtils;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.ui.widget.IdentifyCodeGetFailDialog;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h extends d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public h() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.wallet.paysdk.sms.controller.d, com.baidu.wallet.paysdk.sms.controller.ISmsController
     public Dialog doOnCreateDialog(int i2) {
-        if (i2 == 23) {
-            return new IdentifyCodeGetFailDialog(this.f25621a, IdentifyCodeGetFailDialog.VerifyCodeType.VOICE);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            if (i2 == 23) {
+                return new IdentifyCodeGetFailDialog(this.f26164a, IdentifyCodeGetFailDialog.VerifyCodeType.VOICE);
+            }
+            return super.doOnCreateDialog(i2);
         }
-        return super.doOnCreateDialog(i2);
+        return (Dialog) invokeI.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.d, com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void initSmsActivityView() {
-        String string = ResUtils.getString(this.f25621a, "ebpay_submit_pay");
-        PayRequest payRequest = this.f25624d;
-        if (payRequest != null) {
-            if (payRequest.mMktSolution != null) {
-                string = String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25624d.mMktSolution.easypay_amount));
-            } else {
-                string = String.format(ResUtils.getString(this.f25621a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f25624d.getFinalPayAmount()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String string = ResUtils.getString(this.f26164a, "ebpay_submit_pay");
+            PayRequest payRequest = this.f26167d;
+            if (payRequest != null) {
+                if (payRequest.mMktSolution != null) {
+                    string = String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26167d.mMktSolution.easypay_amount));
+                } else {
+                    string = String.format(ResUtils.getString(this.f26164a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26167d.getFinalPayAmount()));
+                }
             }
+            this.f26165b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.f26168e)), true);
         }
-        this.f25622b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.f25625e)), true);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.d, com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean isSendSmsOnCreate() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

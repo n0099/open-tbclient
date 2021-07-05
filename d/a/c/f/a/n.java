@@ -5,31 +5,56 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.widget.ImageView;
-/* loaded from: classes.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class n extends k {
-    public Rect v = new Rect();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Rect v;
+
+    public n() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.v = new Rect();
+    }
 
     @Override // d.a.c.f.a.c, d.a.c.f.a.a
     public void h(Canvas canvas, d dVar, ImageView imageView) {
-        Matrix matrix = this.f42766e;
-        if (matrix != null) {
-            canvas.concat(matrix);
-        }
-        canvas.save();
-        if (this.u) {
-            try {
-                canvas.clipPath(this.r);
-            } catch (Error unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
+            Matrix matrix = this.f44575e;
+            if (matrix != null) {
+                canvas.concat(matrix);
             }
+            canvas.save();
+            if (this.u) {
+                try {
+                    canvas.clipPath(this.r);
+                } catch (Error unused) {
+                }
+            }
+            if (dVar.e()) {
+                Bitmap bitmap = dVar.f44583a.getBitmap();
+                this.v.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.v, this.f44576f, this.f44572b);
+            } else {
+                this.v.set(0, 0, dVar.b(), dVar.a());
+                dVar.f44584b.g(canvas, this.v, this.f44576f, this.f44572b);
+            }
+            canvas.restore();
         }
-        if (dVar.e()) {
-            Bitmap bitmap = dVar.f42774a.getBitmap();
-            this.v.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.v, this.f42767f, this.f42763b);
-        } else {
-            this.v.set(0, 0, dVar.b(), dVar.a());
-            dVar.f42775b.g(canvas, this.v, this.f42767f, this.f42763b);
-        }
-        canvas.restore();
     }
 }

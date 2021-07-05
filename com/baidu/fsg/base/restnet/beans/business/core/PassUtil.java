@@ -1,6 +1,15 @@
 package com.baidu.fsg.base.restnet.beans.business.core;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class PassUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String NORMALIZE_URL = "normalize_url";
     public static final String PASS_ACCOUNT = "pass_account";
     public static final String PASS_ACCOUNT_TYPE = "pass_account_type";
@@ -21,5 +30,36 @@ public final class PassUtil {
     public static final int TYPE_COMPLETED = 1;
     public static final int TYPE_VERIFY = 2;
     public static long mCreateTime;
-    public static Object object = new Object();
+    public static Object object;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1755657914, "Lcom/baidu/fsg/base/restnet/beans/business/core/PassUtil;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1755657914, "Lcom/baidu/fsg/base/restnet/beans/business/core/PassUtil;");
+                return;
+            }
+        }
+        object = new Object();
+    }
+
+    public PassUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

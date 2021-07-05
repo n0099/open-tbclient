@@ -21,20 +21,47 @@ import androidx.annotation.RestrictTo;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AnimationUtilsCompat {
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x00ca, code lost:
-        return r4;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AnimationUtilsCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x00ce, code lost:
+        return r6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static Interpolator createInterpolatorFromXml(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+        InterceptResult invokeLLLL;
         Interpolator accelerateInterpolator;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65537, null, context, resources, theme, xmlPullParser)) != null) {
+            return (Interpolator) invokeLLLL.objValue;
+        }
         int depth = xmlPullParser.getDepth();
         Interpolator interpolator = null;
         while (true) {
@@ -75,41 +102,46 @@ public class AnimationUtilsCompat {
     }
 
     public static Interpolator loadInterpolator(Context context, int i2) throws Resources.NotFoundException {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return AnimationUtils.loadInterpolator(context, i2);
-        }
-        XmlResourceParser xmlResourceParser = null;
-        try {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return AnimationUtils.loadInterpolator(context, i2);
+            }
+            XmlResourceParser xmlResourceParser = null;
             try {
-                if (i2 == 17563663) {
-                    return new FastOutLinearInInterpolator();
+                try {
+                    if (i2 == 17563663) {
+                        return new FastOutLinearInInterpolator();
+                    }
+                    if (i2 == 17563661) {
+                        return new FastOutSlowInInterpolator();
+                    }
+                    if (i2 == 17563662) {
+                        return new LinearOutSlowInInterpolator();
+                    }
+                    XmlResourceParser animation = context.getResources().getAnimation(i2);
+                    Interpolator createInterpolatorFromXml = createInterpolatorFromXml(context, context.getResources(), context.getTheme(), animation);
+                    if (animation != null) {
+                        animation.close();
+                    }
+                    return createInterpolatorFromXml;
+                } catch (IOException e2) {
+                    Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
+                    notFoundException.initCause(e2);
+                    throw notFoundException;
+                } catch (XmlPullParserException e3) {
+                    Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
+                    notFoundException2.initCause(e3);
+                    throw notFoundException2;
                 }
-                if (i2 == 17563661) {
-                    return new FastOutSlowInInterpolator();
+            } catch (Throwable th) {
+                if (0 != 0) {
+                    xmlResourceParser.close();
                 }
-                if (i2 == 17563662) {
-                    return new LinearOutSlowInInterpolator();
-                }
-                XmlResourceParser animation = context.getResources().getAnimation(i2);
-                Interpolator createInterpolatorFromXml = createInterpolatorFromXml(context, context.getResources(), context.getTheme(), animation);
-                if (animation != null) {
-                    animation.close();
-                }
-                return createInterpolatorFromXml;
-            } catch (IOException e2) {
-                Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
-                notFoundException.initCause(e2);
-                throw notFoundException;
-            } catch (XmlPullParserException e3) {
-                Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
-                notFoundException2.initCause(e3);
-                throw notFoundException2;
+                throw th;
             }
-        } catch (Throwable th) {
-            if (0 != 0) {
-                xmlResourceParser.close();
-            }
-            throw th;
         }
+        return (Interpolator) invokeLI.objValue;
     }
 }

@@ -4,18 +4,40 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class n implements TextWatcher {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23054a;
+    public final /* synthetic */ FeedbackEditActivity f23570a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f23055b = 0;
+    public long f23571b;
 
     public n(FeedbackEditActivity feedbackEditActivity) {
-        this.f23054a = feedbackEditActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackEditActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23570a = feedbackEditActivity;
+        this.f23571b = 0L;
     }
 
     @Override // android.text.TextWatcher
@@ -29,45 +51,54 @@ public final class n implements TextWatcher {
         String str;
         EditText editText6;
         EditText editText7;
-        z = this.f23054a.x;
-        if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23054a);
-            dVar.b(dVar.b() + 1);
-            this.f23054a.x = true;
-        }
-        try {
-            editText = this.f23054a.n;
-            if (editText != null) {
-                editText4 = this.f23054a.n;
-                if (editText4.getText().toString().length() > 30) {
-                    if (System.currentTimeMillis() - this.f23055b > 3000) {
-                        Toast.makeText(this.f23054a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 0).show();
-                        this.f23055b = System.currentTimeMillis();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+            z = this.f23570a.x;
+            if (!z) {
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23570a);
+                dVar.b(dVar.b() + 1);
+                this.f23570a.x = true;
+            }
+            try {
+                editText = this.f23570a.n;
+                if (editText != null) {
+                    editText4 = this.f23570a.n;
+                    if (editText4.getText().toString().length() > 30) {
+                        if (System.currentTimeMillis() - this.f23571b > 3000) {
+                            Toast.makeText(this.f23570a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 0).show();
+                            this.f23571b = System.currentTimeMillis();
+                        }
+                        editText5 = this.f23570a.n;
+                        str = this.f23570a.R;
+                        editText5.setText(str);
+                        editText6 = this.f23570a.m;
+                        editText7 = this.f23570a.n;
+                        FeedbackEditActivity.b(editText6, editText7.getText().length());
                     }
-                    editText5 = this.f23054a.n;
-                    str = this.f23054a.R;
-                    editText5.setText(str);
-                    editText6 = this.f23054a.m;
-                    editText7 = this.f23054a.n;
-                    FeedbackEditActivity.b(editText6, editText7.getText().length());
                 }
+                editText2 = this.f23570a.n;
+                if (editText2 != null) {
+                    FeedbackEditActivity feedbackEditActivity = this.f23570a;
+                    editText3 = this.f23570a.n;
+                    feedbackEditActivity.R = editText3.getText().toString().trim();
+                }
+            } catch (Exception e2) {
+                com.baidu.ufosdk.f.c.a("联系方式输入有误", e2);
             }
-            editText2 = this.f23054a.n;
-            if (editText2 != null) {
-                FeedbackEditActivity feedbackEditActivity = this.f23054a;
-                editText3 = this.f23054a.n;
-                feedbackEditActivity.R = editText3.getText().toString().trim();
-            }
-        } catch (Exception e2) {
-            com.baidu.ufosdk.f.c.a("联系方式输入有误", e2);
         }
     }
 
     @Override // android.text.TextWatcher
     public final void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+        }
     }
 
     @Override // android.text.TextWatcher
     public final void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+        }
     }
 }

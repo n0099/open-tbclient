@@ -1,5 +1,11 @@
 package com.google.gson.internal.bind;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.FieldNamingStrategy;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -25,77 +31,119 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
-    public final ReflectionAccessor accessor = ReflectionAccessor.getInstance();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ReflectionAccessor accessor;
     public final ConstructorConstructor constructorConstructor;
     public final Excluder excluder;
     public final FieldNamingStrategy fieldNamingPolicy;
     public final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Map<String, BoundField> boundFields;
         public final ObjectConstructor<T> constructor;
 
         public Adapter(ObjectConstructor<T> objectConstructor, Map<String, BoundField> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {objectConstructor, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.constructor = objectConstructor;
             this.boundFields = map;
         }
 
         @Override // com.google.gson.TypeAdapter
         public T read(JsonReader jsonReader) throws IOException {
-            if (jsonReader.peek() == JsonToken.NULL) {
-                jsonReader.nextNull();
-                return null;
-            }
-            T construct = this.constructor.construct();
-            try {
-                jsonReader.beginObject();
-                while (jsonReader.hasNext()) {
-                    BoundField boundField = this.boundFields.get(jsonReader.nextName());
-                    if (boundField != null && boundField.deserialized) {
-                        boundField.read(jsonReader, construct);
-                    }
-                    jsonReader.skipValue();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonReader)) == null) {
+                if (jsonReader.peek() == JsonToken.NULL) {
+                    jsonReader.nextNull();
+                    return null;
                 }
-                jsonReader.endObject();
-                return construct;
-            } catch (IllegalAccessException e2) {
-                throw new AssertionError(e2);
-            } catch (IllegalStateException e3) {
-                throw new JsonSyntaxException(e3);
+                T construct = this.constructor.construct();
+                try {
+                    jsonReader.beginObject();
+                    while (jsonReader.hasNext()) {
+                        BoundField boundField = this.boundFields.get(jsonReader.nextName());
+                        if (boundField != null && boundField.deserialized) {
+                            boundField.read(jsonReader, construct);
+                        }
+                        jsonReader.skipValue();
+                    }
+                    jsonReader.endObject();
+                    return construct;
+                } catch (IllegalAccessException e2) {
+                    throw new AssertionError(e2);
+                } catch (IllegalStateException e3) {
+                    throw new JsonSyntaxException(e3);
+                }
             }
+            return (T) invokeL.objValue;
         }
 
         @Override // com.google.gson.TypeAdapter
         public void write(JsonWriter jsonWriter, T t) throws IOException {
-            if (t == null) {
-                jsonWriter.nullValue();
-                return;
-            }
-            jsonWriter.beginObject();
-            try {
-                for (BoundField boundField : this.boundFields.values()) {
-                    if (boundField.writeField(t)) {
-                        jsonWriter.name(boundField.name);
-                        boundField.write(jsonWriter, t);
-                    }
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonWriter, t) == null) {
+                if (t == null) {
+                    jsonWriter.nullValue();
+                    return;
                 }
-                jsonWriter.endObject();
-            } catch (IllegalAccessException e2) {
-                throw new AssertionError(e2);
+                jsonWriter.beginObject();
+                try {
+                    for (BoundField boundField : this.boundFields.values()) {
+                        if (boundField.writeField(t)) {
+                            jsonWriter.name(boundField.name);
+                            boundField.write(jsonWriter, t);
+                        }
+                    }
+                    jsonWriter.endObject();
+                } catch (IllegalAccessException e2) {
+                    throw new AssertionError(e2);
+                }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class BoundField {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final boolean deserialized;
         public final String name;
         public final boolean serialized;
 
         public BoundField(String str, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.name = str;
             this.serialized = z;
             this.deserialized = z2;
@@ -109,128 +157,212 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     public ReflectiveTypeAdapterFactory(ConstructorConstructor constructorConstructor, FieldNamingStrategy fieldNamingStrategy, Excluder excluder, JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {constructorConstructor, fieldNamingStrategy, excluder, jsonAdapterAnnotationTypeAdapterFactory};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.accessor = ReflectionAccessor.getInstance();
         this.constructorConstructor = constructorConstructor;
         this.fieldNamingPolicy = fieldNamingStrategy;
         this.excluder = excluder;
         this.jsonAdapterFactory = jsonAdapterAnnotationTypeAdapterFactory;
     }
 
-    private BoundField createBoundField(final Gson gson, final Field field, String str, final TypeToken<?> typeToken, boolean z, boolean z2) {
-        final boolean isPrimitive = Primitives.isPrimitive(typeToken.getRawType());
-        JsonAdapter jsonAdapter = (JsonAdapter) field.getAnnotation(JsonAdapter.class);
-        TypeAdapter<?> typeAdapter = jsonAdapter != null ? this.jsonAdapterFactory.getTypeAdapter(this.constructorConstructor, gson, typeToken, jsonAdapter) : null;
-        final boolean z3 = typeAdapter != null;
-        if (typeAdapter == null) {
-            typeAdapter = gson.getAdapter(typeToken);
-        }
-        final TypeAdapter<?> typeAdapter2 = typeAdapter;
-        return new BoundField(str, z, z2) { // from class: com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.1
-            @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.BoundField
-            public void read(JsonReader jsonReader, Object obj) throws IOException, IllegalAccessException {
-                Object read = typeAdapter2.read(jsonReader);
-                if (read == null && isPrimitive) {
-                    return;
+    private BoundField createBoundField(Gson gson, Field field, String str, TypeToken<?> typeToken, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{gson, field, str, typeToken, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isPrimitive = Primitives.isPrimitive(typeToken.getRawType());
+            JsonAdapter jsonAdapter = (JsonAdapter) field.getAnnotation(JsonAdapter.class);
+            TypeAdapter<?> typeAdapter = jsonAdapter != null ? this.jsonAdapterFactory.getTypeAdapter(this.constructorConstructor, gson, typeToken, jsonAdapter) : null;
+            boolean z3 = typeAdapter != null;
+            if (typeAdapter == null) {
+                typeAdapter = gson.getAdapter(typeToken);
+            }
+            return new BoundField(this, str, z, z2, field, z3, typeAdapter, gson, typeToken, isPrimitive) { // from class: com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ReflectiveTypeAdapterFactory this$0;
+                public final /* synthetic */ Gson val$context;
+                public final /* synthetic */ Field val$field;
+                public final /* synthetic */ TypeToken val$fieldType;
+                public final /* synthetic */ boolean val$isPrimitive;
+                public final /* synthetic */ boolean val$jsonAdapterPresent;
+                public final /* synthetic */ TypeAdapter val$typeAdapter;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(str, z, z2);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r3;
+                        Object[] objArr = {this, str, Boolean.valueOf(z), Boolean.valueOf(z2), field, Boolean.valueOf(z3), typeAdapter, gson, typeToken, Boolean.valueOf(isPrimitive)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$field = field;
+                    this.val$jsonAdapterPresent = z3;
+                    this.val$typeAdapter = typeAdapter;
+                    this.val$context = gson;
+                    this.val$fieldType = typeToken;
+                    this.val$isPrimitive = isPrimitive;
                 }
-                field.set(obj, read);
-            }
 
-            @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.BoundField
-            public void write(JsonWriter jsonWriter, Object obj) throws IOException, IllegalAccessException {
-                (z3 ? typeAdapter2 : new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, typeToken.getType())).write(jsonWriter, field.get(obj));
-            }
+                @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.BoundField
+                public void read(JsonReader jsonReader, Object obj) throws IOException, IllegalAccessException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, jsonReader, obj) == null) {
+                        Object read = this.val$typeAdapter.read(jsonReader);
+                        if (read == null && this.val$isPrimitive) {
+                            return;
+                        }
+                        this.val$field.set(obj, read);
+                    }
+                }
 
-            @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.BoundField
-            public boolean writeField(Object obj) throws IOException, IllegalAccessException {
-                return this.serialized && field.get(obj) != obj;
-            }
-        };
+                @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.BoundField
+                public void write(JsonWriter jsonWriter, Object obj) throws IOException, IllegalAccessException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonWriter, obj) == null) {
+                        (this.val$jsonAdapterPresent ? this.val$typeAdapter : new TypeAdapterRuntimeTypeWrapper(this.val$context, this.val$typeAdapter, this.val$fieldType.getType())).write(jsonWriter, this.val$field.get(obj));
+                    }
+                }
+
+                @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.BoundField
+                public boolean writeField(Object obj) throws IOException, IllegalAccessException {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.serialized && this.val$field.get(obj) != obj : invokeL.booleanValue;
+                }
+            };
+        }
+        return (BoundField) invokeCommon.objValue;
     }
 
     private Map<String, BoundField> getBoundFields(Gson gson, TypeToken<?> typeToken, Class<?> cls) {
+        InterceptResult invokeLLL;
         BoundField boundField;
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (cls.isInterface()) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, gson, typeToken, cls)) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            if (cls.isInterface()) {
+                return linkedHashMap;
+            }
+            Type type = typeToken.getType();
+            TypeToken<?> typeToken2 = typeToken;
+            Class<?> cls2 = cls;
+            while (cls2 != Object.class) {
+                Field[] declaredFields = cls2.getDeclaredFields();
+                int length = declaredFields.length;
+                boolean z = false;
+                int i2 = 0;
+                while (i2 < length) {
+                    Field field = declaredFields[i2];
+                    boolean excludeField = excludeField(field, true);
+                    boolean excludeField2 = excludeField(field, z);
+                    if (excludeField || excludeField2) {
+                        this.accessor.makeAccessible(field);
+                        Type resolve = C$Gson$Types.resolve(typeToken2.getType(), cls2, field.getGenericType());
+                        List<String> fieldNames = getFieldNames(field);
+                        int size = fieldNames.size();
+                        BoundField boundField2 = null;
+                        int i3 = 0;
+                        while (i3 < size) {
+                            String str = fieldNames.get(i3);
+                            boolean z2 = i3 != 0 ? false : excludeField;
+                            int i4 = i3;
+                            BoundField boundField3 = boundField2;
+                            int i5 = size;
+                            List<String> list = fieldNames;
+                            Field field2 = field;
+                            boundField2 = boundField3 == null ? (BoundField) linkedHashMap.put(str, createBoundField(gson, field, str, TypeToken.get(resolve), z2, excludeField2)) : boundField3;
+                            i3 = i4 + 1;
+                            excludeField = z2;
+                            fieldNames = list;
+                            size = i5;
+                            field = field2;
+                        }
+                        if (boundField2 != null) {
+                            throw new IllegalArgumentException(type + " declares multiple JSON fields named " + boundField.name);
+                        }
+                    }
+                    i2++;
+                    z = false;
+                }
+                typeToken2 = TypeToken.get(C$Gson$Types.resolve(typeToken2.getType(), cls2, cls2.getGenericSuperclass()));
+                cls2 = typeToken2.getRawType();
+            }
             return linkedHashMap;
         }
-        Type type = typeToken.getType();
-        TypeToken<?> typeToken2 = typeToken;
-        Class<?> cls2 = cls;
-        while (cls2 != Object.class) {
-            Field[] declaredFields = cls2.getDeclaredFields();
-            int length = declaredFields.length;
-            boolean z = false;
-            int i2 = 0;
-            while (i2 < length) {
-                Field field = declaredFields[i2];
-                boolean excludeField = excludeField(field, true);
-                boolean excludeField2 = excludeField(field, z);
-                if (excludeField || excludeField2) {
-                    this.accessor.makeAccessible(field);
-                    Type resolve = C$Gson$Types.resolve(typeToken2.getType(), cls2, field.getGenericType());
-                    List<String> fieldNames = getFieldNames(field);
-                    int size = fieldNames.size();
-                    BoundField boundField2 = null;
-                    int i3 = 0;
-                    while (i3 < size) {
-                        String str = fieldNames.get(i3);
-                        boolean z2 = i3 != 0 ? false : excludeField;
-                        int i4 = i3;
-                        BoundField boundField3 = boundField2;
-                        int i5 = size;
-                        List<String> list = fieldNames;
-                        Field field2 = field;
-                        boundField2 = boundField3 == null ? (BoundField) linkedHashMap.put(str, createBoundField(gson, field, str, TypeToken.get(resolve), z2, excludeField2)) : boundField3;
-                        i3 = i4 + 1;
-                        excludeField = z2;
-                        fieldNames = list;
-                        size = i5;
-                        field = field2;
-                    }
-                    if (boundField2 != null) {
-                        throw new IllegalArgumentException(type + " declares multiple JSON fields named " + boundField.name);
-                    }
-                }
-                i2++;
-                z = false;
-            }
-            typeToken2 = TypeToken.get(C$Gson$Types.resolve(typeToken2.getType(), cls2, cls2.getGenericSuperclass()));
-            cls2 = typeToken2.getRawType();
-        }
-        return linkedHashMap;
+        return (Map) invokeLLL.objValue;
     }
 
     private List<String> getFieldNames(Field field) {
-        SerializedName serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
-        if (serializedName == null) {
-            return Collections.singletonList(this.fieldNamingPolicy.translateName(field));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, field)) == null) {
+            SerializedName serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
+            if (serializedName == null) {
+                return Collections.singletonList(this.fieldNamingPolicy.translateName(field));
+            }
+            String value = serializedName.value();
+            String[] alternate = serializedName.alternate();
+            if (alternate.length == 0) {
+                return Collections.singletonList(value);
+            }
+            ArrayList arrayList = new ArrayList(alternate.length + 1);
+            arrayList.add(value);
+            for (String str : alternate) {
+                arrayList.add(str);
+            }
+            return arrayList;
         }
-        String value = serializedName.value();
-        String[] alternate = serializedName.alternate();
-        if (alternate.length == 0) {
-            return Collections.singletonList(value);
-        }
-        ArrayList arrayList = new ArrayList(alternate.length + 1);
-        arrayList.add(value);
-        for (String str : alternate) {
-            arrayList.add(str);
-        }
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
-        Class<? super T> rawType = typeToken.getRawType();
-        if (Object.class.isAssignableFrom(rawType)) {
-            return new Adapter(this.constructorConstructor.get(typeToken), getBoundFields(gson, typeToken, rawType));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gson, typeToken)) == null) {
+            Class<? super T> rawType = typeToken.getRawType();
+            if (Object.class.isAssignableFrom(rawType)) {
+                return new Adapter(this.constructorConstructor.get(typeToken), getBoundFields(gson, typeToken, rawType));
+            }
+            return null;
         }
-        return null;
+        return (TypeAdapter) invokeLL.objValue;
     }
 
     public boolean excludeField(Field field, boolean z) {
-        return excludeField(field, z, this.excluder);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, field, z)) == null) ? excludeField(field, z, this.excluder) : invokeLZ.booleanValue;
     }
 
     public static boolean excludeField(Field field, boolean z, Excluder excluder) {
-        return (excluder.excludeClass(field.getType(), z) || excluder.excludeField(field, z)) ? false : true;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{field, Boolean.valueOf(z), excluder})) == null) ? (excluder.excludeClass(field.getType(), z) || excluder.excludeField(field, z)) ? false : true : invokeCommon.booleanValue;
     }
 }

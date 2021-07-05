@@ -1,69 +1,107 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.a.o0.r0.s1.a.a.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.u0.r1.a.a.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LabelDataList extends ArrayList<a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public LabelDataList() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public String getLabelName(int i2) {
-        Iterator<a> it = iterator();
-        while (it.hasNext()) {
-            a next = it.next();
-            if (next != null && next.f63412a == i2) {
-                return next.f63413b;
-            }
-        }
-        return null;
-    }
-
-    public int getSelectedLabelId() {
-        Iterator<a> it = iterator();
-        while (it.hasNext()) {
-            a next = it.next();
-            if (next != null && next.f63414c) {
-                return next.f63412a;
-            }
-        }
-        a aVar = (a) ListUtils.getItem(this, 0);
-        if (aVar != null) {
-            aVar.f63414c = true;
-            return aVar.f63412a;
-        }
-        return 0;
-    }
-
-    public void parseProtu(List<ForumSubLabel> list) {
-        clear();
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        for (ForumSubLabel forumSubLabel : list) {
-            if (forumSubLabel != null) {
-                a aVar = new a();
-                aVar.f63412a = forumSubLabel.id.intValue();
-                aVar.f63413b = forumSubLabel.sub_label_name;
-                add(aVar);
-            }
-        }
-        if (isEmpty()) {
-            return;
-        }
-        get(0).f63414c = true;
-    }
-
-    public void setSelectedIndex(int i2) {
-        a aVar = (a) ListUtils.getItem(this, i2);
-        if (aVar != null) {
-            aVar.f63414c = true;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next != aVar) {
-                    next.f63414c = false;
+                if (next != null && next.f66899a == i2) {
+                    return next.f66900b;
                 }
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public int getSelectedLabelId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Iterator<a> it = iterator();
+            while (it.hasNext()) {
+                a next = it.next();
+                if (next != null && next.f66901c) {
+                    return next.f66899a;
+                }
+            }
+            a aVar = (a) ListUtils.getItem(this, 0);
+            if (aVar != null) {
+                aVar.f66901c = true;
+                return aVar.f66899a;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void parseProtu(List<ForumSubLabel> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            clear();
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (ForumSubLabel forumSubLabel : list) {
+                if (forumSubLabel != null) {
+                    a aVar = new a();
+                    aVar.f66899a = forumSubLabel.id.intValue();
+                    aVar.f66900b = forumSubLabel.sub_label_name;
+                    add(aVar);
+                }
+            }
+            if (isEmpty()) {
+                return;
+            }
+            get(0).f66901c = true;
+        }
+    }
+
+    public void setSelectedIndex(int i2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = (a) ListUtils.getItem(this, i2)) == null) {
+            return;
+        }
+        aVar.f66901c = true;
+        Iterator<a> it = iterator();
+        while (it.hasNext()) {
+            a next = it.next();
+            if (next != null && next != aVar) {
+                next.f66901c = false;
             }
         }
     }

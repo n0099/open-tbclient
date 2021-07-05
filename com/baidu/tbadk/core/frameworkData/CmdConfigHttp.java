@@ -1,6 +1,12 @@
 package com.baidu.tbadk.core.frameworkData;
-/* loaded from: classes3.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class CmdConfigHttp {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int AGREE_ME_HTTP_CMD = 1002211;
     public static final int BAWU_TEAM_INFO_CMD = 1001705;
     public static final int BG_LOGIN_HTTP_CMD = 1001101;
@@ -90,6 +96,7 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_COMMON_TAB = 1003418;
     public static final int CMD_FRS_DYNAMIC = 1003398;
     public static final int CMD_FRS_GAME_STRATEGY = 1003362;
+    public static final int CMD_FRS_ITEM_TAB = 1003495;
     public static final int CMD_FRS_LIVE_HORSE_RACE_LIST = 1003462;
     public static final int CMD_FRS_MOVE_AREA = 1003467;
     public static final int CMD_FRS_RECOMMEND = 1003465;
@@ -97,6 +104,7 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_TALK_BALL = 1003403;
     public static final int CMD_FRS_VIDEO_TOPIC = 1003405;
     public static final int CMD_FUN_AD_RECORD = 1003494;
+    public static final int CMD_GAME_ITEM_ORDER = 1003496;
     public static final int CMD_GAME_VIDEO = 1003443;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BIGDAY_INFO = 1003408;
@@ -142,6 +150,8 @@ public class CmdConfigHttp {
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
     public static final int CMD_GET_PUSH_DIALOG_DATA = 1003412;
     public static final int CMD_GET_PUSH_DIALOG_TID = 1003415;
+    public static final int CMD_GET_QM_FILTERS = 1003503;
+    public static final int CMD_GET_QM_STICKERS = 1003502;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_RECOMMEND_GOD_LIST = 1003475;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
@@ -169,7 +179,7 @@ public class CmdConfigHttp {
     public static final int CMD_GUIDE_INTERESTED_FORUM = 1003457;
     public static final int CMD_GUIDE_INTEREST_COMMIT = 1003458;
     public static final int CMD_HISTORY_SWAN = 1003434;
-    public static final int CMD_HOME_CHANNEL_TAB_LIST = 1003495;
+    public static final int CMD_HOME_CHANNEL_TAB_LIST = 1003497;
     public static final int CMD_HOME_TAB_ACTIVITY_LIST = 1003461;
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
@@ -184,7 +194,8 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
-    public static final int CMD_HTTP_VIDEO_CHANNEL_FEED = 1003496;
+    public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;
+    public static final int CMD_HTTP_VIDEO_CHANNEL_FEED = 1003498;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
     public static final int CMD_LCS_STATISTICS = 1003422;
     public static final int CMD_LOW_FLOWS_PAGE = 1003486;
@@ -214,6 +225,7 @@ public class CmdConfigHttp {
     public static final int CMD_PERSON_POLYMERIC = 1003181;
     public static final int CMD_PLAY_DURATION_STATISTICS = 1003359;
     public static final int CMD_POST_SEARCH = 1003016;
+    public static final int CMD_POST_VIDEO_MARK_RED_ICON = 1003500;
     public static final int CMD_PROFESSION_PERMISSION = 1003427;
     public static final int CMD_RECOMMEND_FORUM = 1003428;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
@@ -287,6 +299,7 @@ public class CmdConfigHttp {
     public static final int CMD_VIDEO_PASTER_AD_REQUEST = 1003431;
     public static final int CMD_VIDEO_SUG_MUSIC = 1003366;
     public static final int CMD_VIDEO_TAB = 1003450;
+    public static final int CMD_VIDEO_TAB_RED_ICON = 1003499;
     public static final int CMD_VIDEO_TEXT_UEG = 1003356;
     public static final int CMD_VOTE_EMOTION = 1003358;
     public static final int CMD_VOTE_THREAD_PULISH = 1003440;
@@ -343,4 +356,19 @@ public class CmdConfigHttp {
     public static final int SubPb_HTTP_CMD = 1002100;
     public static final int USER_POST_HTTP_CMD = 1001503;
     public static final int WEBVIEW_CACHE_INFO = 1003365;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public CmdConfigHttp() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

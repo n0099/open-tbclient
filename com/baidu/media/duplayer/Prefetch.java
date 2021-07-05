@@ -6,45 +6,91 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.remote.PrefetchOptions;
 import com.baidu.media.playerconfig.PlayerConfigManagerInternal;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Prefetch {
+    public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "filecache-Prefetch";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static void add(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4, int i5, int i6, int i7, int i8, PrefetchOptions prefetchOptions) {
-        String str5;
-        int i9 = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-        if (i4 >= 30720) {
-            i9 = i4 > 6291456 ? TbConfig.THREAD_GIF_MIN_USE_MEMORY : i4;
-        }
-        if (str == null || str.length() <= 0) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2045635328, "Lcom/baidu/media/duplayer/Prefetch;")) == null) {
             return;
         }
-        String j = Utils.j();
-        if (j == null) {
-            str5 = "";
-        } else {
-            str5 = "http://" + j;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        CyberLog.i(TAG, "adjustPrefetchPolicy call before url : " + str + " prefetchSize : " + i9);
-        PlayerConfigManagerInternal.b adjustPrefetchPolicy = adjustPrefetchPolicy(str, i9, prefetchOptions);
-        CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f8071b + " info.adjustSize : " + adjustPrefetchPolicy.f8070a);
-        if (Utils.a() > Utils.f8038b) {
-            nativeAdd(adjustPrefetchPolicy.f8071b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f8070a, str4, i5, i6, i7, i8);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(2045635328, "Lcom/baidu/media/duplayer/Prefetch;");
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0079 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:39:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
+    public Prefetch() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void add(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4, int i5, int i6, int i7, int i8, PrefetchOptions prefetchOptions) {
+        String str5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), httpDNS, str4, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), prefetchOptions}) == null) {
+            int i9 = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
+            if (i4 >= 30720) {
+                i9 = i4 > 6291456 ? TbConfig.THREAD_GIF_MIN_USE_MEMORY : i4;
+            }
+            if (str == null || str.length() <= 0) {
+                return;
+            }
+            String j = Utils.j();
+            if (j == null) {
+                str5 = "";
+            } else {
+                str5 = "http://" + j;
+            }
+            CyberLog.i(TAG, "adjustPrefetchPolicy call before url : " + str + " prefetchSize : " + i9);
+            PlayerConfigManagerInternal.b adjustPrefetchPolicy = adjustPrefetchPolicy(str, i9, prefetchOptions);
+            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f8101b + " info.adjustSize : " + adjustPrefetchPolicy.f8100a);
+            if (Utils.a() > Utils.f8068b) {
+                nativeAdd(adjustPrefetchPolicy.f8101b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f8100a, str4, i5, i6, i7, i8);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:27:0x007d A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:45:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static PlayerConfigManagerInternal.b adjustPrefetchPolicy(String str, int i2, PrefetchOptions prefetchOptions) {
+        InterceptResult invokeLIL;
         int i3;
         Map<String, String> options;
         int i4;
         String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(65539, null, str, i2, prefetchOptions)) != null) {
+            return (PlayerConfigManagerInternal.b) invokeLIL.objValue;
+        }
         PlayerConfigManagerInternal.b bVar = new PlayerConfigManagerInternal.b(str, i2);
         CyberLog.i(TAG, "adjustPrefetchPolicy call");
         int i5 = 0;
@@ -91,7 +137,9 @@ public class Prefetch {
     }
 
     public static boolean hasCacheFile(String str) {
-        return nativeHasCacheFile(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? nativeHasCacheFile(str) : invokeL.booleanValue;
     }
 
     public static native void nativeAdd(String str, String str2, String str3, String str4, int i2, int i3, int i4, String str5, int i5, int i6, int i7, int i8);
@@ -101,6 +149,9 @@ public class Prefetch {
     public static native void nativeStopPrefetch(String str);
 
     public static void stopPrefetch(String str) {
-        nativeStopPrefetch(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            nativeStopPrefetch(str);
+        }
     }
 }

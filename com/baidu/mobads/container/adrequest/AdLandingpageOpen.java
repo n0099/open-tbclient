@@ -12,13 +12,21 @@ import com.baidu.mobads.container.util.AppUtils;
 import com.baidu.mobads.container.util.DeviceUtils;
 import com.baidu.mobads.container.util.IReflectionInfo;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class AdLandingpageOpen {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
     public static final String EXTRA_COMMAND_EXTRA_INFO = "EXTRA_DATA_STRING_COM";
     public static final String EXTRA_DATA = "EXTRA_DATA";
     public static final String EXTRA_LANDINGPAGE_EXTRA_INFO = "EXTRA_DATA_STRING";
     public static final String EXTRA_LP_THEME = "theme";
+    public transient /* synthetic */ FieldHolder $fh;
+    public String lpMurl;
+    public String lpStyle;
     public Activity mActivity;
     public XAdInstanceInfoExt mAdInstanceInfo;
     public String mAppsec;
@@ -26,11 +34,25 @@ public class AdLandingpageOpen {
     public Context mCxt;
     public String mProd;
     public String mUrl;
-    public String lpStyle = "";
-    public String lpMurl = "";
 
     public AdLandingpageOpen(XAdContainerContext xAdContainerContext, String str, XAdInstanceInfoExt xAdInstanceInfoExt, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xAdContainerContext, str, xAdInstanceInfoExt, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mUrl = null;
+        this.lpStyle = "";
+        this.lpMurl = "";
         this.mUrl = str2;
         if (xAdContainerContext != null) {
             this.mCxt = xAdContainerContext.getAppContext();
@@ -43,34 +65,37 @@ public class AdLandingpageOpen {
     }
 
     public void execute() {
-        try {
-            XAdRemoteLandingPageExtraInfo xAdRemoteLandingPageExtraInfo = new XAdRemoteLandingPageExtraInfo(this.mProd, this.mAdInstanceInfo);
-            xAdRemoteLandingPageExtraInfo.sn = DeviceUtils.getInstance().getSn(this.mCxt);
-            xAdRemoteLandingPageExtraInfo.mIntTesting4LM = 999;
-            xAdRemoteLandingPageExtraInfo.mStringTesting4LM = "this is the test string";
-            xAdRemoteLandingPageExtraInfo.url = this.mUrl;
-            xAdRemoteLandingPageExtraInfo.e75 = 1;
-            xAdRemoteLandingPageExtraInfo.from = 0;
-            xAdRemoteLandingPageExtraInfo.adid = this.mAdInstanceInfo.getAdId();
-            xAdRemoteLandingPageExtraInfo.qk = this.mAdInstanceInfo.getQueryKey();
-            xAdRemoteLandingPageExtraInfo.packageNameOfPubliser = this.mCxt.getPackageName();
-            xAdRemoteLandingPageExtraInfo.appsid = this.mAppsid;
-            xAdRemoteLandingPageExtraInfo.appsec = this.mAppsec;
-            xAdRemoteLandingPageExtraInfo.title = this.mAdInstanceInfo.getTitle();
-            xAdRemoteLandingPageExtraInfo.lpStyle = this.lpStyle;
-            xAdRemoteLandingPageExtraInfo.lpMurl = this.lpMurl;
-            xAdRemoteLandingPageExtraInfo.mLpMultiProcess = "" + AppConfigImp.getInstance().isLpMultiProcess();
-            Intent intent = new Intent(this.mCxt, AppUtils.getActivityClass());
-            if (this.mActivity != null) {
-                xAdRemoteLandingPageExtraInfo.isFullScreen = ActivityUtils.isFullScreen(this.mActivity).booleanValue();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                XAdRemoteLandingPageExtraInfo xAdRemoteLandingPageExtraInfo = new XAdRemoteLandingPageExtraInfo(this.mProd, this.mAdInstanceInfo);
+                xAdRemoteLandingPageExtraInfo.sn = DeviceUtils.getInstance().getSn(this.mCxt);
+                xAdRemoteLandingPageExtraInfo.mIntTesting4LM = 999;
+                xAdRemoteLandingPageExtraInfo.mStringTesting4LM = "this is the test string";
+                xAdRemoteLandingPageExtraInfo.url = this.mUrl;
+                xAdRemoteLandingPageExtraInfo.e75 = 1;
+                xAdRemoteLandingPageExtraInfo.from = 0;
+                xAdRemoteLandingPageExtraInfo.adid = this.mAdInstanceInfo.getAdId();
+                xAdRemoteLandingPageExtraInfo.qk = this.mAdInstanceInfo.getQueryKey();
+                xAdRemoteLandingPageExtraInfo.packageNameOfPubliser = this.mCxt.getPackageName();
+                xAdRemoteLandingPageExtraInfo.appsid = this.mAppsid;
+                xAdRemoteLandingPageExtraInfo.appsec = this.mAppsec;
+                xAdRemoteLandingPageExtraInfo.title = this.mAdInstanceInfo.getTitle();
+                xAdRemoteLandingPageExtraInfo.lpStyle = this.lpStyle;
+                xAdRemoteLandingPageExtraInfo.lpMurl = this.lpMurl;
+                xAdRemoteLandingPageExtraInfo.mLpMultiProcess = "" + AppConfigImp.getInstance().isLpMultiProcess();
+                Intent intent = new Intent(this.mCxt, AppUtils.getActivityClass());
+                if (this.mActivity != null) {
+                    xAdRemoteLandingPageExtraInfo.isFullScreen = ActivityUtils.isFullScreen(this.mActivity).booleanValue();
+                }
+                intent.putExtra("EXTRA_DATA", xAdRemoteLandingPageExtraInfo);
+                intent.putExtra("activityImplName", IReflectionInfo.APP_LP_ACTIVITY);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(536870912);
+                this.mCxt.startActivity(intent);
+            } catch (Exception e2) {
+                RemoteXAdLogger.getInstance().e(e2);
             }
-            intent.putExtra("EXTRA_DATA", xAdRemoteLandingPageExtraInfo);
-            intent.putExtra("activityImplName", IReflectionInfo.APP_LP_ACTIVITY);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            intent.addFlags(536870912);
-            this.mCxt.startActivity(intent);
-        } catch (Exception e2) {
-            RemoteXAdLogger.getInstance().e(e2);
         }
     }
 }

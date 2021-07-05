@@ -5,7 +5,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.util.Base64;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,74 +17,103 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static String a() {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) d.d.a.a.a.c().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                String typeName = activeNetworkInfo.getTypeName();
-                return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) d.d.a.a.a.c().getSystemService("connectivity")).getActiveNetworkInfo();
+                if (activeNetworkInfo != null) {
+                    String typeName = activeNetworkInfo.getTypeName();
+                    return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
+                }
+                return "";
+            } catch (Exception unused) {
+                return "";
             }
-            return "";
-        } catch (Exception unused) {
-            return "";
         }
+        return (String) invokeV.objValue;
     }
 
     public static String b(Context context, String str) {
-        if (context == null) {
-            return null;
-        }
-        try {
-            byte[] l = l(context, str);
-            if (l != null) {
-                return new String(l, "utf-8");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context == null) {
+                return null;
             }
-        } catch (Exception unused) {
+            try {
+                byte[] l = l(context, str);
+                if (l != null) {
+                    return new String(l, "utf-8");
+                }
+            } catch (Exception unused) {
+            }
+            return "";
         }
-        return "";
+        return (String) invokeLL.objValue;
     }
 
     public static String c(boolean z, Context context, String str) {
-        if (context == null) {
-            return null;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, str})) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (z) {
+                return n(context, str);
+            }
+            return b(context, str);
         }
-        if (z) {
-            return n(context, str);
-        }
-        return b(context, str);
+        return (String) invokeCommon.objValue;
     }
 
     public static String d(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString);
-            sb.append(str);
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeLLZ.objValue;
     }
 
     public static String e(byte[] bArr, boolean z) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return d(messageDigest.digest(), "", z);
-        } catch (NoSuchAlgorithmException e2) {
-            throw new RuntimeException(e2);
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return d(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e2) {
+                throw new RuntimeException(e2);
+            }
         }
+        return (String) invokeLZ.objValue;
     }
 
     public static void f(Context context, String str, String str2, boolean z) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) || context == null) {
             return;
         }
         FileOutputStream fileOutputStream = null;
@@ -112,7 +145,8 @@ public final class e {
     }
 
     public static void g(boolean z, Context context, String str, String str2, boolean z2) {
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Boolean.valueOf(z), context, str, str2, Boolean.valueOf(z2)}) == null) || context == null) {
             return;
         }
         if (z) {
@@ -123,35 +157,46 @@ public final class e {
     }
 
     public static boolean h(Context context) {
-        NetworkInfo m = m(context);
-        return m != null && m.isConnected();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            NetworkInfo m = m(context);
+            return m != null && m.isConnected();
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean i(Context context, boolean z, String str) {
-        if (context == null) {
-            return false;
-        }
-        if (z) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if ("mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState)) {
-                File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                StringBuilder sb = new StringBuilder();
-                sb.append(externalStorageDirectory);
-                sb.append(File.separator);
-                sb.append("c82c403505338808201aad86f8194734");
-                sb.append(File.separator);
-                sb.append(context.getPackageName());
-                sb.append(File.separator);
-                sb.append(str);
-                return new File(sb.toString()).exists();
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, Boolean.valueOf(z), str})) == null) {
+            if (context == null) {
+                return false;
             }
-            return false;
+            if (z) {
+                String externalStorageState = Environment.getExternalStorageState();
+                if ("mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState)) {
+                    File externalStorageDirectory = Environment.getExternalStorageDirectory();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(externalStorageDirectory);
+                    sb.append(File.separator);
+                    sb.append("c82c403505338808201aad86f8194734");
+                    sb.append(File.separator);
+                    sb.append(context.getPackageName());
+                    sb.append(File.separator);
+                    sb.append(str);
+                    return new File(sb.toString()).exists();
+                }
+                return false;
+            }
+            return context.getFileStreamPath(str).exists();
         }
-        return context.getFileStreamPath(str).exists();
+        return invokeCommon.booleanValue;
     }
 
     public static void j(Context context, String str, String str2, boolean z) {
-        if ("mounted".equals(Environment.getExternalStorageState())) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) && "mounted".equals(Environment.getExternalStorageState())) {
             FileOutputStream fileOutputStream = null;
             try {
                 try {
@@ -210,30 +255,40 @@ public final class e {
     }
 
     public static boolean k(Context context) {
-        NetworkInfo m = m(context);
-        return m != null && m.isConnected() && 1 == m.getType();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            NetworkInfo m = m(context);
+            return m != null && m.isConnected() && 1 == m.getType();
+        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0027, code lost:
-        if (r0 == null) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x002b, code lost:
+        if (r0 == null) goto L21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x002b, code lost:
-        if (r0 == null) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x002f, code lost:
+        if (r0 == null) goto L21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x002d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0031, code lost:
         r1 = r0;
-        r0 = r2;
-        r2 = r1;
+        r0 = r4;
+        r4 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0035, code lost:
-        return r2;
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0039, code lost:
+        return r4;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] l(Context context, String str) {
+        InterceptResult invokeLL;
         byte[] bArr;
         FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65547, null, context, str)) != null) {
+            return (byte[]) invokeLL.objValue;
+        }
         FileInputStream fileInputStream2 = null;
         r0 = null;
         r0 = null;
@@ -284,82 +339,93 @@ public final class e {
     }
 
     public static NetworkInfo m(Context context) {
+        InterceptResult invokeL;
         ConnectivityManager connectivityManager;
-        if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null) {
+                return null;
+            }
+            try {
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (Exception e2) {
+                d.d.a.a.a.e();
+                d.d.a.a.a.onEvent("Exception_On_getActiveNetworkInfo" + e2.toString());
+                return null;
+            }
         }
-        try {
-            return connectivityManager.getActiveNetworkInfo();
-        } catch (Exception e2) {
-            d.d.a.a.a.e();
-            d.d.a.a.a.onEvent("Exception_On_getActiveNetworkInfo" + e2.toString());
-            return null;
-        }
+        return (NetworkInfo) invokeL.objValue;
     }
 
     public static String n(Context context, String str) {
-        String externalStorageState = Environment.getExternalStorageState();
-        if (!"mounted".equals(externalStorageState) && !"mounted_ro".equals(externalStorageState)) {
-            return "";
-        }
-        File externalStorageDirectory = Environment.getExternalStorageDirectory();
-        File file = new File(externalStorageDirectory + File.separator + "c82c403505338808201aad86f8194734" + File.separator + context.getPackageName() + File.separator + str);
-        if (!file.exists()) {
-            return "";
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(file);
-            try {
-                byte[] bArr = new byte[fileInputStream2.available()];
-                fileInputStream2.read(bArr);
-                String str2 = new String(Base64.decode(bArr, 2), "utf-8");
-                try {
-                    fileInputStream2.close();
-                } catch (IOException unused) {
-                }
-                return str2;
-            } catch (FileNotFoundException unused2) {
-                fileInputStream = fileInputStream2;
-                if (fileInputStream == null) {
-                    return "";
-                }
-                try {
-                    fileInputStream.close();
-                    return "";
-                } catch (IOException unused3) {
-                    return "";
-                }
-            } catch (IOException unused4) {
-                fileInputStream = fileInputStream2;
-                if (fileInputStream == null) {
-                    return "";
-                }
-                fileInputStream.close();
-                return "";
-            } catch (IllegalArgumentException unused5) {
-                fileInputStream = fileInputStream2;
-                if (fileInputStream == null) {
-                    return "";
-                }
-                fileInputStream.close();
-                return "";
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
+        InterceptResult invokeLL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if ("mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState)) {
+                File externalStorageDirectory = Environment.getExternalStorageDirectory();
+                File file = new File(externalStorageDirectory + File.separator + "c82c403505338808201aad86f8194734" + File.separator + context.getPackageName() + File.separator + str);
+                if (file.exists()) {
+                    FileInputStream fileInputStream2 = null;
                     try {
-                        fileInputStream.close();
-                    } catch (IOException unused6) {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (FileNotFoundException unused) {
+                    } catch (IOException unused2) {
+                    } catch (IllegalArgumentException unused3) {
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        byte[] bArr = new byte[fileInputStream.available()];
+                        fileInputStream.read(bArr);
+                        String str2 = new String(Base64.decode(bArr, 2), "utf-8");
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                        return str2;
+                    } catch (FileNotFoundException unused5) {
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 == null) {
+                            return "";
+                        }
+                        try {
+                            fileInputStream2.close();
+                            return "";
+                        } catch (IOException unused6) {
+                            return "";
+                        }
+                    } catch (IOException unused7) {
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 == null) {
+                            return "";
+                        }
+                        fileInputStream2.close();
+                        return "";
+                    } catch (IllegalArgumentException unused8) {
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 == null) {
+                            return "";
+                        }
+                        fileInputStream2.close();
+                        return "";
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException unused9) {
+                            }
+                        }
+                        throw th;
                     }
                 }
-                throw th;
+                return "";
             }
-        } catch (FileNotFoundException unused7) {
-        } catch (IOException unused8) {
-        } catch (IllegalArgumentException unused9) {
-        } catch (Throwable th2) {
-            th = th2;
+            return "";
         }
+        return (String) invokeLL.objValue;
     }
 }

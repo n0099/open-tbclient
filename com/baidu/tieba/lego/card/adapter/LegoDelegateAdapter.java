@@ -1,29 +1,73 @@
 package com.baidu.tieba.lego.card.adapter;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import d.a.o0.k1.o.b;
-import d.a.o0.k1.o.g.a;
-import d.a.o0.k1.o.l.e;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.n1.o.b;
+import d.a.s0.n1.o.g.a;
+import d.a.s0.n1.o.l.e;
+/* loaded from: classes5.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId n;
     public TbPageContext<?> o;
     public ICardInfo p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LegoDelegateViewHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LegoDelegateViewHolder(e<?> eVar) {
             super((View) eVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LegoDelegateAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i2) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.o = tbPageContext;
         this.m = i2;
     }
@@ -32,37 +76,55 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     @Override // d.a.c.k.e.a
     /* renamed from: g0 */
     public View I(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.p = iCardInfo;
-        return super.I(i2, view, viewGroup, iCardInfo);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, iCardInfo})) == null) {
+            this.p = iCardInfo;
+            return super.I(i2, view, viewGroup, iCardInfo);
+        }
+        return (View) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
     /* renamed from: h0 */
     public LegoDelegateViewHolder Q(ViewGroup viewGroup) {
-        e a2 = b.h().a(this.o, this.p, this.m);
-        if (a2 == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            e a2 = b.h().a(this.o, this.p, this.m);
+            if (a2 == null) {
+                return null;
+            }
+            a2.e(this.n);
+            return new LegoDelegateViewHolder(a2);
         }
-        a2.c(this.n);
-        return new LegoDelegateViewHolder(a2);
+        return (LegoDelegateViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
     /* renamed from: i0 */
     public View X(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
-        e eVar = (e) legoDelegateViewHolder.a();
-        ICardInfo iCardInfo2 = this.p;
-        if (eVar != null && iCardInfo2 != null) {
-            eVar.setPosition(i2);
-            eVar.i(iCardInfo2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, iCardInfo, legoDelegateViewHolder})) == null) {
+            e eVar = (e) legoDelegateViewHolder.a();
+            ICardInfo iCardInfo2 = this.p;
+            if (eVar != null && iCardInfo2 != null) {
+                eVar.setPosition(i2);
+                eVar.i(iCardInfo2);
+            }
+            return (View) eVar;
         }
-        return (View) eVar;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // d.a.o0.k1.f
+    @Override // d.a.s0.n1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
-        this.n = bdUniqueId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
+            this.n = bdUniqueId;
+        }
     }
 }

@@ -1,37 +1,85 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ad implements Thread.UncaughtExceptionHandler {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ad f8533a = new ad();
+    public static final ad f8606a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f8534b;
+    public Thread.UncaughtExceptionHandler f8607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f8535c;
+    public Context f8608c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581656943, "Lcom/baidu/mobstat/ad;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581656943, "Lcom/baidu/mobstat/ad;");
+                return;
+            }
+        }
+        f8606a = new ad();
+    }
+
+    public ad() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static ad a() {
-        return f8533a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8606a : (ad) invokeV.objValue;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
-        ExceptionAnalysis.getInstance().saveCrashInfo(this.f8535c, th, true);
-        if (this.f8534b.equals(this)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
+            ExceptionAnalysis.getInstance().saveCrashInfo(this.f8608c, th, true);
+            if (this.f8607b.equals(this)) {
+                return;
+            }
+            this.f8607b.uncaughtException(thread, th);
         }
-        this.f8534b.uncaughtException(thread, th);
     }
 
     public void a(Context context) {
-        this.f8535c = context;
-        if (this.f8534b == null) {
-            this.f8534b = Thread.getDefaultUncaughtExceptionHandler();
-            Thread.setDefaultUncaughtExceptionHandler(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.f8608c = context;
+            if (this.f8607b == null) {
+                this.f8607b = Thread.getDefaultUncaughtExceptionHandler();
+                Thread.setDefaultUncaughtExceptionHandler(this);
+            }
         }
     }
 }

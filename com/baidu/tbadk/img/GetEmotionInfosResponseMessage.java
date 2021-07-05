@@ -1,23 +1,48 @@
 package com.baidu.tbadk.img;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
-import d.a.n0.b0.c;
+import d.a.r0.b0.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public List<c> mEmotionList;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetEmotionInfosResponseMessage(int i2) {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private void parseEmotionImages(JSONArray jSONArray) {
-        if (jSONArray == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
         this.mEmotionList = new ArrayList();
@@ -32,14 +57,19 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode == 200 && error == 0 && jSONObject != null) {
-            parseEmotionImages(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+            int statusCode = getStatusCode();
+            int error = getError();
+            if (statusCode == 200 && error == 0 && jSONObject != null) {
+                parseEmotionImages(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            }
         }
     }
 
     public List<c> getEmotionList() {
-        return this.mEmotionList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEmotionList : (List) invokeV.objValue;
     }
 }

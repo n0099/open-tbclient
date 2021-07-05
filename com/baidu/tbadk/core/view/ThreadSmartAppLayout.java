@@ -7,115 +7,189 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.i.p;
-import d.a.n0.r.q.a;
+import d.a.j.p;
+import d.a.r0.r.q.a;
 import tbclient.SmartApp;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, p<a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f12539e;
+    public HeadImageView f12582e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12540f;
+    public TextView f12583f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12541g;
+    public TextView f12584g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SmartApp f12542h;
+    public SmartApp f12585h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f12543i;
+    public View.OnClickListener f12586i;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ThreadSmartAppLayout(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final TbPageContext b(Context context) {
-        if (context instanceof BaseActivity) {
-            return ((BaseActivity) context).getPageContext();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (context instanceof BaseActivity) {
+                return ((BaseActivity) context).getPageContext();
+            }
+            if (context instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) context).getPageContext();
+            }
+            return null;
         }
-        if (context instanceof BaseFragmentActivity) {
-            return ((BaseFragmentActivity) context).getPageContext();
-        }
-        return null;
+        return (TbPageContext) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.i.p
+    @Override // d.a.j.p
     /* renamed from: c */
     public void a(a aVar) {
-        if (aVar != null && aVar.i() != null && aVar.i().l1() != null) {
-            SmartApp l1 = aVar.i().l1();
-            this.f12542h = l1;
-            if (!k.isEmpty(l1.avatar)) {
-                this.f12539e.V(this.f12542h.avatar, 10, false, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().Z0() != null) {
+                SmartApp Z0 = aVar.getThreadData().Z0();
+                this.f12585h = Z0;
+                if (!k.isEmpty(Z0.avatar)) {
+                    this.f12582e.N(this.f12585h.avatar, 10, false, false);
+                }
+                if (!k.isEmpty(this.f12585h.name)) {
+                    this.f12583f.setText(this.f12585h.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
+                } else {
+                    this.f12583f.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
+                }
+                if (!k.isEmpty(this.f12585h._abstract)) {
+                    this.f12584g.setText(this.f12585h._abstract);
+                } else {
+                    this.f12584g.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+                }
+                setVisibility(0);
+                return;
             }
-            if (!k.isEmpty(this.f12542h.name)) {
-                this.f12540f.setText(this.f12542h.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
-            } else {
-                this.f12540f.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
-            }
-            if (!k.isEmpty(this.f12542h._abstract)) {
-                this.f12541g.setText(this.f12542h._abstract);
-            } else {
-                this.f12541g.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
-            }
-            setVisibility(0);
-            return;
+            setVisibility(8);
         }
-        setVisibility(8);
     }
 
     public void d() {
-        SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
-        SkinManager.setViewTextColor(this.f12540f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f12541g, R.color.CAM_X0107);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
+            SkinManager.setViewTextColor(this.f12583f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f12584g, R.color.CAM_X0107);
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        SmartApp smartApp = this.f12542h;
-        if (smartApp == null) {
+        SmartApp smartApp;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (smartApp = this.f12585h) == null) {
             return;
         }
-        if (!d.a.o0.u.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (k.isEmpty(this.f12542h.h5_url)) {
+        if (!d.a.s0.u.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (k.isEmpty(this.f12585h.h5_url)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.f12542h.h5_url});
+            UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.f12585h.h5_url});
         }
-        View.OnClickListener onClickListener = this.f12543i;
+        View.OnClickListener onClickListener = this.f12586i;
         if (onClickListener != null) {
             onClickListener.onClick(view);
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.f12543i = onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.f12586i = onClickListener;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.f12539e = headImageView;
+        this.f12582e = headImageView;
         headImageView.setIsRound(true);
-        this.f12539e.setPlaceHolder(1);
-        this.f12540f = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.f12541g = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.f12582e.setPlaceHolder(1);
+        this.f12583f = (TextView) findViewById(R.id.tv_thread_smart_app_title);
+        this.f12584g = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         d();
     }

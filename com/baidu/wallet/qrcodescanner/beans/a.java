@@ -2,63 +2,113 @@ package com.baidu.wallet.qrcodescanner.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.qrcodescanner.datamodel.QRCodeShortUrlResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends BaseBean<QRCodeShortUrlResponse> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26618a;
+    public String f27161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26619b;
+    public String f27162b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public void a(String str) {
-        this.f26618a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f27161a = str;
+        }
     }
 
     public void b(String str) {
-        this.f26619b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f27162b = str;
+        }
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        super.execBean(QRCodeShortUrlResponse.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.execBean(QRCodeShortUrlResponse.class);
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("output", "json"));
-        if (!TextUtils.isEmpty(this.f26618a)) {
-            arrayList.add(new RestNameValuePair("qrcode", this.f26618a));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new RestNameValuePair("output", "json"));
+            if (!TextUtils.isEmpty(this.f27161a)) {
+                arrayList.add(new RestNameValuePair("qrcode", this.f27161a));
+            }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return QRCodeScannerBeanFactory.QRCODE_SHORT_URL;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? QRCodeScannerBeanFactory.QRCODE_SHORT_URL : invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getHttpMethod() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        if (!TextUtils.isEmpty(this.f26619b)) {
-            return this.f26619b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!TextUtils.isEmpty(this.f27162b)) {
+                return this.f27162b;
+            }
+            return DomainConfig.getInstance().getAppPayHost() + "/facilepaycenter/tinyurl/scancode";
         }
-        return DomainConfig.getInstance().getAppPayHost() + "/facilepaycenter/tinyurl/scancode";
+        return (String) invokeV.objValue;
     }
 }

@@ -6,70 +6,133 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.e3.c;
+import d.a.s0.h3.c;
 /* loaded from: classes5.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20336e;
+    public Context f20485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GradientDrawable f20337f;
+    public GradientDrawable f20486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GradientDrawable f20338g;
+    public GradientDrawable f20487g;
 
     /* renamed from: h  reason: collision with root package name */
-    public StateListDrawable f20339h;
+    public StateListDrawable f20488h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCloseReasonCheckBox(Context context) {
         super(context);
-        this.f20336e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f20485e = context;
         a(context);
     }
 
     public final void a(Context context) {
-        b(R.string.J_X07, l.g(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304);
-        SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
-        int g2 = l.g(context, R.dimen.ds24);
-        setPadding(g2, 0, g2, 0);
-        setGravity(17);
-        setButtonDrawable((Drawable) null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            b(R.string.J_X07, l.g(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304);
+            SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
+            int g2 = l.g(context, R.dimen.ds24);
+            setPadding(g2, 0, g2, 0);
+            setGravity(17);
+            setButtonDrawable((Drawable) null);
+        }
     }
 
     public final void b(int i2, int i3, int i4, int i5) {
-        int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i2).split(",")[0]);
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        this.f20337f = gradientDrawable;
-        gradientDrawable.setShape(0);
-        float f2 = parseInt;
-        this.f20337f.setCornerRadius(f2);
-        this.f20337f.setStroke(i3, SkinManager.getColor(i4));
-        GradientDrawable gradientDrawable2 = new GradientDrawable();
-        this.f20338g = gradientDrawable2;
-        gradientDrawable2.setShape(0);
-        this.f20338g.setCornerRadius(f2);
-        this.f20338g.setStroke(i3, c.a(SkinManager.getColor(i5), 0.5f));
-        StateListDrawable stateListDrawable = new StateListDrawable();
-        this.f20339h = stateListDrawable;
-        stateListDrawable.addState(new int[]{-16842912}, this.f20337f);
-        this.f20339h.addState(new int[]{16842912}, this.f20338g);
-        setBackgroundDrawable(this.f20339h);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
+            int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i2).split(",")[0]);
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            this.f20486f = gradientDrawable;
+            gradientDrawable.setShape(0);
+            float f2 = parseInt;
+            this.f20486f.setCornerRadius(f2);
+            this.f20486f.setStroke(i3, SkinManager.getColor(i4));
+            GradientDrawable gradientDrawable2 = new GradientDrawable();
+            this.f20487g = gradientDrawable2;
+            gradientDrawable2.setShape(0);
+            this.f20487g.setCornerRadius(f2);
+            this.f20487g.setStroke(i3, c.a(SkinManager.getColor(i5), 0.5f));
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            this.f20488h = stateListDrawable;
+            stateListDrawable.addState(new int[]{-16842912}, this.f20486f);
+            this.f20488h.addState(new int[]{16842912}, this.f20487g);
+            setBackgroundDrawable(this.f20488h);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCloseReasonCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20336e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f20485e = context;
         a(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCloseReasonCheckBox(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20336e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f20485e = context;
         a(context);
     }
 }

@@ -3,18 +3,38 @@ package com.baidu.ufosdk.ui;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class dd {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f22929a;
+    public TextView f23445a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f22930b;
+    public ImageView f23446b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f22931c;
+    public TextView f23447c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f22932d;
+    public RelativeLayout f23448d;
+
+    public dd() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

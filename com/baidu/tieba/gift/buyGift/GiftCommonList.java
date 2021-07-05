@@ -1,5 +1,12 @@
 package com.baidu.tieba.gift.buyGift;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,180 +16,343 @@ import tbclient.GetGiftCommonList.GetGiftCommonListResIdl;
 import tbclient.GetGiftCommonList.GiftList;
 import tbclient.GetGiftCommonList.Item;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GiftCommonList implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1719387618953489739L;
+    public transient /* synthetic */ FieldHolder $fh;
     public String errmsg;
     public int errorno;
     public GiftInfo gift_info;
     public String usermsg;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class GiftInfo implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4908690864725277352L;
+        public transient /* synthetic */ FieldHolder $fh;
         public List<TypeInfo> list;
         public List<NumInfo> num_info;
         public int version;
 
-        public List<NumInfo> getNumInfo() {
-            if (this.num_info == null) {
-                this.num_info = new ArrayList();
+        public GiftInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return this.num_info;
+        }
+
+        public List<NumInfo> getNumInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.num_info == null) {
+                    this.num_info = new ArrayList();
+                }
+                return this.num_info;
+            }
+            return (List) invokeV.objValue;
         }
 
         public List<TypeInfo> getTypeInfo() {
-            if (this.list == null) {
-                this.list = new ArrayList();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.list == null) {
+                    this.list = new ArrayList();
+                }
+                return this.list;
             }
-            return this.list;
+            return (List) invokeV.objValue;
         }
 
         public int getVersion() {
-            return this.version;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.version : invokeV.intValue;
         }
 
         public void setNumInfo(List<NumInfo> list) {
-            this.num_info = list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                this.num_info = list;
+            }
         }
 
         public void setTypeInfo(List<TypeInfo> list) {
-            this.list = list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+                this.list = list;
+            }
         }
 
         public void setVersion(int i2) {
-            this.version = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+                this.version = i2;
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class GiftItem implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -628875343878681499L;
+        public transient /* synthetic */ FieldHolder $fh;
         public int gift_id;
         public String name;
         public String play_url;
         public int price;
         public String thumbnail_url;
 
+        public GiftItem() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public int getGiftId() {
-            return this.gift_id;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.gift_id : invokeV.intValue;
         }
 
         public String getName() {
-            return this.name;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
         }
 
         public String getPlayUrl() {
-            return this.play_url;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.play_url : (String) invokeV.objValue;
         }
 
         public int getPrice() {
-            return this.price;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.price : invokeV.intValue;
         }
 
         public String getThumbnailUrl() {
-            return this.thumbnail_url;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.thumbnail_url : (String) invokeV.objValue;
         }
 
         public void setGiftId(int i2) {
-            this.gift_id = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+                this.gift_id = i2;
+            }
         }
 
         public void setName(String str) {
-            this.name = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.name = str;
+            }
         }
 
         public void setPlayUrl(String str) {
-            this.play_url = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                this.play_url = str;
+            }
         }
 
         public void setPrice(int i2) {
-            this.price = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+                this.price = i2;
+            }
         }
 
         public void setThumbnailUrl(String str) {
-            this.thumbnail_url = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+                this.thumbnail_url = str;
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class NumInfo implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6308284942592196517L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String name;
         public int num;
 
+        public NumInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public String getName() {
-            return this.name;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
         }
 
         public int getNum() {
-            return this.num;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.num : invokeV.intValue;
         }
 
         public void setName(String str) {
-            this.name = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.name = str;
+            }
         }
 
         public void setNum(int i2) {
-            this.num = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+                this.num = i2;
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class TypeInfo implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8689340701873734582L;
+        public transient /* synthetic */ FieldHolder $fh;
         public List<GiftItem> item;
         public int type_id;
         public String type_name;
 
-        public List<GiftItem> getGiftItems() {
-            if (this.item == null) {
-                this.item = new ArrayList();
+        public TypeInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return this.item;
+        }
+
+        public List<GiftItem> getGiftItems() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.item == null) {
+                    this.item = new ArrayList();
+                }
+                return this.item;
+            }
+            return (List) invokeV.objValue;
         }
 
         public int getTypeId() {
-            return this.type_id;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type_id : invokeV.intValue;
         }
 
         public String getTypeName() {
-            return this.type_name;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type_name : (String) invokeV.objValue;
         }
 
         public void setGiftItems(List<GiftItem> list) {
-            this.item = list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                this.item = list;
+            }
         }
 
         public void setTypeId(int i2) {
-            this.type_id = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+                this.type_id = i2;
+            }
         }
 
         public void setTypeName(String str) {
-            this.type_name = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.type_name = str;
+            }
+        }
+    }
+
+    public GiftCommonList() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public String getErrMsg() {
-        return this.errmsg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errmsg : (String) invokeV.objValue;
     }
 
     public int getErrorNo() {
-        return this.errorno;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorno : invokeV.intValue;
     }
 
     public GiftInfo getGiftInfo() {
-        return this.gift_info;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.gift_info : (GiftInfo) invokeV.objValue;
     }
 
     public String getUserMsg() {
-        return this.usermsg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.usermsg : (String) invokeV.objValue;
     }
 
     public void parseProto(GetGiftCommonListResIdl getGiftCommonListResIdl) {
         DataRes dataRes;
         tbclient.GetGiftCommonList.GiftInfo giftInfo;
-        if (getGiftCommonListResIdl == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, getGiftCommonListResIdl) == null) || getGiftCommonListResIdl == null) {
             return;
         }
         Error error = getGiftCommonListResIdl.error;
@@ -233,18 +403,30 @@ public class GiftCommonList implements Serializable {
     }
 
     public void setErrMsg(String str) {
-        this.errmsg = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.errmsg = str;
+        }
     }
 
     public void setErrorNo(int i2) {
-        this.errorno = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.errorno = i2;
+        }
     }
 
     public void setGiftInfo(GiftInfo giftInfo) {
-        this.gift_info = giftInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, giftInfo) == null) {
+            this.gift_info = giftInfo;
+        }
     }
 
     public void setUserMsg(String str) {
-        this.usermsg = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.usermsg = str;
+        }
     }
 }

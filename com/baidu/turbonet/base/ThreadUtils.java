@@ -3,57 +3,115 @@ package com.baidu.turbonet.base;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes5.dex */
 public class ThreadUtils {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f22405a = new Object();
+    public static final Object f22921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f22406b = false;
+    public static boolean f22922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f22407c;
+    public static Handler f22923c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1618725168, "Lcom/baidu/turbonet/base/ThreadUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1618725168, "Lcom/baidu/turbonet/base/ThreadUtils;");
+                return;
+            }
+        }
+        f22921a = new Object();
+    }
+
+    public ThreadUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static Handler a() {
+        InterceptResult invokeV;
         Handler handler;
-        synchronized (f22405a) {
-            if (f22407c == null) {
-                if (!f22406b) {
-                    f22407c = new Handler(Looper.getMainLooper());
-                } else {
-                    throw new RuntimeException("Did not yet override the UI thread");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (f22921a) {
+                if (f22923c == null) {
+                    if (!f22922b) {
+                        f22923c = new Handler(Looper.getMainLooper());
+                    } else {
+                        throw new RuntimeException("Did not yet override the UI thread");
+                    }
                 }
+                handler = f22923c;
             }
-            handler = f22407c;
+            return handler;
         }
-        return handler;
+        return (Handler) invokeV.objValue;
     }
 
     public static void b(Runnable runnable) {
-        a().post(runnable);
-    }
-
-    public static void c(Runnable runnable) {
-        if (d()) {
-            runnable.run();
-        } else {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
             a().post(runnable);
         }
     }
 
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, runnable) == null) {
+            if (d()) {
+                runnable.run();
+            } else {
+                a().post(runnable);
+            }
+        }
+    }
+
     public static boolean d() {
-        return a().getLooper() == Looper.myLooper();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a().getLooper() == Looper.myLooper() : invokeV.booleanValue;
     }
 
     @CalledByNative
     public static boolean isThreadPriorityAudio(int i2) {
-        return Process.getThreadPriority(i2) == -16;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? Process.getThreadPriority(i2) == -16 : invokeI.booleanValue;
     }
 
     @CalledByNative
     public static void setThreadPriorityAudio(int i2) {
-        Process.setThreadPriority(i2, -16);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
+            Process.setThreadPriority(i2, -16);
+        }
     }
 }

@@ -1,29 +1,63 @@
 package a.a.a.a.y;
 
 import android.util.Log;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.fun.ad.sdk.FunAdSdk;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class d {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1370a = Pattern.compile("(\\$\\d+)+$");
+    public static final Pattern f1373a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1836995919, "La/a/a/a/y/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1836995919, "La/a/a/a/y/d;");
+                return;
+            }
+        }
+        f1373a = Pattern.compile("(\\$\\d+)+$");
+    }
 
     public static void a() {
-        a(null, 3, null, new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a(null, 3, null, new Object[0]);
+        }
     }
 
     public static void a(String str, Object... objArr) {
-        a(null, 3, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, objArr) == null) {
+            a(null, 3, str, objArr);
+        }
     }
 
     public static void a(Throwable th) {
-        a(th, 6, "", new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
+            a(th, 6, "", new Object[0]);
+        }
     }
 
     public static void a(Throwable th, int i2, String str, Object... objArr) {
-        if (FunAdSdk.isLogEnabled()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(65540, null, th, i2, str, objArr) == null) && FunAdSdk.isLogEnabled()) {
             try {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 StackTraceElement stackTraceElement = stackTrace[2];
@@ -33,7 +67,7 @@ public final class d {
                     str = String.format(str, objArr);
                 }
                 String className = stackTrace[2].getClassName();
-                Matcher matcher = f1370a.matcher(className);
+                Matcher matcher = f1373a.matcher(className);
                 String str2 = "";
                 if (matcher.find()) {
                     className = matcher.replaceAll("");
@@ -53,14 +87,23 @@ public final class d {
     }
 
     public static void b() {
-        a(null, 6, null, new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            a(null, 6, null, new Object[0]);
+        }
     }
 
     public static void b(String str, Object... objArr) {
-        a(null, 6, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) {
+            a(null, 6, str, objArr);
+        }
     }
 
     public static void c(String str, Object... objArr) {
-        a(null, 2, str, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, objArr) == null) {
+            a(null, 2, str, objArr);
+        }
     }
 }

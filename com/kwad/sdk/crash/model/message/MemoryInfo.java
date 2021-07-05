@@ -2,7 +2,13 @@ package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
@@ -13,25 +19,61 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class MemoryInfo implements b, Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4944913077323984734L;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<ThreadInfo> mAllThreads;
     public int mAvailableMB;
     public int mFdCount;
+    public List<String> mFds;
     public int mJavaHeapLimitMB;
     public int mJavaHeapMB;
+    public List<ThreadInfo> mJavaThreads;
+    public List<ThreadInfo> mNativeThreads;
     public int mPssMB;
     public int mRssMB;
     public int mThreadsCount;
     public int mTotalMB;
     public int mVssMB;
-    public List<String> mFds = new ArrayList();
-    public List<ThreadInfo> mJavaThreads = new ArrayList();
-    public List<ThreadInfo> mNativeThreads = new ArrayList();
-    public List<ThreadInfo> mAllThreads = new ArrayList();
 
     public MemoryInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mFds = new ArrayList();
+        this.mJavaThreads = new ArrayList();
+        this.mNativeThreads = new ArrayList();
+        this.mAllThreads = new ArrayList();
     }
 
     public MemoryInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mFds = new ArrayList();
+        this.mJavaThreads = new ArrayList();
+        this.mNativeThreads = new ArrayList();
+        this.mAllThreads = new ArrayList();
         try {
             if (TextUtils.isEmpty(str) || "Unknown".equals(str)) {
                 return;
@@ -43,7 +85,8 @@ public class MemoryInfo implements b, Serializable {
     }
 
     public void parseJson(@Nullable JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.mTotalMB = jSONObject.optInt("mTotalMB");
@@ -106,94 +149,104 @@ public class MemoryInfo implements b, Serializable {
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "mTotalMB", this.mTotalMB);
-        o.a(jSONObject, "mAvailableMB", this.mAvailableMB);
-        o.a(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
-        o.a(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
-        o.a(jSONObject, "mVssMB", this.mVssMB);
-        o.a(jSONObject, "mRssMB", this.mRssMB);
-        o.a(jSONObject, "mPssMB", this.mPssMB);
-        o.a(jSONObject, "mThreadsCount", this.mThreadsCount);
-        o.a(jSONObject, "mFdCount", this.mFdCount);
-        o.a(jSONObject, "mFds", this.mFds);
-        o.a(jSONObject, "mJavaThreads", this.mJavaThreads);
-        o.a(jSONObject, "mNativeThreads", this.mNativeThreads);
-        o.a(jSONObject, "mAllThreads", this.mAllThreads);
-        return jSONObject;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            o.a(jSONObject, "mTotalMB", this.mTotalMB);
+            o.a(jSONObject, "mAvailableMB", this.mAvailableMB);
+            o.a(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
+            o.a(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
+            o.a(jSONObject, "mVssMB", this.mVssMB);
+            o.a(jSONObject, "mRssMB", this.mRssMB);
+            o.a(jSONObject, "mPssMB", this.mPssMB);
+            o.a(jSONObject, "mThreadsCount", this.mThreadsCount);
+            o.a(jSONObject, "mFdCount", this.mFdCount);
+            o.a(jSONObject, "mFds", this.mFds);
+            o.a(jSONObject, "mJavaThreads", this.mJavaThreads);
+            o.a(jSONObject, "mNativeThreads", this.mNativeThreads);
+            o.a(jSONObject, "mAllThreads", this.mAllThreads);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\t总RAM容量: ");
-        sb.append(this.mTotalMB);
-        sb.append(" (MB)\n");
-        sb.append("\t剩余RAM容量: ");
-        sb.append(this.mAvailableMB);
-        sb.append(" (MB)\n");
-        sb.append("\t本进程Java堆上限: ");
-        sb.append(this.mJavaHeapLimitMB);
-        sb.append(" (MB)\n");
-        sb.append("\t本进程Java堆已使用: ");
-        sb.append(this.mJavaHeapMB);
-        sb.append(" (MB)\n");
-        sb.append("\t虚拟地址空间已使用Vss: ");
-        sb.append(this.mVssMB);
-        sb.append(" (MB)\n");
-        sb.append("\t实际空间使用量(包含共享库) Rss: ");
-        sb.append(this.mRssMB);
-        sb.append(" (MB)\n");
-        sb.append("\t实际空间使用量(共享库已经均摊)(高内存杀进程的依据）Pss: ");
-        sb.append(this.mPssMB);
-        sb.append(" (MB)\n");
-        sb.append("\t打开文件描述符数: ");
-        sb.append(this.mFdCount);
-        sb.append("\n");
-        if (this.mFds.size() > 0) {
-            sb.append("\t文件描述符详情: \n");
-            for (String str : this.mFds) {
-                sb.append(TrackUI.SEPERATOR);
-                sb.append(str);
-                sb.append("\n");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("\t总RAM容量: ");
+            sb.append(this.mTotalMB);
+            sb.append(" (MB)\n");
+            sb.append("\t剩余RAM容量: ");
+            sb.append(this.mAvailableMB);
+            sb.append(" (MB)\n");
+            sb.append("\t本进程Java堆上限: ");
+            sb.append(this.mJavaHeapLimitMB);
+            sb.append(" (MB)\n");
+            sb.append("\t本进程Java堆已使用: ");
+            sb.append(this.mJavaHeapMB);
+            sb.append(" (MB)\n");
+            sb.append("\t虚拟地址空间已使用Vss: ");
+            sb.append(this.mVssMB);
+            sb.append(" (MB)\n");
+            sb.append("\t实际空间使用量(包含共享库) Rss: ");
+            sb.append(this.mRssMB);
+            sb.append(" (MB)\n");
+            sb.append("\t实际空间使用量(共享库已经均摊)(高内存杀进程的依据）Pss: ");
+            sb.append(this.mPssMB);
+            sb.append(" (MB)\n");
+            sb.append("\t打开文件描述符数: ");
+            sb.append(this.mFdCount);
+            sb.append("\n");
+            if (this.mFds.size() > 0) {
+                sb.append("\t文件描述符详情: \n");
+                for (String str : this.mFds) {
+                    sb.append(TrackUI.SEPERATOR);
+                    sb.append(str);
+                    sb.append("\n");
+                }
             }
-        }
-        sb.append("\t正在运行线程数: ");
-        sb.append(this.mThreadsCount);
-        sb.append("\tJava: ");
-        sb.append(this.mJavaThreads.size());
-        sb.append("\tNative: ");
-        sb.append(this.mThreadsCount - this.mJavaThreads.size());
-        sb.append("\n\n");
-        if (this.mAllThreads.size() > 0) {
-            sb.append("\t全部线程名: \n");
-            for (ThreadInfo threadInfo : this.mAllThreads) {
-                sb.append(TrackUI.SEPERATOR);
-                sb.append(threadInfo.mName);
-                sb.append("\n");
+            sb.append("\t正在运行线程数: ");
+            sb.append(this.mThreadsCount);
+            sb.append("\tJava: ");
+            sb.append(this.mJavaThreads.size());
+            sb.append("\tNative: ");
+            sb.append(this.mThreadsCount - this.mJavaThreads.size());
+            sb.append("\n\n");
+            if (this.mAllThreads.size() > 0) {
+                sb.append("\t全部线程名: \n");
+                for (ThreadInfo threadInfo : this.mAllThreads) {
+                    sb.append(TrackUI.SEPERATOR);
+                    sb.append(threadInfo.mName);
+                    sb.append("\n");
+                }
             }
-        }
-        if (this.mJavaThreads.size() > 0) {
-            sb.append("Java线程堆栈: \n");
-            for (ThreadInfo threadInfo2 : this.mJavaThreads) {
-                sb.append(threadInfo2.mName);
-                sb.append("\n");
-                sb.append(threadInfo2.mTrace.replace("#", "\n"));
-                sb.append("\n");
+            if (this.mJavaThreads.size() > 0) {
+                sb.append("Java线程堆栈: \n");
+                for (ThreadInfo threadInfo2 : this.mJavaThreads) {
+                    sb.append(threadInfo2.mName);
+                    sb.append("\n");
+                    sb.append(threadInfo2.mTrace.replace("#", "\n"));
+                    sb.append("\n");
+                }
             }
-        }
-        if (this.mNativeThreads.size() > 0) {
-            sb.append("\tNative线程堆栈: \n");
-            for (ThreadInfo threadInfo3 : this.mNativeThreads) {
-                sb.append(TrackUI.SEPERATOR);
-                sb.append(threadInfo3.mName);
-                sb.append("\t(tid=");
-                sb.append(threadInfo3.mTid);
-                sb.append(", index=");
-                sb.append(threadInfo3.mIndex);
-                sb.append("):\n");
-                sb.append(threadInfo3.mTrace);
+            if (this.mNativeThreads.size() > 0) {
+                sb.append("\tNative线程堆栈: \n");
+                for (ThreadInfo threadInfo3 : this.mNativeThreads) {
+                    sb.append(TrackUI.SEPERATOR);
+                    sb.append(threadInfo3.mName);
+                    sb.append("\t(tid=");
+                    sb.append(threadInfo3.mTid);
+                    sb.append(", index=");
+                    sb.append(threadInfo3.mIndex);
+                    sb.append("):\n");
+                    sb.append(threadInfo3.mTrace);
+                }
             }
+            return sb.substring(0);
         }
-        return sb.substring(0);
+        return (String) invokeV.objValue;
     }
 }

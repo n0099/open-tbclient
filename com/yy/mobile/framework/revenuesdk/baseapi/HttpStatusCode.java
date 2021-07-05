@@ -1,6 +1,12 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
-/* loaded from: classes7.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class HttpStatusCode {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_ACCEPTED = 202;
     public static final int HTTP_BAD_GATEWAY = 502;
     public static final int HTTP_BAD_METHOD = 405;
@@ -38,4 +44,19 @@ public class HttpStatusCode {
     public static final int HTTP_UNSUPPORTED_TYPE = 415;
     public static final int HTTP_USE_PROXY = 305;
     public static final int HTTP_VERSION = 505;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public HttpStatusCode() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -1,8 +1,13 @@
 package com.baidu.sapi2.result;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class SetPortraitResult extends SapiResult implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MSG_UNKNOWN = "设置头像失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 160103;
     public static final int RESULT_CODE_FORMAT_ERROR = 1605001;
@@ -11,10 +16,23 @@ public class SetPortraitResult extends SapiResult implements NoProguard {
     public static final String RESULT_MSG_FORMAT_ERROR = "头像格式错误";
     public static final String RESULT_MSG_SUCCESS = "设置头像成功";
     public static final String RESULT_MSG_SYSTEM_ERROR = "系统错误";
+    public transient /* synthetic */ FieldHolder $fh;
     public String portraitHttps;
     public String portraitSign;
 
     public SetPortraitResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.msgMap.put(0, RESULT_MSG_SUCCESS);
         this.msgMap.put(110000, RESULT_MSG_SUCCESS);
         this.msgMap.put(160103, "用户登录状态失效，请重新登录");

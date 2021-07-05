@@ -2,6 +2,11 @@ package com.ta.utdid2.b.a;
 
 import android.util.Xml;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -14,322 +19,373 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 /* loaded from: classes7.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static final void a(Map map, OutputStream outputStream) throws XmlPullParserException, IOException {
-        a aVar = new a();
-        aVar.setOutput(outputStream, "utf-8");
-        aVar.startDocument(null, Boolean.TRUE);
-        aVar.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
-        a(map, (String) null, (XmlSerializer) aVar);
-        aVar.endDocument();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, map, outputStream) == null) {
+            a aVar = new a();
+            aVar.setOutput(outputStream, "utf-8");
+            aVar.startDocument(null, Boolean.TRUE);
+            aVar.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
+            a(map, (String) null, (XmlSerializer) aVar);
+            aVar.endDocument();
+        }
     }
 
     public static Object b(XmlPullParser xmlPullParser, String[] strArr) throws XmlPullParserException, IOException {
+        InterceptResult invokeLL;
         int next;
-        Object obj = null;
-        String attributeValue = xmlPullParser.getAttributeValue(null, "name");
-        String name = xmlPullParser.getName();
-        if (!name.equals(StringUtil.NULL_STRING)) {
-            if (name.equals("string")) {
-                String str = "";
-                while (true) {
-                    int next2 = xmlPullParser.next();
-                    if (next2 == 1) {
-                        throw new XmlPullParserException("Unexpected end of document in <string>");
-                    }
-                    if (next2 == 3) {
-                        if (xmlPullParser.getName().equals("string")) {
-                            strArr[0] = attributeValue;
-                            return str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, xmlPullParser, strArr)) == null) {
+            Object obj = null;
+            String attributeValue = xmlPullParser.getAttributeValue(null, "name");
+            String name = xmlPullParser.getName();
+            if (!name.equals(StringUtil.NULL_STRING)) {
+                if (name.equals("string")) {
+                    String str = "";
+                    while (true) {
+                        int next2 = xmlPullParser.next();
+                        if (next2 == 1) {
+                            throw new XmlPullParserException("Unexpected end of document in <string>");
                         }
-                        throw new XmlPullParserException("Unexpected end tag in <string>: " + xmlPullParser.getName());
-                    } else if (next2 == 4) {
-                        str = str + xmlPullParser.getText();
-                    } else if (next2 == 2) {
-                        throw new XmlPullParserException("Unexpected start tag in <string>: " + xmlPullParser.getName());
+                        if (next2 == 3) {
+                            if (xmlPullParser.getName().equals("string")) {
+                                strArr[0] = attributeValue;
+                                return str;
+                            }
+                            throw new XmlPullParserException("Unexpected end tag in <string>: " + xmlPullParser.getName());
+                        } else if (next2 == 4) {
+                            str = str + xmlPullParser.getText();
+                        } else if (next2 == 2) {
+                            throw new XmlPullParserException("Unexpected start tag in <string>: " + xmlPullParser.getName());
+                        }
                     }
-                }
-            } else if (name.equals("int")) {
-                obj = Integer.valueOf(Integer.parseInt(xmlPullParser.getAttributeValue(null, "value")));
-            } else if (name.equals("long")) {
-                obj = Long.valueOf(xmlPullParser.getAttributeValue(null, "value"));
-            } else if (name.equals("float")) {
-                obj = Float.valueOf(xmlPullParser.getAttributeValue(null, "value"));
-            } else if (name.equals("double")) {
-                obj = Double.valueOf(xmlPullParser.getAttributeValue(null, "value"));
-            } else if (name.equals("boolean")) {
-                obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
-            } else if (name.equals("int-array")) {
-                xmlPullParser.next();
-                int[] m51a = m51a(xmlPullParser, "int-array", strArr);
-                strArr[0] = attributeValue;
-                return m51a;
-            } else if (name.equals("map")) {
-                xmlPullParser.next();
-                HashMap m50a = m50a(xmlPullParser, "map", strArr);
-                strArr[0] = attributeValue;
-                return m50a;
-            } else if (name.equals("list")) {
-                xmlPullParser.next();
-                ArrayList a2 = a(xmlPullParser, "list", strArr);
-                strArr[0] = attributeValue;
-                return a2;
-            } else {
-                throw new XmlPullParserException("Unknown tag: " + name);
-            }
-        }
-        do {
-            next = xmlPullParser.next();
-            if (next == 1) {
-                throw new XmlPullParserException("Unexpected end of document in <" + name + ">");
-            } else if (next == 3) {
-                if (xmlPullParser.getName().equals(name)) {
+                } else if (name.equals("int")) {
+                    obj = Integer.valueOf(Integer.parseInt(xmlPullParser.getAttributeValue(null, "value")));
+                } else if (name.equals("long")) {
+                    obj = Long.valueOf(xmlPullParser.getAttributeValue(null, "value"));
+                } else if (name.equals(ShaderParams.VALUE_TYPE_FLOAT)) {
+                    obj = Float.valueOf(xmlPullParser.getAttributeValue(null, "value"));
+                } else if (name.equals("double")) {
+                    obj = Double.valueOf(xmlPullParser.getAttributeValue(null, "value"));
+                } else if (name.equals("boolean")) {
+                    obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
+                } else if (name.equals("int-array")) {
+                    xmlPullParser.next();
+                    int[] m65a = m65a(xmlPullParser, "int-array", strArr);
                     strArr[0] = attributeValue;
-                    return obj;
+                    return m65a;
+                } else if (name.equals("map")) {
+                    xmlPullParser.next();
+                    HashMap m64a = m64a(xmlPullParser, "map", strArr);
+                    strArr[0] = attributeValue;
+                    return m64a;
+                } else if (name.equals("list")) {
+                    xmlPullParser.next();
+                    ArrayList a2 = a(xmlPullParser, "list", strArr);
+                    strArr[0] = attributeValue;
+                    return a2;
+                } else {
+                    throw new XmlPullParserException("Unknown tag: " + name);
                 }
-                throw new XmlPullParserException("Unexpected end tag in <" + name + ">: " + xmlPullParser.getName());
-            } else if (next == 4) {
-                throw new XmlPullParserException("Unexpected text in <" + name + ">: " + xmlPullParser.getName());
             }
-        } while (next != 2);
-        throw new XmlPullParserException("Unexpected start tag in <" + name + ">: " + xmlPullParser.getName());
+            do {
+                next = xmlPullParser.next();
+                if (next == 1) {
+                    throw new XmlPullParserException("Unexpected end of document in <" + name + ">");
+                } else if (next == 3) {
+                    if (xmlPullParser.getName().equals(name)) {
+                        strArr[0] = attributeValue;
+                        return obj;
+                    }
+                    throw new XmlPullParserException("Unexpected end tag in <" + name + ">: " + xmlPullParser.getName());
+                } else if (next == 4) {
+                    throw new XmlPullParserException("Unexpected text in <" + name + ">: " + xmlPullParser.getName());
+                }
+            } while (next != 2);
+            throw new XmlPullParserException("Unexpected start tag in <" + name + ">: " + xmlPullParser.getName());
+        }
+        return invokeLL.objValue;
     }
 
     public static final void a(Map map, String str, XmlSerializer xmlSerializer) throws XmlPullParserException, IOException {
-        if (map == null) {
-            xmlSerializer.startTag(null, StringUtil.NULL_STRING);
-            xmlSerializer.endTag(null, StringUtil.NULL_STRING);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, map, str, xmlSerializer) == null) {
+            if (map == null) {
+                xmlSerializer.startTag(null, StringUtil.NULL_STRING);
+                xmlSerializer.endTag(null, StringUtil.NULL_STRING);
+                return;
+            }
+            xmlSerializer.startTag(null, "map");
+            if (str != null) {
+                xmlSerializer.attribute(null, "name", str);
+            }
+            for (Map.Entry entry : map.entrySet()) {
+                a(entry.getValue(), (String) entry.getKey(), xmlSerializer);
+            }
+            xmlSerializer.endTag(null, "map");
         }
-        xmlSerializer.startTag(null, "map");
-        if (str != null) {
-            xmlSerializer.attribute(null, "name", str);
-        }
-        for (Map.Entry entry : map.entrySet()) {
-            a(entry.getValue(), (String) entry.getKey(), xmlSerializer);
-        }
-        xmlSerializer.endTag(null, "map");
     }
 
     public static final void a(List list, String str, XmlSerializer xmlSerializer) throws XmlPullParserException, IOException {
-        if (list == null) {
-            xmlSerializer.startTag(null, StringUtil.NULL_STRING);
-            xmlSerializer.endTag(null, StringUtil.NULL_STRING);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, list, str, xmlSerializer) == null) {
+            if (list == null) {
+                xmlSerializer.startTag(null, StringUtil.NULL_STRING);
+                xmlSerializer.endTag(null, StringUtil.NULL_STRING);
+                return;
+            }
+            xmlSerializer.startTag(null, "list");
+            if (str != null) {
+                xmlSerializer.attribute(null, "name", str);
+            }
+            int size = list.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                a(list.get(i2), (String) null, xmlSerializer);
+            }
+            xmlSerializer.endTag(null, "list");
         }
-        xmlSerializer.startTag(null, "list");
-        if (str != null) {
-            xmlSerializer.attribute(null, "name", str);
-        }
-        int size = list.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            a(list.get(i2), (String) null, xmlSerializer);
-        }
-        xmlSerializer.endTag(null, "list");
     }
 
     public static final void a(byte[] bArr, String str, XmlSerializer xmlSerializer) throws XmlPullParserException, IOException {
-        if (bArr == null) {
-            xmlSerializer.startTag(null, StringUtil.NULL_STRING);
-            xmlSerializer.endTag(null, StringUtil.NULL_STRING);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, bArr, str, xmlSerializer) == null) {
+            if (bArr == null) {
+                xmlSerializer.startTag(null, StringUtil.NULL_STRING);
+                xmlSerializer.endTag(null, StringUtil.NULL_STRING);
+                return;
+            }
+            xmlSerializer.startTag(null, "byte-array");
+            if (str != null) {
+                xmlSerializer.attribute(null, "name", str);
+            }
+            xmlSerializer.attribute(null, "num", Integer.toString(bArr.length));
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b2 : bArr) {
+                int i2 = b2 >> 4;
+                sb.append(i2 >= 10 ? (i2 + 97) - 10 : i2 + 48);
+                int i3 = b2 & 255;
+                sb.append(i3 >= 10 ? (i3 + 97) - 10 : i3 + 48);
+            }
+            xmlSerializer.text(sb.toString());
+            xmlSerializer.endTag(null, "byte-array");
         }
-        xmlSerializer.startTag(null, "byte-array");
-        if (str != null) {
-            xmlSerializer.attribute(null, "name", str);
-        }
-        xmlSerializer.attribute(null, "num", Integer.toString(bArr.length));
-        StringBuilder sb = new StringBuilder(bArr.length * 2);
-        for (byte b2 : bArr) {
-            int i2 = b2 >> 4;
-            sb.append(i2 >= 10 ? (i2 + 97) - 10 : i2 + 48);
-            int i3 = b2 & 255;
-            sb.append(i3 >= 10 ? (i3 + 97) - 10 : i3 + 48);
-        }
-        xmlSerializer.text(sb.toString());
-        xmlSerializer.endTag(null, "byte-array");
     }
 
     public static final void a(int[] iArr, String str, XmlSerializer xmlSerializer) throws XmlPullParserException, IOException {
-        if (iArr == null) {
-            xmlSerializer.startTag(null, StringUtil.NULL_STRING);
-            xmlSerializer.endTag(null, StringUtil.NULL_STRING);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, iArr, str, xmlSerializer) == null) {
+            if (iArr == null) {
+                xmlSerializer.startTag(null, StringUtil.NULL_STRING);
+                xmlSerializer.endTag(null, StringUtil.NULL_STRING);
+                return;
+            }
+            xmlSerializer.startTag(null, "int-array");
+            if (str != null) {
+                xmlSerializer.attribute(null, "name", str);
+            }
+            xmlSerializer.attribute(null, "num", Integer.toString(iArr.length));
+            for (int i2 : iArr) {
+                xmlSerializer.startTag(null, "item");
+                xmlSerializer.attribute(null, "value", Integer.toString(i2));
+                xmlSerializer.endTag(null, "item");
+            }
+            xmlSerializer.endTag(null, "int-array");
         }
-        xmlSerializer.startTag(null, "int-array");
-        if (str != null) {
-            xmlSerializer.attribute(null, "name", str);
-        }
-        xmlSerializer.attribute(null, "num", Integer.toString(iArr.length));
-        for (int i2 : iArr) {
-            xmlSerializer.startTag(null, "item");
-            xmlSerializer.attribute(null, "value", Integer.toString(i2));
-            xmlSerializer.endTag(null, "item");
-        }
-        xmlSerializer.endTag(null, "int-array");
     }
 
     public static final void a(Object obj, String str, XmlSerializer xmlSerializer) throws XmlPullParserException, IOException {
         String str2;
-        if (obj == null) {
-            xmlSerializer.startTag(null, StringUtil.NULL_STRING);
-            if (str != null) {
-                xmlSerializer.attribute(null, "name", str);
-            }
-            xmlSerializer.endTag(null, StringUtil.NULL_STRING);
-        } else if (obj instanceof String) {
-            xmlSerializer.startTag(null, "string");
-            if (str != null) {
-                xmlSerializer.attribute(null, "name", str);
-            }
-            xmlSerializer.text(obj.toString());
-            xmlSerializer.endTag(null, "string");
-        } else {
-            if (obj instanceof Integer) {
-                str2 = "int";
-            } else if (obj instanceof Long) {
-                str2 = "long";
-            } else if (obj instanceof Float) {
-                str2 = "float";
-            } else if (obj instanceof Double) {
-                str2 = "double";
-            } else if (!(obj instanceof Boolean)) {
-                if (obj instanceof byte[]) {
-                    a((byte[]) obj, str, xmlSerializer);
-                    return;
-                } else if (obj instanceof int[]) {
-                    a((int[]) obj, str, xmlSerializer);
-                    return;
-                } else if (obj instanceof Map) {
-                    a((Map) obj, str, xmlSerializer);
-                    return;
-                } else if (obj instanceof List) {
-                    a((List) obj, str, xmlSerializer);
-                    return;
-                } else if (obj instanceof CharSequence) {
-                    xmlSerializer.startTag(null, "string");
-                    if (str != null) {
-                        xmlSerializer.attribute(null, "name", str);
-                    }
-                    xmlSerializer.text(obj.toString());
-                    xmlSerializer.endTag(null, "string");
-                    return;
-                } else {
-                    throw new RuntimeException("writeValueXml: unable to write value " + obj);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65540, null, obj, str, xmlSerializer) == null) {
+            if (obj == null) {
+                xmlSerializer.startTag(null, StringUtil.NULL_STRING);
+                if (str != null) {
+                    xmlSerializer.attribute(null, "name", str);
                 }
+                xmlSerializer.endTag(null, StringUtil.NULL_STRING);
+            } else if (obj instanceof String) {
+                xmlSerializer.startTag(null, "string");
+                if (str != null) {
+                    xmlSerializer.attribute(null, "name", str);
+                }
+                xmlSerializer.text(obj.toString());
+                xmlSerializer.endTag(null, "string");
             } else {
-                str2 = "boolean";
+                if (obj instanceof Integer) {
+                    str2 = "int";
+                } else if (obj instanceof Long) {
+                    str2 = "long";
+                } else if (obj instanceof Float) {
+                    str2 = ShaderParams.VALUE_TYPE_FLOAT;
+                } else if (obj instanceof Double) {
+                    str2 = "double";
+                } else if (!(obj instanceof Boolean)) {
+                    if (obj instanceof byte[]) {
+                        a((byte[]) obj, str, xmlSerializer);
+                        return;
+                    } else if (obj instanceof int[]) {
+                        a((int[]) obj, str, xmlSerializer);
+                        return;
+                    } else if (obj instanceof Map) {
+                        a((Map) obj, str, xmlSerializer);
+                        return;
+                    } else if (obj instanceof List) {
+                        a((List) obj, str, xmlSerializer);
+                        return;
+                    } else if (obj instanceof CharSequence) {
+                        xmlSerializer.startTag(null, "string");
+                        if (str != null) {
+                            xmlSerializer.attribute(null, "name", str);
+                        }
+                        xmlSerializer.text(obj.toString());
+                        xmlSerializer.endTag(null, "string");
+                        return;
+                    } else {
+                        throw new RuntimeException("writeValueXml: unable to write value " + obj);
+                    }
+                } else {
+                    str2 = "boolean";
+                }
+                xmlSerializer.startTag(null, str2);
+                if (str != null) {
+                    xmlSerializer.attribute(null, "name", str);
+                }
+                xmlSerializer.attribute(null, "value", obj.toString());
+                xmlSerializer.endTag(null, str2);
             }
-            xmlSerializer.startTag(null, str2);
-            if (str != null) {
-                xmlSerializer.attribute(null, "name", str);
-            }
-            xmlSerializer.attribute(null, "value", obj.toString());
-            xmlSerializer.endTag(null, str2);
         }
     }
 
     public static final HashMap a(InputStream inputStream) throws XmlPullParserException, IOException {
-        XmlPullParser newPullParser = Xml.newPullParser();
-        newPullParser.setInput(inputStream, null);
-        return (HashMap) a(newPullParser, new String[1]);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            XmlPullParser newPullParser = Xml.newPullParser();
+            newPullParser.setInput(inputStream, null);
+            return (HashMap) a(newPullParser, new String[1]);
+        }
+        return (HashMap) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m50a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
-        HashMap hashMap = new HashMap();
-        int eventType = xmlPullParser.getEventType();
-        do {
-            if (eventType == 2) {
-                Object b2 = b(xmlPullParser, strArr);
-                if (strArr[0] != null) {
-                    hashMap.put(strArr[0], b2);
-                } else {
-                    throw new XmlPullParserException("Map value without name attribute: " + xmlPullParser.getName());
-                }
-            } else if (eventType == 3) {
-                if (xmlPullParser.getName().equals(str)) {
-                    return hashMap;
-                }
-                throw new XmlPullParserException("Expected " + str + " end tag at: " + xmlPullParser.getName());
-            }
-            eventType = xmlPullParser.next();
-        } while (eventType != 1);
-        throw new XmlPullParserException("Document ended before " + str + " end tag");
-    }
-
-    public static final ArrayList a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
-        ArrayList arrayList = new ArrayList();
-        int eventType = xmlPullParser.getEventType();
-        do {
-            if (eventType == 2) {
-                arrayList.add(b(xmlPullParser, strArr));
-            } else if (eventType == 3) {
-                if (xmlPullParser.getName().equals(str)) {
-                    return arrayList;
-                }
-                throw new XmlPullParserException("Expected " + str + " end tag at: " + xmlPullParser.getName());
-            }
-            eventType = xmlPullParser.next();
-        } while (eventType != 1);
-        throw new XmlPullParserException("Document ended before " + str + " end tag");
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m51a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
-        try {
-            int[] iArr = new int[Integer.parseInt(xmlPullParser.getAttributeValue(null, "num"))];
-            int i2 = 0;
+    public static final HashMap m64a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, xmlPullParser, str, strArr)) == null) {
+            HashMap hashMap = new HashMap();
             int eventType = xmlPullParser.getEventType();
             do {
                 if (eventType == 2) {
-                    if (xmlPullParser.getName().equals("item")) {
-                        try {
-                            iArr[i2] = Integer.parseInt(xmlPullParser.getAttributeValue(null, "value"));
-                        } catch (NullPointerException unused) {
-                            throw new XmlPullParserException("Need value attribute in item");
-                        } catch (NumberFormatException unused2) {
-                            throw new XmlPullParserException("Not a number in value attribute in item");
-                        }
+                    Object b2 = b(xmlPullParser, strArr);
+                    if (strArr[0] != null) {
+                        hashMap.put(strArr[0], b2);
                     } else {
-                        throw new XmlPullParserException("Expected item tag at: " + xmlPullParser.getName());
+                        throw new XmlPullParserException("Map value without name attribute: " + xmlPullParser.getName());
                     }
                 } else if (eventType == 3) {
                     if (xmlPullParser.getName().equals(str)) {
-                        return iArr;
+                        return hashMap;
                     }
-                    if (!xmlPullParser.getName().equals("item")) {
-                        throw new XmlPullParserException("Expected " + str + " end tag at: " + xmlPullParser.getName());
-                    }
-                    i2++;
+                    throw new XmlPullParserException("Expected " + str + " end tag at: " + xmlPullParser.getName());
                 }
                 eventType = xmlPullParser.next();
             } while (eventType != 1);
             throw new XmlPullParserException("Document ended before " + str + " end tag");
-        } catch (NullPointerException unused3) {
-            throw new XmlPullParserException("Need num attribute in byte-array");
-        } catch (NumberFormatException unused4) {
-            throw new XmlPullParserException("Not a number in num attribute in byte-array");
         }
+        return (HashMap) invokeLLL.objValue;
+    }
+
+    public static final ArrayList a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, xmlPullParser, str, strArr)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int eventType = xmlPullParser.getEventType();
+            do {
+                if (eventType == 2) {
+                    arrayList.add(b(xmlPullParser, strArr));
+                } else if (eventType == 3) {
+                    if (xmlPullParser.getName().equals(str)) {
+                        return arrayList;
+                    }
+                    throw new XmlPullParserException("Expected " + str + " end tag at: " + xmlPullParser.getName());
+                }
+                eventType = xmlPullParser.next();
+            } while (eventType != 1);
+            throw new XmlPullParserException("Document ended before " + str + " end tag");
+        }
+        return (ArrayList) invokeLLL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static final int[] m65a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, xmlPullParser, str, strArr)) == null) {
+            try {
+                int[] iArr = new int[Integer.parseInt(xmlPullParser.getAttributeValue(null, "num"))];
+                int i2 = 0;
+                int eventType = xmlPullParser.getEventType();
+                do {
+                    if (eventType == 2) {
+                        if (xmlPullParser.getName().equals("item")) {
+                            try {
+                                iArr[i2] = Integer.parseInt(xmlPullParser.getAttributeValue(null, "value"));
+                            } catch (NullPointerException unused) {
+                                throw new XmlPullParserException("Need value attribute in item");
+                            } catch (NumberFormatException unused2) {
+                                throw new XmlPullParserException("Not a number in value attribute in item");
+                            }
+                        } else {
+                            throw new XmlPullParserException("Expected item tag at: " + xmlPullParser.getName());
+                        }
+                    } else if (eventType == 3) {
+                        if (xmlPullParser.getName().equals(str)) {
+                            return iArr;
+                        }
+                        if (!xmlPullParser.getName().equals("item")) {
+                            throw new XmlPullParserException("Expected " + str + " end tag at: " + xmlPullParser.getName());
+                        }
+                        i2++;
+                    }
+                    eventType = xmlPullParser.next();
+                } while (eventType != 1);
+                throw new XmlPullParserException("Document ended before " + str + " end tag");
+            } catch (NullPointerException unused3) {
+                throw new XmlPullParserException("Need num attribute in byte-array");
+            } catch (NumberFormatException unused4) {
+                throw new XmlPullParserException("Not a number in num attribute in byte-array");
+            }
+        }
+        return (int[]) invokeLLL.objValue;
     }
 
     public static final Object a(XmlPullParser xmlPullParser, String[] strArr) throws XmlPullParserException, IOException {
-        int eventType = xmlPullParser.getEventType();
-        while (eventType != 2) {
-            if (eventType == 3) {
-                throw new XmlPullParserException("Unexpected end tag at: " + xmlPullParser.getName());
-            } else if (eventType != 4) {
-                try {
-                    eventType = xmlPullParser.next();
-                    if (eventType == 1) {
-                        throw new XmlPullParserException("Unexpected end of document");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, xmlPullParser, strArr)) == null) {
+            int eventType = xmlPullParser.getEventType();
+            while (eventType != 2) {
+                if (eventType == 3) {
+                    throw new XmlPullParserException("Unexpected end tag at: " + xmlPullParser.getName());
+                } else if (eventType != 4) {
+                    try {
+                        eventType = xmlPullParser.next();
+                        if (eventType == 1) {
+                            throw new XmlPullParserException("Unexpected end of document");
+                        }
+                    } catch (Exception unused) {
+                        throw new XmlPullParserException("Unexpected call next(): " + xmlPullParser.getName());
                     }
-                } catch (Exception unused) {
-                    throw new XmlPullParserException("Unexpected call next(): " + xmlPullParser.getName());
+                } else {
+                    throw new XmlPullParserException("Unexpected text: " + xmlPullParser.getText());
                 }
-            } else {
-                throw new XmlPullParserException("Unexpected text: " + xmlPullParser.getText());
             }
+            return b(xmlPullParser, strArr);
         }
-        return b(xmlPullParser, strArr);
+        return invokeLL.objValue;
     }
 }

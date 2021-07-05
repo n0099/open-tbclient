@@ -22,7 +22,7 @@ public interface ErrorCode {
     public static final int DOWNLOADED_NOT_INSTALL_APK_NULL = 5043;
     public static final int DOWNLOADED_NOT_INSTALL_APK_THROTTLING = 5041;
     public static final int ERROR_AD_ID = 5038;
-    public static final int EXPRESS_REWARD_VIDEO_RENDER_FAIL = 5022;
+    public static final int EXPRESS_RENDER_FAIL = 5022;
     public static final int IMAGE_LOAD_ERROR = 5008;
     public static final int INIT_ERROR = 2001;
     public static final int INNER_ERROR = 2002;
@@ -57,7 +57,6 @@ public interface ErrorCode {
     public static final int SCREEN_ORIENTATION_ERROR = 4008;
     public static final int SERVER_JSON_PARSE_ERROR = 5001;
     public static final int SKIP_VIEW_SIZE_ERROR = 4009;
-    public static final int SPLASH_CONTAINER_HEIGHT_ERROR = 400501;
     public static final int SPLASH_CONTAINER_INVISIBLE = 4004;
     public static final int SPLASH_CONTAINER_NULL = 400104;
     public static final int SPLASH_DELAY_TIME_OUT = 4011;
@@ -71,6 +70,14 @@ public interface ErrorCode {
     public static final int VIDEO_LOAD_TIMEOUT = 5046;
     public static final int VIDEO_PLAY_ERROR = 5003;
     public static final int VIDEO_URL_ERROR = 5020;
+
+    /* loaded from: classes7.dex */
+    public interface PrivateError {
+        public static final int AD_DATA_DESTROYED = 9003;
+        public static final int LOAD_FAIL = 9001;
+        public static final int LOAD_TIME_OUT = 9000;
+        public static final int PARAM_ERROR = 9002;
+    }
 
     /* loaded from: classes7.dex */
     public interface ServerError {

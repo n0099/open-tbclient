@@ -126,7 +126,7 @@ public class b {
     public static int j(Context context, String str) {
         int b2 = b(context, "mz_push_preference", str + ".message_seq") + 1;
         c(context, str, b2);
-        d.j.a.a.a.b("mz_push_preference", "current messageSeq " + b2);
+        d.h.a.a.a.b("mz_push_preference", "current messageSeq " + b2);
         return b2;
     }
 

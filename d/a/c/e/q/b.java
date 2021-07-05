@@ -6,79 +6,171 @@ import android.os.Message;
 import android.os.Process;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.voice.Amrnb;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class b implements Runnable {
-    public static Object p = new Object();
-
-    /* renamed from: f  reason: collision with root package name */
-    public AudioTrack f42659f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f42660g;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Amrnb f42662i;
-    public final Handler j;
-    public int n;
+    public static /* synthetic */ Interceptable $ic;
+    public static Object p;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f42658e = 0;
+    public volatile int f44467e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AudioTrack f44468f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f44469g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final short[] f42661h = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
-    public int k = 0;
-    public final Handler l = new Handler();
-    public final Runnable m = new a();
-    public final Runnable o = new RunnableC0549b();
+    public final short[] f44470h;
 
-    /* loaded from: classes.dex */
+    /* renamed from: i  reason: collision with root package name */
+    public Amrnb f44471i;
+    public final Handler j;
+    public int k;
+    public final Handler l;
+    public final Runnable m;
+    public int n;
+    public final Runnable o;
+
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f44472e;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44472e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f42659f == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44472e.f44468f == null) {
                 return;
             }
             try {
-                if (b.this.f42659f.getPlayState() != 3) {
+                if (this.f44472e.f44468f.getPlayState() != 3) {
                     return;
                 }
             } catch (NullPointerException unused) {
             }
-            int g2 = b.this.g() + 0;
-            if (g2 != b.this.k) {
-                b.this.k = g2;
-                Message obtainMessage = b.this.j.obtainMessage(6);
-                obtainMessage.arg1 = b.this.k;
-                b.this.j.sendMessage(obtainMessage);
+            int g2 = this.f44472e.g() + 0;
+            if (g2 != this.f44472e.k) {
+                this.f44472e.k = g2;
+                Message obtainMessage = this.f44472e.j.obtainMessage(6);
+                obtainMessage.arg1 = this.f44472e.k;
+                this.f44472e.j.sendMessage(obtainMessage);
             }
-            b.this.l.postDelayed(b.this.m, 100L);
+            this.f44472e.l.postDelayed(this.f44472e.m, 100L);
         }
     }
 
     /* renamed from: d.a.c.e.q.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class RunnableC0549b implements Runnable {
-        public RunnableC0549b() {
+    /* loaded from: classes8.dex */
+    public class RunnableC0594b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f44473e;
+
+        public RunnableC0594b(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44473e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.i();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f44473e.i();
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2144816174, "Ld/a/c/e/q/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2144816174, "Ld/a/c/e/q/b;");
+                return;
+            }
+        }
+        p = new Object();
+    }
+
     public b(Handler handler, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f44467e = 0;
+        this.f44470h = new short[]{12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
+        this.k = 0;
+        this.l = new Handler();
+        this.m = new a(this);
         this.n = 0;
+        this.o = new RunnableC0594b(this);
         this.n = i2;
         this.j = handler;
         try {
             Amrnb amrnb = new Amrnb();
-            this.f42662i = amrnb;
+            this.f44471i = amrnb;
             if (amrnb != null || this.j == null) {
                 return;
             }
@@ -92,197 +184,217 @@ public class b implements Runnable {
     }
 
     public int g() {
-        AudioTrack audioTrack = this.f42659f;
-        if (audioTrack == null) {
-            return 0;
-        }
-        try {
-            int playbackHeadPosition = audioTrack.getPlaybackHeadPosition();
-            if (this.f42659f == null) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AudioTrack audioTrack = this.f44468f;
+            if (audioTrack == null) {
                 return 0;
             }
-            int sampleRate = this.f42659f.getSampleRate();
-            if (sampleRate == 0) {
+            try {
+                int playbackHeadPosition = audioTrack.getPlaybackHeadPosition();
+                if (this.f44468f == null) {
+                    return 0;
+                }
+                int sampleRate = this.f44468f.getSampleRate();
+                if (sampleRate == 0) {
+                    return 0;
+                }
+                return (int) (((playbackHeadPosition * 1.0f) / (sampleRate * 1.0f)) * 1000.0f);
+            } catch (Throwable unused) {
                 return 0;
             }
-            return (int) (((playbackHeadPosition * 1.0f) / (sampleRate * 1.0f)) * 1000.0f);
-        } catch (Throwable unused) {
-            return 0;
         }
+        return invokeV.intValue;
     }
 
     public final void h() {
-        try {
-            this.f42659f = new AudioTrack(h.f42667b, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
-        } catch (IllegalArgumentException e2) {
-            this.f42659f = null;
-            BdLog.e(e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                this.f44468f = new AudioTrack(h.f44476b, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
+            } catch (IllegalArgumentException e2) {
+                this.f44468f = null;
+                BdLog.e(e2.getMessage());
+            }
+            this.f44467e = 1;
         }
-        this.f42658e = 1;
     }
 
     public void i() {
         int i2;
-        Handler handler = this.j;
-        if (handler != null) {
-            handler.removeCallbacks(this.o);
-        }
-        synchronized (p) {
-            if (this.f42659f != null) {
-                try {
-                    i2 = this.f42659f.getPlaybackHeadPosition();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.j;
+            if (handler != null) {
+                handler.removeCallbacks(this.o);
+            }
+            synchronized (p) {
+                if (this.f44468f != null) {
                     try {
-                        this.f42659f.stop();
-                        this.f42659f.release();
-                    } catch (Exception unused) {
+                        i2 = this.f44468f.getPlaybackHeadPosition();
+                        try {
+                            this.f44468f.stop();
+                            this.f44468f.release();
+                        } catch (Exception unused) {
+                        }
+                    } catch (Exception unused2) {
+                        i2 = 0;
                     }
-                } catch (Exception unused2) {
+                    this.n = 0;
+                    this.f44468f = null;
+                } else {
                     i2 = 0;
                 }
-                this.n = 0;
-                this.f42659f = null;
-            } else {
-                i2 = 0;
+                if (this.l != null) {
+                    this.l.removeCallbacks(this.m);
+                }
+                if (this.j != null) {
+                    Message obtainMessage = this.j.obtainMessage(0);
+                    obtainMessage.arg1 = i2;
+                    this.j.sendMessage(obtainMessage);
+                }
             }
-            if (this.l != null) {
-                this.l.removeCallbacks(this.m);
-            }
-            if (this.j != null) {
-                Message obtainMessage = this.j.obtainMessage(0);
-                obtainMessage.arg1 = i2;
-                this.j.sendMessage(obtainMessage);
-            }
+            this.f44467e = 0;
         }
-        this.f42658e = 0;
     }
 
     public void j(String str) {
-        this.f42660g = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f44469g = str;
+        }
     }
 
     public void k(int i2) {
-        this.n = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.n = i2;
+        }
     }
 
     public void l() {
-        this.f42658e = 3;
-        i();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f44467e = 3;
+            i();
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:85:0x011e  */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0128  */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0122  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x012c  */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        Boolean bool;
-        byte[] bArr;
-        short[] sArr;
-        Process.setThreadPriority(-19);
-        if (this.f42662i == null) {
-            Handler handler = this.j;
-            if (handler != null) {
-                handler.sendMessage(handler.obtainMessage(2));
-                return;
-            }
-            return;
-        }
-        boolean z = true;
-        if (this.f42660g == null) {
-            Handler handler2 = this.j;
-            if (handler2 != null) {
-                handler2.sendMessage(handler2.obtainMessage(1));
-                return;
-            }
-            return;
-        }
-        File file = new File(this.f42660g);
-        if (!file.exists()) {
-            Handler handler3 = this.j;
-            if (handler3 != null) {
-                handler3.sendMessage(handler3.obtainMessage(1));
-                return;
-            }
-            return;
-        }
-        FileInputStream fileInputStream = null;
-        h();
-        AudioTrack audioTrack = this.f42659f;
-        if (audioTrack != null && audioTrack.getState() != 0) {
-            if (this.n > 0) {
-                this.f42659f.reloadStaticData();
-                this.f42659f.setPlaybackHeadPosition(this.n);
-            }
-            boolean z2 = false;
-            try {
-                this.f42659f.play();
-                this.f42658e = 2;
-                this.l.post(this.m);
-                FileInputStream fileInputStream2 = new FileInputStream(file);
-                try {
-                    bool = Boolean.TRUE;
-                    bArr = new byte[32];
-                    this.f42662i.decoderInit();
-                    sArr = new short[160];
-                } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Process.setThreadPriority(-19);
+            if (this.f44471i == null) {
+                Handler handler = this.j;
+                if (handler != null) {
+                    handler.sendMessage(handler.obtainMessage(2));
+                    return;
                 }
+                return;
+            }
+            boolean z = true;
+            if (this.f44469g == null) {
+                Handler handler2 = this.j;
+                if (handler2 != null) {
+                    handler2.sendMessage(handler2.obtainMessage(1));
+                    return;
+                }
+                return;
+            }
+            File file = new File(this.f44469g);
+            if (!file.exists()) {
+                Handler handler3 = this.j;
+                if (handler3 != null) {
+                    handler3.sendMessage(handler3.obtainMessage(1));
+                    return;
+                }
+                return;
+            }
+            FileInputStream fileInputStream = null;
+            h();
+            AudioTrack audioTrack = this.f44468f;
+            if (audioTrack != null && audioTrack.getState() != 0) {
+                if (this.n > 0) {
+                    this.f44468f.reloadStaticData();
+                    this.f44468f.setPlaybackHeadPosition(this.n);
+                }
+                boolean z2 = false;
                 try {
-                    while (this.f42658e == 2) {
-                        if (bool.booleanValue()) {
-                            if (fileInputStream2.read(bArr, 0, 6) != 6 || bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82 || bArr[5] != 10) {
-                                break;
-                            }
-                            bool = Boolean.FALSE;
-                        }
-                        if (fileInputStream2.read(bArr, 0, 1) > 0) {
-                            short s = this.f42661h[(bArr[0] >> 3) & 15];
-                            if (fileInputStream2.read(bArr, 1, s) == s) {
-                                synchronized (p) {
-                                    if (this.f42659f != null && this.f42659f.getPlayState() == 3) {
-                                        this.f42662i.decoderDecode(bArr, sArr);
-                                        this.f42659f.write(sArr, 0, 160);
+                    this.f44468f.play();
+                    this.f44467e = 2;
+                    this.l.post(this.m);
+                    FileInputStream fileInputStream2 = new FileInputStream(file);
+                    try {
+                        Boolean bool = Boolean.TRUE;
+                        byte[] bArr = new byte[32];
+                        this.f44471i.decoderInit();
+                        short[] sArr = new short[160];
+                        try {
+                            while (this.f44467e == 2) {
+                                if (bool.booleanValue()) {
+                                    if (fileInputStream2.read(bArr, 0, 6) != 6 || bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82 || bArr[5] != 10) {
+                                        break;
+                                    }
+                                    bool = Boolean.FALSE;
+                                }
+                                if (fileInputStream2.read(bArr, 0, 1) > 0) {
+                                    short s = this.f44470h[(bArr[0] >> 3) & 15];
+                                    if (fileInputStream2.read(bArr, 1, s) == s) {
+                                        synchronized (p) {
+                                            if (this.f44468f != null && this.f44468f.getPlayState() == 3) {
+                                                this.f44471i.decoderDecode(bArr, sArr);
+                                                this.f44468f.write(sArr, 0, 160);
+                                            }
+                                        }
                                     }
                                 }
                             }
+                            fileInputStream2.close();
+                            this.f44471i.decoderDeinit();
+                        } catch (Exception unused) {
+                            z2 = z;
+                            fileInputStream = fileInputStream2;
+                            Handler handler4 = this.j;
+                            if (handler4 != null) {
+                                handler4.sendMessage(handler4.obtainMessage(5));
+                            }
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (Exception e2) {
+                                    BdLog.e(e2.getMessage());
+                                }
+                            }
+                            z = z2;
+                            this.f44467e = 3;
+                            if (!z) {
+                            }
                         }
+                        z = false;
+                    } catch (Exception unused2) {
                     }
-                    fileInputStream2.close();
-                    this.f42662i.decoderDeinit();
-                } catch (Exception unused2) {
-                    z2 = z;
-                    fileInputStream = fileInputStream2;
-                    Handler handler4 = this.j;
-                    if (handler4 != null) {
-                        handler4.sendMessage(handler4.obtainMessage(5));
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e2) {
-                            BdLog.e(e2.getMessage());
-                        }
-                    }
-                    z = z2;
-                    this.f42658e = 3;
-                    if (!z) {
-                    }
+                } catch (Exception unused3) {
                 }
-                z = false;
-            } catch (Exception unused3) {
+                this.f44467e = 3;
+                if (!z) {
+                    this.j.postDelayed(this.o, 500L);
+                    return;
+                } else {
+                    i();
+                    return;
+                }
             }
-            this.f42658e = 3;
-            if (!z) {
-                this.j.postDelayed(this.o, 500L);
-                return;
-            } else {
-                i();
-                return;
+            Handler handler5 = this.j;
+            if (handler5 != null) {
+                handler5.sendMessage(handler5.obtainMessage(3));
             }
-        }
-        Handler handler5 = this.j;
-        if (handler5 != null) {
-            handler5.sendMessage(handler5.obtainMessage(3));
         }
     }
 }

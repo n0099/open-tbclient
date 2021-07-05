@@ -2,33 +2,61 @@ package com.baidu.tieba.sharesdk;
 
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> {
-    public void finishWithResult(int i2, int i3, Bundle bundle, String str) {
-        Intent intent = new Intent();
-        intent.putExtra("extra_show_channel", i2);
-        intent.putExtra("extra_share_status", i3);
-        intent.putExtra("share_to", String.valueOf(i2));
-        if (bundle != null) {
-            intent.putExtra("tid", bundle.getString("tid"));
-            intent.putExtra("pid", bundle.getString("pid"));
-            intent.putExtra("source", bundle.getInt("source"));
-        } else {
-            intent.putExtra("tid", (String) null);
-            intent.putExtra("pid", (String) null);
-            intent.putExtra("source", 0);
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ShareBaseActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        intent.putExtra("complete_id", str);
-        setResult(-1, intent);
-        finish();
+    }
+
+    public void finishWithResult(int i2, int i3, Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), bundle, str}) == null) {
+            Intent intent = new Intent();
+            intent.putExtra("extra_show_channel", i2);
+            intent.putExtra("extra_share_status", i3);
+            intent.putExtra("share_to", String.valueOf(i2));
+            if (bundle != null) {
+                intent.putExtra("tid", bundle.getString("tid"));
+                intent.putExtra("pid", bundle.getString("pid"));
+                intent.putExtra("source", bundle.getInt("source"));
+            } else {
+                intent.putExtra("tid", (String) null);
+                intent.putExtra("pid", (String) null);
+                intent.putExtra("source", 0);
+            }
+            intent.putExtra("complete_id", str);
+            setResult(-1, intent);
+            finish();
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        if (getIntent() == null) {
-            finish();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            if (getIntent() == null) {
+                finish();
+            }
         }
     }
 }

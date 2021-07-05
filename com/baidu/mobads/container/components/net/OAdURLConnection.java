@@ -4,10 +4,18 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.executor.BaseTask;
 import com.baidu.mobads.container.executor.TaskScheduler;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.AdURIUtils;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -18,8 +26,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OAdURLConnection {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_APPLICATION_JSON = "application/json";
     public static final String CONTENT_TYPE_TEXT_PLAIN = "text/plain";
     public static final int LOADER_PRIORITY_HIGH = 1;
@@ -27,6 +36,7 @@ public class OAdURLConnection {
     public static final String METHOD_GET = "GET";
     public static final String METHOD_POST = "POST";
     public static final String TAG = "URLConnection";
+    public transient /* synthetic */ FieldHolder $fh;
     public RemoteXAdLogger mAdLogger;
     public OnAdRequestListener mAdRequestListener;
     public int mConnectTimeOut;
@@ -41,98 +51,147 @@ public class OAdURLConnection {
     public boolean mUseCaches;
     public String mUserAgent;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class LoadUrlRunnable extends BaseTask {
-        public LoadUrlRunnable() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ OAdURLConnection this$0;
+
+        public LoadUrlRunnable(OAdURLConnection oAdURLConnection) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oAdURLConnection};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = oAdURLConnection;
         }
 
         @Override // com.baidu.mobads.container.executor.BaseTask
         public Object doInBackground() {
-            OAdURLConnection.this.request();
-            OAdURLConnection.this.connect();
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.this$0.request();
+                this.this$0.connect();
+                return null;
+            }
+            return invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnAdRequestListener {
         void onFail(String str, int i2);
 
         void onSuccess(String str, String str2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnImageRequestListener {
         void onFail(String str, int i2);
 
         void onSuccess(InputStream inputStream, String str);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OAdURLConnection(int i2, String str) {
         this(i2, str, "GET");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
     /* JADX INFO: Access modifiers changed from: private */
     public void connect() {
         HttpURLConnection httpURLConnection;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
             try {
-                this.mHttpURLConnection.connect();
-                RemoteXAdLogger remoteXAdLogger = this.mAdLogger;
-                remoteXAdLogger.d(TAG, this.mHttpURLConnection.getRequestMethod() + " connect code :" + this.mHttpURLConnection.getResponseCode());
-                int responseCode = this.mHttpURLConnection.getResponseCode();
-                if (responseCode == 302 || responseCode == 301) {
-                    this.mHttpURLConnection.setInstanceFollowRedirects(false);
-                    HttpURLConnection openConnectionCheckRedirects = openConnectionCheckRedirects(this.mHttpURLConnection);
-                    this.mHttpURLConnection = openConnectionCheckRedirects;
-                    responseCode = openConnectionCheckRedirects.getResponseCode();
-                }
-                if (responseCode / 100 != 2) {
+                try {
+                    this.mHttpURLConnection.connect();
+                    RemoteXAdLogger remoteXAdLogger = this.mAdLogger;
+                    remoteXAdLogger.d(TAG, this.mHttpURLConnection.getRequestMethod() + " connect code :" + this.mHttpURLConnection.getResponseCode());
+                    int responseCode = this.mHttpURLConnection.getResponseCode();
+                    if (responseCode == 302 || responseCode == 301) {
+                        this.mHttpURLConnection.setInstanceFollowRedirects(false);
+                        HttpURLConnection openConnectionCheckRedirects = openConnectionCheckRedirects(this.mHttpURLConnection);
+                        this.mHttpURLConnection = openConnectionCheckRedirects;
+                        responseCode = openConnectionCheckRedirects.getResponseCode();
+                    }
+                    if (responseCode / 100 != 2) {
+                        if (this.mAdRequestListener != null) {
+                            this.mAdRequestListener.onFail(this.mHttpURLConnection.getResponseMessage(), responseCode);
+                        }
+                        if (this.mImageRequestListener != null) {
+                            this.mImageRequestListener.onFail(this.mHttpURLConnection.getResponseMessage(), responseCode);
+                        }
+                    } else {
+                        String fixedString = AdURIUtils.getFixedString(this.mRequestUrl);
+                        if (this.mAdRequestListener != null) {
+                            this.mAdRequestListener.onSuccess(getReadContent(), fixedString);
+                        }
+                        if (this.mImageRequestListener != null) {
+                            this.mImageRequestListener.onSuccess(this.mHttpURLConnection.getInputStream(), fixedString);
+                        }
+                    }
+                    httpURLConnection = this.mHttpURLConnection;
+                    if (httpURLConnection == null) {
+                        return;
+                    }
+                } catch (Exception e2) {
                     if (this.mAdRequestListener != null) {
-                        this.mAdRequestListener.onFail(this.mHttpURLConnection.getResponseMessage(), responseCode);
+                        OnAdRequestListener onAdRequestListener = this.mAdRequestListener;
+                        onAdRequestListener.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
                     }
                     if (this.mImageRequestListener != null) {
-                        this.mImageRequestListener.onFail(this.mHttpURLConnection.getResponseMessage(), responseCode);
+                        OnImageRequestListener onImageRequestListener = this.mImageRequestListener;
+                        onImageRequestListener.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
                     }
-                } else {
-                    String fixedString = AdURIUtils.getFixedString(this.mRequestUrl);
-                    if (this.mAdRequestListener != null) {
-                        this.mAdRequestListener.onSuccess(getReadContent(), fixedString);
-                    }
-                    if (this.mImageRequestListener != null) {
-                        this.mImageRequestListener.onSuccess(this.mHttpURLConnection.getInputStream(), fixedString);
+                    httpURLConnection = this.mHttpURLConnection;
+                    if (httpURLConnection == null) {
+                        return;
                     }
                 }
-                httpURLConnection = this.mHttpURLConnection;
-                if (httpURLConnection == null) {
-                    return;
+                httpURLConnection.disconnect();
+            } catch (Throwable th) {
+                HttpURLConnection httpURLConnection2 = this.mHttpURLConnection;
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
                 }
-            } catch (Exception e2) {
-                if (this.mAdRequestListener != null) {
-                    OnAdRequestListener onAdRequestListener = this.mAdRequestListener;
-                    onAdRequestListener.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
-                }
-                if (this.mImageRequestListener != null) {
-                    OnImageRequestListener onImageRequestListener = this.mImageRequestListener;
-                    onImageRequestListener.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
-                }
-                httpURLConnection = this.mHttpURLConnection;
-                if (httpURLConnection == null) {
-                    return;
-                }
+                throw th;
             }
-            httpURLConnection.disconnect();
-        } catch (Throwable th) {
-            HttpURLConnection httpURLConnection2 = this.mHttpURLConnection;
-            if (httpURLConnection2 != null) {
-                httpURLConnection2.disconnect();
-            }
-            throw th;
         }
     }
 
     private HttpURLConnection openConnectionCheckRedirects(HttpURLConnection httpURLConnection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, httpURLConnection)) != null) {
+            return (HttpURLConnection) invokeL.objValue;
+        }
         while (true) {
             try {
                 int responseCode = httpURLConnection.getResponseCode();
@@ -156,6 +215,10 @@ public class OAdURLConnection {
 
     private void postDataToOutputStream(String str, HttpURLConnection httpURLConnection) throws IOException {
         OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, httpURLConnection) != null) {
+            return;
+        }
         BufferedWriter bufferedWriter = null;
         try {
             outputStream = httpURLConnection.getOutputStream();
@@ -190,7 +253,8 @@ public class OAdURLConnection {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void request() {
-        if (TextUtils.isEmpty(this.mRequestUrl)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || TextUtils.isEmpty(this.mRequestUrl)) {
             return;
         }
         try {
@@ -238,113 +302,162 @@ public class OAdURLConnection {
     }
 
     public void addAdRequestListener(OnAdRequestListener onAdRequestListener) {
-        this.mAdRequestListener = onAdRequestListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onAdRequestListener) == null) {
+            this.mAdRequestListener = onAdRequestListener;
+        }
     }
 
     public void addImageRequestListener(OnImageRequestListener onImageRequestListener) {
-        this.mImageRequestListener = onImageRequestListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onImageRequestListener) == null) {
+            this.mImageRequestListener = onImageRequestListener;
+        }
     }
 
     public void asynLoad() {
-        try {
-            if (this.mPriority == 1) {
-                TaskScheduler.getInstance().submit(new LoadUrlRunnable(), 1);
-            } else {
-                TaskScheduler.getInstance().submit(new LoadUrlRunnable(), 2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.mPriority == 1) {
+                    TaskScheduler.getInstance().submit(new LoadUrlRunnable(this), 1);
+                } else {
+                    TaskScheduler.getInstance().submit(new LoadUrlRunnable(this), 2);
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
         }
     }
 
     public void closeInputStream() {
-        HttpURLConnection httpURLConnection = this.mHttpURLConnection;
-        if (httpURLConnection != null) {
-            try {
-                InputStream inputStream = httpURLConnection.getInputStream();
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-            } catch (Exception e2) {
-                Log.e(TAG, e2.toString());
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (httpURLConnection = this.mHttpURLConnection) == null) {
+            return;
+        }
+        try {
+            InputStream inputStream = httpURLConnection.getInputStream();
+            if (inputStream != null) {
+                inputStream.close();
             }
+        } catch (Exception e2) {
+            Log.e(TAG, e2.toString());
         }
     }
 
     public String getReadContent() throws Exception {
-        InputStream inputStream = null;
-        try {
-            inputStream = this.mHttpURLConnection.getInputStream();
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[128];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read == -1) {
-                    break;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            InputStream inputStream = null;
+            try {
+                inputStream = this.mHttpURLConnection.getInputStream();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[128];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
                 }
-                byteArrayOutputStream.write(bArr, 0, read);
-            }
-            byteArrayOutputStream.flush();
-            return byteArrayOutputStream.toString();
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
+                byteArrayOutputStream.flush();
+                return byteArrayOutputStream.toString();
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
             }
         }
+        return (String) invokeV.objValue;
     }
 
     public void setConnectTimeout(int i2) {
-        this.mConnectTimeOut = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.mConnectTimeOut = i2;
+        }
     }
 
     public void setContentType(String str) {
-        this.mContentType = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.mContentType = str;
+        }
     }
 
     public void setReadTimeout(int i2) {
-        this.mReadTimeOut = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.mReadTimeOut = i2;
+        }
     }
 
     public void setRequestProperty(Map<String, String> map) {
-        if (this.mHttpURLConnection != null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                this.mHttpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) || this.mHttpURLConnection == null) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            this.mHttpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
     }
 
     public void setUriBuilder(Uri.Builder builder) {
-        this.mUriBuilder = builder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, builder) == null) {
+            this.mUriBuilder = builder;
+        }
     }
 
     public String synLoad() {
-        request();
-        HttpURLConnection httpURLConnection = this.mHttpURLConnection;
-        if (httpURLConnection != null) {
-            try {
-                if (httpURLConnection.getResponseCode() / 100 != 2) {
-                    HttpURLConnection httpURLConnection2 = this.mHttpURLConnection;
-                    if (httpURLConnection2 != null) {
-                        httpURLConnection2.disconnect();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            request();
+            HttpURLConnection httpURLConnection = this.mHttpURLConnection;
+            if (httpURLConnection != null) {
+                try {
+                    if (httpURLConnection.getResponseCode() / 100 != 2) {
+                        HttpURLConnection httpURLConnection2 = this.mHttpURLConnection;
+                        if (httpURLConnection2 != null) {
+                            httpURLConnection2.disconnect();
+                        }
+                        return null;
                     }
-                    return null;
-                }
-                String readContent = getReadContent();
-                HttpURLConnection httpURLConnection3 = this.mHttpURLConnection;
-                if (httpURLConnection3 != null) {
-                    httpURLConnection3.disconnect();
-                }
-                return readContent;
-            } catch (Throwable unused) {
-                HttpURLConnection httpURLConnection4 = this.mHttpURLConnection;
-                if (httpURLConnection4 != null) {
-                    httpURLConnection4.disconnect();
+                    String readContent = getReadContent();
+                    HttpURLConnection httpURLConnection3 = this.mHttpURLConnection;
+                    if (httpURLConnection3 != null) {
+                        httpURLConnection3.disconnect();
+                    }
+                    return readContent;
+                } catch (Throwable unused) {
+                    HttpURLConnection httpURLConnection4 = this.mHttpURLConnection;
+                    if (httpURLConnection4 != null) {
+                        httpURLConnection4.disconnect();
+                    }
                 }
             }
+            return null;
         }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public OAdURLConnection(int i2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mAdLogger = RemoteXAdLogger.getInstance();
         this.mAdRequestListener = null;
         this.mImageRequestListener = null;

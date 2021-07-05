@@ -6,122 +6,201 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.HeadIconRefreshHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.n0.r.f0.m.a;
-import d.a.n0.r.q.a2;
-import d.a.o0.e2.k.e.q0;
+import d.a.r0.r.f0.m.a;
+import d.a.r0.r.q.b2;
+import d.a.s0.h2.k.e.q0;
 /* loaded from: classes5.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f19659e;
+    public HeadImageView f19809e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbVideoFullscreenLikeBtn f19660f;
+    public PbVideoFullscreenLikeBtn f19810f;
 
     /* renamed from: g  reason: collision with root package name */
-    public q0 f19661g;
+    public q0 f19811g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f19662h;
+    public BdUniqueId f19812h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenAttentionLayout(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         c(context);
     }
 
-    public int a(a2 a2Var) {
-        if (a2Var == null) {
-            return 0;
+    public int a(b2 b2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b2Var)) == null) {
+            if (b2Var == null) {
+                return 0;
+            }
+            if (b2Var.b2()) {
+                return !k.isEmpty(b2Var.W()) ? 2 : 0;
+            }
+            return 1;
         }
-        if (a2Var.o2()) {
-            return !k.isEmpty(a2Var.i0()) ? 2 : 0;
-        }
-        return 1;
+        return invokeL.intValue;
     }
 
     public boolean b() {
-        q0 q0Var = this.f19661g;
-        return (q0Var == null || q0Var.j() == null || !this.f19661g.j().getIsLike()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q0 q0Var = this.f19811g;
+            return (q0Var == null || q0Var.j() == null || !this.f19811g.j().getIsLike()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void c(Context context) {
-        FrameLayout.inflate(context, R.layout.pb_video_attention, this);
-        this.f19659e = (HeadImageView) findViewById(R.id.attention_img);
-        this.f19660f = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.f19659e.setIsRound(true);
-        this.f19659e.setBorderWidth(l.g(context, R.dimen.tbds3));
-        this.f19659e.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
-        this.f19659e.setAutoChangeStyle(false);
-        this.f19660f.setConfig(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            FrameLayout.inflate(context, R.layout.pb_video_attention, this);
+            this.f19809e = (HeadImageView) findViewById(R.id.attention_img);
+            this.f19810f = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+            this.f19809e.setIsRound(true);
+            this.f19809e.setBorderWidth(l.g(context, R.dimen.tbds3));
+            this.f19809e.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
+            this.f19809e.setAutoChangeStyle(false);
+            this.f19810f.setConfig(new a());
+        }
     }
 
-    public void d(a2 a2Var) {
-        if (a2Var == null || a2Var.T() == null) {
+    public void d(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, b2Var) == null) || b2Var == null || b2Var.H() == null) {
             return;
         }
-        String str = a2Var.A;
-        int a2 = a(a2Var);
-        if (this.f19661g == null) {
+        String str = b2Var.A;
+        int a2 = a(b2Var);
+        if (this.f19811g == null) {
             if (!(getContext() instanceof PbActivity)) {
                 return;
             }
-            q0 q0Var = new q0(((PbActivity) getContext()).getPageContext(), this.f19660f, -1);
-            this.f19661g = q0Var;
+            q0 q0Var = new q0(((PbActivity) getContext()).getPageContext(), this.f19810f, -1);
+            this.f19811g = q0Var;
             q0Var.m("11");
-            this.f19661g.l(this.f19662h);
+            this.f19811g.l(this.f19812h);
         }
-        this.f19661g.n(a2Var.T());
-        this.f19661g.w(str);
-        this.f19661g.u(a2Var);
-        q0 q0Var2 = this.f19661g;
+        this.f19811g.n(b2Var.H());
+        this.f19811g.w(str);
+        this.f19811g.u(b2Var);
+        q0 q0Var2 = this.f19811g;
         q0Var2.s = true;
         q0Var2.v(a2);
     }
 
-    public void setData(a2 a2Var) {
-        if (a2Var == null || a2Var.T() == null) {
+    public void setData(b2 b2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, b2Var) == null) || b2Var == null || b2Var.H() == null) {
             return;
         }
-        String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(a2Var.T().getAvater());
+        String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(b2Var.H().getAvater());
         if (headPortraitFilter.startsWith("http")) {
-            this.f19659e.U(headPortraitFilter, 10, false);
+            this.f19809e.M(headPortraitFilter, 10, false);
         } else {
-            this.f19659e.U(headPortraitFilter, 25, false);
+            this.f19809e.M(headPortraitFilter, 25, false);
         }
-        if (a2Var.T().getBaijiahaoInfo() != null && a2Var.T().getBaijiahaoInfo().auth_id.intValue() > 0) {
-            this.f19659e.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(a2Var.T().getBaijiahaoInfo().auth_id.intValue(), 1));
-            this.f19659e.setShowV(true);
-            this.f19659e.setGodIconWidth(R.dimen.tbds31);
+        if (b2Var.H().getBaijiahaoInfo() != null && b2Var.H().getBaijiahaoInfo().auth_id.intValue() > 0) {
+            this.f19809e.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(b2Var.H().getBaijiahaoInfo().auth_id.intValue(), 1));
+            this.f19809e.setShowV(true);
+            this.f19809e.setGodIconWidth(R.dimen.tbds31);
         } else {
-            this.f19659e.setBjhAuthIconRes(0);
-            this.f19659e.setIsBigV(a2Var.T().isBigV());
-            this.f19659e.setShowV(a2Var.T().isBigV());
+            this.f19809e.setBjhAuthIconRes(0);
+            this.f19809e.setIsBigV(b2Var.H().isBigV());
+            this.f19809e.setShowV(b2Var.H().isBigV());
         }
-        d(a2Var);
+        d(b2Var);
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.f19660f.setOnclickEvent(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.f19810f.setOnclickEvent(onClickListener);
+        }
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.f19662h = bdUniqueId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
+            this.f19812h = bdUniqueId;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         c(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         c(context);
     }
 }

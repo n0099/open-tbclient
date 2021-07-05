@@ -5,95 +5,181 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseTitleView extends RelativeLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.ConfigData f24358a;
+    public HomeCfgResponse.ConfigData f24901a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f24359b;
+    public b f24902b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f24360c;
+    public Context f24903c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseTitleView(Context context) {
         super(context);
-        this.f24360c = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24903c = context;
         a();
     }
 
     private void a() {
-        setOnClickListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            setOnClickListener(this);
+        }
     }
 
     public HomeCfgResponse.ConfigData getData() {
-        return this.f24358a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24901a : (HomeCfgResponse.ConfigData) invokeV.objValue;
     }
 
     public String getGroupDesc() {
-        HomeCfgResponse.ConfigData configData = this.f24358a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_desc())) ? "" : this.f24358a.getGroup_desc();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.f24901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_desc())) ? "" : this.f24901a.getGroup_desc();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getGroupLayout() {
-        HomeCfgResponse.ConfigData configData = this.f24358a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_layout())) ? "" : this.f24358a.getGroup_layout();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.f24901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_layout())) ? "" : this.f24901a.getGroup_layout();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getGroupLink() {
-        HomeCfgResponse.ConfigData configData = this.f24358a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_link())) ? "" : this.f24358a.getGroup_link();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.f24901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_link())) ? "" : this.f24901a.getGroup_link();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getGroupName() {
-        HomeCfgResponse.ConfigData configData = this.f24358a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_name())) ? "" : this.f24358a.getGroup_name();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.f24901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_name())) ? "" : this.f24901a.getGroup_name();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getGroupType() {
-        HomeCfgResponse.ConfigData configData = this.f24358a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_type())) ? "" : this.f24358a.getGroup_type();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.f24901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_type())) ? "" : this.f24901a.getGroup_type();
+        }
+        return (String) invokeV.objValue;
     }
 
     public b getWalletInterface() {
-        return this.f24359b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24902b : (b) invokeV.objValue;
     }
 
     @Override // android.view.View
     public boolean isClickable() {
-        HomeCfgResponse.ConfigData configData = this.f24358a;
-        return configData != null && configData.isGroupCanClick();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.f24901a;
+            return configData != null && configData.isGroupCanClick();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f24358a == null || getWalletInterface() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || this.f24901a == null || getWalletInterface() == null) {
             return;
         }
         b walletInterface = getWalletInterface();
-        HomeCfgResponse.ConfigData configData = this.f24358a;
+        HomeCfgResponse.ConfigData configData = this.f24901a;
         HomeCfgResponse.Stat stat = configData.stat;
-        walletInterface.jump(stat != null ? stat.getName() : configData.getGroup_name(), this.f24358a.getGroup_type(), this.f24358a.getGroup_link(), this.f24358a.getGroup_prevlogin());
+        walletInterface.jump(stat != null ? stat.getName() : configData.getGroup_name(), this.f24901a.getGroup_type(), this.f24901a.getGroup_link(), this.f24901a.getGroup_prevlogin());
     }
 
     public void onEyeMaskChanged() {
-    }
-
-    public void setData(HomeCfgResponse.ConfigData configData, b bVar) {
-        this.f24358a = configData;
-        this.f24359b = bVar;
-        if (!isClickable()) {
-            setEnabled(false);
-        } else {
-            setEnabled(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
+    public void setData(HomeCfgResponse.ConfigData configData, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, configData, bVar) == null) {
+            this.f24901a = configData;
+            this.f24902b = bVar;
+            if (!isClickable()) {
+                setEnabled(false);
+            } else {
+                setEnabled(true);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseTitleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24360c = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24903c = context;
         a();
     }
 }

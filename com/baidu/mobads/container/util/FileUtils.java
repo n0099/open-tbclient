@@ -2,6 +2,11 @@ package com.baidu.mobads.container.util;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -13,30 +18,51 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int IO_BUF_SIZE = 32768;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0054, code lost:
-        if (r4 == null) goto L39;
+    public FileUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0058, code lost:
+        if (r4 == null) goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0056, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x005a, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x0062, code lost:
-        if (r4 == null) goto L39;
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0066, code lost:
+        if (r4 == null) goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x006d, code lost:
-        if (r4 == null) goto L39;
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x0071, code lost:
+        if (r4 == null) goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0070, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0074, code lost:
         return false;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean copyFile(String str, String str2) {
+        InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, str, str2)) != null) {
+            return invokeLL.booleanValue;
+        }
         FileInputStream fileInputStream = null;
         try {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !new File(str).exists()) {
@@ -107,108 +133,128 @@ public class FileUtils {
     }
 
     public static void copyFileFromAssetsTo(Context context, String str, String str2) throws IOException {
-        try {
-            copyFileInputStream(context.getAssets().open(str), str2);
-        } catch (Exception e2) {
-            RemoteXAdLogger.getInstance().d(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, str2) == null) {
+            try {
+                copyFileInputStream(context.getAssets().open(str), str2);
+            } catch (Exception e2) {
+                RemoteXAdLogger.getInstance().d(e2);
+            }
         }
     }
 
     public static void copyFileInputStream(InputStream inputStream, String str) throws IOException {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            fileOutputStream = new FileOutputStream(str);
-        } catch (Throwable th) {
-            th = th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65539, null, inputStream, str) != null) {
+            return;
         }
+        FileOutputStream fileOutputStream = null;
         try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read <= 0) {
-                    break;
+            FileOutputStream fileOutputStream2 = new FileOutputStream(str);
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    fileOutputStream2.write(bArr, 0, read);
                 }
-                fileOutputStream.write(bArr, 0, read);
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                fileOutputStream2.close();
+            } catch (Throwable th) {
+                th = th;
+                fileOutputStream = fileOutputStream2;
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+                throw th;
             }
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            fileOutputStream.close();
         } catch (Throwable th2) {
             th = th2;
-            fileOutputStream2 = fileOutputStream;
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            if (fileOutputStream2 != null) {
-                fileOutputStream2.close();
-            }
-            throw th;
         }
     }
 
     public static File deleteFileRecursive(File file) {
-        try {
-            if (file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    File deleteFileRecursive = deleteFileRecursive(file2);
-                    if (deleteFileRecursive != null) {
-                        return deleteFileRecursive;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, file)) == null) {
+            try {
+                if (file.isDirectory()) {
+                    for (File file2 : file.listFiles()) {
+                        File deleteFileRecursive = deleteFileRecursive(file2);
+                        if (deleteFileRecursive != null) {
+                            return deleteFileRecursive;
+                        }
                     }
                 }
+                if (file.delete()) {
+                    return null;
+                }
+                return file;
+            } catch (Exception unused) {
+                if (file.delete()) {
+                    return null;
+                }
+                return file;
             }
-            if (file.delete()) {
-                return null;
-            }
-            return file;
-        } catch (Exception unused) {
-            if (file.delete()) {
-                return null;
-            }
-            return file;
         }
+        return (File) invokeL.objValue;
     }
 
     public static String getFileName(String str) {
-        try {
-            String path = new URI(str).getPath();
-            return path.substring(path.lastIndexOf(47) + 1, path.length());
-        } catch (URISyntaxException unused) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            try {
+                String path = new URI(str).getPath();
+                return path.substring(path.lastIndexOf(47) + 1, path.length());
+            } catch (URISyntaxException unused) {
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static boolean isFileExistsAndCanRead(File file) {
-        if (file != null) {
-            try {
-                if (file.exists() && file.canRead()) {
-                    return file.length() > 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            if (file != null) {
+                try {
+                    if (file.exists() && file.canRead()) {
+                        return file.length() > 0;
+                    }
+                    return false;
+                } catch (Exception unused) {
+                    return false;
                 }
-                return false;
-            } catch (Exception unused) {
-                return false;
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0055 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v0, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v4, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r6v8 */
     public static byte[] readFileToByteArray(File file) {
+        InterceptResult invokeL;
         FileInputStream fileInputStream;
         Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65545, null, file)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
         try {
-            try {
-                if (file.exists()) {
-                    fileInputStream = new FileInputStream((File) file);
+            if (file.exists()) {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream();
                     try {
-                        byteArrayOutputStream = new ByteArrayOutputStream();
                         try {
                             byte[] bArr = new byte[32768];
                             while (true) {
@@ -229,21 +275,24 @@ public class FileUtils {
                             tryClose(fileInputStream);
                             return null;
                         }
-                    } catch (IOException e3) {
-                        e = e3;
-                        byteArrayOutputStream = null;
                     } catch (Throwable th2) {
                         th = th2;
-                        file = 0;
-                        tryClose(file);
+                        tryClose(byteArrayOutputStream);
                         tryClose(fileInputStream);
                         throw th;
                     }
-                } else {
-                    throw new FileNotFoundException();
+                } catch (IOException e3) {
+                    e = e3;
+                    byteArrayOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    byteArrayOutputStream = null;
+                    tryClose(byteArrayOutputStream);
+                    tryClose(fileInputStream);
+                    throw th;
                 }
-            } catch (Throwable th3) {
-                th = th3;
+            } else {
+                throw new FileNotFoundException();
             }
         } catch (IOException e4) {
             e = e4;
@@ -252,121 +301,138 @@ public class FileUtils {
         } catch (Throwable th4) {
             fileInputStream = null;
             th = th4;
-            file = 0;
+            byteArrayOutputStream = null;
         }
     }
 
     public static boolean renameFile(String str, String str2) {
-        try {
-            File file = new File(str);
-            File file2 = new File(str2);
-            if (file.exists()) {
-                return file.renameTo(file2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
+            try {
+                File file = new File(str);
+                File file2 = new File(str2);
+                if (file.exists()) {
+                    return file.renameTo(file2);
+                }
+                return false;
+            } catch (Exception unused) {
+                return false;
             }
-            return false;
-        } catch (Exception unused) {
-            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0026 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v5, resolved type: java.io.BufferedOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v7, resolved type: java.io.BufferedOutputStream */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x002a */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: java.io.BufferedOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v7, resolved type: java.io.BufferedOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v6 */
+    /* JADX WARN: Type inference failed for: r5v6 */
     public static void saveBytesToFile(byte[] bArr, File file) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2;
         FileOutputStream fileOutputStream3;
         BufferedOutputStream bufferedOutputStream;
-        FileOutputStream fileOutputStream4 = null;
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            fileOutputStream = new FileOutputStream(file);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, bArr, file) == null) {
+            FileOutputStream fileOutputStream4 = null;
             try {
-                bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
-            } catch (IOException e2) {
-                e = e2;
-                bufferedOutputStream = 0;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                bufferedOutputStream.write(bArr);
-                fileOutputStream.flush();
-                bufferedOutputStream.flush();
-                tryClose(fileOutputStream);
-                fileOutputStream3 = bufferedOutputStream;
-            } catch (IOException e3) {
-                e = e3;
-                fileOutputStream4 = fileOutputStream;
-                fileOutputStream2 = bufferedOutputStream;
-                try {
-                    RemoteXAdLogger.getInstance().d("Failed to save file", e);
-                    tryClose(fileOutputStream4);
-                    fileOutputStream3 = fileOutputStream2;
-                    tryClose(fileOutputStream3);
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = fileOutputStream4;
-                    fileOutputStream4 = fileOutputStream2;
-                    tryClose(fileOutputStream);
-                    tryClose(fileOutputStream4);
-                    throw th;
+                if (!file.exists()) {
+                    file.createNewFile();
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream4 = bufferedOutputStream;
+                fileOutputStream = new FileOutputStream(file);
                 try {
-                    RemoteXAdLogger.getInstance().d("Failed to save file", th);
-                    tryClose(fileOutputStream);
-                    tryClose(fileOutputStream4);
-                    return;
+                    bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+                    try {
+                        bufferedOutputStream.write(bArr);
+                        fileOutputStream.flush();
+                        bufferedOutputStream.flush();
+                        tryClose(fileOutputStream);
+                        fileOutputStream3 = bufferedOutputStream;
+                    } catch (IOException e2) {
+                        e = e2;
+                        fileOutputStream4 = fileOutputStream;
+                        fileOutputStream2 = bufferedOutputStream;
+                        try {
+                            RemoteXAdLogger.getInstance().d("Failed to save file", e);
+                            tryClose(fileOutputStream4);
+                            fileOutputStream3 = fileOutputStream2;
+                            tryClose(fileOutputStream3);
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream = fileOutputStream4;
+                            fileOutputStream4 = fileOutputStream2;
+                            tryClose(fileOutputStream);
+                            tryClose(fileOutputStream4);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream4 = bufferedOutputStream;
+                        try {
+                            RemoteXAdLogger.getInstance().d("Failed to save file", th);
+                            tryClose(fileOutputStream);
+                            tryClose(fileOutputStream4);
+                            return;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            tryClose(fileOutputStream);
+                            tryClose(fileOutputStream4);
+                            throw th;
+                        }
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                    bufferedOutputStream = 0;
                 } catch (Throwable th4) {
                     th = th4;
-                    tryClose(fileOutputStream);
-                    tryClose(fileOutputStream4);
-                    throw th;
                 }
+            } catch (IOException e4) {
+                e = e4;
+                fileOutputStream2 = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileOutputStream = null;
             }
-        } catch (IOException e4) {
-            e = e4;
-            fileOutputStream2 = null;
-        } catch (Throwable th5) {
-            th = th5;
-            fileOutputStream = null;
+            tryClose(fileOutputStream3);
         }
-        tryClose(fileOutputStream3);
     }
 
     public static void tryClose(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e2) {
-                RemoteXAdLogger.getInstance().e("Failed to close the target", e2);
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65548, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException e2) {
+            RemoteXAdLogger.getInstance().e("Failed to close the target", e2);
         }
     }
 
     public static boolean isFileExistsAndCanRead(String str) {
-        try {
-            if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                File file = new File(str);
+                if (file.exists() && file.canRead()) {
+                    return file.length() > 0;
+                }
+                return false;
+            } catch (Exception unused) {
                 return false;
             }
-            File file = new File(str);
-            if (file.exists() && file.canRead()) {
-                return file.length() > 0;
-            }
-            return false;
-        } catch (Exception unused) {
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     public static File deleteFileRecursive(String str) {
-        return deleteFileRecursive(new File(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? deleteFileRecursive(new File(str)) : (File) invokeL.objValue;
     }
 }

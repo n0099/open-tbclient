@@ -28,131 +28,88 @@ import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.widget.MenuItemHoverListener;
 import androidx.appcompat.widget.MenuPopupWindow;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.OnKeyListener, PopupWindow.OnDismissListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int HORIZ_POSITION_LEFT = 0;
     public static final int HORIZ_POSITION_RIGHT = 1;
-    public static final int ITEM_LAYOUT = R.layout.abc_cascading_menu_item_layout;
+    public static final int ITEM_LAYOUT;
     public static final int SUBMENU_TIMEOUT_MS = 200;
+    public transient /* synthetic */ FieldHolder $fh;
     public View mAnchorView;
+    public final View.OnAttachStateChangeListener mAttachStateChangeListener;
     public final Context mContext;
+    public int mDropDownGravity;
+    public boolean mForceShowIcon;
+    public final ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener;
     public boolean mHasXOffset;
     public boolean mHasYOffset;
+    public int mLastPosition;
+    public final MenuItemHoverListener mMenuItemHoverListener;
     public final int mMenuMaxWidth;
     public PopupWindow.OnDismissListener mOnDismissListener;
     public final boolean mOverflowOnly;
+    public final List<MenuBuilder> mPendingMenus;
     public final int mPopupStyleAttr;
     public final int mPopupStyleRes;
     public MenuPresenter.Callback mPresenterCallback;
+    public int mRawDropDownGravity;
     public boolean mShouldCloseImmediately;
     public boolean mShowTitle;
+    public final List<CascadingMenuInfo> mShowingMenus;
     public View mShownAnchorView;
     public final Handler mSubMenuHoverHandler;
     public ViewTreeObserver mTreeObserver;
     public int mXOffset;
     public int mYOffset;
-    public final List<MenuBuilder> mPendingMenus = new ArrayList();
-    public final List<CascadingMenuInfo> mShowingMenus = new ArrayList();
-    public final ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.1
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            if (!CascadingMenuPopup.this.isShowing() || CascadingMenuPopup.this.mShowingMenus.size() <= 0 || CascadingMenuPopup.this.mShowingMenus.get(0).window.isModal()) {
-                return;
-            }
-            View view = CascadingMenuPopup.this.mShownAnchorView;
-            if (view != null && view.isShown()) {
-                for (CascadingMenuInfo cascadingMenuInfo : CascadingMenuPopup.this.mShowingMenus) {
-                    cascadingMenuInfo.window.show();
-                }
-                return;
-            }
-            CascadingMenuPopup.this.dismiss();
-        }
-    };
-    public final View.OnAttachStateChangeListener mAttachStateChangeListener = new View.OnAttachStateChangeListener() { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.2
-        @Override // android.view.View.OnAttachStateChangeListener
-        public void onViewAttachedToWindow(View view) {
-        }
-
-        @Override // android.view.View.OnAttachStateChangeListener
-        public void onViewDetachedFromWindow(View view) {
-            ViewTreeObserver viewTreeObserver = CascadingMenuPopup.this.mTreeObserver;
-            if (viewTreeObserver != null) {
-                if (!viewTreeObserver.isAlive()) {
-                    CascadingMenuPopup.this.mTreeObserver = view.getViewTreeObserver();
-                }
-                CascadingMenuPopup cascadingMenuPopup = CascadingMenuPopup.this;
-                cascadingMenuPopup.mTreeObserver.removeGlobalOnLayoutListener(cascadingMenuPopup.mGlobalLayoutListener);
-            }
-            view.removeOnAttachStateChangeListener(this);
-        }
-    };
-    public final MenuItemHoverListener mMenuItemHoverListener = new MenuItemHoverListener() { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.3
-        @Override // androidx.appcompat.widget.MenuItemHoverListener
-        public void onItemHoverEnter(@NonNull final MenuBuilder menuBuilder, @NonNull final MenuItem menuItem) {
-            CascadingMenuPopup.this.mSubMenuHoverHandler.removeCallbacksAndMessages(null);
-            int size = CascadingMenuPopup.this.mShowingMenus.size();
-            int i2 = 0;
-            while (true) {
-                if (i2 >= size) {
-                    i2 = -1;
-                    break;
-                } else if (menuBuilder == CascadingMenuPopup.this.mShowingMenus.get(i2).menu) {
-                    break;
-                } else {
-                    i2++;
-                }
-            }
-            if (i2 == -1) {
-                return;
-            }
-            int i3 = i2 + 1;
-            final CascadingMenuInfo cascadingMenuInfo = i3 < CascadingMenuPopup.this.mShowingMenus.size() ? CascadingMenuPopup.this.mShowingMenus.get(i3) : null;
-            CascadingMenuPopup.this.mSubMenuHoverHandler.postAtTime(new Runnable() { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.3.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    CascadingMenuInfo cascadingMenuInfo2 = cascadingMenuInfo;
-                    if (cascadingMenuInfo2 != null) {
-                        CascadingMenuPopup.this.mShouldCloseImmediately = true;
-                        cascadingMenuInfo2.menu.close(false);
-                        CascadingMenuPopup.this.mShouldCloseImmediately = false;
-                    }
-                    if (menuItem.isEnabled() && menuItem.hasSubMenu()) {
-                        menuBuilder.performItemAction(menuItem, 4);
-                    }
-                }
-            }, menuBuilder, SystemClock.uptimeMillis() + 200);
-        }
-
-        @Override // androidx.appcompat.widget.MenuItemHoverListener
-        public void onItemHoverExit(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
-            CascadingMenuPopup.this.mSubMenuHoverHandler.removeCallbacksAndMessages(menuBuilder);
-        }
-    };
-    public int mRawDropDownGravity = 0;
-    public int mDropDownGravity = 0;
-    public boolean mForceShowIcon = false;
-    public int mLastPosition = getInitialMenuPosition();
 
     /* loaded from: classes.dex */
     public static class CascadingMenuInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final MenuBuilder menu;
         public final int position;
         public final MenuPopupWindow window;
 
         public CascadingMenuInfo(@NonNull MenuPopupWindow menuPopupWindow, @NonNull MenuBuilder menuBuilder, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {menuPopupWindow, menuBuilder, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.window = menuPopupWindow;
             this.menu = menuBuilder;
             this.position = i2;
         }
 
         public ListView getListView() {
-            return this.window.getListView();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.window.getListView() : (ListView) invokeV.objValue;
         }
     }
 
@@ -161,99 +118,347 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
     public @interface HorizPosition {
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1230074893, "Landroidx/appcompat/view/menu/CascadingMenuPopup;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1230074893, "Landroidx/appcompat/view/menu/CascadingMenuPopup;");
+                return;
+            }
+        }
+        ITEM_LAYOUT = R.layout.abc_cascading_menu_item_layout;
+    }
+
     public CascadingMenuPopup(@NonNull Context context, @NonNull View view, @AttrRes int i2, @StyleRes int i3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mPendingMenus = new ArrayList();
+        this.mShowingMenus = new ArrayList();
+        this.mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CascadingMenuPopup this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i6 = newInitContext2.flag;
+                    if ((i6 & 1) != 0) {
+                        int i7 = i6 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+            public void onGlobalLayout() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || !this.this$0.isShowing() || this.this$0.mShowingMenus.size() <= 0 || this.this$0.mShowingMenus.get(0).window.isModal()) {
+                    return;
+                }
+                View view2 = this.this$0.mShownAnchorView;
+                if (view2 != null && view2.isShown()) {
+                    for (CascadingMenuInfo cascadingMenuInfo : this.this$0.mShowingMenus) {
+                        cascadingMenuInfo.window.show();
+                    }
+                    return;
+                }
+                this.this$0.dismiss();
+            }
+        };
+        this.mAttachStateChangeListener = new View.OnAttachStateChangeListener(this) { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CascadingMenuPopup this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i6 = newInitContext2.flag;
+                    if ((i6 & 1) != 0) {
+                        int i7 = i6 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.view.View.OnAttachStateChangeListener
+            public void onViewAttachedToWindow(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                }
+            }
+
+            @Override // android.view.View.OnAttachStateChangeListener
+            public void onViewDetachedFromWindow(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                    ViewTreeObserver viewTreeObserver = this.this$0.mTreeObserver;
+                    if (viewTreeObserver != null) {
+                        if (!viewTreeObserver.isAlive()) {
+                            this.this$0.mTreeObserver = view2.getViewTreeObserver();
+                        }
+                        CascadingMenuPopup cascadingMenuPopup = this.this$0;
+                        cascadingMenuPopup.mTreeObserver.removeGlobalOnLayoutListener(cascadingMenuPopup.mGlobalLayoutListener);
+                    }
+                    view2.removeOnAttachStateChangeListener(this);
+                }
+            }
+        };
+        this.mMenuItemHoverListener = new MenuItemHoverListener(this) { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CascadingMenuPopup this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i6 = newInitContext2.flag;
+                    if ((i6 & 1) != 0) {
+                        int i7 = i6 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // androidx.appcompat.widget.MenuItemHoverListener
+            public void onItemHoverEnter(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, menuBuilder, menuItem) == null) {
+                    this.this$0.mSubMenuHoverHandler.removeCallbacksAndMessages(null);
+                    int size = this.this$0.mShowingMenus.size();
+                    int i6 = 0;
+                    while (true) {
+                        if (i6 >= size) {
+                            i6 = -1;
+                            break;
+                        } else if (menuBuilder == this.this$0.mShowingMenus.get(i6).menu) {
+                            break;
+                        } else {
+                            i6++;
+                        }
+                    }
+                    if (i6 == -1) {
+                        return;
+                    }
+                    int i7 = i6 + 1;
+                    this.this$0.mSubMenuHoverHandler.postAtTime(new Runnable(this, i7 < this.this$0.mShowingMenus.size() ? this.this$0.mShowingMenus.get(i7) : null, menuItem, menuBuilder) { // from class: androidx.appcompat.view.menu.CascadingMenuPopup.3.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AnonymousClass3 this$1;
+                        public final /* synthetic */ MenuItem val$item;
+                        public final /* synthetic */ MenuBuilder val$menu;
+                        public final /* synthetic */ CascadingMenuInfo val$nextInfo;
+
+                        {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 != null) {
+                                InitContext newInitContext2 = TitanRuntime.newInitContext();
+                                newInitContext2.initArgs = r2;
+                                Object[] objArr2 = {this, r7, menuItem, menuBuilder};
+                                interceptable3.invokeUnInit(65536, newInitContext2);
+                                int i8 = newInitContext2.flag;
+                                if ((i8 & 1) != 0) {
+                                    int i9 = i8 & 2;
+                                    newInitContext2.thisArg = this;
+                                    interceptable3.invokeInitBody(65536, newInitContext2);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                            this.val$nextInfo = r7;
+                            this.val$item = menuItem;
+                            this.val$menu = menuBuilder;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                CascadingMenuInfo cascadingMenuInfo = this.val$nextInfo;
+                                if (cascadingMenuInfo != null) {
+                                    this.this$1.this$0.mShouldCloseImmediately = true;
+                                    cascadingMenuInfo.menu.close(false);
+                                    this.this$1.this$0.mShouldCloseImmediately = false;
+                                }
+                                if (this.val$item.isEnabled() && this.val$item.hasSubMenu()) {
+                                    this.val$menu.performItemAction(this.val$item, 4);
+                                }
+                            }
+                        }
+                    }, menuBuilder, SystemClock.uptimeMillis() + 200);
+                }
+            }
+
+            @Override // androidx.appcompat.widget.MenuItemHoverListener
+            public void onItemHoverExit(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder, menuItem) == null) {
+                    this.this$0.mSubMenuHoverHandler.removeCallbacksAndMessages(menuBuilder);
+                }
+            }
+        };
+        this.mRawDropDownGravity = 0;
+        this.mDropDownGravity = 0;
         this.mContext = context;
         this.mAnchorView = view;
         this.mPopupStyleAttr = i2;
         this.mPopupStyleRes = i3;
         this.mOverflowOnly = z;
+        this.mForceShowIcon = false;
+        this.mLastPosition = getInitialMenuPosition();
         Resources resources = context.getResources();
         this.mMenuMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.abc_config_prefDialogWidth));
         this.mSubMenuHoverHandler = new Handler();
     }
 
     private MenuPopupWindow createPopupWindow() {
-        MenuPopupWindow menuPopupWindow = new MenuPopupWindow(this.mContext, null, this.mPopupStyleAttr, this.mPopupStyleRes);
-        menuPopupWindow.setHoverListener(this.mMenuItemHoverListener);
-        menuPopupWindow.setOnItemClickListener(this);
-        menuPopupWindow.setOnDismissListener(this);
-        menuPopupWindow.setAnchorView(this.mAnchorView);
-        menuPopupWindow.setDropDownGravity(this.mDropDownGravity);
-        menuPopupWindow.setModal(true);
-        menuPopupWindow.setInputMethodMode(2);
-        return menuPopupWindow;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            MenuPopupWindow menuPopupWindow = new MenuPopupWindow(this.mContext, null, this.mPopupStyleAttr, this.mPopupStyleRes);
+            menuPopupWindow.setHoverListener(this.mMenuItemHoverListener);
+            menuPopupWindow.setOnItemClickListener(this);
+            menuPopupWindow.setOnDismissListener(this);
+            menuPopupWindow.setAnchorView(this.mAnchorView);
+            menuPopupWindow.setDropDownGravity(this.mDropDownGravity);
+            menuPopupWindow.setModal(true);
+            menuPopupWindow.setInputMethodMode(2);
+            return menuPopupWindow;
+        }
+        return (MenuPopupWindow) invokeV.objValue;
     }
 
     private int findIndexOfAddedMenu(@NonNull MenuBuilder menuBuilder) {
-        int size = this.mShowingMenus.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (menuBuilder == this.mShowingMenus.get(i2).menu) {
-                return i2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, menuBuilder)) == null) {
+            int size = this.mShowingMenus.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (menuBuilder == this.mShowingMenus.get(i2).menu) {
+                    return i2;
+                }
             }
+            return -1;
         }
-        return -1;
+        return invokeL.intValue;
     }
 
     private MenuItem findMenuItemForSubmenu(@NonNull MenuBuilder menuBuilder, @NonNull MenuBuilder menuBuilder2) {
-        int size = menuBuilder.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            MenuItem item = menuBuilder.getItem(i2);
-            if (item.hasSubMenu() && menuBuilder2 == item.getSubMenu()) {
-                return item;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, menuBuilder, menuBuilder2)) == null) {
+            int size = menuBuilder.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                MenuItem item = menuBuilder.getItem(i2);
+                if (item.hasSubMenu() && menuBuilder2 == item.getSubMenu()) {
+                    return item;
+                }
             }
+            return null;
         }
-        return null;
+        return (MenuItem) invokeLL.objValue;
     }
 
     @Nullable
     private View findParentViewForSubmenu(@NonNull CascadingMenuInfo cascadingMenuInfo, @NonNull MenuBuilder menuBuilder) {
+        InterceptResult invokeLL;
         MenuAdapter menuAdapter;
         int i2;
         int firstVisiblePosition;
-        MenuItem findMenuItemForSubmenu = findMenuItemForSubmenu(cascadingMenuInfo.menu, menuBuilder);
-        if (findMenuItemForSubmenu == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, cascadingMenuInfo, menuBuilder)) == null) {
+            MenuItem findMenuItemForSubmenu = findMenuItemForSubmenu(cascadingMenuInfo.menu, menuBuilder);
+            if (findMenuItemForSubmenu == null) {
+                return null;
+            }
+            ListView listView = cascadingMenuInfo.getListView();
+            ListAdapter adapter = listView.getAdapter();
+            int i3 = 0;
+            if (adapter instanceof HeaderViewListAdapter) {
+                HeaderViewListAdapter headerViewListAdapter = (HeaderViewListAdapter) adapter;
+                i2 = headerViewListAdapter.getHeadersCount();
+                menuAdapter = (MenuAdapter) headerViewListAdapter.getWrappedAdapter();
+            } else {
+                menuAdapter = (MenuAdapter) adapter;
+                i2 = 0;
+            }
+            int count = menuAdapter.getCount();
+            while (true) {
+                if (i3 >= count) {
+                    i3 = -1;
+                    break;
+                } else if (findMenuItemForSubmenu == menuAdapter.getItem(i3)) {
+                    break;
+                } else {
+                    i3++;
+                }
+            }
+            if (i3 != -1 && (firstVisiblePosition = (i3 + i2) - listView.getFirstVisiblePosition()) >= 0 && firstVisiblePosition < listView.getChildCount()) {
+                return listView.getChildAt(firstVisiblePosition);
+            }
             return null;
         }
-        ListView listView = cascadingMenuInfo.getListView();
-        ListAdapter adapter = listView.getAdapter();
-        int i3 = 0;
-        if (adapter instanceof HeaderViewListAdapter) {
-            HeaderViewListAdapter headerViewListAdapter = (HeaderViewListAdapter) adapter;
-            i2 = headerViewListAdapter.getHeadersCount();
-            menuAdapter = (MenuAdapter) headerViewListAdapter.getWrappedAdapter();
-        } else {
-            menuAdapter = (MenuAdapter) adapter;
-            i2 = 0;
-        }
-        int count = menuAdapter.getCount();
-        while (true) {
-            if (i3 >= count) {
-                i3 = -1;
-                break;
-            } else if (findMenuItemForSubmenu == menuAdapter.getItem(i3)) {
-                break;
-            } else {
-                i3++;
-            }
-        }
-        if (i3 != -1 && (firstVisiblePosition = (i3 + i2) - listView.getFirstVisiblePosition()) >= 0 && firstVisiblePosition < listView.getChildCount()) {
-            return listView.getChildAt(firstVisiblePosition);
-        }
-        return null;
+        return (View) invokeLL.objValue;
     }
 
     private int getInitialMenuPosition() {
-        return ViewCompat.getLayoutDirection(this.mAnchorView) == 1 ? 0 : 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? ViewCompat.getLayoutDirection(this.mAnchorView) == 1 ? 0 : 1 : invokeV.intValue;
     }
 
     private int getNextMenuPosition(int i2) {
-        List<CascadingMenuInfo> list = this.mShowingMenus;
-        ListView listView = list.get(list.size() - 1).getListView();
-        int[] iArr = new int[2];
-        listView.getLocationOnScreen(iArr);
-        Rect rect = new Rect();
-        this.mShownAnchorView.getWindowVisibleDisplayFrame(rect);
-        return this.mLastPosition == 1 ? (iArr[0] + listView.getWidth()) + i2 > rect.right ? 0 : 1 : iArr[0] - i2 < 0 ? 1 : 0;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) {
+            List<CascadingMenuInfo> list = this.mShowingMenus;
+            ListView listView = list.get(list.size() - 1).getListView();
+            int[] iArr = new int[2];
+            listView.getLocationOnScreen(iArr);
+            Rect rect = new Rect();
+            this.mShownAnchorView.getWindowVisibleDisplayFrame(rect);
+            return this.mLastPosition == 1 ? (iArr[0] + listView.getWidth()) + i2 > rect.right ? 0 : 1 : iArr[0] - i2 < 0 ? 1 : 0;
+        }
+        return invokeI.intValue;
     }
 
     private void showMenu(@NonNull MenuBuilder menuBuilder) {
@@ -262,138 +467,164 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         int i2;
         int i3;
         int i4;
-        LayoutInflater from = LayoutInflater.from(this.mContext);
-        MenuAdapter menuAdapter = new MenuAdapter(menuBuilder, from, this.mOverflowOnly, ITEM_LAYOUT);
-        if (!isShowing() && this.mForceShowIcon) {
-            menuAdapter.setForceShowIcon(true);
-        } else if (isShowing()) {
-            menuAdapter.setForceShowIcon(MenuPopup.shouldPreserveIconSpacing(menuBuilder));
-        }
-        int measureIndividualMenuWidth = MenuPopup.measureIndividualMenuWidth(menuAdapter, null, this.mContext, this.mMenuMaxWidth);
-        MenuPopupWindow createPopupWindow = createPopupWindow();
-        createPopupWindow.setAdapter(menuAdapter);
-        createPopupWindow.setContentWidth(measureIndividualMenuWidth);
-        createPopupWindow.setDropDownGravity(this.mDropDownGravity);
-        if (this.mShowingMenus.size() > 0) {
-            List<CascadingMenuInfo> list = this.mShowingMenus;
-            cascadingMenuInfo = list.get(list.size() - 1);
-            view = findParentViewForSubmenu(cascadingMenuInfo, menuBuilder);
-        } else {
-            cascadingMenuInfo = null;
-            view = null;
-        }
-        if (view != null) {
-            createPopupWindow.setTouchModal(false);
-            createPopupWindow.setEnterTransition(null);
-            int nextMenuPosition = getNextMenuPosition(measureIndividualMenuWidth);
-            boolean z = nextMenuPosition == 1;
-            this.mLastPosition = nextMenuPosition;
-            if (Build.VERSION.SDK_INT >= 26) {
-                createPopupWindow.setAnchorView(view);
-                i3 = 0;
-                i2 = 0;
-            } else {
-                int[] iArr = new int[2];
-                this.mAnchorView.getLocationOnScreen(iArr);
-                int[] iArr2 = new int[2];
-                view.getLocationOnScreen(iArr2);
-                if ((this.mDropDownGravity & 7) == 5) {
-                    iArr[0] = iArr[0] + this.mAnchorView.getWidth();
-                    iArr2[0] = iArr2[0] + view.getWidth();
-                }
-                i2 = iArr2[0] - iArr[0];
-                i3 = iArr2[1] - iArr[1];
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, menuBuilder) == null) {
+            LayoutInflater from = LayoutInflater.from(this.mContext);
+            MenuAdapter menuAdapter = new MenuAdapter(menuBuilder, from, this.mOverflowOnly, ITEM_LAYOUT);
+            if (!isShowing() && this.mForceShowIcon) {
+                menuAdapter.setForceShowIcon(true);
+            } else if (isShowing()) {
+                menuAdapter.setForceShowIcon(MenuPopup.shouldPreserveIconSpacing(menuBuilder));
             }
-            if ((this.mDropDownGravity & 5) == 5) {
-                if (!z) {
-                    measureIndividualMenuWidth = view.getWidth();
+            int measureIndividualMenuWidth = MenuPopup.measureIndividualMenuWidth(menuAdapter, null, this.mContext, this.mMenuMaxWidth);
+            MenuPopupWindow createPopupWindow = createPopupWindow();
+            createPopupWindow.setAdapter(menuAdapter);
+            createPopupWindow.setContentWidth(measureIndividualMenuWidth);
+            createPopupWindow.setDropDownGravity(this.mDropDownGravity);
+            if (this.mShowingMenus.size() > 0) {
+                List<CascadingMenuInfo> list = this.mShowingMenus;
+                cascadingMenuInfo = list.get(list.size() - 1);
+                view = findParentViewForSubmenu(cascadingMenuInfo, menuBuilder);
+            } else {
+                cascadingMenuInfo = null;
+                view = null;
+            }
+            if (view != null) {
+                createPopupWindow.setTouchModal(false);
+                createPopupWindow.setEnterTransition(null);
+                int nextMenuPosition = getNextMenuPosition(measureIndividualMenuWidth);
+                boolean z = nextMenuPosition == 1;
+                this.mLastPosition = nextMenuPosition;
+                if (Build.VERSION.SDK_INT >= 26) {
+                    createPopupWindow.setAnchorView(view);
+                    i3 = 0;
+                    i2 = 0;
+                } else {
+                    int[] iArr = new int[2];
+                    this.mAnchorView.getLocationOnScreen(iArr);
+                    int[] iArr2 = new int[2];
+                    view.getLocationOnScreen(iArr2);
+                    if ((this.mDropDownGravity & 7) == 5) {
+                        iArr[0] = iArr[0] + this.mAnchorView.getWidth();
+                        iArr2[0] = iArr2[0] + view.getWidth();
+                    }
+                    i2 = iArr2[0] - iArr[0];
+                    i3 = iArr2[1] - iArr[1];
+                }
+                if ((this.mDropDownGravity & 5) == 5) {
+                    if (!z) {
+                        measureIndividualMenuWidth = view.getWidth();
+                        i4 = i2 - measureIndividualMenuWidth;
+                    }
+                    i4 = i2 + measureIndividualMenuWidth;
+                } else {
+                    if (z) {
+                        measureIndividualMenuWidth = view.getWidth();
+                        i4 = i2 + measureIndividualMenuWidth;
+                    }
                     i4 = i2 - measureIndividualMenuWidth;
                 }
-                i4 = i2 + measureIndividualMenuWidth;
+                createPopupWindow.setHorizontalOffset(i4);
+                createPopupWindow.setOverlapAnchor(true);
+                createPopupWindow.setVerticalOffset(i3);
             } else {
-                if (z) {
-                    measureIndividualMenuWidth = view.getWidth();
-                    i4 = i2 + measureIndividualMenuWidth;
+                if (this.mHasXOffset) {
+                    createPopupWindow.setHorizontalOffset(this.mXOffset);
                 }
-                i4 = i2 - measureIndividualMenuWidth;
+                if (this.mHasYOffset) {
+                    createPopupWindow.setVerticalOffset(this.mYOffset);
+                }
+                createPopupWindow.setEpicenterBounds(getEpicenterBounds());
             }
-            createPopupWindow.setHorizontalOffset(i4);
-            createPopupWindow.setOverlapAnchor(true);
-            createPopupWindow.setVerticalOffset(i3);
-        } else {
-            if (this.mHasXOffset) {
-                createPopupWindow.setHorizontalOffset(this.mXOffset);
-            }
-            if (this.mHasYOffset) {
-                createPopupWindow.setVerticalOffset(this.mYOffset);
-            }
-            createPopupWindow.setEpicenterBounds(getEpicenterBounds());
-        }
-        this.mShowingMenus.add(new CascadingMenuInfo(createPopupWindow, menuBuilder, this.mLastPosition));
-        createPopupWindow.show();
-        ListView listView = createPopupWindow.getListView();
-        listView.setOnKeyListener(this);
-        if (cascadingMenuInfo == null && this.mShowTitle && menuBuilder.getHeaderTitle() != null) {
-            FrameLayout frameLayout = (FrameLayout) from.inflate(R.layout.abc_popup_menu_header_item_layout, (ViewGroup) listView, false);
-            frameLayout.setEnabled(false);
-            ((TextView) frameLayout.findViewById(16908310)).setText(menuBuilder.getHeaderTitle());
-            listView.addHeaderView(frameLayout, null, false);
+            this.mShowingMenus.add(new CascadingMenuInfo(createPopupWindow, menuBuilder, this.mLastPosition));
             createPopupWindow.show();
+            ListView listView = createPopupWindow.getListView();
+            listView.setOnKeyListener(this);
+            if (cascadingMenuInfo == null && this.mShowTitle && menuBuilder.getHeaderTitle() != null) {
+                FrameLayout frameLayout = (FrameLayout) from.inflate(R.layout.abc_popup_menu_header_item_layout, (ViewGroup) listView, false);
+                frameLayout.setEnabled(false);
+                ((TextView) frameLayout.findViewById(16908310)).setText(menuBuilder.getHeaderTitle());
+                listView.addHeaderView(frameLayout, null, false);
+                createPopupWindow.show();
+            }
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
     public void addMenu(MenuBuilder menuBuilder) {
-        menuBuilder.addMenuPresenter(this, this.mContext);
-        if (isShowing()) {
-            showMenu(menuBuilder);
-        } else {
-            this.mPendingMenus.add(menuBuilder);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, menuBuilder) == null) {
+            menuBuilder.addMenuPresenter(this, this.mContext);
+            if (isShowing()) {
+                showMenu(menuBuilder);
+            } else {
+                this.mPendingMenus.add(menuBuilder);
+            }
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
     public boolean closeMenuOnSubMenuOpened() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.ShowableListMenu
     public void dismiss() {
-        int size = this.mShowingMenus.size();
-        if (size > 0) {
-            CascadingMenuInfo[] cascadingMenuInfoArr = (CascadingMenuInfo[]) this.mShowingMenus.toArray(new CascadingMenuInfo[size]);
-            for (int i2 = size - 1; i2 >= 0; i2--) {
-                CascadingMenuInfo cascadingMenuInfo = cascadingMenuInfoArr[i2];
-                if (cascadingMenuInfo.window.isShowing()) {
-                    cascadingMenuInfo.window.dismiss();
-                }
+        int size;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (size = this.mShowingMenus.size()) <= 0) {
+            return;
+        }
+        CascadingMenuInfo[] cascadingMenuInfoArr = (CascadingMenuInfo[]) this.mShowingMenus.toArray(new CascadingMenuInfo[size]);
+        for (int i2 = size - 1; i2 >= 0; i2--) {
+            CascadingMenuInfo cascadingMenuInfo = cascadingMenuInfoArr[i2];
+            if (cascadingMenuInfo.window.isShowing()) {
+                cascadingMenuInfo.window.dismiss();
             }
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean flagActionItems() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.ShowableListMenu
     public ListView getListView() {
-        if (this.mShowingMenus.isEmpty()) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mShowingMenus.isEmpty()) {
+                return null;
+            }
+            List<CascadingMenuInfo> list = this.mShowingMenus;
+            return list.get(list.size() - 1).getListView();
         }
-        List<CascadingMenuInfo> list = this.mShowingMenus;
-        return list.get(list.size() - 1).getListView();
+        return (ListView) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.ShowableListMenu
     public boolean isShowing() {
-        return this.mShowingMenus.size() > 0 && this.mShowingMenus.get(0).window.isShowing();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mShowingMenus.size() > 0 && this.mShowingMenus.get(0).window.isShowing() : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-        int findIndexOfAddedMenu = findIndexOfAddedMenu(menuBuilder);
-        if (findIndexOfAddedMenu < 0) {
+        int findIndexOfAddedMenu;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, menuBuilder, z) == null) || (findIndexOfAddedMenu = findIndexOfAddedMenu(menuBuilder)) < 0) {
             return;
         }
         int i2 = findIndexOfAddedMenu + 1;
@@ -439,112 +670,156 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
         CascadingMenuInfo cascadingMenuInfo;
-        int size = this.mShowingMenus.size();
-        int i2 = 0;
-        while (true) {
-            if (i2 >= size) {
-                cascadingMenuInfo = null;
-                break;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int size = this.mShowingMenus.size();
+            int i2 = 0;
+            while (true) {
+                if (i2 >= size) {
+                    cascadingMenuInfo = null;
+                    break;
+                }
+                cascadingMenuInfo = this.mShowingMenus.get(i2);
+                if (!cascadingMenuInfo.window.isShowing()) {
+                    break;
+                }
+                i2++;
             }
-            cascadingMenuInfo = this.mShowingMenus.get(i2);
-            if (!cascadingMenuInfo.window.isShowing()) {
-                break;
+            if (cascadingMenuInfo != null) {
+                cascadingMenuInfo.menu.close(false);
             }
-            i2++;
-        }
-        if (cascadingMenuInfo != null) {
-            cascadingMenuInfo.menu.close(false);
         }
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i2, KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 1 && i2 == 82) {
-            dismiss();
-            return true;
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2, keyEvent)) == null) {
+            if (keyEvent.getAction() == 1 && i2 == 82) {
+                dismiss();
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeLIL.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, parcelable) == null) {
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public Parcelable onSaveInstanceState() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
+        }
+        return (Parcelable) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
-        for (CascadingMenuInfo cascadingMenuInfo : this.mShowingMenus) {
-            if (subMenuBuilder == cascadingMenuInfo.menu) {
-                cascadingMenuInfo.getListView().requestFocus();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, subMenuBuilder)) == null) {
+            for (CascadingMenuInfo cascadingMenuInfo : this.mShowingMenus) {
+                if (subMenuBuilder == cascadingMenuInfo.menu) {
+                    cascadingMenuInfo.getListView().requestFocus();
+                    return true;
+                }
+            }
+            if (subMenuBuilder.hasVisibleItems()) {
+                addMenu(subMenuBuilder);
+                MenuPresenter.Callback callback = this.mPresenterCallback;
+                if (callback != null) {
+                    callback.onOpenSubMenu(subMenuBuilder);
+                }
                 return true;
             }
+            return false;
         }
-        if (subMenuBuilder.hasVisibleItems()) {
-            addMenu(subMenuBuilder);
-            MenuPresenter.Callback callback = this.mPresenterCallback;
-            if (callback != null) {
-                callback.onOpenSubMenu(subMenuBuilder);
-            }
-            return true;
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
     public void setAnchorView(@NonNull View view) {
-        if (this.mAnchorView != view) {
-            this.mAnchorView = view;
-            this.mDropDownGravity = GravityCompat.getAbsoluteGravity(this.mRawDropDownGravity, ViewCompat.getLayoutDirection(view));
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, view) == null) || this.mAnchorView == view) {
+            return;
         }
+        this.mAnchorView = view;
+        this.mDropDownGravity = GravityCompat.getAbsoluteGravity(this.mRawDropDownGravity, ViewCompat.getLayoutDirection(view));
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void setCallback(MenuPresenter.Callback callback) {
-        this.mPresenterCallback = callback;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setForceShowIcon(boolean z) {
-        this.mForceShowIcon = z;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setGravity(int i2) {
-        if (this.mRawDropDownGravity != i2) {
-            this.mRawDropDownGravity = i2;
-            this.mDropDownGravity = GravityCompat.getAbsoluteGravity(i2, ViewCompat.getLayoutDirection(this.mAnchorView));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, callback) == null) {
+            this.mPresenterCallback = callback;
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
+    public void setForceShowIcon(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.mForceShowIcon = z;
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPopup
+    public void setGravity(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || this.mRawDropDownGravity == i2) {
+            return;
+        }
+        this.mRawDropDownGravity = i2;
+        this.mDropDownGravity = GravityCompat.getAbsoluteGravity(i2, ViewCompat.getLayoutDirection(this.mAnchorView));
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPopup
     public void setHorizontalOffset(int i2) {
-        this.mHasXOffset = true;
-        this.mXOffset = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.mHasXOffset = true;
+            this.mXOffset = i2;
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
     public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        this.mOnDismissListener = onDismissListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onDismissListener) == null) {
+            this.mOnDismissListener = onDismissListener;
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
     public void setShowTitle(boolean z) {
-        this.mShowTitle = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.mShowTitle = z;
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
     public void setVerticalOffset(int i2) {
-        this.mHasYOffset = true;
-        this.mYOffset = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            this.mHasYOffset = true;
+            this.mYOffset = i2;
+        }
     }
 
     @Override // androidx.appcompat.view.menu.ShowableListMenu
     public void show() {
-        if (isShowing()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || isShowing()) {
             return;
         }
         for (MenuBuilder menuBuilder : this.mPendingMenus) {
@@ -566,8 +841,11 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void updateMenuView(boolean z) {
-        for (CascadingMenuInfo cascadingMenuInfo : this.mShowingMenus) {
-            MenuPopup.toMenuAdapter(cascadingMenuInfo.getListView().getAdapter()).notifyDataSetChanged();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            for (CascadingMenuInfo cascadingMenuInfo : this.mShowingMenus) {
+                MenuPopup.toMenuAdapter(cascadingMenuInfo.getListView().getAdapter()).notifyDataSetChanged();
+            }
         }
     }
 }

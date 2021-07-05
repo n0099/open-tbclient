@@ -4,10 +4,19 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class NetWorkUtils implements INoProGuard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CELL_2G = 2;
     public static final int CELL_3G = 3;
     public static final int CELL_4G = 4;
@@ -26,50 +35,95 @@ public final class NetWorkUtils implements INoProGuard {
     public static boolean sLaunchState;
     public static boolean sNetTypeMobile;
     public static int sOperatorType;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1519166567, "Lcom/baidu/webkit/internal/utils/NetWorkUtils;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1519166567, "Lcom/baidu/webkit/internal/utils/NetWorkUtils;");
+        }
+    }
+
+    public NetWorkUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void doNetworkConnectionChanged(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+        }
     }
 
     public static boolean getIsOnline() {
-        return sIsOnline;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sIsOnline : invokeV.booleanValue;
     }
 
     public static boolean getNetTypeIsMobile() {
-        return sNetTypeMobile;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sNetTypeMobile : invokeV.booleanValue;
     }
 
     public static int getNetWorkType() {
-        return sConnectionType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sConnectionType : invokeV.intValue;
     }
 
     public static int getOperatorType() {
-        return sOperatorType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sOperatorType : invokeV.intValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(6:1|(1:3)(2:45|(1:47)(7:49|(6:51|52|54|7|8|(2:10|11)(5:13|(2:17|(1:19)(4:20|21|22|(3:24|(2:29|(1:31)(2:32|(1:34)(1:35)))|36)))|(1:40)|41|42))(2:59|(1:61)(2:62|(1:64)(1:65)))|56|54|7|8|(0)(0)))|6|7|8|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
-        if (com.baidu.webkit.internal.utils.NetWorkUtils.sIsOnline == true) goto L5;
+    /* JADX WARN: Can't wrap try/catch for region: R(6:3|(1:5)(2:47|(1:49)(7:51|(6:53|54|56|9|10|(2:12|13)(5:15|(2:19|(1:21)(4:22|23|24|(3:26|(2:31|(1:33)(2:34|(1:36)(1:37)))|38)))|(1:42)|43|44))(2:61|(1:63)(2:64|(1:66)(1:67)))|58|56|9|10|(0)(0)))|8|9|10|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0022, code lost:
+        if (com.baidu.webkit.internal.utils.NetWorkUtils.sIsOnline == true) goto L7;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x000a, code lost:
-        if (com.baidu.webkit.internal.utils.NetWorkUtils.sIsOnline == true) goto L5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00b3, code lost:
         com.baidu.webkit.internal.utils.NetWorkUtils.sOperatorType = 99;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x000e, code lost:
+        if (com.baidu.webkit.internal.utils.NetWorkUtils.sIsOnline == true) goto L7;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x0010, code lost:
         r7 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x000e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0012, code lost:
         r7 = false;
      */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0060 A[Catch: all -> 0x00af, TRY_ENTER, TryCatch #1 {all -> 0x00af, blocks: (B:33:0x0060, B:35:0x0063, B:37:0x0067, B:39:0x006d, B:43:0x0079, B:47:0x0082, B:49:0x008a, B:52:0x0093, B:54:0x009b, B:55:0x009e, B:57:0x00a6, B:58:0x00a9, B:59:0x00ac, B:45:0x007e), top: B:68:0x005e, inners: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0063 A[Catch: all -> 0x00af, TryCatch #1 {all -> 0x00af, blocks: (B:33:0x0060, B:35:0x0063, B:37:0x0067, B:39:0x006d, B:43:0x0079, B:47:0x0082, B:49:0x008a, B:52:0x0093, B:54:0x009b, B:55:0x009e, B:57:0x00a6, B:58:0x00a9, B:59:0x00ac, B:45:0x007e), top: B:68:0x005e, inners: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0064 A[Catch: all -> 0x00b3, TRY_ENTER, TryCatch #1 {all -> 0x00b3, blocks: (B:35:0x0064, B:37:0x0067, B:39:0x006b, B:41:0x0071, B:45:0x007d, B:49:0x0086, B:51:0x008e, B:54:0x0097, B:56:0x009f, B:57:0x00a2, B:59:0x00aa, B:60:0x00ad, B:61:0x00b0, B:47:0x0082), top: B:73:0x0062, inners: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0067 A[Catch: all -> 0x00b3, TryCatch #1 {all -> 0x00b3, blocks: (B:35:0x0064, B:37:0x0067, B:39:0x006b, B:41:0x0071, B:45:0x007d, B:49:0x0086, B:51:0x008e, B:54:0x0097, B:56:0x009f, B:57:0x00a2, B:59:0x00aa, B:60:0x00ad, B:61:0x00b0, B:47:0x0082), top: B:73:0x0062, inners: #0 }] */
     @SuppressLint({"HardwareIds"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void onNetWorkChanged(Context context, NetworkInfo networkInfo) {
         int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65543, null, context, networkInfo) != null) {
+            return;
+        }
         if (networkInfo == null) {
             sConnectionType = 0;
         } else if (networkInfo.getState() != NetworkInfo.State.CONNECTED) {
@@ -154,6 +208,9 @@ public final class NetWorkUtils implements INoProGuard {
     }
 
     public static void setLaunchState(boolean z) {
-        sLaunchState = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            sLaunchState = z;
+        }
     }
 }

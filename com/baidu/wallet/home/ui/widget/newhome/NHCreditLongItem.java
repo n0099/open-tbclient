@@ -5,90 +5,143 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.base.widget.NetImageView;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NHCreditLongItem extends BaseItemView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24538a;
+    public NetImageView f25081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24539b;
+    public MaskTextView f25082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24540c;
+    public MaskTextView f25083c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24541d;
+    public MaskTextView f25084d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f24542e;
+    public MaskTextView f25085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f24543f;
+    public TextView f25086f;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditLongItem(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public boolean handlePoint() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void initView() {
-        LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_item"), this);
-        this.f24538a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
-        this.f24539b = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title1"));
-        this.f24540c = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title2"));
-        this.f24541d = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_desc"));
-        this.f24542e = (MaskTextView) findViewById(ResUtils.id(getContext(), "bt_submit"));
-        this.f24543f = (TextView) findViewById(ResUtils.id(getContext(), "tv_dot"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_item"), this);
+            this.f25081a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
+            this.f25082b = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title1"));
+            this.f25083c = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title2"));
+            this.f25084d = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_desc"));
+            this.f25085e = (MaskTextView) findViewById(ResUtils.id(getContext(), "bt_submit"));
+            this.f25086f = (TextView) findViewById(ResUtils.id(getContext(), "tv_dot"));
+        }
     }
 
     public void refresh() {
         MaskTextView maskTextView;
-        if (getData() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f24538a, getData().logo);
+        setNetImageViewUrl(this.f25081a, getData().logo);
         boolean z = true;
-        boolean z2 = (TextUtils.isEmpty(getData().name) || this.f24539b == null) ? false : true;
-        z = (TextUtils.isEmpty(getData().value1) || this.f24540c == null) ? false : false;
+        boolean z2 = (TextUtils.isEmpty(getData().name) || this.f25082b == null) ? false : true;
+        z = (TextUtils.isEmpty(getData().value1) || this.f25083c == null) ? false : false;
         if (z2) {
-            this.f24539b.setVisibility(0);
-            this.f24539b.setMaskText(getData().name);
+            this.f25082b.setVisibility(0);
+            this.f25082b.setMaskText(getData().name);
         }
         if (z) {
-            this.f24540c.setVisibility(0);
-            this.f24540c.setMaskText(getData().value1);
+            this.f25083c.setVisibility(0);
+            this.f25083c.setMaskText(getData().value1);
         }
-        this.f24543f.setVisibility((z2 && z) ? 0 : 8);
-        if (!TextUtils.isEmpty(getData().value2) && (maskTextView = this.f24541d) != null) {
+        this.f25086f.setVisibility((z2 && z) ? 0 : 8);
+        if (!TextUtils.isEmpty(getData().value2) && (maskTextView = this.f25084d) != null) {
             maskTextView.setVisibility(0);
-            this.f24541d.setMaskText(getData().value2);
+            this.f25084d.setMaskText(getData().value2);
         }
         if (!TextUtils.isEmpty(getData().value3)) {
-            this.f24542e.setVisibility(0);
-            this.f24542e.setMaskText(getData().value3);
+            this.f25085e.setVisibility(0);
+            this.f25085e.setMaskText(getData().value3);
             return;
         }
-        this.f24542e.setVisibility(4);
+        this.f25085e.setVisibility(4);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void setData(HomeCfgResponse.DataItem dataItem, b bVar) {
-        super.setData(dataItem, bVar);
-        initView();
-        refresh();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, dataItem, bVar) == null) {
+            super.setData(dataItem, bVar);
+            initView();
+            refresh();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditLongItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

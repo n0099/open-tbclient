@@ -1,29 +1,85 @@
 package com.facebook.common.media;
 
 import android.webkit.MimeTypeMap;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class MimeTypeMapWrapper {
-    public static final MimeTypeMap sMimeTypeMap = MimeTypeMap.getSingleton();
-    public static final Map<String, String> sMimeTypeToExtensionMap = ImmutableMap.of("image/heif", "heif", "image/heic", "heic");
-    public static final Map<String, String> sExtensionToMimeTypeMap = ImmutableMap.of("heif", "image/heif", "heic", "image/heic");
+    public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, String> sExtensionToMimeTypeMap;
+    public static final MimeTypeMap sMimeTypeMap;
+    public static final Map<String, String> sMimeTypeToExtensionMap;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(176508278, "Lcom/facebook/common/media/MimeTypeMapWrapper;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(176508278, "Lcom/facebook/common/media/MimeTypeMapWrapper;");
+                return;
+            }
+        }
+        sMimeTypeMap = MimeTypeMap.getSingleton();
+        sMimeTypeToExtensionMap = ImmutableMap.of("image/heif", "heif", "image/heic", "heic");
+        sExtensionToMimeTypeMap = ImmutableMap.of("heif", "image/heif", "heic", "image/heic");
+    }
+
+    public MimeTypeMapWrapper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String getExtensionFromMimeType(String str) {
-        String str2 = sMimeTypeToExtensionMap.get(str);
-        return str2 != null ? str2 : sMimeTypeMap.getExtensionFromMimeType(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String str2 = sMimeTypeToExtensionMap.get(str);
+            return str2 != null ? str2 : sMimeTypeMap.getExtensionFromMimeType(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getMimeTypeFromExtension(String str) {
-        String str2 = sExtensionToMimeTypeMap.get(str);
-        return str2 != null ? str2 : sMimeTypeMap.getMimeTypeFromExtension(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String str2 = sExtensionToMimeTypeMap.get(str);
+            return str2 != null ? str2 : sMimeTypeMap.getMimeTypeFromExtension(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean hasExtension(String str) {
-        return sExtensionToMimeTypeMap.containsKey(str) || sMimeTypeMap.hasExtension(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? sExtensionToMimeTypeMap.containsKey(str) || sMimeTypeMap.hasExtension(str) : invokeL.booleanValue;
     }
 
     public static boolean hasMimeType(String str) {
-        return sMimeTypeToExtensionMap.containsKey(str) || sMimeTypeMap.hasMimeType(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? sMimeTypeToExtensionMap.containsKey(str) || sMimeTypeMap.hasMimeType(str) : invokeL.booleanValue;
     }
 }

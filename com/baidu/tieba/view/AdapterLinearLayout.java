@@ -6,68 +6,153 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class AdapterLinearLayout extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Adapter f21708e;
+    public Adapter f21938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final DataSetObserver f21709f;
+    public final DataSetObserver f21939f;
 
     /* loaded from: classes5.dex */
     public class a extends DataSetObserver {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AdapterLinearLayout f21940a;
+
+        public a(AdapterLinearLayout adapterLinearLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {adapterLinearLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21940a = adapterLinearLayout;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
-            if (AdapterLinearLayout.this.f21708e == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21940a.f21938e == null) {
                 return;
             }
-            int count = AdapterLinearLayout.this.f21708e.getCount();
-            int childCount = AdapterLinearLayout.this.getChildCount() - count;
+            int count = this.f21940a.f21938e.getCount();
+            int childCount = this.f21940a.getChildCount() - count;
             for (int i2 = 0; i2 < count; i2++) {
-                View childAt = AdapterLinearLayout.this.getChildAt(i2);
-                View view = AdapterLinearLayout.this.f21708e.getView(i2, childAt, AdapterLinearLayout.this);
+                View childAt = this.f21940a.getChildAt(i2);
+                View view = this.f21940a.f21938e.getView(i2, childAt, this.f21940a);
                 if (childAt == null && view != null) {
-                    AdapterLinearLayout.this.addView(view);
+                    this.f21940a.addView(view);
                 }
             }
             if (childCount > 0) {
-                AdapterLinearLayout.this.removeViews(count, childCount);
+                this.f21940a.removeViews(count, childCount);
             }
         }
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            super.onInvalidated();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.onInvalidated();
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdapterLinearLayout(Context context) {
         super(context);
-        this.f21709f = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f21939f = new a(this);
     }
 
     public void setAdapter(Adapter adapter) {
-        Adapter adapter2 = this.f21708e;
-        if (adapter2 != null) {
-            adapter2.unregisterDataSetObserver(this.f21709f);
-        }
-        this.f21708e = adapter;
-        if (adapter != null) {
-            adapter.registerDataSetObserver(this.f21709f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adapter) == null) {
+            Adapter adapter2 = this.f21938e;
+            if (adapter2 != null) {
+                adapter2.unregisterDataSetObserver(this.f21939f);
+            }
+            this.f21938e = adapter;
+            if (adapter != null) {
+                adapter.registerDataSetObserver(this.f21939f);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdapterLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21709f = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f21939f = new a(this);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdapterLinearLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21709f = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f21939f = new a(this);
     }
 }

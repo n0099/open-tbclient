@@ -6,11 +6,20 @@ import android.media.browse.MediaBrowser;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @RequiresApi(21)
 /* loaded from: classes.dex */
 public class MediaBrowserCompatApi21 {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String NULL_MEDIA_ITEM_ID = "android.support.v4.media.MediaBrowserCompat.NULL_MEDIA_ITEM";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface ConnectionCallback {
@@ -23,36 +32,82 @@ public class MediaBrowserCompatApi21 {
 
     /* loaded from: classes.dex */
     public static class ConnectionCallbackProxy<T extends ConnectionCallback> extends MediaBrowser.ConnectionCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final T mConnectionCallback;
 
         public ConnectionCallbackProxy(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mConnectionCallback = t;
         }
 
         @Override // android.media.browse.MediaBrowser.ConnectionCallback
         public void onConnected() {
-            this.mConnectionCallback.onConnected();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.mConnectionCallback.onConnected();
+            }
         }
 
         @Override // android.media.browse.MediaBrowser.ConnectionCallback
         public void onConnectionFailed() {
-            this.mConnectionCallback.onConnectionFailed();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.mConnectionCallback.onConnectionFailed();
+            }
         }
 
         @Override // android.media.browse.MediaBrowser.ConnectionCallback
         public void onConnectionSuspended() {
-            this.mConnectionCallback.onConnectionSuspended();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.mConnectionCallback.onConnectionSuspended();
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public static class MediaItem {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public MediaItem() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public static Object getDescription(Object obj) {
-            return ((MediaBrowser.MediaItem) obj).getDescription();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) ? ((MediaBrowser.MediaItem) obj).getDescription() : invokeL.objValue;
         }
 
         public static int getFlags(Object obj) {
-            return ((MediaBrowser.MediaItem) obj).getFlags();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? ((MediaBrowser.MediaItem) obj).getFlags() : invokeL.intValue;
         }
     }
 
@@ -65,68 +120,132 @@ public class MediaBrowserCompatApi21 {
 
     /* loaded from: classes.dex */
     public static class SubscriptionCallbackProxy<T extends SubscriptionCallback> extends MediaBrowser.SubscriptionCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final T mSubscriptionCallback;
 
         public SubscriptionCallbackProxy(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mSubscriptionCallback = t;
         }
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onChildrenLoaded(@NonNull String str, List<MediaBrowser.MediaItem> list) {
-            this.mSubscriptionCallback.onChildrenLoaded(str, list);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
+                this.mSubscriptionCallback.onChildrenLoaded(str, list);
+            }
         }
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onError(@NonNull String str) {
-            this.mSubscriptionCallback.onError(str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.mSubscriptionCallback.onError(str);
+            }
+        }
+    }
+
+    public MediaBrowserCompatApi21() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static void connect(Object obj) {
-        ((MediaBrowser) obj).connect();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, obj) == null) {
+            ((MediaBrowser) obj).connect();
+        }
     }
 
     public static Object createBrowser(Context context, ComponentName componentName, Object obj, Bundle bundle) {
-        return new MediaBrowser(context, componentName, (MediaBrowser.ConnectionCallback) obj, bundle);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, componentName, obj, bundle)) == null) ? new MediaBrowser(context, componentName, (MediaBrowser.ConnectionCallback) obj, bundle) : invokeLLLL.objValue;
     }
 
     public static Object createConnectionCallback(ConnectionCallback connectionCallback) {
-        return new ConnectionCallbackProxy(connectionCallback);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, connectionCallback)) == null) ? new ConnectionCallbackProxy(connectionCallback) : invokeL.objValue;
     }
 
     public static Object createSubscriptionCallback(SubscriptionCallback subscriptionCallback) {
-        return new SubscriptionCallbackProxy(subscriptionCallback);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, subscriptionCallback)) == null) ? new SubscriptionCallbackProxy(subscriptionCallback) : invokeL.objValue;
     }
 
     public static void disconnect(Object obj) {
-        ((MediaBrowser) obj).disconnect();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj) == null) {
+            ((MediaBrowser) obj).disconnect();
+        }
     }
 
     public static Bundle getExtras(Object obj) {
-        return ((MediaBrowser) obj).getExtras();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaBrowser) obj).getExtras() : (Bundle) invokeL.objValue;
     }
 
     public static String getRoot(Object obj) {
-        return ((MediaBrowser) obj).getRoot();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? ((MediaBrowser) obj).getRoot() : (String) invokeL.objValue;
     }
 
     public static ComponentName getServiceComponent(Object obj) {
-        return ((MediaBrowser) obj).getServiceComponent();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? ((MediaBrowser) obj).getServiceComponent() : (ComponentName) invokeL.objValue;
     }
 
     public static Object getSessionToken(Object obj) {
-        return ((MediaBrowser) obj).getSessionToken();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((MediaBrowser) obj).getSessionToken() : invokeL.objValue;
     }
 
     public static boolean isConnected(Object obj) {
-        return ((MediaBrowser) obj).isConnected();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? ((MediaBrowser) obj).isConnected() : invokeL.booleanValue;
     }
 
     public static void subscribe(Object obj, String str, Object obj2) {
-        ((MediaBrowser) obj).subscribe(str, (MediaBrowser.SubscriptionCallback) obj2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, obj, str, obj2) == null) {
+            ((MediaBrowser) obj).subscribe(str, (MediaBrowser.SubscriptionCallback) obj2);
+        }
     }
 
     public static void unsubscribe(Object obj, String str) {
-        ((MediaBrowser) obj).unsubscribe(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, obj, str) == null) {
+            ((MediaBrowser) obj).unsubscribe(str);
+        }
     }
 }

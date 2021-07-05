@@ -16,168 +16,263 @@ import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ep extends en {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41312a;
+    public int f43055a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Bitmap f322a;
+    public Bitmap f325a;
 
     /* renamed from: a  reason: collision with other field name */
-    public RemoteViews f323a;
+    public RemoteViews f326a;
 
     /* renamed from: a  reason: collision with other field name */
-    public CharSequence f324a;
+    public CharSequence f327a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f325a;
+    public String f328a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f326a;
+    public Map<String, String> f329a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f327a;
+    public boolean f330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f41313b;
+    public CharSequence f43056b;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f328b;
+    public boolean f331b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ep(Context context, int i2, String str) {
         super(context);
-        this.f325a = str;
-        this.f41312a = i2;
-        m276c();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f328a = str;
+        this.f43055a = i2;
+        m290c();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ep(Context context, String str) {
         super(context);
-        this.f325a = str;
-        m276c();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f328a = str;
+        m290c();
     }
 
     private Bitmap a() {
-        return com.xiaomi.push.service.ac.a(g.m323a(a(), this.f325a));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? com.xiaomi.push.service.ac.a(g.m337a(a(), this.f328a)) : (Bitmap) invokeV.objValue;
     }
 
     private String c() {
-        boolean e2 = e();
-        this.f328b = e2;
-        return e2 ? b() : a();
-    }
-
-    /* renamed from: c  reason: collision with other method in class */
-    private void m276c() {
-        int a2 = a(a().getResources(), c(), "layout", a().getPackageName());
-        if (a2 == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("create RemoteViews failed, no such layout resource was found");
-            return;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            boolean e2 = e();
+            this.f331b = e2;
+            return e2 ? b() : a();
         }
-        this.f323a = new RemoteViews(a().getPackageName(), a2);
-        this.f327a = a();
+        return (String) invokeV.objValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private boolean m277c() {
-        Map<String, String> map = this.f326a;
-        return map != null && Boolean.parseBoolean(map.get("custom_builder_set_title"));
+    private void m290c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            int a2 = a(a().getResources(), c(), "layout", a().getPackageName());
+            if (a2 == 0) {
+                com.xiaomi.channel.commonutils.logger.b.m70a("create RemoteViews failed, no such layout resource was found");
+                return;
+            }
+            this.f326a = new RemoteViews(a().getPackageName(), a2);
+            this.f330a = a();
+        }
+    }
+
+    /* renamed from: c  reason: collision with other method in class */
+    private boolean m291c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            Map<String, String> map = this.f329a;
+            return map != null && Boolean.parseBoolean(map.get("custom_builder_set_title"));
+        }
+        return invokeV.booleanValue;
     }
 
     private void d() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.setContentTitle(this.f324a);
-            super.setContentText(this.f41313b);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
         }
+        super.setContentTitle(this.f327a);
+        super.setContentText(this.f43056b);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    private boolean m278d() {
-        return (TextUtils.isEmpty(b()) || TextUtils.isEmpty(this.f325a)) ? false : true;
+    private boolean m292d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? (TextUtils.isEmpty(b()) || TextUtils.isEmpty(this.f328a)) ? false : true : invokeV.booleanValue;
     }
 
     private boolean e() {
-        return m278d() && f();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? m292d() && f() : invokeV.booleanValue;
     }
 
     private boolean f() {
-        List<StatusBarNotification> m583b;
-        if (Build.VERSION.SDK_INT >= 20 && (m583b = com.xiaomi.push.service.ao.a(a(), this.f325a).m583b()) != null && !m583b.isEmpty()) {
-            for (StatusBarNotification statusBarNotification : m583b) {
-                if (statusBarNotification.getId() == this.f41312a) {
-                    Notification notification = statusBarNotification.getNotification();
-                    if (notification == null) {
-                        return false;
+        InterceptResult invokeV;
+        List<StatusBarNotification> m597b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 20 && (m597b = com.xiaomi.push.service.ao.a(a(), this.f328a).m597b()) != null && !m597b.isEmpty()) {
+                for (StatusBarNotification statusBarNotification : m597b) {
+                    if (statusBarNotification.getId() == this.f43055a) {
+                        Notification notification = statusBarNotification.getNotification();
+                        if (notification == null) {
+                            return false;
+                        }
+                        return !notification.extras.getBoolean("mipush.customCopyLayout", true);
                     }
-                    return !notification.extras.getBoolean("mipush.customCopyLayout", true);
                 }
             }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public int a(float f2) {
-        return (int) ((f2 * a().getResources().getDisplayMetrics().density) + 0.5f);
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) ((f2 * a().getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
     }
 
     public Bitmap a(Bitmap bitmap, float f2) {
-        Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(createBitmap);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        canvas.drawRoundRect(new RectF(rect), f2, f2, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(bitmap, rect, rect, paint);
-        if (!bitmap.isRecycled()) {
-            bitmap.recycle();
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, f2)) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(createBitmap);
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            canvas.drawRoundRect(new RectF(rect), f2, f2, paint);
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, rect, rect, paint);
+            if (!bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            return createBitmap;
         }
-        return createBitmap;
+        return (Bitmap) invokeLF.objValue;
     }
 
     @Override // com.xiaomi.push.en
     public final RemoteViews a() {
-        return this.f323a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f326a : (RemoteViews) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.en
     public en a(Map<String, String> map) {
-        this.f326a = map;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
+            this.f329a = map;
+            return this;
+        }
+        return (en) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.app.Notification.Builder
     /* renamed from: a */
     public ep addAction(int i2, CharSequence charSequence, PendingIntent pendingIntent) {
-        return this;
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, charSequence, pendingIntent)) == null) ? this : (ep) invokeILL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.app.Notification.Builder
     /* renamed from: a */
     public ep addAction(Notification.Action action) {
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, action)) == null) ? this : (ep) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.app.Notification.Builder
     /* renamed from: a */
     public ep setLargeIcon(Bitmap bitmap) {
-        this.f322a = bitmap;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmap)) == null) {
+            this.f325a = bitmap;
+            return this;
+        }
+        return (ep) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.app.Notification.Builder
     /* renamed from: a */
     public ep setContentTitle(CharSequence charSequence) {
-        this.f324a = charSequence;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
+            this.f327a = charSequence;
+            return this;
+        }
+        return (ep) invokeL.objValue;
     }
 
     @Override // com.xiaomi.push.en
@@ -185,29 +280,35 @@ public abstract class ep extends en {
 
     @Override // com.xiaomi.push.en
     public void a() {
-        super.m275a();
-        Bundle bundle = new Bundle();
-        if (m278d()) {
-            bundle.putBoolean("mipush.customCopyLayout", this.f328b);
-        } else {
-            bundle.putBoolean("mipush.customCopyLayout", false);
-        }
-        bundle.putBoolean("miui.customHeight", false);
-        addExtras(bundle);
-        if (m277c() || !com.xiaomi.push.service.ap.m584a(a().getContentResolver())) {
-            d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.m289a();
+            Bundle bundle = new Bundle();
+            if (m292d()) {
+                bundle.putBoolean("mipush.customCopyLayout", this.f331b);
+            } else {
+                bundle.putBoolean("mipush.customCopyLayout", false);
+            }
+            bundle.putBoolean("miui.customHeight", false);
+            addExtras(bundle);
+            if (m291c() || !com.xiaomi.push.service.ap.m598a(a().getContentResolver())) {
+                d();
+            }
         }
     }
 
     public void a(int i2) {
-        Bitmap a2 = a();
-        if (a2 != null) {
-            a().setImageViewBitmap(i2, a2);
-            return;
-        }
-        int b2 = g.b(a(), this.f325a);
-        if (b2 != 0) {
-            a().setImageViewResource(i2, b2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            Bitmap a2 = a();
+            if (a2 != null) {
+                a().setImageViewBitmap(i2, a2);
+                return;
+            }
+            int b2 = g.b(a(), this.f328a);
+            if (b2 != 0) {
+                a().setImageViewResource(i2, b2);
+            }
         }
     }
 
@@ -215,34 +316,45 @@ public abstract class ep extends en {
     public abstract boolean a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public final boolean m279a(int i2) {
-        return ((((double) Color.red(i2)) * 0.299d) + (((double) Color.green(i2)) * 0.587d)) + (((double) Color.blue(i2)) * 0.114d) < 192.0d;
+    public final boolean m293a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? ((((double) Color.red(i2)) * 0.299d) + (((double) Color.green(i2)) * 0.587d)) + (((double) Color.blue(i2)) * 0.114d) < 192.0d : invokeI.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.app.Notification.Builder
     /* renamed from: b */
     public ep setContentText(CharSequence charSequence) {
-        this.f41313b = charSequence;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, charSequence)) == null) {
+            this.f43056b = charSequence;
+            return this;
+        }
+        return (ep) invokeL.objValue;
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public final void m280b() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.setContentTitle(this.f324a);
-            super.setContentText(this.f41313b);
-            Bitmap bitmap = this.f322a;
-            if (bitmap != null) {
-                super.setLargeIcon(bitmap);
-            }
+    public final void m294b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || Build.VERSION.SDK_INT < 11) {
+            return;
+        }
+        super.setContentTitle(this.f327a);
+        super.setContentText(this.f43056b);
+        Bitmap bitmap = this.f325a;
+        if (bitmap != null) {
+            super.setLargeIcon(bitmap);
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public final boolean m281b() {
-        return this.f327a;
+    public final boolean m295b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f330a : invokeV.booleanValue;
     }
 }

@@ -1,5 +1,9 @@
 package io.reactivex.internal.operators.observable;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.functions.Action;
@@ -13,55 +17,79 @@ import io.reactivex.internal.util.BlockingIgnoringReceiver;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.NotificationLite;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ObservableBlockingSubscribe {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public ObservableBlockingSubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new IllegalStateException("No instances!");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:6:0x0017  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x001b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static <T> void subscribe(ObservableSource<? extends T> observableSource, Observer<? super T> observer) {
-        LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
-        BlockingObserver blockingObserver = new BlockingObserver(linkedBlockingQueue);
-        observer.onSubscribe(blockingObserver);
-        observableSource.subscribe(blockingObserver);
-        while (!blockingObserver.isDisposed()) {
-            Object poll = linkedBlockingQueue.poll();
-            if (poll == null) {
-                try {
-                    poll = linkedBlockingQueue.take();
-                } catch (InterruptedException e2) {
-                    blockingObserver.dispose();
-                    observer.onError(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, observableSource, observer) == null) {
+            LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
+            BlockingObserver blockingObserver = new BlockingObserver(linkedBlockingQueue);
+            observer.onSubscribe(blockingObserver);
+            observableSource.subscribe(blockingObserver);
+            while (!blockingObserver.isDisposed()) {
+                Object poll = linkedBlockingQueue.poll();
+                if (poll == null) {
+                    try {
+                        poll = linkedBlockingQueue.take();
+                    } catch (InterruptedException e2) {
+                        blockingObserver.dispose();
+                        observer.onError(e2);
+                        return;
+                    }
+                }
+                if (blockingObserver.isDisposed() || observableSource == BlockingObserver.TERMINATED || NotificationLite.acceptFull(poll, observer)) {
                     return;
                 }
-            }
-            if (blockingObserver.isDisposed() || observableSource == BlockingObserver.TERMINATED || NotificationLite.acceptFull(poll, observer)) {
-                return;
-            }
-            while (!blockingObserver.isDisposed()) {
+                while (!blockingObserver.isDisposed()) {
+                }
             }
         }
     }
 
     public static <T> void subscribe(ObservableSource<? extends T> observableSource) {
-        BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
-        LambdaObserver lambdaObserver = new LambdaObserver(Functions.emptyConsumer(), blockingIgnoringReceiver, blockingIgnoringReceiver, Functions.emptyConsumer());
-        observableSource.subscribe(lambdaObserver);
-        BlockingHelper.awaitForComplete(blockingIgnoringReceiver, lambdaObserver);
-        Throwable th = blockingIgnoringReceiver.error;
-        if (th != null) {
-            throw ExceptionHelper.wrapOrThrow(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, observableSource) == null) {
+            BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
+            LambdaObserver lambdaObserver = new LambdaObserver(Functions.emptyConsumer(), blockingIgnoringReceiver, blockingIgnoringReceiver, Functions.emptyConsumer());
+            observableSource.subscribe(lambdaObserver);
+            BlockingHelper.awaitForComplete(blockingIgnoringReceiver, lambdaObserver);
+            Throwable th = blockingIgnoringReceiver.error;
+            if (th != null) {
+                throw ExceptionHelper.wrapOrThrow(th);
+            }
         }
     }
 
     public static <T> void subscribe(ObservableSource<? extends T> observableSource, Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
-        ObjectHelper.requireNonNull(consumer, "onNext is null");
-        ObjectHelper.requireNonNull(consumer2, "onError is null");
-        ObjectHelper.requireNonNull(action, "onComplete is null");
-        subscribe(observableSource, new LambdaObserver(consumer, consumer2, action, Functions.emptyConsumer()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, observableSource, consumer, consumer2, action) == null) {
+            ObjectHelper.requireNonNull(consumer, "onNext is null");
+            ObjectHelper.requireNonNull(consumer2, "onError is null");
+            ObjectHelper.requireNonNull(action, "onComplete is null");
+            subscribe(observableSource, new LambdaObserver(consumer, consumer2, action, Functions.emptyConsumer()));
+        }
     }
 }

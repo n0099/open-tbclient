@@ -1,137 +1,123 @@
 package d.a.y.d;
-/* loaded from: classes2.dex */
-public class a implements Cloneable {
 
-    /* renamed from: e  reason: collision with root package name */
-    public String[] f68700e;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.asynctask.BdAsyncTask;
+import com.baidu.live.asynctask.BdAsyncTaskParallelType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: h  reason: collision with root package name */
-    public String f68703h;
+    /* renamed from: a  reason: collision with root package name */
+    public static final d.a.y.e.b f70997a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f68701f = null;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f68702g = false;
-
-    /* renamed from: i  reason: collision with root package name */
-    public C1880a f68704i = new C1880a();
-    public b j = new b();
+    /* renamed from: b  reason: collision with root package name */
+    public static final d.a.y.a.c f70998b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.a.y.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C1880a implements Cloneable {
+    /* loaded from: classes9.dex */
+    public static class C1965a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public b<T> m;
+        public c<T> n;
 
-        /* renamed from: e  reason: collision with root package name */
-        public int f68705e = 0;
+        public C1965a(b<T> bVar, c<T> cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.m = null;
+            this.n = null;
+            this.m = bVar;
+            this.n = cVar;
+        }
 
-        /* renamed from: f  reason: collision with root package name */
-        public float f68706f = 0.0f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public float f68707g = 0.0f;
+        @Override // com.baidu.live.asynctask.BdAsyncTask
+        public void q(T t) {
+            c<T> cVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || (cVar = this.n) == null) {
+                return;
+            }
+            cVar.onReturnDataInUI(t);
+        }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: b */
-        public C1880a clone() {
-            C1880a c1880a = (C1880a) super.clone();
-            c1880a.f68705e = this.f68705e;
-            c1880a.f68706f = this.f68706f;
-            c1880a.f68707g = this.f68707g;
-            return c1880a;
-        }
-
-        public boolean c() {
-            int i2 = this.f68705e;
-            if (i2 < 0 || i2 > 1) {
-                return false;
+        @Override // com.baidu.live.asynctask.BdAsyncTask
+        /* renamed from: z */
+        public T f(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+                try {
+                    if (this.m != null) {
+                        return this.m.a();
+                    }
+                    return null;
+                } catch (Throwable th) {
+                    d.a.y.e.a.c(th);
+                    return null;
+                }
             }
-            float f2 = this.f68706f;
-            if (f2 < 0.0f || f2 > 16.0f) {
-                return false;
+            return (T) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1124374176, "Ld/a/y/d/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            float f3 = this.f68707g;
-            return f3 >= 0.0f && f3 <= 24.0f;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class b implements Cloneable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f68708e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f68709f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f68710g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f68711h = 0;
-
-        /* renamed from: i  reason: collision with root package name */
-        public float f68712i = 0.0f;
-        public float j = 0.0f;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: b */
-        public b clone() {
-            b bVar = (b) super.clone();
-            bVar.f68708e = this.f68708e;
-            bVar.f68709f = this.f68709f;
-            bVar.f68710g = this.f68710g;
-            bVar.f68711h = this.f68711h;
-            bVar.f68712i = this.f68712i;
-            bVar.j = this.j;
-            return bVar;
-        }
-    }
-
-    public a(String str) {
-        this.f68703h = null;
-        this.f68703h = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: b */
-    public a clone() {
-        a aVar = (a) super.clone();
-        String[] strArr = this.f68700e;
-        aVar.f68700e = strArr != null ? (String[]) strArr.clone() : null;
-        aVar.f68701f = new String(this.f68701f);
-        aVar.f68702g = this.f68702g;
-        aVar.f68704i = this.f68704i.clone();
-        aVar.j = this.j.clone();
-        return aVar;
-    }
-
-    public boolean c() {
-        C1880a c1880a = this.f68704i;
-        return (c1880a != null ? Boolean.valueOf(c1880a.c()) : null).booleanValue();
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n======================");
-        sb.append(this.f68703h);
-        sb.append(" Player Server config information====================== \n");
-        sb.append("host : \n");
-        int i2 = 0;
-        while (true) {
-            String[] strArr = this.f68700e;
-            if (strArr == null || i2 >= strArr.length) {
-                break;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1124374176, "Ld/a/y/d/a;");
+                return;
             }
-            sb.append("    " + this.f68700e[i2] + "\n");
-            i2++;
         }
-        sb.append("cntlId : \n    " + this.f68701f + ";\n");
-        sb.append("pcdnSwitch : \n    " + this.f68702g + ";\n");
-        sb.append("CdnConfig : \n    ");
-        sb.append("sle : " + this.f68704i.f68705e + ", sl_rate : " + this.f68704i.f68706f + ", split_rate : " + this.f68704i.f68707g + ";\n");
-        sb.append("PrefetchConfig : \n    ");
-        sb.append("duration : " + this.j.f68708e + " pcdnEnable : " + this.j.f68709f + " p2pEnable : " + this.j.f68710g + " sl : " + this.j.f68711h + " sle : " + this.j.f68712i + " split_rate : " + this.j.j + ";\n");
-        return sb.toString();
+        f70997a = d.a.y.e.b.a();
+        f70998b = new d.a.y.a.c(BdAsyncTaskParallelType.SERIAL, f70997a);
+    }
+
+    public static <T> BdAsyncTask a(b<T> bVar, c<T> cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bVar, cVar)) == null) ? b(bVar, cVar, 2) : (BdAsyncTask) invokeLL.objValue;
+    }
+
+    public static <T> BdAsyncTask b(b<T> bVar, c<T> cVar, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, cVar, i2)) == null) {
+            if (bVar != null) {
+                C1965a c1965a = new C1965a(bVar, cVar);
+                c1965a.v(f70998b);
+                c1965a.x(f70997a);
+                c1965a.w(i2);
+                c1965a.g(new String[0]);
+                return c1965a;
+            }
+            return null;
+        }
+        return (BdAsyncTask) invokeLLI.objValue;
     }
 }

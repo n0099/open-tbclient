@@ -1,93 +1,156 @@
 package com.kwad.sdk.glide.load.engine;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public final class u implements com.kwad.sdk.glide.load.c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.g.g<Class<?>, byte[]> f36403b = new com.kwad.sdk.glide.g.g<>(50);
+    public static final com.kwad.sdk.glide.g.g<Class<?>, byte[]> f38166b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f36404c;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f38167c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.c f36405d;
+    public final com.kwad.sdk.glide.load.c f38168d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.c f36406e;
+    public final com.kwad.sdk.glide.load.c f38169e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f36407f;
+    public final int f38170f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f36408g;
+    public final int f38171g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Class<?> f36409h;
+    public final Class<?> f38172h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.e f36410i;
+    public final com.kwad.sdk.glide.load.e f38173i;
     public final com.kwad.sdk.glide.load.h<?> j;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-469692817, "Lcom/kwad/sdk/glide/load/engine/u;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-469692817, "Lcom/kwad/sdk/glide/load/engine/u;");
+                return;
+            }
+        }
+        f38166b = new com.kwad.sdk.glide.g.g<>(50L);
+    }
+
     public u(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, com.kwad.sdk.glide.load.c cVar, com.kwad.sdk.glide.load.c cVar2, int i2, int i3, com.kwad.sdk.glide.load.h<?> hVar, Class<?> cls, com.kwad.sdk.glide.load.e eVar) {
-        this.f36404c = bVar;
-        this.f36405d = cVar;
-        this.f36406e = cVar2;
-        this.f36407f = i2;
-        this.f36408g = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, cVar, cVar2, Integer.valueOf(i2), Integer.valueOf(i3), hVar, cls, eVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f38167c = bVar;
+        this.f38168d = cVar;
+        this.f38169e = cVar2;
+        this.f38170f = i2;
+        this.f38171g = i3;
         this.j = hVar;
-        this.f36409h = cls;
-        this.f36410i = eVar;
+        this.f38172h = cls;
+        this.f38173i = eVar;
     }
 
     private byte[] a() {
-        byte[] b2 = f36403b.b(this.f36409h);
-        if (b2 == null) {
-            byte[] bytes = this.f36409h.getName().getBytes(com.kwad.sdk.glide.load.c.f36158a);
-            f36403b.b(this.f36409h, bytes);
-            return bytes;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            byte[] b2 = f38166b.b(this.f38172h);
+            if (b2 == null) {
+                byte[] bytes = this.f38172h.getName().getBytes(com.kwad.sdk.glide.load.c.f37921a);
+                f38166b.b(this.f38172h, bytes);
+                return bytes;
+            }
+            return b2;
         }
-        return b2;
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(@NonNull MessageDigest messageDigest) {
-        byte[] bArr = (byte[]) this.f36404c.b(8, byte[].class);
-        ByteBuffer.wrap(bArr).putInt(this.f36407f).putInt(this.f36408g).array();
-        this.f36406e.a(messageDigest);
-        this.f36405d.a(messageDigest);
-        messageDigest.update(bArr);
-        com.kwad.sdk.glide.load.h<?> hVar = this.j;
-        if (hVar != null) {
-            hVar.a(messageDigest);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, messageDigest) == null) {
+            byte[] bArr = (byte[]) this.f38167c.b(8, byte[].class);
+            ByteBuffer.wrap(bArr).putInt(this.f38170f).putInt(this.f38171g).array();
+            this.f38169e.a(messageDigest);
+            this.f38168d.a(messageDigest);
+            messageDigest.update(bArr);
+            com.kwad.sdk.glide.load.h<?> hVar = this.j;
+            if (hVar != null) {
+                hVar.a(messageDigest);
+            }
+            this.f38173i.a(messageDigest);
+            messageDigest.update(a());
+            this.f38167c.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
         }
-        this.f36410i.a(messageDigest);
-        messageDigest.update(a());
-        this.f36404c.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
-        if (obj instanceof u) {
-            u uVar = (u) obj;
-            return this.f36408g == uVar.f36408g && this.f36407f == uVar.f36407f && com.kwad.sdk.glide.g.k.a(this.j, uVar.j) && this.f36409h.equals(uVar.f36409h) && this.f36405d.equals(uVar.f36405d) && this.f36406e.equals(uVar.f36406e) && this.f36410i.equals(uVar.f36410i);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof u) {
+                u uVar = (u) obj;
+                return this.f38171g == uVar.f38171g && this.f38170f == uVar.f38170f && com.kwad.sdk.glide.g.k.a(this.j, uVar.j) && this.f38172h.equals(uVar.f38172h) && this.f38168d.equals(uVar.f38168d) && this.f38169e.equals(uVar.f38169e) && this.f38173i.equals(uVar.f38173i);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        int hashCode = (((((this.f36405d.hashCode() * 31) + this.f36406e.hashCode()) * 31) + this.f36407f) * 31) + this.f36408g;
-        com.kwad.sdk.glide.load.h<?> hVar = this.j;
-        if (hVar != null) {
-            hashCode = (hashCode * 31) + hVar.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int hashCode = (((((this.f38168d.hashCode() * 31) + this.f38169e.hashCode()) * 31) + this.f38170f) * 31) + this.f38171g;
+            com.kwad.sdk.glide.load.h<?> hVar = this.j;
+            if (hVar != null) {
+                hashCode = (hashCode * 31) + hVar.hashCode();
+            }
+            return (((hashCode * 31) + this.f38172h.hashCode()) * 31) + this.f38173i.hashCode();
         }
-        return (((hashCode * 31) + this.f36409h.hashCode()) * 31) + this.f36410i.hashCode();
+        return invokeV.intValue;
     }
 
     public String toString() {
-        return "ResourceCacheKey{sourceKey=" + this.f36405d + ", signature=" + this.f36406e + ", width=" + this.f36407f + ", height=" + this.f36408g + ", decodedResourceClass=" + this.f36409h + ", transformation='" + this.j + "', options=" + this.f36410i + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "ResourceCacheKey{sourceKey=" + this.f38168d + ", signature=" + this.f38169e + ", width=" + this.f38170f + ", height=" + this.f38171g + ", decodedResourceClass=" + this.f38172h + ", transformation='" + this.j + "', options=" + this.f38173i + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

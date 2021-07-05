@@ -28,9 +28,19 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.customview.view.AbsSavedState;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
@@ -43,16 +53,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
-    public static final int[] CHECKABLE_STATE_SET = {16842911};
-    public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int DEF_STYLE_RES = R.style.Widget_MaterialComponents_Button;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] CHECKABLE_STATE_SET;
+    public static final int[] CHECKED_STATE_SET;
+    public static final int DEF_STYLE_RES;
     public static final int ICON_GRAVITY_END = 3;
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_END = 4;
     public static final int ICON_GRAVITY_TEXT_START = 2;
     public static final String LOG_TAG = "MaterialButton";
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean broadcasting;
     public boolean checked;
     @Nullable
@@ -76,63 +88,143 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
-        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.button.MaterialButton.SavedState.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @NonNull
-            public SavedState[] newArray(int i2) {
-                return new SavedState[i2];
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.ClassLoaderCreator
-            @NonNull
-            public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
-                return new SavedState(parcel, classLoader);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @NonNull
-            public SavedState createFromParcel(@NonNull Parcel parcel) {
-                return new SavedState(parcel, null);
-            }
-        };
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<SavedState> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean checked;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1533276233, "Lcom/google/android/material/button/MaterialButton$SavedState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1533276233, "Lcom/google/android/material/button/MaterialButton$SavedState;");
+                    return;
+                }
+            }
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.button.MaterialButton.SavedState.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                @NonNull
+                public SavedState[] newArray(int i2) {
+                    InterceptResult invokeI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // android.os.Parcelable.ClassLoaderCreator
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? new SavedState(parcel, classLoader) : (SavedState) invokeLL.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel, null) : (SavedState) invokeL.objValue;
+                }
+            };
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(Parcelable parcelable) {
             super(parcelable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcelable};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Parcelable) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
         }
 
         private void readFromParcel(@NonNull Parcel parcel) {
-            this.checked = parcel.readInt() == 1;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65539, this, parcel) == null) {
+                this.checked = parcel.readInt() == 1;
+            }
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(@NonNull Parcel parcel, int i2) {
-            super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.checked ? 1 : 0);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
+                super.writeToParcel(parcel, i2);
+                parcel.writeInt(this.checked ? 1 : 0);
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel, classLoader};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             if (classLoader == null) {
                 SavedState.class.getClassLoader();
             }
@@ -140,74 +232,128 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1378577201, "Lcom/google/android/material/button/MaterialButton;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1378577201, "Lcom/google/android/material/button/MaterialButton;");
+                return;
+            }
+        }
+        CHECKABLE_STATE_SET = new int[]{16842911};
+        CHECKED_STATE_SET = new int[]{16842912};
+        DEF_STYLE_RES = R.style.Widget_MaterialComponents_Button;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     @NonNull
     private String getA11yClassName() {
-        return (isCheckable() ? CompoundButton.class : Button.class).getName();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            return (isCheckable() ? CompoundButton.class : Button.class).getName();
+        }
+        return (String) invokeV.objValue;
     }
 
     private boolean isLayoutRTL() {
-        return ViewCompat.getLayoutDirection(this) == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? ViewCompat.getLayoutDirection(this) == 1 : invokeV.booleanValue;
     }
 
     private boolean isUsingOriginalBackground() {
-        MaterialButtonHelper materialButtonHelper = this.materialButtonHelper;
-        return (materialButtonHelper == null || materialButtonHelper.isBackgroundOverwritten()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            MaterialButtonHelper materialButtonHelper = this.materialButtonHelper;
+            return (materialButtonHelper == null || materialButtonHelper.isBackgroundOverwritten()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     private void resetIconDrawable(boolean z) {
-        if (z) {
-            TextViewCompat.setCompoundDrawablesRelative(this, this.icon, null, null, null);
-        } else {
-            TextViewCompat.setCompoundDrawablesRelative(this, null, null, this.icon, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
+            if (z) {
+                TextViewCompat.setCompoundDrawablesRelative(this, this.icon, null, null, null);
+            } else {
+                TextViewCompat.setCompoundDrawablesRelative(this, null, null, this.icon, null);
+            }
         }
     }
 
     private void updateIcon(boolean z) {
-        Drawable drawable = this.icon;
-        boolean z2 = false;
-        if (drawable != null) {
-            Drawable mutate = DrawableCompat.wrap(drawable).mutate();
-            this.icon = mutate;
-            DrawableCompat.setTintList(mutate, this.iconTint);
-            PorterDuff.Mode mode = this.iconTintMode;
-            if (mode != null) {
-                DrawableCompat.setTintMode(this.icon, mode);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
+            Drawable drawable = this.icon;
+            boolean z2 = false;
+            if (drawable != null) {
+                Drawable mutate = DrawableCompat.wrap(drawable).mutate();
+                this.icon = mutate;
+                DrawableCompat.setTintList(mutate, this.iconTint);
+                PorterDuff.Mode mode = this.iconTintMode;
+                if (mode != null) {
+                    DrawableCompat.setTintMode(this.icon, mode);
+                }
+                int i2 = this.iconSize;
+                if (i2 == 0) {
+                    i2 = this.icon.getIntrinsicWidth();
+                }
+                int i3 = this.iconSize;
+                if (i3 == 0) {
+                    i3 = this.icon.getIntrinsicHeight();
+                }
+                Drawable drawable2 = this.icon;
+                int i4 = this.iconLeft;
+                drawable2.setBounds(i4, 0, i2 + i4, i3);
             }
-            int i2 = this.iconSize;
-            if (i2 == 0) {
-                i2 = this.icon.getIntrinsicWidth();
+            int i5 = this.iconGravity;
+            boolean z3 = i5 == 1 || i5 == 2;
+            if (z) {
+                resetIconDrawable(z3);
+                return;
             }
-            int i3 = this.iconSize;
-            if (i3 == 0) {
-                i3 = this.icon.getIntrinsicHeight();
+            Drawable[] compoundDrawablesRelative = TextViewCompat.getCompoundDrawablesRelative(this);
+            Drawable drawable3 = compoundDrawablesRelative[0];
+            Drawable drawable4 = compoundDrawablesRelative[2];
+            if ((z3 && drawable3 != this.icon) || (!z3 && drawable4 != this.icon)) {
+                z2 = true;
             }
-            Drawable drawable2 = this.icon;
-            int i4 = this.iconLeft;
-            drawable2.setBounds(i4, 0, i2 + i4, i3);
-        }
-        int i5 = this.iconGravity;
-        boolean z3 = i5 == 1 || i5 == 2;
-        if (z) {
-            resetIconDrawable(z3);
-            return;
-        }
-        Drawable[] compoundDrawablesRelative = TextViewCompat.getCompoundDrawablesRelative(this);
-        Drawable drawable3 = compoundDrawablesRelative[0];
-        Drawable drawable4 = compoundDrawablesRelative[2];
-        if ((z3 && drawable3 != this.icon) || (!z3 && drawable4 != this.icon)) {
-            z2 = true;
-        }
-        if (z2) {
-            resetIconDrawable(z3);
+            if (z2) {
+                resetIconDrawable(z3);
+            }
         }
     }
 
     private void updateIconPosition() {
-        if (this.icon == null || getLayout() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.icon == null || getLayout() == null) {
             return;
         }
         int i2 = this.iconGravity;
@@ -238,261 +384,384 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     public void addOnCheckedChangeListener(@NonNull OnCheckedChangeListener onCheckedChangeListener) {
-        this.onCheckedChangeListeners.add(onCheckedChangeListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onCheckedChangeListener) == null) {
+            this.onCheckedChangeListeners.add(onCheckedChangeListener);
+        }
     }
 
     public void clearOnCheckedChangeListeners() {
-        this.onCheckedChangeListeners.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.onCheckedChangeListeners.clear();
+        }
     }
 
     @Override // android.view.View
     @Nullable
     public ColorStateList getBackgroundTintList() {
-        return getSupportBackgroundTintList();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getSupportBackgroundTintList() : (ColorStateList) invokeV.objValue;
     }
 
     @Override // android.view.View
     @Nullable
     public PorterDuff.Mode getBackgroundTintMode() {
-        return getSupportBackgroundTintMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getSupportBackgroundTintMode() : (PorterDuff.Mode) invokeV.objValue;
     }
 
     @Px
     public int getCornerRadius() {
-        if (isUsingOriginalBackground()) {
-            return this.materialButtonHelper.getCornerRadius();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (isUsingOriginalBackground()) {
+                return this.materialButtonHelper.getCornerRadius();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public Drawable getIcon() {
-        return this.icon;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.icon : (Drawable) invokeV.objValue;
     }
 
     public int getIconGravity() {
-        return this.iconGravity;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.iconGravity : invokeV.intValue;
     }
 
     @Px
     public int getIconPadding() {
-        return this.iconPadding;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.iconPadding : invokeV.intValue;
     }
 
     @Px
     public int getIconSize() {
-        return this.iconSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.iconSize : invokeV.intValue;
     }
 
     public ColorStateList getIconTint() {
-        return this.iconTint;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.iconTint : (ColorStateList) invokeV.objValue;
     }
 
     public PorterDuff.Mode getIconTintMode() {
-        return this.iconTintMode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.iconTintMode : (PorterDuff.Mode) invokeV.objValue;
     }
 
     @Nullable
     public ColorStateList getRippleColor() {
-        if (isUsingOriginalBackground()) {
-            return this.materialButtonHelper.getRippleColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (isUsingOriginalBackground()) {
+                return this.materialButtonHelper.getRippleColor();
+            }
+            return null;
         }
-        return null;
+        return (ColorStateList) invokeV.objValue;
     }
 
     @Override // com.google.android.material.shape.Shapeable
     @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
-        if (isUsingOriginalBackground()) {
-            return this.materialButtonHelper.getShapeAppearanceModel();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (isUsingOriginalBackground()) {
+                return this.materialButtonHelper.getShapeAppearanceModel();
+            }
+            throw new IllegalStateException("Attempted to get ShapeAppearanceModel from a MaterialButton which has an overwritten background.");
         }
-        throw new IllegalStateException("Attempted to get ShapeAppearanceModel from a MaterialButton which has an overwritten background.");
+        return (ShapeAppearanceModel) invokeV.objValue;
     }
 
     public ColorStateList getStrokeColor() {
-        if (isUsingOriginalBackground()) {
-            return this.materialButtonHelper.getStrokeColor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (isUsingOriginalBackground()) {
+                return this.materialButtonHelper.getStrokeColor();
+            }
+            return null;
         }
-        return null;
+        return (ColorStateList) invokeV.objValue;
     }
 
     @Px
     public int getStrokeWidth() {
-        if (isUsingOriginalBackground()) {
-            return this.materialButtonHelper.getStrokeWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (isUsingOriginalBackground()) {
+                return this.materialButtonHelper.getStrokeWidth();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ColorStateList getSupportBackgroundTintList() {
-        if (isUsingOriginalBackground()) {
-            return this.materialButtonHelper.getSupportBackgroundTintList();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (isUsingOriginalBackground()) {
+                return this.materialButtonHelper.getSupportBackgroundTintList();
+            }
+            return super.getSupportBackgroundTintList();
         }
-        return super.getSupportBackgroundTintList();
+        return (ColorStateList) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
-        if (isUsingOriginalBackground()) {
-            return this.materialButtonHelper.getSupportBackgroundTintMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (isUsingOriginalBackground()) {
+                return this.materialButtonHelper.getSupportBackgroundTintMode();
+            }
+            return super.getSupportBackgroundTintMode();
         }
-        return super.getSupportBackgroundTintMode();
+        return (PorterDuff.Mode) invokeV.objValue;
     }
 
     public boolean isCheckable() {
-        MaterialButtonHelper materialButtonHelper = this.materialButtonHelper;
-        return materialButtonHelper != null && materialButtonHelper.isCheckable();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            MaterialButtonHelper materialButtonHelper = this.materialButtonHelper;
+            return materialButtonHelper != null && materialButtonHelper.isCheckable();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.widget.Checkable
     public boolean isChecked() {
-        return this.checked;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.checked : invokeV.booleanValue;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (isUsingOriginalBackground()) {
-            MaterialShapeUtils.setParentAbsoluteElevation(this, this.materialButtonHelper.getMaterialShapeDrawable());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            super.onAttachedToWindow();
+            if (isUsingOriginalBackground()) {
+                MaterialShapeUtils.setParentAbsoluteElevation(this, this.materialButtonHelper.getMaterialShapeDrawable());
+            }
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     public int[] onCreateDrawableState(int i2) {
-        int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 2);
-        if (isCheckable()) {
-            Button.mergeDrawableStates(onCreateDrawableState, CHECKABLE_STATE_SET);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+            int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 2);
+            if (isCheckable()) {
+                Button.mergeDrawableStates(onCreateDrawableState, CHECKABLE_STATE_SET);
+            }
+            if (isChecked()) {
+                Button.mergeDrawableStates(onCreateDrawableState, CHECKED_STATE_SET);
+            }
+            return onCreateDrawableState;
         }
-        if (isChecked()) {
-            Button.mergeDrawableStates(onCreateDrawableState, CHECKED_STATE_SET);
-        }
-        return onCreateDrawableState;
+        return (int[]) invokeI.objValue;
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
     public void onInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
-        super.onInitializeAccessibilityEvent(accessibilityEvent);
-        accessibilityEvent.setClassName(getA11yClassName());
-        accessibilityEvent.setChecked(isChecked());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, accessibilityEvent) == null) {
+            super.onInitializeAccessibilityEvent(accessibilityEvent);
+            accessibilityEvent.setClassName(getA11yClassName());
+            accessibilityEvent.setChecked(isChecked());
+        }
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
     public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
-        super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-        accessibilityNodeInfo.setClassName(getA11yClassName());
-        accessibilityNodeInfo.setCheckable(isCheckable());
-        accessibilityNodeInfo.setChecked(isChecked());
-        accessibilityNodeInfo.setClickable(isClickable());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, accessibilityNodeInfo) == null) {
+            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+            accessibilityNodeInfo.setClassName(getA11yClassName());
+            accessibilityNodeInfo.setCheckable(isCheckable());
+            accessibilityNodeInfo.setChecked(isChecked());
+            accessibilityNodeInfo.setClickable(isClickable());
+        }
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.widget.TextView, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         MaterialButtonHelper materialButtonHelper;
-        super.onLayout(z, i2, i3, i4, i5);
-        if (Build.VERSION.SDK_INT != 21 || (materialButtonHelper = this.materialButtonHelper) == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            if (Build.VERSION.SDK_INT != 21 || (materialButtonHelper = this.materialButtonHelper) == null) {
+                return;
+            }
+            materialButtonHelper.updateMaskBounds(i5 - i3, i4 - i2);
         }
-        materialButtonHelper.updateMaskBounds(i5 - i3, i4 - i2);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        updateIconPosition();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            updateIconPosition();
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onRestoreInstanceState(@Nullable Parcelable parcelable) {
-        if (!(parcelable instanceof SavedState)) {
-            super.onRestoreInstanceState(parcelable);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            setChecked(savedState.checked);
         }
-        SavedState savedState = (SavedState) parcelable;
-        super.onRestoreInstanceState(savedState.getSuperState());
-        setChecked(savedState.checked);
     }
 
     @Override // android.widget.TextView, android.view.View
     @NonNull
     public Parcelable onSaveInstanceState() {
-        SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.checked = this.checked;
-        return savedState;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            savedState.checked = this.checked;
+            return savedState;
+        }
+        return (Parcelable) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.widget.TextView
     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-        super.onTextChanged(charSequence, i2, i3, i4);
-        updateIconPosition();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048603, this, charSequence, i2, i3, i4) == null) {
+            super.onTextChanged(charSequence, i2, i3, i4);
+            updateIconPosition();
+        }
     }
 
     @Override // android.view.View
     public boolean performClick() {
-        toggle();
-        return super.performClick();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            toggle();
+            return super.performClick();
+        }
+        return invokeV.booleanValue;
     }
 
     public void removeOnCheckedChangeListener(@NonNull OnCheckedChangeListener onCheckedChangeListener) {
-        this.onCheckedChangeListeners.remove(onCheckedChangeListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, onCheckedChangeListener) == null) {
+            this.onCheckedChangeListeners.remove(onCheckedChangeListener);
+        }
     }
 
     @Override // android.view.View
     public void setBackground(@NonNull Drawable drawable) {
-        setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, drawable) == null) {
+            setBackgroundDrawable(drawable);
+        }
     }
 
     @Override // android.view.View
     public void setBackgroundColor(@ColorInt int i2) {
-        if (isUsingOriginalBackground()) {
-            this.materialButtonHelper.setBackgroundColor(i2);
-        } else {
-            super.setBackgroundColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+            if (isUsingOriginalBackground()) {
+                this.materialButtonHelper.setBackgroundColor(i2);
+            } else {
+                super.setBackgroundColor(i2);
+            }
         }
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
     public void setBackgroundDrawable(@NonNull Drawable drawable) {
-        if (isUsingOriginalBackground()) {
-            if (drawable != getBackground()) {
-                Log.w(LOG_TAG, "Do not set the background; MaterialButton manages its own background drawable.");
-                this.materialButtonHelper.setBackgroundOverwritten();
-                super.setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
+            if (isUsingOriginalBackground()) {
+                if (drawable != getBackground()) {
+                    Log.w(LOG_TAG, "Do not set the background; MaterialButton manages its own background drawable.");
+                    this.materialButtonHelper.setBackgroundOverwritten();
+                    super.setBackgroundDrawable(drawable);
+                    return;
+                }
+                getBackground().setState(drawable.getState());
                 return;
             }
-            getBackground().setState(drawable.getState());
-            return;
+            super.setBackgroundDrawable(drawable);
         }
-        super.setBackgroundDrawable(drawable);
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
     public void setBackgroundResource(@DrawableRes int i2) {
-        setBackgroundDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+            setBackgroundDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        }
     }
 
     @Override // android.view.View
     public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        setSupportBackgroundTintList(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, colorStateList) == null) {
+            setSupportBackgroundTintList(colorStateList);
+        }
     }
 
     @Override // android.view.View
     public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        setSupportBackgroundTintMode(mode);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, mode) == null) {
+            setSupportBackgroundTintMode(mode);
+        }
     }
 
     public void setCheckable(boolean z) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setCheckable(z);
         }
     }
 
     @Override // android.widget.Checkable
     public void setChecked(boolean z) {
-        if (isCheckable() && isEnabled() && this.checked != z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048613, this, z) == null) && isCheckable() && isEnabled() && this.checked != z) {
             this.checked = z;
             refreshDrawableState();
             if (this.broadcasting) {
@@ -508,13 +777,15 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     public void setCornerRadius(@Px int i2) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048614, this, i2) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setCornerRadius(i2);
         }
     }
 
     public void setCornerRadiusResource(@DimenRes int i2) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048615, this, i2) == null) && isUsingOriginalBackground()) {
             setCornerRadius(getResources().getDimensionPixelSize(i2));
         }
     }
@@ -522,131 +793,172 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     @Override // android.view.View
     @RequiresApi(21)
     public void setElevation(float f2) {
-        super.setElevation(f2);
-        if (isUsingOriginalBackground()) {
-            this.materialButtonHelper.getMaterialShapeDrawable().setElevation(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048616, this, f2) == null) {
+            super.setElevation(f2);
+            if (isUsingOriginalBackground()) {
+                this.materialButtonHelper.getMaterialShapeDrawable().setElevation(f2);
+            }
         }
     }
 
     public void setIcon(@Nullable Drawable drawable) {
-        if (this.icon != drawable) {
-            this.icon = drawable;
-            updateIcon(true);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048617, this, drawable) == null) || this.icon == drawable) {
+            return;
         }
+        this.icon = drawable;
+        updateIcon(true);
     }
 
     public void setIconGravity(int i2) {
-        if (this.iconGravity != i2) {
-            this.iconGravity = i2;
-            updateIconPosition();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048618, this, i2) == null) || this.iconGravity == i2) {
+            return;
         }
+        this.iconGravity = i2;
+        updateIconPosition();
     }
 
     public void setIconPadding(@Px int i2) {
-        if (this.iconPadding != i2) {
-            this.iconPadding = i2;
-            setCompoundDrawablePadding(i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048619, this, i2) == null) || this.iconPadding == i2) {
+            return;
         }
+        this.iconPadding = i2;
+        setCompoundDrawablePadding(i2);
     }
 
     public void setIconResource(@DrawableRes int i2) {
-        setIcon(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+            setIcon(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        }
     }
 
     public void setIconSize(@Px int i2) {
-        if (i2 >= 0) {
-            if (this.iconSize != i2) {
-                this.iconSize = i2;
-                updateIcon(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+            if (i2 >= 0) {
+                if (this.iconSize != i2) {
+                    this.iconSize = i2;
+                    updateIcon(true);
+                    return;
+                }
                 return;
             }
-            return;
+            throw new IllegalArgumentException("iconSize cannot be less than 0");
         }
-        throw new IllegalArgumentException("iconSize cannot be less than 0");
     }
 
     public void setIconTint(@Nullable ColorStateList colorStateList) {
-        if (this.iconTint != colorStateList) {
-            this.iconTint = colorStateList;
-            updateIcon(false);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048622, this, colorStateList) == null) || this.iconTint == colorStateList) {
+            return;
         }
+        this.iconTint = colorStateList;
+        updateIcon(false);
     }
 
     public void setIconTintMode(PorterDuff.Mode mode) {
-        if (this.iconTintMode != mode) {
-            this.iconTintMode = mode;
-            updateIcon(false);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048623, this, mode) == null) || this.iconTintMode == mode) {
+            return;
         }
+        this.iconTintMode = mode;
+        updateIcon(false);
     }
 
     public void setIconTintResource(@ColorRes int i2) {
-        setIconTint(AppCompatResources.getColorStateList(getContext(), i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
+            setIconTint(AppCompatResources.getColorStateList(getContext(), i2));
+        }
     }
 
     public void setInternalBackground(Drawable drawable) {
-        super.setBackgroundDrawable(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, drawable) == null) {
+            super.setBackgroundDrawable(drawable);
+        }
     }
 
     public void setOnPressedChangeListenerInternal(@Nullable OnPressedChangeListener onPressedChangeListener) {
-        this.onPressedChangeListenerInternal = onPressedChangeListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, onPressedChangeListener) == null) {
+            this.onPressedChangeListenerInternal = onPressedChangeListener;
+        }
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
-        OnPressedChangeListener onPressedChangeListener = this.onPressedChangeListenerInternal;
-        if (onPressedChangeListener != null) {
-            onPressedChangeListener.onPressedChanged(this, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
+            OnPressedChangeListener onPressedChangeListener = this.onPressedChangeListenerInternal;
+            if (onPressedChangeListener != null) {
+                onPressedChangeListener.onPressedChanged(this, z);
+            }
+            super.setPressed(z);
         }
-        super.setPressed(z);
     }
 
     public void setRippleColor(@Nullable ColorStateList colorStateList) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048628, this, colorStateList) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setRippleColor(colorStateList);
         }
     }
 
     public void setRippleColorResource(@ColorRes int i2) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048629, this, i2) == null) && isUsingOriginalBackground()) {
             setRippleColor(AppCompatResources.getColorStateList(getContext(), i2));
         }
     }
 
     @Override // com.google.android.material.shape.Shapeable
     public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
-        if (isUsingOriginalBackground()) {
-            this.materialButtonHelper.setShapeAppearanceModel(shapeAppearanceModel);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, shapeAppearanceModel) == null) {
+            if (isUsingOriginalBackground()) {
+                this.materialButtonHelper.setShapeAppearanceModel(shapeAppearanceModel);
+                return;
+            }
+            throw new IllegalStateException("Attempted to set ShapeAppearanceModel on a MaterialButton which has an overwritten background.");
         }
-        throw new IllegalStateException("Attempted to set ShapeAppearanceModel on a MaterialButton which has an overwritten background.");
     }
 
     public void setShouldDrawSurfaceColorStroke(boolean z) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048631, this, z) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setShouldDrawSurfaceColorStroke(z);
         }
     }
 
     public void setStrokeColor(@Nullable ColorStateList colorStateList) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048632, this, colorStateList) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setStrokeColor(colorStateList);
         }
     }
 
     public void setStrokeColorResource(@ColorRes int i2) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048633, this, i2) == null) && isUsingOriginalBackground()) {
             setStrokeColor(AppCompatResources.getColorStateList(getContext(), i2));
         }
     }
 
     public void setStrokeWidth(@Px int i2) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048634, this, i2) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setStrokeWidth(i2);
         }
     }
 
     public void setStrokeWidthResource(@DimenRes int i2) {
-        if (isUsingOriginalBackground()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048635, this, i2) == null) && isUsingOriginalBackground()) {
             setStrokeWidth(getResources().getDimensionPixelSize(i2));
         }
     }
@@ -654,34 +966,77 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        if (isUsingOriginalBackground()) {
-            this.materialButtonHelper.setSupportBackgroundTintList(colorStateList);
-        } else {
-            super.setSupportBackgroundTintList(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, colorStateList) == null) {
+            if (isUsingOriginalBackground()) {
+                this.materialButtonHelper.setSupportBackgroundTintList(colorStateList);
+            } else {
+                super.setSupportBackgroundTintList(colorStateList);
+            }
         }
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        if (isUsingOriginalBackground()) {
-            this.materialButtonHelper.setSupportBackgroundTintMode(mode);
-        } else {
-            super.setSupportBackgroundTintMode(mode);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, mode) == null) {
+            if (isUsingOriginalBackground()) {
+                this.materialButtonHelper.setSupportBackgroundTintMode(mode);
+            } else {
+                super.setSupportBackgroundTintMode(mode);
+            }
         }
     }
 
     @Override // android.widget.Checkable
     public void toggle() {
-        setChecked(!this.checked);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
+            setChecked(!this.checked);
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.materialButtonStyle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.onCheckedChangeListeners = new LinkedHashSet<>();
         this.checked = false;
         this.broadcasting = false;

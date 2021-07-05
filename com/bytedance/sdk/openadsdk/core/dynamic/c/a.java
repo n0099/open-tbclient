@@ -5,176 +5,301 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.i;
+import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.core.aa;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.core.dynamic.d.c;
-import com.bytedance.sdk.openadsdk.core.p;
+import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
-import com.bytedance.sdk.openadsdk.utils.al;
-import com.bytedance.sdk.openadsdk.utils.t;
-import com.bytedance.sdk.openadsdk.utils.u;
+import com.bytedance.sdk.openadsdk.r.q;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f28198e;
+    public static String f29861e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final Set<String> f29862f;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28199a;
+    public Context f29863a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f28200b;
+    public SSWebView f29864b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28201c;
+    public String f29865c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f28202d;
+    public c f29866d;
+
+    /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0297a {
-        public C0297a() {
+    public class C0338a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f29867a;
+
+        public C0338a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f29867a = aVar;
         }
 
         @JavascriptInterface
         public void calculateResult(String str) {
-            a.this.c(str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.f29867a.c(str);
+            }
         }
 
         @JavascriptInterface
         public String getDomSizeFromNative(String str, String str2, String str3, boolean z, boolean z2, int i2) {
+            InterceptResult invokeCommon;
             double d2;
             double d3;
             int i3;
-            JSONObject jSONObject = new JSONObject();
-            u.f("DynamicBaseWidget", "getDomSizeFromNative String brickType==" + str2);
-            u.f("DynamicBaseWidget", "getDomSizeFromNative String str==" + str);
-            if (!str.startsWith("<svg") && !"dislike".equals(str2)) {
-                if ("logo".equals(str2)) {
-                    jSONObject.put("width", "union".equals(str) ? 10.0d : 20.0d);
-                    jSONObject.put("height", 10.0d);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)})) == null) {
+                JSONObject jSONObject = new JSONObject();
+                j.f("DynamicBaseWidget", "getDomSizeFromNative String brickType==" + str2);
+                j.f("DynamicBaseWidget", "getDomSizeFromNative String str==" + str);
+                if (!str.startsWith("<svg") && !a.f29862f.contains(str2)) {
+                    if ("logo".equals(str2)) {
+                        jSONObject.put("width", "union".equals(str) ? 10.0d : 20.0d);
+                        jSONObject.put("height", 10.0d);
+                        return jSONObject.toString();
+                    }
+                    JSONObject jSONObject2 = new JSONObject(str3);
+                    int length = str.length();
+                    float optDouble = (float) jSONObject2.optDouble("fontSize");
+                    float optDouble2 = (float) jSONObject2.optDouble("letterSpacing");
+                    float optDouble3 = (float) jSONObject2.optDouble("lineHeight");
+                    float optDouble4 = (float) jSONObject2.optDouble("maxWidth");
+                    double d4 = (length * (optDouble + optDouble2)) - optDouble2;
+                    j.f("DynamicBaseWidget", "getDomSizeFromNative letterSpacing==" + optDouble2 + ",lineHeight==" + optDouble3 + ",maxWidth ==" + optDouble4 + ",totalStrLength" + d4);
+                    if (z) {
+                        d3 = optDouble4;
+                        int i4 = ((int) (d4 / d3)) + 1;
+                        if (!z2 || i4 < (i3 = i2)) {
+                            i3 = i4;
+                        }
+                        d2 = optDouble3 * optDouble * i3 * 1.2d;
+                    } else {
+                        d2 = optDouble3 * optDouble * 1.2d;
+                        double d5 = optDouble4;
+                        if (d4 > d5) {
+                            d4 = d5;
+                        }
+                        d3 = d4;
+                    }
+                    jSONObject.put("width", d3);
+                    jSONObject.put("height", d2);
+                    j.f("DynamicBaseWidget", "getDomSizeFromNative fontSize==" + optDouble + ",width==" + d3 + ",height ==" + d2);
                     return jSONObject.toString();
                 }
-                JSONObject jSONObject2 = new JSONObject(str3);
-                int length = str.length();
-                float optDouble = (float) jSONObject2.optDouble("fontSize");
-                float optDouble2 = (float) jSONObject2.optDouble("letterSpacing");
-                float optDouble3 = (float) jSONObject2.optDouble("lineHeight");
-                float optDouble4 = (float) jSONObject2.optDouble("maxWidth");
-                double d4 = (length * (optDouble + optDouble2)) - optDouble2;
-                u.f("DynamicBaseWidget", "getDomSizeFromNative letterSpacing==" + optDouble2 + ",lineHeight==" + optDouble3 + ",maxWidth ==" + optDouble4 + ",totalStrLength" + d4);
-                if (z) {
-                    d3 = optDouble4;
-                    int i4 = ((int) (d4 / d3)) + 1;
-                    if (!z2 || i4 < (i3 = i2)) {
-                        i3 = i4;
-                    }
-                    d2 = optDouble3 * optDouble * i3 * 1.2d;
-                } else {
-                    d2 = optDouble3 * optDouble * 1.2d;
-                    double d5 = optDouble4;
-                    if (d4 > d5) {
-                        d4 = d5;
-                    }
-                    d3 = d4;
-                }
-                jSONObject.put("width", d3);
-                jSONObject.put("height", d2);
-                u.f("DynamicBaseWidget", "getDomSizeFromNative fontSize==" + optDouble + ",width==" + d3 + ",height ==" + d2);
+                jSONObject.put("width", 10.0d);
+                jSONObject.put("height", 10.0d);
                 return jSONObject.toString();
             }
-            jSONObject.put("width", 10.0d);
-            jSONObject.put("height", 10.0d);
-            return jSONObject.toString();
+            return (String) invokeCommon.objValue;
         }
 
         @JavascriptInterface
         public String jsCoreGlobal() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", al.b(p.a(), al.c(a.this.f28199a)));
-                jSONObject.put("height", al.b(p.a(), al.d(a.this.f28199a)));
-                jSONObject.put(IAdRequestParam.OS, "Android");
-            } catch (Exception unused) {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("width", q.c(o.a(), q.c(this.f29867a.f29863a)));
+                    jSONObject.put("height", q.c(o.a(), q.d(this.f29867a.f29863a)));
+                    jSONObject.put(IAdRequestParam.OS, "Android");
+                } catch (Exception unused) {
+                }
+                return jSONObject.toString();
             }
-            return jSONObject.toString();
+            return (String) invokeV.objValue;
         }
 
         @JavascriptInterface
         public double systemFontSizeRatioNative() {
-            return 1.2d;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return 1.2d;
+            }
+            return invokeV.doubleValue;
         }
+
+        public /* synthetic */ C0338a(a aVar, AnonymousClass1 anonymousClass1) {
+            this(aVar);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(702928497, "Lcom/bytedance/sdk/openadsdk/core/dynamic/c/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(702928497, "Lcom/bytedance/sdk/openadsdk/core/dynamic/c/a;");
+                return;
+            }
+        }
+        f29862f = Collections.unmodifiableSet(new HashSet(Arrays.asList("dislike", IntentConfig.CLOSE, "close-fill")));
     }
 
     public a(@NonNull Context context) {
-        this.f28199a = context;
-        SSWebView sSWebView = new SSWebView(this.f28199a);
-        this.f28200b = sSWebView;
-        if (Build.VERSION.SDK_INT >= 19) {
-            sSWebView.addJavascriptInterface(new C0297a(), "JS_DYNAMIC_LAYOUT_OBJ");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.f28200b.loadUrl("about:blank");
-        a();
-    }
-
-    public static String c() {
-        if (TextUtils.isEmpty(f28198e)) {
-            return null;
+        this.f29863a = context;
+        SSWebView sSWebView = new SSWebView(this.f29863a);
+        this.f29864b = sSWebView;
+        if (Build.VERSION.SDK_INT >= 17) {
+            sSWebView.addJavascriptInterface(new C0338a(this, null), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f28198e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
-    }
-
-    private void d() {
-        aa.a(this.f28199a, this.f28200b);
-        aa.a(this.f28200b);
-        this.f28200b = null;
-    }
-
-    public void b(String str) {
-        c cVar;
-        this.f28201c = str;
-        if (TextUtils.isEmpty(f28198e) && (cVar = this.f28202d) != null) {
-            cVar.a(null);
-            d();
-        }
+        this.f29864b.loadUrl("about:blank");
         b();
     }
 
-    public static void a(String str) {
-        f28198e = str;
-    }
-
-    private void a() {
-        String c2 = c();
-        if (TextUtils.isEmpty(c2)) {
-            return;
-        }
-        t.a(this.f28200b, c2);
-    }
-
     private void b() {
-        t.a(this.f28200b, "javascript:var res = getLayoutInfo(" + this.f28201c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            String d2 = d();
+            if (TextUtils.isEmpty(d2)) {
+                return;
+            }
+            i.a(this.f29864b, d2);
+        }
     }
 
-    public void a(c cVar) {
-        this.f28202d = cVar;
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            i.a(this.f29864b, "javascript:var res = getLayoutInfo(" + this.f29865c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+        }
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (TextUtils.isEmpty(f29861e)) {
+                return null;
+            }
+            return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + q.c(o.a(), q.c(o.a())) + ",height:" + q.c(o.a(), q.d(o.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f29861e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            aa.a(this.f29863a, this.f29864b);
+            aa.a(this.f29864b);
+            this.f29864b = null;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
-        f fVar = new f();
-        try {
-            f.a(new JSONObject(str), fVar);
-        } catch (Exception unused) {
-            fVar = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
+            f fVar = new f();
+            try {
+                f.a(new JSONObject(str), fVar);
+            } catch (Exception unused) {
+                fVar = null;
+            }
+            c cVar = this.f29866d;
+            if (cVar != null) {
+                cVar.a(fVar);
+            }
+            e();
         }
-        c cVar = this.f28202d;
-        if (cVar != null) {
-            cVar.a(fVar);
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+            f29861e = str;
         }
-        d();
+    }
+
+    public void b(String str) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f29865c = str;
+            if (TextUtils.isEmpty(f29861e) && (cVar = this.f29866d) != null) {
+                cVar.a(null);
+                e();
+            }
+            c();
+        }
+    }
+
+    public void a(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.f29866d = cVar;
+        }
     }
 }

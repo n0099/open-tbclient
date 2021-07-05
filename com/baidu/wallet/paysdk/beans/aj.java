@@ -3,94 +3,141 @@ package com.baidu.wallet.paysdk.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.PayUtils;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class aj extends PayBaseBean<Object> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f25319a;
+    public BindFastRequest f25862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f25320b;
+    public PayRequest f25863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25321c;
+    public boolean f25864c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> aj(Context context) {
         super(context);
-        this.f25321c = false;
-        this.f25320b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f25864c = false;
+        this.f25863b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(boolean z) {
-        this.f25321c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f25864c = z;
+        }
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        super.execBean(null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.execBean(null);
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
+        InterceptResult invokeV;
         CardData.BondCard bondCard;
-        if (this.f25319a != null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25319a.getmPhone())));
-            arrayList.add(new RestNameValuePair("vcode", this.f25319a.mSmsVCode));
-            if (!this.f25321c) {
-                arrayList.add(new RestNameValuePair("source_flag", "3"));
-                BindFastRequest bindFastRequest = this.f25319a;
-                if (bindFastRequest != null) {
-                    arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.f25862a != null) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25862a.getmPhone())));
+                arrayList.add(new RestNameValuePair("vcode", this.f25862a.mSmsVCode));
+                if (!this.f25864c) {
+                    arrayList.add(new RestNameValuePair("source_flag", "3"));
+                    BindFastRequest bindFastRequest = this.f25862a;
+                    if (bindFastRequest != null) {
+                        arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
+                    }
+                    arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25862a.getServiceType()));
                 }
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25319a.getServiceType()));
+                arrayList.add(new RestNameValuePair("bind_without_pay", this.f25862a.getWithoutPay()));
+                if (!TextUtils.isEmpty(this.f25862a.getSubBankCode())) {
+                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f25862a.getSubBankCode()));
+                }
+                PayRequest payRequest = this.f25863b;
+                if (payRequest != null) {
+                    arrayList.add(new RestNameValuePair("order_no", payRequest.mOrderNo));
+                    arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25863b.mSpNO));
+                    arrayList.add(new RestNameValuePair("total_amount", this.f25863b.getOrderPrice()));
+                }
+                PayRequest payRequest2 = this.f25863b;
+                if (payRequest2 != null && (bondCard = payRequest2.mBondCard) != null && !TextUtils.isEmpty(bondCard.account_no)) {
+                    arrayList.add(new RestNameValuePair("card_no", SafePay.getInstance().encryptProxy(this.f25863b.mBondCard.account_no)));
+                }
+                arrayList.add(new RestNameValuePair("session_id", this.f25862a.getSessionId()));
+                return arrayList;
             }
-            arrayList.add(new RestNameValuePair("bind_without_pay", this.f25319a.getWithoutPay()));
-            if (!TextUtils.isEmpty(this.f25319a.getSubBankCode())) {
-                arrayList.add(new RestNameValuePair("sub_bank_code", this.f25319a.getSubBankCode()));
-            }
-            PayRequest payRequest = this.f25320b;
-            if (payRequest != null) {
-                arrayList.add(new RestNameValuePair("order_no", payRequest.mOrderNo));
-                arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25320b.mSpNO));
-                arrayList.add(new RestNameValuePair("total_amount", this.f25320b.getOrderPrice()));
-            }
-            PayRequest payRequest2 = this.f25320b;
-            if (payRequest2 != null && (bondCard = payRequest2.mBondCard) != null && !TextUtils.isEmpty(bondCard.account_no)) {
-                arrayList.add(new RestNameValuePair("card_no", SafePay.getInstance().encryptProxy(this.f25320b.mBondCard.account_no)));
-            }
-            arrayList.add(new RestNameValuePair(ETAG.KEY_STATISTICS_SEESIONID, this.f25319a.getSessionId()));
-            return arrayList;
+            throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
         }
-        throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return 11;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 11;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(DomainConfig.getInstance().getAppPayHost());
-        sb.append(this.f25321c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
-        return sb.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(DomainConfig.getInstance().getAppPayHost());
+            sb.append(this.f25864c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     public void a(BindFastRequest bindFastRequest) {
-        this.f25319a = bindFastRequest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
+            this.f25862a = bindFastRequest;
+        }
     }
 }

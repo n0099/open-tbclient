@@ -1,6 +1,12 @@
 package com.baidu.mapapi.synchronization.histroytrace;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class HistoryTraceConstant {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL = 10007;
     public static final int LBS_HISTORY_TRACE_CODE_CAR_POINT_ICON_NULL = 100023;
     public static final int LBS_HISTORY_TRACE_CODE_CAR_POINT_NULL = 100024;
@@ -53,4 +59,19 @@ public final class HistoryTraceConstant {
     public static final String LBS_HISTORY_TRACE_MESSAGE_START_POINT_NULL = "History trace end point is null, can't render start point marker";
     public static final String LBS_HISTORY_TRACE_MESSAGE_SUCCESS = "Success";
     public static final String LBS_HISTORY_TRACE_MESSAGE_UNDEFINE_ERROR = "Undefine error";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public HistoryTraceConstant() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

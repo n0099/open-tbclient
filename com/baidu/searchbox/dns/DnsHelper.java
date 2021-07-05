@@ -1,104 +1,183 @@
 package com.baidu.searchbox.dns;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.d.c;
 import com.baidu.searchbox.dns.statistics.HttpDNSStat;
 import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean k;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DnsHelper(Context context) {
         this(context, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public void forceUpdateDomain(String str) {
-        if (this.k) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.k) {
             b.forceUpdateDomain(str);
         }
     }
 
     public List<String> getIpList(String str) {
-        if (this.k) {
-            DnsParseResult parseResult = b.getParseResult(str);
-            if (parseResult != null) {
-                return parseResult.getIpList();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.k) {
+                DnsParseResult parseResult = b.getParseResult(str);
+                if (parseResult != null) {
+                    return parseResult.getIpList();
+                }
+                throw new UnknownHostException(str);
             }
-            throw new UnknownHostException(str);
+            return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
         }
-        return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
+        return (List) invokeL.objValue;
     }
 
     public List<String> getIpListForceHttp(String str) {
-        if (this.k) {
-            DnsParseResult b2 = b.b(str, true);
-            if (b2 != null) {
-                return b2.getIpList();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.k) {
+                DnsParseResult b2 = b.b(str, true);
+                if (b2 != null) {
+                    return b2.getIpList();
+                }
+                throw new UnknownHostException(str);
             }
-            throw new UnknownHostException(str);
+            return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
         }
-        return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
+        return (List) invokeL.objValue;
     }
 
     public List<String> getIpListOnlyCache(String str) {
-        if (this.k) {
-            DnsParseResult a2 = b.a(str, true);
-            if (a2 != null) {
-                return a2.getIpList();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.k) {
+                DnsParseResult a2 = b.a(str, true);
+                if (a2 != null) {
+                    return a2.getIpList();
+                }
+                return new ArrayList();
             }
-            return new ArrayList();
+            return null;
         }
-        return null;
+        return (List) invokeL.objValue;
     }
 
     public DnsParseResult getParseResult(String str) {
-        if (this.k) {
-            return b.getParseResult(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (this.k) {
+                return b.getParseResult(str);
+            }
+            Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
+            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h2), 0, com.baidu.searchbox.dns.b.b.b(h2) ? 5 : 1, DnsUtil.stackType);
         }
-        Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
-        return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h2), 0, com.baidu.searchbox.dns.b.b.b(h2) ? 5 : 1, DnsUtil.stackType);
+        return (DnsParseResult) invokeL.objValue;
     }
 
     public DnsParseResult getParseResultForceHttp(String str) {
-        if (this.k) {
-            return b.b(str, true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (this.k) {
+                return b.b(str, true);
+            }
+            Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
+            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h2), 0, com.baidu.searchbox.dns.b.b.b(h2) ? 5 : 1, DnsUtil.stackType);
         }
-        Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
-        return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h2), 0, com.baidu.searchbox.dns.b.b.b(h2) ? 5 : 1, DnsUtil.stackType);
+        return (DnsParseResult) invokeL.objValue;
     }
 
     public DnsParseResult getParseResultOnlyCache(String str) {
-        if (this.k) {
-            return b.a(str, true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (this.k) {
+                return b.a(str, true);
+            }
+            return new DnsParseResult(new ArrayList(), 0, 1, DnsUtil.stackType);
         }
-        return new DnsParseResult(new ArrayList(), 0, 1, DnsUtil.stackType);
+        return (DnsParseResult) invokeL.objValue;
     }
 
     public boolean isHttpDnsEnable() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     public void setHttpDnsEnable(boolean z) {
-        this.k = z;
-        if (z) {
-            a.b().a();
-        } else {
-            a.b().exit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.k = z;
+            if (z) {
+                a.b().a();
+            } else {
+                a.b().exit();
+            }
         }
     }
 
     public void setHttpDnsState(boolean z, HttpDNSStat httpDNSStat, boolean z2) {
-        c.b(z);
-        c.a(httpDNSStat);
-        c.a(z2);
-        com.baidu.searchbox.dns.b.b.v = z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), httpDNSStat, Boolean.valueOf(z2)}) == null) {
+            c.b(z);
+            c.a(httpDNSStat);
+            c.a(z2);
+            com.baidu.searchbox.dns.b.b.v = z2;
+        }
     }
 
     public DnsHelper(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.k = true;
         com.baidu.searchbox.dns.a.a.b(context);
         a.a(context);

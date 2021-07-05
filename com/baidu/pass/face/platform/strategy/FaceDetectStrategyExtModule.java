@@ -3,6 +3,8 @@ package com.baidu.pass.face.platform.strategy;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceEnvironment;
 import com.baidu.pass.face.platform.FaceSDKManager;
@@ -20,49 +22,116 @@ import com.baidu.pass.face.platform.model.ImageInfo;
 import com.baidu.pass.main.facesdk.FaceInfo;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceDetectStrategyExtModule implements a {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.pass.face.platform.strategy.FaceDetectStrategyExtModule";
     public static volatile int mProcessCount;
+    public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, ImageInfo> mBase64ImageCropMap;
+    public HashMap<String, ImageInfo> mBase64ImageSrcMap;
     public Context mContext;
     public int mDegree;
+    public int mDetectCount;
     public Rect mDetectRect;
     public final DetectStrategy mDetectStrategy;
     public FaceConfig mFaceConfig;
     public final FaceModuleNew mFaceModule;
     public b mIDetectStrategyCallback;
     public ISecurityCallback mISecurityCallback;
+    public volatile boolean mIsCompletion;
+    public volatile boolean mIsEnableSound;
+    public boolean mIsFirstTipsed;
     public volatile boolean mIsProcessing;
+    public long mNoFaceTime;
     public Rect mPreviewRect;
     public final SoundPoolHelper mSoundPlayHelper;
-    public boolean mIsFirstTipsed = false;
-    public volatile boolean mIsCompletion = false;
-    public volatile boolean mIsEnableSound = true;
-    public int mDetectCount = 0;
-    public long mNoFaceTime = 0;
-    public Map<FaceStatusNewEnum, String> mTipsMap = new HashMap();
-    public HashMap<String, ImageInfo> mBase64ImageCropMap = new HashMap<>();
-    public HashMap<String, ImageInfo> mBase64ImageSrcMap = new HashMap<>();
+    public Map<FaceStatusNewEnum, String> mTipsMap;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class FaceProcessRunnable implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public byte[] imageData;
+        public final /* synthetic */ FaceDetectStrategyExtModule this$0;
 
-        public FaceProcessRunnable(byte[] bArr) {
+        public FaceProcessRunnable(FaceDetectStrategyExtModule faceDetectStrategyExtModule, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {faceDetectStrategyExtModule, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = faceDetectStrategyExtModule;
             this.imageData = bArr;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            FaceDetectStrategyExtModule.this.processStrategy(this.imageData);
-            FaceDetectStrategyExtModule.access$106();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.this$0.processStrategy(this.imageData);
+                FaceDetectStrategyExtModule.access$106();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1610008093, "Lcom/baidu/pass/face/platform/strategy/FaceDetectStrategyExtModule;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1610008093, "Lcom/baidu/pass/face/platform/strategy/FaceDetectStrategyExtModule;");
         }
     }
 
     public FaceDetectStrategyExtModule(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mIsFirstTipsed = false;
+        this.mIsCompletion = false;
+        this.mIsEnableSound = true;
+        this.mDetectCount = 0;
+        this.mNoFaceTime = 0L;
+        this.mTipsMap = new HashMap();
+        this.mBase64ImageCropMap = new HashMap<>();
+        this.mBase64ImageSrcMap = new HashMap<>();
         LogHelper.clear();
         LogHelper.addLog(ConstantHelper.LOG_CATE, "Baidu-IDL-FaceSDK4.1.1");
         LogHelper.addLog(ConstantHelper.LOG_OS, Integer.valueOf(Build.VERSION.SDK_INT));
@@ -82,75 +151,93 @@ public class FaceDetectStrategyExtModule implements a {
     }
 
     private boolean cropStrategy(BDFaceImageInstance bDFaceImageInstance, FaceExtInfo faceExtInfo, int i2) {
-        float totalCropScore = this.mDetectStrategy.getTotalCropScore();
-        this.mFaceModule.setFaceConfig(this.mFaceConfig);
-        BDFaceImageInstance cropFace = FaceSDKManager.getInstance().cropFace(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.mFaceConfig.getCropHeight(), this.mFaceConfig.getCropWidth());
-        if (cropFace == null) {
-            return false;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, this, bDFaceImageInstance, faceExtInfo, i2)) == null) {
+            float totalCropScore = this.mDetectStrategy.getTotalCropScore();
+            this.mFaceModule.setFaceConfig(this.mFaceConfig);
+            BDFaceImageInstance cropFace = FaceSDKManager.getInstance().cropFace(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.mFaceConfig.getCropHeight(), this.mFaceConfig.getCropWidth());
+            if (cropFace == null) {
+                return false;
+            }
+            saveCropImageInstance(faceExtInfo, cropFace, i2, totalCropScore);
+            cropFace.destory();
+            saveSrcImageInstance(faceExtInfo, bDFaceImageInstance, i2, totalCropScore);
+            return true;
         }
-        saveCropImageInstance(faceExtInfo, cropFace, i2, totalCropScore);
-        cropFace.destory();
-        saveSrcImageInstance(faceExtInfo, bDFaceImageInstance, i2, totalCropScore);
-        return true;
+        return invokeLLI.booleanValue;
     }
 
     private String getStatusTextResId(FaceStatusNewEnum faceStatusNewEnum) {
+        InterceptResult invokeL;
         Context context;
-        if (this.mTipsMap.containsKey(faceStatusNewEnum)) {
-            return this.mTipsMap.get(faceStatusNewEnum);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, faceStatusNewEnum)) == null) {
+            if (this.mTipsMap.containsKey(faceStatusNewEnum)) {
+                return this.mTipsMap.get(faceStatusNewEnum);
+            }
+            int tipsId = FaceEnvironment.getTipsId(faceStatusNewEnum);
+            if (tipsId <= 0 || (context = this.mContext) == null) {
+                return "";
+            }
+            String string = context.getResources().getString(tipsId);
+            this.mTipsMap.put(faceStatusNewEnum, string);
+            return string;
         }
-        int tipsId = FaceEnvironment.getTipsId(faceStatusNewEnum);
-        if (tipsId <= 0 || (context = this.mContext) == null) {
-            return "";
-        }
-        String string = context.getResources().getString(tipsId);
-        this.mTipsMap.put(faceStatusNewEnum, string);
-        return string;
+        return (String) invokeL.objValue;
     }
 
     private void process(byte[] bArr) {
-        if (mProcessCount > 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bArr) == null) || mProcessCount > 0) {
             return;
         }
         mProcessCount++;
-        new FaceProcessRunnable(bArr).run();
+        new FaceProcessRunnable(this, bArr).run();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void processStrategy(byte[] bArr) {
-        BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.mPreviewRect.width(), this.mPreviewRect.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.mDegree, 1);
-        FaceInfo[] detect = FaceSDKManager.getInstance().detect(bDFaceImageInstance);
-        FaceModel faceModel = setFaceModel(detect, bDFaceImageInstance);
-        ISecurityCallback iSecurityCallback = this.mISecurityCallback;
-        if (iSecurityCallback != null) {
-            iSecurityCallback.getFaceInfoForSecurity(detect);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, bArr) == null) {
+            BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.mPreviewRect.width(), this.mPreviewRect.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.mDegree, 1);
+            FaceInfo[] detect = FaceSDKManager.getInstance().detect(bDFaceImageInstance);
+            FaceModel faceModel = setFaceModel(detect, bDFaceImageInstance);
+            ISecurityCallback iSecurityCallback = this.mISecurityCallback;
+            if (iSecurityCallback != null) {
+                iSecurityCallback.getFaceInfoForSecurity(detect);
+            }
+            processUIResult(faceModel, bDFaceImageInstance);
         }
-        processUIResult(faceModel, bDFaceImageInstance);
     }
 
     private void processUICallback(FaceStatusNewEnum faceStatusNewEnum, FaceExtInfo faceExtInfo) {
-        if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
-            LogHelper.addLogWithKey(ConstantHelper.LOG_ETM, Long.valueOf(System.currentTimeMillis()));
-            LogHelper.sendLog();
-        }
-        b bVar = this.mIDetectStrategyCallback;
-        if (bVar != null) {
-            if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
-                this.mIsProcessing = true;
-                this.mIsCompletion = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, this, faceStatusNewEnum, faceExtInfo) == null) {
+            if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
                 LogHelper.addLogWithKey(ConstantHelper.LOG_ETM, Long.valueOf(System.currentTimeMillis()));
-                LogHelper.addLogWithKey(ConstantHelper.LOG_FINISH, 1);
                 LogHelper.sendLog();
-                this.mIDetectStrategyCallback.a(faceStatusNewEnum, getStatusTextResId(faceStatusNewEnum), this.mBase64ImageCropMap, this.mBase64ImageSrcMap);
-                return;
             }
-            bVar.a(faceStatusNewEnum, getStatusTextResId(faceStatusNewEnum), null, null);
+            b bVar = this.mIDetectStrategyCallback;
+            if (bVar != null) {
+                if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
+                    this.mIsProcessing = true;
+                    this.mIsCompletion = true;
+                    LogHelper.addLogWithKey(ConstantHelper.LOG_ETM, Long.valueOf(System.currentTimeMillis()));
+                    LogHelper.addLogWithKey(ConstantHelper.LOG_FINISH, 1);
+                    LogHelper.sendLog();
+                    this.mIDetectStrategyCallback.a(faceStatusNewEnum, getStatusTextResId(faceStatusNewEnum), this.mBase64ImageCropMap, this.mBase64ImageSrcMap);
+                    return;
+                }
+                bVar.a(faceStatusNewEnum, getStatusTextResId(faceStatusNewEnum), null, null);
+            }
         }
     }
 
     private void processUIResult(FaceModel faceModel, BDFaceImageInstance bDFaceImageInstance) {
         FaceExtInfo faceExtInfo;
-        if (bDFaceImageInstance == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, this, faceModel, bDFaceImageInstance) == null) || bDFaceImageInstance == null) {
             return;
         }
         if (this.mIsProcessing) {
@@ -224,22 +311,28 @@ public class FaceDetectStrategyExtModule implements a {
     }
 
     private boolean processUITips(FaceStatusNewEnum faceStatusNewEnum, FaceExtInfo faceExtInfo) {
-        if (faceStatusNewEnum != null) {
-            this.mSoundPlayHelper.setEnableSound(this.mIsEnableSound);
-            boolean playSound = this.mSoundPlayHelper.playSound(faceStatusNewEnum);
-            if (playSound) {
-                LogHelper.addTipsLogWithKey(faceStatusNewEnum.name());
-                processUICallback(faceStatusNewEnum, faceExtInfo);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, faceStatusNewEnum, faceExtInfo)) == null) {
+            if (faceStatusNewEnum != null) {
+                this.mSoundPlayHelper.setEnableSound(this.mIsEnableSound);
+                boolean playSound = this.mSoundPlayHelper.playSound(faceStatusNewEnum);
+                if (playSound) {
+                    LogHelper.addTipsLogWithKey(faceStatusNewEnum.name());
+                    processUICallback(faceStatusNewEnum, faceExtInfo);
+                    return playSound;
+                }
                 return playSound;
             }
-            return playSound;
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 
     private void saveCropImageInstance(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i2, float f2) {
-        ArrayList<ImageInfo> detectBestCropImageList = this.mFaceModule.getDetectBestCropImageList(faceExtInfo, bDFaceImageInstance);
-        if (detectBestCropImageList == null || detectBestCropImageList.size() <= 0) {
+        ArrayList<ImageInfo> detectBestCropImageList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (detectBestCropImageList = this.mFaceModule.getDetectBestCropImageList(faceExtInfo, bDFaceImageInstance)) == null || detectBestCropImageList.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.mBase64ImageCropMap;
@@ -247,8 +340,9 @@ public class FaceDetectStrategyExtModule implements a {
     }
 
     private void saveSrcImageInstance(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i2, float f2) {
-        ArrayList<ImageInfo> detectBestSrcImageList = this.mFaceModule.getDetectBestSrcImageList(faceExtInfo, bDFaceImageInstance);
-        if (detectBestSrcImageList == null || detectBestSrcImageList.size() <= 0) {
+        ArrayList<ImageInfo> detectBestSrcImageList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (detectBestSrcImageList = this.mFaceModule.getDetectBestSrcImageList(faceExtInfo, bDFaceImageInstance)) == null || detectBestSrcImageList.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.mBase64ImageSrcMap;
@@ -256,70 +350,96 @@ public class FaceDetectStrategyExtModule implements a {
     }
 
     private FaceModel setFaceModel(FaceInfo[] faceInfoArr, BDFaceImageInstance bDFaceImageInstance) {
-        if (bDFaceImageInstance == null) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, faceInfoArr, bDFaceImageInstance)) == null) {
+            if (bDFaceImageInstance == null) {
+                return null;
+            }
+            FaceModel faceModel = new FaceModel();
+            FaceExtInfo[] faceExtInfo = this.mFaceModule.getFaceExtInfo(faceInfoArr);
+            faceModel.setFaceModuleStateNew(this.mDetectStrategy.getDetectState(faceExtInfo, this.mDetectRect, false, this.mFaceConfig));
+            faceModel.setFaceInfos(faceExtInfo);
+            faceModel.setFrameTime(System.currentTimeMillis());
+            return faceModel;
         }
-        FaceModel faceModel = new FaceModel();
-        FaceExtInfo[] faceExtInfo = this.mFaceModule.getFaceExtInfo(faceInfoArr);
-        faceModel.setFaceModuleStateNew(this.mDetectStrategy.getDetectState(faceExtInfo, this.mDetectRect, false, this.mFaceConfig));
-        faceModel.setFaceInfos(faceExtInfo);
-        faceModel.setFrameTime(System.currentTimeMillis());
-        return faceModel;
+        return (FaceModel) invokeLL.objValue;
     }
 
     @Override // com.baidu.pass.face.platform.a
     public void detectStrategy(byte[] bArr) {
-        if (!this.mIsFirstTipsed) {
-            this.mIsFirstTipsed = true;
-            processUITips(FaceStatusNewEnum.DetectRemindCodeNoFaceDetected, null);
-        } else if (this.mIsProcessing) {
-        } else {
-            process(bArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
+            if (!this.mIsFirstTipsed) {
+                this.mIsFirstTipsed = true;
+                processUITips(FaceStatusNewEnum.DetectRemindCodeNoFaceDetected, null);
+            } else if (this.mIsProcessing) {
+            } else {
+                process(bArr);
+            }
         }
     }
 
     @Override // com.baidu.pass.face.platform.a
     public void reset() {
-        this.mDetectCount = 0;
-        SoundPoolHelper soundPoolHelper = this.mSoundPlayHelper;
-        if (soundPoolHelper != null) {
-            soundPoolHelper.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mDetectCount = 0;
+            SoundPoolHelper soundPoolHelper = this.mSoundPlayHelper;
+            if (soundPoolHelper != null) {
+                soundPoolHelper.release();
+            }
+            HashMap<String, ImageInfo> hashMap = this.mBase64ImageCropMap;
+            if (hashMap != null) {
+                hashMap.clear();
+            }
+            HashMap<String, ImageInfo> hashMap2 = this.mBase64ImageSrcMap;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            this.mIsFirstTipsed = false;
+            this.mIsProcessing = false;
         }
-        HashMap<String, ImageInfo> hashMap = this.mBase64ImageCropMap;
-        if (hashMap != null) {
-            hashMap.clear();
-        }
-        HashMap<String, ImageInfo> hashMap2 = this.mBase64ImageSrcMap;
-        if (hashMap2 != null) {
-            hashMap2.clear();
-        }
-        this.mIsFirstTipsed = false;
-        this.mIsProcessing = false;
     }
 
     public void setConfigValue(FaceConfig faceConfig) {
-        this.mFaceConfig = faceConfig;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faceConfig) == null) {
+            this.mFaceConfig = faceConfig;
+        }
     }
 
     @Override // com.baidu.pass.face.platform.a
     public void setDetectStrategyConfig(Rect rect, Rect rect2, b bVar) {
-        this.mPreviewRect = rect;
-        this.mDetectRect = rect2;
-        this.mIDetectStrategyCallback = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, rect, rect2, bVar) == null) {
+            this.mPreviewRect = rect;
+            this.mDetectRect = rect2;
+            this.mIDetectStrategyCallback = bVar;
+        }
     }
 
     @Override // com.baidu.pass.face.platform.a
     public void setDetectStrategySoundEnable(boolean z) {
-        this.mIsEnableSound = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.mIsEnableSound = z;
+        }
     }
 
     @Override // com.baidu.pass.face.platform.a
     public void setISecurityCallback(ISecurityCallback iSecurityCallback) {
-        this.mISecurityCallback = iSecurityCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iSecurityCallback) == null) {
+            this.mISecurityCallback = iSecurityCallback;
+        }
     }
 
     @Override // com.baidu.pass.face.platform.a
     public void setPreviewDegree(int i2) {
-        this.mDegree = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.mDegree = i2;
+        }
     }
 }

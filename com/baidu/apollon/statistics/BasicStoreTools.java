@@ -2,66 +2,151 @@ package com.baidu.apollon.statistics;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BasicStoreTools {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String STAT_LAST_SENDDATA = "stat__lastdata";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3920b = "stat_strategy";
+    public static final String f3918b = "stat_strategy";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3921c = "last_evt_id";
+    public static final String f3919c = "last_evt_id";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f3922a;
+    public final String f3920a;
+
+    /* renamed from: com.baidu.apollon.statistics.BasicStoreTools$1  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* loaded from: classes.dex */
     public static final class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BasicStoreTools f3923a = new BasicStoreTools();
-    }
+        public static final BasicStoreTools f3921a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static BasicStoreTools getInstance() {
-        return a.f3923a;
-    }
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-336915580, "Lcom/baidu/apollon/statistics/BasicStoreTools$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-336915580, "Lcom/baidu/apollon/statistics/BasicStoreTools$a;");
+                    return;
+                }
+            }
+            f3921a = new BasicStoreTools(null);
+        }
 
-    public String getLastData(Context context) {
-        return context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(STAT_LAST_SENDDATA, "");
-    }
-
-    public long getLastEvtId(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("Stat_SDK_SendRem", 0);
-        try {
-            return sharedPreferences.getLong(f3921c, 0L);
-        } catch (ClassCastException unused) {
-            return sharedPreferences.getInt(f3921c, 0);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
     }
 
+    public /* synthetic */ BasicStoreTools(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public static BasicStoreTools getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3921a : (BasicStoreTools) invokeV.objValue;
+    }
+
+    public String getLastData(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(STAT_LAST_SENDDATA, "") : (String) invokeL.objValue;
+    }
+
+    public long getLastEvtId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("Stat_SDK_SendRem", 0);
+            try {
+                return sharedPreferences.getLong(f3919c, 0L);
+            } catch (ClassCastException unused) {
+                return sharedPreferences.getInt(f3919c, 0);
+            }
+        }
+        return invokeL.longValue;
+    }
+
     public String getStrategy(Context context) {
-        return context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(f3920b, "");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(f3918b, "") : (String) invokeL.objValue;
     }
 
     public void setLastData(Context context, String str) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
-        edit.putString(STAT_LAST_SENDDATA, str);
-        edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
+            SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
+            edit.putString(STAT_LAST_SENDDATA, str);
+            edit.commit();
+        }
     }
 
     public void setLastEvtId(Context context, long j) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
-        edit.putLong(f3921c, j);
-        edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, context, j) == null) {
+            SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
+            edit.putLong(f3919c, j);
+            edit.commit();
+        }
     }
 
     public void setStrategy(Context context, String str) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
-        edit.putString(f3920b, str);
-        edit.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+            SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
+            edit.putString(f3918b, str);
+            edit.commit();
+        }
     }
 
     public BasicStoreTools() {
-        this.f3922a = "Stat_SDK_SendRem";
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3920a = "Stat_SDK_SendRem";
     }
 }

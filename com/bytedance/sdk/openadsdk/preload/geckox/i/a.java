@@ -1,45 +1,58 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.i;
 
-import com.baidubce.AbstractBceClient;
-import d.b.c.a.b.a0;
-import d.b.c.a.b.b0;
-import d.b.c.a.b.v;
-import d.b.c.a.b.x;
-import d.b.c.a.b.y;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.b.b.aa;
+import com.bytedance.sdk.component.b.b.ab;
+import com.bytedance.sdk.component.b.b.s;
+import com.bytedance.sdk.component.b.b.v;
+import com.bytedance.sdk.component.b.b.w;
+import com.bytedance.sdk.component.b.b.z;
 import java.io.BufferedInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class a implements b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public y f30265a;
+    public w f32115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public y f30266b;
+    public w f32116b;
 
     public a() {
-        y.b bVar = new y.b();
-        bVar.a(10L, TimeUnit.SECONDS);
-        bVar.d(10L, TimeUnit.SECONDS);
-        bVar.f(10L, TimeUnit.SECONDS);
-        this.f30265a = bVar.c();
-        y.b bVar2 = new y.b();
-        bVar2.a(10L, TimeUnit.SECONDS);
-        bVar2.d(30L, TimeUnit.SECONDS);
-        bVar2.f(30L, TimeUnit.SECONDS);
-        this.f30266b = bVar2.c();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32115a = new w.a().a(10L, TimeUnit.SECONDS).b(10L, TimeUnit.SECONDS).c(10L, TimeUnit.SECONDS).a();
+        this.f32116b = new w.a().a(10L, TimeUnit.SECONDS).b(30L, TimeUnit.SECONDS).c(30L, TimeUnit.SECONDS).a();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
     public c a(String str, String str2) throws Exception {
-        b0 b2 = b0.b(x.a(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2);
-        a0.a aVar = new a0.a();
-        aVar.e(str);
-        aVar.d(b2);
-        d.b.c.a.b.c a2 = this.f30265a.c(aVar.p()).a();
-        return new c(a(a2.w()), a2.r() == 200 ? a2.x().s() : null, a2.r(), a2.t());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            ab b2 = this.f32115a.a(new z.a().a(str).a(aa.a(v.a("application/json; charset=utf-8"), str2)).d()).b();
+            return new c(a(b2.g()), b2.c() == 200 ? b2.h().f() : null, b2.c(), b2.e());
+        }
+        return (c) invokeLL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
@@ -47,16 +60,17 @@ public class a implements b {
         Exception e2;
         int i2;
         BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), bVar}) != null) {
+            return;
+        }
         BufferedInputStream bufferedInputStream2 = null;
         try {
             try {
-                a0.a aVar = new a0.a();
-                aVar.a();
-                aVar.e(str);
-                d.b.c.a.b.c a2 = this.f30266b.c(aVar.p()).a();
-                i2 = a2.r();
+                ab b2 = this.f32116b.a(new z.a().a().a(str).d()).b();
+                i2 = b2.c();
                 try {
-                    bufferedInputStream = new BufferedInputStream(a2.x().q());
+                    bufferedInputStream = new BufferedInputStream(b2.h().c());
                 } catch (Exception e3) {
                     e2 = e3;
                 }
@@ -80,6 +94,7 @@ public class a implements b {
             }
         } catch (Exception e5) {
             e2 = e5;
+            bufferedInputStream2 = bufferedInputStream;
             throw new RuntimeException("downloadFile failed, code: " + i2 + ", url:" + str + ", caused by:" + e2.getMessage(), e2);
         } catch (Throwable th2) {
             th = th2;
@@ -89,14 +104,19 @@ public class a implements b {
         }
     }
 
-    private Map<String, String> a(v vVar) {
-        if (vVar == null) {
-            return null;
+    private Map<String, String> a(s sVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, sVar)) == null) {
+            if (sVar == null) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            for (String str : sVar.b()) {
+                hashMap.put(str, sVar.a(str));
+            }
+            return hashMap;
         }
-        HashMap hashMap = new HashMap();
-        for (String str : vVar.g()) {
-            hashMap.put(str, vVar.c(str));
-        }
-        return hashMap;
+        return (Map) invokeL.objValue;
     }
 }

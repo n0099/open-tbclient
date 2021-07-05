@@ -3,159 +3,282 @@ package com.baidu.mapapi.map;
 import android.graphics.Point;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class BaiduMapOptions implements Parcelable {
-    public static final Parcelable.Creator<BaiduMapOptions> CREATOR = new g();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<BaiduMapOptions> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MapStatus f6842a;
+    public MapStatus f6872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6843b;
+    public boolean f6873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6844c;
+    public int f6874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6845d;
+    public boolean f6875d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6846e;
+    public boolean f6876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6847f;
+    public boolean f6877f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6848g;
+    public boolean f6878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6849h;
+    public boolean f6879h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6850i;
+    public boolean f6880i;
     public LogoPosition j;
     public Point k;
     public Point l;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(387828884, "Lcom/baidu/mapapi/map/BaiduMapOptions;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(387828884, "Lcom/baidu/mapapi/map/BaiduMapOptions;");
+                return;
+            }
+        }
+        CREATOR = new g();
+    }
+
     public BaiduMapOptions() {
-        this.f6842a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.f6843b = true;
-        this.f6844c = 1;
-        this.f6845d = true;
-        this.f6846e = true;
-        this.f6847f = true;
-        this.f6848g = true;
-        this.f6849h = true;
-        this.f6850i = true;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f6872a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.f6873b = true;
+        this.f6874c = 1;
+        this.f6875d = true;
+        this.f6876e = true;
+        this.f6877f = true;
+        this.f6878g = true;
+        this.f6879h = true;
+        this.f6880i = true;
     }
 
     public BaiduMapOptions(Parcel parcel) {
-        this.f6842a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.f6843b = true;
-        this.f6844c = 1;
-        this.f6845d = true;
-        this.f6846e = true;
-        this.f6847f = true;
-        this.f6848g = true;
-        this.f6849h = true;
-        this.f6850i = true;
-        this.f6842a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
-        this.f6843b = parcel.readByte() != 0;
-        this.f6844c = parcel.readInt();
-        this.f6845d = parcel.readByte() != 0;
-        this.f6846e = parcel.readByte() != 0;
-        this.f6847f = parcel.readByte() != 0;
-        this.f6848g = parcel.readByte() != 0;
-        this.f6849h = parcel.readByte() != 0;
-        this.f6850i = parcel.readByte() != 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f6872a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.f6873b = true;
+        this.f6874c = 1;
+        this.f6875d = true;
+        this.f6876e = true;
+        this.f6877f = true;
+        this.f6878g = true;
+        this.f6879h = true;
+        this.f6880i = true;
+        this.f6872a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
+        this.f6873b = parcel.readByte() != 0;
+        this.f6874c = parcel.readInt();
+        this.f6875d = parcel.readByte() != 0;
+        this.f6876e = parcel.readByte() != 0;
+        this.f6877f = parcel.readByte() != 0;
+        this.f6878g = parcel.readByte() != 0;
+        this.f6879h = parcel.readByte() != 0;
+        this.f6880i = parcel.readByte() != 0;
         this.k = (Point) parcel.readParcelable(Point.class.getClassLoader());
         this.l = (Point) parcel.readParcelable(Point.class.getClassLoader());
     }
 
     public com.baidu.mapsdkplatform.comapi.map.z a() {
-        return new com.baidu.mapsdkplatform.comapi.map.z().a(this.f6842a.c()).a(this.f6843b).a(this.f6844c).b(this.f6845d).c(this.f6846e).d(this.f6847f).e(this.f6848g);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new com.baidu.mapsdkplatform.comapi.map.z().a(this.f6872a.c()).a(this.f6873b).a(this.f6874c).b(this.f6875d).c(this.f6876e).d(this.f6877f).e(this.f6878g) : (com.baidu.mapsdkplatform.comapi.map.z) invokeV.objValue;
     }
 
     public BaiduMapOptions compassEnabled(boolean z) {
-        this.f6843b = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.f6873b = z;
+            return this;
+        }
+        return (BaiduMapOptions) invokeZ.objValue;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public BaiduMapOptions logoPosition(LogoPosition logoPosition) {
-        this.j = logoPosition;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, logoPosition)) == null) {
+            this.j = logoPosition;
+            return this;
+        }
+        return (BaiduMapOptions) invokeL.objValue;
     }
 
     public BaiduMapOptions mapStatus(MapStatus mapStatus) {
-        if (mapStatus != null) {
-            this.f6842a = mapStatus;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mapStatus)) == null) {
+            if (mapStatus != null) {
+                this.f6872a = mapStatus;
+            }
+            return this;
         }
-        return this;
+        return (BaiduMapOptions) invokeL.objValue;
     }
 
     public BaiduMapOptions mapType(int i2) {
-        this.f6844c = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            this.f6874c = i2;
+            return this;
+        }
+        return (BaiduMapOptions) invokeI.objValue;
     }
 
     public BaiduMapOptions overlookingGesturesEnabled(boolean z) {
-        this.f6847f = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            this.f6877f = z;
+            return this;
+        }
+        return (BaiduMapOptions) invokeZ.objValue;
     }
 
     public BaiduMapOptions rotateGesturesEnabled(boolean z) {
-        this.f6845d = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            this.f6875d = z;
+            return this;
+        }
+        return (BaiduMapOptions) invokeZ.objValue;
     }
 
     public BaiduMapOptions scaleControlEnabled(boolean z) {
-        this.f6850i = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            this.f6880i = z;
+            return this;
+        }
+        return (BaiduMapOptions) invokeZ.objValue;
     }
 
     public BaiduMapOptions scaleControlPosition(Point point) {
-        this.k = point;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, point)) == null) {
+            this.k = point;
+            return this;
+        }
+        return (BaiduMapOptions) invokeL.objValue;
     }
 
     public BaiduMapOptions scrollGesturesEnabled(boolean z) {
-        this.f6846e = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            this.f6876e = z;
+            return this;
+        }
+        return (BaiduMapOptions) invokeZ.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeParcelable(this.f6842a, i2);
-        parcel.writeByte(this.f6843b ? (byte) 1 : (byte) 0);
-        parcel.writeInt(this.f6844c);
-        parcel.writeByte(this.f6845d ? (byte) 1 : (byte) 0);
-        parcel.writeByte(this.f6846e ? (byte) 1 : (byte) 0);
-        parcel.writeByte(this.f6847f ? (byte) 1 : (byte) 0);
-        parcel.writeByte(this.f6848g ? (byte) 1 : (byte) 0);
-        parcel.writeByte(this.f6849h ? (byte) 1 : (byte) 0);
-        parcel.writeByte(this.f6850i ? (byte) 1 : (byte) 0);
-        parcel.writeParcelable(this.k, i2);
-        parcel.writeParcelable(this.l, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+            parcel.writeParcelable(this.f6872a, i2);
+            parcel.writeByte(this.f6873b ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.f6874c);
+            parcel.writeByte(this.f6875d ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f6876e ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f6877f ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f6878g ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f6879h ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f6880i ? (byte) 1 : (byte) 0);
+            parcel.writeParcelable(this.k, i2);
+            parcel.writeParcelable(this.l, i2);
+        }
     }
 
     public BaiduMapOptions zoomControlsEnabled(boolean z) {
-        this.f6849h = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            this.f6879h = z;
+            return this;
+        }
+        return (BaiduMapOptions) invokeZ.objValue;
     }
 
     public BaiduMapOptions zoomControlsPosition(Point point) {
-        this.l = point;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, point)) == null) {
+            this.l = point;
+            return this;
+        }
+        return (BaiduMapOptions) invokeL.objValue;
     }
 
     public BaiduMapOptions zoomGesturesEnabled(boolean z) {
-        this.f6848g = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+            this.f6878g = z;
+            return this;
+        }
+        return (BaiduMapOptions) invokeZ.objValue;
     }
 }

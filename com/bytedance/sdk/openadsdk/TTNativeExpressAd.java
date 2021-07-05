@@ -5,7 +5,6 @@ import android.view.View;
 import androidx.annotation.MainThread;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.multipro.b.a;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface TTNativeExpressAd {
@@ -49,17 +48,15 @@ public interface TTNativeExpressAd {
 
     TTAdDislike getDislikeDialog(Activity activity);
 
-    View getExpressAdView();
+    DislikeInfo getDislikeInfo();
 
-    List<FilterWord> getFilterWords();
+    View getExpressAdView();
 
     int getImageMode();
 
     int getInteractionType();
 
     Map<String, Object> getMediaExtraInfo();
-
-    PersonalizationPrompt getPersonalizationPrompt();
 
     a getVideoModel();
 

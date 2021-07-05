@@ -1,138 +1,205 @@
 package h.o.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.g;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class u<T> implements d.b<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f71906e;
+    public final a<T> f75498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b<T> f71907f;
+    public final b<T> f75499f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.d<? extends T> f71908g;
+    public final h.d<? extends T> f75500g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.g f71909h;
+    public final h.g f75501h;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a<T> extends h.n.h<c<T>, Long, g.a, h.k> {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b<T> extends h.n.i<c<T>, Long, T, g.a, h.k> {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class c<T> extends h.j<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.d f71910e;
+        public final h.u.d f75502e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.q.e<T> f71911f;
+        public final h.q.e<T> f75503f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b<T> f71912g;
+        public final b<T> f75504g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.d<? extends T> f71913h;
+        public final h.d<? extends T> f75505h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final g.a f71914i;
-        public final h.o.b.a j = new h.o.b.a();
+        public final g.a f75506i;
+        public final h.o.b.a j;
         public boolean k;
         public long l;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public class a extends h.j<T> {
-            public a() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ c f75507e;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f75507e = cVar;
             }
 
             @Override // h.e
             public void onCompleted() {
-                c.this.f71911f.onCompleted();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f75507e.f75503f.onCompleted();
+                }
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                c.this.f71911f.onError(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.f75507e.f75503f.onError(th);
+                }
             }
 
             @Override // h.e
             public void onNext(T t) {
-                c.this.f71911f.onNext(t);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                    this.f75507e.f75503f.onNext(t);
+                }
             }
 
             @Override // h.j
             public void setProducer(h.f fVar) {
-                c.this.j.c(fVar);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+                    this.f75507e.j.c(fVar);
+                }
             }
         }
 
         public c(h.q.e<T> eVar, b<T> bVar, h.u.d dVar, h.d<? extends T> dVar2, g.a aVar) {
-            this.f71911f = eVar;
-            this.f71912g = bVar;
-            this.f71910e = dVar;
-            this.f71913h = dVar2;
-            this.f71914i = aVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, bVar, dVar, dVar2, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f75503f = eVar;
+            this.f75504g = bVar;
+            this.f75502e = dVar;
+            this.f75505h = dVar2;
+            this.f75506i = aVar;
+            this.j = new h.o.b.a();
         }
 
         public void b(long j) {
             boolean z;
-            synchronized (this) {
-                z = true;
-                if (j != this.l || this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                synchronized (this) {
+                    z = true;
+                    if (j != this.l || this.k) {
+                        z = false;
+                    } else {
+                        this.k = true;
+                    }
                 }
-            }
-            if (z) {
-                if (this.f71913h == null) {
-                    this.f71911f.onError(new TimeoutException());
-                    return;
+                if (z) {
+                    if (this.f75505h == null) {
+                        this.f75503f.onError(new TimeoutException());
+                        return;
+                    }
+                    a aVar = new a(this);
+                    this.f75505h.I(aVar);
+                    this.f75502e.a(aVar);
                 }
-                a aVar = new a();
-                this.f71913h.I(aVar);
-                this.f71910e.a(aVar);
             }
         }
 
         @Override // h.e
         public void onCompleted() {
             boolean z;
-            synchronized (this) {
-                z = true;
-                if (this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                synchronized (this) {
+                    z = true;
+                    if (this.k) {
+                        z = false;
+                    } else {
+                        this.k = true;
+                    }
                 }
-            }
-            if (z) {
-                this.f71910e.unsubscribe();
-                this.f71911f.onCompleted();
+                if (z) {
+                    this.f75502e.unsubscribe();
+                    this.f75503f.onCompleted();
+                }
             }
         }
 
         @Override // h.e
         public void onError(Throwable th) {
             boolean z;
-            synchronized (this) {
-                z = true;
-                if (this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                synchronized (this) {
+                    z = true;
+                    if (this.k) {
+                        z = false;
+                    } else {
+                        this.k = true;
+                    }
                 }
-            }
-            if (z) {
-                this.f71910e.unsubscribe();
-                this.f71911f.onError(th);
+                if (z) {
+                    this.f75502e.unsubscribe();
+                    this.f75503f.onError(th);
+                }
             }
         }
 
@@ -140,48 +207,73 @@ public class u<T> implements d.b<T, T> {
         public void onNext(T t) {
             long j;
             boolean z;
-            synchronized (this) {
-                if (!this.k) {
-                    j = this.l + 1;
-                    this.l = j;
-                    z = true;
-                } else {
-                    j = this.l;
-                    z = false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                synchronized (this) {
+                    if (!this.k) {
+                        j = this.l + 1;
+                        this.l = j;
+                        z = true;
+                    } else {
+                        j = this.l;
+                        z = false;
+                    }
                 }
-            }
-            if (z) {
-                this.f71911f.onNext(t);
-                this.f71910e.a(this.f71912g.a(this, Long.valueOf(j), t, this.f71914i));
+                if (z) {
+                    this.f75503f.onNext(t);
+                    this.f75502e.a(this.f75504g.a(this, Long.valueOf(j), t, this.f75506i));
+                }
             }
         }
 
         @Override // h.j
         public void setProducer(h.f fVar) {
-            this.j.c(fVar);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+                this.j.c(fVar);
+            }
         }
     }
 
     public u(a<T> aVar, b<T> bVar, h.d<? extends T> dVar, h.g gVar) {
-        this.f71906e = aVar;
-        this.f71907f = bVar;
-        this.f71908g = dVar;
-        this.f71909h = gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, bVar, dVar, gVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f75498e = aVar;
+        this.f75499f = bVar;
+        this.f75500g = dVar;
+        this.f75501h = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super T> jVar) {
-        g.a createWorker = this.f71909h.createWorker();
-        jVar.add(createWorker);
-        h.q.e eVar = new h.q.e(jVar);
-        h.u.d dVar = new h.u.d();
-        eVar.add(dVar);
-        c cVar = new c(eVar, this.f71907f, dVar, this.f71908g, createWorker);
-        eVar.add(cVar);
-        eVar.setProducer(cVar.j);
-        dVar.a(this.f71906e.a(cVar, 0L, createWorker));
-        return cVar;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
+            g.a createWorker = this.f75501h.createWorker();
+            jVar.add(createWorker);
+            h.q.e eVar = new h.q.e(jVar);
+            h.u.d dVar = new h.u.d();
+            eVar.add(dVar);
+            c cVar = new c(eVar, this.f75499f, dVar, this.f75500g, createWorker);
+            eVar.add(cVar);
+            eVar.setProducer(cVar.j);
+            dVar.a(this.f75498e.a(cVar, 0L, createWorker));
+            return cVar;
+        }
+        return (h.j) invokeL.objValue;
     }
 }

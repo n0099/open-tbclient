@@ -6,71 +6,134 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class LoadingDialogForLightApp extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f25121a;
+    public TextView f25664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f25122b;
+    public ProgressBar f25665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25123c;
+    public String f25666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f25124d;
+    public Context f25667d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialogForLightApp(Context context) {
         super(context, ResUtils.style(context, "LoadingDialog"));
-        this.f25124d = null;
-        this.f25124d = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f25667d = null;
+        this.f25667d = context;
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        requestWindowFeature(1);
-        setContentView(ResUtils.layout(this.f25124d, "wallet_base_loading_dialog_for_light_app"));
-        this.f25121a = (TextView) findViewById(ResUtils.id(this.f25124d, "dialog_msg"));
-        this.f25122b = (ProgressBar) findViewById(ResUtils.id(this.f25124d, "progress_bar"));
-        if (!TextUtils.isEmpty(this.f25123c)) {
-            this.f25121a.setText(this.f25123c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(ResUtils.layout(this.f25667d, "wallet_base_loading_dialog_for_light_app"));
+            this.f25664a = (TextView) findViewById(ResUtils.id(this.f25667d, "dialog_msg"));
+            this.f25665b = (ProgressBar) findViewById(ResUtils.id(this.f25667d, "progress_bar"));
+            if (!TextUtils.isEmpty(this.f25666c)) {
+                this.f25664a.setText(this.f25666c);
+            }
+            if (!TextUtils.isEmpty(GlobalUtils.showStr)) {
+                this.f25664a.setText(GlobalUtils.showStr);
+            }
+            setCanceledOnTouchOutside(false);
+            setCancelable(true);
         }
-        if (!TextUtils.isEmpty(GlobalUtils.showStr)) {
-            this.f25121a.setText(GlobalUtils.showStr);
-        }
-        setCanceledOnTouchOutside(false);
-        setCancelable(true);
     }
 
     public void setMessage(int i2) {
-        TextView textView = this.f25121a;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f25664a) == null) {
             return;
         }
         textView.setText(i2);
     }
 
     public void setMessage(String str) {
-        TextView textView = this.f25121a;
-        if (textView == null) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f25664a) == null) {
             return;
         }
         textView.setText(str);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialogForLightApp(Context context, String str) {
         super(context, ResUtils.style(context, "LoadingDialog"));
-        this.f25124d = null;
-        this.f25123c = str;
-        this.f25124d = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f25667d = null;
+        this.f25666c = str;
+        this.f25667d = context;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialogForLightApp(Context context, int i2) {
         super(context, i2);
-        this.f25124d = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f25667d = null;
     }
 }

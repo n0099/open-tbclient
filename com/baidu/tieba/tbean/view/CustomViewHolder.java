@@ -1,7 +1,11 @@
 package com.baidu.tieba.tbean.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import d.a.o0.z.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import d.a.s0.a0.b;
 /* loaded from: classes5.dex */
 public class CustomViewHolder<T extends b> extends TypeAdapter.ViewHolder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

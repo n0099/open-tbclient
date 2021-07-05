@@ -10,14 +10,42 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.a.n0.m0.l;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.m0.l;
+/* loaded from: classes5.dex */
 public class AlaJumpStatStatic {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends d.a.c.c.f.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
@@ -31,18 +59,42 @@ public class AlaJumpStatStatic {
 
         /* renamed from: process  reason: avoid collision after fix types in other method */
         public CustomMessage<?> process2(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            InterceptResult invokeLL;
             Object data;
-            if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
-                AlaJumpStatStatic.b(data, data.getClass().getSimpleName());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, customMessage, customMessageTask)) == null) {
+                if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
+                    AlaJumpStatStatic.b(data, data.getClass().getSimpleName());
+                }
+                return customMessage;
             }
-            return customMessage;
+            return (CustomMessage) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b extends d.a.c.c.f.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
@@ -56,42 +108,76 @@ public class AlaJumpStatStatic {
 
         /* renamed from: process  reason: avoid collision after fix types in other method */
         public CustomMessage<?> process2(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            InterceptResult invokeLL;
             Object data;
-            if (customMessage != null && (data = customMessage.getData()) != null) {
-                String simpleName = data.getClass().getSimpleName();
-                if (("AlaLiveRoomActivityConfig".equals(simpleName) || "AlaMasterLiveRoomActivityConfig".equals(simpleName) || "AlaWriteShareInBarActivityConfig".equals(simpleName) || "AlaLiveFloatWindowActivityConfig".equals(simpleName) || "AlaPersonCenterActivityConfig".equals(simpleName)) && TbadkCoreApplication.getInst().getIntentClass(data.getClass()) == null) {
-                    AlaJumpStatStatic.b(data, simpleName);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, customMessage, customMessageTask)) == null) {
+                if (customMessage != null && (data = customMessage.getData()) != null) {
+                    String simpleName = data.getClass().getSimpleName();
+                    if (("AlaLiveRoomActivityConfig".equals(simpleName) || "AlaMasterLiveRoomActivityConfig".equals(simpleName) || "AlaWriteShareInBarActivityConfig".equals(simpleName) || "AlaLiveFloatWindowActivityConfig".equals(simpleName) || "AlaPersonCenterActivityConfig".equals(simpleName)) && TbadkCoreApplication.getInst().getIntentClass(data.getClass()) == null) {
+                        AlaJumpStatStatic.b(data, simpleName);
+                    }
                 }
+                return customMessage;
             }
-            return customMessage;
+            return (CustomMessage) invokeLL.objValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-915699300, "Lcom/baidu/tieba/ala/AlaJumpStatStatic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-915699300, "Lcom/baidu/tieba/ala/AlaJumpStatStatic;");
+                return;
+            }
+        }
         MessageManager.getInstance().addMessageRule(new a(2911003));
         MessageManager.getInstance().addMessageRule(new b(2002001));
     }
 
-    public static final void b(Object obj, String str) {
-        d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-        statsItem.b("workflow", "ala_jump_fail");
-        statsItem.b("config", str);
-        statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - l.b().c()));
-        if (obj instanceof AlaLiveRoomActivityConfig) {
-            AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
-            statsItem.b(SapiAccount.SAPI_ACCOUNT_FROMTYPE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));
-            statsItem.b("liveUname", alaLiveRoomActivityConfig.getIntent().getStringExtra("user_name"));
-            try {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) alaLiveRoomActivityConfig.getIntent().getSerializableExtra("live_info_core");
-                if (alaLiveInfoCoreData != null) {
-                    statsItem.c("hostUid", Long.valueOf(alaLiveInfoCoreData.userID));
-                    statsItem.b("hostUname", alaLiveInfoCoreData.userName);
-                    statsItem.c(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, Long.valueOf(alaLiveInfoCoreData.liveID));
-                }
-            } catch (Throwable th) {
-                BdLog.e(th);
+    public AlaJumpStatStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        BdStatisticsManager.getInstance().debug("tiebalive", statsItem);
+    }
+
+    public static final void b(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
+            d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            statsItem.b("workflow", "ala_jump_fail");
+            statsItem.b("config", str);
+            statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - l.b().c()));
+            if (obj instanceof AlaLiveRoomActivityConfig) {
+                AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
+                statsItem.b(SapiAccount.SAPI_ACCOUNT_FROMTYPE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));
+                statsItem.b("liveUname", alaLiveRoomActivityConfig.getIntent().getStringExtra("user_name"));
+                try {
+                    AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) alaLiveRoomActivityConfig.getIntent().getSerializableExtra("live_info_core");
+                    if (alaLiveInfoCoreData != null) {
+                        statsItem.c("hostUid", Long.valueOf(alaLiveInfoCoreData.userID));
+                        statsItem.b("hostUname", alaLiveInfoCoreData.userName);
+                        statsItem.c(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, Long.valueOf(alaLiveInfoCoreData.liveID));
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                }
+            }
+            BdStatisticsManager.getInstance().debug("tiebalive", statsItem);
+        }
     }
 }

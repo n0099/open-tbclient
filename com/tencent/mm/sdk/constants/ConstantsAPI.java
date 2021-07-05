@@ -1,4 +1,9 @@
 package com.tencent.mm.sdk.constants;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface ConstantsAPI {
     public static final String ACTION_HANDLE_APP_REGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
@@ -18,17 +23,49 @@ public interface ConstantsAPI {
 
     /* loaded from: classes7.dex */
     public static final class Token {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String WX_TOKEN_JUMP_ARG = "wx_jump_arg";
         public static final String WX_TOKEN_KEY = "wx_token_key";
         public static final String WX_TOKEN_PLATFORMID_KEY = "platformId";
         public static final String WX_TOKEN_PLATFORMID_VALUE = "wechat";
         public static final String WX_TOKEN_VALUE_MSG = "com.tencent.mm.openapi.token";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Token() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes7.dex */
     public static final class WXApp {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String WXAPP_BROADCAST_PERMISSION = "com.tencent.mm.permission.MM_MESSAGE";
         public static final String WXAPP_MSG_ENTRY_CLASSNAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
         public static final String WXAPP_PACKAGE_NAME = "com.tencent.mm";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public WXApp() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 }

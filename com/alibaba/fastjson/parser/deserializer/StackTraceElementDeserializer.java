@@ -6,13 +6,53 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONToken;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 import java.lang.reflect.Type;
 /* loaded from: classes.dex */
 public class StackTraceElementDeserializer implements ObjectDeserializer {
-    public static final StackTraceElementDeserializer instance = new StackTraceElementDeserializer();
+    public static /* synthetic */ Interceptable $ic;
+    public static final StackTraceElementDeserializer instance;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x01d0, code lost:
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1525717133, "Lcom/alibaba/fastjson/parser/deserializer/StackTraceElementDeserializer;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1525717133, "Lcom/alibaba/fastjson/parser/deserializer/StackTraceElementDeserializer;");
+                return;
+            }
+        }
+        instance = new StackTraceElementDeserializer();
+    }
+
+    public StackTraceElementDeserializer() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x01d4, code lost:
         return (T) new java.lang.StackTraceElement(r5, r7, r8, r9);
      */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
@@ -20,6 +60,11 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(1048576, this, defaultJSONParser, type, obj)) != null) {
+            return (T) invokeLLL.objValue;
+        }
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (jSONLexer.token() == 8) {
             jSONLexer.nextToken();
@@ -129,6 +174,11 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
 
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public int getFastMatchToken() {
-        return 12;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 12;
+        }
+        return invokeV.intValue;
     }
 }

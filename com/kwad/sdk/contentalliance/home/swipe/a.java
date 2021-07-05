@@ -1,5 +1,5 @@
 package com.kwad.sdk.contentalliance.home.swipe;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(float f2);
 

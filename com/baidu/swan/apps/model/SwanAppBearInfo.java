@@ -3,12 +3,21 @@ package com.baidu.swan.apps.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import d.a.m0.a.k;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAR_DESC = "sign";
     public static final String BEAR_ID = "office_id";
     public static final String BEAR_INFO = "bear_info";
@@ -16,56 +25,117 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public static final String BEAR_NAME = "name";
     public static final String BEAR_URL = "url";
     public static final String BEAR_VIP_TYPE = "v_type";
+    public static final Parcelable.Creator<SwanAppBearInfo> CREATOR;
+    public static final boolean DEBUG;
+    public transient /* synthetic */ FieldHolder $fh;
     public String bearDesc;
     public String bearHomeUrl;
     public String bearId;
     public String bearLogo;
     public String bearName;
     public String bearVipType;
-    public static final boolean DEBUG = k.f46983a;
-    public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SwanAppBearInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public SwanAppBearInfo createFromParcel(Parcel parcel) {
-            return new SwanAppBearInfo(parcel, null);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SwanAppBearInfo(parcel, null) : (SwanAppBearInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
         public SwanAppBearInfo[] newArray(int i2) {
-            return new SwanAppBearInfo[i2];
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new SwanAppBearInfo[i2] : (SwanAppBearInfo[]) invokeI.objValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-596612324, "Lcom/baidu/swan/apps/model/SwanAppBearInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-596612324, "Lcom/baidu/swan/apps/model/SwanAppBearInfo;");
+                return;
+            }
+        }
+        DEBUG = k.f49133a;
+        CREATOR = new a();
     }
 
     public /* synthetic */ SwanAppBearInfo(Parcel parcel, a aVar) {
         this(parcel);
     }
 
-    public boolean a() {
-        return !TextUtils.isEmpty(this.bearId);
-    }
-
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.bearId) : invokeV.booleanValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.bearId);
-        parcel.writeString(this.bearName);
-        parcel.writeString(this.bearLogo);
-        parcel.writeString(this.bearHomeUrl);
-        parcel.writeString(this.bearDesc);
-        parcel.writeString(this.bearVipType);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+            parcel.writeString(this.bearId);
+            parcel.writeString(this.bearName);
+            parcel.writeString(this.bearLogo);
+            parcel.writeString(this.bearHomeUrl);
+            parcel.writeString(this.bearDesc);
+            parcel.writeString(this.bearVipType);
+        }
     }
 
     public SwanAppBearInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.bearId = "";
         this.bearName = "";
         this.bearLogo = "";
@@ -75,6 +145,20 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     }
 
     public SwanAppBearInfo(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.bearId = "";
         this.bearName = "";
         this.bearLogo = "";
@@ -90,6 +174,20 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     }
 
     public SwanAppBearInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
         this.bearId = "";
         this.bearName = "";
         this.bearLogo = "";

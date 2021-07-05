@@ -1,40 +1,74 @@
 package com.baidu.tieba.frs.HorseRace;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.n0.z0.w;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.w;
 import tbclient.CommonReq;
 import tbclient.GetHorseRaceLampList.DataReq;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LiveHorseRaceRequestMessage extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f15311common;
+    public CommonReq f15404common;
     public Long forum_id;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveHorseRaceRequestMessage() {
         super(CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, 309667);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.f72777common = this.f15311common;
-        builder.forum_id = this.forum_id;
-        if (z) {
-            w.a(builder, true);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.f76449common = this.f15404common;
+            builder.forum_id = this.forum_id;
+            if (z) {
+                w.a(builder, true);
+            }
+            GetHorseRaceLampListReqIdl.Builder builder2 = new GetHorseRaceLampListReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
         }
-        GetHorseRaceLampListReqIdl.Builder builder2 = new GetHorseRaceLampListReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+        return invokeZ.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f15311common = commonReq;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
+            this.f15404common = commonReq;
+        }
     }
 
     public void setForum_id(Long l) {
-        this.forum_id = l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l) == null) {
+            this.forum_id = l;
+        }
     }
 }

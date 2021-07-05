@@ -9,7 +9,7 @@ import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface DownloadListener {
     void connectEnd(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i2, int i3, @NonNull Map<String, List<String>> map);
 

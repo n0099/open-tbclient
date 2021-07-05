@@ -1,16 +1,42 @@
 package androidx.core.view;
 
 import android.view.VelocityTracker;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes.dex */
 public final class VelocityTrackerCompat {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public VelocityTrackerCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Deprecated
     public static float getXVelocity(VelocityTracker velocityTracker, int i2) {
-        return velocityTracker.getXVelocity(i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, velocityTracker, i2)) == null) ? velocityTracker.getXVelocity(i2) : invokeLI.floatValue;
     }
 
     @Deprecated
     public static float getYVelocity(VelocityTracker velocityTracker, int i2) {
-        return velocityTracker.getYVelocity(i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, velocityTracker, i2)) == null) ? velocityTracker.getYVelocity(i2) : invokeLI.floatValue;
     }
 }

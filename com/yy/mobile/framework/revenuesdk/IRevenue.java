@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.ISDKReporter;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IRevenue {
     IAppPayService getAppPayService();
 

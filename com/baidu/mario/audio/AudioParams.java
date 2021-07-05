@@ -1,9 +1,17 @@
 package com.baidu.mario.audio;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.NotProguard;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AudioParams {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AUDIO_BUFFER_SIZE = 32768;
     public static final int DEFAULT_AUDIO_FORMAT = 2;
     public static final int DEFAULT_AUDIO_SOURCE = 1;
@@ -12,82 +20,147 @@ public class AudioParams {
     public static final int DEFAULT_FRAME_SIZE = 1024;
     public static final int DEFAULT_SAMPLE_RATE = 16000;
     public static final int SAMPLES_PER_FRAME = 1024;
-    public int mAudioSource = 1;
-    public int mSampleRate = 16000;
-    public int mChannelConfig = 16;
-    public int mAudioFormat = 2;
-    public int mFrameSize = 1024;
-    public int mFrameBufferCount = 32;
-    public int mAudioBufferSize = 32768;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int mAudioBufferSize;
+    public int mAudioFormat;
+    public int mAudioSource;
+    public int mChannelConfig;
+    public int mFrameBufferCount;
+    public int mFrameSize;
+    public int mSampleRate;
+
+    public AudioParams() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mAudioSource = 1;
+        this.mSampleRate = 16000;
+        this.mChannelConfig = 16;
+        this.mAudioFormat = 2;
+        this.mFrameSize = 1024;
+        this.mFrameBufferCount = 32;
+        this.mAudioBufferSize = 32768;
+    }
 
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && (obj instanceof AudioParams)) {
+                AudioParams audioParams = (AudioParams) obj;
+                return this.mAudioSource == audioParams.mAudioSource && this.mSampleRate == audioParams.getSampleRate() && this.mChannelConfig == audioParams.getChannelConfig() && this.mAudioFormat == audioParams.getAudioFormat() && this.mFrameSize == audioParams.getFrameSize();
+            }
+            return false;
         }
-        if (obj != null && (obj instanceof AudioParams)) {
-            AudioParams audioParams = (AudioParams) obj;
-            return this.mAudioSource == audioParams.mAudioSource && this.mSampleRate == audioParams.getSampleRate() && this.mChannelConfig == audioParams.getChannelConfig() && this.mAudioFormat == audioParams.getAudioFormat() && this.mFrameSize == audioParams.getFrameSize();
-        }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int getAudioBufferSize() {
-        return this.mAudioBufferSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAudioBufferSize : invokeV.intValue;
     }
 
     public int getAudioFormat() {
-        return this.mAudioFormat;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAudioFormat : invokeV.intValue;
     }
 
     public int getAudioSource() {
-        return this.mAudioSource;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAudioSource : invokeV.intValue;
     }
 
     public int getChannelConfig() {
-        return this.mChannelConfig;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mChannelConfig : invokeV.intValue;
     }
 
     public int getFrameBufferCount() {
-        return this.mFrameBufferCount;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFrameBufferCount : invokeV.intValue;
     }
 
     public int getFrameSize() {
-        return this.mFrameSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mFrameSize : invokeV.intValue;
     }
 
     public int getSampleRate() {
-        return this.mSampleRate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSampleRate : invokeV.intValue;
     }
 
     public int hashCode() {
-        return ((((((((this.mAudioSource + 31) * 31) + this.mSampleRate) * 31) + this.mChannelConfig) * 31) + this.mAudioFormat) * 31) + this.mFrameSize;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ((((((((this.mAudioSource + 31) * 31) + this.mSampleRate) * 31) + this.mChannelConfig) * 31) + this.mAudioFormat) * 31) + this.mFrameSize : invokeV.intValue;
     }
 
     public void setAudioBufferSize(int i2) {
-        this.mAudioBufferSize = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.mAudioBufferSize = i2;
+        }
     }
 
     public void setAudioFormat(int i2) {
-        this.mAudioFormat = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.mAudioFormat = i2;
+        }
     }
 
     public void setAudioSource(int i2) {
-        this.mAudioSource = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.mAudioSource = i2;
+        }
     }
 
     public void setChannelConfig(int i2) {
-        this.mChannelConfig = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.mChannelConfig = i2;
+        }
     }
 
     public void setFrameBufferCount(int i2) {
-        this.mFrameBufferCount = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.mFrameBufferCount = i2;
+        }
     }
 
     public void setFrameSize(int i2) {
-        this.mFrameSize = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.mFrameSize = i2;
+        }
     }
 
     public void setSampleRate(int i2) {
-        this.mSampleRate = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.mSampleRate = i2;
+        }
     }
 }

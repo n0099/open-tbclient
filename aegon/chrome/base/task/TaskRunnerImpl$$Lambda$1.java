@@ -1,18 +1,38 @@
 package aegon.chrome.base.task;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final /* synthetic */ class TaskRunnerImpl$$Lambda$1 implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final TaskRunnerImpl arg$1;
 
     public TaskRunnerImpl$$Lambda$1(TaskRunnerImpl taskRunnerImpl) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskRunnerImpl};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.arg$1 = taskRunnerImpl;
-    }
-
-    public static Runnable lambdaFactory$(TaskRunnerImpl taskRunnerImpl) {
-        return new TaskRunnerImpl$$Lambda$1(taskRunnerImpl);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.arg$1.runPreNativeTask();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.arg$1.runPreNativeTask();
+        }
     }
 }

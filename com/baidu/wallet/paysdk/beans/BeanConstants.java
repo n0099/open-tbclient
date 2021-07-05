@@ -1,6 +1,15 @@
 package com.baidu.wallet.paysdk.beans;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public abstract class BeanConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_THEME_ACTIVITY = 0;
     public static final int ACTIVITY_THEME_DIALOG = 1;
     public static final String API_APPLY_VERIFY_SMS_BY_BANK = "/cashdesk/wireless/bank_extra_sms";
@@ -204,4 +213,34 @@ public abstract class BeanConstants {
     public static final String WALLET_PLUGIN_NON_UPDATE_FLAG = "0";
     public static final String WALLET_PLUGIN_UPDATE_FLAG = "1";
     public static final String WALLET_PLUGIN_VERSION_IS_IGNORE = "Wallet_plugin_version_is_ignore";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1078730915, "Lcom/baidu/wallet/paysdk/beans/BeanConstants;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1078730915, "Lcom/baidu/wallet/paysdk/beans/BeanConstants;");
+        }
+    }
+
+    public BeanConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

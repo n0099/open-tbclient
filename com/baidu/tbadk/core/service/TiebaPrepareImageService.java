@@ -7,201 +7,333 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import d.a.n0.z0.p0;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.r0;
+/* loaded from: classes4.dex */
 public class TiebaPrepareImageService extends BdBaseService {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DISPLAY_SIZE = "display_size";
     public static final String FILE_NAME = "file_name";
     public static volatile boolean IS_DECODING = false;
     public static final String MAX_SIZE = "max_size";
     public static final String REQUESTCODE = "request_code";
+    public transient /* synthetic */ FieldHolder $fh;
     public int mDisplaySize;
+    public String mFileName;
+    public final Handler mHandler;
     public int mMaxSize;
-    public int mRequestCode = 0;
-    public Uri mUri = null;
-    public String mFileName = null;
-    public b mTask = null;
-    public final Handler mHandler = new Handler();
-    public final Runnable mStartRun = new a();
+    public int mRequestCode;
+    public final Runnable mStartRun;
+    public b mTask;
+    public Uri mUri;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TiebaPrepareImageService f12333e;
+
+        public a(TiebaPrepareImageService tiebaPrepareImageService) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tiebaPrepareImageService};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12333e = tiebaPrepareImageService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (TiebaPrepareImageService.IS_DECODING) {
-                TiebaPrepareImageService.this.mHandler.postDelayed(TiebaPrepareImageService.this.mStartRun, 1000L);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (TiebaPrepareImageService.IS_DECODING) {
+                    this.f12333e.mHandler.postDelayed(this.f12333e.mStartRun, 1000L);
+                    return;
+                }
+                TiebaPrepareImageService tiebaPrepareImageService = this.f12333e;
+                TiebaPrepareImageService tiebaPrepareImageService2 = this.f12333e;
+                tiebaPrepareImageService.mTask = new b(tiebaPrepareImageService2, tiebaPrepareImageService2.mRequestCode, this.f12333e.mUri, this.f12333e.mFileName);
+                this.f12333e.mTask.execute(new Object[0]);
             }
-            TiebaPrepareImageService tiebaPrepareImageService = TiebaPrepareImageService.this;
-            TiebaPrepareImageService tiebaPrepareImageService2 = TiebaPrepareImageService.this;
-            tiebaPrepareImageService.mTask = new b(tiebaPrepareImageService2.mRequestCode, TiebaPrepareImageService.this.mUri, TiebaPrepareImageService.this.mFileName);
-            TiebaPrepareImageService.this.mTask.execute(new Object[0]);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Object, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12281a;
+        public int f12334a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f12282b;
+        public Uri f12335b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12283c;
+        public String f12336c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12284d = null;
+        public String f12337d;
 
-        public b(int i2, Uri uri, String str) {
-            this.f12281a = 0;
-            this.f12282b = null;
-            this.f12283c = null;
-            this.f12281a = i2;
-            this.f12282b = uri;
-            this.f12283c = str;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TiebaPrepareImageService f12338e;
+
+        public b(TiebaPrepareImageService tiebaPrepareImageService, int i2, Uri uri, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tiebaPrepareImageService, Integer.valueOf(i2), uri, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12338e = tiebaPrepareImageService;
+            this.f12334a = 0;
+            this.f12335b = null;
+            this.f12336c = null;
+            this.f12337d = null;
+            this.f12334a = i2;
+            this.f12335b = uri;
+            this.f12336c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Boolean doInBackground(Object... objArr) {
+            InterceptResult invokeL;
             Bitmap c2;
-            boolean z = true;
-            TiebaPrepareImageService.IS_DECODING = true;
-            boolean z2 = false;
-            try {
-                c2 = p0.c(this.f12281a, TiebaPrepareImageService.this, this.f12282b, this.f12283c, TiebaPrepareImageService.this.mMaxSize);
-            } catch (Exception unused) {
-                TiebaPrepareImageService.IS_DECODING = false;
-            } catch (Throwable th) {
-                TiebaPrepareImageService.IS_DECODING = false;
-                throw th;
-            }
-            if (c2 != null) {
-                if (FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null) {
-                    Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c2, TiebaPrepareImageService.this.mDisplaySize > 0 ? TiebaPrepareImageService.this.mDisplaySize : 100);
-                    if (resizeBitmap == null || FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.f12284d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                boolean z = true;
+                TiebaPrepareImageService.IS_DECODING = true;
+                boolean z2 = false;
+                try {
+                    c2 = r0.c(this.f12334a, this.f12338e, this.f12335b, this.f12336c, this.f12338e.mMaxSize);
+                } catch (Exception unused) {
+                    TiebaPrepareImageService.IS_DECODING = false;
+                } catch (Throwable th) {
+                    TiebaPrepareImageService.IS_DECODING = false;
+                    throw th;
+                }
+                if (c2 != null) {
+                    if (FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null) {
+                        Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c2, this.f12338e.mDisplaySize > 0 ? this.f12338e.mDisplaySize : 100);
+                        if (resizeBitmap == null || FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
+                            this.f12337d = this.f12338e.getString(R.string.error_sd_error);
+                        } else {
+                            TiebaPrepareImageService.IS_DECODING = false;
+                            z2 = z;
+                            return Boolean.valueOf(z2);
+                        }
                     } else {
-                        TiebaPrepareImageService.IS_DECODING = false;
-                        z2 = z;
-                        return Boolean.valueOf(z2);
+                        this.f12337d = this.f12338e.getString(R.string.error_sd_error);
                     }
                 } else {
-                    this.f12284d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    this.f12337d = this.f12338e.getString(R.string.pic_parser_error);
                 }
-            } else {
-                this.f12284d = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
+                z = false;
+                TiebaPrepareImageService.IS_DECODING = false;
+                z2 = z;
+                return Boolean.valueOf(z2);
             }
-            z = false;
-            TiebaPrepareImageService.IS_DECODING = false;
-            z2 = z;
-            return Boolean.valueOf(z2);
+            return (Boolean) invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            TiebaPrepareImageService.this.mTask = null;
-            super.cancel(true);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f12338e.mTask = null;
+                super.cancel(true);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            super.onPostExecute((b) bool);
-            Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
-            intent.putExtra("result", bool);
-            String str = this.f12284d;
-            if (str != null) {
-                intent.putExtra("error", str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                super.onPostExecute((b) bool);
+                Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
+                intent.putExtra("result", bool);
+                String str = this.f12337d;
+                if (str != null) {
+                    intent.putExtra("error", str);
+                }
+                this.f12338e.sendBroadcast(intent);
             }
-            TiebaPrepareImageService.this.sendBroadcast(intent);
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-488305374, "Lcom/baidu/tbadk/core/service/TiebaPrepareImageService;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-488305374, "Lcom/baidu/tbadk/core/service/TiebaPrepareImageService;");
+        }
+    }
+
+    public TiebaPrepareImageService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mRequestCode = 0;
+        this.mUri = null;
+        this.mFileName = null;
+        this.mTask = null;
+        this.mHandler = new Handler();
+        this.mStartRun = new a(this);
     }
 
     public static void StartService(int i2, Uri uri, int i3, int i4, String str) {
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class);
-        intent.putExtra("request_code", i2);
-        intent.putExtra(MAX_SIZE, i3);
-        intent.putExtra("display_size", i4);
-        intent.putExtra("file_name", str);
-        intent.setData(uri);
-        TbadkCoreApplication.getInst().getApp().startService(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), uri, Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            Intent intent = new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class);
+            intent.putExtra("request_code", i2);
+            intent.putExtra(MAX_SIZE, i3);
+            intent.putExtra("display_size", i4);
+            intent.putExtra("file_name", str);
+            intent.setData(uri);
+            TbadkCoreApplication.getInst().getApp().startService(intent);
+        }
     }
 
     public static void StopService() {
-        TbadkCoreApplication.getInst().getApp().stopService(new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            TbadkCoreApplication.getInst().getApp().stopService(new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class));
+        }
     }
 
     private void startPrepareImage(Intent intent) {
-        b bVar = this.mTask;
-        if (bVar != null) {
-            bVar.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, this, intent) == null) {
+            b bVar = this.mTask;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            this.mUri = intent.getData();
+            this.mFileName = intent.getStringExtra("file_name");
+            this.mRequestCode = intent.getIntExtra("request_code", 0);
+            this.mMaxSize = intent.getIntExtra(MAX_SIZE, 1800);
+            this.mDisplaySize = intent.getIntExtra("display_size", 0);
+            TbadkCoreApplication.getInst().addRemoteActivity(null);
+            if (!IS_DECODING) {
+                b bVar2 = new b(this, this.mRequestCode, this.mUri, this.mFileName);
+                this.mTask = bVar2;
+                bVar2.execute(new Object[0]);
+                return;
+            }
+            this.mHandler.postDelayed(this.mStartRun, 1000L);
         }
-        this.mUri = intent.getData();
-        this.mFileName = intent.getStringExtra("file_name");
-        this.mRequestCode = intent.getIntExtra("request_code", 0);
-        this.mMaxSize = intent.getIntExtra(MAX_SIZE, 1800);
-        this.mDisplaySize = intent.getIntExtra("display_size", 0);
-        TbadkCoreApplication.getInst().addRemoteActivity(null);
-        if (!IS_DECODING) {
-            b bVar2 = new b(this.mRequestCode, this.mUri, this.mFileName);
-            this.mTask = bVar2;
-            bVar2.execute(new Object[0]);
-            return;
-        }
-        this.mHandler.postDelayed(this.mStartRun, 1000L);
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
-        super.onCreate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+        }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        super.onDestroy();
-        b bVar = this.mTask;
-        if (bVar != null) {
-            bVar.cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            b bVar = this.mTask;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            this.mHandler.removeCallbacks(this.mStartRun);
+            this.mTask = null;
         }
-        this.mHandler.removeCallbacks(this.mStartRun);
-        this.mTask = null;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i2) {
-        super.onStart(intent, i2);
-        if (intent != null) {
-            startPrepareImage(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i2) == null) {
+            super.onStart(intent, i2);
+            if (intent != null) {
+                startPrepareImage(intent);
+            }
         }
     }
 
     public static void StartService(int i2, Uri uri, int i3, int i4) {
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class);
-        intent.putExtra("request_code", i2);
-        intent.putExtra(MAX_SIZE, i3);
-        intent.putExtra("display_size", i4);
-        intent.setData(uri);
-        TbadkCoreApplication.getInst().getApp().startService(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), uri, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            Intent intent = new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class);
+            intent.putExtra("request_code", i2);
+            intent.putExtra(MAX_SIZE, i3);
+            intent.putExtra("display_size", i4);
+            intent.setData(uri);
+            TbadkCoreApplication.getInst().getApp().startService(intent);
+        }
     }
 
     public static void StartService(int i2, Uri uri, int i3) {
-        StartService(i2, uri, i3, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), uri, Integer.valueOf(i3)}) == null) {
+            StartService(i2, uri, i3, 0);
+        }
     }
 }

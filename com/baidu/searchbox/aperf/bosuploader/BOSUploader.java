@@ -3,8 +3,16 @@ package com.baidu.searchbox.aperf.bosuploader;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.BceClientException;
 import com.baidubce.BceServiceException;
 import com.baidubce.auth.DefaultBceSessionCredentials;
@@ -16,48 +24,95 @@ import com.baidubce.services.bos.model.InitiateMultipartUploadRequest;
 import com.baidubce.services.bos.model.InitiateMultipartUploadResponse;
 import com.baidubce.services.bos.model.UploadPartRequest;
 import com.baidubce.services.bos.model.UploadPartResponse;
-import d.a.l.b.a;
+import d.a.m.b.a;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BOSUploader {
-    public static final boolean DEBUG = AppConfig.isDebug();
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG;
     public static final String OS_ANDROID = "android";
     public static final long PART_SIZE = 5242880;
     public static final String TAG = "BOSUploader";
     public static final int TOKEN_NOT_VALID = 403;
     public static volatile BOSUploader sSingleton;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1573585503, "Lcom/baidu/searchbox/aperf/bosuploader/BOSUploader;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1573585503, "Lcom/baidu/searchbox/aperf/bosuploader/BOSUploader;");
+                return;
+            }
+        }
+        DEBUG = AppConfig.isDebug();
+    }
+
+    public BOSUploader() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     private BosClient createBosClient(@NonNull STSInfo sTSInfo) {
-        if (TextUtils.isEmpty(sTSInfo.ak) || TextUtils.isEmpty(sTSInfo.sk) || TextUtils.isEmpty(sTSInfo.token)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, sTSInfo)) == null) {
+            if (TextUtils.isEmpty(sTSInfo.ak) || TextUtils.isEmpty(sTSInfo.sk) || TextUtils.isEmpty(sTSInfo.token)) {
+                return null;
+            }
+            BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
+            bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(sTSInfo.ak, sTSInfo.sk, sTSInfo.token));
+            bosClientConfiguration.setEndpoint(sTSInfo.endpoint);
+            return new BosClient(bosClientConfiguration);
         }
-        BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
-        bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(sTSInfo.ak, sTSInfo.sk, sTSInfo.token));
-        bosClientConfiguration.setEndpoint(sTSInfo.endpoint);
-        return new BosClient(bosClientConfiguration);
+        return (BosClient) invokeL.objValue;
     }
 
     public static BOSUploader getInstance() {
-        if (sSingleton == null) {
-            synchronized (BOSUploader.class) {
-                if (sSingleton == null) {
-                    sSingleton = new BOSUploader();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (sSingleton == null) {
+                synchronized (BOSUploader.class) {
+                    if (sSingleton == null) {
+                        sSingleton = new BOSUploader();
+                    }
                 }
             }
+            return sSingleton;
         }
-        return sSingleton;
+        return (BOSUploader) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0130 A[Catch: Exception -> 0x0159, JSONException -> 0x015b, BceClientException -> 0x015d, BceServiceException -> 0x015f, TryCatch #7 {BceServiceException -> 0x015f, BceClientException -> 0x015d, JSONException -> 0x015b, Exception -> 0x0159, blocks: (B:19:0x0046, B:21:0x0052, B:23:0x0060, B:25:0x0078, B:26:0x007a, B:65:0x0155, B:66:0x0158, B:59:0x011c, B:60:0x011f, B:62:0x0130, B:63:0x014a, B:51:0x010e), top: B:104:0x0046 }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0134 A[Catch: Exception -> 0x015d, JSONException -> 0x015f, BceClientException -> 0x0161, BceServiceException -> 0x0163, TryCatch #6 {BceServiceException -> 0x0163, BceClientException -> 0x0161, JSONException -> 0x015f, Exception -> 0x015d, blocks: (B:21:0x004a, B:23:0x0056, B:25:0x0064, B:27:0x007c, B:28:0x007e, B:67:0x0159, B:68:0x015c, B:61:0x0120, B:62:0x0123, B:64:0x0134, B:65:0x014e, B:53:0x0112), top: B:112:0x004a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull File file) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65540, this, sTSInfo, str, str2, file)) != null) {
+            return (BOSResponseEntity) invokeLLLL.objValue;
+        }
         int i2 = 0;
         try {
             if (sTSInfo == null) {
@@ -146,18 +201,18 @@ public class BOSUploader {
                             }
                         }
                         Closeables.closeSafely(fileInputStream2);
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (IOException e3) {
+                        e = e3;
                     }
-                } catch (IOException e3) {
-                    e = e3;
+                    CompleteMultipartUploadResponse completeMultipartUpload2 = createBosClient.completeMultipartUpload(new CompleteMultipartUploadRequest(str3, createObjectKey, initiateMultipartUpload.getUploadId(), arrayList));
+                    if (DEBUG) {
+                        String str5 = TAG;
+                        Log.d(str5, "PutObjectResponse etag " + completeMultipartUpload2.getETag());
+                    }
+                    return new BOSResponseEntity(true, completeMultipartUpload2.getETag());
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-                CompleteMultipartUploadResponse completeMultipartUpload2 = createBosClient.completeMultipartUpload(new CompleteMultipartUploadRequest(str3, createObjectKey, initiateMultipartUpload.getUploadId(), arrayList));
-                if (DEBUG) {
-                    String str5 = TAG;
-                    Log.d(str5, "PutObjectResponse etag " + completeMultipartUpload2.getETag());
-                }
-                return new BOSResponseEntity(true, completeMultipartUpload2.getETag());
             } catch (BceServiceException e4) {
                 e = e4;
                 if (DEBUG) {
@@ -195,16 +250,31 @@ public class BOSUploader {
     }
 
     public String createObjectKey(@NonNull String str, @NonNull String str2) {
-        return a.b().a() + "/android/" + str + "/" + str2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return a.b().a() + "/android/" + str + "/" + str2;
+        }
+        return (String) invokeLL.objValue;
     }
 
     public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file, @NonNull UploadUrlListener uploadUrlListener) {
-        UploadUrlProvider.getInstance().setUploadUrlListener(uploadUrlListener);
-        return uploadFileSync(str, str2, file);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, file, uploadUrlListener)) == null) {
+            UploadUrlProvider.getInstance().setUploadUrlListener(uploadUrlListener);
+            return uploadFileSync(str, str2, file);
+        }
+        return (BOSResponseEntity) invokeLLLL.objValue;
     }
 
     public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
-        BOSResponseEntity uploadFileSyncPart = uploadFileSyncPart(STSManager.getCurrentStsInfo(str), str, str2, file);
-        return (uploadFileSyncPart.isSuccess() || uploadFileSyncPart.getErrorCode() == 0 || !STSManager.checkRetry(str)) ? uploadFileSyncPart : uploadFileSyncPart(STSManager.retryGetStsInfo(str), str, str2, file);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, file)) == null) {
+            BOSResponseEntity uploadFileSyncPart = uploadFileSyncPart(STSManager.getCurrentStsInfo(str), str, str2, file);
+            return (uploadFileSyncPart.isSuccess() || uploadFileSyncPart.getErrorCode() == 0 || !STSManager.checkRetry(str)) ? uploadFileSyncPart : uploadFileSyncPart(STSManager.retryGetStsInfo(str), str, str2, file);
+        }
+        return (BOSResponseEntity) invokeLLL.objValue;
     }
 }

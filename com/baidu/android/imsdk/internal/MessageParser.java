@@ -25,11 +25,17 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.a.s.a;
-import d.a.t.a.b.d.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.v.a;
+import d.a.w.a.b.d.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,10 +44,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MessageParser {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MessageParser";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class DuParser {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int category;
         public String content;
         public Context context;
@@ -50,235 +60,314 @@ public class MessageParser {
         public boolean msgIsNull;
 
         public DuParser(Context context, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.context = context;
             this.content = str;
             this.category = i2;
         }
 
         public ChatMsg getMsg() {
-            return this.msg;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.msg : (ChatMsg) invokeV.objValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:28:0x0135  */
         /* JADX WARN: Removed duplicated region for block: B:30:0x0139  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x013d  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public DuParser invokeParse() throws Exception {
+            InterceptResult invokeV;
             int i2;
             String str;
             int i3;
             int i4;
             ChatMsg newChatMsg;
-            JSONObject jSONObject = new JSONObject(this.content);
-            String optString = jSONObject.optString("text");
-            int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
-            String optString2 = jSONObject.optString(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, "");
-            boolean isEmpty = TextUtils.isEmpty(optString);
-            String str2 = MessageParser.TAG;
-            if (!isEmpty) {
-                String optString3 = new JSONObject(optString).optString("msg");
-                if (!TextUtils.isEmpty(optString3)) {
-                    JSONObject jSONObject2 = new JSONObject(optString3);
-                    String optString4 = jSONObject2.optString("ext");
-                    if (!TextUtils.isEmpty(optString4)) {
-                        JSONObject jSONObject3 = new JSONObject(optString4);
-                        int optInt2 = jSONObject3.optInt("type");
-                        String optString5 = jSONObject3.optString("content");
-                        if (jSONObject3.has("body")) {
-                            int optInt3 = jSONObject3.optInt("type", 1);
-                            if (optInt3 == 1) {
-                                JSONObject jSONObject4 = new JSONObject();
-                                jSONObject4.put("text", jSONObject3.optString("body"));
-                                optString5 = jSONObject4.toString();
-                                i2 = optInt;
-                                str = MessageParser.TAG;
-                                i4 = 0;
-                            } else if (optInt3 == 0) {
-                                JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
-                                i3 = optInt2;
-                                if (jSONArray.length() > 1) {
-                                    JSONArray jSONArray2 = new JSONArray();
-                                    int i5 = 0;
-                                    while (i5 < jSONArray.length()) {
-                                        JSONObject optJSONObject = jSONArray.optJSONObject(i5);
-                                        String str3 = str2;
-                                        JSONObject jSONObject5 = new JSONObject();
-                                        jSONObject5.put("title", optJSONObject.optString("title"));
-                                        jSONObject5.put("article_url", optJSONObject.optString("url"));
-                                        jSONObject5.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject.optString("headImage"));
-                                        jSONArray2.put(jSONObject5);
-                                        i5++;
-                                        str2 = str3;
-                                        optInt = optInt;
-                                    }
-                                    i2 = optInt;
-                                    str = str2;
-                                    JSONObject jSONObject6 = new JSONObject();
-                                    jSONObject6.put("articles", jSONArray2);
-                                    optString5 = jSONObject6.toString();
-                                    i4 = 9;
-                                } else {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject(this.content);
+                String optString = jSONObject.optString("text");
+                int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
+                String optString2 = jSONObject.optString(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, "");
+                boolean isEmpty = TextUtils.isEmpty(optString);
+                String str2 = MessageParser.TAG;
+                if (!isEmpty) {
+                    String optString3 = new JSONObject(optString).optString("msg");
+                    if (!TextUtils.isEmpty(optString3)) {
+                        JSONObject jSONObject2 = new JSONObject(optString3);
+                        String optString4 = jSONObject2.optString("ext");
+                        if (!TextUtils.isEmpty(optString4)) {
+                            JSONObject jSONObject3 = new JSONObject(optString4);
+                            int optInt2 = jSONObject3.optInt("type");
+                            String optString5 = jSONObject3.optString("content");
+                            if (jSONObject3.has("body")) {
+                                int optInt3 = jSONObject3.optInt("type", 1);
+                                if (optInt3 == 1) {
+                                    JSONObject jSONObject4 = new JSONObject();
+                                    jSONObject4.put("text", jSONObject3.optString("body"));
+                                    optString5 = jSONObject4.toString();
                                     i2 = optInt;
                                     str = MessageParser.TAG;
-                                    if (jSONArray.length() == 1) {
-                                        JSONObject optJSONObject2 = jSONArray.optJSONObject(0);
-                                        JSONObject jSONObject7 = new JSONObject();
-                                        jSONObject7.put("title", optJSONObject2.optString("title"));
-                                        jSONObject7.put("article_url", optJSONObject2.optString("url"));
-                                        jSONObject7.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject2.optString("headImage"));
-                                        optString5 = jSONObject7.toString();
-                                        i4 = 8;
+                                    i4 = 0;
+                                } else if (optInt3 == 0) {
+                                    JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
+                                    i3 = optInt2;
+                                    if (jSONArray.length() > 1) {
+                                        JSONArray jSONArray2 = new JSONArray();
+                                        int i5 = 0;
+                                        while (i5 < jSONArray.length()) {
+                                            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
+                                            String str3 = str2;
+                                            JSONObject jSONObject5 = new JSONObject();
+                                            jSONObject5.put("title", optJSONObject.optString("title"));
+                                            jSONObject5.put("article_url", optJSONObject.optString("url"));
+                                            jSONObject5.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject.optString("headImage"));
+                                            jSONArray2.put(jSONObject5);
+                                            i5++;
+                                            str2 = str3;
+                                            optInt = optInt;
+                                        }
+                                        i2 = optInt;
+                                        str = str2;
+                                        JSONObject jSONObject6 = new JSONObject();
+                                        jSONObject6.put("articles", jSONArray2);
+                                        optString5 = jSONObject6.toString();
+                                        i4 = 9;
+                                    } else {
+                                        i2 = optInt;
+                                        str = MessageParser.TAG;
+                                        if (jSONArray.length() == 1) {
+                                            JSONObject optJSONObject2 = jSONArray.optJSONObject(0);
+                                            JSONObject jSONObject7 = new JSONObject();
+                                            jSONObject7.put("title", optJSONObject2.optString("title"));
+                                            jSONObject7.put("article_url", optJSONObject2.optString("url"));
+                                            jSONObject7.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject2.optString("headImage"));
+                                            optString5 = jSONObject7.toString();
+                                            i4 = 8;
+                                        }
+                                        i4 = i3;
                                     }
-                                    i4 = i3;
+                                }
+                                newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i4, -1);
+                                this.msg = newChatMsg;
+                                if (newChatMsg != null) {
+                                    this.msgIsNull = true;
+                                    return this;
+                                }
+                                String optString6 = jSONObject.optString("ext");
+                                if (!TextUtils.isEmpty(optString6)) {
+                                    int optInt4 = new JSONObject(optString6).optInt("sub_app_identity");
+                                    if (optInt4 == 7) {
+                                        this.msg.setChatType(7);
+                                    } else if (optInt4 == 16) {
+                                        this.msgIsNull = true;
+                                        return this;
+                                    } else if (optInt4 == 17) {
+                                        this.msg.setChatType(17);
+                                    } else if (optInt4 == 6) {
+                                        this.msgIsNull = true;
+                                        return this;
+                                    } else if (optInt4 == 19) {
+                                        this.msg.setChatType(19);
+                                    } else if (optInt4 == 23) {
+                                        this.msg.setChatType(23);
+                                    } else if (optInt4 == 24) {
+                                        this.msg.setChatType(24);
+                                    } else if (optInt4 == 25) {
+                                        this.msg.setChatType(25);
+                                    } else if (optInt4 == 26) {
+                                        this.msg.setChatType(26);
+                                    } else if (optInt4 == 27) {
+                                        this.msg.setChatType(27);
+                                    } else if (optInt4 == 29) {
+                                        this.msg.setChatType(29);
+                                    } else if (Utility.availableNotificationPaType(optInt4)) {
+                                        this.msg.setChatType(optInt4);
+                                    } else if (optInt4 == 20) {
+                                        this.msg.setChatType(20);
+                                    }
+                                    this.msg.setMsgType(i4);
+                                    if (i4 == 18) {
+                                        ((HtmlMsg) this.msg).setDesc(jSONObject2.optString("description"));
+                                    }
+                                    this.jsonParseResult = this.msg.setMsgContentFromServer(optString5);
+                                    this.msg.setmExtJson(optString6);
+                                    this.msg.setServiceType(optString2);
+                                    this.msg.setTemplateType(i2);
+                                } else {
+                                    LogUtils.e(str, "duzhan msg parse error! ext in content is null!");
                                 }
                             }
+                            i2 = optInt;
+                            str = MessageParser.TAG;
+                            i3 = optInt2;
+                            i4 = i3;
                             newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i4, -1);
                             this.msg = newChatMsg;
                             if (newChatMsg != null) {
-                                this.msgIsNull = true;
-                                return this;
                             }
-                            String optString6 = jSONObject.optString("ext");
-                            if (!TextUtils.isEmpty(optString6)) {
-                                int optInt4 = new JSONObject(optString6).optInt("sub_app_identity");
-                                if (optInt4 == 7) {
-                                    this.msg.setChatType(7);
-                                } else if (optInt4 == 16) {
-                                    this.msgIsNull = true;
-                                    return this;
-                                } else if (optInt4 == 17) {
-                                    this.msg.setChatType(17);
-                                } else if (optInt4 == 6) {
-                                    this.msgIsNull = true;
-                                    return this;
-                                } else if (optInt4 == 19) {
-                                    this.msg.setChatType(19);
-                                } else if (optInt4 == 23) {
-                                    this.msg.setChatType(23);
-                                } else if (optInt4 == 24) {
-                                    this.msg.setChatType(24);
-                                } else if (optInt4 == 25) {
-                                    this.msg.setChatType(25);
-                                } else if (optInt4 == 26) {
-                                    this.msg.setChatType(26);
-                                } else if (optInt4 == 27) {
-                                    this.msg.setChatType(27);
-                                } else if (optInt4 == 29) {
-                                    this.msg.setChatType(29);
-                                } else if (Utility.availableNotificationPaType(optInt4)) {
-                                    this.msg.setChatType(optInt4);
-                                } else if (optInt4 == 20) {
-                                    this.msg.setChatType(20);
-                                }
-                                this.msg.setMsgType(i4);
-                                if (i4 == 18) {
-                                    ((HtmlMsg) this.msg).setDesc(jSONObject2.optString("description"));
-                                }
-                                this.jsonParseResult = this.msg.setMsgContentFromServer(optString5);
-                                this.msg.setmExtJson(optString6);
-                                this.msg.setServiceType(optString2);
-                                this.msg.setTemplateType(i2);
-                            } else {
-                                LogUtils.e(str, "duzhan msg parse error! ext in content is null!");
-                            }
-                        }
-                        i2 = optInt;
-                        str = MessageParser.TAG;
-                        i3 = optInt2;
-                        i4 = i3;
-                        newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i4, -1);
-                        this.msg = newChatMsg;
-                        if (newChatMsg != null) {
+                        } else {
+                            LogUtils.e(MessageParser.TAG, "duzhan msg parse error! ext in text is null!");
                         }
                     } else {
-                        LogUtils.e(MessageParser.TAG, "duzhan msg parse error! ext in text is null!");
+                        LogUtils.e(MessageParser.TAG, "duzhan msg parse error! msg in text is null!");
                     }
                 } else {
-                    LogUtils.e(MessageParser.TAG, "duzhan msg parse error! msg in text is null!");
+                    LogUtils.e(MessageParser.TAG, "duzhan msg parse error! text in content is null!");
                 }
-            } else {
-                LogUtils.e(MessageParser.TAG, "duzhan msg parse error! text in content is null!");
+                this.msgIsNull = false;
+                return this;
             }
-            this.msgIsNull = false;
-            return this;
+            return (DuParser) invokeV.objValue;
         }
 
         public boolean isJsonParseResult() {
-            return this.jsonParseResult;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.jsonParseResult : invokeV.booleanValue;
         }
 
         public boolean isMsgNull() {
-            return this.msgIsNull;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.msgIsNull : invokeV.booleanValue;
         }
     }
 
-    public static void getAckNeedPainfos(final Context context, boolean z, final ArrayList<ChatMsg> arrayList, ArrayList<Long> arrayList2) {
-        if (arrayList2.size() <= 0 || !z) {
-            return;
-        }
-        LogUtils.d(TAG, "ack> will get remote pa, ids=" + arrayList2.toString());
-        PaManager.getPaInfos(context, arrayList2, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.internal.MessageParser.2
-            @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-            public void onResult(int i2, String str, ArrayList<PaInfo> arrayList3) {
-                LogUtils.d(MessageParser.TAG, "ack> get remote painfos, responseCode=" + i2 + ", strMsg=" + str);
-                if (i2 != 0 || arrayList3 == null || arrayList3.size() <= 0) {
-                    return;
-                }
-                LogUtils.d(MessageParser.TAG, "ack> get remote pa, painfos size=" + arrayList3.size());
-                Iterator<PaInfo> it = arrayList3.iterator();
-                while (it.hasNext()) {
-                    PaInfo next = it.next();
-                    PaInfoDBManager.getInstance(context).subscribePa(next);
-                    ChatMessageDBManager.getInstance(context).updateSessionClass(next);
-                }
-                MessageParser.handleAck(context, arrayList, false);
+    public MessageParser() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        });
+        }
+    }
+
+    public static void getAckNeedPainfos(Context context, boolean z, ArrayList<ChatMsg> arrayList, ArrayList<Long> arrayList2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Boolean.valueOf(z), arrayList, arrayList2}) == null) && arrayList2.size() > 0 && z) {
+            LogUtils.d(TAG, "ack> will get remote pa, ids=" + arrayList2.toString());
+            PaManager.getPaInfos(context, arrayList2, new IGetPaInfosListener(context, arrayList) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ ArrayList val$msgWithRemotePainfo;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {context, arrayList};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$context = context;
+                    this.val$msgWithRemotePainfo = arrayList;
+                }
+
+                @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
+                public void onResult(int i2, String str, ArrayList<PaInfo> arrayList3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, arrayList3) == null) {
+                        LogUtils.d(MessageParser.TAG, "ack> get remote painfos, responseCode=" + i2 + ", strMsg=" + str);
+                        if (i2 != 0 || arrayList3 == null || arrayList3.size() <= 0) {
+                            return;
+                        }
+                        LogUtils.d(MessageParser.TAG, "ack> get remote pa, painfos size=" + arrayList3.size());
+                        Iterator<PaInfo> it = arrayList3.iterator();
+                        while (it.hasNext()) {
+                            PaInfo next = it.next();
+                            PaInfoDBManager.getInstance(this.val$context).subscribePa(next);
+                            ChatMessageDBManager.getInstance(this.val$context).updateSessionClass(next);
+                        }
+                        MessageParser.handleAck(this.val$context, this.val$msgWithRemotePainfo, false);
+                    }
+                }
+            });
+        }
     }
 
     public static String getPaPage(int i2, int i3) {
-        return i3 == 16 ? Constants.PAGE_SHANGXIONGHAO_NAME : i3 == 21 ? Constants.PAGE_XIAOCHENGXUKEFU_NAME : i2 == 7 ? Constants.PAGE_BAIJIAHAO_NAME : i2 == 17 ? Constants.PAGE_FUWUXIAOXI_NAME : (i2 == 1 || i2 == 5) ? Constants.PAGE_SHOWBAIFUWUHAO_NAME : (i2 == 19 || i2 == 6 || i2 == 29) ? Constants.PAGE_HUDONG_NAME : "";
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) ? i3 == 16 ? Constants.PAGE_SHANGXIONGHAO_NAME : i3 == 21 ? Constants.PAGE_XIAOCHENGXUKEFU_NAME : i2 == 7 ? Constants.PAGE_BAIJIAHAO_NAME : i2 == 17 ? Constants.PAGE_FUWUXIAOXI_NAME : (i2 == 1 || i2 == 5) ? Constants.PAGE_SHOWBAIFUWUHAO_NAME : (i2 == 19 || i2 == 6 || i2 == 29) ? Constants.PAGE_HUDONG_NAME : "" : (String) invokeII.objValue;
     }
 
     public static synchronized List<NewAckMessage.Tripule> handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
+        InterceptResult invokeLLZ;
         List<NewAckMessage.Tripule> handleAck;
-        synchronized (MessageParser.class) {
-            handleAck = handleAck(context, arrayList, z, true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, context, arrayList, z)) == null) {
+            synchronized (MessageParser.class) {
+                handleAck = handleAck(context, arrayList, z, true);
+            }
+            return handleAck;
         }
-        return handleAck;
+        return (List) invokeLLZ.objValue;
     }
 
     public static ChatMsg handleSysChatMsg(ChatMsg chatMsg) throws Exception {
-        JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
-        JSONObject jSONObject2 = new JSONObject();
-        int notifyCmd = chatMsg.getNotifyCmd();
-        if (notifyCmd == 0) {
-            long j = jSONObject.getLong("from");
-            jSONObject2.put("text", jSONObject.getString("description"));
-            chatMsg.setFromUser(j);
-        } else {
-            if (notifyCmd == 1) {
-                chatMsg.setFromUser(jSONObject.getLong("from"));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, chatMsg)) == null) {
+            JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
+            JSONObject jSONObject2 = new JSONObject();
+            int notifyCmd = chatMsg.getNotifyCmd();
+            if (notifyCmd == 0) {
+                long j = jSONObject.getLong("from");
+                jSONObject2.put("text", jSONObject.getString("description"));
+                chatMsg.setFromUser(j);
+            } else {
+                if (notifyCmd == 1) {
+                    chatMsg.setFromUser(jSONObject.getLong("from"));
+                }
+                chatMsg.setMsgContentFromServer(jSONObject.toString());
+                return chatMsg;
             }
+            jSONObject = jSONObject2;
             chatMsg.setMsgContentFromServer(jSONObject.toString());
             return chatMsg;
         }
-        jSONObject = jSONObject2;
-        chatMsg.setMsgContentFromServer(jSONObject.toString());
-        return chatMsg;
+        return (ChatMsg) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:104:0x0268 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x026a A[Catch: Exception -> 0x0324, TryCatch #5 {Exception -> 0x0324, blocks: (B:113:0x0288, B:115:0x028e, B:117:0x02a8, B:119:0x02ba, B:120:0x02c1, B:122:0x02c9, B:126:0x02d6, B:127:0x02d9, B:129:0x02df, B:131:0x02e5, B:133:0x02eb, B:134:0x02ee, B:136:0x02f4, B:138:0x02f9, B:140:0x0305, B:142:0x0314, B:141:0x0309, B:107:0x0272, B:102:0x025b, B:106:0x026a), top: B:161:0x025b }] */
-    /* JADX WARN: Type inference failed for: r0v9, types: [T, java.lang.Long] */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [int, boolean] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x026c A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x026e A[Catch: Exception -> 0x0328, TryCatch #5 {Exception -> 0x0328, blocks: (B:115:0x028c, B:117:0x0292, B:119:0x02ac, B:121:0x02be, B:122:0x02c5, B:124:0x02cd, B:128:0x02da, B:129:0x02dd, B:131:0x02e3, B:133:0x02e9, B:135:0x02ef, B:136:0x02f2, B:138:0x02f8, B:140:0x02fd, B:142:0x0309, B:144:0x0318, B:143:0x030d, B:109:0x0276, B:104:0x025f, B:108:0x026e), top: B:167:0x025f }] */
+    /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
+    /* JADX WARN: Type inference failed for: r1v13 */
+    /* JADX WARN: Type inference failed for: r1v14, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static ChatMsg parserMessage(Context context, JSONObject jSONObject, Type<Long> type, boolean z) {
+        InterceptResult invokeCommon;
         Context context2;
         String str;
         long j;
@@ -290,6 +379,10 @@ public class MessageParser {
         ChatMsg msg;
         boolean isJsonParseResult;
         ?? r1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, jSONObject, type, Boolean.valueOf(z)})) != null) {
+            return (ChatMsg) invokeCommon.objValue;
+        }
         try {
             long optLong = jSONObject.optLong("msgid");
             long optLong2 = jSONObject.optLong("from_user");
@@ -529,39 +622,67 @@ public class MessageParser {
         }
     }
 
-    public static void sendNewAckToServer(final Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
-        if (list == null || list.size() == 0) {
+    public static void sendNewAckToServer(Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Long.valueOf(j), list, Boolean.valueOf(z)}) == null) || list == null || list.size() == 0) {
             return;
         }
         List<List<NewAckMessage.Tripule>> splitList = Utils.splitList(list, 20);
         if (splitList != null && splitList.size() > 0) {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
-                final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
+                NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f68195e) {
+                if (a.f70712e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f6365a = 2L;
-                    bLCPRequest.f6366b = 95L;
-                    bLCPRequest.f6367c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f6368d = System.nanoTime();
-                    d.a.t.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
-                        @Override // d.a.t.a.b.d.b
+                    bLCPRequest.f6395a = 2L;
+                    bLCPRequest.f6396b = 95L;
+                    bLCPRequest.f6397c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f6398d = System.nanoTime();
+                    d.a.w.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ Context val$context;
+                        public final /* synthetic */ NewAckMessage val$msg;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {newAckMessage, context};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.val$msg = newAckMessage;
+                            this.val$context = context;
+                        }
+
+                        @Override // d.a.w.a.b.d.b
                         public void onResponse(int i2, String str, long j2, long j3, long j4, byte[] bArr) {
-                            LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i2 + ", methodId :" + j3 + ", data :" + bArr.length);
-                            if (i2 == 0) {
-                                try {
-                                    JSONObject jSONObject = new JSONObject(new String(bArr));
-                                    int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
-                                    String optString = jSONObject.optString("msg", "");
-                                    if (j3 == 95) {
-                                        NewAckMessage.this.handleMessageResult(context, new JSONObject(new String(bArr)), optInt, optString);
-                                        if (optInt != 0) {
-                                            LogUtils.d(MessageParser.TAG, "ack failed，retry~~");
-                                            AckHandlerThread.getInstance(context).getAckHandler().sendMessageDelayed(AckMessage.getSendMessage(1, NewAckMessage.this), 1000L);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {
+                                LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i2 + ", methodId :" + j3 + ", data :" + bArr.length);
+                                if (i2 == 0) {
+                                    try {
+                                        JSONObject jSONObject = new JSONObject(new String(bArr));
+                                        int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
+                                        String optString = jSONObject.optString("msg", "");
+                                        if (j3 == 95) {
+                                            this.val$msg.handleMessageResult(this.val$context, new JSONObject(new String(bArr)), optInt, optString);
+                                            if (optInt != 0) {
+                                                LogUtils.d(MessageParser.TAG, "ack failed，retry~~");
+                                                AckHandlerThread.getInstance(this.val$context).getAckHandler().sendMessageDelayed(AckMessage.getSendMessage(1, this.val$msg), 1000L);
+                                            }
                                         }
+                                    } catch (JSONException e2) {
+                                        LogUtils.d(MessageParser.TAG, "handle sendNewAckToServer response：" + e2);
                                     }
-                                } catch (JSONException e2) {
-                                    LogUtils.d(MessageParser.TAG, "handle sendNewAckToServer response：" + e2);
                                 }
                             }
                         }
@@ -576,158 +697,161 @@ public class MessageParser {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:40:0x011e
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:42:0x0122
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     public static synchronized java.util.List<com.baidu.android.imsdk.request.NewAckMessage.Tripule> handleAck(android.content.Context r40, java.util.ArrayList<com.baidu.android.imsdk.chatmessage.messages.ChatMsg> r41, boolean r42, boolean r43) {
         /*
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.android.imsdk.internal.MessageParser.$ic
+            if (r0 != 0) goto L264
+        L4:
             r1 = r40
             r2 = r41
             java.lang.Class<com.baidu.android.imsdk.internal.MessageParser> r3 = com.baidu.android.imsdk.internal.MessageParser.class
             monitor-enter(r3)
-            if (r2 == 0) goto L25d
-            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25a
-            if (r0 != 0) goto L11
-            goto L25d
-        L11:
+            if (r2 == 0) goto L261
+            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25e
+            if (r0 != 0) goto L15
+            goto L261
+        L15:
             java.lang.String r0 = "MessageParser"
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25a
-            r5.<init>()     // Catch: java.lang.Throwable -> L25a
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r5.<init>()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r6 = "ack type: "
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r6 = java.lang.String.valueOf(r43)     // Catch: java.lang.Throwable -> L25a
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25a
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r6 = java.lang.String.valueOf(r43)     // Catch: java.lang.Throwable -> L25e
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
             java.lang.String r6 = ", ack> handleAck...number="
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25a
-            int r6 = r41.size()     // Catch: java.lang.Throwable -> L25a
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25a
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            int r6 = r41.size()     // Catch: java.lang.Throwable -> L25e
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
             java.lang.String r6 = ", msgs:"
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r6 = r41.toString()     // Catch: java.lang.Throwable -> L25a
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L25a
-            com.baidu.android.imsdk.utils.LogUtils.d(r0, r5)     // Catch: java.lang.Throwable -> L25a
-            java.util.ArrayList r5 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25a
-            r5.<init>()     // Catch: java.lang.Throwable -> L25a
-            java.util.ArrayList r6 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25a
-            r6.<init>()     // Catch: java.lang.Throwable -> L25a
-            java.util.LinkedList r7 = new java.util.LinkedList     // Catch: java.lang.Throwable -> L25a
-            r7.<init>()     // Catch: java.lang.Throwable -> L25a
-            long r8 = com.baidu.android.imsdk.utils.Utility.getTriggerId(r40)     // Catch: java.lang.Throwable -> L25a
-            com.baidu.android.imsdk.account.AccountManagerImpl r0 = com.baidu.android.imsdk.account.AccountManagerImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25a
-            int r0 = r0.getLoginType()     // Catch: java.lang.Throwable -> L25a
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r6 = r41.toString()     // Catch: java.lang.Throwable -> L25e
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r0, r5)     // Catch: java.lang.Throwable -> L25e
+            java.util.ArrayList r5 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25e
+            r5.<init>()     // Catch: java.lang.Throwable -> L25e
+            java.util.ArrayList r6 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25e
+            r6.<init>()     // Catch: java.lang.Throwable -> L25e
+            java.util.LinkedList r7 = new java.util.LinkedList     // Catch: java.lang.Throwable -> L25e
+            r7.<init>()     // Catch: java.lang.Throwable -> L25e
+            long r8 = com.baidu.android.imsdk.utils.Utility.getTriggerId(r40)     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.account.AccountManagerImpl r0 = com.baidu.android.imsdk.account.AccountManagerImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25e
+            int r0 = r0.getLoginType()     // Catch: java.lang.Throwable -> L25e
             r10 = 6
-            if (r0 != r10) goto L64
+            if (r0 != r10) goto L68
             java.lang.String r0 = "cuid"
-            goto L66
-        L64:
+            goto L6a
+        L68:
             java.lang.String r0 = "uid"
-        L66:
+        L6a:
             r31 = r0
-            long r32 = com.baidu.android.imsdk.account.AccountManager.getUK(r40)     // Catch: java.lang.Throwable -> L25a
+            long r32 = com.baidu.android.imsdk.account.AccountManager.getUK(r40)     // Catch: java.lang.Throwable -> L25e
             r0 = 0
             r14 = 0
             r15 = 0
-        L6f:
-            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25a
-            if (r14 >= r0) goto L241
-            java.lang.Object r0 = r2.get(r14)     // Catch: java.lang.Throwable -> L25a
+        L73:
+            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25e
+            if (r14 >= r0) goto L245
+            java.lang.Object r0 = r2.get(r14)     // Catch: java.lang.Throwable -> L25e
             r13 = r0
-            com.baidu.android.imsdk.chatmessage.messages.ChatMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.ChatMsg) r13     // Catch: java.lang.Throwable -> L25a
-            if (r13 == 0) goto L22f
-            int r11 = r13.getCategory()     // Catch: java.lang.Throwable -> L25a
-            int r17 = r13.getMsgType()     // Catch: java.lang.Throwable -> L25a
-            long r19 = r13.getFromUser()     // Catch: java.lang.Throwable -> L25a
+            com.baidu.android.imsdk.chatmessage.messages.ChatMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.ChatMsg) r13     // Catch: java.lang.Throwable -> L25e
+            if (r13 == 0) goto L233
+            int r11 = r13.getCategory()     // Catch: java.lang.Throwable -> L25e
+            int r17 = r13.getMsgType()     // Catch: java.lang.Throwable -> L25e
+            long r19 = r13.getFromUser()     // Catch: java.lang.Throwable -> L25e
             r34 = r5
-            long r4 = r13.getContacter()     // Catch: java.lang.Throwable -> L25a
+            long r4 = r13.getContacter()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r10 = ""
             java.lang.String r12 = ""
             java.lang.String r16 = ""
             java.lang.String r0 = ""
             r18 = -1
             r2 = 1
-            if (r11 != r2) goto Lb3
+            if (r11 != r2) goto Lb7
             java.lang.String r0 = "qunxiaoxi"
             r29 = r10
             r28 = r12
             r23 = r14
             r30 = r16
             r2 = r34
-        La9:
+        Lad:
             r25 = -1
             r26 = -1
             r27 = -1
-        Laf:
-            r16 = r0
-            goto L1a6
         Lb3:
-            if (r11 != 0) goto L18c
+            r16 = r0
+            goto L1aa
+        Lb7:
+            if (r11 != 0) goto L190
             r21 = 17592186044416(0x100000000000, double:8.691694759794E-311)
             long r21 = r4 & r21
             r23 = 0
             int r25 = (r21 > r23 ? 1 : (r21 == r23 ? 0 : -1))
-            if (r25 == 0) goto L178
-            com.baidu.android.imsdk.pubaccount.PaInfo r21 = com.baidu.android.imsdk.pubaccount.PaManager.getPaInfo(r1, r4)     // Catch: java.lang.Throwable -> L25a
-            if (r21 == 0) goto L14f
+            if (r25 == 0) goto L17c
+            com.baidu.android.imsdk.pubaccount.PaInfo r21 = com.baidu.android.imsdk.pubaccount.PaManager.getPaInfo(r1, r4)     // Catch: java.lang.Throwable -> L25e
+            if (r21 == 0) goto L153
             java.lang.String r0 = "MessageParser"
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25a
-            r2.<init>()     // Catch: java.lang.Throwable -> L25a
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r2.<init>()     // Catch: java.lang.Throwable -> L25e
             r22 = r10
             java.lang.String r10 = "ack> painfo in local db, paid="
-            r2.append(r10)     // Catch: java.lang.Throwable -> L25a
-            r2.append(r4)     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r2 = r2.toString()     // Catch: java.lang.Throwable -> L25a
-            com.baidu.android.imsdk.utils.LogUtils.d(r0, r2)     // Catch: java.lang.Throwable -> L25a
-            int r2 = r21.getSubtype()     // Catch: java.lang.Throwable -> L25a
-            int r10 = r21.getSubsetType()     // Catch: java.lang.Throwable -> L25a
-            int r18 = r21.getClassType()     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r0 = r21.getPaExt()     // Catch: java.lang.Throwable -> L25a
-            boolean r21 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L25a
-            if (r21 != 0) goto L137
+            r2.append(r10)     // Catch: java.lang.Throwable -> L25e
+            r2.append(r4)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r2 = r2.toString()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r0, r2)     // Catch: java.lang.Throwable -> L25e
+            int r2 = r21.getSubtype()     // Catch: java.lang.Throwable -> L25e
+            int r10 = r21.getSubsetType()     // Catch: java.lang.Throwable -> L25e
+            int r18 = r21.getClassType()     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r0 = r21.getPaExt()     // Catch: java.lang.Throwable -> L25e
+            boolean r21 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L25e
+            if (r21 != 0) goto L13b
             r21 = r12
-            org.json.JSONObject r12 = new org.json.JSONObject     // Catch: org.json.JSONException -> L128 java.lang.Throwable -> L25a
-            r12.<init>(r0)     // Catch: org.json.JSONException -> L128 java.lang.Throwable -> L25a
+            org.json.JSONObject r12 = new org.json.JSONObject     // Catch: org.json.JSONException -> L12c java.lang.Throwable -> L25e
+            r12.<init>(r0)     // Catch: org.json.JSONException -> L12c java.lang.Throwable -> L25e
             java.lang.String r0 = "msg_category"
             r23 = r14
             java.lang.String r14 = ""
-            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L126 java.lang.Throwable -> L25a
+            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12a java.lang.Throwable -> L25e
             java.lang.String r0 = "business_source"
             r21 = r14
             java.lang.String r14 = ""
-            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L126 java.lang.Throwable -> L25a
+            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12a java.lang.Throwable -> L25e
             java.lang.String r0 = "third_id"
             r22 = r14
             java.lang.String r14 = ""
-            java.lang.String r16 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L126 java.lang.Throwable -> L25a
+            java.lang.String r16 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12a java.lang.Throwable -> L25e
             r12 = r21
-            goto L13b
-        L11e:
-            r0 = move-exception
-            r22 = r14
-            goto L12b
+            goto L13f
         L122:
             r0 = move-exception
-            r21 = r14
-            goto L12b
+            r22 = r14
+            goto L12f
         L126:
             r0 = move-exception
-            goto L12b
-        L128:
+            r21 = r14
+            goto L12f
+        L12a:
+            r0 = move-exception
+            goto L12f
+        L12c:
             r0 = move-exception
             r23 = r14
-        L12b:
+        L12f:
             r12 = r21
             java.lang.String r14 = "MessageParser"
-            java.lang.String r0 = r0.getMessage()     // Catch: java.lang.Throwable -> L25a
-            com.baidu.android.imsdk.utils.LogUtils.d(r14, r0)     // Catch: java.lang.Throwable -> L25a
-            goto L13b
-        L137:
+            java.lang.String r0 = r0.getMessage()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r14, r0)     // Catch: java.lang.Throwable -> L25e
+            goto L13f
+        L13b:
             r21 = r12
             r23 = r14
-        L13b:
-            java.lang.String r0 = getPaPage(r2, r10)     // Catch: java.lang.Throwable -> L25a
+        L13f:
+            java.lang.String r0 = getPaPage(r2, r10)     // Catch: java.lang.Throwable -> L25e
             r25 = r2
             r26 = r10
             r28 = r12
@@ -735,73 +859,73 @@ public class MessageParser {
             r27 = r18
             r29 = r22
             r2 = r34
-            goto Laf
-        L14f:
+            goto Lb3
+        L153:
             r22 = r10
             r21 = r12
             r23 = r14
             java.lang.String r2 = "MessageParser"
-            java.lang.StringBuilder r10 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25a
-            r10.<init>()     // Catch: java.lang.Throwable -> L25a
+            java.lang.StringBuilder r10 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r10.<init>()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r12 = "ack> painfo not in local db, paid="
-            r10.append(r12)     // Catch: java.lang.Throwable -> L25a
-            r10.append(r4)     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r10 = r10.toString()     // Catch: java.lang.Throwable -> L25a
-            com.baidu.android.imsdk.utils.LogUtils.d(r2, r10)     // Catch: java.lang.Throwable -> L25a
-            java.lang.Long r2 = java.lang.Long.valueOf(r4)     // Catch: java.lang.Throwable -> L25a
-            r6.add(r2)     // Catch: java.lang.Throwable -> L25a
+            r10.append(r12)     // Catch: java.lang.Throwable -> L25e
+            r10.append(r4)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r10 = r10.toString()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r2, r10)     // Catch: java.lang.Throwable -> L25e
+            java.lang.Long r2 = java.lang.Long.valueOf(r4)     // Catch: java.lang.Throwable -> L25e
+            r6.add(r2)     // Catch: java.lang.Throwable -> L25e
             r2 = r34
-            r2.add(r13)     // Catch: java.lang.Throwable -> L25a
-            goto L184
-        L178:
+            r2.add(r13)     // Catch: java.lang.Throwable -> L25e
+            goto L188
+        L17c:
             r22 = r10
             r21 = r12
             r23 = r14
             r2 = r34
-            if (r25 != 0) goto L184
+            if (r25 != 0) goto L188
             java.lang.String r0 = "C2C"
-        L184:
+        L188:
             r30 = r16
             r28 = r21
             r29 = r22
-            goto La9
-        L18c:
+            goto Lad
+        L190:
             r22 = r10
             r21 = r12
             r23 = r14
             r2 = r34
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25a
-            r0.<init>()     // Catch: java.lang.Throwable -> L25a
+            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r0.<init>()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r10 = "others_category_"
-            r0.append(r10)     // Catch: java.lang.Throwable -> L25a
-            r0.append(r11)     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L25a
-            goto L184
-        L1a6:
-            java.lang.String r0 = r13.getExt()     // Catch: java.lang.Throwable -> L25a
-            if (r0 == 0) goto L1d1
-            org.json.JSONObject r10 = new org.json.JSONObject     // Catch: org.json.JSONException -> L1c0 java.lang.Throwable -> L25a
-            r10.<init>(r0)     // Catch: org.json.JSONException -> L1c0 java.lang.Throwable -> L25a
+            r0.append(r10)     // Catch: java.lang.Throwable -> L25e
+            r0.append(r11)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L25e
+            goto L188
+        L1aa:
+            java.lang.String r0 = r13.getExt()     // Catch: java.lang.Throwable -> L25e
+            if (r0 == 0) goto L1d5
+            org.json.JSONObject r10 = new org.json.JSONObject     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
+            r10.<init>(r0)     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
             java.lang.String r0 = "ack"
-            boolean r0 = r10.has(r0)     // Catch: org.json.JSONException -> L1c0 java.lang.Throwable -> L25a
-            if (r0 == 0) goto L1d1
+            boolean r0 = r10.has(r0)     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
+            if (r0 == 0) goto L1d5
             java.lang.String r0 = "ack"
-            org.json.JSONObject r0 = r10.getJSONObject(r0)     // Catch: org.json.JSONException -> L1c0 java.lang.Throwable -> L25a
-            goto L1d2
-        L1c0:
+            org.json.JSONObject r0 = r10.getJSONObject(r0)     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
+            goto L1d6
+        L1c4:
             r0 = move-exception
-            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r10 = new com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder     // Catch: java.lang.Throwable -> L25a
-            r10.<init>(r1)     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r0 = android.util.Log.getStackTraceString(r0)     // Catch: java.lang.Throwable -> L25a
-            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r0 = r10.exception(r0)     // Catch: java.lang.Throwable -> L25a
-            r0.build()     // Catch: java.lang.Throwable -> L25a
-        L1d1:
+            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r10 = new com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder     // Catch: java.lang.Throwable -> L25e
+            r10.<init>(r1)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r0 = android.util.Log.getStackTraceString(r0)     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r0 = r10.exception(r0)     // Catch: java.lang.Throwable -> L25e
+            r0.build()     // Catch: java.lang.Throwable -> L25e
+        L1d5:
             r0 = 0
-        L1d2:
-            com.baidu.android.imsdk.request.NewAckMessage$Tripule r14 = new com.baidu.android.imsdk.request.NewAckMessage$Tripule     // Catch: java.lang.Throwable -> L25a
-            long r21 = r13.getMsgId()     // Catch: java.lang.Throwable -> L25a
-            java.lang.String r18 = r13.getMsgKey()     // Catch: java.lang.Throwable -> L25a
-            long r35 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L25a
+        L1d6:
+            com.baidu.android.imsdk.request.NewAckMessage$Tripule r14 = new com.baidu.android.imsdk.request.NewAckMessage$Tripule     // Catch: java.lang.Throwable -> L25e
+            long r21 = r13.getMsgId()     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r18 = r13.getMsgKey()     // Catch: java.lang.Throwable -> L25e
+            long r35 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L25e
             r10 = r14
             r37 = r8
             r8 = r11
@@ -815,107 +939,159 @@ public class MessageParser {
             r18 = r31
             r21 = r32
             r23 = r4
-            r10.<init>(r11, r13, r14, r16, r17, r18, r19, r21, r23, r25, r26, r27, r28, r29, r30)     // Catch: java.lang.Throwable -> L25a
-            long r4 = r9.getFromUser()     // Catch: java.lang.Throwable -> L25a
-            r1.setFromUser(r4)     // Catch: java.lang.Throwable -> L25a
-            if (r0 == 0) goto L205
-            r1.setAck(r0)     // Catch: java.lang.Throwable -> L25a
-        L205:
+            r10.<init>(r11, r13, r14, r16, r17, r18, r19, r21, r23, r25, r26, r27, r28, r29, r30)     // Catch: java.lang.Throwable -> L25e
+            long r4 = r9.getFromUser()     // Catch: java.lang.Throwable -> L25e
+            r1.setFromUser(r4)     // Catch: java.lang.Throwable -> L25e
+            if (r0 == 0) goto L209
+            r1.setAck(r0)     // Catch: java.lang.Throwable -> L25e
+        L209:
             r0 = 4
-            if (r8 != r0) goto L229
+            if (r8 != r0) goto L22d
             r13 = r9
-            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25a
-            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25a
-            r1.setMcastId(r4)     // Catch: java.lang.Throwable -> L25a
-            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25a
+            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25e
+            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25e
+            r1.setMcastId(r4)     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25e
             r13 = r9
-            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25a
-            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25a
-            boolean r0 = r0.isReliable(r4)     // Catch: java.lang.Throwable -> L25a
-            if (r0 == 0) goto L229
+            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25e
+            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25e
+            boolean r0 = r0.isReliable(r4)     // Catch: java.lang.Throwable -> L25e
+            if (r0 == 0) goto L22d
             r4 = 1
-            r1.setStudioIsReliable(r4)     // Catch: java.lang.Throwable -> L25a
+            r1.setStudioIsReliable(r4)     // Catch: java.lang.Throwable -> L25e
             r15 = 1
-            goto L22b
-        L229:
+            goto L22f
+        L22d:
             r15 = r39
-        L22b:
-            r7.add(r1)     // Catch: java.lang.Throwable -> L25a
-            goto L236
         L22f:
+            r7.add(r1)     // Catch: java.lang.Throwable -> L25e
+            goto L23a
+        L233:
             r2 = r5
             r37 = r8
             r34 = r14
             r39 = r15
-        L236:
+        L23a:
             int r14 = r34 + 1
             r1 = r40
             r5 = r2
             r8 = r37
             r2 = r41
-            goto L6f
-        L241:
+            goto L73
+        L245:
             r2 = r5
             r37 = r8
             r39 = r15
-            if (r43 != 0) goto L24a
+            if (r43 != 0) goto L24e
             monitor-exit(r3)
             return r7
-        L24a:
+        L24e:
             r1 = r40
             r4 = r42
-            getAckNeedPainfos(r1, r4, r2, r6)     // Catch: java.lang.Throwable -> L25a
+            getAckNeedPainfos(r1, r4, r2, r6)     // Catch: java.lang.Throwable -> L25e
             r4 = r37
             r15 = r39
-            sendNewAckToServer(r1, r4, r7, r15)     // Catch: java.lang.Throwable -> L25a
+            sendNewAckToServer(r1, r4, r7, r15)     // Catch: java.lang.Throwable -> L25e
             monitor-exit(r3)
             return r7
-        L25a:
+        L25e:
             r0 = move-exception
             monitor-exit(r3)
             throw r0
-        L25d:
+        L261:
             monitor-exit(r3)
             r1 = 0
+            return r1
+        L264:
+            r3 = 4
+            java.lang.Object[] r3 = new java.lang.Object[r3]
+            r1 = 0
+            r3[r1] = r40
+            r1 = 1
+            r3[r1] = r41
+            r1 = 2
+            java.lang.Boolean r2 = java.lang.Boolean.valueOf(r42)
+            r3[r1] = r2
+            r1 = 3
+            java.lang.Boolean r2 = java.lang.Boolean.valueOf(r43)
+            r3[r1] = r2
+            r1 = 65540(0x10004, float:9.1841E-41)
+            r2 = 0
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r0.invokeCommon(r1, r2, r3)
+            if (r0 == 0) goto L4
+            java.lang.Object r1 = r0.objValue
+            java.util.List r1 = (java.util.List) r1
             return r1
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.imsdk.internal.MessageParser.handleAck(android.content.Context, java.util.ArrayList, boolean, boolean):java.util.List");
     }
 
-    /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Long] */
-    public static ArrayList<ChatMsg> parserMessage(final Context context, JSONArray jSONArray, Type<Long> type, boolean z, boolean z2) {
-        final ArrayList<ChatMsg> arrayList = new ArrayList<>();
-        if (jSONArray != null) {
-            try {
-                Type type2 = new Type();
-                type2.t = 0L;
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    ChatMsg parserMessage = parserMessage(context, jSONArray.getJSONObject(i2), type2, z);
-                    if (type.t.longValue() < ((Long) type2.t).longValue()) {
-                        type.t = type2.t;
-                    }
-                    if (parserMessage != null) {
-                        if (parserMessage.isSelf(context) && parserMessage.getCategory() != 4) {
-                            parserMessage.setMsgReaded(1);
-                            parserMessage.setIsClicked(true);
+    /* JADX WARN: Type inference failed for: r2v4, types: [T, java.lang.Long] */
+    public static ArrayList<ChatMsg> parserMessage(Context context, JSONArray jSONArray, Type<Long> type, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, jSONArray, type, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
+            if (jSONArray != null) {
+                try {
+                    Type type2 = new Type();
+                    type2.t = 0L;
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        ChatMsg parserMessage = parserMessage(context, jSONArray.getJSONObject(i2), type2, z);
+                        if (type.t.longValue() < ((Long) type2.t).longValue()) {
+                            type.t = type2.t;
                         }
-                        parserMessage.setStatus(0);
-                        arrayList.add(parserMessage);
+                        if (parserMessage != null) {
+                            if (parserMessage.isSelf(context) && parserMessage.getCategory() != 4) {
+                                parserMessage.setMsgReaded(1);
+                                parserMessage.setIsClicked(true);
+                            }
+                            parserMessage.setStatus(0);
+                            arrayList.add(parserMessage);
+                        }
                     }
+                } catch (Exception e2) {
+                    LogUtils.e(LogUtils.TAG, "parserMessage:", e2);
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
                 }
-            } catch (Exception e2) {
-                LogUtils.e(LogUtils.TAG, "parserMessage:", e2);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
             }
+            if (z2) {
+                TaskManager.getInstance(context).submitForNetWork(new Runnable(context, arrayList) { // from class: com.baidu.android.imsdk.internal.MessageParser.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Context val$context;
+                    public final /* synthetic */ ArrayList val$msgs;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {context, arrayList};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$context = context;
+                        this.val$msgs = arrayList;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            MessageParser.handleAck(this.val$context, this.val$msgs, true);
+                        }
+                    }
+                });
+            }
+            return arrayList;
         }
-        if (z2) {
-            TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.internal.MessageParser.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    MessageParser.handleAck(context, arrayList, true);
-                }
-            });
-        }
-        return arrayList;
+        return (ArrayList) invokeCommon.objValue;
     }
 }

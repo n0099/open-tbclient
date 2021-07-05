@@ -21,17 +21,29 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.IntentCompat;
 import androidx.core.util.Preconditions;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class ShareCompat {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CALLING_ACTIVITY = "androidx.core.app.EXTRA_CALLING_ACTIVITY";
     public static final String EXTRA_CALLING_ACTIVITY_INTEROP = "android.support.v4.app.EXTRA_CALLING_ACTIVITY";
     public static final String EXTRA_CALLING_PACKAGE = "androidx.core.app.EXTRA_CALLING_PACKAGE";
     public static final String EXTRA_CALLING_PACKAGE_INTEROP = "android.support.v4.app.EXTRA_CALLING_PACKAGE";
     public static final String HISTORY_FILENAME_PREFIX = ".sharecompat_";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class IntentBuilder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public ArrayList<String> mBccAddresses;
         @Nullable
@@ -48,6 +60,20 @@ public final class ShareCompat {
         public ArrayList<String> mToAddresses;
 
         public IntentBuilder(@NonNull Context context, @Nullable ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, componentName};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mContext = (Context) Preconditions.checkNotNull(context);
             Intent action = new Intent().setAction("android.intent.action.SEND");
             this.mIntent = action;
@@ -59,230 +85,336 @@ public final class ShareCompat {
         }
 
         private void combineArrayExtra(String str, ArrayList<String> arrayList) {
-            String[] stringArrayExtra = this.mIntent.getStringArrayExtra(str);
-            int length = stringArrayExtra != null ? stringArrayExtra.length : 0;
-            String[] strArr = new String[arrayList.size() + length];
-            arrayList.toArray(strArr);
-            if (stringArrayExtra != null) {
-                System.arraycopy(stringArrayExtra, 0, strArr, arrayList.size(), length);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, this, str, arrayList) == null) {
+                String[] stringArrayExtra = this.mIntent.getStringArrayExtra(str);
+                int length = stringArrayExtra != null ? stringArrayExtra.length : 0;
+                String[] strArr = new String[arrayList.size() + length];
+                arrayList.toArray(strArr);
+                if (stringArrayExtra != null) {
+                    System.arraycopy(stringArrayExtra, 0, strArr, arrayList.size(), length);
+                }
+                this.mIntent.putExtra(str, strArr);
             }
-            this.mIntent.putExtra(str, strArr);
         }
 
         @NonNull
         public static IntentBuilder from(@NonNull Activity activity) {
-            return from((Context) Preconditions.checkNotNull(activity), activity.getComponentName());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? from((Context) Preconditions.checkNotNull(activity), activity.getComponentName()) : (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder addEmailBcc(@NonNull String str) {
-            if (this.mBccAddresses == null) {
-                this.mBccAddresses = new ArrayList<>();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (this.mBccAddresses == null) {
+                    this.mBccAddresses = new ArrayList<>();
+                }
+                this.mBccAddresses.add(str);
+                return this;
             }
-            this.mBccAddresses.add(str);
-            return this;
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder addEmailCc(@NonNull String str) {
-            if (this.mCcAddresses == null) {
-                this.mCcAddresses = new ArrayList<>();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (this.mCcAddresses == null) {
+                    this.mCcAddresses = new ArrayList<>();
+                }
+                this.mCcAddresses.add(str);
+                return this;
             }
-            this.mCcAddresses.add(str);
-            return this;
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder addEmailTo(@NonNull String str) {
-            if (this.mToAddresses == null) {
-                this.mToAddresses = new ArrayList<>();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                if (this.mToAddresses == null) {
+                    this.mToAddresses = new ArrayList<>();
+                }
+                this.mToAddresses.add(str);
+                return this;
             }
-            this.mToAddresses.add(str);
-            return this;
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder addStream(@NonNull Uri uri) {
-            Uri uri2 = (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
-            if (this.mStreams == null && uri2 == null) {
-                return setStream(uri);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
+                Uri uri2 = (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
+                if (this.mStreams == null && uri2 == null) {
+                    return setStream(uri);
+                }
+                if (this.mStreams == null) {
+                    this.mStreams = new ArrayList<>();
+                }
+                if (uri2 != null) {
+                    this.mIntent.removeExtra("android.intent.extra.STREAM");
+                    this.mStreams.add(uri2);
+                }
+                this.mStreams.add(uri);
+                return this;
             }
-            if (this.mStreams == null) {
-                this.mStreams = new ArrayList<>();
-            }
-            if (uri2 != null) {
-                this.mIntent.removeExtra("android.intent.extra.STREAM");
-                this.mStreams.add(uri2);
-            }
-            this.mStreams.add(uri);
-            return this;
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public Intent createChooserIntent() {
-            return Intent.createChooser(getIntent(), this.mChooserTitle);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Intent.createChooser(getIntent(), this.mChooserTitle) : (Intent) invokeV.objValue;
         }
 
         @NonNull
         public Context getContext() {
-            return this.mContext;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mContext : (Context) invokeV.objValue;
         }
 
         @NonNull
         public Intent getIntent() {
-            ArrayList<String> arrayList = this.mToAddresses;
-            if (arrayList != null) {
-                combineArrayExtra("android.intent.extra.EMAIL", arrayList);
-                this.mToAddresses = null;
-            }
-            ArrayList<String> arrayList2 = this.mCcAddresses;
-            if (arrayList2 != null) {
-                combineArrayExtra("android.intent.extra.CC", arrayList2);
-                this.mCcAddresses = null;
-            }
-            ArrayList<String> arrayList3 = this.mBccAddresses;
-            if (arrayList3 != null) {
-                combineArrayExtra("android.intent.extra.BCC", arrayList3);
-                this.mBccAddresses = null;
-            }
-            ArrayList<Uri> arrayList4 = this.mStreams;
-            boolean z = true;
-            z = (arrayList4 == null || arrayList4.size() <= 1) ? false : false;
-            boolean equals = "android.intent.action.SEND_MULTIPLE".equals(this.mIntent.getAction());
-            if (!z && equals) {
-                this.mIntent.setAction("android.intent.action.SEND");
-                ArrayList<Uri> arrayList5 = this.mStreams;
-                if (arrayList5 != null && !arrayList5.isEmpty()) {
-                    this.mIntent.putExtra("android.intent.extra.STREAM", this.mStreams.get(0));
-                } else {
-                    this.mIntent.removeExtra("android.intent.extra.STREAM");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                ArrayList<String> arrayList = this.mToAddresses;
+                if (arrayList != null) {
+                    combineArrayExtra("android.intent.extra.EMAIL", arrayList);
+                    this.mToAddresses = null;
                 }
-                this.mStreams = null;
-            }
-            if (z && !equals) {
-                this.mIntent.setAction("android.intent.action.SEND_MULTIPLE");
-                ArrayList<Uri> arrayList6 = this.mStreams;
-                if (arrayList6 != null && !arrayList6.isEmpty()) {
-                    this.mIntent.putParcelableArrayListExtra("android.intent.extra.STREAM", this.mStreams);
-                } else {
-                    this.mIntent.removeExtra("android.intent.extra.STREAM");
+                ArrayList<String> arrayList2 = this.mCcAddresses;
+                if (arrayList2 != null) {
+                    combineArrayExtra("android.intent.extra.CC", arrayList2);
+                    this.mCcAddresses = null;
                 }
+                ArrayList<String> arrayList3 = this.mBccAddresses;
+                if (arrayList3 != null) {
+                    combineArrayExtra("android.intent.extra.BCC", arrayList3);
+                    this.mBccAddresses = null;
+                }
+                ArrayList<Uri> arrayList4 = this.mStreams;
+                boolean z = true;
+                z = (arrayList4 == null || arrayList4.size() <= 1) ? false : false;
+                boolean equals = "android.intent.action.SEND_MULTIPLE".equals(this.mIntent.getAction());
+                if (!z && equals) {
+                    this.mIntent.setAction("android.intent.action.SEND");
+                    ArrayList<Uri> arrayList5 = this.mStreams;
+                    if (arrayList5 != null && !arrayList5.isEmpty()) {
+                        this.mIntent.putExtra("android.intent.extra.STREAM", this.mStreams.get(0));
+                    } else {
+                        this.mIntent.removeExtra("android.intent.extra.STREAM");
+                    }
+                    this.mStreams = null;
+                }
+                if (z && !equals) {
+                    this.mIntent.setAction("android.intent.action.SEND_MULTIPLE");
+                    ArrayList<Uri> arrayList6 = this.mStreams;
+                    if (arrayList6 != null && !arrayList6.isEmpty()) {
+                        this.mIntent.putParcelableArrayListExtra("android.intent.extra.STREAM", this.mStreams);
+                    } else {
+                        this.mIntent.removeExtra("android.intent.extra.STREAM");
+                    }
+                }
+                return this.mIntent;
             }
-            return this.mIntent;
+            return (Intent) invokeV.objValue;
         }
 
         @NonNull
         public IntentBuilder setChooserTitle(@Nullable CharSequence charSequence) {
-            this.mChooserTitle = charSequence;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, charSequence)) == null) {
+                this.mChooserTitle = charSequence;
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setEmailBcc(@Nullable String[] strArr) {
-            this.mIntent.putExtra("android.intent.extra.BCC", strArr);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, strArr)) == null) {
+                this.mIntent.putExtra("android.intent.extra.BCC", strArr);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setEmailCc(@Nullable String[] strArr) {
-            this.mIntent.putExtra("android.intent.extra.CC", strArr);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, strArr)) == null) {
+                this.mIntent.putExtra("android.intent.extra.CC", strArr);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setEmailTo(@Nullable String[] strArr) {
-            if (this.mToAddresses != null) {
-                this.mToAddresses = null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, strArr)) == null) {
+                if (this.mToAddresses != null) {
+                    this.mToAddresses = null;
+                }
+                this.mIntent.putExtra("android.intent.extra.EMAIL", strArr);
+                return this;
             }
-            this.mIntent.putExtra("android.intent.extra.EMAIL", strArr);
-            return this;
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setHtmlText(@Nullable String str) {
-            this.mIntent.putExtra(IntentCompat.EXTRA_HTML_TEXT, str);
-            if (!this.mIntent.hasExtra("android.intent.extra.TEXT")) {
-                setText(Html.fromHtml(str));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+                this.mIntent.putExtra(IntentCompat.EXTRA_HTML_TEXT, str);
+                if (!this.mIntent.hasExtra("android.intent.extra.TEXT")) {
+                    setText(Html.fromHtml(str));
+                }
+                return this;
             }
-            return this;
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setStream(@Nullable Uri uri) {
-            if (!"android.intent.action.SEND".equals(this.mIntent.getAction())) {
-                this.mIntent.setAction("android.intent.action.SEND");
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, uri)) == null) {
+                if (!"android.intent.action.SEND".equals(this.mIntent.getAction())) {
+                    this.mIntent.setAction("android.intent.action.SEND");
+                }
+                this.mStreams = null;
+                this.mIntent.putExtra("android.intent.extra.STREAM", uri);
+                return this;
             }
-            this.mStreams = null;
-            this.mIntent.putExtra("android.intent.extra.STREAM", uri);
-            return this;
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setSubject(@Nullable String str) {
-            this.mIntent.putExtra("android.intent.extra.SUBJECT", str);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+                this.mIntent.putExtra("android.intent.extra.SUBJECT", str);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setText(@Nullable CharSequence charSequence) {
-            this.mIntent.putExtra("android.intent.extra.TEXT", charSequence);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charSequence)) == null) {
+                this.mIntent.putExtra("android.intent.extra.TEXT", charSequence);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder setType(@Nullable String str) {
-            this.mIntent.setType(str);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+                this.mIntent.setType(str);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         public void startChooser() {
-            this.mContext.startActivity(createChooserIntent());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+                this.mContext.startActivity(createChooserIntent());
+            }
         }
 
         @NonNull
         public static IntentBuilder from(@NonNull Context context, @Nullable ComponentName componentName) {
-            return new IntentBuilder(context, componentName);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, componentName)) == null) ? new IntentBuilder(context, componentName) : (IntentBuilder) invokeLL.objValue;
         }
 
         @NonNull
         public IntentBuilder setChooserTitle(@StringRes int i2) {
-            return setChooserTitle(this.mContext.getText(i2));
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? setChooserTitle(this.mContext.getText(i2)) : (IntentBuilder) invokeI.objValue;
         }
 
         @NonNull
         public IntentBuilder addEmailBcc(@NonNull String[] strArr) {
-            combineArrayExtra("android.intent.extra.BCC", strArr);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                combineArrayExtra("android.intent.extra.BCC", strArr);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder addEmailCc(@NonNull String[] strArr) {
-            combineArrayExtra("android.intent.extra.CC", strArr);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, strArr)) == null) {
+                combineArrayExtra("android.intent.extra.CC", strArr);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         @NonNull
         public IntentBuilder addEmailTo(@NonNull String[] strArr) {
-            combineArrayExtra("android.intent.extra.EMAIL", strArr);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
+                combineArrayExtra("android.intent.extra.EMAIL", strArr);
+                return this;
+            }
+            return (IntentBuilder) invokeL.objValue;
         }
 
         private void combineArrayExtra(@Nullable String str, @NonNull String[] strArr) {
-            Intent intent = getIntent();
-            String[] stringArrayExtra = intent.getStringArrayExtra(str);
-            int length = stringArrayExtra != null ? stringArrayExtra.length : 0;
-            String[] strArr2 = new String[strArr.length + length];
-            if (stringArrayExtra != null) {
-                System.arraycopy(stringArrayExtra, 0, strArr2, 0, length);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65538, this, str, strArr) == null) {
+                Intent intent = getIntent();
+                String[] stringArrayExtra = intent.getStringArrayExtra(str);
+                int length = stringArrayExtra != null ? stringArrayExtra.length : 0;
+                String[] strArr2 = new String[strArr.length + length];
+                if (stringArrayExtra != null) {
+                    System.arraycopy(stringArrayExtra, 0, strArr2, 0, length);
+                }
+                System.arraycopy(strArr, 0, strArr2, length, strArr.length);
+                intent.putExtra(str, strArr2);
             }
-            System.arraycopy(strArr, 0, strArr2, length, strArr.length);
-            intent.putExtra(str, strArr2);
         }
     }
 
     /* loaded from: classes.dex */
     public static class IntentReader {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "IntentReader";
+        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public final ComponentName mCallingActivity;
         @Nullable
@@ -295,6 +427,20 @@ public final class ShareCompat {
         public ArrayList<Uri> mStreams;
 
         public IntentReader(@NonNull Context context, @NonNull Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, intent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mContext = (Context) Preconditions.checkNotNull(context);
             this.mIntent = (Intent) Preconditions.checkNotNull(intent);
             this.mCallingPackage = ShareCompat.getCallingPackage(intent);
@@ -303,239 +449,343 @@ public final class ShareCompat {
 
         @NonNull
         public static IntentReader from(@NonNull Activity activity) {
-            return from((Context) Preconditions.checkNotNull(activity), activity.getIntent());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) ? from((Context) Preconditions.checkNotNull(activity), activity.getIntent()) : (IntentReader) invokeL.objValue;
         }
 
         public static void withinStyle(StringBuilder sb, CharSequence charSequence, int i2, int i3) {
-            while (i2 < i3) {
-                char charAt = charSequence.charAt(i2);
-                if (charAt == '<') {
-                    sb.append("&lt;");
-                } else if (charAt == '>') {
-                    sb.append("&gt;");
-                } else if (charAt == '&') {
-                    sb.append("&amp;");
-                } else if (charAt > '~' || charAt < ' ') {
-                    sb.append("&#");
-                    sb.append((int) charAt);
-                    sb.append(";");
-                } else if (charAt == ' ') {
-                    while (true) {
-                        int i4 = i2 + 1;
-                        if (i4 >= i3 || charSequence.charAt(i4) != ' ') {
-                            break;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(65539, null, sb, charSequence, i2, i3) == null) {
+                while (i2 < i3) {
+                    char charAt = charSequence.charAt(i2);
+                    if (charAt == '<') {
+                        sb.append("&lt;");
+                    } else if (charAt == '>') {
+                        sb.append("&gt;");
+                    } else if (charAt == '&') {
+                        sb.append("&amp;");
+                    } else if (charAt > '~' || charAt < ' ') {
+                        sb.append("&#");
+                        sb.append((int) charAt);
+                        sb.append(";");
+                    } else if (charAt == ' ') {
+                        while (true) {
+                            int i4 = i2 + 1;
+                            if (i4 >= i3 || charSequence.charAt(i4) != ' ') {
+                                break;
+                            }
+                            sb.append("&nbsp;");
+                            i2 = i4;
                         }
-                        sb.append("&nbsp;");
-                        i2 = i4;
+                        sb.append(' ');
+                    } else {
+                        sb.append(charAt);
                     }
-                    sb.append(' ');
-                } else {
-                    sb.append(charAt);
+                    i2++;
                 }
-                i2++;
             }
         }
 
         @Nullable
         public ComponentName getCallingActivity() {
-            return this.mCallingActivity;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCallingActivity : (ComponentName) invokeV.objValue;
         }
 
         @Nullable
         public Drawable getCallingActivityIcon() {
-            if (this.mCallingActivity == null) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.mCallingActivity == null) {
+                    return null;
+                }
+                try {
+                    return this.mContext.getPackageManager().getActivityIcon(this.mCallingActivity);
+                } catch (PackageManager.NameNotFoundException e2) {
+                    Log.e(TAG, "Could not retrieve icon for calling activity", e2);
+                    return null;
+                }
             }
-            try {
-                return this.mContext.getPackageManager().getActivityIcon(this.mCallingActivity);
-            } catch (PackageManager.NameNotFoundException e2) {
-                Log.e(TAG, "Could not retrieve icon for calling activity", e2);
-                return null;
-            }
+            return (Drawable) invokeV.objValue;
         }
 
         @Nullable
         public Drawable getCallingApplicationIcon() {
-            if (this.mCallingPackage == null) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.mCallingPackage == null) {
+                    return null;
+                }
+                try {
+                    return this.mContext.getPackageManager().getApplicationIcon(this.mCallingPackage);
+                } catch (PackageManager.NameNotFoundException e2) {
+                    Log.e(TAG, "Could not retrieve icon for calling application", e2);
+                    return null;
+                }
             }
-            try {
-                return this.mContext.getPackageManager().getApplicationIcon(this.mCallingPackage);
-            } catch (PackageManager.NameNotFoundException e2) {
-                Log.e(TAG, "Could not retrieve icon for calling application", e2);
-                return null;
-            }
+            return (Drawable) invokeV.objValue;
         }
 
         @Nullable
         public CharSequence getCallingApplicationLabel() {
-            if (this.mCallingPackage == null) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.mCallingPackage == null) {
+                    return null;
+                }
+                PackageManager packageManager = this.mContext.getPackageManager();
+                try {
+                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
+                } catch (PackageManager.NameNotFoundException e2) {
+                    Log.e(TAG, "Could not retrieve label for calling application", e2);
+                    return null;
+                }
             }
-            PackageManager packageManager = this.mContext.getPackageManager();
-            try {
-                return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
-            } catch (PackageManager.NameNotFoundException e2) {
-                Log.e(TAG, "Could not retrieve label for calling application", e2);
-                return null;
-            }
+            return (CharSequence) invokeV.objValue;
         }
 
         @Nullable
         public String getCallingPackage() {
-            return this.mCallingPackage;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCallingPackage : (String) invokeV.objValue;
         }
 
         @Nullable
         public String[] getEmailBcc() {
-            return this.mIntent.getStringArrayExtra("android.intent.extra.BCC");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIntent.getStringArrayExtra("android.intent.extra.BCC") : (String[]) invokeV.objValue;
         }
 
         @Nullable
         public String[] getEmailCc() {
-            return this.mIntent.getStringArrayExtra("android.intent.extra.CC");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIntent.getStringArrayExtra("android.intent.extra.CC") : (String[]) invokeV.objValue;
         }
 
         @Nullable
         public String[] getEmailTo() {
-            return this.mIntent.getStringArrayExtra("android.intent.extra.EMAIL");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIntent.getStringArrayExtra("android.intent.extra.EMAIL") : (String[]) invokeV.objValue;
         }
 
         @Nullable
         public String getHtmlText() {
-            String stringExtra = this.mIntent.getStringExtra(IntentCompat.EXTRA_HTML_TEXT);
-            if (stringExtra == null) {
-                CharSequence text = getText();
-                if (text instanceof Spanned) {
-                    return Html.toHtml((Spanned) text);
-                }
-                if (text != null) {
-                    if (Build.VERSION.SDK_INT >= 16) {
-                        return Html.escapeHtml(text);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                String stringExtra = this.mIntent.getStringExtra(IntentCompat.EXTRA_HTML_TEXT);
+                if (stringExtra == null) {
+                    CharSequence text = getText();
+                    if (text instanceof Spanned) {
+                        return Html.toHtml((Spanned) text);
                     }
-                    StringBuilder sb = new StringBuilder();
-                    withinStyle(sb, text, 0, text.length());
-                    return sb.toString();
+                    if (text != null) {
+                        if (Build.VERSION.SDK_INT >= 16) {
+                            return Html.escapeHtml(text);
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        withinStyle(sb, text, 0, text.length());
+                        return sb.toString();
+                    }
+                    return stringExtra;
                 }
                 return stringExtra;
             }
-            return stringExtra;
+            return (String) invokeV.objValue;
         }
 
         @Nullable
         public Uri getStream() {
-            return (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM") : (Uri) invokeV.objValue;
         }
 
         public int getStreamCount() {
-            if (this.mStreams == null && isMultipleShare()) {
-                this.mStreams = this.mIntent.getParcelableArrayListExtra("android.intent.extra.STREAM");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                if (this.mStreams == null && isMultipleShare()) {
+                    this.mStreams = this.mIntent.getParcelableArrayListExtra("android.intent.extra.STREAM");
+                }
+                ArrayList<Uri> arrayList = this.mStreams;
+                if (arrayList != null) {
+                    return arrayList.size();
+                }
+                return this.mIntent.hasExtra("android.intent.extra.STREAM") ? 1 : 0;
             }
-            ArrayList<Uri> arrayList = this.mStreams;
-            if (arrayList != null) {
-                return arrayList.size();
-            }
-            return this.mIntent.hasExtra("android.intent.extra.STREAM") ? 1 : 0;
+            return invokeV.intValue;
         }
 
         @Nullable
         public String getSubject() {
-            return this.mIntent.getStringExtra("android.intent.extra.SUBJECT");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIntent.getStringExtra("android.intent.extra.SUBJECT") : (String) invokeV.objValue;
         }
 
         @Nullable
         public CharSequence getText() {
-            return this.mIntent.getCharSequenceExtra("android.intent.extra.TEXT");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIntent.getCharSequenceExtra("android.intent.extra.TEXT") : (CharSequence) invokeV.objValue;
         }
 
         @Nullable
         public String getType() {
-            return this.mIntent.getType();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIntent.getType() : (String) invokeV.objValue;
         }
 
         public boolean isMultipleShare() {
-            return "android.intent.action.SEND_MULTIPLE".equals(this.mIntent.getAction());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "android.intent.action.SEND_MULTIPLE".equals(this.mIntent.getAction()) : invokeV.booleanValue;
         }
 
         public boolean isShareIntent() {
-            String action = this.mIntent.getAction();
-            return "android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                String action = this.mIntent.getAction();
+                return "android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action);
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isSingleShare() {
-            return "android.intent.action.SEND".equals(this.mIntent.getAction());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "android.intent.action.SEND".equals(this.mIntent.getAction()) : invokeV.booleanValue;
         }
 
         @NonNull
         public static IntentReader from(@NonNull Context context, @NonNull Intent intent) {
-            return new IntentReader(context, intent);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) ? new IntentReader(context, intent) : (IntentReader) invokeLL.objValue;
         }
 
         @Nullable
         public Uri getStream(int i2) {
-            if (this.mStreams == null && isMultipleShare()) {
-                this.mStreams = this.mIntent.getParcelableArrayListExtra("android.intent.extra.STREAM");
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+                if (this.mStreams == null && isMultipleShare()) {
+                    this.mStreams = this.mIntent.getParcelableArrayListExtra("android.intent.extra.STREAM");
+                }
+                ArrayList<Uri> arrayList = this.mStreams;
+                if (arrayList != null) {
+                    return arrayList.get(i2);
+                }
+                if (i2 == 0) {
+                    return (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
+                }
+                throw new IndexOutOfBoundsException("Stream items available: " + getStreamCount() + " index requested: " + i2);
             }
-            ArrayList<Uri> arrayList = this.mStreams;
-            if (arrayList != null) {
-                return arrayList.get(i2);
+            return (Uri) invokeI.objValue;
+        }
+    }
+
+    public ShareCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (i2 == 0) {
-                return (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
-            }
-            throw new IndexOutOfBoundsException("Stream items available: " + getStreamCount() + " index requested: " + i2);
         }
     }
 
     public static void configureMenuItem(@NonNull MenuItem menuItem, @NonNull IntentBuilder intentBuilder) {
         ShareActionProvider shareActionProvider;
-        ActionProvider actionProvider = menuItem.getActionProvider();
-        if (!(actionProvider instanceof ShareActionProvider)) {
-            shareActionProvider = new ShareActionProvider(intentBuilder.getContext());
-        } else {
-            shareActionProvider = (ShareActionProvider) actionProvider;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, menuItem, intentBuilder) == null) {
+            ActionProvider actionProvider = menuItem.getActionProvider();
+            if (!(actionProvider instanceof ShareActionProvider)) {
+                shareActionProvider = new ShareActionProvider(intentBuilder.getContext());
+            } else {
+                shareActionProvider = (ShareActionProvider) actionProvider;
+            }
+            shareActionProvider.setShareHistoryFileName(HISTORY_FILENAME_PREFIX + intentBuilder.getContext().getClass().getName());
+            shareActionProvider.setShareIntent(intentBuilder.getIntent());
+            menuItem.setActionProvider(shareActionProvider);
+            if (Build.VERSION.SDK_INT >= 16 || menuItem.hasSubMenu()) {
+                return;
+            }
+            menuItem.setIntent(intentBuilder.createChooserIntent());
         }
-        shareActionProvider.setShareHistoryFileName(HISTORY_FILENAME_PREFIX + intentBuilder.getContext().getClass().getName());
-        shareActionProvider.setShareIntent(intentBuilder.getIntent());
-        menuItem.setActionProvider(shareActionProvider);
-        if (Build.VERSION.SDK_INT >= 16 || menuItem.hasSubMenu()) {
-            return;
-        }
-        menuItem.setIntent(intentBuilder.createChooserIntent());
     }
 
     @Nullable
     public static ComponentName getCallingActivity(@NonNull Activity activity) {
-        Intent intent = activity.getIntent();
-        ComponentName callingActivity = activity.getCallingActivity();
-        return callingActivity == null ? getCallingActivity(intent) : callingActivity;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            Intent intent = activity.getIntent();
+            ComponentName callingActivity = activity.getCallingActivity();
+            return callingActivity == null ? getCallingActivity(intent) : callingActivity;
+        }
+        return (ComponentName) invokeL.objValue;
     }
 
     @Nullable
     public static String getCallingPackage(@NonNull Activity activity) {
-        Intent intent = activity.getIntent();
-        String callingPackage = activity.getCallingPackage();
-        return (callingPackage != null || intent == null) ? callingPackage : getCallingPackage(intent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity)) == null) {
+            Intent intent = activity.getIntent();
+            String callingPackage = activity.getCallingPackage();
+            return (callingPackage != null || intent == null) ? callingPackage : getCallingPackage(intent);
+        }
+        return (String) invokeL.objValue;
     }
 
     @Nullable
     public static ComponentName getCallingActivity(@NonNull Intent intent) {
-        ComponentName componentName = (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY);
-        return componentName == null ? (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY_INTEROP) : componentName;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, intent)) == null) {
+            ComponentName componentName = (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY);
+            return componentName == null ? (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY_INTEROP) : componentName;
+        }
+        return (ComponentName) invokeL.objValue;
     }
 
     @Nullable
     public static String getCallingPackage(@NonNull Intent intent) {
-        String stringExtra = intent.getStringExtra(EXTRA_CALLING_PACKAGE);
-        return stringExtra == null ? intent.getStringExtra(EXTRA_CALLING_PACKAGE_INTEROP) : stringExtra;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, intent)) == null) {
+            String stringExtra = intent.getStringExtra(EXTRA_CALLING_PACKAGE);
+            return stringExtra == null ? intent.getStringExtra(EXTRA_CALLING_PACKAGE_INTEROP) : stringExtra;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void configureMenuItem(@NonNull Menu menu, @IdRes int i2, @NonNull IntentBuilder intentBuilder) {
-        MenuItem findItem = menu.findItem(i2);
-        if (findItem != null) {
-            configureMenuItem(findItem, intentBuilder);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, menu, i2, intentBuilder) == null) {
+            MenuItem findItem = menu.findItem(i2);
+            if (findItem != null) {
+                configureMenuItem(findItem, intentBuilder);
+                return;
+            }
+            throw new IllegalArgumentException("Could not find menu item with id " + i2 + " in the supplied menu");
         }
-        throw new IllegalArgumentException("Could not find menu item with id " + i2 + " in the supplied menu");
     }
 }

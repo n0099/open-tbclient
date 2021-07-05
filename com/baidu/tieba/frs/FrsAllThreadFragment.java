@@ -9,86 +9,132 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.a.n0.i0.c;
-import d.a.o0.r0.q0;
-import d.a.o0.r0.u;
-/* loaded from: classes4.dex */
-public class FrsAllThreadFragment extends BaseFragment implements q0 {
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.i0.c;
+import d.a.s0.u0.p0;
+import d.a.s0.u0.t;
+/* loaded from: classes5.dex */
+public class FrsAllThreadFragment extends BaseFragment implements p0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15159e;
+    public View f15250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f15160f;
+    public RecyclerView f15251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15161g;
+    public String f15252g;
 
-    @Override // d.a.o0.r0.q0
-    public void E0() {
-        RecyclerView recyclerView = this.f15160f;
-        if (recyclerView != null) {
-            recyclerView.scrollToPosition(0);
+    public FrsAllThreadFragment() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
+    }
+
+    @Override // d.a.s0.u0.p0
+    public void E0() {
+        RecyclerView recyclerView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (recyclerView = this.f15251f) == null) {
+            return;
+        }
+        recyclerView.scrollToPosition(0);
     }
 
     public final void G0(int i2, String str) {
-        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15161g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15252g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
     }
 
     public final void H0() {
-        View view = this.f15159e;
-        if (view == null || !(view.getParent() instanceof ViewGroup)) {
-            return;
+        View view;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view = this.f15250e) != null && (view.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.f15250e.getParent()).removeView(this.f15250e);
+            this.f15250e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        ((ViewGroup) this.f15159e.getParent()).removeView(this.f15159e);
-        this.f15159e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
     }
 
     public void I0(View view) {
-        this.f15159e = view;
-        this.f15160f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
-        H0();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+            this.f15250e = view;
+            this.f15251f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
+            H0();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public c getTbPageExtra() {
-        BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-        return new c(getUniqueId(), "a006", baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
+            return new c(getUniqueId(), "a006", baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
+        }
+        return (c) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            this.f15161g = arguments.getString("forum_id", "");
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            Bundle arguments = getArguments();
+            if (arguments != null) {
+                this.f15252g = arguments.getString("forum_id", "");
+            }
+            H0();
+            return this.f15250e;
         }
-        H0();
-        return this.f15159e;
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
-        if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            G0(2, "4");
-        } else {
-            G0(2, "5");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                G0(2, "4");
+            } else {
+                G0(2, "5");
+            }
         }
     }
 
-    @Override // d.a.o0.r0.q0
-    public void u() {
-        E0();
-        u uVar = new u();
-        uVar.f63477a = 1;
-        uVar.f63478b = true;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
+    @Override // d.a.s0.u0.p0
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            E0();
+            t tVar = new t();
+            tVar.f67022a = 1;
+            tVar.f67023b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
+        }
     }
 }

@@ -1,31 +1,60 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.a.n0.r.q.o;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.p;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PollOption;
-/* loaded from: classes3.dex */
-public class PollOptionData extends o implements Serializable {
+/* loaded from: classes4.dex */
+public class PollOptionData extends p implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int id;
     public long num;
     public String text;
 
+    public PollOptionData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public int getId() {
-        return this.id;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : invokeV.intValue;
     }
 
     public long getNum() {
-        return this.num;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.num : invokeV.longValue;
     }
 
     public String getText() {
-        return this.text;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.text : (String) invokeV.objValue;
     }
 
-    @Override // d.a.n0.r.q.o
+    @Override // d.a.r0.r.q.p
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -38,7 +67,8 @@ public class PollOptionData extends o implements Serializable {
     }
 
     public void parserProtobuf(PollOption pollOption) {
-        if (pollOption == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, pollOption) == null) || pollOption == null) {
             return;
         }
         this.id = pollOption.id.intValue();
@@ -47,14 +77,23 @@ public class PollOptionData extends o implements Serializable {
     }
 
     public void setId(int i2) {
-        this.id = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.id = i2;
+        }
     }
 
     public void setNum(long j) {
-        this.num = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.num = j;
+        }
     }
 
     public void setText(String str) {
-        this.text = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.text = str;
+        }
     }
 }

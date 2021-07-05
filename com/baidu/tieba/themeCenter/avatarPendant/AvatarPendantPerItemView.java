@@ -8,71 +8,117 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.o0.k3.d.c;
+import d.a.s0.n3.d.c;
 /* loaded from: classes5.dex */
 public class AvatarPendantPerItemView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21213e;
+    public Context f21364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21214f;
+    public View f21365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadPendantView f21215g;
+    public HeadPendantView f21366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f21216h;
+    public TbImageView f21367h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f21217i;
+    public ImageView f21368i;
     public TextView j;
     public DressItemData k;
     public c.a l;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AvatarPendantPerItemView f21369e;
+
+        public a(AvatarPendantPerItemView avatarPendantPerItemView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {avatarPendantPerItemView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21369e = avatarPendantPerItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == null || AvatarPendantPerItemView.this.l == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f21369e.l == null) {
                 return;
             }
-            if (AvatarPendantPerItemView.this.k != null && AvatarPendantPerItemView.this.k.getInUse() && TbadkCoreApplication.isLogin()) {
+            if (this.f21369e.k != null && this.f21369e.k.getInUse() && TbadkCoreApplication.isLogin()) {
                 return;
             }
-            AvatarPendantPerItemView.this.l.onItemClick(AvatarPendantPerItemView.this.k);
+            this.f21369e.l.onItemClick(this.f21369e.k);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantPerItemView(Context context) {
         super(context);
-        this.f21213e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f21364e = context;
         d();
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void c(DressItemData dressItemData) {
-        if (dressItemData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dressItemData) == null) || dressItemData == null) {
             return;
         }
         this.k = dressItemData;
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
-            if (this.f21215g.getHeadView() != null) {
-                this.f21215g.getHeadView().U(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+            if (this.f21366g.getHeadView() != null) {
+                this.f21366g.getHeadView().M(String.valueOf(R.drawable.pic_shop_woman), 24, false);
             }
-        } else if (this.f21215g.getHeadView() != null) {
-            this.f21215g.getHeadView().U(String.valueOf(R.drawable.pic_shop_man), 24, false);
+        } else if (this.f21366g.getHeadView() != null) {
+            this.f21366g.getHeadView().M(String.valueOf(R.drawable.pic_shop_man), 24, false);
         }
         if (k.byteLength(dressItemData.getTitle()) > 8) {
             this.j.setText(k.cutString(dressItemData.getTitle(), 8));
@@ -80,51 +126,91 @@ public class AvatarPendantPerItemView extends LinearLayout {
             this.j.setText(dressItemData.getTitle());
         }
         if (inUse) {
-            this.f21217i.setVisibility(0);
-            SkinManager.setImageResource(this.f21217i, R.drawable.icon_shop_selected);
+            this.f21368i.setVisibility(0);
+            SkinManager.setImageResource(this.f21368i, R.drawable.icon_shop_selected);
         } else {
-            this.f21217i.setVisibility(8);
+            this.f21368i.setVisibility(8);
         }
-        this.f21216h.U(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f21215g.l(dressItemData.getExampleImgUrl());
-        this.f21215g.setOnClickListener(new a());
-        SkinManager.setBackgroundColor(this.f21214f, R.color.CAM_X0201);
+        this.f21367h.M(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f21366g.l(dressItemData.getExampleImgUrl());
+        this.f21366g.setOnClickListener(new a(this));
+        SkinManager.setBackgroundColor(this.f21365f, R.color.CAM_X0201);
     }
 
     public final void d() {
-        View inflate = LayoutInflater.from(this.f21213e).inflate(R.layout.avatar_pendant_per_item, this);
-        this.f21214f = inflate;
-        this.f21215g = (HeadPendantView) inflate.findViewById(R.id.avatar_image);
-        TbImageView tbImageView = (TbImageView) this.f21214f.findViewById(R.id.permission_icon);
-        this.f21216h = tbImageView;
-        tbImageView.setDefaultResource(R.drawable.transparent_bg);
-        this.f21216h.setDefaultBgResource(R.drawable.transparent_bg);
-        this.f21217i = (ImageView) this.f21214f.findViewById(R.id.choosed_icon);
-        this.j = (TextView) this.f21214f.findViewById(R.id.text_pendant_name);
-        this.f21215g.setHasPendantStyle();
-        if (this.f21215g.getHeadView() != null) {
-            this.f21215g.getHeadView().setIsRound(true);
-            this.f21215g.getHeadView().setDrawBorder(false);
-        }
-        if (this.f21215g.getPendantView() != null) {
-            this.f21215g.getPendantView().setIsRound(true);
-            this.f21215g.getPendantView().setDrawBorder(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.f21364e).inflate(R.layout.avatar_pendant_per_item, this);
+            this.f21365f = inflate;
+            this.f21366g = (HeadPendantView) inflate.findViewById(R.id.avatar_image);
+            TbImageView tbImageView = (TbImageView) this.f21365f.findViewById(R.id.permission_icon);
+            this.f21367h = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.transparent_bg);
+            this.f21367h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f21368i = (ImageView) this.f21365f.findViewById(R.id.choosed_icon);
+            this.j = (TextView) this.f21365f.findViewById(R.id.text_pendant_name);
+            this.f21366g.setHasPendantStyle();
+            if (this.f21366g.getHeadView() != null) {
+                this.f21366g.getHeadView().setIsRound(true);
+                this.f21366g.getHeadView().setDrawBorder(false);
+            }
+            if (this.f21366g.getPendantView() != null) {
+                this.f21366g.getPendantView().setIsRound(true);
+                this.f21366g.getPendantView().setDrawBorder(false);
+            }
         }
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.l = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.l = aVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantPerItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21213e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f21364e = context;
         d();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantPerItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        this.f21213e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f21364e = context;
         d();
     }
 }

@@ -1,129 +1,257 @@
 package org.apache.http.impl.cookie;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BasicClientCookie implements SetCookie, ClientCookie {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public BasicClientCookie(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         throw new RuntimeException("Stub!");
     }
 
     public Object clone() throws CloneNotSupportedException {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.ClientCookie
     public boolean containsAttribute(String str) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.cookie.ClientCookie
     public String getAttribute(String str) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public String getComment() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public String getCommentURL() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public String getDomain() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public Date getExpiryDate() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Date) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public String getName() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public String getPath() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public int[] getPorts() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (int[]) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public String getValue() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public int getVersion() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public boolean isExpired(Date date) {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, date)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public boolean isPersistent() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // org.apache.http.cookie.Cookie
     public boolean isSecure() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
     }
 
     public void setAttribute(String str, String str2) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.cookie.SetCookie
     public void setComment(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.cookie.SetCookie
     public void setDomain(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.cookie.SetCookie
     public void setExpiryDate(Date date) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, date) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.cookie.SetCookie
     public void setPath(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.cookie.SetCookie
     public void setSecure(boolean z) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.cookie.SetCookie
     public void setValue(String str) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.cookie.SetCookie
     public void setVersion(int i2) {
-        throw new RuntimeException("Stub!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public String toString() {
-        throw new RuntimeException("Stub!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
     }
 }

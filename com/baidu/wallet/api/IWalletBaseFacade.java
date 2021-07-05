@@ -2,7 +2,7 @@ package com.baidu.wallet.api;
 
 import android.content.Context;
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IWalletBaseFacade {
     void callQRCodeScanner(Context context, IWalletQRScannerCallback iWalletQRScannerCallback);
 

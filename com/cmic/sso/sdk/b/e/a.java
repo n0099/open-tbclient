@@ -2,6 +2,11 @@ package com.cmic.sso.sdk.b.e;
 
 import android.util.Base64;
 import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.KeyStore;
@@ -12,23 +17,39 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public X509Certificate f30727a;
+    public X509Certificate f32520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLContext f30728b;
+    public SSLContext f32521b;
 
     public a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(str);
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("cert", this.f30727a);
+            keyStore.setCertificateEntry("cert", this.f32520a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
             SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.f30728b = sSLContext;
+            this.f32521b = sSLContext;
             sSLContext.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -37,47 +58,51 @@ public class a {
 
     private void a(String str) {
         ByteArrayInputStream byteArrayInputStream;
-        if (this.f30727a == null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && this.f32520a == null) {
             ByteArrayInputStream byteArrayInputStream2 = null;
             try {
                 try {
                     try {
                         byteArrayInputStream = new ByteArrayInputStream(Base64.decode(str, 0));
-                    } catch (CertificateException e2) {
-                        e = e2;
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        return;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    this.f30727a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
-                    byteArrayInputStream.close();
                 } catch (CertificateException e3) {
                     e = e3;
-                    byteArrayInputStream2 = byteArrayInputStream;
-                    e.printStackTrace();
-                    if (byteArrayInputStream2 != null) {
-                        byteArrayInputStream2.close();
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayInputStream2 = byteArrayInputStream;
-                    if (byteArrayInputStream2 != null) {
-                        try {
-                            byteArrayInputStream2.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
                 }
-            } catch (IOException e5) {
-                e5.printStackTrace();
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                this.f32520a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
+                byteArrayInputStream.close();
+            } catch (CertificateException e4) {
+                e = e4;
+                byteArrayInputStream2 = byteArrayInputStream;
+                e.printStackTrace();
+                if (byteArrayInputStream2 != null) {
+                    byteArrayInputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayInputStream2 = byteArrayInputStream;
+                if (byteArrayInputStream2 != null) {
+                    try {
+                        byteArrayInputStream2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
     }
 
     public SSLContext a() {
-        return this.f30728b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32521b : (SSLContext) invokeV.objValue;
     }
 }

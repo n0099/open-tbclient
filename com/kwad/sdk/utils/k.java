@@ -1,6 +1,10 @@
 package com.kwad.sdk.utils;
 
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,15 +18,28 @@ import java.io.Writer;
 import java.nio.charset.Charset;
 /* loaded from: classes7.dex */
 public class k {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static int a(Reader reader, Writer writer) {
-        long b2 = b(reader, writer);
-        if (b2 > 2147483647L) {
-            return -1;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, reader, writer)) == null) {
+            long b2 = b(reader, writer);
+            if (b2 > 2147483647L) {
+                return -1;
+            }
+            return (int) b2;
         }
-        return (int) b2;
+        return invokeLL.intValue;
     }
 
     public static long a(Reader reader, Writer writer, char[] cArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65537, null, reader, writer, cArr)) != null) {
+            return invokeLLL.longValue;
+        }
         long j = 0;
         while (true) {
             int read = reader.read(cArr);
@@ -35,27 +52,42 @@ public class k {
     }
 
     public static FileInputStream a(File file) {
-        if (file.exists() && !file.isDirectory() && file.canRead()) {
-            return new FileInputStream(file);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            if (file.exists() && !file.isDirectory() && file.canRead()) {
+                return new FileInputStream(file);
+            }
+            return null;
         }
-        return null;
+        return (FileInputStream) invokeL.objValue;
     }
 
     @Nullable
     public static FileOutputStream a(File file, boolean z) {
-        if (!file.exists()) {
-            File parentFile = file.getParentFile();
-            if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, file, z)) == null) {
+            if (!file.exists()) {
+                File parentFile = file.getParentFile();
+                if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
+                    return null;
+                }
+            } else if (file.isDirectory() || !file.canWrite()) {
                 return null;
             }
-        } else if (file.isDirectory() || !file.canWrite()) {
-            return null;
+            return new FileOutputStream(file, z);
         }
-        return new FileOutputStream(file, z);
+        return (FileOutputStream) invokeLZ.objValue;
     }
 
     @Nullable
     public static String a(File file, Charset charset) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65540, null, file, charset)) != null) {
+            return (String) invokeLL.objValue;
+        }
         FileInputStream fileInputStream = null;
         try {
             FileInputStream a2 = a(file);
@@ -80,29 +112,42 @@ public class k {
 
     @Nullable
     public static String a(InputStream inputStream, Charset charset) {
-        if (inputStream == null) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, charset)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            StringWriter stringWriter = new StringWriter();
+            a(inputStream, stringWriter, charset);
+            return stringWriter.toString();
         }
-        StringWriter stringWriter = new StringWriter();
-        a(inputStream, stringWriter, charset);
-        return stringWriter.toString();
+        return (String) invokeLL.objValue;
     }
 
     public static Charset a(Charset charset) {
-        return charset == null ? Charset.defaultCharset() : charset;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, charset)) == null) ? charset == null ? Charset.defaultCharset() : charset : (Charset) invokeL.objValue;
     }
 
     public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception unused) {
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception unused) {
         }
     }
 
     public static void a(File file, String str, Charset charset, boolean z) {
         FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{file, str, charset, Boolean.valueOf(z)}) != null) {
+            return;
+        }
         try {
             fileOutputStream = a(file, z);
             if (fileOutputStream != null) {
@@ -122,17 +167,23 @@ public class k {
     }
 
     public static void a(InputStream inputStream, Writer writer, Charset charset) {
-        a(new InputStreamReader(inputStream, a(charset)), writer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, inputStream, writer, charset) == null) {
+            a(new InputStreamReader(inputStream, a(charset)), writer);
+        }
     }
 
     public static void a(String str, OutputStream outputStream, Charset charset) {
-        if (outputStream == null || str == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65546, null, str, outputStream, charset) == null) || outputStream == null || str == null) {
             return;
         }
         outputStream.write(str.getBytes(a(charset)));
     }
 
     public static long b(Reader reader, Writer writer) {
-        return a(reader, writer, new char[4096]);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, reader, writer)) == null) ? a(reader, writer, new char[4096]) : invokeLL.longValue;
     }
 }

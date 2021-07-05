@@ -1,97 +1,198 @@
 package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.callback.TitleBtnCallback;
-import d.a.a0.a.b;
-import d.a.a0.a.c;
-import d.a.a0.a.d;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.e0.a.b;
+import d.a.e0.a.c;
+import d.a.e0.a.d;
+/* loaded from: classes3.dex */
 public class PassportViewManager implements NoProguard {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static SapiConfiguration f9533c;
+    public static SapiConfiguration f9605c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static PassportViewManager f9534d;
+    public static PassportViewManager f9606d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TitleBtnCallback f9535a;
+    public TitleBtnCallback f9607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TitleViewModule f9536b = null;
+    public TitleViewModule f9608b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TitleViewModule implements NoProguard {
-        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.f9533c.context.getResources().getColor(b.sapi_sdk_edit_text_color);
-        public int bgColor = Integer.MAX_VALUE;
-        public int bgHeight = Integer.MAX_VALUE;
-        public int leftBtnImgResId = Integer.MAX_VALUE;
-        public int leftBtnImgVisible = 0;
-        public int leftBtnTextColor = DEFAULT_TEXT_COLOR;
-        public String leftBtnText = null;
-        public int leftBtnTextVisible = 4;
-        public float leftBtnTextSize = PassportViewManager.f9533c.context.getResources().getDimension(c.sapi_sdk_title_left_btn_text_size);
-        public Drawable leftBtnDrawableLeft = null;
-        public Drawable leftBtnDrawableTop = null;
-        public Drawable leftBtnDrawableRight = null;
-        public Drawable leftBtnDrawableBottom = null;
-        public int titleTextColor = DEFAULT_TEXT_COLOR;
-        public String titleText = null;
-        public int titleVisible = 0;
-        public float titleTextSize = PassportViewManager.f9533c.context.getResources().getDimension(c.sapi_sdk_title_text_size);
-        public boolean titleTextBold = false;
-        public boolean useWebviewTitle = true;
-        public Drawable titleDrawableLeft = null;
-        public Drawable titleDrawableTop = null;
-        public Drawable titleDrawableRight = null;
-        public Drawable titleDrawableBottom = null;
-        public int rightBtnTextColor = DEFAULT_TEXT_COLOR;
-        public String rightBtnText = null;
-        public int rightBtnVisible = 4;
-        public float rightBtnTextSize = PassportViewManager.f9533c.context.getResources().getDimension(c.sapi_sdk_title_right_btn_text_size);
-        public int dividerLineVisible = 0;
+        public static /* synthetic */ Interceptable $ic;
+        public static final int DEFAULT_TEXT_COLOR;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int bgColor;
+        public int bgHeight;
+        public int dividerLineVisible;
+        public Drawable leftBtnDrawableBottom;
+        public Drawable leftBtnDrawableLeft;
+        public Drawable leftBtnDrawableRight;
+        public Drawable leftBtnDrawableTop;
+        public int leftBtnImgResId;
+        public int leftBtnImgVisible;
+        public String leftBtnText;
+        public int leftBtnTextColor;
+        public float leftBtnTextSize;
+        public int leftBtnTextVisible;
+        public String rightBtnText;
+        public int rightBtnTextColor;
+        public float rightBtnTextSize;
+        public int rightBtnVisible;
+        public Drawable titleDrawableBottom;
+        public Drawable titleDrawableLeft;
+        public Drawable titleDrawableRight;
+        public Drawable titleDrawableTop;
+        public String titleText;
+        public boolean titleTextBold;
+        public int titleTextColor;
+        public float titleTextSize;
+        public int titleVisible;
+        public boolean useWebviewTitle;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1697857134, "Lcom/baidu/sapi2/PassportViewManager$TitleViewModule;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1697857134, "Lcom/baidu/sapi2/PassportViewManager$TitleViewModule;");
+                    return;
+                }
+            }
+            DEFAULT_TEXT_COLOR = PassportViewManager.f9605c.context.getResources().getColor(b.sapi_sdk_edit_text_color);
+        }
+
+        public TitleViewModule() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.bgColor = Integer.MAX_VALUE;
+            this.bgHeight = Integer.MAX_VALUE;
+            this.leftBtnImgResId = Integer.MAX_VALUE;
+            this.leftBtnImgVisible = 0;
+            this.leftBtnTextColor = DEFAULT_TEXT_COLOR;
+            this.leftBtnText = null;
+            this.leftBtnTextVisible = 4;
+            this.leftBtnTextSize = PassportViewManager.f9605c.context.getResources().getDimension(c.sapi_sdk_title_left_btn_text_size);
+            this.leftBtnDrawableLeft = null;
+            this.leftBtnDrawableTop = null;
+            this.leftBtnDrawableRight = null;
+            this.leftBtnDrawableBottom = null;
+            this.titleTextColor = DEFAULT_TEXT_COLOR;
+            this.titleText = null;
+            this.titleVisible = 0;
+            this.titleTextSize = PassportViewManager.f9605c.context.getResources().getDimension(c.sapi_sdk_title_text_size);
+            this.titleTextBold = false;
+            this.useWebviewTitle = true;
+            this.titleDrawableLeft = null;
+            this.titleDrawableTop = null;
+            this.titleDrawableRight = null;
+            this.titleDrawableBottom = null;
+            this.rightBtnTextColor = DEFAULT_TEXT_COLOR;
+            this.rightBtnText = null;
+            this.rightBtnVisible = 4;
+            this.rightBtnTextSize = PassportViewManager.f9605c.context.getResources().getDimension(c.sapi_sdk_title_right_btn_text_size);
+            this.dividerLineVisible = 0;
+        }
     }
 
     public PassportViewManager() {
-        f9533c = SapiAccountManager.getInstance().getSapiConfiguration();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9608b = null;
+        f9605c = SapiAccountManager.getInstance().getSapiConfiguration();
     }
 
     public static synchronized PassportViewManager getInstance() {
+        InterceptResult invokeV;
         PassportViewManager passportViewManager;
-        synchronized (PassportViewManager.class) {
-            if (f9534d == null) {
-                f9534d = new PassportViewManager();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (PassportViewManager.class) {
+                if (f9606d == null) {
+                    f9606d = new PassportViewManager();
+                }
+                passportViewManager = f9606d;
             }
-            passportViewManager = f9534d;
+            return passportViewManager;
         }
-        return passportViewManager;
+        return (PassportViewManager) invokeV.objValue;
     }
 
     public void configTitle(TitleViewModule titleViewModule) {
-        this.f9536b = titleViewModule;
-        if (titleViewModule.bgColor == Integer.MAX_VALUE) {
-            titleViewModule.bgColor = -1;
-        }
-        if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-            titleViewModule.leftBtnImgResId = d.sapi_sdk_btn_back;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, titleViewModule) == null) {
+            this.f9608b = titleViewModule;
+            if (titleViewModule.bgColor == Integer.MAX_VALUE) {
+                titleViewModule.bgColor = -1;
+            }
+            if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
+                titleViewModule.leftBtnImgResId = d.sapi_sdk_btn_back;
+            }
         }
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f9535a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9607a : (TitleBtnCallback) invokeV.objValue;
     }
 
     public TitleViewModule getTitleViewModule() {
-        return this.f9536b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9608b : (TitleViewModule) invokeV.objValue;
     }
 
     public void release() {
-        this.f9535a = null;
-        this.f9536b = null;
-        SapiWebView.statLoadLogin = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f9607a = null;
+            this.f9608b = null;
+            SapiWebView.statLoadLogin = null;
+        }
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f9535a = titleBtnCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, titleBtnCallback) == null) {
+            this.f9607a = titleBtnCallback;
+        }
     }
 }

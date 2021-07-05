@@ -7,33 +7,77 @@ import com.airbnb.lottie.model.animatable.AnimatableTransform;
 import com.airbnb.lottie.model.content.Repeater;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class RepeaterParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "tr", "hd");
+    public static /* synthetic */ Interceptable $ic;
+    public static JsonReader.Options NAMES;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static Repeater parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        String str = null;
-        AnimatableFloatValue animatableFloatValue = null;
-        AnimatableFloatValue animatableFloatValue2 = null;
-        AnimatableTransform animatableTransform = null;
-        boolean z = false;
-        while (jsonReader.hasNext()) {
-            int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-            } else if (selectName == 2) {
-                animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-            } else if (selectName == 3) {
-                animatableTransform = AnimatableTransformParser.parse(jsonReader, lottieComposition);
-            } else if (selectName != 4) {
-                jsonReader.skipValue();
-            } else {
-                z = jsonReader.nextBoolean();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(958835467, "Lcom/airbnb/lottie/parser/RepeaterParser;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(958835467, "Lcom/airbnb/lottie/parser/RepeaterParser;");
+                return;
             }
         }
-        return new Repeater(str, animatableFloatValue, animatableFloatValue2, animatableTransform, z);
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "tr", "hd");
+    }
+
+    public RepeaterParser() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static Repeater parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jsonReader, lottieComposition)) == null) {
+            String str = null;
+            AnimatableFloatValue animatableFloatValue = null;
+            AnimatableFloatValue animatableFloatValue2 = null;
+            AnimatableTransform animatableTransform = null;
+            boolean z = false;
+            while (jsonReader.hasNext()) {
+                int selectName = jsonReader.selectName(NAMES);
+                if (selectName == 0) {
+                    str = jsonReader.nextString();
+                } else if (selectName == 1) {
+                    animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                } else if (selectName == 2) {
+                    animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                } else if (selectName == 3) {
+                    animatableTransform = AnimatableTransformParser.parse(jsonReader, lottieComposition);
+                } else if (selectName != 4) {
+                    jsonReader.skipValue();
+                } else {
+                    z = jsonReader.nextBoolean();
+                }
+            }
+            return new Repeater(str, animatableFloatValue, animatableFloatValue2, animatableTransform, z);
+        }
+        return (Repeater) invokeLL.objValue;
     }
 }

@@ -2,23 +2,44 @@ package com.win.opensdk;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class F1 extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ I1 f40603a;
+    public final /* synthetic */ I1 f42346a;
 
     public F1(I1 i1) {
-        this.f40603a = i1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i1};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42346a = i1;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        if (message.what == 11) {
-            this.f40603a.f40621e = true;
-            this.f40603a.k.removeMessages(11);
-            x0.a(this.f40603a.f40618b).a(new y0(this.f40603a.f40622f), 2002, (this.f40603a.b() ? this.f40603a.f40622f.getWt() : 0) * 1000).a();
-            this.f40603a.f40624h.onFail(PBError.TIMEOUT);
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
+            this.f42346a.f42364e = true;
+            this.f42346a.k.removeMessages(11);
+            x0.a(this.f42346a.f42361b).a(new y0(this.f42346a.f42365f), 2002, (this.f42346a.b() ? this.f42346a.f42365f.getWt() : 0) * 1000).a();
+            this.f42346a.f42367h.onFail(PBError.TIMEOUT);
         }
     }
 }

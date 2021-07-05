@@ -1,26 +1,48 @@
 package com.qq.e.comm.net.rr;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes7.dex */
 public abstract class AbstractResponse implements Response {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpURLConnection f39280a;
+    public final HttpURLConnection f41036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39281b;
+    public int f41037b;
 
     public AbstractResponse(HttpURLConnection httpURLConnection) {
-        this.f39281b = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpURLConnection};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f41037b = 0;
         if (httpURLConnection == null) {
             throw new AssertionError("AbstractResponse parameter is null");
         }
-        this.f39280a = httpURLConnection;
+        this.f41036a = httpURLConnection;
         try {
-            this.f39281b = httpURLConnection.getResponseCode();
+            this.f41037b = httpURLConnection.getResponseCode();
         } catch (IOException e2) {
             throw new AssertionError(e2);
         }
@@ -28,11 +50,19 @@ public abstract class AbstractResponse implements Response {
 
     @Override // com.qq.e.comm.net.rr.Response
     public void close() throws IllegalStateException, IOException {
-        this.f39280a.disconnect();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f41036a.disconnect();
+        }
     }
 
     @Override // com.qq.e.comm.net.rr.Response
     public byte[] getBytesContent() throws IllegalStateException, IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            return (byte[]) invokeV.objValue;
+        }
         if (200 != getStatusCode()) {
             return null;
         }
@@ -51,36 +81,47 @@ public abstract class AbstractResponse implements Response {
 
     @Override // com.qq.e.comm.net.rr.Response
     public int getStatusCode() {
-        return this.f39281b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41037b : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Response
     public InputStream getStreamContent() throws IllegalStateException, IOException {
-        return this.f39280a.getInputStream();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41036a.getInputStream() : (InputStream) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Response
     public String getStringContent() throws IOException {
-        return getStringContent("UTF-8");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getStringContent("UTF-8") : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Response
     public String getStringContent(String str) throws IOException {
-        byte[] bytesContent = getBytesContent();
-        String str2 = null;
-        if (bytesContent == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            byte[] bytesContent = getBytesContent();
+            String str2 = null;
+            if (bytesContent == null) {
+                return null;
+            }
+            if (bytesContent.length == 0) {
+                return "";
+            }
+            try {
+                str2 = this.f41036a.getContentEncoding();
+            } catch (Throwable unused) {
+            }
+            if (str2 != null) {
+                str = str2;
+            }
+            return new String(bytesContent, str);
         }
-        if (bytesContent.length == 0) {
-            return "";
-        }
-        try {
-            str2 = this.f39280a.getContentEncoding();
-        } catch (Throwable unused) {
-        }
-        if (str2 != null) {
-            str = str2;
-        }
-        return new String(bytesContent, str);
+        return (String) invokeL.objValue;
     }
 }

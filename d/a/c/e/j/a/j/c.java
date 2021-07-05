@@ -1,87 +1,156 @@
 package d.a.c.e.j.a.j;
-/* loaded from: classes.dex */
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42416a;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f42419d;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f42421f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f42422g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f42423h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f42424i;
+    public String f44225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42417b = false;
+    public boolean f44226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42418c = false;
+    public boolean f44227c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f44228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42420e = 0;
+    public int f44229e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f44230f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f44231g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f44232h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f44233i;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44226b = false;
+        this.f44227c = false;
+        this.f44229e = 0;
+    }
 
     public String a() {
-        return this.f42416a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44225a : (String) invokeV.objValue;
     }
 
     public String b() {
-        return this.f42421f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44230f : (String) invokeV.objValue;
     }
 
     public boolean c() {
-        return this.f42418c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44227c : invokeV.booleanValue;
     }
 
     public void d() {
-        this.f42419d = "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f44228d = "";
+        }
     }
 
     public void e(boolean z) {
-        this.f42418c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f44227c = z;
+        }
     }
 
     public void f(long j) {
-        this.f42423h = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.f44232h = j;
+        }
     }
 
     public void g(String str) {
-        this.f42416a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f44225a = str;
+        }
     }
 
     public void h(String str) {
-        this.f42419d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f44228d = str;
+        }
     }
 
     public void i(boolean z) {
-        this.f42417b = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f44226b = z;
+        }
     }
 
     public void j(int i2) {
-        this.f42424i = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.f44233i = i2;
+        }
     }
 
     public void k(String str) {
-        this.f42421f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f44230f = str;
+        }
     }
 
     public void l(int i2) {
-        this.f42420e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f44229e = i2;
+        }
     }
 
     public void m(int i2) {
-        this.f42422g = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f44231g = i2;
+        }
     }
 
     public String toString() {
-        return "isFromNet_" + this.f42417b + "-statType_" + this.f42422g + "-dnsErr_" + this.f42419d + "-hasRetry_" + this.f42420e + "-cost_" + this.f42423h + "-ipIndex_" + this.f42424i + "-ipResult_" + this.f42416a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return "isFromNet_" + this.f44226b + "-statType_" + this.f44231g + "-dnsErr_" + this.f44228d + "-hasRetry_" + this.f44229e + "-cost_" + this.f44232h + "-ipIndex_" + this.f44233i + "-ipResult_" + this.f44225a;
+        }
+        return (String) invokeV.objValue;
     }
 }

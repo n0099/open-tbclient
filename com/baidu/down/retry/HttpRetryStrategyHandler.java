@@ -2,6 +2,8 @@ package com.baidu.down.retry;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.exp.RetryStrategyException;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.request.taskmanager.HttpDNSCacheInfo;
@@ -9,6 +11,11 @@ import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.down.utils.Utils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.ConnectException;
 import java.net.ProtocolException;
 import java.net.SocketException;
@@ -18,156 +25,251 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpRetryStrategyHandler {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "HttpRetryStrategyHandler";
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
+    public ConcurrentHashMap<Integer, String> mDownDetail;
     public boolean mHostIsMatch;
     public HttpDNSCacheInfo mHttpDNSCacheInfo;
     public List<OnFetchDataResultListener> mOnFetchDataRequestListener;
     public Exception mRetryException;
     public List<RetryRequestInfo> mRetryRequestInfoList;
+    public int mRetryType;
     public AbstractTask mtask;
-    public boolean requestRetryStrategyData = false;
-    public ConcurrentHashMap<Integer, String> mDownDetail = new ConcurrentHashMap<>();
-    public int mRetryType = 0;
+    public boolean requestRetryStrategyData;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnFetchDataResultListener {
         void onResult(boolean z);
     }
 
     public HttpRetryStrategyHandler(Context context, AbstractTask abstractTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, abstractTask};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mtask = null;
+        this.requestRetryStrategyData = false;
+        this.mDownDetail = new ConcurrentHashMap<>();
+        this.mRetryType = 0;
         this.mContext = context;
         this.mtask = abstractTask;
         this.mHostIsMatch = URLRegUtils.matchRetryHostReg(abstractTask.mUri);
     }
 
     public boolean HttpDNSCacheAvailable() {
+        InterceptResult invokeV;
         HttpDNSCacheInfo httpDNSCacheInfo;
-        return this.mHostIsMatch && (httpDNSCacheInfo = this.mHttpDNSCacheInfo) != null && httpDNSCacheInfo.isRetryStrategyCacheAvailable(this.mContext) && continueRetryStrategy(0);
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHostIsMatch && (httpDNSCacheInfo = this.mHttpDNSCacheInfo) != null && httpDNSCacheInfo.isRetryStrategyCacheAvailable(this.mContext) && continueRetryStrategy(0) : invokeV.booleanValue;
     }
 
     @SuppressLint({"LongLogTag"})
     public void appendDownDetail(int i2, String str) {
-        if (this.mDownDetail.containsKey(Integer.valueOf(i2))) {
-            ConcurrentHashMap<Integer, String> concurrentHashMap = this.mDownDetail;
-            Integer valueOf = Integer.valueOf(i2);
-            concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i2)) + str);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            if (this.mDownDetail.containsKey(Integer.valueOf(i2))) {
+                ConcurrentHashMap<Integer, String> concurrentHashMap = this.mDownDetail;
+                Integer valueOf = Integer.valueOf(i2);
+                concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i2)) + str);
+                return;
+            }
+            this.mDownDetail.put(Integer.valueOf(i2), str);
         }
-        this.mDownDetail.put(Integer.valueOf(i2), str);
     }
 
     public boolean continueRetryStrategy(int i2) {
-        return !Utils.isEmpty(this.mRetryRequestInfoList) && i2 < this.mRetryRequestInfoList.size();
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? !Utils.isEmpty(this.mRetryRequestInfoList) && i2 < this.mRetryRequestInfoList.size() : invokeI.booleanValue;
     }
 
     public ConcurrentHashMap<Integer, String> getDownDetail() {
-        return this.mDownDetail;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDownDetail : (ConcurrentHashMap) invokeV.objValue;
     }
 
     public long getDownFlowCostTime() {
-        HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
-        if (httpDNSCacheInfo != null) {
-            return httpDNSCacheInfo.mDownFlowCostTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+            if (httpDNSCacheInfo != null) {
+                return httpDNSCacheInfo.mDownFlowCostTime;
+            }
+            return -1L;
         }
-        return -1L;
+        return invokeV.longValue;
     }
 
     public int getDownFlowMode() {
-        HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
-        if (httpDNSCacheInfo != null) {
-            return httpDNSCacheInfo.mMode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+            if (httpDNSCacheInfo != null) {
+                return httpDNSCacheInfo.mMode;
+            }
+            return -1;
         }
-        return -1;
+        return invokeV.intValue;
     }
 
     public HttpDNSCacheInfo getHttpDNSCacheInfo() {
-        return this.mHttpDNSCacheInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mHttpDNSCacheInfo : (HttpDNSCacheInfo) invokeV.objValue;
     }
 
     public String getRequestId() {
-        HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
-        return httpDNSCacheInfo != null ? httpDNSCacheInfo.mRequestId : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+            return httpDNSCacheInfo != null ? httpDNSCacheInfo.mRequestId : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getRetryExceptionName() {
-        Exception exc = this.mRetryException;
-        return exc != null ? exc.getClass().getName() : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Exception exc = this.mRetryException;
+            return exc != null ? exc.getClass().getName() : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public List<RetryRequestInfo> getRetryRequestInfoList() {
-        return this.mRetryRequestInfoList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mRetryRequestInfoList : (List) invokeV.objValue;
     }
 
     public int getRetryType() {
-        return this.mRetryType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mRetryType : invokeV.intValue;
     }
 
     public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i2) {
-        return TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i2));
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), exc, Integer.valueOf(i2)})) == null) ? TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i2)) : invokeCommon.booleanValue;
     }
 
     @SuppressLint({"LongLogTag"})
-    public void retryStrategy(final Exception exc, OnFetchDataResultListener onFetchDataResultListener) {
-        if (HttpDNSCacheAvailable()) {
-            onFetchDataResultListener.onResult(true);
-            return;
-        }
-        if (!this.requestRetryStrategyData) {
-            this.requestRetryStrategyData = true;
-            ArrayList arrayList = new ArrayList();
-            this.mOnFetchDataRequestListener = arrayList;
-            arrayList.add(onFetchDataResultListener);
-            HttpRetryStrategyDataParse httpRetryStrategyDataParse = new HttpRetryStrategyDataParse();
-            AbstractTask abstractTask = this.mtask;
-            httpRetryStrategyDataParse.onFetchRetryDataRequest(abstractTask.mContext, abstractTask.mUri, new HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener() { // from class: com.baidu.down.retry.HttpRetryStrategyHandler.1
-                @Override // com.baidu.down.retry.HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener
-                public void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i2) {
-                    HttpRetryStrategyHandler.this.requestRetryStrategyData = false;
-                    if (z) {
-                        HttpRetryStrategyHandler.this.mHttpDNSCacheInfo = httpDNSCacheInfo;
-                        HttpRetryStrategyHandler httpRetryStrategyHandler = HttpRetryStrategyHandler.this;
-                        httpRetryStrategyHandler.mRetryRequestInfoList = httpRetryStrategyHandler.mHttpDNSCacheInfo.getSequenceRetryRequest(HttpRetryStrategyHandler.this.mtask.mUri, exc);
-                    }
-                    if (Utils.isEmpty(HttpRetryStrategyHandler.this.mRetryRequestInfoList)) {
-                        z = false;
-                    }
-                    if (z) {
-                        HttpRetryStrategyHandler.this.mRetryType = 1;
-                    } else {
-                        HttpRetryStrategyHandler.this.mRetryType = i2;
-                    }
-                    synchronized (HttpRetryStrategyHandler.this.mOnFetchDataRequestListener) {
-                        for (int i3 = 0; i3 < HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.size(); i3++) {
-                            ((OnFetchDataResultListener) HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.get(i3)).onResult(z);
+    public void retryStrategy(Exception exc, OnFetchDataResultListener onFetchDataResultListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, exc, onFetchDataResultListener) == null) {
+            if (HttpDNSCacheAvailable()) {
+                onFetchDataResultListener.onResult(true);
+                return;
+            }
+            if (!this.requestRetryStrategyData) {
+                this.requestRetryStrategyData = true;
+                ArrayList arrayList = new ArrayList();
+                this.mOnFetchDataRequestListener = arrayList;
+                arrayList.add(onFetchDataResultListener);
+                HttpRetryStrategyDataParse httpRetryStrategyDataParse = new HttpRetryStrategyDataParse();
+                AbstractTask abstractTask = this.mtask;
+                httpRetryStrategyDataParse.onFetchRetryDataRequest(abstractTask.mContext, abstractTask.mUri, new HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener(this, exc) { // from class: com.baidu.down.retry.HttpRetryStrategyHandler.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ HttpRetryStrategyHandler this$0;
+                    public final /* synthetic */ Exception val$exception;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, exc};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
                         }
-                        HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.clear();
+                        this.this$0 = this;
+                        this.val$exception = exc;
                     }
-                }
-            });
-        } else {
-            this.mOnFetchDataRequestListener.add(onFetchDataResultListener);
-        }
-        try {
-            this.mtask.wait();
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
+
+                    @Override // com.baidu.down.retry.HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener
+                    public void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), httpDNSCacheInfo, Integer.valueOf(i2)}) == null) {
+                            this.this$0.requestRetryStrategyData = false;
+                            if (z) {
+                                this.this$0.mHttpDNSCacheInfo = httpDNSCacheInfo;
+                                HttpRetryStrategyHandler httpRetryStrategyHandler = this.this$0;
+                                httpRetryStrategyHandler.mRetryRequestInfoList = httpRetryStrategyHandler.mHttpDNSCacheInfo.getSequenceRetryRequest(this.this$0.mtask.mUri, this.val$exception);
+                            }
+                            if (Utils.isEmpty(this.this$0.mRetryRequestInfoList)) {
+                                z = false;
+                            }
+                            if (z) {
+                                this.this$0.mRetryType = 1;
+                            } else {
+                                this.this$0.mRetryType = i2;
+                            }
+                            synchronized (this.this$0.mOnFetchDataRequestListener) {
+                                for (int i3 = 0; i3 < this.this$0.mOnFetchDataRequestListener.size(); i3++) {
+                                    ((OnFetchDataResultListener) this.this$0.mOnFetchDataRequestListener.get(i3)).onResult(z);
+                                }
+                                this.this$0.mOnFetchDataRequestListener.clear();
+                            }
+                        }
+                    }
+                });
+            } else {
+                this.mOnFetchDataRequestListener.add(onFetchDataResultListener);
+            }
+            try {
+                this.mtask.wait();
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
-        this.mHttpDNSCacheInfo = httpDNSCacheInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, httpDNSCacheInfo) == null) {
+            this.mHttpDNSCacheInfo = httpDNSCacheInfo;
+        }
     }
 
     public void setRetryException(Exception exc) {
-        this.mRetryException = exc;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, exc) == null) {
+            this.mRetryException = exc;
+        }
     }
 
     public void setRetryType(int i2) {
-        this.mRetryType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.mRetryType = i2;
+        }
     }
 }

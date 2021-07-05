@@ -1,19 +1,27 @@
 package com.alipay.security.mobile.module.b;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public final class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static synchronized void a(Context context, String str, String str2, String str3) {
-        synchronized (d.class) {
-            if (!com.alipay.security.mobile.module.a.a.a(str)) {
-                if (!com.alipay.security.mobile.module.a.a.a(str2) && context != null) {
-                    try {
-                        String a2 = com.alipay.security.mobile.module.a.a.c.a(com.alipay.security.mobile.module.a.a.c.a(), str3);
-                        HashMap hashMap = new HashMap();
-                        hashMap.put(str2, a2);
-                        e.a(context, str, hashMap);
-                    } catch (Throwable unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, str, str2, str3) == null) {
+            synchronized (d.class) {
+                if (!com.alipay.security.mobile.module.a.a.a(str)) {
+                    if (!com.alipay.security.mobile.module.a.a.a(str2) && context != null) {
+                        try {
+                            String a2 = com.alipay.security.mobile.module.a.a.c.a(com.alipay.security.mobile.module.a.a.c.a(), str3);
+                            HashMap hashMap = new HashMap();
+                            hashMap.put(str2, a2);
+                            e.a(context, str, hashMap);
+                        } catch (Throwable unused) {
+                        }
                     }
                 }
             }

@@ -2,15 +2,42 @@ package com.baidu.searchbox.anr.ioc;
 
 import com.baidu.searchbox.anr.ubc.UbcANRRegister;
 import com.baidu.searchbox.anr.upload.ANRBOSRegister;
-import d.a.f0.a.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.j0.a.a;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IANRRegister_ANRRuntime_ListProvider implements a {
-    @Override // d.a.f0.a.a
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public IANRRegister_ANRRuntime_ListProvider() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // d.a.j0.a.a
     public Object get() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new UbcANRRegister());
-        arrayList.add(new ANRBOSRegister());
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new UbcANRRegister());
+            arrayList.add(new ANRBOSRegister());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

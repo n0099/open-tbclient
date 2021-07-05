@@ -2,27 +2,57 @@ package com.baidu.searchbox.pms.utils;
 
 import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DebugUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public DebugUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static void log(Object... objArr) {
-        log(false, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, objArr) == null) {
+            log(false, objArr);
+        }
     }
 
     public static void logE(Object... objArr) {
-        log(true, objArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, objArr) == null) {
+            log(true, objArr);
+        }
     }
 
     public static void printStackTrace(Throwable th) {
-        if (AppConfig.isDebug()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65540, null, th) == null) && AppConfig.isDebug()) {
             th.printStackTrace();
         }
     }
 
     public static void throwExceptionForDebug(String str) {
-        if (AppConfig.isDebug()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && AppConfig.isDebug()) {
             throw new RuntimeException(str);
         }
     }
@@ -31,7 +61,8 @@ public class DebugUtils {
         String str;
         String substring;
         boolean z2;
-        if (AppConfig.isDebug()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65537, null, z, objArr) == null) && AppConfig.isDebug()) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             if (stackTrace.length < 4) {
                 substring = DebugUtils.class.getSimpleName();
@@ -79,7 +110,8 @@ public class DebugUtils {
     }
 
     public static void throwExceptionForDebug(Throwable th) {
-        if (AppConfig.isDebug()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) && AppConfig.isDebug()) {
             throw new RuntimeException(th);
         }
     }

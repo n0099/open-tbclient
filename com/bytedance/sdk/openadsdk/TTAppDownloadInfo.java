@@ -1,70 +1,124 @@
 package com.bytedance.sdk.openadsdk;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class TTAppDownloadInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f27184a;
+    public long f28942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27185b;
+    public int f28943b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f27186c;
+    public long f28944c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f27187d;
+    public long f28945d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27188e;
+    public String f28946e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27189f;
+    public String f28947f;
+
+    public TTAppDownloadInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public String getAppName() {
-        return this.f27189f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28947f : (String) invokeV.objValue;
     }
 
     public long getCurrBytes() {
-        return this.f27187d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28945d : invokeV.longValue;
     }
 
     public String getFileName() {
-        return this.f27188e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28946e : (String) invokeV.objValue;
     }
 
     public long getId() {
-        return this.f27184a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28942a : invokeV.longValue;
     }
 
     public int getInternalStatusKey() {
-        return this.f27185b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28943b : invokeV.intValue;
     }
 
     public long getTotalBytes() {
-        return this.f27186c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28944c : invokeV.longValue;
     }
 
     public void setAppName(String str) {
-        this.f27189f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f28947f = str;
+        }
     }
 
     public void setCurrBytes(long j) {
-        this.f27187d = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.f28945d = j;
+        }
     }
 
     public void setFileName(String str) {
-        this.f27188e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f28946e = str;
+        }
     }
 
     public void setId(long j) {
-        this.f27184a = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.f28942a = j;
+        }
     }
 
     public void setInternalStatusKey(int i2) {
-        this.f27185b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f28943b = i2;
+        }
     }
 
     public void setTotalBytes(long j) {
-        this.f27186c = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.f28944c = j;
+        }
     }
 }

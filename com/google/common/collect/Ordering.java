@@ -1,12 +1,22 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.Config;
-import d.g.c.a.g;
-import d.g.c.a.n;
-import d.g.c.c.f0;
-import d.g.c.c.m;
-import d.g.c.c.n0;
-import d.g.c.c.z0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.a.g;
+import d.f.d.a.n;
+import d.f.d.c.l1;
+import d.f.d.c.m;
+import d.f.d.c.o0;
+import d.f.d.c.y0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,297 +27,477 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class Ordering<T> implements Comparator<T> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int LEFT_IS_GREATER = 1;
     public static final int RIGHT_IS_GREATER = -1;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class IncomparableValueException extends ClassCastException {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Object value;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public IncomparableValueException(Object obj) {
             super("Cannot compare value: " + obj);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.value = obj;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Ordering<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f31398e = new AtomicInteger(0);
+        public final AtomicInteger f33290e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ConcurrentMap<Object, Integer> f31399f;
+        public final ConcurrentMap<Object, Integer> f33291f;
 
         public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33290e = new AtomicInteger(0);
             MapMaker mapMaker = new MapMaker();
-            n0.i(mapMaker);
-            this.f31399f = mapMaker.i();
+            y0.i(mapMaker);
+            this.f33291f = mapMaker.i();
         }
 
         public final Integer a(Object obj) {
-            Integer num = this.f31399f.get(obj);
-            if (num == null) {
-                Integer valueOf = Integer.valueOf(this.f31398e.getAndIncrement());
-                Integer putIfAbsent = this.f31399f.putIfAbsent(obj, valueOf);
-                return putIfAbsent != null ? putIfAbsent : valueOf;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                Integer num = this.f33291f.get(obj);
+                if (num == null) {
+                    Integer valueOf = Integer.valueOf(this.f33290e.getAndIncrement());
+                    Integer putIfAbsent = this.f33291f.putIfAbsent(obj, valueOf);
+                    return putIfAbsent != null ? putIfAbsent : valueOf;
+                }
+                return num;
             }
-            return num;
+            return (Integer) invokeL.objValue;
         }
 
         public int b(Object obj) {
-            return System.identityHashCode(obj);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? System.identityHashCode(obj) : invokeL.intValue;
         }
 
         @Override // com.google.common.collect.Ordering, java.util.Comparator
         public int compare(Object obj, Object obj2) {
-            if (obj == obj2) {
-                return 0;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, obj2)) == null) {
+                if (obj == obj2) {
+                    return 0;
+                }
+                if (obj == null) {
+                    return -1;
+                }
+                if (obj2 == null) {
+                    return 1;
+                }
+                int b2 = b(obj);
+                int b3 = b(obj2);
+                if (b2 != b3) {
+                    return b2 < b3 ? -1 : 1;
+                }
+                int compareTo = a(obj).compareTo(a(obj2));
+                if (compareTo != 0) {
+                    return compareTo;
+                }
+                throw new AssertionError();
             }
-            if (obj == null) {
-                return -1;
-            }
-            if (obj2 == null) {
-                return 1;
-            }
-            int b2 = b(obj);
-            int b3 = b(obj2);
-            if (b2 != b3) {
-                return b2 < b3 ? -1 : 1;
-            }
-            int compareTo = a(obj).compareTo(a(obj2));
-            if (compareTo != 0) {
-                return compareTo;
-            }
-            throw new AssertionError();
+            return invokeLL.intValue;
         }
 
         public String toString() {
-            return "Ordering.arbitrary()";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "Ordering.arbitrary()" : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Ordering<Object> f31400a = new a();
+        public static final Ordering<Object> f33292a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1019805948, "Lcom/google/common/collect/Ordering$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1019805948, "Lcom/google/common/collect/Ordering$b;");
+                    return;
+                }
+            }
+            f33292a = new a();
+        }
+    }
+
+    public Ordering() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public static Ordering<Object> allEqual() {
-        return AllEqualOrdering.INSTANCE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AllEqualOrdering.INSTANCE : (Ordering) invokeV.objValue;
     }
 
     public static Ordering<Object> arbitrary() {
-        return b.f31400a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f33292a : (Ordering) invokeV.objValue;
     }
 
     public static <T> Ordering<T> explicit(List<T> list) {
-        return new ExplicitOrdering(list);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) ? new ExplicitOrdering(list) : (Ordering) invokeL.objValue;
     }
 
     public static <T> Ordering<T> from(Comparator<T> comparator) {
-        return comparator instanceof Ordering ? (Ordering) comparator : new ComparatorOrdering(comparator);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, comparator)) == null) ? comparator instanceof Ordering ? (Ordering) comparator : new ComparatorOrdering(comparator) : (Ordering) invokeL.objValue;
     }
 
     public static <C extends Comparable> Ordering<C> natural() {
-        return NaturalOrdering.INSTANCE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? NaturalOrdering.INSTANCE : (Ordering) invokeV.objValue;
     }
 
     public static Ordering<Object> usingToString() {
-        return UsingToStringOrdering.INSTANCE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? UsingToStringOrdering.INSTANCE : (Ordering) invokeV.objValue;
     }
 
     @Deprecated
     public int binarySearch(List<? extends T> list, T t) {
-        return Collections.binarySearch(list, t, this);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, t)) == null) ? Collections.binarySearch(list, t, this) : invokeLL.intValue;
     }
 
     @Override // java.util.Comparator
     public abstract int compare(T t, T t2);
 
     public <U extends T> Ordering<U> compound(Comparator<? super U> comparator) {
-        n.p(comparator);
-        return new CompoundOrdering(this, comparator);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, comparator)) == null) {
+            n.p(comparator);
+            return new CompoundOrdering(this, comparator);
+        }
+        return (Ordering) invokeL.objValue;
     }
 
     public <E extends T> List<E> greatestOf(Iterable<E> iterable, int i2) {
-        return reverse().leastOf(iterable, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, iterable, i2)) == null) ? reverse().leastOf(iterable, i2) : (List) invokeLI.objValue;
     }
 
     public <E extends T> ImmutableList<E> immutableSortedCopy(Iterable<E> iterable) {
-        return ImmutableList.sortedCopyOf(this, iterable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iterable)) == null) ? ImmutableList.sortedCopyOf(this, iterable) : (ImmutableList) invokeL.objValue;
     }
 
     public boolean isOrdered(Iterable<? extends T> iterable) {
-        Iterator<? extends T> it = iterable.iterator();
-        if (it.hasNext()) {
-            T next = it.next();
-            while (it.hasNext()) {
-                T next2 = it.next();
-                if (compare(next, next2) > 0) {
-                    return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iterable)) == null) {
+            Iterator<? extends T> it = iterable.iterator();
+            if (it.hasNext()) {
+                T next = it.next();
+                while (it.hasNext()) {
+                    T next2 = it.next();
+                    if (compare(next, next2) > 0) {
+                        return false;
+                    }
+                    next = next2;
                 }
-                next = next2;
+                return true;
             }
             return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     public boolean isStrictlyOrdered(Iterable<? extends T> iterable) {
-        Iterator<? extends T> it = iterable.iterator();
-        if (it.hasNext()) {
-            T next = it.next();
-            while (it.hasNext()) {
-                T next2 = it.next();
-                if (compare(next, next2) >= 0) {
-                    return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iterable)) == null) {
+            Iterator<? extends T> it = iterable.iterator();
+            if (it.hasNext()) {
+                T next = it.next();
+                while (it.hasNext()) {
+                    T next2 = it.next();
+                    if (compare(next, next2) >= 0) {
+                        return false;
+                    }
+                    next = next2;
                 }
-                next = next2;
+                return true;
             }
             return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     public <E extends T> List<E> leastOf(Iterable<E> iterable, int i2) {
-        if (iterable instanceof Collection) {
-            Collection collection = (Collection) iterable;
-            if (collection.size() <= i2 * 2) {
-                Object[] array = collection.toArray();
-                Arrays.sort(array, this);
-                if (array.length > i2) {
-                    array = Arrays.copyOf(array, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, iterable, i2)) == null) {
+            if (iterable instanceof Collection) {
+                Collection collection = (Collection) iterable;
+                if (collection.size() <= i2 * 2) {
+                    Object[] array = collection.toArray();
+                    Arrays.sort(array, this);
+                    if (array.length > i2) {
+                        array = Arrays.copyOf(array, i2);
+                    }
+                    return Collections.unmodifiableList(Arrays.asList(array));
                 }
-                return Collections.unmodifiableList(Arrays.asList(array));
             }
+            return leastOf(iterable.iterator(), i2);
         }
-        return leastOf(iterable.iterator(), i2);
+        return (List) invokeLI.objValue;
     }
 
     public <S extends T> Ordering<Iterable<S>> lexicographical() {
-        return new LexicographicalOrdering(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new LexicographicalOrdering(this) : (Ordering) invokeV.objValue;
     }
 
     public <E extends T> E max(Iterator<E> it) {
-        E next = it.next();
-        while (it.hasNext()) {
-            next = (E) max(next, it.next());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, it)) == null) {
+            E next = it.next();
+            while (it.hasNext()) {
+                next = (E) max(next, it.next());
+            }
+            return next;
         }
-        return next;
+        return (E) invokeL.objValue;
     }
 
     public <E extends T> E min(Iterator<E> it) {
-        E next = it.next();
-        while (it.hasNext()) {
-            next = (E) min(next, it.next());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, it)) == null) {
+            E next = it.next();
+            while (it.hasNext()) {
+                next = (E) min(next, it.next());
+            }
+            return next;
         }
-        return next;
+        return (E) invokeL.objValue;
     }
 
     public <S extends T> Ordering<S> nullsFirst() {
-        return new NullsFirstOrdering(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? new NullsFirstOrdering(this) : (Ordering) invokeV.objValue;
     }
 
     public <S extends T> Ordering<S> nullsLast() {
-        return new NullsLastOrdering(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? new NullsLastOrdering(this) : (Ordering) invokeV.objValue;
     }
 
     public <T2 extends T> Ordering<Map.Entry<T2, ?>> onKeys() {
-        return (Ordering<Map.Entry<T2, ?>>) onResultOf(Maps.l());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (Ordering<Map.Entry<T2, ?>>) onResultOf(Maps.n()) : (Ordering) invokeV.objValue;
     }
 
     public <F> Ordering<F> onResultOf(g<F, ? extends T> gVar) {
-        return new ByFunctionOrdering(gVar, this);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, gVar)) == null) ? new ByFunctionOrdering(gVar, this) : (Ordering) invokeL.objValue;
     }
 
     public <S extends T> Ordering<S> reverse() {
-        return new ReverseOrdering(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? new ReverseOrdering(this) : (Ordering) invokeV.objValue;
     }
 
     public <E extends T> List<E> sortedCopy(Iterable<E> iterable) {
-        Object[] k = f0.k(iterable);
-        Arrays.sort(k, this);
-        return Lists.j(Arrays.asList(k));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, iterable)) == null) {
+            Object[] o = o0.o(iterable);
+            Arrays.sort(o, this);
+            return Lists.j(Arrays.asList(o));
+        }
+        return (List) invokeL.objValue;
     }
 
     public static <T> Ordering<T> compound(Iterable<? extends Comparator<? super T>> iterable) {
-        return new CompoundOrdering(iterable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) ? new CompoundOrdering(iterable) : (Ordering) invokeL.objValue;
     }
 
     public static <T> Ordering<T> explicit(T t, T... tArr) {
-        return explicit(Lists.a(t, tArr));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, t, tArr)) == null) ? explicit(Lists.a(t, tArr)) : (Ordering) invokeLL.objValue;
     }
 
     @Deprecated
     public static <T> Ordering<T> from(Ordering<T> ordering) {
-        n.p(ordering);
-        return ordering;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, ordering)) == null) {
+            n.p(ordering);
+            return ordering;
+        }
+        return (Ordering) invokeL.objValue;
     }
 
     public <E extends T> List<E> greatestOf(Iterator<E> it, int i2) {
-        return reverse().leastOf(it, i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, it, i2)) == null) ? reverse().leastOf(it, i2) : (List) invokeLI.objValue;
     }
 
     public <E extends T> E max(Iterable<E> iterable) {
-        return (E) max(iterable.iterator());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, iterable)) == null) ? (E) max(iterable.iterator()) : (E) invokeL.objValue;
     }
 
     public <E extends T> E min(Iterable<E> iterable) {
-        return (E) min(iterable.iterator());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, iterable)) == null) ? (E) min(iterable.iterator()) : (E) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: E extends T */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: E extends T */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: E extends T */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: E extends T */
     /* JADX WARN: Multi-variable type inference failed */
     public <E extends T> E max(E e2, E e3) {
-        return compare(e2, e3) >= 0 ? e2 : e3;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, e2, e3)) == null) ? compare(e2, e3) >= 0 ? e2 : e3 : (E) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: E extends T */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: E extends T */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: E extends T */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: E extends T */
     /* JADX WARN: Multi-variable type inference failed */
     public <E extends T> E min(E e2, E e3) {
-        return compare(e2, e3) <= 0 ? e2 : e3;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, e2, e3)) == null) ? compare(e2, e3) <= 0 ? e2 : e3 : (E) invokeLL.objValue;
     }
 
     public <E extends T> E max(E e2, E e3, E e4, E... eArr) {
-        E e5 = (E) max(max(e2, e3), e4);
-        for (E e6 : eArr) {
-            e5 = (E) max(e5, e6);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, e2, e3, e4, eArr)) == null) {
+            E e5 = (E) max(max(e2, e3), e4);
+            for (E e6 : eArr) {
+                e5 = (E) max(e5, e6);
+            }
+            return e5;
         }
-        return e5;
+        return (E) invokeLLLL.objValue;
     }
 
     public <E extends T> E min(E e2, E e3, E e4, E... eArr) {
-        E e5 = (E) min(min(e2, e3), e4);
-        for (E e6 : eArr) {
-            e5 = (E) min(e5, e6);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048593, this, e2, e3, e4, eArr)) == null) {
+            E e5 = (E) min(min(e2, e3), e4);
+            for (E e6 : eArr) {
+                e5 = (E) min(e5, e6);
+            }
+            return e5;
         }
-        return e5;
+        return (E) invokeLLLL.objValue;
     }
 
     public <E extends T> List<E> leastOf(Iterator<E> it, int i2) {
-        n.p(it);
-        m.b(i2, Config.APP_KEY);
-        if (i2 == 0 || !it.hasNext()) {
-            return Collections.emptyList();
-        }
-        if (i2 >= 1073741823) {
-            ArrayList k = Lists.k(it);
-            Collections.sort(k, this);
-            if (k.size() > i2) {
-                k.subList(i2, k.size()).clear();
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, it, i2)) == null) {
+            n.p(it);
+            m.b(i2, Config.APP_KEY);
+            if (i2 == 0 || !it.hasNext()) {
+                return Collections.emptyList();
             }
-            k.trimToSize();
-            return Collections.unmodifiableList(k);
+            if (i2 >= 1073741823) {
+                ArrayList k = Lists.k(it);
+                Collections.sort(k, this);
+                if (k.size() > i2) {
+                    k.subList(i2, k.size()).clear();
+                }
+                k.trimToSize();
+                return Collections.unmodifiableList(k);
+            }
+            l1 a2 = l1.a(i2, this);
+            a2.c(it);
+            return a2.f();
         }
-        z0 a2 = z0.a(i2, this);
-        a2.c(it);
-        return a2.f();
+        return (List) invokeLI.objValue;
     }
 }

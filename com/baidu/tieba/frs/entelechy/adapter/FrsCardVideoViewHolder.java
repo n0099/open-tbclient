@@ -1,85 +1,148 @@
 package com.baidu.tieba.frs.entelechy.adapter;
 
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import d.a.o0.k2.e;
-import d.a.o0.r0.n1.g.a;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.a0.b;
+import d.a.s0.n2.e;
+import d.a.s0.u0.m1.g.a;
+/* loaded from: classes5.dex */
 public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> implements e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsCardVideoViewHolder(T t) {
         super(t);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((b) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public boolean C() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.holder.CardViewHolder
     /* renamed from: c */
     public T b() {
-        return (T) this.f14424e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (T) this.f14511e : (T) invokeV.objValue;
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public int getCurrentPosition() {
-        T t = this.f14424e;
-        if (t == 0) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            T t = this.f14511e;
+            if (t == 0) {
+                return 0;
+            }
+            return ((a) t).getCurrentPosition();
         }
-        return ((a) t).getCurrentPosition();
+        return invokeV.intValue;
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public String getPlayUrl() {
-        T t = this.f14424e;
-        if (t == 0) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            T t = this.f14511e;
+            if (t == 0) {
+                return null;
+            }
+            return ((a) t).L();
         }
-        return ((a) t).M();
+        return (String) invokeV.objValue;
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public View getVideoContainer() {
-        T t = this.f14424e;
-        if (t == 0) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            T t = this.f14511e;
+            if (t == 0) {
+                return null;
+            }
+            return ((a) t).M();
         }
-        return ((a) t).N();
+        return (View) invokeV.objValue;
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public boolean isPlayStarted() {
-        T t = this.f14424e;
-        if (t == 0) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            T t = this.f14511e;
+            if (t == 0) {
+                return false;
+            }
+            return ((a) t).W();
         }
-        return ((a) t).X();
+        return invokeV.booleanValue;
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public boolean isPlaying() {
-        T t = this.f14424e;
-        if (t == 0) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            T t = this.f14511e;
+            if (t == 0) {
+                return false;
+            }
+            return ((a) t).isPlaying();
         }
-        return ((a) t).isPlaying();
+        return invokeV.booleanValue;
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public void startPlay() {
-        T t = this.f14424e;
-        if (t != 0) {
-            ((a) t).startPlay();
+        T t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.f14511e) == 0) {
+            return;
         }
+        ((a) t).startPlay();
     }
 
-    @Override // d.a.o0.k2.e
+    @Override // d.a.s0.n2.e
     public void stopPlay() {
-        T t = this.f14424e;
-        if (t != 0) {
-            ((a) t).stopPlay();
+        T t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.f14511e) == 0) {
+            return;
         }
+        ((a) t).stopPlay();
     }
 }

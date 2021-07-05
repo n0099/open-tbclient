@@ -6,28 +6,49 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17771a;
+    public int f17897a;
 
     public DeviderLineDecoration() {
-        if (this.f17771a <= 0) {
-            this.f17771a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (this.f17897a <= 0) {
+            this.f17897a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        int viewLayoutPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
-        if (recyclerView instanceof BdRecyclerView) {
-            int headerViewsCount = ((BdRecyclerView) recyclerView).getHeaderViewsCount();
-            if (viewLayoutPosition >= 0 && viewLayoutPosition < headerViewsCount - 1) {
-                rect.set(0, 0, 0, 0);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
+            int viewLayoutPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
+            if (recyclerView instanceof BdRecyclerView) {
+                int headerViewsCount = ((BdRecyclerView) recyclerView).getHeaderViewsCount();
+                if (viewLayoutPosition >= 0 && viewLayoutPosition < headerViewsCount - 1) {
+                    rect.set(0, 0, 0, 0);
+                    return;
+                }
             }
+            rect.set(0, 0, 0, this.f17897a);
         }
-        rect.set(0, 0, 0, this.f17771a);
     }
 }

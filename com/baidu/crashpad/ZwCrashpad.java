@@ -6,9 +6,19 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+import org.aspectj.runtime.reflect.SignatureImpl;
+/* loaded from: classes3.dex */
 public class ZwCrashpad {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ZwCrashpad CRASHPAD";
     public static String mAppPackageName = "0";
     public static String mAppVersion = "0";
@@ -35,46 +45,84 @@ public class ZwCrashpad {
     public static String mUploadCrashLogFailedEncrypt = "true";
     public static String mWebviewNumber = "-1";
     public static String mZeusVersion = "0";
-    public static final Object sCyberVersionLock = new Object();
+    public static final Object sCyberVersionLock;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(694147421, "Lcom/baidu/crashpad/ZwCrashpad;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(694147421, "Lcom/baidu/crashpad/ZwCrashpad;");
+                return;
+            }
+        }
+        sCyberVersionLock = new Object();
+    }
+
+    public ZwCrashpad() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static synchronized void RecordUrl(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && mNativeIsInitialized) {
-                nativeRecordUrl(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && mNativeIsInitialized) {
+                    nativeRecordUrl(str);
+                }
             }
         }
     }
 
     public static void clearCrashKey(String str) {
-        if (mIsEnabled && mNativeIsInitialized && str != null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && mIsEnabled && mNativeIsInitialized && str != null) {
             nativeClearCrashKey(str);
         }
     }
 
     public static void crashIntentionally(int i2) {
-        if (i2 == 1) {
-            if (mNativeIsInitialized) {
-                nativeCrashIntentionally(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65540, null, i2) == null) {
+            if (i2 == 1) {
+                if (mNativeIsInitialized) {
+                    nativeCrashIntentionally(i2);
+                }
+            } else if (i2 == 2) {
+                setCrashKeyValue("JavaExceptionInfo", "only for test add JavaExceptionInfo for JNI crash");
             }
-        } else if (i2 == 2) {
-            setCrashKeyValue("JavaExceptionInfo", "only for test add JavaExceptionInfo for JNI crash");
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(19:6|(3:78|79|(22:83|(1:85)|(1:76)(1:15)|16|(1:22)|23|(1:75)|29|30|31|33|34|35|(1:173)(1:39)|40|(1:42)|43|187|50|(1:57)|54|55))|8|(1:10)(1:77)|(0)|76|16|(3:18|20|22)|23|(1:25)|75|29|30|31|33|34|35|(1:37)|173) */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0123, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(19:8|(3:80|81|(22:85|(1:87)|(1:78)(1:17)|18|(1:24)|25|(1:77)|31|32|33|35|36|37|(1:177)(1:41)|42|(1:44)|45|18b|52|(1:59)|56|57))|10|(1:12)(1:79)|(0)|78|18|(3:20|22|24)|25|(1:27)|77|31|32|33|35|36|37|(1:39)|177) */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x0127, code lost:
         r2 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0124, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0128, code lost:
         android.util.Log.e(com.baidu.crashpad.ZwCrashpad.TAG, "", r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x0136, code lost:
         r2 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0133, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0137, code lost:
         android.util.Log.e(com.baidu.crashpad.ZwCrashpad.TAG, "", r2);
      */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0174 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x0178 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"UnsafeDynamicallyLoadedCode"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -83,7 +131,8 @@ public class ZwCrashpad {
         boolean exists;
         String str;
         File file;
-        if (!mIsEnabled || context == null || mIsInitialized) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, strArr) == null) || !mIsEnabled || context == null || mIsInitialized) {
             return;
         }
         String str2 = strArr[10];
@@ -207,28 +256,40 @@ public class ZwCrashpad {
     }
 
     public static synchronized String getEncryptKey() {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && mNativeIsInitialized) {
-                return nativeGetEncryptKey();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            synchronized (ZwCrashpad.class) {
+                return (mIsEnabled && mNativeIsInitialized) ? nativeGetEncryptKey() : "";
             }
-            return "";
         }
+        return (String) invokeV.objValue;
     }
 
     public static String[] getInfos() {
-        String[] newInfos = newInfos();
-        synchronized (ZwCrashpad.class) {
-            mNativeIsInitialized = true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String[] newInfos = newInfos();
+            synchronized (ZwCrashpad.class) {
+                mNativeIsInitialized = true;
+            }
+            return newInfos;
         }
-        return newInfos;
+        return (String[]) invokeV.objValue;
     }
 
     public static boolean isCyberVersionReady() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (sCyberVersionLock) {
-            z = mCyberVersionIsReady;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (sCyberVersionLock) {
+                z = mCyberVersionIsReady;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     public static native void nativeClearCrashKey(String str);
@@ -268,156 +329,203 @@ public class ZwCrashpad {
     public static native void nativeSetZeusVersion(String str);
 
     public static String[] newInfos() {
-        try {
-            return new String[]{mAppPackageName, mAppVersion, Integer.toString(mAppVersionCode), mZeusVersion, mCyberVersion, mLocation, mIMEI, Build.MODEL.replace(' ', '_').replace('-', '_'), Build.VERSION.RELEASE, mCPU, mCuid, mStatisticParam, mEmulator, mCallback, " ", " ", mChannel, mBaseBand, Build.DISPLAY, mProcessType, mWebviewNumber, mUploadCrashLogFailedEncrypt, mHandlerDir, String.valueOf(Build.VERSION.SDK_INT), Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128)), mDumpCopyDir};
-        } catch (Exception e2) {
-            Log.e(TAG, "newInfos error maybe BUILD get errors");
-            Log.e(TAG, "", e2);
-            return new String[0];
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            try {
+                return new String[]{mAppPackageName, mAppVersion, Integer.toString(mAppVersionCode), mZeusVersion, mCyberVersion, mLocation, mIMEI, Build.MODEL.replace(' ', '_').replace(SignatureImpl.SEP, '_'), Build.VERSION.RELEASE, mCPU, mCuid, mStatisticParam, mEmulator, mCallback, " ", " ", mChannel, mBaseBand, Build.DISPLAY, mProcessType, mWebviewNumber, mUploadCrashLogFailedEncrypt, mHandlerDir, String.valueOf(Build.VERSION.SDK_INT), Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128)), mDumpCopyDir};
+            } catch (Exception e2) {
+                Log.e(TAG, "newInfos error maybe BUILD get errors");
+                Log.e(TAG, "", e2);
+                return new String[0];
+            }
         }
+        return (String[]) invokeV.objValue;
     }
 
     public static synchronized void setCallback(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mCallback)) {
-                mCallback = str;
-                if (mNativeIsInitialized) {
-                    nativeSetCallback(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65564, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mCallback)) {
+                    mCallback = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetCallback(str);
+                    }
                 }
             }
         }
     }
 
     public static synchronized void setClientSoDir(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mClientDir)) {
-                mClientDir = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65565, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mClientDir)) {
+                    mClientDir = str;
+                }
             }
         }
     }
 
     public static void setCrashKeyValue(String str, String str2) {
-        if (mIsEnabled && mNativeIsInitialized && str != null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65566, null, str, str2) == null) && mIsEnabled && mNativeIsInitialized && str != null) {
             nativeSetCrashKeyValue(str, str2);
         }
     }
 
     public static synchronized void setCuid(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mCuid)) {
-                mCuid = str;
-                if (mNativeIsInitialized) {
-                    nativeSetCuid(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65567, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mCuid)) {
+                    mCuid = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetCuid(str);
+                    }
                 }
             }
         }
     }
 
     public static boolean setCyberVersion(String str) {
-        if (!mIsEnabled || str == null || str.equals("0")) {
-            return false;
-        }
-        synchronized (sCyberVersionLock) {
-            if (mCyberVersion != null && mCyberVersion.equals(str)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
+            if (!mIsEnabled || str == null || str.equals("0")) {
                 return false;
             }
-            mCyberVersion = str;
-            mCyberVersionIsReady = true;
-            if (mNativeIsInitialized) {
-                nativeSetCyberVersion(str);
+            synchronized (sCyberVersionLock) {
+                if (mCyberVersion != null && mCyberVersion.equals(str)) {
+                    return false;
+                }
+                mCyberVersion = str;
+                mCyberVersionIsReady = true;
+                if (mNativeIsInitialized) {
+                    nativeSetCyberVersion(str);
+                }
+                return true;
             }
-            return true;
         }
+        return invokeL.booleanValue;
     }
 
     public static synchronized void setDumpCopyDir(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mDumpCopyDir)) {
-                mDumpCopyDir = str;
-                if (mNativeIsInitialized) {
-                    nativeSetDumpCopyDir(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65569, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mDumpCopyDir)) {
+                    mDumpCopyDir = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetDumpCopyDir(str);
+                    }
                 }
             }
         }
     }
 
     public static synchronized void setEmulator(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mEmulator)) {
-                mEmulator = str;
-                if (mNativeIsInitialized) {
-                    nativeSetEmulator(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65570, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mEmulator)) {
+                    mEmulator = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetEmulator(str);
+                    }
                 }
             }
         }
     }
 
     public static void setEnabled(boolean z) {
-        mIsEnabled = z;
-        ZeusLogUploader.setEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65571, null, z) == null) {
+            mIsEnabled = z;
+            ZeusLogUploader.setEnabled(z);
+        }
     }
 
     public static synchronized void setHandlerSoDir(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mHandlerDir)) {
-                mHandlerDir = str;
-                if (mNativeIsInitialized) {
-                    nativeSetHandlerSoDir(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65572, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mHandlerDir)) {
+                    mHandlerDir = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetHandlerSoDir(str);
+                    }
                 }
             }
         }
     }
 
     public static synchronized void setProcessType(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mProcessType)) {
-                mProcessType = str;
-                if (mNativeIsInitialized) {
-                    nativeSetProcessType(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65573, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mProcessType)) {
+                    mProcessType = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetProcessType(str);
+                    }
                 }
             }
         }
     }
 
     public static synchronized void setStatisticParam(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mStatisticParam)) {
-                mStatisticParam = str;
-                if (mNativeIsInitialized) {
-                    nativeSetStatisticParam(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65574, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mStatisticParam)) {
+                    mStatisticParam = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetStatisticParam(str);
+                    }
                 }
             }
         }
     }
 
     public static synchronized void setUploadCrashLogFailedEncrypt(boolean z) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled) {
-                mUploadCrashLogFailedEncrypt = z ? "true" : "false";
-                if (mNativeIsInitialized) {
-                    nativeSetUploadCrashLogFailedEncrypt(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65575, null, z) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled) {
+                    mUploadCrashLogFailedEncrypt = z ? "true" : "false";
+                    if (mNativeIsInitialized) {
+                        nativeSetUploadCrashLogFailedEncrypt(z);
+                    }
                 }
             }
         }
     }
 
     public static synchronized void setWebviewNumber(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mWebviewNumber)) {
-                mWebviewNumber = str;
-                if (mNativeIsInitialized) {
-                    nativeSetWebviewNumber(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65576, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mWebviewNumber)) {
+                    mWebviewNumber = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetWebviewNumber(str);
+                    }
                 }
             }
         }
     }
 
     public static synchronized void setZeusVersion(String str) {
-        synchronized (ZwCrashpad.class) {
-            if (mIsEnabled && !TextUtils.equals(str, mZeusVersion)) {
-                mZeusVersion = str;
-                if (mNativeIsInitialized) {
-                    nativeSetZeusVersion(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65577, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mZeusVersion)) {
+                    mZeusVersion = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetZeusVersion(str);
+                    }
                 }
             }
         }

@@ -3,6 +3,14 @@ package com.baidu.turbonet.base;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.BaseChromiumApplication;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
@@ -12,98 +20,191 @@ import java.util.concurrent.ConcurrentHashMap;
 @JNINamespace
 /* loaded from: classes5.dex */
 public class ApplicationStatus {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Integer f22374b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Activity f22375c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static f f22376d;
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f22373a = new Object();
+    public static Object f22889a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Integer f22890b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Activity f22891c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static f f22892d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<Activity, d> f22377e = new ConcurrentHashMap();
+    public static final Map<Activity, d> f22893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final d.a.p0.a.b<e> f22378f = new d.a.p0.a.b<>();
+    public static final d.a.t0.a.b<e> f22894f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final d.a.p0.a.b<f> f22379g = new d.a.p0.a.b<>();
+    public static final d.a.t0.a.b<f> f22895g;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public static class a implements BaseChromiumApplication.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.baidu.turbonet.base.BaseChromiumApplication.c
         public void a(Activity activity, boolean z) {
             int h2;
-            if (!z || activity == ApplicationStatus.f22375c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, activity, z) == null) || !z || activity == ApplicationStatus.f22891c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
                 return;
             }
-            Activity unused = ApplicationStatus.f22375c = activity;
+            Activity unused = ApplicationStatus.f22891c = activity;
         }
     }
 
     /* loaded from: classes5.dex */
     public static class b implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
-            ApplicationStatus.j(activity, 1);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+                ApplicationStatus.j(activity, 1);
+            }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            ApplicationStatus.j(activity, 6);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                ApplicationStatus.j(activity, 6);
+            }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityPaused(Activity activity) {
-            ApplicationStatus.j(activity, 4);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                ApplicationStatus.j(activity, 4);
+            }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityResumed(Activity activity) {
-            ApplicationStatus.j(activity, 3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+                ApplicationStatus.j(activity, 3);
+            }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            ApplicationStatus.j(activity, 2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                ApplicationStatus.j(activity, 2);
+            }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStopped(Activity activity) {
-            ApplicationStatus.j(activity, 5);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+                ApplicationStatus.j(activity, 5);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
         public class a implements f {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
             public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
 
             @Override // com.baidu.turbonet.base.ApplicationStatus.f
             public void a(int i2) {
-                ApplicationStatus.nativeOnApplicationStateChange(i2);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                    ApplicationStatus.nativeOnApplicationStateChange(i2);
+                }
+            }
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (ApplicationStatus.f22376d != null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ApplicationStatus.f22892d == null) {
+                f unused = ApplicationStatus.f22892d = new a(this);
+                ApplicationStatus.k(ApplicationStatus.f22892d);
             }
-            f unused = ApplicationStatus.f22376d = new a(this);
-            ApplicationStatus.k(ApplicationStatus.f22376d);
         }
     }
 
@@ -117,128 +218,209 @@ public class ApplicationStatus {
         void a(int i2);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(461310709, "Lcom/baidu/turbonet/base/ApplicationStatus;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(461310709, "Lcom/baidu/turbonet/base/ApplicationStatus;");
+                return;
+            }
+        }
+        f22889a = new Object();
+        f22893e = new ConcurrentHashMap();
+        f22894f = new d.a.t0.a.b<>();
+        f22895g = new d.a.t0.a.b<>();
+    }
+
+    public ApplicationStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static int g() {
-        boolean z = false;
-        boolean z2 = false;
-        for (d dVar : f22377e.values()) {
-            int b2 = dVar.b();
-            if (b2 != 4 && b2 != 5 && b2 != 6) {
-                return 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            boolean z = false;
+            boolean z2 = false;
+            for (d dVar : f22893e.values()) {
+                int b2 = dVar.b();
+                if (b2 != 4 && b2 != 5 && b2 != 6) {
+                    return 1;
+                }
+                if (b2 == 4) {
+                    z = true;
+                } else if (b2 == 5) {
+                    z2 = true;
+                }
             }
-            if (b2 == 4) {
-                z = true;
-            } else if (b2 == 5) {
-                z2 = true;
+            if (z) {
+                return 2;
             }
+            return z2 ? 3 : 4;
         }
-        if (z) {
-            return 2;
-        }
-        return z2 ? 3 : 4;
+        return invokeV.intValue;
     }
 
     @CalledByNative
     public static int getStateForApplication() {
+        InterceptResult invokeV;
         int intValue;
-        synchronized (f22373a) {
-            if (f22374b == null) {
-                f22374b = Integer.valueOf(g());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            synchronized (f22889a) {
+                if (f22890b == null) {
+                    f22890b = Integer.valueOf(g());
+                }
+                intValue = f22890b.intValue();
             }
-            intValue = f22374b.intValue();
+            return intValue;
         }
-        return intValue;
+        return invokeV.intValue;
     }
 
     public static int h(Activity activity) {
-        d dVar = f22377e.get(activity);
-        if (dVar != null) {
-            return dVar.b();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, activity)) == null) {
+            d dVar = f22893e.get(activity);
+            if (dVar != null) {
+                return dVar.b();
+            }
+            return 6;
         }
-        return 6;
+        return invokeL.intValue;
     }
 
     public static void i(BaseChromiumApplication baseChromiumApplication) {
-        baseChromiumApplication.registerWindowFocusChangedListener(new a());
-        baseChromiumApplication.registerActivityLifecycleCallbacks(new b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, baseChromiumApplication) == null) {
+            baseChromiumApplication.registerWindowFocusChangedListener(new a());
+            baseChromiumApplication.registerActivityLifecycleCallbacks(new b());
+        }
     }
 
     public static void j(Activity activity, int i2) {
-        if (activity != null) {
-            if (f22375c == null || i2 == 1 || i2 == 3 || i2 == 2) {
-                f22375c = activity;
-            }
-            int stateForApplication = getStateForApplication();
-            if (i2 == 1) {
-                f22377e.put(activity, new d(null));
-            }
-            synchronized (f22373a) {
-                f22374b = null;
-            }
-            d dVar = f22377e.get(activity);
-            dVar.c(i2);
-            Iterator<e> it = dVar.a().iterator();
-            while (it.hasNext()) {
-                it.next().a(activity, i2);
-            }
-            Iterator<e> it2 = f22378f.iterator();
-            while (it2.hasNext()) {
-                it2.next().a(activity, i2);
-            }
-            int stateForApplication2 = getStateForApplication();
-            if (stateForApplication2 != stateForApplication) {
-                Iterator<f> it3 = f22379g.iterator();
-                while (it3.hasNext()) {
-                    it3.next().a(stateForApplication2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65548, null, activity, i2) == null) {
+            if (activity != null) {
+                if (f22891c == null || i2 == 1 || i2 == 3 || i2 == 2) {
+                    f22891c = activity;
                 }
-            }
-            if (i2 == 6) {
-                f22377e.remove(activity);
-                if (activity == f22375c) {
-                    f22375c = null;
+                int stateForApplication = getStateForApplication();
+                if (i2 == 1) {
+                    f22893e.put(activity, new d(null));
+                }
+                synchronized (f22889a) {
+                    f22890b = null;
+                }
+                d dVar = f22893e.get(activity);
+                dVar.c(i2);
+                Iterator<e> it = dVar.a().iterator();
+                while (it.hasNext()) {
+                    it.next().a(activity, i2);
+                }
+                Iterator<e> it2 = f22894f.iterator();
+                while (it2.hasNext()) {
+                    it2.next().a(activity, i2);
+                }
+                int stateForApplication2 = getStateForApplication();
+                if (stateForApplication2 != stateForApplication) {
+                    Iterator<f> it3 = f22895g.iterator();
+                    while (it3.hasNext()) {
+                        it3.next().a(stateForApplication2);
+                    }
+                }
+                if (i2 == 6) {
+                    f22893e.remove(activity);
+                    if (activity == f22891c) {
+                        f22891c = null;
+                        return;
+                    }
                     return;
                 }
                 return;
             }
-            return;
+            throw new IllegalArgumentException("null activity is not supported");
         }
-        throw new IllegalArgumentException("null activity is not supported");
     }
 
     public static void k(f fVar) {
-        f22379g.e(fVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, fVar) == null) {
+            f22895g.e(fVar);
+        }
     }
 
     public static native void nativeOnApplicationStateChange(int i2);
 
     @CalledByNative
     public static void registerThreadSafeNativeApplicationStateListener() {
-        ThreadUtils.c(new c());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            ThreadUtils.c(new c());
+        }
     }
 
     /* loaded from: classes5.dex */
     public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f22380a;
+        public int f22896a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.p0.a.b<e> f22381b;
+        public d.a.t0.a.b<e> f22897b;
 
         public d() {
-            this.f22380a = 6;
-            this.f22381b = new d.a.p0.a.b<>();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22896a = 6;
+            this.f22897b = new d.a.t0.a.b<>();
         }
 
-        public d.a.p0.a.b<e> a() {
-            return this.f22381b;
+        public d.a.t0.a.b<e> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22897b : (d.a.t0.a.b) invokeV.objValue;
         }
 
         public int b() {
-            return this.f22380a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22896a : invokeV.intValue;
         }
 
         public void c(int i2) {
-            this.f22380a = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+                this.f22896a = i2;
+            }
         }
 
         public /* synthetic */ d(a aVar) {

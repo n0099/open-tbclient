@@ -1,26 +1,58 @@
 package com.bytedance.sdk.openadsdk.preload.b;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class m<IN> implements b<IN> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b<IN> f30141a;
+    public b<IN> f31991a;
 
     public m(b<IN> bVar) {
-        this.f30141a = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31991a = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
     public Object a(IN in) throws Exception {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, in)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
     public <O> O b(Class<? extends d<?, O>> cls) {
-        return (O) this.f30141a.b(cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) ? (O) this.f31991a.b(cls) : (O) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
     public <I> I a(Class<? extends d<I, ?>> cls) {
-        return (I) this.f30141a.a((Class<? extends d<Object, ?>>) cls);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (I) this.f31991a.a((Class<? extends d<Object, ?>>) cls) : (I) invokeL.objValue;
     }
 }

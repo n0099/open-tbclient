@@ -1,440 +1,357 @@
 package d.a.o0.h;
 
-import android.util.SparseArray;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox;
-import com.baidu.tieba.R;
-import d.a.c.e.p.l;
-import d.a.n0.r.q.v0;
+import android.content.Context;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.o0.f.e;
+import d.a.o0.l.g;
+import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f59081b;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String[] f59084e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f59085f;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class b extends d.a.o0.f.a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public CompoundButton.OnCheckedChangeListener f59086g;
-
-    /* renamed from: i  reason: collision with root package name */
-    public HashMap<NEGFeedBackReasonCheckBox, Boolean> f59088i;
-    public int j;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f59080a = false;
+    public static volatile b f46380g;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public SparseArray<String> f59082c = null;
+    public e f46381c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseArray<String> f59083d = null;
-    public boolean k = false;
-    public boolean l = true;
-    public int m = -1;
+    public d.a.o0.h.c f46382d;
 
-    /* renamed from: h  reason: collision with root package name */
-    public CompoundButton.OnCheckedChangeListener f59087h = new a();
+    /* renamed from: e  reason: collision with root package name */
+    public Context f46383e;
 
-    /* loaded from: classes4.dex */
-    public class a implements CompoundButton.OnCheckedChangeListener {
-        public a() {
+    /* renamed from: f  reason: collision with root package name */
+    public int f46384f;
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f46385e;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46385e = bVar;
         }
 
-        @Override // android.widget.CompoundButton.OnCheckedChangeListener
-        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            Map.Entry entry;
-            if (compoundButton == null || b.this.f59088i == null || b.this.f59088i.isEmpty()) {
-                return;
-            }
-            boolean z2 = false;
-            if (z && b.this.k) {
-                for (Map.Entry entry2 : b.this.f59088i.entrySet()) {
-                    if (entry2 != null) {
-                        if (entry2.getKey() == compoundButton) {
-                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(true);
-                            entry2.setValue(Boolean.TRUE);
-                        } else {
-                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(false);
-                            entry2.setValue(Boolean.FALSE);
-                        }
-                    }
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.f46385e.i(true);
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
                 }
-            }
-            if (b.this.k && !z && !b.this.l) {
-                Iterator it = b.this.f59088i.entrySet().iterator();
-                while (it.hasNext() && ((entry = (Map.Entry) it.next()) == null || entry.getKey() == null || !(z2 = ((NEGFeedBackReasonCheckBox) entry.getKey()).isChecked()))) {
-                }
-                if (!z2) {
-                    for (Map.Entry entry3 : b.this.f59088i.entrySet()) {
-                        if (entry3 != null && entry3.getKey() == compoundButton) {
-                            ((NEGFeedBackReasonCheckBox) entry3.getKey()).setChecked(true);
-                            entry3.setValue(Boolean.TRUE);
-                            return;
-                        }
-                    }
-                }
-            }
-            if (b.this.f59086g != null) {
-                b.this.f59086g.onCheckedChanged(compoundButton, z);
             }
         }
     }
 
     /* renamed from: d.a.o0.h.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1416b {
+    /* loaded from: classes8.dex */
+    public class RunnableC0673b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public int f59090a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ long f46386e;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f59091b;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ b f46387f;
 
-        /* renamed from: c  reason: collision with root package name */
-        public String f59092c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f59093d;
-
-        public C1416b(b bVar, int i2, int i3, String str) {
-            this.f59091b = i3;
-            if (str != null && str.contains("%")) {
-                String[] split = str.split("%");
-                this.f59092c = split[0];
-                if (split.length > 1) {
-                    this.f59093d = split[1];
+        public RunnableC0673b(b bVar, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } else {
-                this.f59092c = str;
             }
-            this.f59090a = i2;
+            this.f46387f = bVar;
+            this.f46386e = j;
         }
-    }
 
-    public b(TbPageContext tbPageContext) {
-        this.f59081b = tbPageContext;
-        this.j = l.g(tbPageContext.getPageActivity(), R.dimen.M_H_X003);
-    }
-
-    public final View e(List<C1416b> list, boolean z, View view) {
-        LinearLayout linearLayout;
-        if (ListUtils.isEmpty(list)) {
-            return null;
-        }
-        if (view instanceof LinearLayout) {
-            linearLayout = (LinearLayout) view;
-        } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.f59081b.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f59085f, false);
-        }
-        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
-        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
-        nEGFeedBackReasonCheckBox.a();
-        nEGFeedBackReasonCheckBox2.a();
-        nEGFeedBackReasonCheckBox.setChecked(false);
-        nEGFeedBackReasonCheckBox2.setChecked(false);
-        this.f59088i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
-        this.f59088i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-        C1416b c1416b = list.get(0);
-        if (c1416b != null) {
-            nEGFeedBackReasonCheckBox.setText(c1416b.f59092c);
-            nEGFeedBackReasonCheckBox.setTag(c1416b);
-            if (c1416b.f59090a == this.m) {
-                nEGFeedBackReasonCheckBox.setEnabled(false);
-            }
-        }
-        if (list.size() > 1 && list.get(1) != null) {
-            C1416b c1416b2 = list.get(1);
-            nEGFeedBackReasonCheckBox2.setText(c1416b2.f59092c);
-            nEGFeedBackReasonCheckBox2.setVisibility(0);
-            nEGFeedBackReasonCheckBox2.setTag(c1416b2);
-            if (c1416b2.f59090a == this.m) {
-                nEGFeedBackReasonCheckBox2.setEnabled(false);
-            }
-        } else {
-            nEGFeedBackReasonCheckBox2.setVisibility(4);
-        }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.f59087h);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.f59087h);
-        int i2 = z ? 0 : this.j;
-        if (linearLayout.getLayoutParams() != null) {
-            ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i2;
-        }
-        return linearLayout;
-    }
-
-    public final View f(List<C1416b> list, boolean z, View view) {
-        LinearLayout linearLayout;
-        if (ListUtils.isEmpty(list)) {
-            return null;
-        }
-        if (view instanceof LinearLayout) {
-            linearLayout = (LinearLayout) view;
-        } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.f59081b.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f59085f, false);
-        }
-        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
-        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
-        nEGFeedBackReasonCheckBox.a();
-        nEGFeedBackReasonCheckBox2.a();
-        nEGFeedBackReasonCheckBox.setChecked(false);
-        nEGFeedBackReasonCheckBox2.setChecked(false);
-        this.f59088i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
-        this.f59088i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-        C1416b c1416b = list.get(0);
-        if (c1416b != null) {
-            nEGFeedBackReasonCheckBox.setText(c1416b.f59092c);
-            nEGFeedBackReasonCheckBox.setTag(c1416b);
-        }
-        if (list.size() > 1 && list.get(1) != null) {
-            C1416b c1416b2 = list.get(1);
-            nEGFeedBackReasonCheckBox2.setText(c1416b2.f59092c);
-            nEGFeedBackReasonCheckBox2.setVisibility(0);
-            nEGFeedBackReasonCheckBox2.setTag(c1416b2);
-        } else {
-            nEGFeedBackReasonCheckBox2.setVisibility(8);
-        }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.f59087h);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.f59087h);
-        int i2 = z ? 0 : this.j;
-        if (linearLayout.getLayoutParams() != null) {
-            ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i2;
-        }
-        return linearLayout;
-    }
-
-    public View g() {
-        if (this.f59085f == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f59081b.getPageActivity());
-            this.f59085f = linearLayout;
-            linearLayout.setOrientation(1);
-        }
-        List<List<C1416b>> p = p();
-        if (ListUtils.isEmpty(p)) {
-            return null;
-        }
-        int size = p.size();
-        HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.f59088i;
-        if (hashMap == null) {
-            this.f59088i = new HashMap<>();
-        } else {
-            hashMap.clear();
-        }
-        int i2 = 0;
-        while (i2 < size) {
-            View e2 = e(p.get(i2), i2 == size + (-1), this.f59085f.getChildAt(i2));
-            if (e2 != null && e2.getParent() == null) {
-                this.f59085f.addView(e2);
-            }
-            i2++;
-        }
-        if (this.f59085f.getChildCount() > size) {
-            LinearLayout linearLayout2 = this.f59085f;
-            linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
-        }
-        return this.f59085f;
-    }
-
-    public View h() {
-        if (this.f59085f == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f59081b.getPageActivity());
-            this.f59085f = linearLayout;
-            linearLayout.setOrientation(1);
-        }
-        List<List<C1416b>> s = s();
-        if (ListUtils.isEmpty(s)) {
-            return null;
-        }
-        int size = s.size();
-        HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.f59088i;
-        if (hashMap == null) {
-            this.f59088i = new HashMap<>();
-        } else {
-            hashMap.clear();
-        }
-        int i2 = 0;
-        while (i2 < size) {
-            View f2 = f(s.get(i2), i2 == size + (-1), this.f59085f.getChildAt(i2));
-            if (f2 != null && f2.getParent() == null) {
-                this.f59085f.addView(f2);
-            }
-            i2++;
-        }
-        if (this.f59085f.getChildCount() > size) {
-            LinearLayout linearLayout2 = this.f59085f;
-            linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
-        }
-        return this.f59085f;
-    }
-
-    public void i(boolean z) {
-        this.l = z;
-    }
-
-    public void j(v0 v0Var) {
-        if (v0Var == null) {
-            return;
-        }
-        this.f59082c = v0Var.b();
-        this.f59083d = v0Var.f53930g;
-    }
-
-    public void k(String[] strArr) {
-        this.f59084e = strArr;
-    }
-
-    public void l(int i2) {
-        this.m = i2;
-    }
-
-    public void m(boolean z) {
-        this.f59080a = z;
-    }
-
-    public void n(boolean z) {
-        this.k = z;
-    }
-
-    public void o(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        this.f59086g = onCheckedChangeListener;
-    }
-
-    public final List<List<C1416b>> p() {
-        SparseArray<String> sparseArray = this.f59082c;
-        if (sparseArray != null && sparseArray.size() != 0) {
-            int size = this.f59082c.size();
-            ArrayList arrayList = new ArrayList();
-            int i2 = 0;
-            while (i2 < size) {
-                int i3 = i2 + 1;
-                int i4 = i2 + 2;
-                ArrayList arrayList2 = new ArrayList();
-                C1416b c1416b = new C1416b(this, i2, this.f59082c.keyAt(i2), this.f59082c.valueAt(i2));
-                SparseArray<String> sparseArray2 = this.f59083d;
-                if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.f59082c.keyAt(i2)))) {
-                    c1416b.f59093d = this.f59083d.get(this.f59082c.keyAt(i2));
-                }
-                arrayList2.add(c1416b);
-                if (i3 > i2 && i3 < size) {
-                    C1416b c1416b2 = new C1416b(this, i3, this.f59082c.keyAt(i3), this.f59082c.valueAt(i3));
-                    SparseArray<String> sparseArray3 = this.f59083d;
-                    if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.f59082c.keyAt(i2)))) {
-                        c1416b2.f59093d = this.f59083d.get(this.f59082c.keyAt(i3));
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.f46387f.i(false)) {
+                        d.a.o0.b.a.h(this.f46387f.f46383e).G(this.f46386e);
                     }
-                    arrayList2.add(c1416b2);
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
                 }
-                arrayList.add(arrayList2);
-                i2 = i4;
             }
-            return arrayList;
         }
-        return q();
     }
 
-    public final List<List<C1416b>> q() {
-        String[] strArr = this.f59084e;
-        if (strArr == null || strArr.length <= 0) {
-            return null;
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f46388e;
+
+        public c(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f46388e = bVar;
         }
-        ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < this.f59084e.length; i2 += 2) {
-            ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.f59084e[i2])) {
-                arrayList2.add(new C1416b(this, i2, i2 + 1, this.f59084e[i2]));
-            }
-            int i3 = i2 + 1;
-            String[] strArr2 = this.f59084e;
-            if (i3 < strArr2.length && !StringUtils.isNull(strArr2[i3])) {
-                arrayList2.add(new C1416b(this, i3, i2 + 2, this.f59084e[i3]));
-            }
-            if (arrayList2.size() > 0) {
-                arrayList.add(arrayList2);
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    b.c(this.f46388e.f46383e).i(true);
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
+                }
             }
         }
-        return arrayList;
     }
 
-    public final List<List<C1416b>> r() {
-        String[] strArr = this.f59084e;
-        if (strArr == null || strArr.length <= 0) {
-            return null;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(Context context, Handler handler) {
+        super(context, handler);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Handler) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < this.f59084e.length; i2 += 2) {
-            ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.f59084e[i2])) {
-                arrayList2.add(new C1416b(this, i2, 0, this.f59084e[i2]));
-            }
-            int i3 = i2 + 1;
-            String[] strArr2 = this.f59084e;
-            if (i3 < strArr2.length && !StringUtils.isNull(strArr2[i3])) {
-                arrayList2.add(new C1416b(this, i3, 0, this.f59084e[i3]));
-            }
-            if (arrayList2.size() > 0) {
-                arrayList.add(arrayList2);
-            }
-        }
-        return arrayList;
+        this.f46384f = 0;
+        this.f46383e = context;
+        this.f46381c = e.a(context);
+        this.f46382d = new d.a.o0.h.c();
     }
 
-    public final List<List<C1416b>> s() {
-        int i2;
-        int i3;
-        SparseArray<String> sparseArray = this.f59082c;
-        if (sparseArray != null && sparseArray.size() != 0) {
-            int size = this.f59082c.size();
-            int i4 = 0;
-            int i5 = -1;
-            int i6 = this.f59080a ? 0 : -1;
-            int i7 = this.f59080a ? size - 1 : size;
-            if (i7 > 1 && i7 % 2 == 1) {
-                i5 = i6 + 1;
+    public static b c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (f46380g == null) {
+                synchronized (b.class) {
+                    if (f46380g == null) {
+                        f46380g = new b(context, null);
+                    }
+                }
             }
-            ArrayList arrayList = new ArrayList();
-            while (i4 < size) {
-                if (i4 == i6 || i4 == i5) {
-                    i2 = i4 + 1;
-                    i3 = i4;
+            return f46380g;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public final JSONArray d(JSONArray jSONArray, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONArray, str)) == null) {
+            try {
+                jSONArray.put(new JSONObject(str));
+            } catch (Throwable th) {
+                d.a.o0.l.c.d(th);
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            long c0 = d.a.o0.b.a.h(this.f46383e).c0();
+            long j0 = d.a.o0.b.a.h(this.f46383e).j0() * d.a.o0.l.c.f46438e;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - c0 >= j0 && d.a.o0.l.c.k(this.f46383e) != 0 && d.a.o0.l.c.o(this.f46383e)) {
+                d.a.o0.h.a.a().post(new RunnableC0673b(this, currentTimeMillis));
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    public synchronized void f(String str, String str2, int i2) {
+        d.a.o0.j.a a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i2) == null) {
+            synchronized (this) {
+                try {
+                    a2 = this.f46382d.a(this.f46383e, str, str2, i2, 1);
+                } finally {
+                }
+                if (a2 == null) {
+                    return;
+                }
+                this.f46384f++;
+                d.a.o0.i.a.a(this.f46383e).c(a2);
+                if (this.f46384f >= 2 && d.a.o0.l.c.o(this.f46383e)) {
+                    this.f46384f = 0;
+                    d.a.o0.h.a.a().post(new a(this));
+                }
+            }
+        }
+    }
+
+    public final boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                byte[] bytes = g.b(d.a.o0.l.d.f(this.f46383e)).getBytes();
+                byte[] f2 = d.a.o0.l.c.f();
+                String b2 = this.f46381c.b("p/1/r", URLEncoder.encode(Base64.encodeToString(d.a.o0.l.e.h(f2, bytes), 0)));
+                byte[] e2 = this.f46381c.e(f2, str);
+                if (e2 == null) {
+                    return false;
+                }
+                String a2 = a(b2, e2);
+                if (TextUtils.isEmpty(a2)) {
+                    return false;
+                }
+                try {
+                } catch (Throwable th) {
+                    d.a.o0.l.c.d(th);
+                }
+                return new JSONObject(a2).getInt("response") == 1;
+            } catch (Throwable th2) {
+                d.a.o0.l.c.d(th2);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean i(boolean z) {
+        InterceptResult invokeZ;
+        boolean z2;
+        ArrayList<d.a.o0.j.a> b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            try {
+                int k = d.a.o0.l.c.k(this.f46383e);
+                if (k != 2) {
+                    z2 = k == 1 ? true : true;
+                    return false;
+                }
+                z2 = false;
+                String valueOf = z ? String.valueOf(1) : "1,2";
+                if (z2) {
+                    b2 = d.a.o0.i.a.a(this.f46383e).e(valueOf);
+                    String b0 = d.a.o0.b.a.h(this.f46383e).b0();
+                    String a2 = d.a.o0.l.c.a();
+                    if (!TextUtils.isEmpty(a2) && !a2.equals(b0)) {
+                        d.a.o0.b.a.h(this.f46383e).L(a2);
+                        d.a.o0.b.a.h(this.f46383e).T(0L);
+                    }
                 } else {
-                    i3 = i4 + 1;
-                    i2 = i4 + 2;
+                    b2 = d.a.o0.i.a.a(this.f46383e).b(valueOf);
                 }
-                ArrayList arrayList2 = new ArrayList();
-                C1416b c1416b = new C1416b(this, i4, this.f59082c.keyAt(i4), this.f59082c.valueAt(i4));
-                SparseArray<String> sparseArray2 = this.f59083d;
-                if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.f59082c.keyAt(i4)))) {
-                    c1416b.f59093d = this.f59083d.get(this.f59082c.keyAt(i4));
-                }
-                arrayList2.add(c1416b);
-                if (i3 > i4 && i3 < size) {
-                    C1416b c1416b2 = new C1416b(this, i3, this.f59082c.keyAt(i3), this.f59082c.valueAt(i3));
-                    SparseArray<String> sparseArray3 = this.f59083d;
-                    if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.f59082c.keyAt(i4)))) {
-                        c1416b2.f59093d = this.f59083d.get(this.f59082c.keyAt(i3));
+                if (b2 != null && b2.size() != 0) {
+                    long n0 = d.a.o0.b.a.h(this.f46383e).n0();
+                    int size = b2.size();
+                    long h0 = d.a.o0.b.a.h(this.f46383e).h0() * 1048576;
+                    JSONArray jSONArray = new JSONArray();
+                    ArrayList<d.a.o0.j.a> arrayList = new ArrayList<>();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        d.a.o0.j.a aVar = b2.get(i2);
+                        if (aVar != null) {
+                            String d2 = aVar.d();
+                            if (z2) {
+                                if (d2.length() + n0 > h0) {
+                                    break;
+                                }
+                                n0 += d2.length();
+                            }
+                            d(jSONArray, d2);
+                            arrayList.add(aVar);
+                        }
                     }
-                    arrayList2.add(c1416b2);
+                    if (jSONArray.length() == 0) {
+                        return false;
+                    }
+                    boolean h2 = h(jSONArray.toString());
+                    if (h2) {
+                        d.a.o0.i.a.a(this.f46383e).d(arrayList);
+                        if (z2) {
+                            d.a.o0.b.a.h(this.f46383e).T(d.a.o0.b.a.h(this.f46383e).n0() + jSONArray.toString().length());
+                        }
+                    }
+                    return h2;
                 }
-                arrayList.add(arrayList2);
-                i4 = i2;
+                return false;
+            } catch (Throwable th) {
+                d.a.o0.l.c.d(th);
+                return false;
             }
-            return arrayList;
         }
-        return r();
+        return invokeZ.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && d.a.o0.l.c.o(this.f46383e)) {
+            d.a.o0.h.a.a().post(new c(this));
+        }
     }
 }

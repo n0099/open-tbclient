@@ -1,37 +1,80 @@
 package com.baidu.mapapi.search.poi;
-/* loaded from: classes2.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class PoiDetailSearchOption {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7262a = "";
+    public String f7292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7263b = "";
+    public String f7293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7264c = false;
+    public boolean f7294c;
+
+    public PoiDetailSearchOption() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7292a = "";
+        this.f7293b = "";
+        this.f7294c = false;
+    }
 
     public String getUid() {
-        return this.f7262a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7292a : (String) invokeV.objValue;
     }
 
     public String getUids() {
-        return this.f7263b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7293b : (String) invokeV.objValue;
     }
 
     public boolean isSearchByUids() {
-        return this.f7264c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7294c : invokeV.booleanValue;
     }
 
     public PoiDetailSearchOption poiUid(String str) {
-        this.f7264c = false;
-        this.f7262a = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.f7294c = false;
+            this.f7292a = str;
+            return this;
+        }
+        return (PoiDetailSearchOption) invokeL.objValue;
     }
 
     public PoiDetailSearchOption poiUids(String str) {
-        this.f7264c = true;
-        this.f7263b = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.f7294c = true;
+            this.f7293b = str;
+            return this;
+        }
+        return (PoiDetailSearchOption) invokeL.objValue;
     }
 }

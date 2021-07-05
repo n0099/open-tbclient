@@ -6,63 +6,86 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16957a;
+    public int f17083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16958b;
+    public View f17084b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f16959c;
+    public View f17085c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f16960d;
+    public TextView f17086d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f16961e;
+    public RelativeLayout f17087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f16962f;
+    public View f17088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f16963g;
+    public TbImageView f17089g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16964h;
+    public TextView f17090h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16965i;
+    public TextView f17091i;
     public TextView j;
     public TextView k;
     public TextView l;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QualityThreadItemHolder(View view) {
         super(view);
-        this.f16957a = 3;
-        this.f16958b = null;
-        this.f16959c = null;
-        this.f16960d = null;
-        this.f16961e = null;
-        this.f16962f = null;
-        this.f16963g = null;
-        this.f16958b = view;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17083a = 3;
+        this.f17084b = null;
+        this.f17085c = null;
+        this.f17086d = null;
+        this.f17087e = null;
+        this.f17088f = null;
+        this.f17089g = null;
+        this.f17084b = view;
         b(view);
     }
 
     public final void b(View view) {
-        if (view == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.f16959c = view.findViewById(R.id.top_divider_line);
-        this.f16960d = (TextView) view.findViewById(R.id.quality_item_theme_title);
-        this.f16962f = view.findViewById(R.id.divider_line);
-        this.f16961e = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-        this.f16963g = (TbImageView) view.findViewById(R.id.img);
-        this.f16964h = (TextView) view.findViewById(R.id.title);
-        this.f16965i = (TextView) view.findViewById(R.id.desc);
+        this.f17085c = view.findViewById(R.id.top_divider_line);
+        this.f17086d = (TextView) view.findViewById(R.id.quality_item_theme_title);
+        this.f17088f = view.findViewById(R.id.divider_line);
+        this.f17087e = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
+        this.f17089g = (TbImageView) view.findViewById(R.id.img);
+        this.f17090h = (TextView) view.findViewById(R.id.title);
+        this.f17091i = (TextView) view.findViewById(R.id.desc);
         this.j = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
         this.k = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
         this.l = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);

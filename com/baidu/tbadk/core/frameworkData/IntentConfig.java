@@ -12,6 +12,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -21,20 +22,29 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.g;
 import d.a.c.a.j;
 import d.a.c.e.m.f;
 import d.a.c.h.j.g.d;
-import d.a.n0.f0.h;
-import d.a.n0.i0.c;
+import d.a.r0.f0.h;
+import d.a.r0.i0.c;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class IntentConfig extends OrmObject {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String AB_TAG = "ab_tag";
     public static final String CALL_FROM = "call_from";
     public static final String CARD_TYPE = "card_type";
@@ -71,9 +81,13 @@ public class IntentConfig extends OrmObject {
     public static final String KEY_AI_APP_SCHEMA = "KEY_AI_APP_SCHEMA";
     public static final String KEY_ALBUM_THREAD = "album_thread";
     public static final String KEY_CAN_EDIT_IMAGE = "can_edit_image";
+    public static final String KEY_CAN_SELECT_GIF = "can_select_gif";
+    public static final String KEY_CAN_SELECT_ONLY_VIDEO = "can_select_only_video";
     public static final String KEY_CAN_SELECT_VIDEO = "can_select_video";
     public static final String KEY_FROM_TYPE = "from_type";
-    public static final String KEY_FROM_WRITEACTIVITY = "from_write";
+    public static final String KEY_FROM_WRITE_TYPE = "from_write_type";
+    public static final String KEY_IMAGE_CLIP_TYPE = "image_clip_type";
+    public static final String KEY_NEED_CLIP_IMAGE = "need_clip_image";
     public static final String KEY_TAB_LIST = "tab_list";
     public static final String KEY_URI = "key_uri";
     public static final long LAUNCH_ACTIVITY_INTERVAL_TIME = 500;
@@ -121,6 +135,7 @@ public class IntentConfig extends OrmObject {
     public static final String WRITE_VOTE_DATA = "write_vote_data";
     public static Class<?> lastStartActivityClass;
     public static long lastStartActivityTime;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean isForResult;
     public ServiceConnection mClientConnection;
     public Messenger mClientMessenger;
@@ -133,69 +148,146 @@ public class IntentConfig extends OrmObject {
     public ServiceConnection mServiceConnection;
     public int mServiceConnectionFlags;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ IntentConfig f12324e;
+
+        public a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {intentConfig};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12324e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            if (iBinder != null) {
-                IntentConfig.this.mReplyMessenger = new Messenger(iBinder);
-                if (IntentConfig.this.mReplyMessenger != null) {
-                    Message obtain = Message.obtain();
-                    Bundle bundle = new Bundle();
-                    if (IntentConfig.this.mComponentClass != null) {
-                        bundle.putString(DealIntentService.KEY_CLASS, IntentConfig.this.mComponentClass.getName());
-                    }
-                    obtain.setData(bundle);
-                    obtain.replyTo = IntentConfig.this.mClientMessenger;
-                    try {
-                        IntentConfig.this.mReplyMessenger.send(obtain);
-                    } catch (RemoteException e2) {
-                        e2.printStackTrace();
-                    }
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
+                return;
+            }
+            this.f12324e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f12324e.mReplyMessenger != null) {
+                Message obtain = Message.obtain();
+                Bundle bundle = new Bundle();
+                if (this.f12324e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f12324e.mComponentClass.getName());
+                }
+                obtain.setData(bundle);
+                obtain.replyTo = this.f12324e.mClientMessenger;
+                try {
+                    this.f12324e.mReplyMessenger.send(obtain);
+                } catch (RemoteException e2) {
+                    e2.printStackTrace();
                 }
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends Handler {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IntentConfig f12325a;
+
+        public b(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {intentConfig};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12325a = intentConfig;
         }
 
         public final boolean a(Message message) {
-            return message != null && message.what == 0 && message.arg1 == 1;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? message != null && message.what == 0 && message.arg1 == 1 : invokeL.booleanValue;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (IntentConfig.this.mContext == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f12325a.mContext == null) {
                 return;
             }
             if (a(message)) {
-                if (IntentConfig.this.isForResult) {
-                    IntentConfig intentConfig = IntentConfig.this;
-                    intentConfig.startActivityForResult(intentConfig.mRequestCode, IntentConfig.this.mComponentClass);
+                if (this.f12325a.isForResult) {
+                    IntentConfig intentConfig = this.f12325a;
+                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f12325a.mComponentClass);
                 } else {
-                    IntentConfig intentConfig2 = IntentConfig.this;
+                    IntentConfig intentConfig2 = this.f12325a;
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            f.e(IntentConfig.this.mContext, IntentConfig.this.mClientConnection);
+            f.e(this.f12325a.mContext, this.f12325a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
-            this();
+            this(intentConfig);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(846997993, "Lcom/baidu/tbadk/core/frameworkData/IntentConfig;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(846997993, "Lcom/baidu/tbadk/core/frameworkData/IntentConfig;");
         }
     }
 
     public IntentConfig() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = null;
         this.mIntent = null;
         this.mServiceConnection = null;
@@ -203,35 +295,42 @@ public class IntentConfig extends OrmObject {
         this.mComponentClass = null;
         this.mClientMessenger = new Messenger(new b(this, null));
         this.isForResult = false;
-        this.mClientConnection = new a();
+        this.mClientConnection = new a(this);
         this.mIntentAction = IntentAction.Activity;
     }
 
     private void addPageSourceTrace() {
         Context context;
-        if (this.mIntent == null || (context = this.mContext) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
         g<?> b2 = j.b(context);
-        d.a.n0.j0.b tbPageInfo = b2 instanceof d.a.n0.j0.a ? ((d.a.n0.j0.a) b2).getTbPageInfo() : null;
+        d.a.r0.j0.b tbPageInfo = b2 instanceof d.a.r0.j0.a ? ((d.a.r0.j0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
     }
 
     public static boolean checkStartActivityInterval(Class<?> cls) {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (cls != lastStartActivityClass || Math.abs(currentTimeMillis - lastStartActivityTime) >= 500) {
-            lastStartActivityTime = currentTimeMillis;
-            lastStartActivityClass = cls;
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (cls != lastStartActivityClass || Math.abs(currentTimeMillis - lastStartActivityTime) >= 500) {
+                lastStartActivityTime = currentTimeMillis;
+                lastStartActivityClass = cls;
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public void addPreSourceTrace() {
         Context context;
-        if (this.mIntent == null || (context = this.mContext) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
         c k = TbPageExtraHelper.k(context);
@@ -247,82 +346,111 @@ public class IntentConfig extends OrmObject {
     }
 
     public void addSourceTraceForPageStayDurationStat() {
-        if (this.mIntent != null) {
-            g<?> b2 = j.b(this.mContext);
-            ArrayList<String> arrayList = b2 instanceof d.a.n0.k0.a ? (ArrayList) ((d.a.n0.k0.a) b2).getNextPageSourceKeyList() : null;
-            if (ListUtils.isEmpty(arrayList)) {
-                return;
-            }
-            this.mIntent.putStringArrayListExtra("obj_source", arrayList);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.mIntent == null) {
+            return;
         }
+        g<?> b2 = j.b(this.mContext);
+        ArrayList<String> arrayList = b2 instanceof d.a.r0.k0.a ? (ArrayList) ((d.a.r0.k0.a) b2).getNextPageSourceKeyList() : null;
+        if (ListUtils.isEmpty(arrayList)) {
+            return;
+        }
+        this.mIntent.putStringArrayListExtra("obj_source", arrayList);
     }
 
     public boolean asynStart() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void bindService(Class<?> cls) {
-        setComponentClass(cls);
-        if (this.mComponentClass == null || this.mContext == null) {
-            return;
-        }
-        String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-        if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-            if (d.k().n(pluginNameByClassloader)) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
+            setComponentClass(cls);
+            if (this.mComponentClass == null || this.mContext == null) {
                 return;
             }
-            PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
-            return;
-        }
-        Intent intent = this.mIntent;
-        if (intent != null) {
-            try {
-                if (PluginBaseService.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
-                    PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
+                if (d.k().n(pluginNameByClassloader)) {
                     return;
                 }
-            } catch (Exception e2) {
-                d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-                BdLog.detailException(e2);
+                PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+                return;
             }
-        }
-        try {
-            this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
-        } catch (Throwable th) {
-            d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-            BdLog.detailException(th);
+            Intent intent = this.mIntent;
+            if (intent != null) {
+                try {
+                    if (PluginBaseService.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
+                        PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+                        return;
+                    }
+                } catch (Exception e2) {
+                    d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    BdLog.detailException(e2);
+                }
+            }
+            try {
+                this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+            } catch (Throwable th) {
+                d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                BdLog.detailException(th);
+            }
         }
     }
 
     public Context getContext() {
-        return this.mContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     public Intent getIntent() {
-        return this.mIntent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIntent : (Intent) invokeV.objValue;
     }
 
     public int getRequestCode() {
-        return this.mRequestCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRequestCode : invokeV.intValue;
     }
 
     public ServiceConnection getServiceConnection() {
-        return this.mServiceConnection;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mServiceConnection : (ServiceConnection) invokeV.objValue;
     }
 
     public int getServiceConnectionFlags() {
-        return this.mServiceConnectionFlags;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mServiceConnectionFlags : invokeV.intValue;
     }
 
     public boolean isValid() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void preJump() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
     }
 
     public void run() {
-        if (isValid()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && isValid()) {
             IntentAction intentAction = this.mIntentAction;
             if (intentAction == IntentAction.Activity) {
                 startActivity(this.mComponentClass);
@@ -337,102 +465,132 @@ public class IntentConfig extends OrmObject {
     }
 
     public void setComponentClass(Class<?> cls) {
-        if (cls == null) {
-            if (BdBaseApplication.getInst().isDebugMode()) {
-                throw new IllegalArgumentException("IntentConfig setClass args exception!");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, cls) == null) {
+            if (cls == null) {
+                if (BdBaseApplication.getInst().isDebugMode()) {
+                    throw new IllegalArgumentException("IntentConfig setClass args exception!");
+                }
+                return;
             }
-            return;
-        }
-        this.mComponentClass = cls;
-        Context context = this.mContext;
-        if (context != null) {
-            this.mIntent.setClass(context, cls);
+            this.mComponentClass = cls;
+            Context context = this.mContext;
+            if (context != null) {
+                this.mIntent.setClass(context, cls);
+            }
         }
     }
 
     public void setIntent(Intent intent) {
-        this.mIntent = intent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
+            this.mIntent = intent;
+        }
     }
 
     public void setIntentAction(IntentAction intentAction) {
-        this.mIntentAction = intentAction;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, intentAction) == null) {
+            this.mIntentAction = intentAction;
+        }
     }
 
     public void setRequestCode(int i2) {
-        this.mRequestCode = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.mRequestCode = i2;
+        }
     }
 
     public void setServiceConnection(ServiceConnection serviceConnection) {
-        this.mServiceConnection = serviceConnection;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, serviceConnection) == null) {
+            this.mServiceConnection = serviceConnection;
+        }
     }
 
     public void setServiceConnectionFlags(int i2) {
-        this.mServiceConnectionFlags = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.mServiceConnectionFlags = i2;
+        }
     }
 
     public void start() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
+        }
     }
 
     public boolean startActivity(Class<?> cls) {
+        InterceptResult invokeL;
         Class<?> loadClass;
-        preJump();
-        setComponentClass(cls);
-        Class<?> cls2 = this.mComponentClass;
-        if (cls2 == null || this.mContext == null || !checkStartActivityInterval(cls2)) {
-            return false;
-        }
-        String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-        if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-            if (d.k().n(pluginNameByClassloader)) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, cls)) == null) {
+            preJump();
+            setComponentClass(cls);
+            Class<?> cls2 = this.mComponentClass;
+            if (cls2 == null || this.mContext == null || !checkStartActivityInterval(cls2)) {
                 return false;
             }
-            return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-        }
-        Intent intent = this.mIntent;
-        if (intent != null) {
-            try {
-                Class<?> loadClass2 = BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName());
-                if (loadClass2 != null && PluginBaseActivity.class.isAssignableFrom(loadClass2)) {
-                    PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-                    return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
+                if (d.k().n(pluginNameByClassloader)) {
+                    return false;
                 }
-            } catch (Exception e2) {
+                return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+            }
+            Intent intent = this.mIntent;
+            if (intent != null) {
+                try {
+                    Class<?> loadClass2 = BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName());
+                    if (loadClass2 != null && PluginBaseActivity.class.isAssignableFrom(loadClass2)) {
+                        PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+                        return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+                    }
+                } catch (Exception e2) {
+                    d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    BdLog.detailException(e2);
+                    return false;
+                }
+            }
+            try {
+                if (this.mComponentClass.getClassLoader() == null) {
+                    loadClass = Class.forName(this.mComponentClass.getName());
+                } else {
+                    loadClass = this.mComponentClass.getClassLoader().loadClass(this.mComponentClass.getName());
+                }
+                if (loadClass == null) {
+                    return false;
+                }
+                if (!(this.mContext instanceof Activity)) {
+                    this.mIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                }
+                this.mContext.startActivity(this.mIntent);
+                return true;
+            } catch (Throwable th) {
                 d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-                BdLog.detailException(e2);
+                BdLog.detailException(th);
                 return false;
             }
         }
-        try {
-            if (this.mComponentClass.getClassLoader() == null) {
-                loadClass = Class.forName(this.mComponentClass.getName());
-            } else {
-                loadClass = this.mComponentClass.getClassLoader().loadClass(this.mComponentClass.getName());
-            }
-            if (loadClass == null) {
-                return false;
-            }
-            if (!(this.mContext instanceof Activity)) {
-                this.mIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            }
-            this.mContext.startActivity(this.mIntent);
-            return true;
-        } catch (Throwable th) {
-            d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-            BdLog.detailException(th);
-            return false;
-        }
+        return invokeL.booleanValue;
     }
 
     public void startActivityForRemote(Class<?> cls) {
-        setComponentClass(cls);
-        Intent intent = new Intent();
-        intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        f.a(this.mContext, intent, this.mClientConnection, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, cls) == null) {
+            setComponentClass(cls);
+            Intent intent = new Intent();
+            intent.setClass(this.mContext, RemoteActivityProxyService.class);
+            f.a(this.mContext, intent, this.mClientConnection, 1);
+        }
     }
 
     public void startActivityForResult(int i2) {
-        if (checkStartActivityInterval(this.mComponentClass)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i2) == null) && checkStartActivityInterval(this.mComponentClass)) {
             Context context = this.mContext;
             if (context instanceof Activity) {
                 ((Activity) context).startActivityForResult(this.mIntent, i2);
@@ -441,100 +599,116 @@ public class IntentConfig extends OrmObject {
     }
 
     public void startActivityForResultForRemote(int i2, Class<?> cls) {
-        setRequestCode(i2);
-        this.isForResult = true;
-        setComponentClass(cls);
-        Intent intent = new Intent();
-        intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        f.a(this.mContext, intent, this.mClientConnection, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048600, this, i2, cls) == null) {
+            setRequestCode(i2);
+            this.isForResult = true;
+            setComponentClass(cls);
+            Intent intent = new Intent();
+            intent.setClass(this.mContext, RemoteActivityProxyService.class);
+            f.a(this.mContext, intent, this.mClientConnection, 1);
+        }
     }
 
     public void startService() {
-        this.mContext.startService(this.mIntent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.mContext.startService(this.mIntent);
+        }
     }
 
     public void stopService() {
-        this.mContext.stopService(this.mIntent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            this.mContext.stopService(this.mIntent);
+        }
     }
 
     public void startService(Class<?> cls) {
-        setComponentClass(cls);
-        if (this.mComponentClass == null || this.mContext == null) {
-            return;
-        }
-        String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-        if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-            if (d.k().n(pluginNameByClassloader)) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, cls) == null) {
+            setComponentClass(cls);
+            if (this.mComponentClass == null || this.mContext == null) {
                 return;
             }
-            PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-            return;
-        }
-        Intent intent = this.mIntent;
-        if (intent != null) {
-            try {
-                if (PluginBaseService.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
-                    PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
+                if (d.k().n(pluginNameByClassloader)) {
                     return;
                 }
-            } catch (Exception e2) {
-                d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-                BdLog.detailException(e2);
+                PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+                return;
             }
-        }
-        try {
-            this.mContext.startService(this.mIntent);
-        } catch (Throwable th) {
-            d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-            BdLog.detailException(th);
+            Intent intent = this.mIntent;
+            if (intent != null) {
+                try {
+                    if (PluginBaseService.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
+                        PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+                        return;
+                    }
+                } catch (Exception e2) {
+                    d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    BdLog.detailException(e2);
+                }
+            }
+            try {
+                this.mContext.startService(this.mIntent);
+            } catch (Throwable th) {
+                d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                BdLog.detailException(th);
+            }
         }
     }
 
     public void startActivityForResult(int i2, Class<?> cls) {
         Class<?> loadClass;
-        setComponentClass(cls);
-        if (this.mComponentClass == null || this.mContext == null) {
-            return;
-        }
-        String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-        if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-            if (d.k().n(pluginNameByClassloader)) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048599, this, i2, cls) == null) {
+            setComponentClass(cls);
+            if (this.mComponentClass == null || this.mContext == null) {
                 return;
             }
-            PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-            return;
-        }
-        Intent intent = this.mIntent;
-        if (intent != null) {
-            try {
-                if (PluginBaseActivity.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
-                    PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
+                if (d.k().n(pluginNameByClassloader)) {
                     return;
                 }
-            } catch (Exception e2) {
-                d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-                BdLog.detailException(e2);
-            }
-        }
-        try {
-            if (this.mComponentClass.getClassLoader() == null) {
-                loadClass = Class.forName(this.mComponentClass.getName());
-            } else {
-                loadClass = this.mComponentClass.getClassLoader().loadClass(this.mComponentClass.getName());
-            }
-            if (loadClass == null) {
+                PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                 return;
             }
-            startActivityForResult(i2);
-        } catch (Throwable th) {
-            d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-            BdLog.detailException(th);
+            Intent intent = this.mIntent;
+            if (intent != null) {
+                try {
+                    if (PluginBaseActivity.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
+                        PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+                        return;
+                    }
+                } catch (Exception e2) {
+                    d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    BdLog.detailException(e2);
+                }
+            }
+            try {
+                if (this.mComponentClass.getClassLoader() == null) {
+                    loadClass = Class.forName(this.mComponentClass.getName());
+                } else {
+                    loadClass = this.mComponentClass.getClassLoader().loadClass(this.mComponentClass.getName());
+                }
+                if (loadClass == null) {
+                    return;
+                }
+                startActivityForResult(i2);
+            } catch (Throwable th) {
+                d.a.c.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                BdLog.detailException(th);
+            }
         }
     }
 
     public void addPreSourceTrace(String str) {
         Context context;
-        if (this.mIntent == null || (context = this.mContext) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
         c k = TbPageExtraHelper.k(context);
@@ -546,6 +720,20 @@ public class IntentConfig extends OrmObject {
     }
 
     public IntentConfig(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mContext = null;
         this.mIntent = null;
         this.mServiceConnection = null;
@@ -553,7 +741,7 @@ public class IntentConfig extends OrmObject {
         this.mComponentClass = null;
         this.mClientMessenger = new Messenger(new b(this, null));
         this.isForResult = false;
-        this.mClientConnection = new a();
+        this.mClientConnection = new a(this);
         this.mIntentAction = IntentAction.Activity;
         if (context != null) {
             this.mContext = context;

@@ -1,37 +1,68 @@
 package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.n0.a.e;
-import d.a.n0.z0.w;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.a.e;
+import d.a.r0.z0.w;
 import tbclient.GetUserByTiebaUid.DataReq;
 import tbclient.GetUserByTiebaUid.GetUserByTiebaUidReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TiebaUidCheckReqMsg extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public e.l mTiebaUidData;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TiebaUidCheckReqMsg() {
         super(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, 309702);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        try {
-            DataReq.Builder builder = new DataReq.Builder();
-            if (this.mTiebaUidData.b() != null) {
-                builder.tieba_uid = this.mTiebaUidData.b();
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                if (this.mTiebaUidData.b() != null) {
+                    builder.tieba_uid = this.mTiebaUidData.b();
+                }
+                w.c(builder, true, true, true);
+                GetUserByTiebaUidReqIdl.Builder builder2 = new GetUserByTiebaUidReqIdl.Builder();
+                builder2.data = builder.build(true);
+                return builder2.build(true);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
             }
-            w.c(builder, true, true, true);
-            GetUserByTiebaUidReqIdl.Builder builder2 = new GetUserByTiebaUidReqIdl.Builder();
-            builder2.data = builder.build(true);
-            return builder2.build(true);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
         }
+        return invokeZ.objValue;
     }
 
     public void setTiebaUid(e.l lVar) {
-        this.mTiebaUidData = lVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
+            this.mTiebaUidData = lVar;
+        }
     }
 }

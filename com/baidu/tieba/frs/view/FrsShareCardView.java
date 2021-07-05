@@ -6,112 +6,185 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsShareCardView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16021e;
+    public LinearLayout f16160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16022f;
+    public Context f16161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditText f16023g;
+    public EditText f16162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadImageView f16024h;
+    public HeadImageView f16163h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16025i;
+    public TextView f16164i;
     public TextView j;
     public TextView k;
     public ShareFromFrsMsgData l;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsShareCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16022f = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f16161f = context;
         c(context);
     }
 
     public final String a(String str) {
-        return k.cutString(str, 18) + this.f16022f.getString(R.string.forum);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return k.cutString(str, 18) + this.f16161f.getString(R.string.forum);
+        }
+        return (String) invokeL.objValue;
     }
 
     public void b() {
-        this.f16021e.setFocusable(true);
-        this.f16021e.setFocusableInTouchMode(true);
-        this.f16021e.requestFocus();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f16160e.setFocusable(true);
+            this.f16160e.setFocusableInTouchMode(true);
+            this.f16160e.requestFocus();
+        }
     }
 
     public final void c(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.frs_share_card_view, this);
-        setOrientation(1);
-        this.f16021e = (LinearLayout) findViewById(R.id.share_content);
-        this.f16025i = (TextView) findViewById(R.id.frs_card_name);
-        this.f16023g = (EditText) findViewById(R.id.chat_msg);
-        this.f16024h = (HeadImageView) findViewById(R.id.frs_card_img);
-        this.k = (TextView) findViewById(R.id.frs_card_member_num);
-        this.j = (TextView) findViewById(R.id.frs_card_post_num);
-        SkinManager.setViewTextColor(this.f16025i, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f16023g, R.color.CAM_X0105, 2);
-        this.f16023g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f16023g.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.frs_share_card_view, this);
+            setOrientation(1);
+            this.f16160e = (LinearLayout) findViewById(R.id.share_content);
+            this.f16164i = (TextView) findViewById(R.id.frs_card_name);
+            this.f16162g = (EditText) findViewById(R.id.chat_msg);
+            this.f16163h = (HeadImageView) findViewById(R.id.frs_card_img);
+            this.k = (TextView) findViewById(R.id.frs_card_member_num);
+            this.j = (TextView) findViewById(R.id.frs_card_post_num);
+            SkinManager.setViewTextColor(this.f16164i, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f16162g, R.color.CAM_X0105, 2);
+            this.f16162g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f16162g.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+            b();
+        }
     }
 
     public void d(String str, boolean z) {
-        HeadImageView headImageView = this.f16024h;
-        if (headImageView != null) {
-            headImageView.U(str, 15, false);
+        HeadImageView headImageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) || (headImageView = this.f16163h) == null) {
+            return;
         }
+        headImageView.M(str, 15, false);
     }
 
     public final void e() {
-        this.f16025i.setText(a(this.l.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.l.getImageUrl());
-        this.f16024h.U(this.l.getImageUrl(), 15, false);
-        this.k.setText(StringHelper.numFormatOver10000((long) this.l.getMemberNum()));
-        this.j.setText(StringHelper.numFormatOver10000((long) this.l.getPostNum()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f16164i.setText(a(this.l.getName()));
+            BdLog.e("mData.getImageUrl()的图片URL" + this.l.getImageUrl());
+            this.f16163h.M(this.l.getImageUrl(), 15, false);
+            this.k.setText(StringHelper.numFormatOver10000((long) this.l.getMemberNum()));
+            this.j.setText(StringHelper.numFormatOver10000((long) this.l.getPostNum()));
+        }
     }
 
     public EditText getChatMsgView() {
-        return this.f16023g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16162g : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
-        EditText editText = this.f16023g;
-        if (editText != null) {
-            return k.charSequence2String(editText.getText(), null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            EditText editText = this.f16162g;
+            if (editText != null) {
+                return k.charSequence2String(editText.getText(), null);
+            }
+            return null;
         }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.l = shareFromFrsMsgData;
-        e();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, shareFromFrsMsgData) == null) {
+            this.l = shareFromFrsMsgData;
+            e();
+        }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.f16024h.setPageId(bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
+            this.f16163h.setPageId(bdUniqueId);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsShareCardView(Context context) {
         super(context);
-        this.f16022f = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f16161f = context;
         c(context);
     }
 }

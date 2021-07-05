@@ -1,32 +1,53 @@
 package com.baidu.apollon.beans;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class c {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3667a = 0;
+    public static final int f3665a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3668b = -15;
+    public static final int f3666b = -15;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3669c = -16;
+    public static final int f3667c = -16;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3670d = -2;
+    public static final int f3668d = -2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3671e = -3;
+    public static final int f3669e = -3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3672f = -4;
+    public static final int f3670f = -4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3673g = -5;
+    public static final int f3671g = -5;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f3674h = 5003;
+    public static final int f3672h = 5003;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f3675i = -7;
+    public static final int f3673i = -7;
     public static final int j = -8;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -1,6 +1,12 @@
 package com.fun.ad.sdk;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class FunAdType {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_FEED = "baiduFeed";
     public static final String BAIDU_NATIVE_CPU = "baiduNativeCpu";
     public static final String BAIDU_SPLASH = "baiduSplash";
@@ -34,4 +40,19 @@ public final class FunAdType {
     public static final String KS_NATIVE_EXPRESS = "ksNativeExpress";
     public static final String KS_REWARD_VIDEO = "ksRewardVideo";
     public static final String KS_SPLASH = "ksSplash";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public FunAdType() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -1,6 +1,12 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes3.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class UrlSchemaHelper {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
     public static final String AUTO_PAY_MEMBER_SUCC_URL = "tieba.baidu.com/mo/q/tbeanrights?";
     public static final String BIG_IMAGE_PB = "bottle:";
@@ -152,4 +158,19 @@ public class UrlSchemaHelper {
     public static final String SCHEME_TYPE_ACCOUNT_SAFE = "tieba://accountsafe";
     public static final String SCHEME_TYPE_ID_CARD = "tieba://idcard?";
     public static final String TBEAN_TOAST = "pay=1";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public UrlSchemaHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

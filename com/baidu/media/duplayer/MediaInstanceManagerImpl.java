@@ -1,38 +1,61 @@
 package com.baidu.media.duplayer;
 
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler>> f8031a = new ConcurrentHashMap();
+    public Map<String, WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler>> f8061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Integer> f8032b = new ArrayList();
+    public List<Integer> f8062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8033c = 0;
+    public int f8063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8034d;
+    public int f8064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8035e;
+    public boolean f8065e;
 
     public MediaInstanceManagerImpl() {
-        this.f8035e = true;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f8061a = new ConcurrentHashMap();
+        this.f8062b = new ArrayList();
+        this.f8063c = 0;
+        this.f8065e = true;
         int cfgIntValue = CyberCfgManager.getInstance().getCfgIntValue(CyberCfgManager.KEY_INT_MEDIA_INSTANCE_CAP, 4);
-        this.f8034d = cfgIntValue;
+        this.f8064d = cfgIntValue;
         if (cfgIntValue <= 0) {
-            this.f8035e = false;
+            this.f8065e = false;
         }
     }
 
@@ -56,26 +79,31 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
     public synchronized void activeInstance(int i2) {
         MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler;
         MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler2;
-        if (this.f8035e) {
-            int activePlayer = activePlayer(i2);
-            if (activePlayer > 0) {
-                if (this.f8032b.contains(Integer.valueOf(i2))) {
-                    WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.f8031a.get(String.valueOf(i2));
-                    if (weakReference == null || (onClientInstanceHandler2 = weakReference.get()) == null) {
-                        unRegisterPlayer(i2);
-                        this.f8031a.remove(String.valueOf(i2));
-                    } else {
-                        onClientInstanceHandler2.onResumeInstance();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            synchronized (this) {
+                if (this.f8065e) {
+                    int activePlayer = activePlayer(i2);
+                    if (activePlayer > 0) {
+                        if (this.f8062b.contains(Integer.valueOf(i2))) {
+                            WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.f8061a.get(String.valueOf(i2));
+                            if (weakReference == null || (onClientInstanceHandler2 = weakReference.get()) == null) {
+                                unRegisterPlayer(i2);
+                                this.f8061a.remove(String.valueOf(i2));
+                            } else {
+                                onClientInstanceHandler2.onResumeInstance();
+                            }
+                            this.f8062b.remove(Integer.valueOf(i2));
+                        }
+                        WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.f8061a.get(String.valueOf(activePlayer));
+                        if (weakReference2 == null || (onClientInstanceHandler = weakReference2.get()) == null) {
+                            unRegisterPlayer(activePlayer);
+                            this.f8061a.remove(String.valueOf(activePlayer));
+                        } else {
+                            onClientInstanceHandler.onDestroyInstance();
+                            this.f8062b.add(Integer.valueOf(activePlayer));
+                        }
                     }
-                    this.f8032b.remove(Integer.valueOf(i2));
-                }
-                WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.f8031a.get(String.valueOf(activePlayer));
-                if (weakReference2 == null || (onClientInstanceHandler = weakReference2.get()) == null) {
-                    unRegisterPlayer(activePlayer);
-                    this.f8031a.remove(String.valueOf(activePlayer));
-                } else {
-                    onClientInstanceHandler.onDestroyInstance();
-                    this.f8032b.add(Integer.valueOf(activePlayer));
                 }
             }
         }
@@ -83,49 +111,71 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
     public String getInstanceOptionByKey(int i2, String str) {
-        if (this.f8035e) {
-            return getInstanceOption(i2, str);
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
+            if (this.f8065e) {
+                return getInstanceOption(i2, str);
+            }
+            return null;
         }
-        return null;
+        return (String) invokeIL.objValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
     public Bundle getInstanceStatusByType(int i2, int i3) {
-        if (this.f8035e) {
-            return getInstanceStatus(i2, i3);
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
+            if (this.f8065e) {
+                return getInstanceStatus(i2, i3);
+            }
+            return null;
         }
-        return null;
+        return (Bundle) invokeII.objValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
     public synchronized int registerInstance(MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler) {
-        if (this.f8035e) {
-            int registerPlayer = registerPlayer();
-            if (registerPlayer > 0 && onClientInstanceHandler != null) {
-                this.f8031a.put(String.valueOf(registerPlayer), new WeakReference<>(onClientInstanceHandler));
-                if (this.f8033c != this.f8034d) {
-                    setInstanceCapacity(this.f8034d);
-                    this.f8033c = this.f8034d;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onClientInstanceHandler)) == null) {
+            synchronized (this) {
+                if (this.f8065e) {
+                    int registerPlayer = registerPlayer();
+                    if (registerPlayer > 0 && onClientInstanceHandler != null) {
+                        this.f8061a.put(String.valueOf(registerPlayer), new WeakReference<>(onClientInstanceHandler));
+                        if (this.f8063c != this.f8064d) {
+                            setInstanceCapacity(this.f8064d);
+                            this.f8063c = this.f8064d;
+                        }
+                        updateTimestamp(registerPlayer, System.currentTimeMillis());
+                    }
+                    return registerPlayer;
                 }
-                updateTimestamp(registerPlayer, System.currentTimeMillis());
+                return 0;
             }
-            return registerPlayer;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
     public synchronized void unRegisterInstance(int i2) {
-        if (this.f8035e) {
-            if (this.f8032b.contains(Integer.valueOf(i2))) {
-                this.f8032b.remove(Integer.valueOf(i2));
-            }
-            unRegisterPlayer(i2);
-            this.f8031a.remove(String.valueOf(i2));
-            for (String str : this.f8031a.keySet()) {
-                if (this.f8031a.get(str).get() == null) {
-                    unRegisterPlayer(Integer.parseInt(str));
-                    this.f8031a.remove(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            synchronized (this) {
+                if (this.f8065e) {
+                    if (this.f8062b.contains(Integer.valueOf(i2))) {
+                        this.f8062b.remove(Integer.valueOf(i2));
+                    }
+                    unRegisterPlayer(i2);
+                    this.f8061a.remove(String.valueOf(i2));
+                    for (String str : this.f8061a.keySet()) {
+                        if (this.f8061a.get(str).get() == null) {
+                            unRegisterPlayer(Integer.parseInt(str));
+                            this.f8061a.remove(str);
+                        }
+                    }
                 }
             }
         }
@@ -133,14 +183,16 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
     public void updateInstanceTimestamp(int i2, long j) {
-        if (this.f8035e) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.f8065e) {
             updateTimestamp(i2, j);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
     public void updateStringOption(int i2, String str, String str2) {
-        if (this.f8035e) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeILL(1048582, this, i2, str, str2) == null) && this.f8065e) {
             updateInstanceOptions(i2, str, str2);
         }
     }

@@ -1,5 +1,10 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,16 +14,40 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class l {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f30320a = {80, 75, 3, 4};
+    public static byte[] f32170a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f30321b = {80, 75, 5, 6};
+    public static byte[] f32171b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-752059374, "Lcom/bytedance/sdk/openadsdk/preload/geckox/utils/l;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-752059374, "Lcom/bytedance/sdk/openadsdk/preload/geckox/utils/l;");
+                return;
+            }
+        }
+        f32170a = new byte[]{80, 75, 3, 4};
+        f32171b = new byte[]{80, 75, 5, 6};
+    }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v6, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
     public static void a(InputStream inputStream, String str, String str2) throws Exception {
+        ?? fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65537, null, inputStream, str, str2) != null) {
+            return;
+        }
         ZipInputStream zipInputStream = null;
         try {
             String canonicalPath = new File(str).getCanonicalPath();
@@ -55,18 +84,18 @@ public class l {
                                     File file2 = new File(canonicalPath2);
                                     file2.getParentFile().mkdirs();
                                     try {
-                                        ?? fileOutputStream = new FileOutputStream(file2);
-                                        try {
-                                            d.a(zipInputStream2, fileOutputStream);
-                                            b.a((Closeable) fileOutputStream);
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            zipInputStream = fileOutputStream;
-                                            b.a(zipInputStream);
-                                            throw th;
-                                        }
+                                        fileOutputStream = new FileOutputStream(file2);
+                                    } catch (Throwable th) {
+                                        th = th;
+                                    }
+                                    try {
+                                        d.a(zipInputStream2, fileOutputStream);
+                                        b.a((Closeable) fileOutputStream);
                                     } catch (Throwable th2) {
                                         th = th2;
+                                        zipInputStream = fileOutputStream;
+                                        b.a(zipInputStream);
+                                        throw th;
                                     }
                                 } else {
                                     throw new RuntimeException("directory traversal, file name:" + name);
@@ -89,28 +118,35 @@ public class l {
     }
 
     public static boolean a(String str) {
-        return str.startsWith("__MACOSX/") || str.equals(".DS_Store");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.startsWith("__MACOSX/") || str.equals(".DS_Store") : invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:8:0x0018, code lost:
-        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f30321b, r1) != false) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
+        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f32171b, r1) != false) goto L15;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean a(InputStream inputStream) throws Exception {
-        try {
-            byte[] bArr = new byte[4];
-            boolean z = false;
-            if (inputStream.read(bArr, 0, 4) == 4) {
-                if (!Arrays.equals(f30320a, bArr)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                byte[] bArr = new byte[4];
+                boolean z = false;
+                if (inputStream.read(bArr, 0, 4) == 4) {
+                    if (!Arrays.equals(f32170a, bArr)) {
+                    }
+                    z = true;
+                    return z;
                 }
-                z = true;
-                return z;
+                return false;
+            } finally {
+                b.a(inputStream);
             }
-            return false;
-        } finally {
-            b.a(inputStream);
         }
+        return invokeL.booleanValue;
     }
 }

@@ -1,35 +1,63 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public class au {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f41102a = false;
+    public static volatile boolean f42845a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56379252, "Lcom/xiaomi/push/au;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-56379252, "Lcom/xiaomi/push/au;");
+        }
+    }
 
     public static void a(Class<?> cls, Context context) {
-        if (f41102a) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || f42845a) {
             return;
         }
         try {
-            f41102a = true;
+            f42845a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("mdid:load lib error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m70a("mdid:load lib error " + th);
         }
     }
 
     public static boolean a(Context context) {
-        try {
-            Class<?> a2 = t.a(context, "com.bun.miitmdid.core.JLibrary");
-            if (a2 != null) {
-                a(a2, context);
-                return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Class<?> a2 = t.a(context, "com.bun.miitmdid.core.JLibrary");
+                if (a2 != null) {
+                    a(a2, context);
+                    return true;
+                }
+                return false;
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.m70a("mdid:check error " + th);
+                return false;
             }
-            return false;
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("mdid:check error " + th);
-            return false;
         }
+        return invokeL.booleanValue;
     }
 }

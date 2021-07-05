@@ -6,7 +6,13 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
@@ -14,53 +20,88 @@ import java.io.FileInputStream;
 import java.util.Properties;
 /* loaded from: classes.dex */
 public final class h {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3141a = 5287;
+    public static int f3139a = 5287;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3142b = 5288;
+    public static int f3140b = 5288;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3143c = "https://info.tuisong.baidu.com";
+    public static String f3141c = "https://info.tuisong.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3144d = "/setter";
+    public static String f3142d = "/setter";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f3145e = "/v2/setter";
+    public static String f3143e = "/v2/setter";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f3146f = "/getter";
+    public static String f3144f = "/getter";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f3147g = "/v2/getter";
+    public static String f3145g = "/v2/getter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f3148h = "/bccs/upload";
+    public static String f3146h = "/bccs/upload";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f3149i = "https://ack.tuisong.baidu.com";
+    public static String f3147i = "https://ack.tuisong.baidu.com";
     public static String j = "/click";
     public static String k = "api.tuisong.baidu.com";
+    public static String[] l = null;
     public static String m = "sa.tuisong.baidu.com";
-    public static boolean o = false;
-    public static String[] l = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
-    public static String[] n = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
+    public static String[] n;
+    public static boolean o;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-840926923, "Lcom/baidu/android/pushservice/h;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-840926923, "Lcom/baidu/android/pushservice/h;");
+                return;
+            }
+        }
+        l = new String[]{"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
+        n = new String[]{"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
+    }
 
     public static int a(Context context) {
-        return m.o(context) ? f3142b : f3141a;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f3140b : f3139a : invokeL.intValue;
     }
 
     public static String a() {
-        return "http://" + k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return "http://" + k;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String b() {
-        return "https://" + k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return "https://" + k;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(65540, null, context) != null) {
+            return;
+        }
         if (!PushSettings.f(context)) {
             String a2 = PushSettings.a(context);
             if (TextUtils.isEmpty(a2) || a2.length() <= 0) {
@@ -120,27 +161,27 @@ public final class h {
             }
             String property3 = properties.getProperty("data_update_server");
             if (!TextUtils.isEmpty(property3)) {
-                f3143c = property3;
+                f3141c = property3;
             }
             String property4 = properties.getProperty("push_ack_server");
             if (!TextUtils.isEmpty(property4)) {
-                f3149i = property4;
+                f3147i = property4;
             }
             if (m.o(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
-                    f3142b = Integer.parseInt(property5);
+                    f3140b = Integer.parseInt(property5);
                 }
             } else {
                 String property6 = properties.getProperty("socket_server_port");
                 if (!TextUtils.isEmpty(property6)) {
-                    f3141a = Integer.parseInt(property6);
+                    f3139a = Integer.parseInt(property6);
                 }
             }
-            if (f.f3083a == 0) {
+            if (f.f3081a == 0) {
                 String property7 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
-                    f.f3084b = property7;
+                    f.f3082b = property7;
                 }
             }
             o = true;
@@ -152,53 +193,74 @@ public final class h {
     }
 
     public static String c() {
-        return k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? k : (String) invokeV.objValue;
     }
 
     public static String c(Context context) {
-        String a2 = PushSettings.a(context);
-        if (!TextUtils.isEmpty(a2) && a2.length() > 0) {
-            try {
-                return n[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            String a2 = PushSettings.a(context);
+            if (!TextUtils.isEmpty(a2) && a2.length() > 0) {
+                try {
+                    return n[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
+                } catch (Exception e2) {
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                }
             }
+            return "sa.tuisong.baidu.com";
         }
-        return "sa.tuisong.baidu.com";
+        return (String) invokeL.objValue;
     }
 
     public static String d() {
-        return m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? m : (String) invokeV.objValue;
     }
 
     public static String d(Context context) {
-        String a2 = PushSettings.a(context);
-        if (!TextUtils.isEmpty(a2) && a2.length() > 0) {
-            try {
-                return l[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            String a2 = PushSettings.a(context);
+            if (!TextUtils.isEmpty(a2) && a2.length() > 0) {
+                try {
+                    return l[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
+                } catch (Exception e2) {
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                }
             }
+            return "api.tuisong.baidu.com";
         }
-        return "api.tuisong.baidu.com";
+        return (String) invokeL.objValue;
     }
 
     public static String e() {
+        InterceptResult invokeV;
         StringBuilder sb;
         String b2;
-        if (o) {
-            sb = new StringBuilder();
-            b2 = a();
-        } else {
-            sb = new StringBuilder();
-            b2 = b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (o) {
+                sb = new StringBuilder();
+                b2 = a();
+            } else {
+                sb = new StringBuilder();
+                b2 = b();
+            }
+            sb.append(b2);
+            sb.append("/rest/2.0/channel/");
+            return sb.toString();
         }
-        sb.append(b2);
-        sb.append("/rest/2.0/channel/");
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     public static boolean f() {
-        return o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? o : invokeV.booleanValue;
     }
 }

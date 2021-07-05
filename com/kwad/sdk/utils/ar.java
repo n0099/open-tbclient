@@ -4,34 +4,46 @@ import android.os.Build;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import androidx.annotation.MainThread;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class ar {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     @MainThread
     public static WebSettings a(WebView webView) {
-        if (webView == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, webView)) == null) {
+            if (webView == null) {
+                return null;
+            }
+            WebSettings settings = webView.getSettings();
+            settings.setJavaScriptEnabled(true);
+            settings.setSavePassword(false);
+            settings.setAllowFileAccessFromFileURLs(false);
+            settings.setAllowUniversalAccessFromFileURLs(false);
+            settings.setAllowFileAccess(false);
+            if (Build.VERSION.SDK_INT >= 21) {
+                settings.setMixedContentMode(0);
+            }
+            if (Build.VERSION.SDK_INT < 19) {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
+                webView.removeJavascriptInterface("accessibility");
+                webView.removeJavascriptInterface("accessibilityTraversal");
+            }
+            webView.setSaveEnabled(false);
+            return settings;
         }
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setSavePassword(false);
-        settings.setAllowFileAccessFromFileURLs(false);
-        settings.setAllowUniversalAccessFromFileURLs(false);
-        settings.setAllowFileAccess(false);
-        if (Build.VERSION.SDK_INT >= 21) {
-            settings.setMixedContentMode(0);
-        }
-        if (Build.VERSION.SDK_INT < 19) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
-        }
-        webView.setSaveEnabled(false);
-        return settings;
+        return (WebSettings) invokeL.objValue;
     }
 
     @MainThread
     public static void b(WebView webView) {
-        if (webView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, webView) == null) || webView == null) {
             return;
         }
         WebSettings settings = webView.getSettings();

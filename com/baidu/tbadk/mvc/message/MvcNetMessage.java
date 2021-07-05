@@ -1,46 +1,88 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import d.a.n0.g0.b.g;
-import d.a.n0.g0.b.h;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.g0.b.g;
+import d.a.r0.g0.b.h;
+/* loaded from: classes4.dex */
 public class MvcNetMessage<T extends g, D extends h> extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
     public T requestData;
     public Class<D> responseDataClass;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MvcNetMessage(T t, int i2, int i3) {
         super(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.isNeedCache = false;
         this.requestData = t;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        return this.requestData.e(z);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this.requestData.b(z) : invokeZ.objValue;
     }
 
     public T getRequestData() {
-        return this.requestData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.requestData : (T) invokeV.objValue;
     }
 
     public Class<D> getResponseDataClass() {
-        return this.responseDataClass;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.responseDataClass : (Class) invokeV.objValue;
     }
 
     public boolean isNeedCache() {
-        return this.isNeedCache;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isNeedCache : invokeV.booleanValue;
     }
 
     public void setNeedCache(boolean z) {
-        this.isNeedCache = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.isNeedCache = z;
+        }
     }
 
     public void setRequestData(T t) {
-        this.requestData = t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            this.requestData = t;
+        }
     }
 
     public void setResponseDataClass(Class<D> cls) {
-        this.responseDataClass = cls;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cls) == null) {
+            this.responseDataClass = cls;
+        }
     }
 }

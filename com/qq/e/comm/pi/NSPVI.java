@@ -16,6 +16,10 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
 
     void fetchAndShowIn(ViewGroup viewGroup);
 
+    void fetchFullScreenAdOnly();
+
+    void fetchFullScreenAndShowIn(ViewGroup viewGroup);
+
     String getAdNetWorkName();
 
     String getECPMLevel();
@@ -26,7 +30,12 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
 
     void setAdListener(ADListener aDListener);
 
+    @Deprecated
     void setAdLogoMargin(int i2, int i3);
+
+    void setDeveloperLogo(int i2);
+
+    void setDeveloperLogo(byte[] bArr);
 
     void setFetchDelay(int i2);
 
@@ -34,6 +43,7 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
 
     void setLoadAdParams(LoadAdParams loadAdParams);
 
+    @Deprecated
     void setPreloadView(View view);
 
     void setSkipView(View view);
@@ -41,6 +51,8 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
     void setSupportZoomOut(boolean z);
 
     void showAd(ViewGroup viewGroup);
+
+    void showFullScreenAd(ViewGroup viewGroup);
 
     void zoomOutAnimationFinish();
 }

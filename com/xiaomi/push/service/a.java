@@ -2,147 +2,116 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f41810a;
+    public static volatile a f43553a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f864a;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile String f41814e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public volatile String f41815f;
+    public Context f867a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f865a = new Object();
+    public final Object f868a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final String f869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f41811b = new Object();
-
-    /* renamed from: a  reason: collision with other field name */
-    public final String f866a = "mipush_region";
+    public final Object f43554b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final String f867b = "mipush_country_code";
+    public final String f870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f41812c = "mipush_region.lock";
+    public final String f43555c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f41813d = "mipush_country_code.lock";
+    public final String f43556d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public volatile String f43557e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public volatile String f43558f;
 
     public a(Context context) {
-        this.f864a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f868a = new Object();
+        this.f43554b = new Object();
+        this.f869a = "mipush_region";
+        this.f870b = "mipush_country_code";
+        this.f43555c = "mipush_region.lock";
+        this.f43556d = "mipush_country_code.lock";
+        this.f867a = context;
     }
 
     public static a a(Context context) {
-        if (f41810a == null) {
-            synchronized (a.class) {
-                if (f41810a == null) {
-                    f41810a = new a(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (f43553a == null) {
+                synchronized (a.class) {
+                    if (f43553a == null) {
+                        f43553a = new a(context);
+                    }
                 }
             }
+            return f43553a;
         }
-        return f41810a;
+        return (a) invokeL.objValue;
     }
 
     private String a(Context context, String str, String str2, Object obj) {
+        InterceptResult invokeLLLL;
         RandomAccessFile randomAccessFile;
         FileLock fileLock;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65538, this, context, str, str2, obj)) != null) {
+            return (String) invokeLLLL.objValue;
+        }
         File file = new File(context.getFilesDir(), str);
         FileLock fileLock2 = null;
         if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m70a("No ready file to get data from " + str);
             return null;
         }
         synchronized (obj) {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
-                com.xiaomi.push.y.m629a(file2);
+                com.xiaomi.push.y.m643a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
-            } catch (Exception e2) {
-                e = e2;
-                randomAccessFile = null;
-                fileLock = null;
-            } catch (Throwable th) {
-                th = th;
-                randomAccessFile = null;
-            }
-            try {
-                fileLock = randomAccessFile.getChannel().lock();
                 try {
-                    try {
-                        String a2 = com.xiaomi.push.y.a(file);
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e3) {
-                                com.xiaomi.channel.commonutils.logger.b.a(e3);
-                            }
-                        }
-                        com.xiaomi.push.y.a(randomAccessFile);
-                        return a2;
-                    } catch (Exception e4) {
-                        e = e4;
-                        com.xiaomi.channel.commonutils.logger.b.a(e);
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e5) {
-                                com.xiaomi.channel.commonutils.logger.b.a(e5);
-                            }
-                        }
-                        com.xiaomi.push.y.a(randomAccessFile);
-                        return null;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileLock2 = fileLock;
-                    if (fileLock2 != null && fileLock2.isValid()) {
-                        try {
-                            fileLock2.release();
-                        } catch (IOException e6) {
-                            com.xiaomi.channel.commonutils.logger.b.a(e6);
-                        }
-                    }
-                    com.xiaomi.push.y.a(randomAccessFile);
-                    throw th;
-                }
-            } catch (Exception e7) {
-                e = e7;
-                fileLock = null;
-            } catch (Throwable th3) {
-                th = th3;
-                if (fileLock2 != null) {
-                    fileLock2.release();
-                }
-                com.xiaomi.push.y.a(randomAccessFile);
-                throw th;
-            }
-        }
-    }
-
-    private void a(Context context, String str, String str2, String str3, Object obj) {
-        RandomAccessFile randomAccessFile;
-        synchronized (obj) {
-            FileLock fileLock = null;
-            try {
-                try {
-                    File file = new File(context.getFilesDir(), str3);
-                    com.xiaomi.push.y.m629a(file);
-                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    fileLock = randomAccessFile.getChannel().lock();
                     try {
                         try {
-                            fileLock = randomAccessFile.getChannel().lock();
-                            com.xiaomi.push.y.a(new File(context.getFilesDir(), str2), str);
+                            String a2 = com.xiaomi.push.y.a(file);
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
@@ -150,6 +119,8 @@ public class a {
                                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                                 }
                             }
+                            com.xiaomi.push.y.a(randomAccessFile);
+                            return a2;
                         } catch (Exception e3) {
                             e = e3;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -161,12 +132,14 @@ public class a {
                                 }
                             }
                             com.xiaomi.push.y.a(randomAccessFile);
+                            return null;
                         }
                     } catch (Throwable th) {
                         th = th;
-                        if (fileLock != null && fileLock.isValid()) {
+                        fileLock2 = fileLock;
+                        if (fileLock2 != null && fileLock2.isValid()) {
                             try {
-                                fileLock.release();
+                                fileLock2.release();
                             } catch (IOException e5) {
                                 com.xiaomi.channel.commonutils.logger.b.a(e5);
                             }
@@ -174,52 +147,162 @@ public class a {
                         com.xiaomi.push.y.a(randomAccessFile);
                         throw th;
                     }
+                } catch (Exception e6) {
+                    e = e6;
+                    fileLock = null;
                 } catch (Throwable th2) {
-                    throw th2;
+                    th = th2;
+                    if (fileLock2 != null) {
+                        fileLock2.release();
+                    }
+                    com.xiaomi.push.y.a(randomAccessFile);
+                    throw th;
                 }
-            } catch (Exception e6) {
-                e = e6;
+            } catch (Exception e7) {
+                e = e7;
                 randomAccessFile = null;
+                fileLock = null;
             } catch (Throwable th3) {
                 th = th3;
                 randomAccessFile = null;
-                if (fileLock != null) {
-                    fileLock.release();
-                }
-                com.xiaomi.push.y.a(randomAccessFile);
-                throw th;
             }
-            com.xiaomi.push.y.a(randomAccessFile);
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0041 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0060 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x0006 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r8v0, types: [java.lang.Object, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r8v1 */
+    /* JADX WARN: Type inference failed for: r8v10 */
+    /* JADX WARN: Type inference failed for: r8v11 */
+    /* JADX WARN: Type inference failed for: r8v12 */
+    /* JADX WARN: Type inference failed for: r8v13 */
+    /* JADX WARN: Type inference failed for: r8v14 */
+    /* JADX WARN: Type inference failed for: r8v15 */
+    /* JADX WARN: Type inference failed for: r8v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r8v4 */
+    /* JADX WARN: Type inference failed for: r8v6, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r8v8 */
+    /* JADX WARN: Type inference failed for: r8v9 */
+    private void a(Context context, String str, String str2, String str3, Object obj) {
+        RandomAccessFile randomAccessFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, this, context, str, str2, str3, obj) == null) {
+            synchronized (obj) {
+                FileLock fileLock = null;
+                try {
+                    try {
+                        try {
+                            File file = new File(context.getFilesDir(), (String) str3);
+                            com.xiaomi.push.y.m643a(file);
+                            randomAccessFile = new RandomAccessFile(file, "rw");
+                            try {
+                                fileLock = randomAccessFile.getChannel().lock();
+                                com.xiaomi.push.y.a(new File(context.getFilesDir(), str2), str);
+                                str3 = randomAccessFile;
+                                if (fileLock != null) {
+                                    str3 = randomAccessFile;
+                                    if (fileLock.isValid()) {
+                                        try {
+                                            fileLock.release();
+                                            str3 = randomAccessFile;
+                                        } catch (IOException e2) {
+                                            com.xiaomi.channel.commonutils.logger.b.a(e2);
+                                            str3 = randomAccessFile;
+                                        }
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                e = e3;
+                                com.xiaomi.channel.commonutils.logger.b.a(e);
+                                str3 = randomAccessFile;
+                                if (fileLock != null) {
+                                    str3 = randomAccessFile;
+                                    if (fileLock.isValid()) {
+                                        try {
+                                            fileLock.release();
+                                            str3 = randomAccessFile;
+                                        } catch (IOException e4) {
+                                            com.xiaomi.channel.commonutils.logger.b.a(e4);
+                                            str3 = randomAccessFile;
+                                        }
+                                    }
+                                }
+                                com.xiaomi.push.y.a((Closeable) str3);
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e5) {
+                                    com.xiaomi.channel.commonutils.logger.b.a(e5);
+                                }
+                            }
+                            com.xiaomi.push.y.a((Closeable) str3);
+                            throw th;
+                        }
+                    } catch (Exception e6) {
+                        e = e6;
+                        randomAccessFile = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        str3 = 0;
+                        if (fileLock != null) {
+                            fileLock.release();
+                        }
+                        com.xiaomi.push.y.a((Closeable) str3);
+                        throw th;
+                    }
+                    com.xiaomi.push.y.a((Closeable) str3);
+                } catch (Throwable th3) {
+                    throw th3;
+                }
+            }
         }
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f41814e)) {
-            this.f41814e = a(this.f864a, "mipush_region", "mipush_region.lock", this.f865a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.f43557e)) {
+                this.f43557e = a(this.f867a, "mipush_region", "mipush_region.lock", this.f868a);
+            }
+            return this.f43557e;
         }
-        return this.f41814e;
+        return (String) invokeV.objValue;
     }
 
     public void a(String str) {
-        if (TextUtils.equals(str, this.f41814e)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f43557e)) {
             return;
         }
-        this.f41814e = str;
-        a(this.f864a, this.f41814e, "mipush_region", "mipush_region.lock", this.f865a);
+        this.f43557e = str;
+        a(this.f867a, this.f43557e, "mipush_region", "mipush_region.lock", this.f868a);
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f41815f)) {
-            this.f41815f = a(this.f864a, "mipush_country_code", "mipush_country_code.lock", this.f41811b);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.f43558f)) {
+                this.f43558f = a(this.f867a, "mipush_country_code", "mipush_country_code.lock", this.f43554b);
+            }
+            return this.f43558f;
         }
-        return this.f41815f;
+        return (String) invokeV.objValue;
     }
 
     public void b(String str) {
-        if (TextUtils.equals(str, this.f41815f)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f43558f)) {
             return;
         }
-        this.f41815f = str;
-        a(this.f864a, this.f41815f, "mipush_country_code", "mipush_country_code.lock", this.f41811b);
+        this.f43558f = str;
+        a(this.f867a, this.f43558f, "mipush_country_code", "mipush_country_code.lock", this.f43554b);
     }
 }

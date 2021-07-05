@@ -2,25 +2,45 @@ package com.xiaomi.push;
 
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dg implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f41219a;
+    public final /* synthetic */ df f42962a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f232a;
+    public final /* synthetic */ String f235a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Throwable f233a;
+    public final /* synthetic */ Throwable f236a;
 
     public dg(df dfVar, String str, Throwable th) {
-        this.f41219a = dfVar;
-        this.f232a = str;
-        this.f233a = th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dfVar, str, th};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42962a = dfVar;
+        this.f235a = str;
+        this.f236a = th;
     }
 
     @Override // java.lang.Runnable
@@ -37,39 +57,42 @@ public class dg implements Runnable {
         String str4;
         List list5;
         List list6;
-        list = df.f229a;
-        simpleDateFormat = df.f228a;
-        str = this.f41219a.f41217b;
-        list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f232a), this.f233a));
-        list2 = df.f229a;
-        if (list2.size() > 20000) {
-            list3 = df.f229a;
-            int size = (list3.size() - 20000) + 50;
-            for (int i2 = 0; i2 < size; i2++) {
-                try {
-                    list5 = df.f229a;
-                    if (list5.size() > 0) {
-                        list6 = df.f229a;
-                        list6.remove(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            list = df.f232a;
+            simpleDateFormat = df.f231a;
+            str = this.f42962a.f42960b;
+            list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f235a), this.f236a));
+            list2 = df.f232a;
+            if (list2.size() > 20000) {
+                list3 = df.f232a;
+                int size = (list3.size() - 20000) + 50;
+                for (int i2 = 0; i2 < size; i2++) {
+                    try {
+                        list5 = df.f232a;
+                        if (list5.size() > 0) {
+                            list6 = df.f232a;
+                            list6.remove(0);
+                        }
+                    } catch (IndexOutOfBoundsException unused) {
                     }
-                } catch (IndexOutOfBoundsException unused) {
                 }
+                list4 = df.f232a;
+                simpleDateFormat2 = df.f231a;
+                str4 = this.f42962a.f42960b;
+                list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
             }
-            list4 = df.f229a;
-            simpleDateFormat2 = df.f228a;
-            str4 = this.f41219a.f41217b;
-            list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
-        }
-        try {
-            if (aa.d()) {
-                this.f41219a.m230a();
-                return;
+            try {
+                if (aa.d()) {
+                    this.f42962a.m244a();
+                    return;
+                }
+                str3 = this.f42962a.f42960b;
+                Log.w(str3, "SDCard is unavailable.");
+            } catch (Exception e2) {
+                str2 = this.f42962a.f42960b;
+                Log.e(str2, "", e2);
             }
-            str3 = this.f41219a.f41217b;
-            Log.w(str3, "SDCard is unavailable.");
-        } catch (Exception e2) {
-            str2 = this.f41219a.f41217b;
-            Log.e(str2, "", e2);
         }
     }
 }

@@ -1,35 +1,83 @@
 package com.baidu.searchbox.http.request;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatResponse {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Response realResponse;
     public NetworkStatRecord statRecord;
 
     public StatResponse(Response response, NetworkStatRecord networkStatRecord) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {response, networkStatRecord};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.realResponse = response;
         this.statRecord = networkStatRecord;
     }
 
     public ResponseBody body() {
-        Response response = this.realResponse;
-        if (response != null) {
-            return response.body();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Response response = this.realResponse;
+            if (response != null) {
+                return response.body();
+            }
+            return null;
         }
-        return null;
+        return (ResponseBody) invokeV.objValue;
     }
 
     public Response getResponse() {
-        return this.realResponse;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.realResponse : (Response) invokeV.objValue;
     }
 
     public NetworkStatRecord getStatRecord() {
-        return this.statRecord;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.statRecord : (NetworkStatRecord) invokeV.objValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public StatResponse(NetworkStatRecord networkStatRecord) {
         this(null, networkStatRecord);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {networkStatRecord};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Response) objArr2[0], (NetworkStatRecord) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 }

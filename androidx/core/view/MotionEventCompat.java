@@ -1,8 +1,15 @@
 package androidx.core.view;
 
 import android.view.MotionEvent;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class MotionEventCompat {
+    public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
     public static final int ACTION_HOVER_ENTER = 9;
     @Deprecated
@@ -110,63 +117,102 @@ public final class MotionEventCompat {
     public static final int AXIS_Z = 11;
     @Deprecated
     public static final int BUTTON_PRIMARY = 1;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public MotionEventCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Deprecated
     public static int findPointerIndex(MotionEvent motionEvent, int i2) {
-        return motionEvent.findPointerIndex(i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, motionEvent, i2)) == null) ? motionEvent.findPointerIndex(i2) : invokeLI.intValue;
     }
 
     @Deprecated
     public static int getActionIndex(MotionEvent motionEvent) {
-        return motionEvent.getActionIndex();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, motionEvent)) == null) ? motionEvent.getActionIndex() : invokeL.intValue;
     }
 
     @Deprecated
     public static int getActionMasked(MotionEvent motionEvent) {
-        return motionEvent.getActionMasked();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, motionEvent)) == null) ? motionEvent.getActionMasked() : invokeL.intValue;
     }
 
     @Deprecated
     public static float getAxisValue(MotionEvent motionEvent, int i2) {
-        return motionEvent.getAxisValue(i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, motionEvent, i2)) == null) ? motionEvent.getAxisValue(i2) : invokeLI.floatValue;
     }
 
     @Deprecated
     public static int getButtonState(MotionEvent motionEvent) {
-        return motionEvent.getButtonState();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, motionEvent)) == null) ? motionEvent.getButtonState() : invokeL.intValue;
     }
 
     @Deprecated
     public static int getPointerCount(MotionEvent motionEvent) {
-        return motionEvent.getPointerCount();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, motionEvent)) == null) ? motionEvent.getPointerCount() : invokeL.intValue;
     }
 
     @Deprecated
     public static int getPointerId(MotionEvent motionEvent, int i2) {
-        return motionEvent.getPointerId(i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, motionEvent, i2)) == null) ? motionEvent.getPointerId(i2) : invokeLI.intValue;
     }
 
     @Deprecated
     public static int getSource(MotionEvent motionEvent) {
-        return motionEvent.getSource();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, motionEvent)) == null) ? motionEvent.getSource() : invokeL.intValue;
     }
 
     @Deprecated
     public static float getX(MotionEvent motionEvent, int i2) {
-        return motionEvent.getX(i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, motionEvent, i2)) == null) ? motionEvent.getX(i2) : invokeLI.floatValue;
     }
 
     @Deprecated
     public static float getY(MotionEvent motionEvent, int i2) {
-        return motionEvent.getY(i2);
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, motionEvent, i2)) == null) ? motionEvent.getY(i2) : invokeLI.floatValue;
     }
 
     public static boolean isFromSource(MotionEvent motionEvent, int i2) {
-        return (motionEvent.getSource() & i2) == i2;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, motionEvent, i2)) == null) ? (motionEvent.getSource() & i2) == i2 : invokeLI.booleanValue;
     }
 
     @Deprecated
     public static float getAxisValue(MotionEvent motionEvent, int i2, int i3) {
-        return motionEvent.getAxisValue(i2, i3);
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, motionEvent, i2, i3)) == null) ? motionEvent.getAxisValue(i2, i3) : invokeLII.floatValue;
     }
 }

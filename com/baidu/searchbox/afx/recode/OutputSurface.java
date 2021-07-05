@@ -7,22 +7,48 @@ import android.opengl.EGLContext;
 import android.opengl.EGLDisplay;
 import android.opengl.EGLSurface;
 import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import org.webrtc.EglBase10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OutputSurface";
     public static final boolean VERBOSE = false;
+    public transient /* synthetic */ FieldHolder $fh;
+    public EGLContext mEGLContext;
+    public EGLDisplay mEGLDisplay;
+    public EGLSurface mEGLSurface;
     public boolean mFrameAvailable;
+    public Object mFrameSyncObject;
     public Surface mSurface;
     public SurfaceTexture mSurfaceTexture;
     public TextureRender mTextureRender;
-    public EGLDisplay mEGLDisplay = EGL14.EGL_NO_DISPLAY;
-    public EGLContext mEGLContext = EGL14.EGL_NO_CONTEXT;
-    public EGLSurface mEGLSurface = EGL14.EGL_NO_SURFACE;
-    public Object mFrameSyncObject = new Object();
 
     public OutputSurface(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mEGLDisplay = EGL14.EGL_NO_DISPLAY;
+        this.mEGLContext = EGL14.EGL_NO_CONTEXT;
+        this.mEGLSurface = EGL14.EGL_NO_SURFACE;
+        this.mFrameSyncObject = new Object();
         if (i2 > 0 && i3 > 0) {
             eglSetup(i2, i3);
             makeCurrent();
@@ -33,139 +59,187 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     private void checkEglError(String str) {
-        int eglGetError = EGL14.eglGetError();
-        if (eglGetError == 12288) {
+        int eglGetError;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || (eglGetError = EGL14.eglGetError()) == 12288) {
             return;
         }
         throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
     }
 
     private void eglSetup(int i2, int i3) {
-        EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-        this.mEGLDisplay = eglGetDisplay;
-        if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-            int[] iArr = new int[2];
-            if (!EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                this.mEGLDisplay = null;
-                throw new RuntimeException("unable to initialize EGL14");
-            }
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, 12352, 4, ZeusMonitorType.MONITOR_TYPE_MULTI_PERFORMANCE_TIMING, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                checkEglError("eglCreateContext");
-                if (this.mEGLContext != null) {
-                    this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                    checkEglError("eglCreatePbufferSurface");
-                    if (this.mEGLSurface == null) {
-                        throw new RuntimeException("surface was null");
-                    }
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65539, this, i2, i3) == null) {
+            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
+            this.mEGLDisplay = eglGetDisplay;
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                int[] iArr = new int[2];
+                if (!EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
+                    this.mEGLDisplay = null;
+                    throw new RuntimeException("unable to initialize EGL14");
                 }
-                throw new RuntimeException("null context");
+                EGLConfig[] eGLConfigArr = new EGLConfig[1];
+                if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, 12352, 4, ZeusMonitorType.MONITOR_TYPE_MULTI_PERFORMANCE_TIMING, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                    this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                    checkEglError("eglCreateContext");
+                    if (this.mEGLContext != null) {
+                        this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                        checkEglError("eglCreatePbufferSurface");
+                        if (this.mEGLSurface == null) {
+                            throw new RuntimeException("surface was null");
+                        }
+                        return;
+                    }
+                    throw new RuntimeException("null context");
+                }
+                throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
             }
-            throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
+            throw new RuntimeException("unable to get EGL14 display");
         }
-        throw new RuntimeException("unable to get EGL14 display");
     }
 
     private void setup() {
-        TextureRender textureRender = new TextureRender();
-        this.mTextureRender = textureRender;
-        textureRender.surfaceCreated();
-        SurfaceTexture surfaceTexture = new SurfaceTexture(this.mTextureRender.getTextureId());
-        this.mSurfaceTexture = surfaceTexture;
-        surfaceTexture.setOnFrameAvailableListener(this);
-        this.mSurface = new Surface(this.mSurfaceTexture);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            TextureRender textureRender = new TextureRender();
+            this.mTextureRender = textureRender;
+            textureRender.surfaceCreated();
+            SurfaceTexture surfaceTexture = new SurfaceTexture(this.mTextureRender.getTextureId());
+            this.mSurfaceTexture = surfaceTexture;
+            surfaceTexture.setOnFrameAvailableListener(this);
+            this.mSurface = new Surface(this.mSurfaceTexture);
+        }
     }
 
     public void awaitNewImage() {
-        synchronized (this.mFrameSyncObject) {
-            while (!this.mFrameAvailable) {
-                try {
-                    this.mFrameSyncObject.wait(500L);
-                    if (!this.mFrameAvailable) {
-                        throw new RuntimeException("Surface frame wait timed out");
-                    }
-                } catch (InterruptedException e2) {
-                    throw new RuntimeException(e2);
-                }
-            }
-            this.mFrameAvailable = false;
-        }
-        this.mTextureRender.checkGlError("before updateTexImage");
-        this.mSurfaceTexture.updateTexImage();
-    }
-
-    public void changeFragmentShader(String str) {
-        this.mTextureRender.changeFragmentShader(str);
-    }
-
-    public boolean checkForNewImage(int i2) {
-        synchronized (this.mFrameSyncObject) {
-            do {
-                if (!this.mFrameAvailable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.mFrameSyncObject) {
+                while (!this.mFrameAvailable) {
                     try {
-                        this.mFrameSyncObject.wait(i2);
+                        this.mFrameSyncObject.wait(500L);
+                        if (!this.mFrameAvailable) {
+                            throw new RuntimeException("Surface frame wait timed out");
+                        }
                     } catch (InterruptedException e2) {
                         throw new RuntimeException(e2);
                     }
-                } else {
-                    this.mFrameAvailable = false;
-                    this.mTextureRender.checkGlError("before updateTexImage");
-                    this.mSurfaceTexture.updateTexImage();
-                    return true;
                 }
-            } while (this.mFrameAvailable);
-            return false;
+                this.mFrameAvailable = false;
+            }
+            this.mTextureRender.checkGlError("before updateTexImage");
+            this.mSurfaceTexture.updateTexImage();
         }
     }
 
+    public void changeFragmentShader(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.mTextureRender.changeFragmentShader(str);
+        }
+    }
+
+    public boolean checkForNewImage(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            synchronized (this.mFrameSyncObject) {
+                do {
+                    if (!this.mFrameAvailable) {
+                        try {
+                            this.mFrameSyncObject.wait(i2);
+                        } catch (InterruptedException e2) {
+                            throw new RuntimeException(e2);
+                        }
+                    } else {
+                        this.mFrameAvailable = false;
+                        this.mTextureRender.checkGlError("before updateTexImage");
+                        this.mSurfaceTexture.updateTexImage();
+                        return true;
+                    }
+                } while (this.mFrameAvailable);
+                return false;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
     public void drawImage() {
-        this.mTextureRender.drawFrame(this.mSurfaceTexture);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mTextureRender.drawFrame(this.mSurfaceTexture);
+        }
     }
 
     public Surface getSurface() {
-        return this.mSurface;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSurface : (Surface) invokeV.objValue;
     }
 
     public void makeCurrent() {
-        EGLDisplay eGLDisplay = this.mEGLDisplay;
-        EGLSurface eGLSurface = this.mEGLSurface;
-        if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.mEGLContext)) {
-            throw new RuntimeException("eglMakeCurrent failed");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            EGLDisplay eGLDisplay = this.mEGLDisplay;
+            EGLSurface eGLSurface = this.mEGLSurface;
+            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.mEGLContext)) {
+                throw new RuntimeException("eglMakeCurrent failed");
+            }
         }
     }
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        synchronized (this.mFrameSyncObject) {
-            if (!this.mFrameAvailable) {
-                this.mFrameAvailable = true;
-                this.mFrameSyncObject.notifyAll();
-            } else {
-                throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+            synchronized (this.mFrameSyncObject) {
+                if (!this.mFrameAvailable) {
+                    this.mFrameAvailable = true;
+                    this.mFrameSyncObject.notifyAll();
+                } else {
+                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+                }
             }
         }
     }
 
     public void release() {
-        EGLDisplay eGLDisplay = this.mEGLDisplay;
-        if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
-            EGL14.eglDestroySurface(eGLDisplay, this.mEGLSurface);
-            EGL14.eglDestroyContext(this.mEGLDisplay, this.mEGLContext);
-            EGL14.eglReleaseThread();
-            EGL14.eglTerminate(this.mEGLDisplay);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            EGLDisplay eGLDisplay = this.mEGLDisplay;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
+                EGL14.eglDestroySurface(eGLDisplay, this.mEGLSurface);
+                EGL14.eglDestroyContext(this.mEGLDisplay, this.mEGLContext);
+                EGL14.eglReleaseThread();
+                EGL14.eglTerminate(this.mEGLDisplay);
+            }
+            this.mSurface.release();
+            this.mEGLDisplay = EGL14.EGL_NO_DISPLAY;
+            this.mEGLContext = EGL14.EGL_NO_CONTEXT;
+            this.mEGLSurface = EGL14.EGL_NO_SURFACE;
+            this.mTextureRender = null;
+            this.mSurface = null;
+            this.mSurfaceTexture = null;
         }
-        this.mSurface.release();
-        this.mEGLDisplay = EGL14.EGL_NO_DISPLAY;
-        this.mEGLContext = EGL14.EGL_NO_CONTEXT;
-        this.mEGLSurface = EGL14.EGL_NO_SURFACE;
-        this.mTextureRender = null;
-        this.mSurface = null;
-        this.mSurfaceTexture = null;
     }
 
     public OutputSurface() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mEGLDisplay = EGL14.EGL_NO_DISPLAY;
+        this.mEGLContext = EGL14.EGL_NO_CONTEXT;
+        this.mEGLSurface = EGL14.EGL_NO_SURFACE;
+        this.mFrameSyncObject = new Object();
         setup();
     }
 }

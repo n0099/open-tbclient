@@ -1,33 +1,59 @@
 package com.fun.openid.sdk;
 
 import android.database.ContentObserver;
+import android.os.Handler;
 import android.util.Log;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class q extends ContentObserver {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30912a;
+    public String f32683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30913b;
+    public int f32684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public p f30914c;
+    public p f32685c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(p pVar, int i2, String str) {
         super(null);
-        this.f30914c = pVar;
-        this.f30913b = i2;
-        this.f30912a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pVar, Integer.valueOf(i2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Handler) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32685c = pVar;
+        this.f32684b = i2;
+        this.f32683a = str;
     }
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        p pVar = this.f30914c;
-        if (pVar != null) {
-            pVar.a(this.f30913b, this.f30912a);
-        } else {
-            Log.e("VMS_IDLG_SDK_Observer", "mIdentifierIdClient is null");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            p pVar = this.f32685c;
+            if (pVar != null) {
+                pVar.a(this.f32684b, this.f32683a);
+            } else {
+                Log.e("VMS_IDLG_SDK_Observer", "mIdentifierIdClient is null");
+            }
         }
     }
 }

@@ -1,15 +1,35 @@
 package com.baidu.ufosdk.ui;
 
 import android.os.Handler;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class cd implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22874a;
+    public final /* synthetic */ FeedbackInputActivity f23390a;
 
     public cd(FeedbackInputActivity feedbackInputActivity) {
-        this.f22874a = feedbackInputActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackInputActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23390a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -19,22 +39,25 @@ public final class cd implements Runnable {
         String d2;
         Handler handler;
         String str3;
-        str = this.f22874a.ar;
-        if (str != null) {
-            str3 = this.f22874a.ar;
-            if (str3.length() > 0) {
-                str2 = this.f22874a.ar;
-                d2 = com.baidu.ufosdk.e.a.d(this.f22874a.getApplicationContext(), this.f22874a.f22778e, str2);
-                if (d2 != null || d2.length() == 0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            str = this.f23390a.ar;
+            if (str != null) {
+                str3 = this.f23390a.ar;
+                if (str3.length() > 0) {
+                    str2 = this.f23390a.ar;
+                    d2 = com.baidu.ufosdk.e.a.d(this.f23390a.getApplicationContext(), this.f23390a.f23294e, str2);
+                    if (d2 != null || d2.length() == 0) {
+                    }
+                    handler = this.f23390a.aK;
+                    handler.obtainMessage(5, d2).sendToTarget();
+                    return;
                 }
-                handler = this.f22874a.aK;
-                handler.obtainMessage(5, d2).sendToTarget();
-                return;
             }
-        }
-        str2 = UfoSDK.appid;
-        d2 = com.baidu.ufosdk.e.a.d(this.f22874a.getApplicationContext(), this.f22874a.f22778e, str2);
-        if (d2 != null) {
+            str2 = UfoSDK.appid;
+            d2 = com.baidu.ufosdk.e.a.d(this.f23390a.getApplicationContext(), this.f23390a.f23294e, str2);
+            if (d2 != null) {
+            }
         }
     }
 }

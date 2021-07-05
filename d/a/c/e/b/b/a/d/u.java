@@ -2,6 +2,11 @@ package d.a.c.e.b.b.a.d;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -10,112 +15,133 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class u implements h {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42251a;
+    public String f44060a;
 
     public u(String str) {
-        this.f42251a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44060a = str;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
         Class<?> a2;
-        try {
-            a2 = cVar.a();
-        } catch (NumberFormatException e2) {
-            e2.printStackTrace();
-            return null;
-        }
-        if (a2 != Byte.class && a2 != Byte.TYPE) {
-            if (a2 != Short.class && a2 != Short.TYPE) {
-                if (a2 != Integer.class && a2 != Integer.TYPE) {
-                    if (a2 != Long.class && a2 != Long.TYPE) {
-                        if (a2 != Float.class && a2 != Float.TYPE) {
-                            if (a2 != Double.class && a2 != Double.TYPE) {
-                                if (a2 != Character.class && a2 != Character.TYPE) {
-                                    if (a2 != Boolean.class && a2 != Boolean.TYPE) {
-                                        if (a2 == String.class) {
-                                            return this.f42251a;
-                                        }
-                                        if (a2 == char[].class) {
-                                            return this.f42251a.toCharArray();
-                                        }
-                                        if (a2 == byte[].class) {
-                                            try {
-                                                return d.a.c.e.p.c.e(this.f42251a, 0);
-                                            } catch (IOException e3) {
-                                                e3.printStackTrace();
-                                                return null;
-                                            }
-                                        } else if (d.a.c.e.b.a.a.g(a2, OrmObject.class)) {
-                                            return OrmObject.objectWithJsonStr(this.f42251a, a2);
-                                        } else {
-                                            if (d.a.c.e.b.a.a.g(a2, List.class)) {
-                                                try {
-                                                    return new j(new JSONArray(this.f42251a)).a(cVar);
-                                                } catch (JSONException e4) {
-                                                    e4.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else if (a2.isArray()) {
-                                                try {
-                                                    return new j(new JSONArray(this.f42251a)).a(cVar);
-                                                } catch (JSONException e5) {
-                                                    e5.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else if (d.a.c.e.b.a.a.g(a2, Queue.class)) {
-                                                try {
-                                                    return new j(new JSONArray(this.f42251a)).a(cVar);
-                                                } catch (JSONException e6) {
-                                                    e6.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else if (d.a.c.e.b.a.a.g(a2, Set.class)) {
-                                                try {
-                                                    return new j(new JSONArray(this.f42251a)).a(cVar);
-                                                } catch (JSONException e7) {
-                                                    e7.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else if (d.a.c.e.b.a.a.g(a2, Map.class)) {
-                                                try {
-                                                    return new k(new JSONObject(this.f42251a)).a(cVar);
-                                                } catch (JSONException e8) {
-                                                    e8.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else if (d.a.c.e.b.a.a.g(a2, SparseArray.class)) {
-                                                try {
-                                                    return new k(new JSONObject(this.f42251a)).a(cVar);
-                                                } catch (JSONException e9) {
-                                                    e9.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else {
-                                                return null;
-                                            }
-                                        }
-                                        e2.printStackTrace();
-                                        return null;
-                                    }
-                                    return Boolean.valueOf(Boolean.parseBoolean(this.f42251a));
-                                }
-                                return Character.valueOf(this.f42251a.charAt(0));
-                            }
-                            return Double.valueOf(Double.parseDouble(this.f42251a));
-                        }
-                        return Float.valueOf(Float.parseFloat(this.f42251a));
-                    }
-                    return Long.valueOf(Long.parseLong(this.f42251a));
-                }
-                return Integer.valueOf(Integer.parseInt(this.f42251a));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            try {
+                a2 = cVar.a();
+            } catch (NumberFormatException e2) {
+                e2.printStackTrace();
+                return null;
             }
-            return Short.valueOf(Short.parseShort(this.f42251a));
+            if (a2 != Byte.class && a2 != Byte.TYPE) {
+                if (a2 != Short.class && a2 != Short.TYPE) {
+                    if (a2 != Integer.class && a2 != Integer.TYPE) {
+                        if (a2 != Long.class && a2 != Long.TYPE) {
+                            if (a2 != Float.class && a2 != Float.TYPE) {
+                                if (a2 != Double.class && a2 != Double.TYPE) {
+                                    if (a2 != Character.class && a2 != Character.TYPE) {
+                                        if (a2 != Boolean.class && a2 != Boolean.TYPE) {
+                                            if (a2 == String.class) {
+                                                return this.f44060a;
+                                            }
+                                            if (a2 == char[].class) {
+                                                return this.f44060a.toCharArray();
+                                            }
+                                            if (a2 == byte[].class) {
+                                                try {
+                                                    return d.a.c.e.p.c.e(this.f44060a, 0);
+                                                } catch (IOException e3) {
+                                                    e3.printStackTrace();
+                                                    return null;
+                                                }
+                                            } else if (d.a.c.e.b.a.a.e(a2, OrmObject.class)) {
+                                                return OrmObject.objectWithJsonStr(this.f44060a, a2);
+                                            } else {
+                                                if (d.a.c.e.b.a.a.e(a2, List.class)) {
+                                                    try {
+                                                        return new j(new JSONArray(this.f44060a)).a(cVar);
+                                                    } catch (JSONException e4) {
+                                                        e4.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (a2.isArray()) {
+                                                    try {
+                                                        return new j(new JSONArray(this.f44060a)).a(cVar);
+                                                    } catch (JSONException e5) {
+                                                        e5.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (d.a.c.e.b.a.a.e(a2, Queue.class)) {
+                                                    try {
+                                                        return new j(new JSONArray(this.f44060a)).a(cVar);
+                                                    } catch (JSONException e6) {
+                                                        e6.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (d.a.c.e.b.a.a.e(a2, Set.class)) {
+                                                    try {
+                                                        return new j(new JSONArray(this.f44060a)).a(cVar);
+                                                    } catch (JSONException e7) {
+                                                        e7.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (d.a.c.e.b.a.a.e(a2, Map.class)) {
+                                                    try {
+                                                        return new k(new JSONObject(this.f44060a)).a(cVar);
+                                                    } catch (JSONException e8) {
+                                                        e8.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (d.a.c.e.b.a.a.e(a2, SparseArray.class)) {
+                                                    try {
+                                                        return new k(new JSONObject(this.f44060a)).a(cVar);
+                                                    } catch (JSONException e9) {
+                                                        e9.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else {
+                                                    return null;
+                                                }
+                                            }
+                                            e2.printStackTrace();
+                                            return null;
+                                        }
+                                        return Boolean.valueOf(Boolean.parseBoolean(this.f44060a));
+                                    }
+                                    return Character.valueOf(this.f44060a.charAt(0));
+                                }
+                                return Double.valueOf(Double.parseDouble(this.f44060a));
+                            }
+                            return Float.valueOf(Float.parseFloat(this.f44060a));
+                        }
+                        return Long.valueOf(Long.parseLong(this.f44060a));
+                    }
+                    return Integer.valueOf(Integer.parseInt(this.f44060a));
+                }
+                return Short.valueOf(Short.parseShort(this.f44060a));
+            }
+            return Byte.valueOf(Byte.parseByte(this.f44060a));
         }
-        return Byte.valueOf(Byte.parseByte(this.f42251a));
+        return invokeL.objValue;
     }
 }

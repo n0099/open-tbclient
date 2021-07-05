@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.alibaba.fastjson.asm.Label;
 import com.alipay.sdk.app.statistic.c;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.XAdSDKRemoteExp;
 import com.baidu.mobads.container.components.controller.InstallReceiver;
@@ -26,6 +27,7 @@ import com.baidu.mobads.container.components.statemachine.AdStateCode;
 import com.baidu.mobads.container.components.statemachine.StateMachine;
 import com.baidu.mobads.container.config.AppConfigImp;
 import com.baidu.mobads.container.util.AdDownloadApkUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.AppUtils;
 import com.baidu.mobads.container.util.EncryptUtils;
 import com.baidu.mobads.container.util.FileUtils;
@@ -38,6 +40,13 @@ import com.baidu.mobads.container.util.XAdRemoteEvent;
 import com.baidu.mobads.sdk.api.ICommonModuleObj;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
 import com.baidu.tieba.ala.ALaKeepAliveService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
@@ -49,26 +58,64 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver.InstallListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static int NOTIF_INC = 10091;
     public static final String TAG = "OAdRemoteApkDownloaderObserver";
-    public static HashMap<String, OAdRemoteApkDownloaderObserver> globalDownloadObservers = new HashMap<>();
+    public static HashMap<String, OAdRemoteApkDownloaderObserver> globalDownloadObservers;
     public static NotificationManager notificationManger;
+    public transient /* synthetic */ FieldHolder $fh;
     public IDownloader adDownloader;
+    public XAdInstallController ctrl;
+    public String fileSizeInMillionBytes;
+    public boolean isInstallComplete;
     public Context mContext;
     public Object mCustomNotification;
     public XAdRemoteAPKDownloadExtraInfo mExtraInfo;
+    public AtomicBoolean mLoadNotifIcon;
     public Bitmap mNotificationIcon;
-    public XAdInstallController ctrl = null;
-    public List<WeakReference<IOAdEventListener>> mStatusListenerList = new ArrayList();
-    public String fileSizeInMillionBytes = "";
-    public boolean isInstallComplete = false;
-    public AtomicBoolean mLoadNotifIcon = new AtomicBoolean(false);
-    public Handler mainThreadHandler = new Handler(Looper.getMainLooper());
+    public List<WeakReference<IOAdEventListener>> mStatusListenerList;
+    public Handler mainThreadHandler;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1848262578, "Lcom/baidu/mobads/container/components/command/OAdRemoteApkDownloaderObserver;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1848262578, "Lcom/baidu/mobads/container/components/command/OAdRemoteApkDownloaderObserver;");
+                return;
+            }
+        }
+        globalDownloadObservers = new HashMap<>();
+    }
 
     public OAdRemoteApkDownloaderObserver(Context context, XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, xAdRemoteAPKDownloadExtraInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mExtraInfo = null;
+        this.ctrl = null;
+        this.mStatusListenerList = new ArrayList();
+        this.fileSizeInMillionBytes = "";
+        this.isInstallComplete = false;
+        this.mLoadNotifIcon = new AtomicBoolean(false);
+        this.mainThreadHandler = new Handler(Looper.getMainLooper());
         RemoteXAdLogger.getInstance().d(TAG, "observer created");
         if (notificationManger == null) {
             notificationManger = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
@@ -82,70 +129,122 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
     }
 
     public static synchronized void addGlobalDownloadObserver(String str, OAdRemoteApkDownloaderObserver oAdRemoteApkDownloaderObserver) {
-        synchronized (OAdRemoteApkDownloaderObserver.class) {
-            globalDownloadObservers.put(str, oAdRemoteApkDownloaderObserver);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, oAdRemoteApkDownloaderObserver) == null) {
+            synchronized (OAdRemoteApkDownloaderObserver.class) {
+                globalDownloadObservers.put(str, oAdRemoteApkDownloaderObserver);
+            }
         }
     }
 
     private void dispatchListeners() {
-        final IOAdEventListener iOAdEventListener;
-        if (this.mStatusListenerList.size() > 0) {
-            try {
-                for (WeakReference<IOAdEventListener> weakReference : this.mStatusListenerList) {
-                    if (weakReference != null && (iOAdEventListener = weakReference.get()) != null) {
-                        this.mainThreadHandler.post(new Runnable() { // from class: com.baidu.mobads.container.components.command.OAdRemoteApkDownloaderObserver.2
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                iOAdEventListener.run(new XAdRemoteEvent("AdStatusChange", OAdRemoteApkDownloaderObserver.this.mExtraInfo.packageName));
+        IOAdEventListener iOAdEventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || this.mStatusListenerList.size() <= 0) {
+            return;
+        }
+        try {
+            for (WeakReference<IOAdEventListener> weakReference : this.mStatusListenerList) {
+                if (weakReference != null && (iOAdEventListener = weakReference.get()) != null) {
+                    this.mainThreadHandler.post(new Runnable(this, iOAdEventListener) { // from class: com.baidu.mobads.container.components.command.OAdRemoteApkDownloaderObserver.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ OAdRemoteApkDownloaderObserver this$0;
+                        public final /* synthetic */ IOAdEventListener val$l;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, iOAdEventListener};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
                             }
-                        });
-                    }
+                            this.this$0 = this;
+                            this.val$l = iOAdEventListener;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                this.val$l.run(new XAdRemoteEvent("AdStatusChange", this.this$0.mExtraInfo.packageName));
+                            }
+                        }
+                    });
                 }
-            } catch (Exception e2) {
-                RemoteXAdLogger.getInstance().w(e2.getMessage());
             }
+        } catch (Exception e2) {
+            RemoteXAdLogger.getInstance().w(e2.getMessage());
         }
     }
 
     private String getFormattedSize(long j) {
-        long j2 = (j / 1024) / 1024;
-        return j2 > 1000 ? String.format(Locale.CHINA, "%.1fG", Float.valueOf(((float) j2) / 1024.0f)) : String.format(Locale.CHINA, "%.1fM", Float.valueOf((float) j2));
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, this, j)) == null) {
+            long j2 = (j / 1024) / 1024;
+            return j2 > 1000 ? String.format(Locale.CHINA, "%.1fG", Float.valueOf(((float) j2) / 1024.0f)) : String.format(Locale.CHINA, "%.1fM", Float.valueOf((float) j2));
+        }
+        return (String) invokeJ.objValue;
     }
 
     public static synchronized OAdRemoteApkDownloaderObserver getGlobalDownloadObserver(String str) {
+        InterceptResult invokeL;
         OAdRemoteApkDownloaderObserver oAdRemoteApkDownloaderObserver;
-        synchronized (OAdRemoteApkDownloaderObserver.class) {
-            oAdRemoteApkDownloaderObserver = globalDownloadObservers.get(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            synchronized (OAdRemoteApkDownloaderObserver.class) {
+                oAdRemoteApkDownloaderObserver = globalDownloadObservers.get(str);
+            }
+            return oAdRemoteApkDownloaderObserver;
         }
-        return oAdRemoteApkDownloaderObserver;
+        return (OAdRemoteApkDownloaderObserver) invokeL.objValue;
     }
 
     public static synchronized int getGlobalNotifId(String str) {
-        synchronized (OAdRemoteApkDownloaderObserver.class) {
-            OAdRemoteApkDownloaderObserver oAdRemoteApkDownloaderObserver = globalDownloadObservers.get(str);
-            if (oAdRemoteApkDownloaderObserver != null && oAdRemoteApkDownloaderObserver.getDownloadInfo() != null) {
-                return oAdRemoteApkDownloaderObserver.getDownloadInfo().notifID;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            synchronized (OAdRemoteApkDownloaderObserver.class) {
+                OAdRemoteApkDownloaderObserver oAdRemoteApkDownloaderObserver = globalDownloadObservers.get(str);
+                if (oAdRemoteApkDownloaderObserver != null && oAdRemoteApkDownloaderObserver.getDownloadInfo() != null) {
+                    return oAdRemoteApkDownloaderObserver.getDownloadInfo().notifID;
+                }
+                int i2 = NOTIF_INC;
+                NOTIF_INC = i2 + 1;
+                return i2;
             }
-            int i2 = NOTIF_INC;
-            NOTIF_INC = i2 + 1;
-            return i2;
         }
+        return invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x015f  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x01a2  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0231  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x015f  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0163  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x01a6  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0235  */
     @TargetApi(16)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Notification getNotificationByDownloadInfo(IDownloader iDownloader) {
+        InterceptResult invokeL;
         String str;
         String str2;
         String outputPath;
         String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65546, this, iDownloader)) != null) {
+            return (Notification) invokeL.objValue;
+        }
         XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo = this.mExtraInfo;
         String str4 = xAdRemoteAPKDownloadExtraInfo.mTitle;
         if (!xAdRemoteAPKDownloadExtraInfo.mAppName.isEmpty() && (str3 = this.mExtraInfo.mAppName) != null) {
@@ -242,106 +341,122 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
     }
 
     private Notification getProxyCustomNotification(Context context, String str, PendingIntent pendingIntent, XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo) {
+        InterceptResult invokeLLLL;
         String str2;
         String str3;
         String str4;
         boolean z;
         int i2;
         String str5;
-        String str6 = xAdRemoteAPKDownloadExtraInfo.mTitle;
-        String str7 = xAdRemoteAPKDownloadExtraInfo.mAppName;
-        if (str7 != null && !str7.isEmpty()) {
-            str6 = xAdRemoteAPKDownloadExtraInfo.mAppName;
-        }
-        String str8 = str6;
-        String str9 = "正在下载 " + str8;
-        IDownloader.DownloadStatus downloadStatus = xAdRemoteAPKDownloadExtraInfo.status;
-        int i3 = 17301634;
-        String str10 = "暂停";
-        if (downloadStatus != IDownloader.DownloadStatus.INITING) {
-            if (downloadStatus == IDownloader.DownloadStatus.DOWNLOADING) {
-                int i4 = xAdRemoteAPKDownloadExtraInfo.progress;
-                str2 = "下载进度: " + i4 + "%  应用大小: " + getFormattedSize(xAdRemoteAPKDownloadExtraInfo.contentLength);
-                i2 = i4;
-                str5 = str9;
-                z = false;
-                i3 = 17301633;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, this, context, str, pendingIntent, xAdRemoteAPKDownloadExtraInfo)) == null) {
+            String str6 = xAdRemoteAPKDownloadExtraInfo.mTitle;
+            String str7 = xAdRemoteAPKDownloadExtraInfo.mAppName;
+            if (str7 != null && !str7.isEmpty()) {
+                str6 = xAdRemoteAPKDownloadExtraInfo.mAppName;
+            }
+            String str8 = str6;
+            String str9 = "正在下载 " + str8;
+            IDownloader.DownloadStatus downloadStatus = xAdRemoteAPKDownloadExtraInfo.status;
+            int i3 = 17301634;
+            String str10 = "暂停";
+            if (downloadStatus != IDownloader.DownloadStatus.INITING) {
+                if (downloadStatus == IDownloader.DownloadStatus.DOWNLOADING) {
+                    int i4 = xAdRemoteAPKDownloadExtraInfo.progress;
+                    str2 = "下载进度: " + i4 + "%  应用大小: " + getFormattedSize(xAdRemoteAPKDownloadExtraInfo.contentLength);
+                    i2 = i4;
+                    str5 = str9;
+                    z = false;
+                    i3 = 17301633;
+                    return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i2, i3, str10, pendingIntent);
+                }
+                if (downloadStatus == IDownloader.DownloadStatus.PAUSED) {
+                    str10 = "继续";
+                    str5 = "已为您暂停下载, 请点击继续下载";
+                    str2 = str5;
+                    z = false;
+                    i2 = xAdRemoteAPKDownloadExtraInfo.progress;
+                } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
+                    str2 = "稍后点击这里重新下载";
+                    str5 = "已为您暂停下载, 请点击重新下载";
+                    str10 = "下载";
+                    z = false;
+                    i2 = -1;
+                } else if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
+                    if (this.isInstallComplete) {
+                        str3 = "安装完成, 请点击打开";
+                        str4 = "打开";
+                    } else {
+                        str3 = "下载完成, 请点击安装";
+                        str4 = "安装";
+                    }
+                    str2 = str3;
+                    str10 = str4;
+                    z = true;
+                    i2 = -1;
+                    str5 = str9;
+                } else {
+                    str2 = null;
+                }
                 return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i2, i3, str10, pendingIntent);
             }
-            if (downloadStatus == IDownloader.DownloadStatus.PAUSED) {
-                str10 = "继续";
-                str5 = "已为您暂停下载, 请点击继续下载";
-                str2 = str5;
-                z = false;
-                i2 = xAdRemoteAPKDownloadExtraInfo.progress;
-            } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
-                str2 = "稍后点击这里重新下载";
-                str5 = "已为您暂停下载, 请点击重新下载";
-                str10 = "下载";
-                z = false;
-                i2 = -1;
-            } else if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
-                if (this.isInstallComplete) {
-                    str3 = "安装完成, 请点击打开";
-                    str4 = "打开";
-                } else {
-                    str3 = "下载完成, 请点击安装";
-                    str4 = "安装";
-                }
-                str2 = str3;
-                str10 = str4;
-                z = true;
-                i2 = -1;
-                str5 = str9;
-            } else {
-                str2 = null;
-            }
+            str2 = "下载准备中";
+            str5 = str9;
+            z = false;
+            i2 = -1;
+            i3 = 17301633;
             return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i2, i3, str10, pendingIntent);
         }
-        str2 = "下载准备中";
-        str5 = str9;
-        z = false;
-        i2 = -1;
-        i3 = 17301633;
-        return invokeCustomNotification(context, str, str5, this.mNotificationIcon, str8, str2, null, z, i2, i3, str10, pendingIntent);
+        return (Notification) invokeLLLL.objValue;
     }
 
     private Notification invokeCustomNotification(Context context, String str, String str2, Bitmap bitmap, String str3, String str4, String str5, boolean z, int i2, int i3, String str6, PendingIntent pendingIntent) {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("context", context);
-            jSONObject.put(AppConfigImp.KEY_CHANNELID, str);
-            jSONObject.put(ALaKeepAliveService.KEY_TICKER, str2);
-            jSONObject.put("icon", bitmap);
-            jSONObject.put("title", str3);
-            jSONObject.put("content", str4);
-            jSONObject.put("status", str5);
-            jSONObject.put("autoCancel", z);
-            jSONObject.put("progress", i2);
-            jSONObject.put("smallIcon", i3);
-            jSONObject.put("action", str6);
-            jSONObject.put("pendingIntent", pendingIntent);
-            ICommonModuleObj moduleObj = AppConfigImp.getInstance().getModuleObj();
-            if (moduleObj != null) {
-                return (Notification) moduleObj.createModuleObj(ICommonModuleObj.KEY_NOTIFICATION, jSONObject);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{context, str, str2, bitmap, str3, str4, str5, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), str6, pendingIntent})) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("context", context);
+                jSONObject.put(AppConfigImp.KEY_CHANNELID, str);
+                jSONObject.put(ALaKeepAliveService.KEY_TICKER, str2);
+                jSONObject.put("icon", bitmap);
+                jSONObject.put("title", str3);
+                jSONObject.put("content", str4);
+                jSONObject.put("status", str5);
+                jSONObject.put("autoCancel", z);
+                jSONObject.put("progress", i2);
+                jSONObject.put("smallIcon", i3);
+                jSONObject.put("action", str6);
+                jSONObject.put("pendingIntent", pendingIntent);
+                ICommonModuleObj moduleObj = AppConfigImp.getInstance().getModuleObj();
+                if (moduleObj != null) {
+                    return (Notification) moduleObj.createModuleObj(ICommonModuleObj.KEY_NOTIFICATION, jSONObject);
+                }
+                return null;
+            } catch (Throwable th) {
+                RemoteXAdLogger.getInstance().i(th);
+                return null;
             }
-            return null;
-        } catch (Throwable th) {
-            RemoteXAdLogger.getInstance().i(th);
-            return null;
         }
+        return (Notification) invokeCommon.objValue;
     }
 
     public static synchronized OAdRemoteApkDownloaderObserver remveGlobalDownloadObserver(String str) {
+        InterceptResult invokeL;
         OAdRemoteApkDownloaderObserver remove;
-        synchronized (OAdRemoteApkDownloaderObserver.class) {
-            remove = globalDownloadObservers.remove(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            synchronized (OAdRemoteApkDownloaderObserver.class) {
+                remove = globalDownloadObservers.remove(str);
+            }
+            return remove;
         }
-        return remove;
+        return (OAdRemoteApkDownloaderObserver) invokeL.objValue;
     }
 
     private void stateEvent(XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo, AdStateCode adStateCode) {
-        if (xAdRemoteAPKDownloadExtraInfo == null || adStateCode == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65550, this, xAdRemoteAPKDownloadExtraInfo, adStateCode) == null) || xAdRemoteAPKDownloadExtraInfo == null || adStateCode == null) {
             return;
         }
         try {
@@ -359,154 +474,199 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
     }
 
     private void toastMessage(String str) {
-        Toast.makeText(this.mContext, str, 0).show();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, this, str) == null) {
+            Toast.makeText(this.mContext, str, 0).show();
+        }
     }
 
     public void addStatusListener(IOAdEventListener iOAdEventListener) {
-        if (iOAdEventListener != null) {
-            for (WeakReference<IOAdEventListener> weakReference : this.mStatusListenerList) {
-                if (weakReference != null && weakReference.get() == iOAdEventListener) {
-                    return;
-                }
-            }
-            this.mStatusListenerList.add(new WeakReference<>(iOAdEventListener));
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iOAdEventListener) == null) || iOAdEventListener == null) {
+            return;
         }
+        for (WeakReference<IOAdEventListener> weakReference : this.mStatusListenerList) {
+            if (weakReference != null && weakReference.get() == iOAdEventListener) {
+                return;
+            }
+        }
+        this.mStatusListenerList.add(new WeakReference<>(iOAdEventListener));
     }
 
     public void clearNotification() {
-        NotificationManager notificationManager = notificationManger;
-        if (notificationManager != null) {
-            notificationManager.cancel(this.mExtraInfo.notifID);
+        NotificationManager notificationManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (notificationManager = notificationManger) == null) {
+            return;
         }
+        notificationManager.cancel(this.mExtraInfo.notifID);
     }
 
     public XAdRemoteAPKDownloadExtraInfo getDownloadInfo() {
-        return this.mExtraInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtraInfo : (XAdRemoteAPKDownloadExtraInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.container.components.controller.InstallReceiver.InstallListener
     public void onPackageInstalled(Context context, Intent intent) {
-        if (this.mExtraInfo.popNotify) {
-            this.isInstallComplete = true;
-            sendNotificationInfoToNotifCenter(this.adDownloader);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, intent) == null) {
+            if (this.mExtraInfo.popNotify) {
+                this.isInstallComplete = true;
+                sendNotificationInfoToNotifCenter(this.adDownloader);
+            }
+            XAdInstallController.getInstance().stopListener(this.mContext, this.mExtraInfo.packageName);
+            dispatchListeners();
         }
-        XAdInstallController.getInstance().stopListener(this.mContext, this.mExtraInfo.packageName);
-        dispatchListeners();
     }
 
-    public void sendNotificationInfoToNotifCenter(final IDownloader iDownloader) {
-        this.mainThreadHandler.post(new Runnable() { // from class: com.baidu.mobads.container.components.command.OAdRemoteApkDownloaderObserver.1
-            @Override // java.lang.Runnable
-            public void run() {
-                try {
-                    if (OAdRemoteApkDownloaderObserver.this.mExtraInfo.status == IDownloader.DownloadStatus.CANCELLED) {
-                        OAdRemoteApkDownloaderObserver.notificationManger.cancel(OAdRemoteApkDownloaderObserver.this.mExtraInfo.notifID);
-                    } else {
-                        OAdRemoteApkDownloaderObserver.notificationManger.notify(OAdRemoteApkDownloaderObserver.this.mExtraInfo.notifID, OAdRemoteApkDownloaderObserver.this.getNotificationByDownloadInfo(iDownloader));
-                        if (OAdRemoteApkDownloaderObserver.this.mExtraInfo.status == IDownloader.DownloadStatus.ERROR) {
-                            RemoteXAdLogger.getInstance().d(OAdRemoteApkDownloaderObserver.TAG, "status >> error");
+    public void sendNotificationInfoToNotifCenter(IDownloader iDownloader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iDownloader) == null) {
+            this.mainThreadHandler.post(new Runnable(this, iDownloader) { // from class: com.baidu.mobads.container.components.command.OAdRemoteApkDownloaderObserver.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ OAdRemoteApkDownloaderObserver this$0;
+                public final /* synthetic */ IDownloader val$tmpDownloader;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iDownloader};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
-                } catch (Exception e2) {
-                    RemoteXAdLogger.getInstance().d(OAdRemoteApkDownloaderObserver.TAG, e2);
+                    this.this$0 = this;
+                    this.val$tmpDownloader = iDownloader;
                 }
-            }
-        });
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            if (this.this$0.mExtraInfo.status == IDownloader.DownloadStatus.CANCELLED) {
+                                OAdRemoteApkDownloaderObserver.notificationManger.cancel(this.this$0.mExtraInfo.notifID);
+                            } else {
+                                OAdRemoteApkDownloaderObserver.notificationManger.notify(this.this$0.mExtraInfo.notifID, this.this$0.getNotificationByDownloadInfo(this.val$tmpDownloader));
+                                if (this.this$0.mExtraInfo.status == IDownloader.DownloadStatus.ERROR) {
+                                    RemoteXAdLogger.getInstance().d(OAdRemoteApkDownloaderObserver.TAG, "status >> error");
+                                }
+                            }
+                        } catch (Exception e2) {
+                            RemoteXAdLogger.getInstance().d(OAdRemoteApkDownloaderObserver.TAG, e2);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         String str;
-        IDownloader iDownloader = (IDownloader) observable;
-        this.adDownloader = iDownloader;
-        this.mExtraInfo.status = iDownloader.getState();
-        String fileName = FileUtils.getFileName(iDownloader.getOutputPath());
-        if (!this.mExtraInfo.outputFileName.equals(fileName)) {
-            this.mExtraInfo.outputFileName = fileName;
-        }
-        XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo = this.mExtraInfo;
-        if (xAdRemoteAPKDownloadExtraInfo.status == IDownloader.DownloadStatus.DOWNLOADING) {
-            if (xAdRemoteAPKDownloadExtraInfo.contentLength < 0) {
-                RemoteXAdLogger.getInstance().d(TAG, "download update---mExtraInfo.contentLength < 0");
-                this.mExtraInfo.contentLength = iDownloader.getFileSizeLong();
-                this.mExtraInfo.targetUrl = iDownloader.getTargetURL();
-                this.mExtraInfo.hibernateStatus(this.mContext);
-                this.fileSizeInMillionBytes = String.format(Locale.CHINA, "%.1fM", Float.valueOf(((float) this.mExtraInfo.contentLength) / 1048576.0f));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, observable, obj) == null) {
+            IDownloader iDownloader = (IDownloader) observable;
+            this.adDownloader = iDownloader;
+            this.mExtraInfo.status = iDownloader.getState();
+            String fileName = FileUtils.getFileName(iDownloader.getOutputPath());
+            if (!this.mExtraInfo.outputFileName.equals(fileName)) {
+                this.mExtraInfo.outputFileName = fileName;
             }
-            if (iDownloader.getProgress() > 0.0f) {
-                int progress = (int) iDownloader.getProgress();
-                XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo2 = this.mExtraInfo;
-                if (progress > xAdRemoteAPKDownloadExtraInfo2.progress) {
-                    xAdRemoteAPKDownloadExtraInfo2.progress = progress;
-                    if (xAdRemoteAPKDownloadExtraInfo2.popNotify) {
-                        sendNotificationInfoToNotifCenter(iDownloader);
-                    }
-                }
-            }
-        } else {
-            RemoteCommonUtils remoteCommonUtils = RemoteCommonUtils.getInstance();
-            XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo3 = this.mExtraInfo;
-            IDownloader.DownloadStatus downloadStatus = xAdRemoteAPKDownloadExtraInfo3.status;
-            if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
-                XAdInstallController.getInstance().registerInstallReceiver(this.mContext, this.mExtraInfo);
-                XAdInstallController.getInstance().setInstallListener(this.mExtraInfo.packageName, this);
-                XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo4 = this.mExtraInfo;
-                String str2 = xAdRemoteAPKDownloadExtraInfo4.packageName;
-                stateEvent(xAdRemoteAPKDownloadExtraInfo4, AdStateCode.EVENT_DL_COMPLETE);
-                RemoteXAdLogger.getInstance().d(TAG, "download success-->>" + iDownloader.getOutputPath());
-                boolean z = this.mExtraInfo.autoOpen;
-                String str3 = this.mExtraInfo.outputFolder + this.mExtraInfo.outputFileName;
-                AppUtils.ApkInfo localApkFileInfo = AppUtils.getLocalApkFileInfo(this.mContext, str3);
-                if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && !localApkFileInfo.packageName.equals(this.mExtraInfo.packageName)) {
+            XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo = this.mExtraInfo;
+            if (xAdRemoteAPKDownloadExtraInfo.status == IDownloader.DownloadStatus.DOWNLOADING) {
+                if (xAdRemoteAPKDownloadExtraInfo.contentLength < 0) {
+                    RemoteXAdLogger.getInstance().d(TAG, "download update---mExtraInfo.contentLength < 0");
+                    this.mExtraInfo.contentLength = iDownloader.getFileSizeLong();
+                    this.mExtraInfo.targetUrl = iDownloader.getTargetURL();
                     this.mExtraInfo.hibernateStatus(this.mContext);
-                    this.mExtraInfo.packageName = localApkFileInfo.packageName;
+                    this.fileSizeInMillionBytes = String.format(Locale.CHINA, "%.1fM", Float.valueOf(((float) this.mExtraInfo.contentLength) / 1048576.0f));
                 }
-                if (z) {
-                    RemoteXAdLogger.getInstance().d(TAG, "launch installing .............");
-                    if (AdDownloadApkUtils.isInstalled(this.mContext, this.mExtraInfo.packageName)) {
-                        stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_OPEN);
-                        OpenAppUtils.openApp(this.mContext, this.mExtraInfo.packageName);
-                        str = RemoteCommonUtils.MSG_DOWNLOADED_OPEN_APP;
-                    } else {
-                        stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_INSTALL);
-                        AdDownloadApkUtils.installApkWithLog(this.mContext, new File(str3), this.mExtraInfo);
-                        str = RemoteCommonUtils.MSG_DOWNLOADED_INSTALL_APP;
+                if (iDownloader.getProgress() > 0.0f) {
+                    int progress = (int) iDownloader.getProgress();
+                    XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo2 = this.mExtraInfo;
+                    if (progress > xAdRemoteAPKDownloadExtraInfo2.progress) {
+                        xAdRemoteAPKDownloadExtraInfo2.progress = progress;
+                        if (xAdRemoteAPKDownloadExtraInfo2.popNotify) {
+                            sendNotificationInfoToNotifCenter(iDownloader);
+                        }
                     }
-                } else {
-                    str = XAdRemoteEvent.COMPLETE;
                 }
-                stateEvent(this.mExtraInfo, AdStateCode.EVENT_AD_STATE_END);
-                remoteCommonUtils.sendDownloadApkLog(this.mContext, 528, str, this.mExtraInfo);
-                XAdRemoteSDKCountly.getInstance().onAPKDownloadComplete(this.mContext, this.mExtraInfo);
-                if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && XAdSDKRemoteExp.LiteInc.mPkgName.equals(localApkFileInfo.packageName)) {
-                    FileUtils.copyFile(str3, this.mExtraInfo.outputFolder + EncryptUtils.getMD5(XAdSDKRemoteExp.LiteInc.mPkgName) + ".apk");
-                    SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", c.f1821c).send();
+            } else {
+                RemoteCommonUtils remoteCommonUtils = RemoteCommonUtils.getInstance();
+                XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo3 = this.mExtraInfo;
+                IDownloader.DownloadStatus downloadStatus = xAdRemoteAPKDownloadExtraInfo3.status;
+                if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {
+                    XAdInstallController.getInstance().registerInstallReceiver(this.mContext, this.mExtraInfo);
+                    XAdInstallController.getInstance().setInstallListener(this.mExtraInfo.packageName, this);
+                    XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo4 = this.mExtraInfo;
+                    String str2 = xAdRemoteAPKDownloadExtraInfo4.packageName;
+                    stateEvent(xAdRemoteAPKDownloadExtraInfo4, AdStateCode.EVENT_DL_COMPLETE);
+                    RemoteXAdLogger.getInstance().d(TAG, "download success-->>" + iDownloader.getOutputPath());
+                    boolean z = this.mExtraInfo.autoOpen;
+                    String str3 = this.mExtraInfo.outputFolder + this.mExtraInfo.outputFileName;
+                    AppUtils.ApkInfo localApkFileInfo = AppUtils.getLocalApkFileInfo(this.mContext, str3);
+                    if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && !localApkFileInfo.packageName.equals(this.mExtraInfo.packageName)) {
+                        this.mExtraInfo.hibernateStatus(this.mContext);
+                        this.mExtraInfo.packageName = localApkFileInfo.packageName;
+                    }
+                    if (z) {
+                        RemoteXAdLogger.getInstance().d(TAG, "launch installing .............");
+                        if (AdDownloadApkUtils.isInstalled(this.mContext, this.mExtraInfo.packageName)) {
+                            stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_OPEN);
+                            OpenAppUtils.openApp(this.mContext, this.mExtraInfo.packageName);
+                            str = RemoteCommonUtils.MSG_DOWNLOADED_OPEN_APP;
+                        } else {
+                            stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_INSTALL);
+                            AdDownloadApkUtils.installApkWithLog(this.mContext, new File(str3), this.mExtraInfo);
+                            str = RemoteCommonUtils.MSG_DOWNLOADED_INSTALL_APP;
+                        }
+                    } else {
+                        str = XAdRemoteEvent.COMPLETE;
+                    }
+                    stateEvent(this.mExtraInfo, AdStateCode.EVENT_AD_STATE_END);
+                    remoteCommonUtils.sendDownloadApkLog(this.mContext, 528, str, this.mExtraInfo);
+                    XAdRemoteSDKCountly.getInstance().onAPKDownloadComplete(this.mContext, this.mExtraInfo);
+                    if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && XAdSDKRemoteExp.LiteInc.mPkgName.equals(localApkFileInfo.packageName)) {
+                        FileUtils.copyFile(str3, this.mExtraInfo.outputFolder + EncryptUtils.getMD5(XAdSDKRemoteExp.LiteInc.mPkgName) + ".apk");
+                        SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", c.f1824c).send();
+                    }
+                } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
+                    xAdRemoteAPKDownloadExtraInfo3.targetUrl = iDownloader.getTargetURL();
+                    RemoteXAdLogger.getInstance().e(TAG, "download failed-->>" + iDownloader.getOutputPath());
+                    XAdRemoteSDKCountly.getInstance().onAPKDownloadError(this.mExtraInfo);
+                    XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo5 = this.mExtraInfo;
+                    if (xAdRemoteAPKDownloadExtraInfo5.dlCnt < 3) {
+                        remoteCommonUtils.sendDownloadApkLog(this.mContext, 406, "download_error", xAdRemoteAPKDownloadExtraInfo5);
+                    }
+                    stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_ERROR);
+                    stateEvent(this.mExtraInfo, AdStateCode.EVENT_AD_STATE_END);
+                } else if (iDownloader.getState() == IDownloader.DownloadStatus.INITING) {
+                    this.mExtraInfo.dlCnt++;
+                } else if (iDownloader.getState() == IDownloader.DownloadStatus.PAUSED) {
+                    XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo6 = this.mExtraInfo;
+                    if (xAdRemoteAPKDownloadExtraInfo6.dlCnt < 3) {
+                        remoteCommonUtils.sendDownloadApkLog(this.mContext, 406, "download_paused", xAdRemoteAPKDownloadExtraInfo6);
+                    }
+                    stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_PAUSE);
+                    stateEvent(this.mExtraInfo, AdStateCode.EVENT_AD_STATE_END);
                 }
-            } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
-                xAdRemoteAPKDownloadExtraInfo3.targetUrl = iDownloader.getTargetURL();
-                RemoteXAdLogger.getInstance().e(TAG, "download failed-->>" + iDownloader.getOutputPath());
-                XAdRemoteSDKCountly.getInstance().onAPKDownloadError(this.mExtraInfo);
-                XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo5 = this.mExtraInfo;
-                if (xAdRemoteAPKDownloadExtraInfo5.dlCnt < 3) {
-                    remoteCommonUtils.sendDownloadApkLog(this.mContext, 406, "download_error", xAdRemoteAPKDownloadExtraInfo5);
+                if (this.mExtraInfo.popNotify) {
+                    sendNotificationInfoToNotifCenter(iDownloader);
                 }
-                stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_ERROR);
-                stateEvent(this.mExtraInfo, AdStateCode.EVENT_AD_STATE_END);
-            } else if (iDownloader.getState() == IDownloader.DownloadStatus.INITING) {
-                this.mExtraInfo.dlCnt++;
-            } else if (iDownloader.getState() == IDownloader.DownloadStatus.PAUSED) {
-                XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo6 = this.mExtraInfo;
-                if (xAdRemoteAPKDownloadExtraInfo6.dlCnt < 3) {
-                    remoteCommonUtils.sendDownloadApkLog(this.mContext, 406, "download_paused", xAdRemoteAPKDownloadExtraInfo6);
-                }
-                stateEvent(this.mExtraInfo, AdStateCode.EVENT_DL_PAUSE);
-                stateEvent(this.mExtraInfo, AdStateCode.EVENT_AD_STATE_END);
+                this.mExtraInfo.hibernateStatus(this.mContext);
             }
-            if (this.mExtraInfo.popNotify) {
-                sendNotificationInfoToNotifCenter(iDownloader);
-            }
-            this.mExtraInfo.hibernateStatus(this.mContext);
+            dispatchListeners();
         }
-        dispatchListeners();
     }
 }

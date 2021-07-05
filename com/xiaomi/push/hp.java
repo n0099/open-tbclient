@@ -1,67 +1,196 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
-public enum hp {
-    Invalid("INVALID"),
-    BarClick("bar:click"),
-    BarCancel("bar:cancel"),
-    AppOpen("app:open"),
-    PackageUninstall("package uninstalled"),
-    AppUninstall("app_uninstalled"),
-    ClientInfoUpdate("client_info_update"),
-    ClientInfoUpdateOk("client_info_update_ok"),
-    ClientMIIDUpdate("client_miid_update"),
-    PullOfflineMessage("pull"),
-    IosSleep("ios_sleep"),
-    IosWakeUp("ios_wakeup"),
-    AwakeApp("awake_app"),
-    NormalClientConfigUpdate("normal_client_config_update"),
-    CustomClientConfigUpdate("custom_client_config_update"),
-    DailyCheckClientConfig("daily_check_client_config"),
-    DataCollection("data_collection"),
-    RegIdExpired("registration id expired"),
-    ConnectionDisabled("!!!MILINK CONNECTION DISABLED!!!"),
-    PackageUnregistered("package_unregistered"),
-    DecryptMessageFail("decrypt_msg_fail"),
-    SyncInfo("sync_info"),
-    SyncInfoResult("sync_info_result"),
-    ForceSync("force_sync"),
-    UploadClientLog("upload_client_log"),
-    NotificationBarInfo("notification_bar_info"),
-    SyncMIID("sync_miid"),
-    UploadTinyData("upload"),
-    CancelPushMessage("clear_push_message"),
-    CancelPushMessageACK("clear_push_message_ack"),
-    DisablePushMessage("disable_push"),
-    EnablePushMessage("enable_push"),
-    ClientABTest("client_ab_test"),
-    AwakeSystemApp("awake_system_app"),
-    AwakeAppResponse("awake_app_response"),
-    HybridRegister("hb_register"),
-    HybridRegisterResult("hb_register_res"),
-    HybridUnregister("hb_unregister"),
-    HybridUnregisterResult("hb_unregister_res"),
-    ThirdPartyRegUpdate("3rd_party_reg_update"),
-    VRUpload("vr_upload"),
-    PushLogUpload("log_upload"),
-    APP_WAKEUP("app_wakeup"),
-    APP_SLEEP("app_sleep"),
-    NOTIFICATION_SWITCH("notification_switch"),
-    ACTIVITY_RESUMED("activity_resumed"),
-    HeadsUpReporter("headsup_reporter"),
-    ScenePushRuleUpdate("scene_push_rule_update"),
-    ScenePushRuleDelete("scene_push_rule_delete"),
-    ScenePushRuleTrigger("scene_push_rule_trigger");
-    
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes8.dex */
+public final class hp {
+    public static /* synthetic */ Interceptable $ic;
+    public static final hp A;
+    public static final hp B;
+    public static final hp C;
+    public static final hp D;
+    public static final hp E;
+    public static final hp F;
+    public static final hp G;
+    public static final hp H;
+    public static final hp I;
+    public static final hp J;
+    public static final hp K;
+    public static final hp L;
+    public static final hp M;
+    public static final hp N;
+    public static final hp O;
+    public static final hp P;
+    public static final hp Q;
+    public static final hp R;
+    public static final hp S;
+    public static final hp T;
+    public static final hp U;
+    public static final hp V;
+    public static final hp W;
+    public static final hp X;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final hp f43287a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f506a;
+    public static final /* synthetic */ hp[] f508a;
 
-    hp(String str) {
-        this.f506a = str;
+    /* renamed from: b  reason: collision with root package name */
+    public static final hp f43288b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final hp f43289c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final hp f43290d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final hp f43291e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final hp f43292f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final hp f43293g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final hp f43294h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final hp f43295i;
+    public static final hp j;
+    public static final hp k;
+    public static final hp l;
+    public static final hp m;
+    public static final hp n;
+    public static final hp o;
+    public static final hp p;
+    public static final hp q;
+    public static final hp r;
+    public static final hp s;
+    public static final hp t;
+    public static final hp u;
+    public static final hp v;
+    public static final hp w;
+    public static final hp x;
+    public static final hp y;
+    public static final hp z;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final String f509a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56372680, "Lcom/xiaomi/push/hp;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56372680, "Lcom/xiaomi/push/hp;");
+                return;
+            }
+        }
+        f43287a = new hp("Invalid", 0, "INVALID");
+        f43288b = new hp("BarClick", 1, "bar:click");
+        f43289c = new hp("BarCancel", 2, "bar:cancel");
+        f43290d = new hp("AppOpen", 3, "app:open");
+        f43291e = new hp("PackageUninstall", 4, "package uninstalled");
+        f43292f = new hp("AppUninstall", 5, "app_uninstalled");
+        f43293g = new hp("ClientInfoUpdate", 6, "client_info_update");
+        f43294h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
+        f43295i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
+        j = new hp("PullOfflineMessage", 9, "pull");
+        k = new hp("IosSleep", 10, "ios_sleep");
+        l = new hp("IosWakeUp", 11, "ios_wakeup");
+        m = new hp("AwakeApp", 12, "awake_app");
+        n = new hp("NormalClientConfigUpdate", 13, "normal_client_config_update");
+        o = new hp("CustomClientConfigUpdate", 14, "custom_client_config_update");
+        p = new hp("DailyCheckClientConfig", 15, "daily_check_client_config");
+        q = new hp("DataCollection", 16, "data_collection");
+        r = new hp("RegIdExpired", 17, "registration id expired");
+        s = new hp("ConnectionDisabled", 18, "!!!MILINK CONNECTION DISABLED!!!");
+        t = new hp("PackageUnregistered", 19, "package_unregistered");
+        u = new hp("DecryptMessageFail", 20, "decrypt_msg_fail");
+        v = new hp("SyncInfo", 21, "sync_info");
+        w = new hp("SyncInfoResult", 22, "sync_info_result");
+        x = new hp("ForceSync", 23, "force_sync");
+        y = new hp("UploadClientLog", 24, "upload_client_log");
+        z = new hp("NotificationBarInfo", 25, "notification_bar_info");
+        A = new hp("SyncMIID", 26, "sync_miid");
+        B = new hp("UploadTinyData", 27, "upload");
+        C = new hp("CancelPushMessage", 28, "clear_push_message");
+        D = new hp("CancelPushMessageACK", 29, "clear_push_message_ack");
+        E = new hp("DisablePushMessage", 30, "disable_push");
+        F = new hp("EnablePushMessage", 31, "enable_push");
+        G = new hp("ClientABTest", 32, "client_ab_test");
+        H = new hp("AwakeSystemApp", 33, "awake_system_app");
+        I = new hp("AwakeAppResponse", 34, "awake_app_response");
+        J = new hp("HybridRegister", 35, "hb_register");
+        K = new hp("HybridRegisterResult", 36, "hb_register_res");
+        L = new hp("HybridUnregister", 37, "hb_unregister");
+        M = new hp("HybridUnregisterResult", 38, "hb_unregister_res");
+        N = new hp("ThirdPartyRegUpdate", 39, "3rd_party_reg_update");
+        O = new hp("VRUpload", 40, "vr_upload");
+        P = new hp("PushLogUpload", 41, "log_upload");
+        Q = new hp("APP_WAKEUP", 42, "app_wakeup");
+        R = new hp("APP_SLEEP", 43, "app_sleep");
+        S = new hp("NOTIFICATION_SWITCH", 44, "notification_switch");
+        T = new hp("ACTIVITY_RESUMED", 45, "activity_resumed");
+        U = new hp("HeadsUpReporter", 46, "headsup_reporter");
+        V = new hp("ScenePushRuleUpdate", 47, "scene_push_rule_update");
+        W = new hp("ScenePushRuleDelete", 48, "scene_push_rule_delete");
+        hp hpVar = new hp("ScenePushRuleTrigger", 49, "scene_push_rule_trigger");
+        X = hpVar;
+        f508a = new hp[]{f43287a, f43288b, f43289c, f43290d, f43291e, f43292f, f43293g, f43294h, f43295i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
+    }
+
+    public hp(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f509a = str2;
+    }
+
+    public static hp valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (hp) Enum.valueOf(hp.class, str) : (hp) invokeL.objValue;
+    }
+
+    public static hp[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hp[]) f508a.clone() : (hp[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f506a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f509a : (String) invokeV.objValue;
     }
 }

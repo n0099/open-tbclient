@@ -1,58 +1,109 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import d.a.n0.r.q.o;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.p;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
-/* loaded from: classes3.dex */
-public class NewGodData extends o implements Serializable {
-    public int mStatus = 0;
-    public String mFieldId = "";
-    public String mFieldName = "";
-    public int mType = 0;
-    public String mTypeName = "";
+/* loaded from: classes4.dex */
+public class NewGodData extends p implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String mFieldId;
+    public String mFieldName;
+    public int mStatus;
+    public int mType;
+    public String mTypeName;
+
+    public NewGodData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mStatus = 0;
+        this.mFieldId = "";
+        this.mFieldName = "";
+        this.mType = 0;
+        this.mTypeName = "";
+    }
 
     public String getFieldId() {
-        return this.mFieldId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFieldId : (String) invokeV.objValue;
     }
 
     public String getFieldName() {
-        return this.mFieldName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFieldName : (String) invokeV.objValue;
     }
 
     public int getStatus() {
-        return this.mStatus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mStatus : invokeV.intValue;
     }
 
     public int getType() {
-        return this.mType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mType : invokeV.intValue;
     }
 
     public String getTypeName() {
-        return this.mTypeName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTypeName : (String) invokeV.objValue;
     }
 
     public boolean hasNewGodInvited() {
-        int i2 = this.mStatus;
-        return i2 == 2 || i2 == 4;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i2 = this.mStatus;
+            return i2 == 2 || i2 == 4;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isNewGod() {
-        return this.mStatus == 3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStatus == 3 : invokeV.booleanValue;
     }
 
     public boolean isNewGodInvited() {
-        return this.mStatus == 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mStatus == 2 : invokeV.booleanValue;
     }
 
     public boolean isVideoGod() {
-        return this.mType == 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType == 2 : invokeV.booleanValue;
     }
 
-    @Override // d.a.n0.r.q.o
+    @Override // d.a.r0.r.q.p
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -60,14 +111,15 @@ public class NewGodData extends o implements Serializable {
             this.mFieldId = jSONObject.optString("field_id", "");
             this.mFieldName = jSONObject.optString("field_name", "");
             this.mType = jSONObject.optInt("type", 0);
-            this.mFieldName = jSONObject.optString("type_name", "");
+            this.mTypeName = jSONObject.optString("type_name", "");
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }
     }
 
     public void parserProtobuf(NewGodInfo newGodInfo) {
-        if (newGodInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, newGodInfo) == null) || newGodInfo == null) {
             return;
         }
         this.mStatus = newGodInfo.status.intValue();
@@ -78,14 +130,23 @@ public class NewGodData extends o implements Serializable {
     }
 
     public void setFieldId(String str) {
-        this.mFieldId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.mFieldId = str;
+        }
     }
 
     public void setFieldName(String str) {
-        this.mFieldName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.mFieldName = str;
+        }
     }
 
     public void setStatus(int i2) {
-        this.mStatus = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.mStatus = i2;
+        }
     }
 }

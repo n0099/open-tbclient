@@ -2,9 +2,9 @@ package com.baidu.ubc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import d.a.q0.n;
-import d.a.q0.t;
-import d.a.q0.x;
+import d.a.u0.n;
+import d.a.u0.t;
+import d.a.u0.x;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */

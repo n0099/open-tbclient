@@ -1,38 +1,73 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WriteVoteData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String VOTE_CONTENT_PREFIX_FORMAT = "#(poll,%s)";
+    public transient /* synthetic */ FieldHolder $fh;
     public int expire_type;
     public int is_multi;
-    public String title = "";
-    public List<WriteVoteItemData> options = new ArrayList();
+    public List<WriteVoteItemData> options;
+    public String title;
+
+    public WriteVoteData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.title = "";
+        this.options = new ArrayList();
+    }
 
     public int getExpire_type() {
-        return this.expire_type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.expire_type : invokeV.intValue;
     }
 
     public int getIs_multi() {
-        return this.is_multi;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.is_multi : invokeV.intValue;
     }
 
     public List<WriteVoteItemData> getOptions() {
-        return this.options;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.options : (List) invokeV.objValue;
     }
 
     public String getTitle() {
-        return this.title;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.title = jSONObject.optString("title");
@@ -53,26 +88,42 @@ public class WriteVoteData extends OrmObject implements Serializable {
     }
 
     public void setExpire_type(int i2) {
-        this.expire_type = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.expire_type = i2;
+        }
     }
 
     public void setIs_multi(int i2) {
-        this.is_multi = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.is_multi = i2;
+        }
     }
 
     public void setOptions(List<WriteVoteItemData> list) {
-        this.options = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.options = list;
+        }
     }
 
     public void setTitle(String str) {
-        this.title = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.title = str;
+        }
     }
 
     public JSONObject toJsonObject() {
-        return OrmObject.jsonWithObject(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? OrmObject.jsonWithObject(this) : (JSONObject) invokeV.objValue;
     }
 
     public String toJsonString() {
-        return OrmObject.jsonStrWithObject(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? OrmObject.jsonStrWithObject(this) : (String) invokeV.objValue;
     }
 }

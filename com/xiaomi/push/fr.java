@@ -1,5 +1,13 @@
 package com.xiaomi.push;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -9,27 +17,42 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class fr {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41382a = 5000;
+    public static int f43125a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Vector<String> f407a = new Vector<>();
+    public static Vector<String> f410a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41383b = 330000;
+    public static int f43126b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41384c = 600000;
+    public static int f43127c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41385d = 330000;
+    public static int f43128d = 330000;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56374540, "Lcom/xiaomi/push/fr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56374540, "Lcom/xiaomi/push/fr;");
+                return;
+            }
+        }
+        f410a = new Vector<>();
         try {
-            for (ClassLoader classLoader : m318a()) {
+            for (ClassLoader classLoader : m332a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -44,11 +67,11 @@ public final class fr {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f41382a = a(newPullParser, f41382a);
+                                    f43125a = a(newPullParser, f43125a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f41383b = a(newPullParser, f41383b);
+                                    f43126b = a(newPullParser, f43126b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f407a.add(newPullParser.nextText());
+                                    f410a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -67,48 +90,81 @@ public final class fr {
         }
     }
 
+    public fr() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static int a() {
-        return f41383b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43126b : invokeV.intValue;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i2) {
-        try {
-            return Integer.parseInt(xmlPullParser.nextText());
-        } catch (NumberFormatException e2) {
-            e2.printStackTrace();
-            return i2;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, xmlPullParser, i2)) == null) {
+            try {
+                return Integer.parseInt(xmlPullParser.nextText());
+            } catch (NumberFormatException e2) {
+                e2.printStackTrace();
+                return i2;
+            }
         }
+        return invokeLI.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m317a() {
-        return "3.1.0";
+    public static String m331a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? "3.1.0" : (String) invokeV.objValue;
     }
 
     public static void a(XmlPullParser xmlPullParser) {
-        String nextText = xmlPullParser.nextText();
-        try {
-            Class.forName(nextText);
-        } catch (ClassNotFoundException unused) {
-            PrintStream printStream = System.err;
-            printStream.println("Error! A startup class specified in smack-config.xml could not be loaded: " + nextText);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, xmlPullParser) == null) {
+            String nextText = xmlPullParser.nextText();
+            try {
+                Class.forName(nextText);
+            } catch (ClassNotFoundException unused) {
+                PrintStream printStream = System.err;
+                printStream.println("Error! A startup class specified in smack-config.xml could not be loaded: " + nextText);
+            }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m318a() {
-        ClassLoader[] classLoaderArr = {fr.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
-        ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < 2; i2++) {
-            ClassLoader classLoader = classLoaderArr[i2];
-            if (classLoader != null) {
-                arrayList.add(classLoader);
+    public static ClassLoader[] m332a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            ClassLoader[] classLoaderArr = {fr.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < 2; i2++) {
+                ClassLoader classLoader = classLoaderArr[i2];
+                if (classLoader != null) {
+                    arrayList.add(classLoader);
+                }
             }
+            return (ClassLoader[]) arrayList.toArray(new ClassLoader[arrayList.size()]);
         }
-        return (ClassLoader[]) arrayList.toArray(new ClassLoader[arrayList.size()]);
+        return (ClassLoader[]) invokeV.objValue;
     }
 
     public static int b() {
-        return f41384c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f43127c : invokeV.intValue;
     }
 }

@@ -1,5 +1,12 @@
 package com.kwai.filedownloader;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.w;
@@ -7,94 +14,130 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes7.dex */
 public class k implements s {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f37901a;
+    public a.b f39664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.d f37902b;
+    public a.d f39665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Queue<MessageSnapshot> f37903c;
+    public Queue<MessageSnapshot> f39666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37904d = false;
+    public boolean f39667d;
 
     public k(a.b bVar, a.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, dVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f39667d = false;
         b(bVar, dVar);
     }
 
     private void a(int i2) {
-        if (com.kwai.filedownloader.d.d.a(i2)) {
-            if (!this.f37903c.isEmpty()) {
-                MessageSnapshot peek = this.f37903c.peek();
-                com.kwai.filedownloader.f.d.d(this, "the messenger[%s](with id[%d]) has already accomplished all his job, but there still are some messages in parcel queue[%d] queue-top-status[%d]", this, Integer.valueOf(peek.m()), Integer.valueOf(this.f37903c.size()), Byte.valueOf(peek.b()));
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65537, this, i2) == null) && com.kwai.filedownloader.d.d.a(i2)) {
+            if (!this.f39666c.isEmpty()) {
+                MessageSnapshot peek = this.f39666c.peek();
+                com.kwai.filedownloader.f.d.d(this, "the messenger[%s](with id[%d]) has already accomplished all his job, but there still are some messages in parcel queue[%d] queue-top-status[%d]", this, Integer.valueOf(peek.m()), Integer.valueOf(this.f39666c.size()), Byte.valueOf(peek.b()));
             }
-            this.f37901a = null;
+            this.f39664a = null;
         }
     }
 
     private void b(a.b bVar, a.d dVar) {
-        this.f37901a = bVar;
-        this.f37902b = dVar;
-        this.f37903c = new LinkedBlockingQueue();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, bVar, dVar) == null) {
+            this.f39664a = bVar;
+            this.f39665b = dVar;
+            this.f39666c = new LinkedBlockingQueue();
+        }
     }
 
     private void k(MessageSnapshot messageSnapshot) {
-        a.b bVar = this.f37901a;
-        if (bVar == null) {
-            if (com.kwai.filedownloader.f.d.f37874a) {
-                com.kwai.filedownloader.f.d.c(this, "occur this case, it would be the host task of this messenger has been over(paused/warn/completed/error) on the other thread before receiving the snapshot(id[%d], status[%d])", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, messageSnapshot) == null) {
+            a.b bVar = this.f39664a;
+            if (bVar == null) {
+                if (com.kwai.filedownloader.f.d.f39637a) {
+                    com.kwai.filedownloader.f.d.c(this, "occur this case, it would be the host task of this messenger has been over(paused/warn/completed/error) on the other thread before receiving the snapshot(id[%d], status[%d])", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b()));
+                }
+            } else if (!this.f39667d && bVar.F().p() != null) {
+                this.f39666c.offer(messageSnapshot);
+                j.a().a(this);
+            } else {
+                if ((l.b() || this.f39664a.O()) && messageSnapshot.b() == 4) {
+                    this.f39665b.c();
+                }
+                a(messageSnapshot.b());
             }
-        } else if (!this.f37904d && bVar.F().p() != null) {
-            this.f37903c.offer(messageSnapshot);
-            j.a().a(this);
-        } else {
-            if ((l.b() || this.f37901a.O()) && messageSnapshot.b() == 4) {
-                this.f37902b.c();
-            }
-            a(messageSnapshot.b());
         }
     }
 
     @Override // com.kwai.filedownloader.s
     public void a(a.b bVar, a.d dVar) {
-        if (this.f37901a != null) {
-            throw new IllegalStateException(com.kwai.filedownloader.f.f.a("the messenger is working, can't re-appointment for %s", bVar));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, dVar) == null) {
+            if (this.f39664a != null) {
+                throw new IllegalStateException(com.kwai.filedownloader.f.f.a("the messenger is working, can't re-appointment for %s", bVar));
+            }
+            b(bVar, dVar);
         }
-        b(bVar, dVar);
     }
 
     @Override // com.kwai.filedownloader.s
     public void a(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify pending %s", this.f37901a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify pending %s", this.f39664a);
+            }
+            this.f39665b.f_();
+            k(messageSnapshot);
         }
-        this.f37902b.f_();
-        k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public boolean a() {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify begin %s", this.f37901a);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify begin %s", this.f39664a);
+            }
+            if (this.f39664a == null) {
+                com.kwai.filedownloader.f.d.d(this, "can't begin the task, the holder fo the messenger is nil, %d", Integer.valueOf(this.f39666c.size()));
+                return false;
+            }
+            this.f39665b.a();
+            return true;
         }
-        if (this.f37901a == null) {
-            com.kwai.filedownloader.f.d.d(this, "can't begin the task, the holder fo the messenger is nil, %d", Integer.valueOf(this.f37903c.size()));
-            return false;
-        }
-        this.f37902b.a();
-        return true;
+        return invokeV.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.s
     public void b() {
-        if (this.f37904d) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f39667d) {
             return;
         }
-        MessageSnapshot poll = this.f37903c.poll();
+        MessageSnapshot poll = this.f39666c.poll();
         byte b2 = poll.b();
-        a.b bVar = this.f37901a;
+        a.b bVar = this.f39664a;
         if (bVar == null) {
             return;
         }
@@ -162,111 +205,150 @@ public class k implements s {
 
     @Override // com.kwai.filedownloader.s
     public void b(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify started %s", this.f37901a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify started %s", this.f39664a);
+            }
+            this.f39665b.f_();
+            k(messageSnapshot);
         }
-        this.f37902b.f_();
-        k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void c(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify connected %s", this.f37901a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify connected %s", this.f39664a);
+            }
+            this.f39665b.f_();
+            k(messageSnapshot);
         }
-        this.f37902b.f_();
-        k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public boolean c() {
-        return this.f37901a.F().C();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f39664a.F().C() : invokeV.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.s
     public void d(MessageSnapshot messageSnapshot) {
-        a F = this.f37901a.F();
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify progress %s %d %d", F, Long.valueOf(F.r()), Long.valueOf(F.t()));
-        }
-        if (F.j() > 0) {
-            this.f37902b.f_();
-            k(messageSnapshot);
-        } else if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify progress but client not request notify %s", this.f37901a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, messageSnapshot) == null) {
+            a F = this.f39664a.F();
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify progress %s %d %d", F, Long.valueOf(F.r()), Long.valueOf(F.t()));
+            }
+            if (F.j() > 0) {
+                this.f39665b.f_();
+                k(messageSnapshot);
+            } else if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify progress but client not request notify %s", this.f39664a);
+            }
         }
     }
 
     @Override // com.kwai.filedownloader.s
     public boolean d() {
-        return this.f37903c.peek().b() == 4;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f39666c.peek().b() == 4 : invokeV.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.s
     public void e() {
-        this.f37904d = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f39667d = true;
+        }
     }
 
     @Override // com.kwai.filedownloader.s
     public void e(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify block completed %s %s", this.f37901a, Thread.currentThread().getName());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify block completed %s %s", this.f39664a, Thread.currentThread().getName());
+            }
+            this.f39665b.f_();
+            k(messageSnapshot);
         }
-        this.f37902b.f_();
-        k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void f(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            a F = this.f37901a.F();
-            com.kwai.filedownloader.f.d.c(this, "notify retry %s %d %d %s", this.f37901a, Integer.valueOf(F.A()), Integer.valueOf(F.B()), F.y());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                a F = this.f39664a.F();
+                com.kwai.filedownloader.f.d.c(this, "notify retry %s %d %d %s", this.f39664a, Integer.valueOf(F.A()), Integer.valueOf(F.B()), F.y());
+            }
+            this.f39665b.f_();
+            k(messageSnapshot);
         }
-        this.f37902b.f_();
-        k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void g(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify warn %s", this.f37901a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify warn %s", this.f39664a);
+            }
+            this.f39665b.c();
+            k(messageSnapshot);
         }
-        this.f37902b.c();
-        k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void h(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            a.b bVar = this.f37901a;
-            com.kwai.filedownloader.f.d.c(this, "notify error %s %s", bVar, bVar.F().y());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                a.b bVar = this.f39664a;
+                com.kwai.filedownloader.f.d.c(this, "notify error %s %s", bVar, bVar.F().y());
+            }
+            this.f39665b.c();
+            k(messageSnapshot);
         }
-        this.f37902b.c();
-        k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void i(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify paused %s", this.f37901a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify paused %s", this.f39664a);
+            }
+            this.f39665b.c();
+            k(messageSnapshot);
         }
-        this.f37902b.c();
-        k(messageSnapshot);
     }
 
     public void j(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37874a) {
-            com.kwai.filedownloader.f.d.c(this, "notify completed %s", this.f37901a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, messageSnapshot) == null) {
+            if (com.kwai.filedownloader.f.d.f39637a) {
+                com.kwai.filedownloader.f.d.c(this, "notify completed %s", this.f39664a);
+            }
+            this.f39665b.c();
+            k(messageSnapshot);
         }
-        this.f37902b.c();
-        k(messageSnapshot);
     }
 
     public String toString() {
-        Object[] objArr = new Object[2];
-        a.b bVar = this.f37901a;
-        objArr[0] = Integer.valueOf(bVar == null ? -1 : bVar.F().h());
-        objArr[1] = super.toString();
-        return com.kwai.filedownloader.f.f.a("%d:%s", objArr);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            Object[] objArr = new Object[2];
+            a.b bVar = this.f39664a;
+            objArr[0] = Integer.valueOf(bVar == null ? -1 : bVar.F().h());
+            objArr[1] = super.toString();
+            return com.kwai.filedownloader.f.f.a("%d:%s", objArr);
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -6,29 +6,71 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.alipay.sdk.util.l;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AlipayResultActivity extends Activity {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f1746a = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String, a> f1749a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(int i2, String str, String str2);
     }
 
-    private void a(String str, Bundle bundle) {
-        a remove = f1746a.remove(str);
-        if (remove == null) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1111872439, "Lcom/alipay/sdk/app/AlipayResultActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1111872439, "Lcom/alipay/sdk/app/AlipayResultActivity;");
+                return;
+            }
         }
-        try {
-            remove.a(bundle.getInt("endCode"), bundle.getString(l.f1988b), bundle.getString("result"));
-        } finally {
-            finish();
+        f1749a = new ConcurrentHashMap<>();
+    }
+
+    public AlipayResultActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    private void a(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, str, bundle) == null) {
+            a remove = f1749a.remove(str);
+            if (remove == null) {
+                return;
+            }
+            try {
+                remove.a(bundle.getInt("endCode"), bundle.getString(l.f1991b), bundle.getString("result"));
+            } finally {
+                finish();
+            }
         }
     }
 
@@ -36,56 +78,59 @@ public class AlipayResultActivity extends Activity {
     public void onCreate(Bundle bundle) {
         JSONObject jSONObject;
         Bundle bundle2;
-        super.onCreate(bundle);
-        try {
-            com.alipay.sdk.app.statistic.a.a("biz", "BSPReturned", "");
-            Intent intent = getIntent();
-            String stringExtra = intent.getStringExtra("session");
-            Bundle bundleExtra = intent.getBundleExtra("result");
-            String stringExtra2 = intent.getStringExtra("scene");
-            com.alipay.sdk.app.statistic.a.a("biz", "BSPSession", stringExtra);
-            if (TextUtils.equals("mqpSchemePay", stringExtra2)) {
-                a(stringExtra, bundleExtra);
-                return;
-            }
-            if ((TextUtils.isEmpty(stringExtra) || bundleExtra == null) && intent.getData() != null) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(new String(Base64.decode(intent.getData().getQuery(), 2), "UTF-8"));
-                    jSONObject = jSONObject2.getJSONObject("result");
-                    stringExtra = jSONObject2.getString("session");
-                    com.alipay.sdk.app.statistic.a.a("biz", "BSPUriSession", stringExtra);
-                    bundle2 = new Bundle();
-                } catch (Throwable th) {
-                    th = th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                com.alipay.sdk.app.statistic.a.a("biz", "BSPReturned", "");
+                Intent intent = getIntent();
+                String stringExtra = intent.getStringExtra("session");
+                Bundle bundleExtra = intent.getBundleExtra("result");
+                String stringExtra2 = intent.getStringExtra("scene");
+                com.alipay.sdk.app.statistic.a.a("biz", "BSPSession", stringExtra);
+                if (TextUtils.equals("mqpSchemePay", stringExtra2)) {
+                    a(stringExtra, bundleExtra);
+                    return;
                 }
-                try {
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        bundle2.putString(next, jSONObject.getString(next));
+                if ((TextUtils.isEmpty(stringExtra) || bundleExtra == null) && intent.getData() != null) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(new String(Base64.decode(intent.getData().getQuery(), 2), "UTF-8"));
+                        jSONObject = jSONObject2.getJSONObject("result");
+                        stringExtra = jSONObject2.getString("session");
+                        com.alipay.sdk.app.statistic.a.a("biz", "BSPUriSession", stringExtra);
+                        bundle2 = new Bundle();
+                    } catch (Throwable th) {
+                        th = th;
                     }
-                    bundleExtra = bundle2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bundleExtra = bundle2;
-                    com.alipay.sdk.app.statistic.a.a("biz", "BSPResEx", th);
-                    com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.Z, th);
-                    if (TextUtils.isEmpty(stringExtra)) {
+                    try {
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            bundle2.putString(next, jSONObject.getString(next));
+                        }
+                        bundleExtra = bundle2;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bundleExtra = bundle2;
+                        com.alipay.sdk.app.statistic.a.a("biz", "BSPResEx", th);
+                        com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.Z, th);
+                        if (TextUtils.isEmpty(stringExtra)) {
+                        }
+                        com.alipay.sdk.app.statistic.a.b(this, "");
+                        finish();
                     }
+                }
+                if (TextUtils.isEmpty(stringExtra) && bundleExtra != null) {
+                    a(stringExtra, bundleExtra);
                     com.alipay.sdk.app.statistic.a.b(this, "");
                     finish();
+                    return;
                 }
-            }
-            if (TextUtils.isEmpty(stringExtra) && bundleExtra != null) {
-                a(stringExtra, bundleExtra);
                 com.alipay.sdk.app.statistic.a.b(this, "");
                 finish();
-                return;
+            } catch (Throwable unused) {
+                finish();
             }
-            com.alipay.sdk.app.statistic.a.b(this, "");
-            finish();
-        } catch (Throwable unused) {
-            finish();
         }
     }
 }

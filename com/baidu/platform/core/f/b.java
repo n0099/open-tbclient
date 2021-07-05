@@ -1,32 +1,67 @@
 package com.baidu.platform.core.f;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class b extends com.baidu.platform.base.a implements a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetSuggestionResultListener f9352b = null;
+    public OnGetSuggestionResultListener f9426b;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f9426b = null;
+    }
 
     @Override // com.baidu.platform.core.f.a
     public void a() {
-        this.f9303a.lock();
-        this.f9352b = null;
-        this.f9303a.unlock();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f9377a.lock();
+            this.f9426b = null;
+            this.f9377a.unlock();
+        }
     }
 
     @Override // com.baidu.platform.core.f.a
     public void a(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        this.f9303a.lock();
-        this.f9352b = onGetSuggestionResultListener;
-        this.f9303a.unlock();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetSuggestionResultListener) == null) {
+            this.f9377a.lock();
+            this.f9426b = onGetSuggestionResultListener;
+            this.f9377a.unlock();
+        }
     }
 
     @Override // com.baidu.platform.core.f.a
     public boolean a(SuggestionSearchOption suggestionSearchOption) {
-        c cVar = new c();
-        cVar.a(SearchType.SUGGESTION_SEARCH_TYPE);
-        return a(new d(suggestionSearchOption), this.f9352b, cVar);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, suggestionSearchOption)) == null) {
+            c cVar = new c();
+            cVar.a(SearchType.f9373f);
+            return a(new d(suggestionSearchOption), this.f9426b, cVar);
+        }
+        return invokeL.booleanValue;
     }
 }

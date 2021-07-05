@@ -1,5 +1,5 @@
 package com.idlefish.flutterboost.interfaces;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IContainerRecord extends IOperateSyncer {
     long creatTime();
 

@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.core.video.nativevideo;
 
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface c {
@@ -20,28 +19,28 @@ public interface c {
     public interface b {
         void a(long j, long j2);
 
-        void c();
-
-        void d();
-
-        void d_();
-
         void e_();
+
+        void f_();
+
+        void g_();
+
+        void h_();
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.nativevideo.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0303c {
+    public interface InterfaceC0345c {
         void a(int i2, int i3);
 
-        void f();
+        void i_();
     }
 
     void a(long j);
 
     void a(a aVar);
 
-    void a(InterfaceC0303c interfaceC0303c);
+    void a(InterfaceC0345c interfaceC0345c);
 
     void a(e eVar);
 
@@ -49,7 +48,7 @@ public interface c {
 
     void a(boolean z);
 
-    boolean a(String str, String str2, int i2, int i3, List<String> list, String str3, long j, boolean z);
+    boolean a(com.bytedance.sdk.openadsdk.o.f.b bVar);
 
     void b(long j);
 
@@ -64,8 +63,6 @@ public interface c {
     void e(boolean z);
 
     void f(boolean z);
-
-    void h();
 
     void i();
 
@@ -91,9 +88,9 @@ public interface c {
 
     boolean t();
 
-    com.bytedance.sdk.openadsdk.core.video.d.d u();
+    com.bytedance.sdk.openadsdk.core.video.c.d u();
 
-    h v();
+    i v();
 
     boolean w();
 

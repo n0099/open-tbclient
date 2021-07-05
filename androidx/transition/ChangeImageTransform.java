@@ -14,39 +14,46 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.transition.TransitionUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ChangeImageTransform extends Transition {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Property<ImageView, Matrix> ANIMATED_TRANSFORM_PROPERTY;
+    public static final TypeEvaluator<Matrix> NULL_MATRIX_EVALUATOR;
     public static final String PROPNAME_BOUNDS = "android:changeImageTransform:bounds";
     public static final String PROPNAME_MATRIX = "android:changeImageTransform:matrix";
-    public static final String[] sTransitionProperties = {"android:changeImageTransform:matrix", "android:changeImageTransform:bounds"};
-    public static final TypeEvaluator<Matrix> NULL_MATRIX_EVALUATOR = new TypeEvaluator<Matrix>() { // from class: androidx.transition.ChangeImageTransform.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.animation.TypeEvaluator
-        public Matrix evaluate(float f2, Matrix matrix, Matrix matrix2) {
-            return null;
-        }
-    };
-    public static final Property<ImageView, Matrix> ANIMATED_TRANSFORM_PROPERTY = new Property<ImageView, Matrix>(Matrix.class, "animatedTransform") { // from class: androidx.transition.ChangeImageTransform.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.Property
-        public Matrix get(ImageView imageView) {
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.Property
-        public void set(ImageView imageView, Matrix matrix) {
-            ImageViewUtils.animateTransform(imageView, matrix);
-        }
-    };
+    public static final String[] sTransitionProperties;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: androidx.transition.ChangeImageTransform$3  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(749145867, "Landroidx/transition/ChangeImageTransform$3;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(749145867, "Landroidx/transition/ChangeImageTransform$3;");
+                    return;
+                }
+            }
             int[] iArr = new int[ImageView.ScaleType.values().length];
             $SwitchMap$android$widget$ImageView$ScaleType = iArr;
             try {
@@ -60,122 +67,278 @@ public class ChangeImageTransform extends Transition {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-754526854, "Landroidx/transition/ChangeImageTransform;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-754526854, "Landroidx/transition/ChangeImageTransform;");
+                return;
+            }
+        }
+        sTransitionProperties = new String[]{"android:changeImageTransform:matrix", "android:changeImageTransform:bounds"};
+        NULL_MATRIX_EVALUATOR = new TypeEvaluator<Matrix>() { // from class: androidx.transition.ChangeImageTransform.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.animation.TypeEvaluator
+            public Matrix evaluate(float f2, Matrix matrix, Matrix matrix2) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), matrix, matrix2})) == null) {
+                    return null;
+                }
+                return (Matrix) invokeCommon.objValue;
+            }
+        };
+        ANIMATED_TRANSFORM_PROPERTY = new Property<ImageView, Matrix>(Matrix.class, "animatedTransform") { // from class: androidx.transition.ChangeImageTransform.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8, r9);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r8, r9};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((Class) objArr2[0], (String) objArr2[1]);
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.util.Property
+            public Matrix get(ImageView imageView) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, imageView)) == null) {
+                    return null;
+                }
+                return (Matrix) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.util.Property
+            public void set(ImageView imageView, Matrix matrix) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, matrix) == null) {
+                    ImageViewUtils.animateTransform(imageView, matrix);
+                }
+            }
+        };
+    }
+
     public ChangeImageTransform() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     private void captureValues(TransitionValues transitionValues) {
-        View view = transitionValues.view;
-        if ((view instanceof ImageView) && view.getVisibility() == 0) {
-            ImageView imageView = (ImageView) view;
-            if (imageView.getDrawable() == null) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
+            View view = transitionValues.view;
+            if ((view instanceof ImageView) && view.getVisibility() == 0) {
+                ImageView imageView = (ImageView) view;
+                if (imageView.getDrawable() == null) {
+                    return;
+                }
+                Map<String, Object> map = transitionValues.values;
+                map.put("android:changeImageTransform:bounds", new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
+                map.put("android:changeImageTransform:matrix", copyImageMatrix(imageView));
             }
-            Map<String, Object> map = transitionValues.values;
-            map.put("android:changeImageTransform:bounds", new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
-            map.put("android:changeImageTransform:matrix", copyImageMatrix(imageView));
         }
     }
 
     public static Matrix centerCropMatrix(ImageView imageView) {
-        Drawable drawable = imageView.getDrawable();
-        int intrinsicWidth = drawable.getIntrinsicWidth();
-        float width = imageView.getWidth();
-        float f2 = intrinsicWidth;
-        int intrinsicHeight = drawable.getIntrinsicHeight();
-        float height = imageView.getHeight();
-        float f3 = intrinsicHeight;
-        float max = Math.max(width / f2, height / f3);
-        int round = Math.round((width - (f2 * max)) / 2.0f);
-        int round2 = Math.round((height - (f3 * max)) / 2.0f);
-        Matrix matrix = new Matrix();
-        matrix.postScale(max, max);
-        matrix.postTranslate(round, round2);
-        return matrix;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, imageView)) == null) {
+            Drawable drawable = imageView.getDrawable();
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            float width = imageView.getWidth();
+            float f2 = intrinsicWidth;
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            float height = imageView.getHeight();
+            float f3 = intrinsicHeight;
+            float max = Math.max(width / f2, height / f3);
+            int round = Math.round((width - (f2 * max)) / 2.0f);
+            int round2 = Math.round((height - (f3 * max)) / 2.0f);
+            Matrix matrix = new Matrix();
+            matrix.postScale(max, max);
+            matrix.postTranslate(round, round2);
+            return matrix;
+        }
+        return (Matrix) invokeL.objValue;
     }
 
     @NonNull
     public static Matrix copyImageMatrix(@NonNull ImageView imageView) {
-        Drawable drawable = imageView.getDrawable();
-        if (drawable.getIntrinsicWidth() > 0 && drawable.getIntrinsicHeight() > 0) {
-            int i2 = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
-            if (i2 == 1) {
-                return fitXYMatrix(imageView);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, imageView)) == null) {
+            Drawable drawable = imageView.getDrawable();
+            if (drawable.getIntrinsicWidth() > 0 && drawable.getIntrinsicHeight() > 0) {
+                int i2 = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
+                if (i2 == 1) {
+                    return fitXYMatrix(imageView);
+                }
+                if (i2 == 2) {
+                    return centerCropMatrix(imageView);
+                }
             }
-            if (i2 == 2) {
-                return centerCropMatrix(imageView);
-            }
+            return new Matrix(imageView.getImageMatrix());
         }
-        return new Matrix(imageView.getImageMatrix());
+        return (Matrix) invokeL.objValue;
     }
 
     private ObjectAnimator createMatrixAnimator(ImageView imageView, Matrix matrix, Matrix matrix2) {
-        return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new TransitionUtils.MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2});
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, imageView, matrix, matrix2)) == null) ? ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new TransitionUtils.MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2}) : (ObjectAnimator) invokeLLL.objValue;
     }
 
     @NonNull
     private ObjectAnimator createNullAnimator(@NonNull ImageView imageView) {
-        Property<ImageView, Matrix> property = ANIMATED_TRANSFORM_PROPERTY;
-        TypeEvaluator<Matrix> typeEvaluator = NULL_MATRIX_EVALUATOR;
-        Matrix matrix = MatrixUtils.IDENTITY_MATRIX;
-        return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) property, (TypeEvaluator) typeEvaluator, (Object[]) new Matrix[]{matrix, matrix});
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, imageView)) == null) {
+            Property<ImageView, Matrix> property = ANIMATED_TRANSFORM_PROPERTY;
+            TypeEvaluator<Matrix> typeEvaluator = NULL_MATRIX_EVALUATOR;
+            Matrix matrix = MatrixUtils.IDENTITY_MATRIX;
+            return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) property, (TypeEvaluator) typeEvaluator, (Object[]) new Matrix[]{matrix, matrix});
+        }
+        return (ObjectAnimator) invokeL.objValue;
     }
 
     public static Matrix fitXYMatrix(ImageView imageView) {
-        Drawable drawable = imageView.getDrawable();
-        Matrix matrix = new Matrix();
-        matrix.postScale(imageView.getWidth() / drawable.getIntrinsicWidth(), imageView.getHeight() / drawable.getIntrinsicHeight());
-        return matrix;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, imageView)) == null) {
+            Drawable drawable = imageView.getDrawable();
+            Matrix matrix = new Matrix();
+            matrix.postScale(imageView.getWidth() / drawable.getIntrinsicWidth(), imageView.getHeight() / drawable.getIntrinsicHeight());
+            return matrix;
+        }
+        return (Matrix) invokeL.objValue;
     }
 
     @Override // androidx.transition.Transition
     public void captureEndValues(@NonNull TransitionValues transitionValues) {
-        captureValues(transitionValues);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
+            captureValues(transitionValues);
+        }
     }
 
     @Override // androidx.transition.Transition
     public void captureStartValues(@NonNull TransitionValues transitionValues) {
-        captureValues(transitionValues);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
+            captureValues(transitionValues);
+        }
     }
 
     @Override // androidx.transition.Transition
     public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        if (transitionValues == null || transitionValues2 == null) {
-            return null;
-        }
-        Rect rect = (Rect) transitionValues.values.get("android:changeImageTransform:bounds");
-        Rect rect2 = (Rect) transitionValues2.values.get("android:changeImageTransform:bounds");
-        if (rect == null || rect2 == null) {
-            return null;
-        }
-        Matrix matrix = (Matrix) transitionValues.values.get("android:changeImageTransform:matrix");
-        Matrix matrix2 = (Matrix) transitionValues2.values.get("android:changeImageTransform:matrix");
-        boolean z = (matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2));
-        if (rect.equals(rect2) && z) {
-            return null;
-        }
-        ImageView imageView = (ImageView) transitionValues2.view;
-        Drawable drawable = imageView.getDrawable();
-        int intrinsicWidth = drawable.getIntrinsicWidth();
-        int intrinsicHeight = drawable.getIntrinsicHeight();
-        if (intrinsicWidth > 0 && intrinsicHeight > 0) {
-            if (matrix == null) {
-                matrix = MatrixUtils.IDENTITY_MATRIX;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
+            if (transitionValues == null || transitionValues2 == null) {
+                return null;
             }
-            if (matrix2 == null) {
-                matrix2 = MatrixUtils.IDENTITY_MATRIX;
+            Rect rect = (Rect) transitionValues.values.get("android:changeImageTransform:bounds");
+            Rect rect2 = (Rect) transitionValues2.values.get("android:changeImageTransform:bounds");
+            if (rect == null || rect2 == null) {
+                return null;
             }
-            ANIMATED_TRANSFORM_PROPERTY.set(imageView, matrix);
-            return createMatrixAnimator(imageView, matrix, matrix2);
+            Matrix matrix = (Matrix) transitionValues.values.get("android:changeImageTransform:matrix");
+            Matrix matrix2 = (Matrix) transitionValues2.values.get("android:changeImageTransform:matrix");
+            boolean z = (matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2));
+            if (rect.equals(rect2) && z) {
+                return null;
+            }
+            ImageView imageView = (ImageView) transitionValues2.view;
+            Drawable drawable = imageView.getDrawable();
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
+                if (matrix == null) {
+                    matrix = MatrixUtils.IDENTITY_MATRIX;
+                }
+                if (matrix2 == null) {
+                    matrix2 = MatrixUtils.IDENTITY_MATRIX;
+                }
+                ANIMATED_TRANSFORM_PROPERTY.set(imageView, matrix);
+                return createMatrixAnimator(imageView, matrix, matrix2);
+            }
+            return createNullAnimator(imageView);
         }
-        return createNullAnimator(imageView);
+        return (Animator) invokeLLL.objValue;
     }
 
     @Override // androidx.transition.Transition
     public String[] getTransitionProperties() {
-        return sTransitionProperties;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? sTransitionProperties : (String[]) invokeV.objValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChangeImageTransform(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 }

@@ -2,65 +2,148 @@ package com.baidu.fsg.base.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.statistics.StatService;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RimStatisticsUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "logsender";
-    public static boolean mInited = false;
+    public static boolean mInited;
     public static Context sAppContext;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean hasInit;
     public r mHttpImpl;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f5229a = new RimStatisticsUtil();
+        public static RimStatisticsUtil f5259a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-258752044, "Lcom/baidu/fsg/base/statistics/RimStatisticsUtil$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-258752044, "Lcom/baidu/fsg/base/statistics/RimStatisticsUtil$a;");
+                    return;
+                }
+            }
+            f5259a = new RimStatisticsUtil(null);
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-103062415, "Lcom/baidu/fsg/base/statistics/RimStatisticsUtil;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-103062415, "Lcom/baidu/fsg/base/statistics/RimStatisticsUtil;");
+        }
+    }
+
+    public /* synthetic */ RimStatisticsUtil(p pVar) {
+        this();
     }
 
     public static boolean cacheAppContext(Context context) {
-        if (sAppContext == null && context != null) {
-            sAppContext = context;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (sAppContext == null && context != null) {
+                sAppContext = context;
+            }
+            return sAppContext != null;
         }
-        return sAppContext != null;
+        return invokeL.booleanValue;
     }
 
     public static Context getAppContext() {
-        return sAppContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sAppContext : (Context) invokeV.objValue;
     }
 
     public static RimStatisticsUtil getInstance() {
-        return a.f5229a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f5259a : (RimStatisticsUtil) invokeV.objValue;
     }
 
     private String getSignKey1() {
-        return com.baidu.fsg.base.a.f5073h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f5103h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {
-        return ResUtils.getString(sAppContext, "rim_base_asdasdasd_assdadsads");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? ResUtils.getString(sAppContext, "rim_base_asdasdasd_assdadsads") : (String) invokeV.objValue;
     }
 
     private String getSignKey3() {
-        return "G4Ytg9bd7jt7sJG9sGf";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? "G4Ytg9bd7jt7sJG9sGf" : (String) invokeV.objValue;
     }
 
     public static boolean initData() {
-        if (mInited) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (mInited) {
+                return false;
+            }
+            mInited = true;
+            f.a().b();
+            return true;
         }
-        mInited = true;
-        f.a().b();
-        return true;
+        return invokeV.booleanValue;
     }
 
     public static void initStatisticsModule(Context context) {
-        if (cacheAppContext(context)) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65546, null, context) == null) && cacheAppContext(context)) {
             RimStatisticsUtil rimStatisticsUtil = getInstance();
             try {
                 if (rimStatisticsUtil.hasInit) {
@@ -75,22 +158,32 @@ public final class RimStatisticsUtil {
     }
 
     public static void onBack(String str) {
-        try {
-            StatService.a(str, StatService.ETag.back, (Collection<String>) null);
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            try {
+                StatService.a(str, StatService.ETag.back, (Collection<String>) null);
+            } catch (Exception unused) {
+            }
         }
     }
 
     public static void onEvent(String str) {
-        onEventWithValues(str, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+            onEventWithValues(str, null);
+        }
     }
 
     public static void onEventEnd(String str, int i2) {
-        onEventEndWithValue(str, i2, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65549, null, str, i2) == null) {
+            onEventEndWithValue(str, i2, null);
+        }
     }
 
     public static void onEventEndWithValue(String str, int i2, String str2) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65550, null, str, i2, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -100,7 +193,8 @@ public final class RimStatisticsUtil {
     }
 
     public static void onEventEndWithValues(String str, int i2, Collection<String> collection) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65551, null, str, i2, collection) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -110,7 +204,8 @@ public final class RimStatisticsUtil {
     }
 
     public static void onEventStart(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65552, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -120,7 +215,8 @@ public final class RimStatisticsUtil {
     }
 
     public static void onEventWithValue(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -130,59 +226,95 @@ public final class RimStatisticsUtil {
     }
 
     public static void onEventWithValues(String str, Collection<String> collection) {
-        try {
-            StatService.a(str, (String) null, collection);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            LogUtil.d("logsender", e2.toString());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, null, str, collection) == null) {
+            try {
+                StatService.a(str, (String) null, collection);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                LogUtil.d("logsender", e2.toString());
+            }
         }
     }
 
     public static void onIn(String str, long j) {
-        try {
-            if (0 < j) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Long.toString(j));
-                StatService.a(str, StatService.ETag.in, arrayList);
-            } else {
-                StatService.a(str, StatService.ETag.in, (Collection<String>) null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
+            try {
+                if (0 < j) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(Long.toString(j));
+                    StatService.a(str, StatService.ETag.in, arrayList);
+                } else {
+                    StatService.a(str, StatService.ETag.in, (Collection<String>) null);
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
         }
     }
 
     public static void onOut(String str) {
-        try {
-            StatService.a(str, StatService.ETag.out, (Collection<String>) null);
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
+            try {
+                StatService.a(str, StatService.ETag.out, (Collection<String>) null);
+            } catch (Exception unused) {
+            }
         }
     }
 
     public static void onPush(String str) {
-        try {
-            StatService.a(str, StatService.ETag.push, (Collection<String>) null);
-        } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
+            try {
+                StatService.a(str, StatService.ETag.push, (Collection<String>) null);
+            } catch (Exception unused) {
+            }
         }
     }
 
     public String getSignKey() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(getSignKey1());
-        stringBuffer.append(getSignKey2());
-        stringBuffer.append(getSignKey3());
-        return RimArmor.getInstance().localDecryptProxy(stringBuffer.toString());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(getSignKey1());
+            stringBuffer.append(getSignKey2());
+            stringBuffer.append(getSignKey3());
+            return RimArmor.getInstance().localDecryptProxy(stringBuffer.toString());
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isReleaseVersion() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void triggerSending() {
-        LogUtil.d("logsender", "=====triggerSending====");
-        l.a().a("normal_log");
-        l.a().a(b.o);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogUtil.d("logsender", "=====triggerSending====");
+            l.a().a("normal_log");
+            l.a().a(b.o);
+        }
     }
 
     public RimStatisticsUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 }

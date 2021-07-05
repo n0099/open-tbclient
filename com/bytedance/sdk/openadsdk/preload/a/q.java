@@ -1,124 +1,217 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
 /* loaded from: classes6.dex */
 public final class q extends l {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f30104a;
+    public final Object f31954a;
 
     public q(Boolean bool) {
-        this.f30104a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bool};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31954a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public Number a() {
-        Object obj = this.f30104a;
-        return obj instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f30104a) : (Number) obj;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Object obj = this.f31954a;
+            return obj instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f31954a) : (Number) obj;
+        }
+        return (Number) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public String b() {
-        if (o()) {
-            return a().toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (o()) {
+                return a().toString();
+            }
+            if (n()) {
+                return ((Boolean) this.f31954a).toString();
+            }
+            return (String) this.f31954a;
         }
-        if (n()) {
-            return ((Boolean) this.f30104a).toString();
-        }
-        return (String) this.f30104a;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public double c() {
-        return o() ? a().doubleValue() : Double.parseDouble(b());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? o() ? a().doubleValue() : Double.parseDouble(b()) : invokeV.doubleValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public long d() {
-        return o() ? a().longValue() : Long.parseLong(b());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? o() ? a().longValue() : Long.parseLong(b()) : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public int e() {
-        return o() ? a().intValue() : Integer.parseInt(b());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? o() ? a().intValue() : Integer.parseInt(b()) : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || q.class != obj.getClass()) {
-            return false;
-        }
-        q qVar = (q) obj;
-        if (this.f30104a == null) {
-            return qVar.f30104a == null;
-        } else if (a(this) && a(qVar)) {
-            return a().longValue() == qVar.a().longValue();
-        } else if ((this.f30104a instanceof Number) && (qVar.f30104a instanceof Number)) {
-            double doubleValue = a().doubleValue();
-            double doubleValue2 = qVar.a().doubleValue();
-            if (doubleValue != doubleValue2) {
-                return Double.isNaN(doubleValue) && Double.isNaN(doubleValue2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return true;
-        } else {
-            return this.f30104a.equals(qVar.f30104a);
+            if (obj == null || q.class != obj.getClass()) {
+                return false;
+            }
+            q qVar = (q) obj;
+            if (this.f31954a == null) {
+                return qVar.f31954a == null;
+            } else if (a(this) && a(qVar)) {
+                return a().longValue() == qVar.a().longValue();
+            } else if ((this.f31954a instanceof Number) && (qVar.f31954a instanceof Number)) {
+                double doubleValue = a().doubleValue();
+                double doubleValue2 = qVar.a().doubleValue();
+                if (doubleValue != doubleValue2) {
+                    return Double.isNaN(doubleValue) && Double.isNaN(doubleValue2);
+                }
+                return true;
+            } else {
+                return this.f31954a.equals(qVar.f31954a);
+            }
         }
+        return invokeL.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public boolean f() {
-        if (n()) {
-            return ((Boolean) this.f30104a).booleanValue();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (n()) {
+                return ((Boolean) this.f31954a).booleanValue();
+            }
+            return Boolean.parseBoolean(b());
         }
-        return Boolean.parseBoolean(b());
+        return invokeV.booleanValue;
     }
 
     public int hashCode() {
+        InterceptResult invokeV;
         long doubleToLongBits;
-        if (this.f30104a == null) {
-            return 31;
-        }
-        if (a(this)) {
-            doubleToLongBits = a().longValue();
-        } else {
-            Object obj = this.f30104a;
-            if (obj instanceof Number) {
-                doubleToLongBits = Double.doubleToLongBits(a().doubleValue());
-            } else {
-                return obj.hashCode();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.f31954a == null) {
+                return 31;
             }
+            if (a(this)) {
+                doubleToLongBits = a().longValue();
+            } else {
+                Object obj = this.f31954a;
+                if (obj instanceof Number) {
+                    doubleToLongBits = Double.doubleToLongBits(a().doubleValue());
+                } else {
+                    return obj.hashCode();
+                }
+            }
+            return (int) ((doubleToLongBits >>> 32) ^ doubleToLongBits);
         }
-        return (int) ((doubleToLongBits >>> 32) ^ doubleToLongBits);
+        return invokeV.intValue;
     }
 
     public boolean n() {
-        return this.f30104a instanceof Boolean;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31954a instanceof Boolean : invokeV.booleanValue;
     }
 
     public boolean o() {
-        return this.f30104a instanceof Number;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31954a instanceof Number : invokeV.booleanValue;
     }
 
     public boolean p() {
-        return this.f30104a instanceof String;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31954a instanceof String : invokeV.booleanValue;
     }
 
     public static boolean a(q qVar) {
-        Object obj = qVar.f30104a;
-        if (obj instanceof Number) {
-            Number number = (Number) obj;
-            return (number instanceof BigInteger) || (number instanceof Long) || (number instanceof Integer) || (number instanceof Short) || (number instanceof Byte);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qVar)) == null) {
+            Object obj = qVar.f31954a;
+            if (obj instanceof Number) {
+                Number number = (Number) obj;
+                return (number instanceof BigInteger) || (number instanceof Long) || (number instanceof Integer) || (number instanceof Short) || (number instanceof Byte);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public q(Number number) {
-        this.f30104a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {number};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f31954a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
     }
 
     public q(String str) {
-        this.f30104a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f31954a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
     }
 }

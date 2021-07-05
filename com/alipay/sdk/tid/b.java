@@ -3,91 +3,142 @@ package com.alipay.sdk.tid;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.c;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.ecommerce.view.SpeechRecognitionDialog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1939a = "alipay_tid_storage";
+    public static final String f1942a = "alipay_tid_storage";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1940b = "tidinfo";
+    public static final String f1943b = "tidinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1941c = "upgraded_from_db";
+    public static final String f1944c = "upgraded_from_db";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1942d = "tid";
+    public static final String f1945d = "tid";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1943e = "client_key";
+    public static final String f1946e = "client_key";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1944f = "timestamp";
+    public static final String f1947f = "timestamp";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1945g = "vimei";
+    public static final String f1948g = "vimei";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1946h = "vimsi";
+    public static final String f1949h = "vimsi";
 
     /* renamed from: i  reason: collision with root package name */
-    public static Context f1947i;
+    public static Context f1950i;
     public static b o;
+    public transient /* synthetic */ FieldHolder $fh;
     public String j;
     public String k;
     public long l;
     public String m;
     public String n;
-    public boolean p = false;
+    public boolean p;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(971321369, "Lcom/alipay/sdk/tid/b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(971321369, "Lcom/alipay/sdk/tid/b;");
+        }
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.p = false;
+    }
 
     public static synchronized b a(Context context) {
+        InterceptResult invokeL;
         b bVar;
-        synchronized (b.class) {
-            if (o == null) {
-                c.b("TidStorage", "getInstance");
-                o = new b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (b.class) {
+                if (o == null) {
+                    c.b("TidStorage", "getInstance");
+                    o = new b();
+                }
+                if (f1950i == null) {
+                    o.b(context);
+                }
+                bVar = o;
             }
-            if (f1947i == null) {
-                o.b(context);
-            }
-            bVar = o;
+            return bVar;
         }
-        return bVar;
+        return (b) invokeL.objValue;
     }
 
     private void b(Context context) {
-        if (context != null) {
-            c.b("TidStorage", "TidStorage.initialize context != null");
-            f1947i = context.getApplicationContext();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
+            if (context != null) {
+                c.b("TidStorage", "TidStorage.initialize context != null");
+                f1950i = context.getApplicationContext();
+            }
+            if (this.p) {
+                return;
+            }
+            this.p = true;
+            k();
+            l();
         }
-        if (this.p) {
-            return;
-        }
-        this.p = true;
-        k();
-        l();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0072, code lost:
-        if (r5 == null) goto L20;
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0076, code lost:
+        if (r5 == null) goto L22;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void k() {
+        Context context;
         com.alipay.sdk.tid.a aVar;
         Throwable th;
-        Context context = f1947i;
-        if (context == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (context = f1950i) == null) {
             return;
         }
-        if (a.d(f1939a, f1941c)) {
+        if (a.d(f1942a, f1944c)) {
             c.b("TidStorage", "transferTidFromOldDb: already migrated. returning");
             return;
         }
@@ -129,7 +180,7 @@ public class b {
                 aVar = aVar2;
                 try {
                     c.a(th);
-                    a.a(f1939a, f1941c, "updated", false);
+                    a.a(f1942a, f1944c, "updated", false);
                 } finally {
                     if (aVar != null) {
                         aVar.close();
@@ -139,11 +190,11 @@ public class b {
         } catch (Throwable th5) {
             th = th5;
         }
-        a.a(f1939a, f1941c, "updated", false);
+        a.a(f1942a, f1944c, "updated", false);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0091  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0099  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -153,10 +204,14 @@ public class b {
         String str3;
         String str4;
         String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(65544, this) != null) {
+            return;
+        }
         Long valueOf = Long.valueOf(System.currentTimeMillis());
         String str5 = null;
         try {
-            a2 = a.a(f1939a, f1940b, true);
+            a2 = a.a(f1942a, f1943b, true);
         } catch (Exception e2) {
             e = e2;
             str = null;
@@ -166,10 +221,10 @@ public class b {
             JSONObject jSONObject = new JSONObject(a2);
             str = jSONObject.optString("tid", "");
             try {
-                str2 = jSONObject.optString(f1943e, "");
+                str2 = jSONObject.optString(f1946e, "");
                 try {
                     valueOf = Long.valueOf(jSONObject.optLong("timestamp", System.currentTimeMillis()));
-                    str3 = jSONObject.optString(f1945g, "");
+                    str3 = jSONObject.optString(f1948g, "");
                 } catch (Exception e3) {
                     e = e3;
                     str3 = null;
@@ -186,7 +241,7 @@ public class b {
                 }
             }
             try {
-                str4 = jSONObject.optString(f1946h, "");
+                str4 = jSONObject.optString(f1949h, "");
             } catch (Exception e5) {
                 e = e5;
                 c.a(e);
@@ -218,150 +273,234 @@ public class b {
     }
 
     private void m() {
-        this.j = "";
-        this.k = f();
-        this.l = System.currentTimeMillis();
-        this.m = n();
-        this.n = n();
-        a.b(f1939a, f1940b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            this.j = "";
+            this.k = f();
+            this.l = System.currentTimeMillis();
+            this.m = n();
+            this.n = n();
+            a.b(f1942a, f1943b);
+        }
     }
 
     private String n() {
-        String hexString = Long.toHexString(System.currentTimeMillis());
-        Random random = new Random();
-        return hexString + (random.nextInt(SpeechRecognitionDialog.REQUEST_SETTING_CODE) + 1000);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            String hexString = Long.toHexString(System.currentTimeMillis());
+            Random random = new Random();
+            return hexString + (random.nextInt(9000) + 1000);
+        }
+        return (String) invokeV.objValue;
     }
 
     private void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+        }
     }
 
     private void p() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("tid", this.j);
-            jSONObject.put(f1943e, this.k);
-            jSONObject.put("timestamp", this.l);
-            jSONObject.put(f1945g, this.m);
-            jSONObject.put(f1946h, this.n);
-            a.a(f1939a, f1940b, jSONObject.toString(), true);
-        } catch (Exception e2) {
-            c.a(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("tid", this.j);
+                jSONObject.put(f1946e, this.k);
+                jSONObject.put("timestamp", this.l);
+                jSONObject.put(f1948g, this.m);
+                jSONObject.put(f1949h, this.n);
+                a.a(f1942a, f1943b, jSONObject.toString(), true);
+            } catch (Exception e2) {
+                c.a(e2);
+            }
         }
     }
 
     public String c() {
-        c.b("TidStorage", "TidStorage.getVirtualImei " + this.m);
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c.b("TidStorage", "TidStorage.getVirtualImei " + this.m);
+            return this.m;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String d() {
-        c.b("TidStorage", "TidStorage.getVirtualImsi " + this.n);
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            c.b("TidStorage", "TidStorage.getVirtualImsi " + this.n);
+            return this.n;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean e() {
-        return TextUtils.isEmpty(this.j) || TextUtils.isEmpty(this.k) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.j) || TextUtils.isEmpty(this.k) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n) : invokeV.booleanValue;
     }
 
     public String f() {
-        String hexString = Long.toHexString(System.currentTimeMillis());
-        return hexString.length() > 10 ? hexString.substring(hexString.length() - 10) : hexString;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String hexString = Long.toHexString(System.currentTimeMillis());
+            return hexString.length() > 10 ? hexString.substring(hexString.length() - 10) : hexString;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void g() {
-        String format = String.format("TidStorage::delete > %s，%s，%s，%s，%s", this.j, this.k, Long.valueOf(this.l), this.m, this.n);
-        c.b("TidStorage", "TidStorage.delete " + format);
-        m();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            String format = String.format("TidStorage::delete > %s，%s，%s，%s，%s", this.j, this.k, Long.valueOf(this.l), this.m, this.n);
+            c.b("TidStorage", "TidStorage.delete " + format);
+            m();
+        }
     }
 
     public boolean h() {
-        return e();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? e() : invokeV.booleanValue;
     }
 
     public Long i() {
-        return Long.valueOf(this.l);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Long.valueOf(this.l) : (Long) invokeV.objValue;
     }
 
     /* loaded from: classes.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public static String a() {
-            return "!@#23457";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "!@#23457" : (String) invokeV.objValue;
         }
 
         public static boolean a(String str, String str2) {
-            if (b.f1947i == null) {
-                return false;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+                if (b.f1950i == null) {
+                    return false;
+                }
+                return b.f1950i.getSharedPreferences(str, 0).contains(str2);
             }
-            return b.f1947i.getSharedPreferences(str, 0).contains(str2);
+            return invokeLL.booleanValue;
         }
 
         public static void b(String str, String str2) {
-            if (b.f1947i == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || b.f1950i == null) {
                 return;
             }
-            b.f1947i.getSharedPreferences(str, 0).edit().remove(str2).apply();
+            b.f1950i.getSharedPreferences(str, 0).edit().remove(str2).apply();
         }
 
         public static String c(String str, String str2) {
-            return a(str, str2, true);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? a(str, str2, true) : (String) invokeLL.objValue;
         }
 
         public static boolean d(String str, String str2) {
-            if (b.f1947i == null) {
-                return false;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+                if (b.f1950i == null) {
+                    return false;
+                }
+                return b.f1950i.getSharedPreferences(str, 0).contains(str2);
             }
-            return b.f1947i.getSharedPreferences(str, 0).contains(str2);
+            return invokeLL.booleanValue;
         }
 
         public static String a(String str, String str2, boolean z) {
+            InterceptResult invokeLLZ;
             String str3;
-            if (b.f1947i == null) {
-                return null;
-            }
-            String string = b.f1947i.getSharedPreferences(str, 0).getString(str2, null);
-            if (TextUtils.isEmpty(string) || !z) {
-                str3 = string;
-            } else {
-                String b2 = b();
-                str3 = com.alipay.sdk.encrypt.b.b(string, b2);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = com.alipay.sdk.encrypt.b.b(string, a());
-                    if (!TextUtils.isEmpty(str3)) {
-                        a(str, str2, str3, true);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
+                if (b.f1950i == null) {
+                    return null;
+                }
+                String string = b.f1950i.getSharedPreferences(str, 0).getString(str2, null);
+                if (TextUtils.isEmpty(string) || !z) {
+                    str3 = string;
+                } else {
+                    String b2 = b();
+                    str3 = com.alipay.sdk.encrypt.b.b(string, b2);
+                    if (TextUtils.isEmpty(str3)) {
+                        str3 = com.alipay.sdk.encrypt.b.b(string, a());
+                        if (!TextUtils.isEmpty(str3)) {
+                            a(str, str2, str3, true);
+                        }
+                    }
+                    if (TextUtils.isEmpty(str3)) {
+                        String.format("LocalPreference::getLocalPreferences failed %s，%s", string, b2);
+                        c.b("TidStorage", "TidStorage.save LocalPreference::getLocalPreferences failed");
                     }
                 }
-                if (TextUtils.isEmpty(str3)) {
-                    String.format("LocalPreference::getLocalPreferences failed %s，%s", string, b2);
-                    c.b("TidStorage", "TidStorage.save LocalPreference::getLocalPreferences failed");
-                }
+                c.b("TidStorage", "TidStorage.save LocalPreference::getLocalPreferences value " + string);
+                return str3;
             }
-            c.b("TidStorage", "TidStorage.save LocalPreference::getLocalPreferences value " + string);
-            return str3;
+            return (String) invokeLLZ.objValue;
         }
 
         public static String b() {
             String str;
-            try {
-                str = b.f1947i.getApplicationContext().getPackageName();
-            } catch (Throwable th) {
-                c.a(th);
-                str = "";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+                try {
+                    str = b.f1950i.getApplicationContext().getPackageName();
+                } catch (Throwable th) {
+                    c.a(th);
+                    str = "";
+                }
+                if (TextUtils.isEmpty(str)) {
+                    str = "unknow";
+                }
+                return (str + "00000000").substring(0, 8);
             }
-            if (TextUtils.isEmpty(str)) {
-                str = "unknow";
-            }
-            return (str + "00000000").substring(0, 8);
+            return (String) invokeV.objValue;
         }
 
         public static void a(String str, String str2, String str3) {
-            a(str, str2, str3, true);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+                a(str, str2, str3, true);
+            }
         }
 
         public static void a(String str, String str2, String str3, boolean z) {
-            if (b.f1947i == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || b.f1950i == null) {
                 return;
             }
-            SharedPreferences sharedPreferences = b.f1947i.getSharedPreferences(str, 0);
+            SharedPreferences sharedPreferences = b.f1950i.getSharedPreferences(str, 0);
             if (z) {
                 String b2 = b();
                 String a2 = com.alipay.sdk.encrypt.b.a(str3, b2);
@@ -375,33 +514,49 @@ public class b {
     }
 
     public String a() {
-        c.b("TidStorage", "TidStorage.getTid " + this.j);
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            c.b("TidStorage", "TidStorage.getTid " + this.j);
+            return this.j;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String b() {
-        c.b("TidStorage", "TidStorage.getClientKey " + this.k);
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            c.b("TidStorage", "TidStorage.getClientKey " + this.k);
+            return this.k;
+        }
+        return (String) invokeV.objValue;
     }
 
     private boolean a(String str, String str2, String str3, String str4) {
-        return TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, this, str, str2, str3, str4)) == null) ? TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4) : invokeLLLL.booleanValue;
     }
 
     public void a(String str, String str2) {
-        c.b("TidStorage", "TidStorage.save " + ("tid=" + str + ",clientKey=" + str2));
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            c.b("TidStorage", "TidStorage.save " + ("tid=" + str + ",clientKey=" + str2));
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return;
+            }
+            this.j = str;
+            this.k = str2;
+            this.l = System.currentTimeMillis();
+            p();
+            o();
         }
-        this.j = str;
-        this.k = str2;
-        this.l = System.currentTimeMillis();
-        p();
-        o();
     }
 
     private void a(String str, String str2, String str3, String str4, Long l) {
-        if (a(str, str2, str3, str4)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(65539, this, str, str2, str3, str4, l) == null) || a(str, str2, str3, str4)) {
             return;
         }
         this.j = str;

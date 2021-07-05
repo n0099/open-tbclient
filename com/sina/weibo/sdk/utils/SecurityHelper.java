@@ -5,44 +5,81 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.Signature;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.ApiUtils;
 import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes7.dex */
 public class SecurityHelper {
-    public static boolean checkResponseAppLegal(Context context, WbAppInfo wbAppInfo, Intent intent) {
-        if ((wbAppInfo == null || wbAppInfo.getSupportVersion() > 10352) && wbAppInfo != null) {
-            String stringExtra = intent != null ? intent.getStringExtra(WBConstants.Base.APP_PKG) : null;
-            return (stringExtra == null || intent.getStringExtra(WBConstants.TRAN) == null || !ApiUtils.validateWeiboSign(context, stringExtra)) ? false : true;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public SecurityHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return true;
+    }
+
+    public static boolean checkResponseAppLegal(Context context, WbAppInfo wbAppInfo, Intent intent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wbAppInfo, intent)) == null) {
+            if ((wbAppInfo == null || wbAppInfo.getSupportVersion() > 10352) && wbAppInfo != null) {
+                String stringExtra = intent != null ? intent.getStringExtra(WBConstants.Base.APP_PKG) : null;
+                return (stringExtra == null || intent.getStringExtra(WBConstants.TRAN) == null || !ApiUtils.validateWeiboSign(context, stringExtra)) ? false : true;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 
     public static boolean containSign(Signature[] signatureArr, String str) {
-        if (signatureArr != null && str != null) {
-            for (Signature signature : signatureArr) {
-                if (str.equals(MD5.hexdigest(signature.toByteArray()))) {
-                    return true;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, signatureArr, str)) == null) {
+            if (signatureArr != null && str != null) {
+                for (Signature signature : signatureArr) {
+                    if (str.equals(MD5.hexdigest(signature.toByteArray()))) {
+                        return true;
+                    }
                 }
             }
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 
     public static boolean validateAppSignatureForIntent(Context context, Intent intent) {
+        InterceptResult invokeLL;
         ResolveInfo resolveActivity;
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager == null || (resolveActivity = packageManager.resolveActivity(intent, 0)) == null) {
-            return false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
+            PackageManager packageManager = context.getPackageManager();
+            if (packageManager == null || (resolveActivity = packageManager.resolveActivity(intent, 0)) == null) {
+                return false;
+            }
+            try {
+                return containSign(packageManager.getPackageInfo(resolveActivity.activityInfo.packageName, 64).signatures, WBConstants.WEIBO_SIGN);
+            } catch (PackageManager.NameNotFoundException e2) {
+                e2.printStackTrace();
+                return false;
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                return false;
+            }
         }
-        try {
-            return containSign(packageManager.getPackageInfo(resolveActivity.activityInfo.packageName, 64).signatures, WBConstants.WEIBO_SIGN);
-        } catch (PackageManager.NameNotFoundException e2) {
-            e2.printStackTrace();
-            return false;
-        } catch (Exception e3) {
-            e3.printStackTrace();
-            return false;
-        }
+        return invokeLL.booleanValue;
     }
 }

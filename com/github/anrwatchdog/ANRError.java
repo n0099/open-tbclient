@@ -2,82 +2,147 @@ package com.github.anrwatchdog;
 
 import android.os.Looper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError$$;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes6.dex */
 public class ANRError extends Error {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public final long duration;
 
     /* loaded from: classes6.dex */
     public static class a implements Comparator<Thread> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread f30922e;
+        public final /* synthetic */ Thread f32693e;
 
         public a(Thread thread) {
-            this.f30922e = thread;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {thread};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32693e = thread;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Thread thread, Thread thread2) {
-            if (thread == thread2) {
-                return 0;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thread, thread2)) == null) {
+                if (thread == thread2) {
+                    return 0;
+                }
+                Thread thread3 = this.f32693e;
+                if (thread == thread3) {
+                    return 1;
+                }
+                if (thread2 == thread3) {
+                    return -1;
+                }
+                return thread2.getName().compareTo(thread.getName());
             }
-            Thread thread3 = this.f30922e;
-            if (thread == thread3) {
-                return 1;
-            }
-            if (thread2 == thread3) {
-                return -1;
-            }
-            return thread2.getName().compareTo(thread.getName());
+            return invokeLL.intValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ANRError(ANRError$$._Thread _thread, long j) {
         super("Application Not Responding for at least " + j + " ms.", _thread);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {_thread, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Throwable) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.duration = j;
     }
 
     public static ANRError New(long j, String str, boolean z) {
-        Thread thread = Looper.getMainLooper().getThread();
-        TreeMap treeMap = new TreeMap(new a(thread));
-        for (Map.Entry<Thread, StackTraceElement[]> entry : Thread.getAllStackTraces().entrySet()) {
-            if (entry.getKey() == thread || (entry.getKey().getName().startsWith(str) && (z || entry.getValue().length > 0))) {
-                treeMap.put(entry.getKey(), entry.getValue());
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), str, Boolean.valueOf(z)})) == null) {
+            Thread thread = Looper.getMainLooper().getThread();
+            TreeMap treeMap = new TreeMap(new a(thread));
+            for (Map.Entry<Thread, StackTraceElement[]> entry : Thread.getAllStackTraces().entrySet()) {
+                if (entry.getKey() == thread || (entry.getKey().getName().startsWith(str) && (z || entry.getValue().length > 0))) {
+                    treeMap.put(entry.getKey(), entry.getValue());
+                }
             }
+            if (!treeMap.containsKey(thread)) {
+                treeMap.put(thread, thread.getStackTrace());
+            }
+            ANRError$$._Thread _thread = null;
+            for (Map.Entry entry2 : treeMap.entrySet()) {
+                ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle((Thread) entry2.getKey()), (StackTraceElement[]) entry2.getValue(), null);
+                aNRError$$.getClass();
+                _thread = new ANRError$$._Thread(aNRError$$, _thread, null);
+            }
+            return new ANRError(_thread, j);
         }
-        if (!treeMap.containsKey(thread)) {
-            treeMap.put(thread, thread.getStackTrace());
-        }
-        ANRError$$._Thread _thread = null;
-        for (Map.Entry entry2 : treeMap.entrySet()) {
-            ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle((Thread) entry2.getKey()), (StackTraceElement[]) entry2.getValue(), null);
-            aNRError$$.getClass();
-            _thread = new ANRError$$._Thread(aNRError$$, _thread, null);
-        }
-        return new ANRError(_thread, j);
+        return (ANRError) invokeCommon.objValue;
     }
 
     public static ANRError NewMainOnly(long j) {
-        Thread thread = Looper.getMainLooper().getThread();
-        ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle(thread), thread.getStackTrace(), null);
-        aNRError$$.getClass();
-        return new ANRError(new ANRError$$._Thread(aNRError$$, null, null), j);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            Thread thread = Looper.getMainLooper().getThread();
+            ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle(thread), thread.getStackTrace(), null);
+            aNRError$$.getClass();
+            return new ANRError(new ANRError$$._Thread(aNRError$$, null, null), j);
+        }
+        return (ANRError) invokeJ.objValue;
     }
 
     public static String getThreadTitle(Thread thread) {
-        return thread.getName() + " (state = " + thread.getState() + SmallTailInfo.EMOTION_SUFFIX;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, thread)) == null) {
+            return thread.getName() + " (state = " + thread.getState() + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // java.lang.Throwable
     public Throwable fillInStackTrace() {
-        setStackTrace(new StackTraceElement[0]);
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            setStackTrace(new StackTraceElement[0]);
+            return this;
+        }
+        return (Throwable) invokeV.objValue;
     }
 }

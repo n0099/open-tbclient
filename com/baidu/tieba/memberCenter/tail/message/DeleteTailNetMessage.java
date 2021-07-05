@@ -2,15 +2,39 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.n0.z0.w;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.z0.w;
 import tbclient.DeleteTail.DeleteTailReqIdl;
 import tbclient.DeleteTail.ReqData;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DeleteTailNetMessage extends NetMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ReqData.Builder data;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeleteTailNetMessage(int i2) {
         super(CmdConfigHttp.CMD_TAIL_DELETE, 305103);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         ReqData.Builder builder = new ReqData.Builder();
         this.data = builder;
         builder.tailId = Integer.valueOf(i2);
@@ -18,11 +42,16 @@ public class DeleteTailNetMessage extends NetMessage {
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        DeleteTailReqIdl.Builder builder = new DeleteTailReqIdl.Builder();
-        if (z) {
-            w.a(this.data, true);
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DeleteTailReqIdl.Builder builder = new DeleteTailReqIdl.Builder();
+            if (z) {
+                w.a(this.data, true);
+            }
+            builder.data = this.data.build(false);
+            return builder.build(false);
         }
-        builder.data = this.data.build(false);
-        return builder.build(false);
+        return invokeZ.objValue;
     }
 }

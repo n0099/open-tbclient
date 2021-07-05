@@ -2,7 +2,17 @@ package com.baidu.wallet.base.nopassauth;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ABTestConstants;
 import java.lang.reflect.UndeclaredThrowableException;
 import java.security.GeneralSecurityException;
@@ -12,142 +22,229 @@ import java.util.Calendar;
 import java.util.TimeZone;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f23457g = {1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
+    public static final int[] f24000g;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23458c;
+    public String f24001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f23459d;
+    public long f24002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23460e;
+    public int f24003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f23461f;
+    public long f24004f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1897256967, "Lcom/baidu/wallet/base/nopassauth/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1897256967, "Lcom/baidu/wallet/base/nopassauth/a;");
+                return;
+            }
+        }
+        f24000g = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
+    }
 
     public a(String str, long j, int i2) {
-        this.f23458c = str;
-        this.f23459d = j;
-        this.f23460e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24001c = str;
+        this.f24002d = j;
+        this.f24003e = i2;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public int a() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public void a(long j) {
-        this.f23461f = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.f24004f = j;
+        }
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public long b() {
-        return this.f23461f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24004f : invokeV.longValue;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public int c() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public String d() {
-        return this.f23458c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24001c : (String) invokeV.objValue;
     }
 
     public long e() {
-        return this.f23459d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f24002d : invokeV.longValue;
     }
 
     public int f() {
-        return this.f23460e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f24003e : invokeV.intValue;
     }
 
     public void a(String str) {
-        this.f23458c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f24001c = str;
+        }
     }
 
     public void b(long j) {
-        this.f23459d = j;
-        Log.d("aaa", "+++++++++HotpToken movingFactor is " + this.f23459d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.f24002d = j;
+            Log.d("aaa", "+++++++++HotpToken movingFactor is " + this.f24002d);
+        }
     }
 
     public void a(int i2) {
-        this.f23460e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f24003e = i2;
+        }
     }
 
     public static byte[] b(String str) {
-        int length = str.length() / 2;
-        byte[] bArr = new byte[length];
-        for (int i2 = 0; i2 < length; i2++) {
-            int i3 = i2 * 2;
-            bArr[i2] = (byte) Integer.parseInt(str.substring(i3, i3 + 2), 16);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            int length = str.length() / 2;
+            byte[] bArr = new byte[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i2 * 2;
+                bArr[i2] = (byte) Integer.parseInt(str.substring(i3, i3 + 2), 16);
+            }
+            return bArr;
         }
-        return bArr;
+        return (byte[]) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
     public String a(Context context) {
-        byte[] bArr = new byte[8];
-        long j = this.f23459d;
-        for (int i2 = 7; i2 >= 0; i2--) {
-            bArr[i2] = (byte) (255 & j);
-            j >>= 8;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            byte[] bArr = new byte[8];
+            long j = this.f24002d;
+            for (int i2 = 7; i2 >= 0; i2--) {
+                bArr[i2] = (byte) (255 & j);
+                j >>= 8;
+            }
+            SafePay safePay = SafePay.getInstance();
+            byte[] b2 = b(this.f24001c);
+            int[] iArr = f24000g;
+            int i3 = this.f24003e;
+            return safePay.getDyKey(b2, bArr, iArr[i3], i3);
         }
-        SafePay safePay = SafePay.getInstance();
-        byte[] b2 = b(this.f23458c);
-        int[] iArr = f23457g;
-        int i3 = this.f23460e;
-        return safePay.getDyKey(b2, bArr, iArr[i3], i3);
+        return (String) invokeL.objValue;
     }
 
     public static String b(int i2) {
+        InterceptResult invokeI;
         MessageDigest messageDigest;
-        long timeInMillis = Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis();
-        byte[] bytes = ("" + timeInMillis).getBytes();
-        try {
-            if (i2 == 128) {
-                messageDigest = MessageDigest.getInstance("MD5");
-            } else {
-                messageDigest = MessageDigest.getInstance("SHA1");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+            long timeInMillis = Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis();
+            byte[] bytes = ("" + timeInMillis).getBytes();
+            try {
+                if (i2 == 128) {
+                    messageDigest = MessageDigest.getInstance("MD5");
+                } else {
+                    messageDigest = MessageDigest.getInstance("SHA1");
+                }
+                messageDigest.reset();
+                messageDigest.update(bytes);
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
             }
-            messageDigest.reset();
-            messageDigest.update(bytes);
-            return a(messageDigest.digest());
-        } catch (NoSuchAlgorithmException unused) {
-            return null;
         }
+        return (String) invokeI.objValue;
     }
 
     private byte[] a(byte[] bArr, byte[] bArr2) {
         Mac mac;
-        try {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, bArr, bArr2)) == null) {
             try {
-                mac = Mac.getInstance("HmacSHA1");
-            } catch (NoSuchAlgorithmException unused) {
-                mac = Mac.getInstance("HMAC-SHA-1");
+                try {
+                    mac = Mac.getInstance("HmacSHA1");
+                } catch (NoSuchAlgorithmException unused) {
+                    mac = Mac.getInstance("HMAC-SHA-1");
+                }
+                mac.init(new SecretKeySpec(bArr, "RAW"));
+                return mac.doFinal(bArr2);
+            } catch (GeneralSecurityException e2) {
+                throw new UndeclaredThrowableException(e2);
             }
-            mac.init(new SecretKeySpec(bArr, "RAW"));
-            return mac.doFinal(bArr2);
-        } catch (GeneralSecurityException e2) {
-            throw new UndeclaredThrowableException(e2);
         }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static String a(byte[] bArr) {
-        StringBuffer stringBuffer = new StringBuffer();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
-            if (hexString.length() == 1) {
-                stringBuffer.append("0");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (hexString.length() == 1) {
+                    stringBuffer.append("0");
+                }
+                stringBuffer.append(hexString);
             }
-            stringBuffer.append(hexString);
+            return stringBuffer.toString();
         }
-        return stringBuffer.toString();
+        return (String) invokeL.objValue;
     }
 }

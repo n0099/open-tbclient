@@ -4,91 +4,163 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMCancelRtcInfo extends BIMRtcInfo {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMCancelRtcInfo";
-    public List<BIMCancelUser> mCancelUsers = new ArrayList();
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<BIMCancelUser> mCancelUsers;
 
     /* loaded from: classes.dex */
     public static class BIMCancelUser {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public long appId;
         public String cuid;
         public String thirdUserId;
         public long uk;
+
+        public BIMCancelUser() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public BIMCancelRtcInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mCancelUsers = new ArrayList();
     }
 
     public List<BIMCancelUser> getBIMCancelUsers() {
-        return this.mCancelUsers;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCancelUsers : (List) invokeV.objValue;
     }
 
     public void setBIMCancelUsers(@NonNull List<BIMCancelUser> list) {
-        this.mCancelUsers.clear();
-        this.mCancelUsers.addAll(list);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.mCancelUsers.clear();
+            this.mCancelUsers.addAll(list);
+        }
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
     public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        InterceptResult invokeILL;
         JSONArray optJSONArray;
-        BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i2, str, str2));
-        try {
-            optJSONArray = new JSONObject(str2).optJSONArray("user_list");
-        } catch (Exception e2) {
-            LogUtils.e(TAG, "BBIMCancelRtcInfo toRtcInfo Exception ", e2);
-        }
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                BIMCancelUser bIMCancelUser = new BIMCancelUser();
-                JSONObject jSONObject = (JSONObject) optJSONArray.opt(i3);
-                bIMCancelUser.appId = jSONObject.optLong("appid");
-                bIMCancelUser.uk = jSONObject.optLong("uk");
-                bIMCancelUser.cuid = jSONObject.optString("cuid");
-                bIMCancelUser.thirdUserId = jSONObject.optString("third_userid");
-                arrayList.add(bIMCancelUser);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, str2)) == null) {
+            BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i2, str, str2));
+            try {
+                optJSONArray = new JSONObject(str2).optJSONArray("user_list");
+            } catch (Exception e2) {
+                LogUtils.e(TAG, "BBIMCancelRtcInfo toRtcInfo Exception ", e2);
             }
-            bIMCancelRtcInfo.setBIMCancelUsers(arrayList);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    BIMCancelUser bIMCancelUser = new BIMCancelUser();
+                    JSONObject jSONObject = (JSONObject) optJSONArray.opt(i3);
+                    bIMCancelUser.appId = jSONObject.optLong("appid");
+                    bIMCancelUser.uk = jSONObject.optLong("uk");
+                    bIMCancelUser.cuid = jSONObject.optString("cuid");
+                    bIMCancelUser.thirdUserId = jSONObject.optString("third_userid");
+                    arrayList.add(bIMCancelUser);
+                }
+                bIMCancelRtcInfo.setBIMCancelUsers(arrayList);
+                return bIMCancelRtcInfo;
+            }
             return bIMCancelRtcInfo;
         }
-        return bIMCancelRtcInfo;
+        return (BIMRtcInfo) invokeILL.objValue;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
     public String toRtcInfoString() {
-        try {
-            JSONObject jSONObject = new JSONObject(super.toRtcInfoString());
-            JSONArray jSONArray = new JSONArray();
-            for (BIMCancelUser bIMCancelUser : this.mCancelUsers) {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("appid", bIMCancelUser.appId);
-                jSONObject2.put("uk", bIMCancelUser.uk);
-                jSONObject2.put("cuid", bIMCancelUser.cuid);
-                jSONObject2.put("third_userid", IMJni.transBDUID(bIMCancelUser.thirdUserId));
-                jSONArray.put(jSONObject2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(super.toRtcInfoString());
+                JSONArray jSONArray = new JSONArray();
+                for (BIMCancelUser bIMCancelUser : this.mCancelUsers) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("appid", bIMCancelUser.appId);
+                    jSONObject2.put("uk", bIMCancelUser.uk);
+                    jSONObject2.put("cuid", bIMCancelUser.cuid);
+                    jSONObject2.put("third_userid", IMJni.transBDUID(bIMCancelUser.thirdUserId));
+                    jSONArray.put(jSONObject2);
+                }
+                jSONObject.put("user_list", jSONArray);
+                LogUtils.d(TAG, "BIMCancelRtcInfo :" + jSONObject.toString());
+                return jSONObject.toString();
+            } catch (Exception e2) {
+                LogUtils.e(TAG, "BIMCancelRtcInfo Exception ", e2);
+                return "";
             }
-            jSONObject.put("user_list", jSONArray);
-            LogUtils.d(TAG, "BIMCancelRtcInfo :" + jSONObject.toString());
-            return jSONObject.toString();
-        } catch (Exception e2) {
-            LogUtils.e(TAG, "BIMCancelRtcInfo Exception ", e2);
-            return "";
         }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     public String toString() {
-        return "BBIMCancelRtcInfo{" + super.toString() + ", mCancelUsers=" + this.mCancelUsers.size() + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "BBIMCancelRtcInfo{" + super.toString() + ", mCancelUsers=" + this.mCancelUsers.size() + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     public BIMCancelRtcInfo(BIMRtcInfo bIMRtcInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bIMRtcInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mCancelUsers = new ArrayList();
         setAction(bIMRtcInfo.getAction());
         setRtcRoomId(bIMRtcInfo.getRtcRoomId());
         setRtcExt(bIMRtcInfo.getRtcExt());

@@ -1,5 +1,6 @@
 package d.a.c.e.p;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -7,7 +8,15 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.IDevices;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,436 +25,554 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class h {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f42616a;
+    public static h f44425a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<Object, Object, Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42617a;
+        public String f44426a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42618b;
+        public String f44427b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f42619c;
+        public StringBuilder f44428c;
 
         /* renamed from: d  reason: collision with root package name */
-        public i f42620d;
+        public i f44429d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42621e = false;
+        public boolean f44430e;
 
-        public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.f42617a = str;
-            this.f42618b = str2;
-            this.f42619c = sb;
-            this.f42620d = iVar;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ h f44431f;
+
+        public a(h hVar, String str, String str2, StringBuilder sb, i iVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hVar, str, str2, sb, iVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44431f = hVar;
+            this.f44426a = str;
+            this.f44427b = str2;
+            this.f44428c = sb;
+            this.f44429d = iVar;
+            this.f44430e = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Object doInBackground(Object... objArr) {
-            boolean i2 = h.this.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f42617a, this.f42619c);
-            this.f42621e = i2;
-            if (i2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                boolean i2 = this.f44431f.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f44426a, this.f44428c);
+                this.f44430e = i2;
+                if (i2) {
+                    return null;
+                }
+                this.f44431f.d(this.f44427b, "".getBytes(), this.f44428c);
                 return null;
             }
-            h.this.d(this.f42618b, "".getBytes(), this.f42619c);
-            return null;
+            return invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            super.onPostExecute(obj);
-            if (this.f42619c.length() > 0) {
-                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                bdStatisticsManager.error("so", "load_" + this.f42617a + ".so", "", -9101, this.f42619c.toString(), new Object[0]);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                super.onPostExecute(obj);
+                if (this.f44428c.length() > 0) {
+                    BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                    bdStatisticsManager.error("so", "load_" + this.f44426a + ".so", "", -9101, this.f44428c.toString(), new Object[0]);
+                }
+                i iVar = this.f44429d;
+                if (iVar != null) {
+                    iVar.a(this.f44430e);
+                }
             }
-            i iVar = this.f42620d;
-            if (iVar != null) {
-                iVar.a(this.f42621e);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2144845779, "Ld/a/c/e/p/h;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2144845779, "Ld/a/c/e/p/h;");
+        }
+    }
+
+    public h() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     public static h f() {
+        InterceptResult invokeV;
         h hVar;
-        h hVar2 = f42616a;
-        if (hVar2 == null) {
-            synchronized (h.class) {
-                if (f42616a == null) {
-                    f42616a = new h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            h hVar2 = f44425a;
+            if (hVar2 == null) {
+                synchronized (h.class) {
+                    if (f44425a == null) {
+                        f44425a = new h();
+                    }
+                    hVar = f44425a;
                 }
-                hVar = f42616a;
+                return hVar;
             }
-            return hVar;
+            return hVar2;
         }
-        return hVar2;
+        return (h) invokeV.objValue;
     }
 
     public final boolean c(String str, StringBuilder sb) {
-        String g2 = g(str);
-        File file = new File(h(str));
-        if (!file.exists()) {
-            sb.append("false_file_null");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sb)) == null) {
+            String g2 = g(str);
+            File file = new File(h(str));
+            if (!file.exists()) {
+                sb.append("false_file_null");
+                return false;
+            }
+            File file2 = new File(g2);
+            if (!file2.exists()) {
+                sb.append("true_lib_null");
+                return true;
+            }
+            String e2 = e(file);
+            if (e2 != null && e2.equals(e(file2))) {
+                sb.append("true_md5_equals");
+                return true;
+            }
+            sb.append("false_md5_not_equals");
+            file.delete();
             return false;
         }
-        File file2 = new File(g2);
-        if (!file2.exists()) {
-            sb.append("true_lib_null");
-            return true;
-        }
-        String e2 = e(file);
-        if (e2 != null && e2.equals(e(file2))) {
-            sb.append("true_md5_equals");
-            return true;
-        }
-        sb.append("false_md5_not_equals");
-        file.delete();
-        return false;
+        return invokeLL.booleanValue;
     }
 
     public final void d(String str, byte[] bArr, StringBuilder sb) {
         FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, sb) == null) {
+            FileOutputStream fileOutputStream2 = null;
             try {
-                fileOutputStream = new FileOutputStream(new File(str));
-            } catch (Exception e2) {
-                e = e2;
+                try {
+                    fileOutputStream = new FileOutputStream(new File(str));
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
             }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            fileOutputStream.write(bArr);
-            d.a.c.e.m.a.d(fileOutputStream);
-        } catch (Exception e3) {
-            e = e3;
-            fileOutputStream2 = fileOutputStream;
-            sb.append("-Error4:");
-            sb.append(e.getClass().getName() + "-" + e.getMessage());
-            sb.append("-");
-            d.a.c.e.m.a.d(fileOutputStream2);
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream2 = fileOutputStream;
-            d.a.c.e.m.a.d(fileOutputStream2);
-            throw th;
+            try {
+                fileOutputStream.write(bArr);
+                d.a.c.e.m.a.d(fileOutputStream);
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                sb.append("-Error4:");
+                sb.append(e.getClass().getName() + "-" + e.getMessage());
+                sb.append("-");
+                d.a.c.e.m.a.d(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                d.a.c.e.m.a.d(fileOutputStream2);
+                throw th;
+            }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [long] */
+    /* JADX WARN: Type inference failed for: r1v3, types: [long] */
     public final String e(File file) {
+        InterceptResult invokeL;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
-        if (file != null && file.exists()) {
-            ?? length = file.length();
-            try {
-                if (length > 0) {
-                    try {
-                        fileInputStream = new FileInputStream(file);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            if (file != null && file.exists()) {
+                ?? length = file.length();
+                try {
+                    if (length > 0) {
                         try {
-                            String b2 = q.b(fileInputStream);
-                            if (!StringUtils.isNull(b2)) {
-                                b2 = b2.toLowerCase();
-                            }
+                            fileInputStream = new FileInputStream(file);
                             try {
-                                fileInputStream.close();
-                            } catch (IOException e2) {
-                                BdLog.d(e2.getMessage());
-                            }
-                            return b2;
-                        } catch (Exception e3) {
-                            e = e3;
-                            BdLog.d(e.getMessage());
-                            if (fileInputStream != null) {
+                                String b2 = q.b(fileInputStream);
+                                if (!StringUtils.isNull(b2)) {
+                                    b2 = b2.toLowerCase();
+                                }
                                 try {
                                     fileInputStream.close();
-                                } catch (IOException e4) {
-                                    BdLog.d(e4.getMessage());
+                                } catch (IOException e2) {
+                                    BdLog.d(e2.getMessage());
+                                }
+                                return b2;
+                            } catch (Exception e3) {
+                                e = e3;
+                                BdLog.d(e.getMessage());
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (IOException e4) {
+                                        BdLog.d(e4.getMessage());
+                                    }
+                                }
+                                return null;
+                            }
+                        } catch (Exception e5) {
+                            e = e5;
+                            fileInputStream = null;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileInputStream2 != null) {
+                                try {
+                                    fileInputStream2.close();
+                                } catch (IOException e6) {
+                                    BdLog.d(e6.getMessage());
                                 }
                             }
-                            return null;
+                            throw th;
                         }
-                    } catch (Exception e5) {
-                        e = e5;
-                        fileInputStream = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (fileInputStream2 != null) {
-                            try {
-                                fileInputStream2.close();
-                            } catch (IOException e6) {
-                                BdLog.d(e6.getMessage());
-                            }
-                        }
-                        throw th;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream2 = length;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = length;
             }
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     public final String g(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "lib" + File.separator + "lib" + str + ".so";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "lib" + File.separator + "lib" + str + ".so";
+        }
+        return (String) invokeL.objValue;
     }
 
     public final String h(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5540g + File.separator + "lib" + str + ".so";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5570g + File.separator + "lib" + str + ".so";
+        }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0121 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0125 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r4v4 */
     /* JADX WARN: Type inference failed for: r4v6, types: [java.io.InputStream] */
     public final boolean i(String str, String str2, StringBuilder sb) {
+        InterceptResult invokeLLL;
         Throwable th;
         ZipInputStream zipInputStream;
         IOException e2;
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th2;
-        ArrayList arrayList = new ArrayList();
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append("lib");
-        sb2.append(File.separator);
-        sb2.append("x86");
-        sb2.append(File.separator);
-        sb2.append("lib");
-        sb2.append(str2);
-        ?? r4 = ".so";
-        sb2.append(".so");
-        arrayList.add(sb2.toString());
-        arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + ".so");
-        arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + ".so");
-        File file = new File(str);
-        boolean z = false;
-        if (file.exists()) {
-            try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, sb)) == null) {
+            ArrayList arrayList = new ArrayList();
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("lib");
+            sb2.append(File.separator);
+            sb2.append("x86");
+            sb2.append(File.separator);
+            sb2.append("lib");
+            sb2.append(str2);
+            ?? r4 = ".so";
+            sb2.append(".so");
+            arrayList.add(sb2.toString());
+            arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + ".so");
+            arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + ".so");
+            File file = new File(str);
+            boolean z = false;
+            if (file.exists()) {
                 try {
-                    zipInputStream = new ZipInputStream(new FileInputStream(file));
                     try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            ZipEntry nextEntry = zipInputStream.getNextEntry();
-                            if (nextEntry == null) {
-                                break;
-                            } else if (arrayList.contains(nextEntry.getName())) {
-                                try {
-                                    byteArrayOutputStream = new ByteArrayOutputStream();
-                                    while (true) {
-                                        try {
-                                            int read = zipInputStream.read(bArr);
-                                            if (read == -1) {
-                                                break;
+                        zipInputStream = new ZipInputStream(new FileInputStream(file));
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                ZipEntry nextEntry = zipInputStream.getNextEntry();
+                                if (nextEntry == null) {
+                                    break;
+                                } else if (arrayList.contains(nextEntry.getName())) {
+                                    try {
+                                        byteArrayOutputStream = new ByteArrayOutputStream();
+                                        while (true) {
+                                            try {
+                                                int read = zipInputStream.read(bArr);
+                                                if (read == -1) {
+                                                    break;
+                                                }
+                                                byteArrayOutputStream.write(bArr, 0, read);
+                                            } catch (Exception unused) {
+                                            } catch (Throwable th3) {
+                                                th2 = th3;
+                                                d.a.c.e.m.a.d(byteArrayOutputStream);
+                                                throw th2;
                                             }
-                                            byteArrayOutputStream.write(bArr, 0, read);
-                                        } catch (Exception unused) {
-                                        } catch (Throwable th3) {
-                                            th2 = th3;
-                                            d.a.c.e.m.a.d(byteArrayOutputStream);
-                                            throw th2;
                                         }
+                                        byteArrayOutputStream.flush();
+                                        String h2 = h(str2);
+                                        d(h2, byteArrayOutputStream.toByteArray(), sb);
+                                        if (n(h2, sb)) {
+                                            sb.append("-Succ5-");
+                                            z = true;
+                                            d.a.c.e.m.a.d(byteArrayOutputStream);
+                                            break;
+                                        }
+                                    } catch (Exception unused2) {
+                                        byteArrayOutputStream = null;
+                                    } catch (Throwable th4) {
+                                        byteArrayOutputStream = null;
+                                        th2 = th4;
                                     }
-                                    byteArrayOutputStream.flush();
-                                    String h2 = h(str2);
-                                    d(h2, byteArrayOutputStream.toByteArray(), sb);
-                                    if (n(h2, sb)) {
-                                        sb.append("-Succ5-");
-                                        z = true;
-                                        d.a.c.e.m.a.d(byteArrayOutputStream);
-                                        break;
-                                    }
-                                } catch (Exception unused2) {
-                                    byteArrayOutputStream = null;
-                                } catch (Throwable th4) {
-                                    byteArrayOutputStream = null;
-                                    th2 = th4;
+                                    d.a.c.e.m.a.d(byteArrayOutputStream);
                                 }
-                                d.a.c.e.m.a.d(byteArrayOutputStream);
                             }
+                        } catch (IOException e3) {
+                            e2 = e3;
+                            sb.append("-Error5:");
+                            sb.append(e2.getClass().getName() + "-" + e2.getMessage());
+                            sb.append("-");
+                            d.a.c.e.m.a.c(zipInputStream);
+                            return z;
                         }
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        sb.append("-Error5:");
-                        sb.append(e2.getClass().getName() + "-" + e2.getMessage());
-                        sb.append("-");
-                        d.a.c.e.m.a.c(zipInputStream);
-                        return z;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        d.a.c.e.m.a.c(r4);
+                        throw th;
                     }
-                } catch (Throwable th5) {
-                    th = th5;
+                } catch (IOException e4) {
+                    zipInputStream = null;
+                    e2 = e4;
+                } catch (Throwable th6) {
+                    r4 = 0;
+                    th = th6;
                     d.a.c.e.m.a.c(r4);
                     throw th;
                 }
-            } catch (IOException e4) {
-                zipInputStream = null;
-                e2 = e4;
-            } catch (Throwable th6) {
-                r4 = 0;
-                th = th6;
-                d.a.c.e.m.a.c(r4);
-                throw th;
+                d.a.c.e.m.a.c(zipInputStream);
+                return z;
             }
-            d.a.c.e.m.a.c(zipInputStream);
-            return z;
+            return false;
         }
-        return false;
+        return invokeLLL.booleanValue;
     }
 
     public boolean j(String str, int i2) {
-        StringBuilder sb = new StringBuilder();
-        if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
-            return false;
-        }
-        boolean z = false;
-        for (int i3 = 0; i3 < i2; i3++) {
-            z = l(str, sb);
-            if (z) {
-                break;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
+                return false;
             }
-        }
-        if (!z) {
-            String h2 = h(str);
-            File file = new File(h2);
-            if (file.exists()) {
-                if (file.length() > 0) {
-                    z = n(h2, sb);
-                    if (z) {
-                        sb.append("-Succ2-");
-                    } else {
-                        sb.append("-Error7-");
-                    }
-                } else {
-                    sb.append("-Error6:soSize1-");
+            boolean z = false;
+            for (int i3 = 0; i3 < i2; i3++) {
+                z = l(str, sb);
+                if (z) {
+                    break;
                 }
             }
+            if (!z) {
+                String h2 = h(str);
+                File file = new File(h2);
+                if (file.exists()) {
+                    if (file.length() > 0) {
+                        z = n(h2, sb);
+                        if (z) {
+                            sb.append("-Succ2-");
+                        } else {
+                            sb.append("-Error7-");
+                        }
+                    } else {
+                        sb.append("-Error6:soSize1-");
+                    }
+                }
+            }
+            if (sb.length() > 0) {
+                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
+            }
+            return z;
         }
-        if (sb.length() > 0) {
-            BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-            bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
-        }
-        return z;
+        return invokeLI.booleanValue;
     }
 
     public boolean k(String str, int i2, i iVar) {
-        StringBuilder sb = new StringBuilder();
-        if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
-            return false;
-        }
-        boolean z = false;
-        for (int i3 = 0; i3 < i2; i3++) {
-            z = l(str, sb);
-            if (z) {
-                break;
-            }
-        }
-        if (!z) {
-            String h2 = h(str);
-            File file = new File(h2);
-            if (file.exists()) {
-                if (file.length() > 0) {
-                    z = n(h2, sb);
-                    if (z) {
-                        sb.append("-Succ2-");
-                    } else {
-                        sb.append("-Error7-");
-                    }
-                } else {
-                    sb.append("-Error6:soSize1-");
-                }
-            } else {
-                a aVar = new a(str, h2, sb, iVar);
-                aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
-                aVar.execute(new Object[0]);
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, str, i2, iVar)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
                 return false;
             }
+            boolean z = false;
+            for (int i3 = 0; i3 < i2; i3++) {
+                z = l(str, sb);
+                if (z) {
+                    break;
+                }
+            }
+            if (!z) {
+                String h2 = h(str);
+                File file = new File(h2);
+                if (file.exists()) {
+                    if (file.length() > 0) {
+                        z = n(h2, sb);
+                        if (z) {
+                            sb.append("-Succ2-");
+                        } else {
+                            sb.append("-Error7-");
+                        }
+                    } else {
+                        sb.append("-Error6:soSize1-");
+                    }
+                } else {
+                    a aVar = new a(this, str, h2, sb, iVar);
+                    aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
+                    aVar.execute(new Object[0]);
+                    return false;
+                }
+            }
+            if (sb.length() > 0) {
+                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
+            }
+            return z;
         }
-        if (sb.length() > 0) {
-            BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-            bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
-        }
-        return z;
+        return invokeLIL.booleanValue;
     }
 
     public final boolean l(String str, StringBuilder sb) {
-        boolean n = n(g(str), sb);
-        if (n) {
-            return n;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, sb)) == null) {
+            boolean n = n(g(str), sb);
+            if (n) {
+                return n;
+            }
+            try {
+                System.loadLibrary(str);
+                sb.append("-Succ3-");
+                return true;
+            } catch (Throwable th) {
+                sb.append("-Error3:");
+                sb.append(th.getClass().getName() + "-" + th.getMessage());
+                sb.append("-");
+                return n;
+            }
         }
-        try {
-            System.loadLibrary(str);
-            sb.append("-Succ3-");
-            return true;
-        } catch (Throwable th) {
-            sb.append("-Error3:");
-            sb.append(th.getClass().getName() + "-" + th.getMessage());
-            sb.append("-");
-            return n;
-        }
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x009e  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00a2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean m(String str) {
+        InterceptResult invokeL;
         boolean z;
-        StringBuilder sb = new StringBuilder();
-        if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
-            return false;
-        }
-        boolean l = l(str, sb);
-        if (!l) {
-            BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "2", "exception", sb.toString());
-            StringBuilder sb2 = new StringBuilder();
-            if (c(str, sb2)) {
-                l = n(h(str), sb2);
-                if (!l) {
-                    new File(h(str)).delete();
-                } else {
-                    z = false;
-                    BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "3", "exception", sb2.toString(), "copyfile", Boolean.valueOf(z));
-                    if (z) {
-                        StringBuilder sb3 = new StringBuilder();
-                        boolean i2 = i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, str, sb3);
-                        BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "4", "exception", sb3.toString());
-                        return i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
+                return false;
+            }
+            boolean l = l(str, sb);
+            if (!l) {
+                BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "2", "exception", sb.toString());
+                StringBuilder sb2 = new StringBuilder();
+                if (c(str, sb2)) {
+                    l = n(h(str), sb2);
+                    if (!l) {
+                        new File(h(str)).delete();
+                    } else {
+                        z = false;
+                        BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "3", "exception", sb2.toString(), "copyfile", Boolean.valueOf(z));
+                        if (z) {
+                            StringBuilder sb3 = new StringBuilder();
+                            boolean i2 = i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, str, sb3);
+                            BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "4", "exception", sb3.toString());
+                            return i2;
+                        }
                     }
                 }
+                z = true;
+                BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "3", "exception", sb2.toString(), "copyfile", Boolean.valueOf(z));
+                if (z) {
+                }
             }
-            z = true;
-            BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "3", "exception", sb2.toString(), "copyfile", Boolean.valueOf(z));
-            if (z) {
-            }
+            return l;
         }
-        return l;
+        return invokeL.booleanValue;
     }
 
     public final boolean n(String str, StringBuilder sb) {
-        if (!new File(str).exists()) {
-            sb.append("-Error1:");
-            sb.append(str);
-            sb.append("_FileNotFound-");
-        } else {
-            try {
-                System.load(str);
-                return true;
-            } catch (Throwable th) {
-                sb.append("-Error2:");
-                sb.append(th.getClass().getName() + "-" + th.getMessage());
-                sb.append("-");
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, sb)) == null) {
+            if (!new File(str).exists()) {
+                sb.append("-Error1:");
+                sb.append(str);
+                sb.append("_FileNotFound-");
+            } else {
+                try {
+                    System.load(str);
+                    return true;
+                } catch (Throwable th) {
+                    sb.append("-Error2:");
+                    sb.append(th.getClass().getName() + "-" + th.getMessage());
+                    sb.append("-");
+                }
             }
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 }

@@ -7,195 +7,470 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.core.a.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class Presenter {
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f36886b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Object f36887c;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<Presenter> f36885a = new ArrayList();
+    public final List<Presenter> f38648a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f38649b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Object f38650c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PresenterState f36888d = PresenterState.INIT;
+    public PresenterState f38651d;
 
+    /* renamed from: com.kwad.sdk.mvp.Presenter$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public enum PresenterState {
-        INIT(0) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.1
-            @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
-            }
-        },
-        CREATE(1) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.2
-            @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f36885a) {
-                    try {
-                        presenter2.a(presenter.f36886b);
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
-                    }
-                }
-            }
-        },
-        BIND(2) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.3
-            @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f36885a) {
-                    try {
-                        presenter2.a(presenter.f36887c);
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
-                    }
-                }
-            }
-        },
-        UNBIND(3) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.4
-            @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f36885a) {
-                    try {
-                        presenter2.i();
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
-                    }
-                }
-            }
-        },
-        DESTROY(4) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.5
-            @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f36885a) {
-                    try {
-                        presenter2.j();
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
-                    }
-                }
-            }
-        };
-        
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static abstract class PresenterState {
+        public static final /* synthetic */ PresenterState[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final PresenterState BIND;
+        public static final PresenterState CREATE;
+        public static final PresenterState DESTROY;
+        public static final PresenterState INIT;
+        public static final PresenterState UNBIND;
+        public transient /* synthetic */ FieldHolder $fh;
         public int mIndex;
 
-        PresenterState(int i2) {
-            this.mIndex = i2;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(416715571, "Lcom/kwad/sdk/mvp/Presenter$PresenterState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(416715571, "Lcom/kwad/sdk/mvp/Presenter$PresenterState;");
+                    return;
+                }
+            }
+            INIT = new PresenterState("INIT", 0, 0) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (AnonymousClass1) objArr2[3]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.kwad.sdk.mvp.Presenter.PresenterState
+                public void performCallState(Presenter presenter) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, presenter) == null) {
+                    }
+                }
+            };
+            CREATE = new PresenterState("CREATE", 1, 1) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (AnonymousClass1) objArr2[3]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.kwad.sdk.mvp.Presenter.PresenterState
+                public void performCallState(Presenter presenter) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, presenter) == null) {
+                        for (Presenter presenter2 : presenter.f38648a) {
+                            try {
+                                presenter2.a(presenter.f38649b);
+                            } catch (Exception e2) {
+                                a.a(e2);
+                                com.kwad.sdk.core.d.a.a(e2);
+                            }
+                        }
+                    }
+                }
+            };
+            BIND = new PresenterState("BIND", 2, 2) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (AnonymousClass1) objArr2[3]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.kwad.sdk.mvp.Presenter.PresenterState
+                public void performCallState(Presenter presenter) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, presenter) == null) {
+                        for (Presenter presenter2 : presenter.f38648a) {
+                            try {
+                                presenter2.a(presenter.f38650c);
+                            } catch (Exception e2) {
+                                a.a(e2);
+                                com.kwad.sdk.core.d.a.a(e2);
+                            }
+                        }
+                    }
+                }
+            };
+            UNBIND = new PresenterState("UNBIND", 3, 3) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (AnonymousClass1) objArr2[3]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.kwad.sdk.mvp.Presenter.PresenterState
+                public void performCallState(Presenter presenter) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, presenter) == null) {
+                        for (Presenter presenter2 : presenter.f38648a) {
+                            try {
+                                presenter2.i();
+                            } catch (Exception e2) {
+                                a.a(e2);
+                                com.kwad.sdk.core.d.a.a(e2);
+                            }
+                        }
+                    }
+                }
+            };
+            PresenterState presenterState = new PresenterState("DESTROY", 4, 4) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (AnonymousClass1) objArr2[3]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.kwad.sdk.mvp.Presenter.PresenterState
+                public void performCallState(Presenter presenter) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, presenter) == null) {
+                        for (Presenter presenter2 : presenter.f38648a) {
+                            try {
+                                presenter2.j();
+                            } catch (Exception e2) {
+                                a.a(e2);
+                                com.kwad.sdk.core.d.a.a(e2);
+                            }
+                        }
+                    }
+                }
+            };
+            DESTROY = presenterState;
+            $VALUES = new PresenterState[]{INIT, CREATE, BIND, UNBIND, presenterState};
+        }
+
+        public PresenterState(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mIndex = i3;
+        }
+
+        public /* synthetic */ PresenterState(String str, int i2, int i3, AnonymousClass1 anonymousClass1) {
+            this(str, i2, i3);
+        }
+
+        public static PresenterState valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PresenterState) Enum.valueOf(PresenterState.class, str) : (PresenterState) invokeL.objValue;
+        }
+
+        public static PresenterState[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (PresenterState[]) $VALUES.clone() : (PresenterState[]) invokeV.objValue;
         }
 
         public int index() {
-            return this.mIndex;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIndex : invokeV.intValue;
         }
 
         public abstract void performCallState(Presenter presenter);
     }
 
+    public Presenter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f38648a = new ArrayList();
+        this.f38651d = PresenterState.INIT;
+    }
+
     public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
     @UiThread
     public final void a(View view) {
-        this.f36888d = PresenterState.CREATE;
-        this.f36886b = view;
-        c();
-        this.f36888d.performCallState(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            this.f38651d = PresenterState.CREATE;
+            this.f38649b = view;
+            c();
+            this.f38651d.performCallState(this);
+        }
     }
 
     public final void a(Presenter presenter) {
-        this.f36885a.add(presenter);
-        if (!k() || presenter.k()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, presenter) == null) {
+            this.f38648a.add(presenter);
+            if (!k() || presenter.k()) {
+                return;
+            }
+            a(this.f38649b);
         }
-        a(this.f36886b);
     }
 
     @UiThread
     public final void a(@NonNull Object obj) {
-        if (this.f36888d != PresenterState.INIT) {
-            PresenterState presenterState = PresenterState.DESTROY;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (this.f38651d != PresenterState.INIT) {
+                PresenterState presenterState = PresenterState.DESTROY;
+            }
+            if (this.f38651d == PresenterState.BIND) {
+                i();
+            }
+            this.f38651d = PresenterState.BIND;
+            this.f38650c = obj;
+            a();
+            this.f38651d.performCallState(this);
         }
-        if (this.f36888d == PresenterState.BIND) {
-            i();
-        }
-        this.f36888d = PresenterState.BIND;
-        this.f36887c = obj;
-        a();
-        this.f36888d.performCallState(this);
     }
 
     public final <T extends View> T b(int i2) {
-        return (T) this.f36886b.findViewById(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (T) this.f38649b.findViewById(i2) : (T) invokeI.objValue;
     }
 
     public void b_() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
     }
 
     public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
     }
 
     public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
     }
 
     @UiThread
     public final void i() {
-        this.f36888d = PresenterState.UNBIND;
-        b_();
-        this.f36888d.performCallState(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f38651d = PresenterState.UNBIND;
+            b_();
+            this.f38651d.performCallState(this);
+        }
     }
 
     @UiThread
     public final void j() {
-        if (this.f36888d == PresenterState.BIND) {
-            i();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.f38651d == PresenterState.BIND) {
+                i();
+            }
+            this.f38651d = PresenterState.DESTROY;
+            d();
+            this.f38651d.performCallState(this);
         }
-        this.f36888d = PresenterState.DESTROY;
-        d();
-        this.f36888d.performCallState(this);
     }
 
     public final boolean k() {
-        return this.f36888d.index() >= PresenterState.CREATE.index();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f38651d.index() >= PresenterState.CREATE.index() : invokeV.booleanValue;
     }
 
     public View l() {
-        return this.f36886b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f38649b : (View) invokeV.objValue;
     }
 
     @Nullable
     @UiThread
     public Activity m() {
-        for (Context o = o(); o instanceof ContextWrapper; o = ((ContextWrapper) o).getBaseContext()) {
-            if (o instanceof Activity) {
-                return (Activity) o;
-            }
-            if (o instanceof ResContext) {
-                Context delegatedContext = ((ResContext) o).getDelegatedContext();
-                if (delegatedContext instanceof Activity) {
-                    return (Activity) delegatedContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            for (Context o = o(); o instanceof ContextWrapper; o = ((ContextWrapper) o).getBaseContext()) {
+                if (o instanceof Activity) {
+                    return (Activity) o;
+                }
+                if (o instanceof ResContext) {
+                    Context delegatedContext = ((ResContext) o).getDelegatedContext();
+                    if (delegatedContext instanceof Activity) {
+                        return (Activity) delegatedContext;
+                    }
                 }
             }
+            return null;
         }
-        return null;
+        return (Activity) invokeV.objValue;
     }
 
     public Object n() {
-        return this.f36887c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f38650c : invokeV.objValue;
     }
 
     public final Context o() {
-        View view = this.f36886b;
-        if (view == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            View view = this.f38649b;
+            if (view == null) {
+                return null;
+            }
+            return view.getContext();
         }
-        return view.getContext();
+        return (Context) invokeV.objValue;
     }
 }

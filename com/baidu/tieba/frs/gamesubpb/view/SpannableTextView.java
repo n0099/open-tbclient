@@ -16,241 +16,407 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.r0.w1.a;
-import d.a.o0.r0.w1.d.d;
-/* loaded from: classes4.dex */
+import d.a.s0.u0.v1.a;
+import d.a.s0.u0.v1.d.d;
+/* loaded from: classes5.dex */
 public class SpannableTextView extends TextView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15666e;
+    public int f15754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15667f;
+    public int f15755f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15668g;
+    public int f15756g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15669h;
+    public int f15757h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15670i;
+    public int f15758i;
     public long j;
     public int k;
     public boolean l;
-    public a.InterfaceC1616a m;
+    public a.InterfaceC1772a m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends LinkMovementMethod {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f15671a;
+        public static a f15759a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public static a a() {
-            if (f15671a == null) {
-                f15671a = new a();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (f15759a == null) {
+                    f15759a = new a();
+                }
+                return f15759a;
             }
-            return f15671a;
+            return (a) invokeV.objValue;
         }
 
         @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
         public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-            int action = motionEvent.getAction();
-            if (action != 1 && action != 0) {
-                return Touch.onTouchEvent(textView, spannable, motionEvent);
-            }
-            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-            int scrollX = x + textView.getScrollX();
-            int scrollY = y + textView.getScrollY();
-            Layout layout = textView.getLayout();
-            int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-            Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
-            if (objArr.length != 0) {
-                if (action == 1) {
-                    objArr[0].onClick(textView);
-                } else if (action == 0) {
-                    Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
+                int action = motionEvent.getAction();
+                if (action != 1 && action != 0) {
+                    return Touch.onTouchEvent(textView, spannable, motionEvent);
                 }
-                if (textView instanceof SpannableTextView) {
-                    ((SpannableTextView) textView).l = true;
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                Layout layout = textView.getLayout();
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+                if (objArr.length != 0) {
+                    if (action == 1) {
+                        objArr[0].onClick(textView);
+                    } else if (action == 0) {
+                        Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
+                    }
+                    if (textView instanceof SpannableTextView) {
+                        ((SpannableTextView) textView).l = true;
+                    }
+                    return true;
                 }
-                return true;
+                Selection.removeSelection(spannable);
+                super.onTouchEvent(textView, spannable, motionEvent);
+                return false;
             }
-            Selection.removeSelection(spannable);
-            super.onTouchEvent(textView, spannable, motionEvent);
-            return false;
+            return invokeLLL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f15672e;
+        public d f15760e;
 
-        public b(d dVar) {
-            this.f15672e = dVar;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ SpannableTextView f15761f;
+
+        public b(SpannableTextView spannableTextView, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {spannableTextView, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15761f = spannableTextView;
+            this.f15760e = dVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.m != null) {
-                SpannableTextView.this.m.a(this.f15672e);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15761f.m == null) {
+                return;
             }
+            this.f15761f.m.a(this.f15760e);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.f15669h);
-            textPaint.setUnderlineText(false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                textPaint.setColor(this.f15761f.f15757h);
+                textPaint.setUnderlineText(false);
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f15674e;
+        public d f15762e;
 
-        public c(d dVar) {
-            this.f15674e = dVar;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ SpannableTextView f15763f;
+
+        public c(SpannableTextView spannableTextView, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {spannableTextView, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15763f = spannableTextView;
+            this.f15762e = dVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.m != null) {
-                SpannableTextView.this.m.b(this.f15674e);
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15763f.m == null) {
+                return;
             }
+            this.f15763f.m.b(this.f15762e);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.f15666e);
-            textPaint.setUnderlineText(false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                textPaint.setColor(this.f15763f.f15754e);
+                textPaint.setUnderlineText(false);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpannableTextView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         h();
     }
 
     public void e(d dVar) {
-        setText(g(dVar));
-        setMovementMethod(a.a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            setText(g(dVar));
+            setMovementMethod(a.a());
+        }
     }
 
     public final int f(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            Rect rect = new Rect();
+            getPaint().getTextBounds(str, 0, str.length(), rect);
+            return rect.width();
         }
-        Rect rect = new Rect();
-        getPaint().getTextBounds(str, 0, str.length(), rect);
-        return rect.width();
+        return invokeL.intValue;
     }
 
     public final SpannableString g(d dVar) {
+        InterceptResult invokeL;
         String str;
         String str2;
-        String str3 = dVar.f63592h;
-        int length = str3 != null ? str3.length() : 0;
-        if (dVar.k) {
-            str = dVar.f63592h + "  楼主: ";
-        } else {
-            str = dVar.f63592h + ": ";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
+            String str3 = dVar.f67137h;
+            int length = str3 != null ? str3.length() : 0;
+            if (dVar.k) {
+                str = dVar.f67137h + "  楼主: ";
+            } else {
+                str = dVar.f67137h + ": ";
+            }
+            String str4 = dVar.f67138i;
+            int length2 = str4 != null ? str4.length() : 0;
+            int f2 = f(str + str4);
+            int f3 = f("|" + dVar.j);
+            int i2 = this.k;
+            if ((f2 % i2) + f3 >= i2) {
+                str2 = "\n" + dVar.j;
+            } else {
+                str2 = " " + dVar.j;
+            }
+            int length3 = str2 != null ? str2.length() : 0;
+            boolean equals = String.valueOf(this.j).equals(dVar.f67136g);
+            String str5 = "|  删除";
+            if (equals) {
+                int f4 = f(str + str4 + str2);
+                int f5 = f("|  删除");
+                int i3 = this.k;
+                str5 = (f4 % i3) + f5 >= i3 ? "\n删除" : "  删除";
+            }
+            int length4 = str5.length();
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            sb.append(str4);
+            sb.append(str2);
+            if (!equals) {
+                str5 = "";
+            }
+            sb.append(str5);
+            sb.append(equals ? "|" : "");
+            SpannableString spannableString = new SpannableString(sb.toString());
+            int i4 = length + 0;
+            spannableString.setSpan(new c(this, dVar), 0, i4, 17);
+            if (dVar.k) {
+                int i5 = i4 + 4;
+                spannableString.setSpan(new ForegroundColorSpan(this.f15755f), i4, i5, 17);
+                i4 = i5;
+            }
+            int i6 = i4 + 2 + length2;
+            int i7 = length3 + i6;
+            spannableString.setSpan(new ForegroundColorSpan(this.f15756g), i6, i7, 17);
+            if (equals) {
+                int i8 = length4 + i7;
+                spannableString.setSpan(new b(this, dVar), i7, i8, 17);
+                spannableString.setSpan(new ForegroundColorSpan(this.f15758i), i8, i8 + 1, 17);
+            }
+            return spannableString;
         }
-        String str4 = dVar.f63593i;
-        int length2 = str4 != null ? str4.length() : 0;
-        int f2 = f(str + str4);
-        int f3 = f("|" + dVar.j);
-        int i2 = this.k;
-        if ((f2 % i2) + f3 >= i2) {
-            str2 = "\n" + dVar.j;
-        } else {
-            str2 = " " + dVar.j;
-        }
-        int length3 = str2 != null ? str2.length() : 0;
-        boolean equals = String.valueOf(this.j).equals(dVar.f63591g);
-        String str5 = "|  删除";
-        if (equals) {
-            int f4 = f(str + str4 + str2);
-            int f5 = f("|  删除");
-            int i3 = this.k;
-            str5 = (f4 % i3) + f5 >= i3 ? "\n删除" : "  删除";
-        }
-        int length4 = str5.length();
-        StringBuilder sb = new StringBuilder();
-        sb.append(str);
-        sb.append(str4);
-        sb.append(str2);
-        if (!equals) {
-            str5 = "";
-        }
-        sb.append(str5);
-        sb.append(equals ? "|" : "");
-        SpannableString spannableString = new SpannableString(sb.toString());
-        int i4 = length + 0;
-        spannableString.setSpan(new c(dVar), 0, i4, 17);
-        if (dVar.k) {
-            int i5 = i4 + 4;
-            spannableString.setSpan(new ForegroundColorSpan(this.f15667f), i4, i5, 17);
-            i4 = i5;
-        }
-        int i6 = i4 + 2 + length2;
-        int i7 = length3 + i6;
-        spannableString.setSpan(new ForegroundColorSpan(this.f15668g), i6, i7, 17);
-        if (equals) {
-            int i8 = length4 + i7;
-            spannableString.setSpan(new b(dVar), i7, i8, 17);
-            spannableString.setSpan(new ForegroundColorSpan(this.f15670i), i8, i8 + 1, 17);
-        }
-        return spannableString;
+        return (SpannableString) invokeL.objValue;
     }
 
     public final void h() {
-        this.j = d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), -1L);
-        this.k = (l.k(getContext()) - (getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) - 20;
-        i();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.j = d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), -1L);
+            this.k = (l.k(getContext()) - (getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) - 20;
+            i();
+        }
     }
 
     public void i() {
-        this.f15666e = SkinManager.getColor(R.color.CAM_X0304);
-        this.f15667f = SkinManager.getColor(R.color.CAM_X0302);
-        this.f15668g = SkinManager.getColor(R.color.CAM_X0109);
-        this.f15669h = SkinManager.getColor(R.color.CAM_X0304);
-        this.f15670i = SkinManager.getColor(R.color.CAM_X0201);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f15754e = SkinManager.getColor(R.color.CAM_X0304);
+            this.f15755f = SkinManager.getColor(R.color.CAM_X0302);
+            this.f15756g = SkinManager.getColor(R.color.CAM_X0109);
+            this.f15757h = SkinManager.getColor(R.color.CAM_X0304);
+            this.f15758i = SkinManager.getColor(R.color.CAM_X0201);
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.l = false;
-        return super.onTouchEvent(motionEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            this.l = false;
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.l) {
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.l) {
+                return true;
+            }
+            return super.performClick();
         }
-        return super.performClick();
+        return invokeV.booleanValue;
     }
 
-    public void setClickListener(a.InterfaceC1616a interfaceC1616a) {
-        this.m = interfaceC1616a;
+    public void setClickListener(a.InterfaceC1772a interfaceC1772a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC1772a) == null) {
+            this.m = interfaceC1772a;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpannableTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         h();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpannableTextView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         h();
     }
 }

@@ -9,98 +9,127 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pushservice.f;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MzNotifyActivity extends Activity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3586a;
+    public String f3584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3587b;
+    public String f3585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3588c;
+    public String f3586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3589d;
+    public String f3587d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3590e;
+    public String f3588e;
 
-    public static String a(Context context, String str) {
-        Intent intent = new Intent();
-        intent.setAction("android.intent.action.MAIN");
-        intent.addCategory("android.intent.category.LAUNCHER");
-        intent.setPackage(str);
-        for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 0)) {
-            ActivityInfo activityInfo = resolveInfo.activityInfo;
-            if (activityInfo != null) {
-                return activityInfo.name;
+    public MzNotifyActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return null;
+    }
+
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 0)) {
+                ActivityInfo activityInfo = resolveInfo.activityInfo;
+                if (activityInfo != null) {
+                    return activityInfo.name;
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Intent parseUri;
         JSONArray jSONArray;
-        super.onCreate(bundle);
-        try {
-            String stringExtra = getIntent().getStringExtra("extras");
-            if (!TextUtils.isEmpty(stringExtra)) {
-                JSONObject jSONObject = new JSONObject("{\"extras\":" + stringExtra + "}");
-                if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                        if (!jSONObject2.isNull("Msgid")) {
-                            this.f3586a = jSONObject2.getString("Msgid");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                String stringExtra = getIntent().getStringExtra("extras");
+                if (!TextUtils.isEmpty(stringExtra)) {
+                    JSONObject jSONObject = new JSONObject("{\"extras\":" + stringExtra + "}");
+                    if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
+                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                            if (!jSONObject2.isNull("Msgid")) {
+                                this.f3584a = jSONObject2.getString("Msgid");
+                            }
+                            if (!jSONObject2.isNull("msgBody")) {
+                                this.f3586c = jSONObject2.getString("msgBody");
+                            }
                         }
-                        if (!jSONObject2.isNull("msgBody")) {
-                            this.f3588c = jSONObject2.getString("msgBody");
+                        if (!TextUtils.isEmpty(this.f3586c)) {
+                            JSONObject jSONObject3 = new JSONObject(this.f3586c);
+                            if (!jSONObject3.isNull("custom_content")) {
+                                this.f3587d = jSONObject3.getString("custom_content");
+                            }
+                            if (!jSONObject3.isNull("pkg_content")) {
+                                this.f3588e = jSONObject3.getString("pkg_content");
+                            }
+                            if (!jSONObject3.isNull("mzpri_signinfo")) {
+                                this.f3585b = jSONObject3.getString("mzpri_signinfo");
+                            }
                         }
                     }
-                    if (!TextUtils.isEmpty(this.f3588c)) {
-                        JSONObject jSONObject3 = new JSONObject(this.f3588c);
-                        if (!jSONObject3.isNull("custom_content")) {
-                            this.f3589d = jSONObject3.getString("custom_content");
+                    if (f.a(this, this.f3585b, (this.f3584a + this.f3587d).replaceAll("\\\\", ""))) {
+                        if (TextUtils.isEmpty(this.f3588e)) {
+                            parseUri = new Intent();
+                            parseUri.setClassName(getPackageName(), a(this, getPackageName()));
+                            parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        } else {
+                            parseUri = Intent.parseUri(this.f3588e, 0);
+                            parseUri.setPackage(getPackageName());
+                            parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                         }
-                        if (!jSONObject3.isNull("pkg_content")) {
-                            this.f3590e = jSONObject3.getString("pkg_content");
+                        if (!TextUtils.isEmpty(this.f3587d)) {
+                            JSONObject jSONObject4 = new JSONObject(this.f3587d);
+                            Iterator<String> keys = jSONObject4.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                parseUri.putExtra(next, jSONObject4.optString(next));
+                            }
                         }
-                        if (!jSONObject3.isNull("mzpri_signinfo")) {
-                            this.f3587b = jSONObject3.getString("mzpri_signinfo");
+                        if (getPackageManager().queryIntentActivities(parseUri, 0).size() > 0) {
+                            startActivity(parseUri);
                         }
                     }
                 }
-                if (f.a(this, this.f3587b, (this.f3586a + this.f3589d).replaceAll("\\\\", ""))) {
-                    if (TextUtils.isEmpty(this.f3590e)) {
-                        parseUri = new Intent();
-                        parseUri.setClassName(getPackageName(), a(this, getPackageName()));
-                        parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                    } else {
-                        parseUri = Intent.parseUri(this.f3590e, 0);
-                        parseUri.setPackage(getPackageName());
-                        parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                    }
-                    if (!TextUtils.isEmpty(this.f3589d)) {
-                        JSONObject jSONObject4 = new JSONObject(this.f3589d);
-                        Iterator<String> keys = jSONObject4.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            parseUri.putExtra(next, jSONObject4.optString(next));
-                        }
-                    }
-                    if (getPackageManager().queryIntentActivities(parseUri, 0).size() > 0) {
-                        startActivity(parseUri);
-                    }
-                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
+            finish();
         }
-        finish();
     }
 }

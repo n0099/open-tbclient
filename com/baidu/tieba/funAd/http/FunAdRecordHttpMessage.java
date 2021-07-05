@@ -4,20 +4,43 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.FunAdServerRecordSwitch;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FunAdRecordHttpMessage extends HttpMessage {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CLICK_AD_RECORD = "c14116";
     public static final String REQUEST_RECORD = "c14114";
     public static final String SHOW_AD_RECORD = "c14115";
     public static final String SKIP_SPLASH_RECORD = "c14117";
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunAdRecordHttpMessage(int i2, String str, String str2, String str3, String str4, String str5) {
         super(CmdConfigHttp.CMD_FUN_AD_RECORD);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4, str5};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("obj_source", String.valueOf(i2));
@@ -43,25 +66,44 @@ public class FunAdRecordHttpMessage extends HttpMessage {
     }
 
     public static void uploadRequestRecord(String str, String str2, String str3, String str4, String str5) {
-        if (FunAdServerRecordSwitch.isOpen()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, str5) == null) && FunAdServerRecordSwitch.isOpen()) {
             MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(6, str, str2, str3, str4, str5));
         }
     }
 
     public static void uploadShowOrClickRecord(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        if (FunAdServerRecordSwitch.isOpen()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10}) == null) && FunAdServerRecordSwitch.isOpen()) {
             MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(str, 6, str2, str3, str4, str5, str6, str7, str8, str9, str10));
         }
     }
 
     public static void uploadSplashSkipRecord(String str) {
-        if (FunAdServerRecordSwitch.isOpen()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && FunAdServerRecordSwitch.isOpen()) {
             MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(6, str));
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunAdRecordHttpMessage(String str, int i2, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
         super(CmdConfigHttp.CMD_FUN_AD_RECORD);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str, Integer.valueOf(i2), str2, str3, str4, str5, str6, str7, str8, str9, str10};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("obj_source", String.valueOf(i2));
@@ -98,8 +140,24 @@ public class FunAdRecordHttpMessage extends HttpMessage {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunAdRecordHttpMessage(int i2, String str) {
         super(CmdConfigHttp.CMD_FUN_AD_RECORD);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("obj_source", String.valueOf(i2));

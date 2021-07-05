@@ -5,7 +5,7 @@ import android.webkit.WebView;
 import com.baidu.wallet.core.NoProguard;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IOfflineCache extends NoProguard {
     JSONObject getOfflineCacheInfo(String str);
 

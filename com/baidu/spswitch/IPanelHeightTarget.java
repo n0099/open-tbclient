@@ -1,5 +1,5 @@
 package com.baidu.spswitch;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface IPanelHeightTarget {
     int getHeight();
 

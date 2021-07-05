@@ -1,11 +1,18 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Tables;
-import d.g.c.a.k;
-import d.g.c.a.n;
-import d.g.c.c.i;
-import d.g.c.c.y0;
+import d.f.d.a.k;
+import d.f.d.a.n;
+import d.f.d.c.i;
+import d.f.d.c.k1;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -13,9 +20,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public final V[][] array;
     public final ImmutableMap<C, Integer> columnKeyToIndex;
     public final ImmutableList<C> columnList;
@@ -24,109 +33,238 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
     public final ImmutableList<R> rowList;
     public transient ArrayTable<R, C, V>.h rowMap;
 
-    /* loaded from: classes6.dex */
-    public class a extends d.g.c.c.a<y0.a<R, C, V>> {
-        public a(int i2) {
+    /* loaded from: classes7.dex */
+    public class a extends d.f.d.c.a<k1.a<R, C, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ ArrayTable f33022g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ArrayTable arrayTable, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {arrayTable, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33022g = arrayTable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.a
+        @Override // d.f.d.c.a
         /* renamed from: b */
-        public y0.a<R, C, V> a(int i2) {
-            return ArrayTable.this.getCell(i2);
+        public k1.a<R, C, V> a(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33022g.getCell(i2) : (k1.a) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends Tables.b<R, C, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f31114e;
+        public final int f33023e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31115f;
+        public final int f33024f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f31116g;
+        public final /* synthetic */ int f33025g;
 
-        public b(int i2) {
-            this.f31116g = i2;
-            this.f31114e = this.f31116g / ArrayTable.this.columnList.size();
-            this.f31115f = this.f31116g % ArrayTable.this.columnList.size();
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ ArrayTable f33026h;
+
+        public b(ArrayTable arrayTable, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {arrayTable, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33026h = arrayTable;
+            this.f33025g = i2;
+            this.f33023e = this.f33025g / this.f33026h.columnList.size();
+            this.f33024f = this.f33025g % this.f33026h.columnList.size();
         }
 
-        @Override // d.g.c.c.y0.a
+        @Override // d.f.d.c.k1.a
         public C getColumnKey() {
-            return (C) ArrayTable.this.columnList.get(this.f31115f);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (C) this.f33026h.columnList.get(this.f33024f) : (C) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.y0.a
+        @Override // d.f.d.c.k1.a
         public R getRowKey() {
-            return (R) ArrayTable.this.rowList.get(this.f31114e);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (R) this.f33026h.rowList.get(this.f33023e) : (R) invokeV.objValue;
         }
 
-        @Override // d.g.c.c.y0.a
+        @Override // d.f.d.c.k1.a
         public V getValue() {
-            return (V) ArrayTable.this.at(this.f31114e, this.f31115f);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (V) this.f33026h.at(this.f33023e, this.f33024f) : (V) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c extends d.g.c.c.a<V> {
-        public c(int i2) {
+    /* loaded from: classes7.dex */
+    public class c extends d.f.d.c.a<V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ ArrayTable f33027g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ArrayTable arrayTable, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {arrayTable, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33027g = arrayTable;
         }
 
-        @Override // d.g.c.c.a
+        @Override // d.f.d.c.a
         public V a(int i2) {
-            return (V) ArrayTable.this.getValue(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (V) this.f33027g.getValue(i2) : (V) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static abstract class d<K, V> extends Maps.l<K, V> {
+    /* loaded from: classes7.dex */
+    public static abstract class d<K, V> extends Maps.p<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ImmutableMap<K, Integer> f31119e;
+        public final ImmutableMap<K, Integer> f33028e;
 
-        /* loaded from: classes6.dex */
-        public class a extends d.g.c.c.b<K, V> {
+        /* loaded from: classes7.dex */
+        public class a extends d.f.d.c.b<K, V> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f31120e;
+            public final /* synthetic */ int f33029e;
 
-            public a(int i2) {
-                this.f31120e = i2;
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ d f33030f;
+
+            public a(d dVar, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f33030f = dVar;
+                this.f33029e = i2;
             }
 
-            @Override // d.g.c.c.b, java.util.Map.Entry
+            @Override // d.f.d.c.b, java.util.Map.Entry
             public K getKey() {
-                return (K) d.this.c(this.f31120e);
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (K) this.f33030f.c(this.f33029e) : (K) invokeV.objValue;
             }
 
-            @Override // d.g.c.c.b, java.util.Map.Entry
+            @Override // d.f.d.c.b, java.util.Map.Entry
             public V getValue() {
-                return (V) d.this.e(this.f31120e);
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (V) this.f33030f.e(this.f33029e) : (V) invokeV.objValue;
             }
 
-            @Override // d.g.c.c.b, java.util.Map.Entry
+            @Override // d.f.d.c.b, java.util.Map.Entry
             public V setValue(V v) {
-                return (V) d.this.f(this.f31120e, v);
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) ? (V) this.f33030f.f(this.f33029e, v) : (V) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes6.dex */
-        public class b extends d.g.c.c.a<Map.Entry<K, V>> {
-            public b(int i2) {
+        /* loaded from: classes7.dex */
+        public class b extends d.f.d.c.a<Map.Entry<K, V>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: g  reason: collision with root package name */
+            public final /* synthetic */ d f33031g;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public b(d dVar, int i2) {
                 super(i2);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f33031g = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.g.c.c.a
+            @Override // d.f.d.c.a
             /* renamed from: b */
             public Map.Entry<K, V> a(int i2) {
-                return d.this.b(i2);
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33031g.b(i2) : (Map.Entry) invokeI.objValue;
             }
         }
 
@@ -134,28 +272,42 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
             this(immutableMap);
         }
 
-        @Override // com.google.common.collect.Maps.l
+        @Override // com.google.common.collect.Maps.p
         public Iterator<Map.Entry<K, V>> a() {
-            return new b(size());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this, size()) : (Iterator) invokeV.objValue;
         }
 
         public Map.Entry<K, V> b(int i2) {
-            n.n(i2, size());
-            return new a(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                n.n(i2, size());
+                return new a(this, i2);
+            }
+            return (Map.Entry) invokeI.objValue;
         }
 
         public K c(int i2) {
-            return this.f31119e.keySet().asList().get(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f33028e.keySet().asList().get(i2) : (K) invokeI.objValue;
         }
 
-        @Override // com.google.common.collect.Maps.l, java.util.AbstractMap, java.util.Map
+        @Override // com.google.common.collect.Maps.p, java.util.AbstractMap, java.util.Map
         public void clear() {
-            throw new UnsupportedOperationException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
-            return this.f31119e.containsKey(obj);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f33028e.containsKey(obj) : invokeL.booleanValue;
         }
 
         public abstract String d();
@@ -166,83 +318,155 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
 
         @Override // java.util.AbstractMap, java.util.Map
         public V get(Object obj) {
-            Integer num = this.f31119e.get(obj);
-            if (num == null) {
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+                Integer num = this.f33028e.get(obj);
+                if (num == null) {
+                    return null;
+                }
+                return e(num.intValue());
             }
-            return e(num.intValue());
+            return (V) invokeL.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean isEmpty() {
-            return this.f31119e.isEmpty();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33028e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
-            return this.f31119e.keySet();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33028e.keySet() : (Set) invokeV.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V put(K k, V v) {
-            Integer num = this.f31119e.get(k);
-            if (num != null) {
-                return f(num.intValue(), v);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k, v)) == null) {
+                Integer num = this.f33028e.get(k);
+                if (num != null) {
+                    return f(num.intValue(), v);
+                }
+                throw new IllegalArgumentException(d() + " " + k + " not in " + this.f33028e.keySet());
             }
-            throw new IllegalArgumentException(d() + " " + k + " not in " + this.f31119e.keySet());
+            return (V) invokeLL.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V remove(Object obj) {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (V) invokeL.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
-            return this.f31119e.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33028e.size() : invokeV.intValue;
         }
 
         public d(ImmutableMap<K, Integer> immutableMap) {
-            this.f31119e = immutableMap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {immutableMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33028e = immutableMap;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e extends d<R, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31123f;
+        public final int f33032f;
 
-        public e(int i2) {
-            super(ArrayTable.this.rowKeyToIndex, null);
-            this.f31123f = i2;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ ArrayTable f33033g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(ArrayTable arrayTable, int i2) {
+            super(arrayTable.rowKeyToIndex, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {arrayTable, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ImmutableMap) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33033g = arrayTable;
+            this.f33032f = i2;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public String d() {
-            return "Row";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Row" : (String) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V e(int i2) {
-            return (V) ArrayTable.this.at(i2, this.f31123f);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (V) this.f33033g.at(i2, this.f33032f) : (V) invokeI.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V f(int i2, V v) {
-            return (V) ArrayTable.this.set(i2, this.f31123f, v);
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, v)) == null) ? (V) this.f33033g.set(i2, this.f33032f, v) : (V) invokeIL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f extends d<C, Map<R, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ ArrayTable f33034f;
+
         public /* synthetic */ f(ArrayTable arrayTable, a aVar) {
-            this();
+            this(arrayTable);
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public String d() {
-            return "Column";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Column" : (String) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
@@ -255,15 +479,27 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         @Override // com.google.common.collect.ArrayTable.d
         /* renamed from: g */
         public Map<R, V> e(int i2) {
-            return new e(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? new e(this.f33034f, i2) : (Map) invokeI.objValue;
         }
 
         public Map<R, V> h(C c2, Map<R, V> map) {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, c2, map)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (Map) invokeLL.objValue;
         }
 
         public Map<R, V> i(int i2, Map<R, V> map) {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, map)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (Map) invokeIL.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d, java.util.AbstractMap, java.util.Map
@@ -272,47 +508,102 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
             throw null;
         }
 
-        public f() {
-            super(ArrayTable.this.columnKeyToIndex, null);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(ArrayTable arrayTable) {
+            super(arrayTable.columnKeyToIndex, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {arrayTable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ImmutableMap) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33034f = arrayTable;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g extends d<C, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31126f;
+        public final int f33035f;
 
-        public g(int i2) {
-            super(ArrayTable.this.columnKeyToIndex, null);
-            this.f31126f = i2;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ ArrayTable f33036g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(ArrayTable arrayTable, int i2) {
+            super(arrayTable.columnKeyToIndex, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {arrayTable, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ImmutableMap) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33036g = arrayTable;
+            this.f33035f = i2;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public String d() {
-            return "Column";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Column" : (String) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V e(int i2) {
-            return (V) ArrayTable.this.at(this.f31126f, i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (V) this.f33036g.at(this.f33035f, i2) : (V) invokeI.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V f(int i2, V v) {
-            return (V) ArrayTable.this.set(this.f31126f, i2, v);
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, v)) == null) ? (V) this.f33036g.set(this.f33035f, i2, v) : (V) invokeIL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class h extends d<R, Map<C, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ ArrayTable f33037f;
+
         public /* synthetic */ h(ArrayTable arrayTable, a aVar) {
-            this();
+            this(arrayTable);
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public String d() {
-            return "Row";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Row" : (String) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
@@ -325,15 +616,27 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         @Override // com.google.common.collect.ArrayTable.d
         /* renamed from: g */
         public Map<C, V> e(int i2) {
-            return new g(i2);
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? new g(this.f33037f, i2) : (Map) invokeI.objValue;
         }
 
         public Map<C, V> h(R r, Map<C, V> map) {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, r, map)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (Map) invokeLL.objValue;
         }
 
         public Map<C, V> i(int i2, Map<C, V> map) {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, map)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (Map) invokeIL.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d, java.util.AbstractMap, java.util.Map
@@ -342,253 +645,417 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
             throw null;
         }
 
-        public h() {
-            super(ArrayTable.this.rowKeyToIndex, null);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(ArrayTable arrayTable) {
+            super(arrayTable.rowKeyToIndex, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {arrayTable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ImmutableMap) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33037f = arrayTable;
         }
     }
 
     public ArrayTable(Iterable<? extends R> iterable, Iterable<? extends C> iterable2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iterable, iterable2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.rowList = ImmutableList.copyOf(iterable);
         this.columnList = ImmutableList.copyOf(iterable2);
         n.d(this.rowList.isEmpty() == this.columnList.isEmpty());
-        this.rowKeyToIndex = Maps.k(this.rowList);
-        this.columnKeyToIndex = Maps.k(this.columnList);
+        this.rowKeyToIndex = Maps.m(this.rowList);
+        this.columnKeyToIndex = Maps.m(this.columnList);
         this.array = (V[][]) ((Object[][]) Array.newInstance(Object.class, this.rowList.size(), this.columnList.size()));
         eraseAll();
     }
 
     public static <R, C, V> ArrayTable<R, C, V> create(Iterable<? extends R> iterable, Iterable<? extends C> iterable2) {
-        return new ArrayTable<>(iterable, iterable2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, iterable, iterable2)) == null) ? new ArrayTable<>(iterable, iterable2) : (ArrayTable) invokeLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public y0.a<R, C, V> getCell(int i2) {
-        return new b(i2);
+    public k1.a<R, C, V> getCell(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i2)) == null) ? new b(this, i2) : (k1.a) invokeI.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public V getValue(int i2) {
-        return at(i2 / this.columnList.size(), i2 % this.columnList.size());
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i2)) == null) ? at(i2 / this.columnList.size(), i2 % this.columnList.size()) : (V) invokeI.objValue;
     }
 
     public V at(int i2, int i3) {
-        n.n(i2, this.rowList.size());
-        n.n(i3, this.columnList.size());
-        return this.array[i2][i3];
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+            n.n(i2, this.rowList.size());
+            n.n(i3, this.columnList.size());
+            return this.array[i2][i3];
+        }
+        return (V) invokeII.objValue;
     }
 
-    @Override // d.g.c.c.i
-    public Iterator<y0.a<R, C, V>> cellIterator() {
-        return new a(size());
+    @Override // d.f.d.c.i
+    public Iterator<k1.a<R, C, V>> cellIterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this, size()) : (Iterator) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
-    public Set<y0.a<R, C, V>> cellSet() {
-        return super.cellSet();
+    @Override // d.f.d.c.i, d.f.d.c.k1
+    public Set<k1.a<R, C, V>> cellSet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.cellSet() : (Set) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     @Deprecated
     public void clear() {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
-    @Override // d.g.c.c.y0
+    @Override // d.f.d.c.k1
     public Map<R, V> column(C c2) {
-        n.p(c2);
-        Integer num = this.columnKeyToIndex.get(c2);
-        return num == null ? ImmutableMap.of() : new e(num.intValue());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, c2)) == null) {
+            n.p(c2);
+            Integer num = this.columnKeyToIndex.get(c2);
+            return num == null ? ImmutableMap.of() : new e(this, num.intValue());
+        }
+        return (Map) invokeL.objValue;
     }
 
     public ImmutableList<C> columnKeyList() {
-        return this.columnList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.columnList : (ImmutableList) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.y0
+    @Override // d.f.d.c.k1
     public Map<C, Map<R, V>> columnMap() {
-        ArrayTable<R, C, V>.f fVar = this.columnMap;
-        if (fVar == null) {
-            ArrayTable<R, C, V>.f fVar2 = new f(this, null);
-            this.columnMap = fVar2;
-            return fVar2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayTable<R, C, V>.f fVar = this.columnMap;
+            if (fVar == null) {
+                ArrayTable<R, C, V>.f fVar2 = new f(this, null);
+                this.columnMap = fVar2;
+                return fVar2;
+            }
+            return fVar;
         }
-        return fVar;
+        return (Map) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public boolean contains(Object obj, Object obj2) {
-        return containsRow(obj) && containsColumn(obj2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, obj, obj2)) == null) ? containsRow(obj) && containsColumn(obj2) : invokeLL.booleanValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public boolean containsColumn(Object obj) {
-        return this.columnKeyToIndex.containsKey(obj);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) ? this.columnKeyToIndex.containsKey(obj) : invokeL.booleanValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public boolean containsRow(Object obj) {
-        return this.rowKeyToIndex.containsKey(obj);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? this.rowKeyToIndex.containsKey(obj) : invokeL.booleanValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public boolean containsValue(Object obj) {
+        InterceptResult invokeL;
         V[][] vArr;
-        for (V[] vArr2 : this.array) {
-            for (V v : vArr2) {
-                if (k.a(obj, v)) {
-                    return true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+            for (V[] vArr2 : this.array) {
+                for (V v : vArr2) {
+                    if (k.a(obj, v)) {
+                        return true;
+                    }
                 }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
     public V erase(Object obj, Object obj2) {
-        Integer num = this.rowKeyToIndex.get(obj);
-        Integer num2 = this.columnKeyToIndex.get(obj2);
-        if (num == null || num2 == null) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, obj, obj2)) == null) {
+            Integer num = this.rowKeyToIndex.get(obj);
+            Integer num2 = this.columnKeyToIndex.get(obj2);
+            if (num == null || num2 == null) {
+                return null;
+            }
+            return set(num.intValue(), num2.intValue(), null);
         }
-        return set(num.intValue(), num2.intValue(), null);
+        return (V) invokeLL.objValue;
     }
 
     public void eraseAll() {
-        for (V[] vArr : this.array) {
-            Arrays.fill(vArr, (Object) null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            for (V[] vArr : this.array) {
+                Arrays.fill(vArr, (Object) null);
+            }
         }
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public V get(Object obj, Object obj2) {
-        Integer num = this.rowKeyToIndex.get(obj);
-        Integer num2 = this.columnKeyToIndex.get(obj2);
-        if (num == null || num2 == null) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, obj, obj2)) == null) {
+            Integer num = this.rowKeyToIndex.get(obj);
+            Integer num2 = this.columnKeyToIndex.get(obj2);
+            if (num == null || num2 == null) {
+                return null;
+            }
+            return at(num.intValue(), num2.intValue());
         }
-        return at(num.intValue(), num2.intValue());
+        return (V) invokeLL.objValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public boolean isEmpty() {
-        return this.rowList.isEmpty() || this.columnList.isEmpty();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.rowList.isEmpty() || this.columnList.isEmpty() : invokeV.booleanValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public V put(R r, C c2, V v) {
-        n.p(r);
-        n.p(c2);
-        Integer num = this.rowKeyToIndex.get(r);
-        n.l(num != null, "Row %s not in %s", r, this.rowList);
-        Integer num2 = this.columnKeyToIndex.get(c2);
-        n.l(num2 != null, "Column %s not in %s", c2, this.columnList);
-        return set(num.intValue(), num2.intValue(), v);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, r, c2, v)) == null) {
+            n.p(r);
+            n.p(c2);
+            Integer num = this.rowKeyToIndex.get(r);
+            n.l(num != null, "Row %s not in %s", r, this.rowList);
+            Integer num2 = this.columnKeyToIndex.get(c2);
+            n.l(num2 != null, "Column %s not in %s", c2, this.columnList);
+            return set(num.intValue(), num2.intValue(), v);
+        }
+        return (V) invokeLLL.objValue;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
-    public void putAll(y0<? extends R, ? extends C, ? extends V> y0Var) {
-        super.putAll(y0Var);
+    @Override // d.f.d.c.i, d.f.d.c.k1
+    public void putAll(k1<? extends R, ? extends C, ? extends V> k1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, k1Var) == null) {
+            super.putAll(k1Var);
+        }
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     @Deprecated
     public V remove(Object obj, Object obj2) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, obj, obj2)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (V) invokeLL.objValue;
     }
 
-    @Override // d.g.c.c.y0
+    @Override // d.f.d.c.k1
     public Map<C, V> row(R r) {
-        n.p(r);
-        Integer num = this.rowKeyToIndex.get(r);
-        return num == null ? ImmutableMap.of() : new g(num.intValue());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, r)) == null) {
+            n.p(r);
+            Integer num = this.rowKeyToIndex.get(r);
+            return num == null ? ImmutableMap.of() : new g(this, num.intValue());
+        }
+        return (Map) invokeL.objValue;
     }
 
     public ImmutableList<R> rowKeyList() {
-        return this.rowList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.rowList : (ImmutableList) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.y0
+    @Override // d.f.d.c.k1
     public Map<R, Map<C, V>> rowMap() {
-        ArrayTable<R, C, V>.h hVar = this.rowMap;
-        if (hVar == null) {
-            ArrayTable<R, C, V>.h hVar2 = new h(this, null);
-            this.rowMap = hVar2;
-            return hVar2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            ArrayTable<R, C, V>.h hVar = this.rowMap;
+            if (hVar == null) {
+                ArrayTable<R, C, V>.h hVar2 = new h(this, null);
+                this.rowMap = hVar2;
+                return hVar2;
+            }
+            return hVar;
         }
-        return hVar;
+        return (Map) invokeV.objValue;
     }
 
     public V set(int i2, int i3, V v) {
-        n.n(i2, this.rowList.size());
-        n.n(i3, this.columnList.size());
-        V[][] vArr = this.array;
-        V v2 = vArr[i2][i3];
-        vArr[i2][i3] = v;
-        return v2;
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048603, this, i2, i3, v)) == null) {
+            n.n(i2, this.rowList.size());
+            n.n(i3, this.columnList.size());
+            V[][] vArr = this.array;
+            V v2 = vArr[i2][i3];
+            vArr[i2][i3] = v;
+            return v2;
+        }
+        return (V) invokeIIL.objValue;
     }
 
-    @Override // d.g.c.c.y0
+    @Override // d.f.d.c.k1
     public int size() {
-        return this.rowList.size() * this.columnList.size();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.rowList.size() * this.columnList.size() : invokeV.intValue;
     }
 
     public V[][] toArray(Class<V> cls) {
-        V[][] vArr = (V[][]) ((Object[][]) Array.newInstance((Class<?>) cls, this.rowList.size(), this.columnList.size()));
-        for (int i2 = 0; i2 < this.rowList.size(); i2++) {
-            V[][] vArr2 = this.array;
-            System.arraycopy(vArr2[i2], 0, vArr[i2], 0, vArr2[i2].length);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, cls)) == null) {
+            V[][] vArr = (V[][]) ((Object[][]) Array.newInstance((Class<?>) cls, this.rowList.size(), this.columnList.size()));
+            for (int i2 = 0; i2 < this.rowList.size(); i2++) {
+                V[][] vArr2 = this.array;
+                System.arraycopy(vArr2[i2], 0, vArr[i2], 0, vArr2[i2].length);
+            }
+            return vArr;
         }
-        return vArr;
+        return (V[][]) ((Object[][]) invokeL.objValue);
     }
 
-    @Override // d.g.c.c.i
+    @Override // d.f.d.c.i
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public Collection<V> values() {
-        return super.values();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? super.values() : (Collection) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.i
+    @Override // d.f.d.c.i
     public Iterator<V> valuesIterator() {
-        return new c(size());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? new c(this, size()) : (Iterator) invokeV.objValue;
     }
 
-    public static <R, C, V> ArrayTable<R, C, V> create(y0<R, C, V> y0Var) {
-        return y0Var instanceof ArrayTable ? new ArrayTable<>((ArrayTable) y0Var) : new ArrayTable<>(y0Var);
+    public static <R, C, V> ArrayTable<R, C, V> create(k1<R, C, V> k1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, k1Var)) == null) ? k1Var instanceof ArrayTable ? new ArrayTable<>((ArrayTable) k1Var) : new ArrayTable<>(k1Var) : (ArrayTable) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public ImmutableSet<C> columnKeySet() {
-        return this.columnKeyToIndex.keySet();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.columnKeyToIndex.keySet() : (ImmutableSet) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.f.d.c.i, d.f.d.c.k1
     public ImmutableSet<R> rowKeySet() {
-        return this.rowKeyToIndex.keySet();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.rowKeyToIndex.keySet() : (ImmutableSet) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: d.g.c.c.y0<R, C, V> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public ArrayTable(y0<R, C, V> y0Var) {
-        this(y0Var.rowKeySet(), y0Var.columnKeySet());
-        putAll(y0Var);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ArrayTable(k1<R, C, V> k1Var) {
+        this(k1Var.rowKeySet(), k1Var.columnKeySet());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Iterable) objArr2[0], (Iterable) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        putAll(k1Var);
     }
 
     public ArrayTable(ArrayTable<R, C, V> arrayTable) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayTable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         ImmutableList<R> immutableList = arrayTable.rowList;
         this.rowList = immutableList;
         this.columnList = arrayTable.columnList;
@@ -596,9 +1063,9 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         this.columnKeyToIndex = arrayTable.columnKeyToIndex;
         V[][] vArr = (V[][]) ((Object[][]) Array.newInstance(Object.class, immutableList.size(), this.columnList.size()));
         this.array = vArr;
-        for (int i2 = 0; i2 < this.rowList.size(); i2++) {
+        for (int i4 = 0; i4 < this.rowList.size(); i4++) {
             V[][] vArr2 = arrayTable.array;
-            System.arraycopy(vArr2[i2], 0, vArr[i2], 0, vArr2[i2].length);
+            System.arraycopy(vArr2[i4], 0, vArr[i4], 0, vArr2[i4].length);
         }
     }
 }

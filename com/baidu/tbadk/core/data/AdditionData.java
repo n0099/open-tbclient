@@ -1,13 +1,22 @@
 package com.baidu.tbadk.core.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbPage.AddPost;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdditionData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6760087984237848132L;
+    public transient /* synthetic */ FieldHolder $fh;
     public int alreadyCount;
     public long createTime;
     public String lastAdditionContent;
@@ -16,40 +25,72 @@ public class AdditionData extends OrmObject implements Serializable {
     public int totalCount;
     public String warnMsg;
 
+    public AdditionData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public void decreaseAlreadyCount() {
-        this.alreadyCount--;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.alreadyCount--;
+        }
     }
 
     public int getAlreadyCount() {
-        return this.alreadyCount;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.alreadyCount : invokeV.intValue;
     }
 
     public long getCreateTime() {
-        return this.createTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.createTime : invokeV.longValue;
     }
 
     public String getLastAdditionContent() {
-        return this.lastAdditionContent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.lastAdditionContent : (String) invokeV.objValue;
     }
 
     public long getLastAdditionTime() {
-        return this.lastAdditionTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.lastAdditionTime : invokeV.longValue;
     }
 
     public String getPostId() {
-        return this.postId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.postId : (String) invokeV.objValue;
     }
 
     public int getTotalCount() {
-        return this.totalCount;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.totalCount : invokeV.intValue;
     }
 
     public String getWarnMsg() {
-        return this.warnMsg;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.warnMsg : (String) invokeV.objValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -66,7 +107,8 @@ public class AdditionData extends OrmObject implements Serializable {
     }
 
     public void parserProtoBuf(AddPost addPost) {
-        if (addPost == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, addPost) == null) || addPost == null) {
             return;
         }
         try {
@@ -83,30 +125,51 @@ public class AdditionData extends OrmObject implements Serializable {
     }
 
     public void setAlreadyCount(int i2) {
-        this.alreadyCount = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.alreadyCount = i2;
+        }
     }
 
     public void setCreateTime(long j) {
-        this.createTime = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.createTime = j;
+        }
     }
 
     public void setLastAdditionContent(String str) {
-        this.lastAdditionContent = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.lastAdditionContent = str;
+        }
     }
 
     public void setLastAdditionTime(long j) {
-        this.lastAdditionTime = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.lastAdditionTime = j;
+        }
     }
 
     public void setPostId(String str) {
-        this.postId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.postId = str;
+        }
     }
 
     public void setTotalCount(int i2) {
-        this.totalCount = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.totalCount = i2;
+        }
     }
 
     public void setWarnMsg(String str) {
-        this.warnMsg = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.warnMsg = str;
+        }
     }
 }

@@ -1,0 +1,5 @@
+package com.bytedance.sdk.component.d;
+/* loaded from: classes6.dex */
+public interface c<T> {
+    com.bytedance.sdk.component.d.b.d<T> a(com.bytedance.sdk.component.d.b.c cVar);
+}

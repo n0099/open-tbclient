@@ -12,11 +12,21 @@ import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieValueCallback;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PolystarContent implements PathContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final float POLYGON_MAGIC_NUMBER = 0.25f;
     public static final float POLYSTAR_MAGIC_NUMBER = 0.47829f;
+    public transient /* synthetic */ FieldHolder $fh;
     public final boolean hidden;
     @Nullable
     public final BaseKeyframeAnimation<?, Float> innerRadiusAnimation;
@@ -27,19 +37,33 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     public final String name;
     public final BaseKeyframeAnimation<?, Float> outerRadiusAnimation;
     public final BaseKeyframeAnimation<?, Float> outerRoundednessAnimation;
+    public final Path path;
     public final BaseKeyframeAnimation<?, Float> pointsAnimation;
     public final BaseKeyframeAnimation<?, PointF> positionAnimation;
     public final BaseKeyframeAnimation<?, Float> rotationAnimation;
+    public CompoundTrimPathContent trimPaths;
     public final PolystarShape.Type type;
-    public final Path path = new Path();
-    public CompoundTrimPathContent trimPaths = new CompoundTrimPathContent();
 
     /* renamed from: com.airbnb.lottie.animation.content.PolystarContent$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1991445851, "Lcom/airbnb/lottie/animation/content/PolystarContent$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1991445851, "Lcom/airbnb/lottie/animation/content/PolystarContent$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[PolystarShape.Type.values().length];
             $SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type = iArr;
             try {
@@ -54,6 +78,22 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     }
 
     public PolystarContent(LottieDrawable lottieDrawable, BaseLayer baseLayer, PolystarShape polystarShape) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lottieDrawable, baseLayer, polystarShape};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.path = new Path();
+        this.trimPaths = new CompoundTrimPathContent();
         this.lottieDrawable = lottieDrawable;
         this.name = polystarShape.getName();
         this.type = polystarShape.getType();
@@ -96,51 +136,54 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         double d3;
         double d4;
         int i2;
-        int floor = (int) Math.floor(this.pointsAnimation.getValue().floatValue());
-        double radians = Math.toRadians((this.rotationAnimation == null ? 0.0d : baseKeyframeAnimation.getValue().floatValue()) - 90.0d);
-        double d5 = floor;
-        float floatValue = this.outerRoundednessAnimation.getValue().floatValue() / 100.0f;
-        float floatValue2 = this.outerRadiusAnimation.getValue().floatValue();
-        double d6 = floatValue2;
-        float cos = (float) (Math.cos(radians) * d6);
-        float sin = (float) (Math.sin(radians) * d6);
-        this.path.moveTo(cos, sin);
-        double d7 = (float) (6.283185307179586d / d5);
-        double d8 = radians + d7;
-        double ceil = Math.ceil(d5);
-        int i3 = 0;
-        while (i3 < ceil) {
-            float cos2 = (float) (Math.cos(d8) * d6);
-            double d9 = ceil;
-            float sin2 = (float) (d6 * Math.sin(d8));
-            if (floatValue != 0.0f) {
-                d3 = d6;
-                i2 = i3;
-                d2 = d8;
-                double atan2 = (float) (Math.atan2(sin, cos) - 1.5707963267948966d);
-                float cos3 = (float) Math.cos(atan2);
-                d4 = d7;
-                double atan22 = (float) (Math.atan2(sin2, cos2) - 1.5707963267948966d);
-                float f2 = floatValue2 * floatValue * 0.25f;
-                this.path.cubicTo(cos - (cos3 * f2), sin - (((float) Math.sin(atan2)) * f2), cos2 + (((float) Math.cos(atan22)) * f2), sin2 + (f2 * ((float) Math.sin(atan22))), cos2, sin2);
-            } else {
-                d2 = d8;
-                d3 = d6;
-                d4 = d7;
-                i2 = i3;
-                this.path.lineTo(cos2, sin2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            int floor = (int) Math.floor(this.pointsAnimation.getValue().floatValue());
+            double radians = Math.toRadians((this.rotationAnimation == null ? 0.0d : baseKeyframeAnimation.getValue().floatValue()) - 90.0d);
+            double d5 = floor;
+            float floatValue = this.outerRoundednessAnimation.getValue().floatValue() / 100.0f;
+            float floatValue2 = this.outerRadiusAnimation.getValue().floatValue();
+            double d6 = floatValue2;
+            float cos = (float) (Math.cos(radians) * d6);
+            float sin = (float) (Math.sin(radians) * d6);
+            this.path.moveTo(cos, sin);
+            double d7 = (float) (6.283185307179586d / d5);
+            double d8 = radians + d7;
+            double ceil = Math.ceil(d5);
+            int i3 = 0;
+            while (i3 < ceil) {
+                float cos2 = (float) (Math.cos(d8) * d6);
+                double d9 = ceil;
+                float sin2 = (float) (d6 * Math.sin(d8));
+                if (floatValue != 0.0f) {
+                    d3 = d6;
+                    i2 = i3;
+                    d2 = d8;
+                    double atan2 = (float) (Math.atan2(sin, cos) - 1.5707963267948966d);
+                    float cos3 = (float) Math.cos(atan2);
+                    d4 = d7;
+                    double atan22 = (float) (Math.atan2(sin2, cos2) - 1.5707963267948966d);
+                    float f2 = floatValue2 * floatValue * 0.25f;
+                    this.path.cubicTo(cos - (cos3 * f2), sin - (((float) Math.sin(atan2)) * f2), cos2 + (((float) Math.cos(atan22)) * f2), sin2 + (f2 * ((float) Math.sin(atan22))), cos2, sin2);
+                } else {
+                    d2 = d8;
+                    d3 = d6;
+                    d4 = d7;
+                    i2 = i3;
+                    this.path.lineTo(cos2, sin2);
+                }
+                d8 = d2 + d4;
+                i3 = i2 + 1;
+                sin = sin2;
+                cos = cos2;
+                ceil = d9;
+                d6 = d3;
+                d7 = d4;
             }
-            d8 = d2 + d4;
-            i3 = i2 + 1;
-            sin = sin2;
-            cos = cos2;
-            ceil = d9;
-            d6 = d3;
-            d7 = d4;
+            PointF value = this.positionAnimation.getValue();
+            this.path.offset(value.x, value.y);
+            this.path.close();
         }
-        PointF value = this.positionAnimation.getValue();
-        this.path.offset(value.x, value.y);
-        this.path.close();
     }
 
     private void createStarPath() {
@@ -158,6 +201,10 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         float f8;
         float f9;
         float f10;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(65538, this) != null) {
+            return;
+        }
         float floatValue = this.pointsAnimation.getValue().floatValue();
         double radians = Math.toRadians((this.rotationAnimation == null ? 0.0d : baseKeyframeAnimation.getValue().floatValue()) - 90.0d);
         double d5 = floatValue;
@@ -275,77 +322,99 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     }
 
     private void invalidate() {
-        this.isPathValid = false;
-        this.lottieDrawable.invalidateSelf();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.isPathValid = false;
+            this.lottieDrawable.invalidateSelf();
+        }
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
     public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation;
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2;
-        if (t == LottieProperty.POLYSTAR_POINTS) {
-            this.pointsAnimation.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.POLYSTAR_ROTATION) {
-            this.rotationAnimation.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.POSITION) {
-            this.positionAnimation.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.POLYSTAR_INNER_RADIUS && (baseKeyframeAnimation2 = this.innerRadiusAnimation) != null) {
-            baseKeyframeAnimation2.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.POLYSTAR_OUTER_RADIUS) {
-            this.outerRadiusAnimation.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.POLYSTAR_INNER_ROUNDEDNESS && (baseKeyframeAnimation = this.innerRoundednessAnimation) != null) {
-            baseKeyframeAnimation.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.POLYSTAR_OUTER_ROUNDEDNESS) {
-            this.outerRoundednessAnimation.setValueCallback(lottieValueCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, t, lottieValueCallback) == null) {
+            if (t == LottieProperty.POLYSTAR_POINTS) {
+                this.pointsAnimation.setValueCallback(lottieValueCallback);
+            } else if (t == LottieProperty.POLYSTAR_ROTATION) {
+                this.rotationAnimation.setValueCallback(lottieValueCallback);
+            } else if (t == LottieProperty.POSITION) {
+                this.positionAnimation.setValueCallback(lottieValueCallback);
+            } else if (t == LottieProperty.POLYSTAR_INNER_RADIUS && (baseKeyframeAnimation2 = this.innerRadiusAnimation) != null) {
+                baseKeyframeAnimation2.setValueCallback(lottieValueCallback);
+            } else if (t == LottieProperty.POLYSTAR_OUTER_RADIUS) {
+                this.outerRadiusAnimation.setValueCallback(lottieValueCallback);
+            } else if (t == LottieProperty.POLYSTAR_INNER_ROUNDEDNESS && (baseKeyframeAnimation = this.innerRoundednessAnimation) != null) {
+                baseKeyframeAnimation.setValueCallback(lottieValueCallback);
+            } else if (t == LottieProperty.POLYSTAR_OUTER_ROUNDEDNESS) {
+                this.outerRoundednessAnimation.setValueCallback(lottieValueCallback);
+            }
         }
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
     public String getName() {
-        return this.name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
     @Override // com.airbnb.lottie.animation.content.PathContent
     public Path getPath() {
-        if (this.isPathValid) {
-            return this.path;
-        }
-        this.path.reset();
-        if (this.hidden) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.isPathValid) {
+                return this.path;
+            }
+            this.path.reset();
+            if (this.hidden) {
+                this.isPathValid = true;
+                return this.path;
+            }
+            int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type[this.type.ordinal()];
+            if (i2 == 1) {
+                createStarPath();
+            } else if (i2 == 2) {
+                createPolygonPath();
+            }
+            this.path.close();
+            this.trimPaths.apply(this.path);
             this.isPathValid = true;
             return this.path;
         }
-        int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type[this.type.ordinal()];
-        if (i2 == 1) {
-            createStarPath();
-        } else if (i2 == 2) {
-            createPolygonPath();
-        }
-        this.path.close();
-        this.trimPaths.apply(this.path);
-        this.isPathValid = true;
-        return this.path;
+        return (Path) invokeV.objValue;
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.AnimationListener
     public void onValueChanged() {
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            invalidate();
+        }
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
     public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, keyPath, i2, list, keyPath2) == null) {
+            MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+        }
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
     public void setContents(List<Content> list, List<Content> list2) {
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            Content content = list.get(i2);
-            if (content instanceof TrimPathContent) {
-                TrimPathContent trimPathContent = (TrimPathContent) content;
-                if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {
-                    this.trimPaths.addTrimPath(trimPathContent);
-                    trimPathContent.addListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, list, list2) == null) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                Content content = list.get(i2);
+                if (content instanceof TrimPathContent) {
+                    TrimPathContent trimPathContent = (TrimPathContent) content;
+                    if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {
+                        this.trimPaths.addTrimPath(trimPathContent);
+                        trimPathContent.addListener(this);
+                    }
                 }
             }
         }

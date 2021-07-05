@@ -6,11 +6,13 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,33 +20,40 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.n0.r.f0.f;
-import d.a.o0.k1.h;
+import d.a.r0.r.f0.f;
+import d.a.s0.n1.h;
 import java.util.List;
 import tbclient.Lego.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LegoHotPageView extends FrameLayout implements AbsListView.OnScrollListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.o0.k1.p.e f17955e;
+    public d.a.s0.n1.p.e f18081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.r.f0.g f17956f;
+    public d.a.r0.r.f0.g f18082f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PbListView f17957g;
+    public PbListView f18083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdListView f17958h;
+    public BdListView f18084h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.o0.k1.n.a f17959i;
+    public d.a.s0.n1.n.a f18085i;
     public TbPageContext<?> j;
-    public d.a.o0.k1.c k;
+    public d.a.s0.n1.c k;
     public h l;
-    public d.a.n0.d0.g m;
-    public d.a.n0.d0.h n;
+    public d.a.r0.d0.g m;
+    public d.a.r0.d0.h n;
     public long o;
     public String p;
     public boolean q;
@@ -53,222 +62,429 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     public CustomMessageListener t;
     public h.c u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LegoHotPageView f18086a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(LegoHotPageView legoHotPageView, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {legoHotPageView, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18086a = legoHotPageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f12718a) {
+            UpdateAttentionMessage updateAttentionMessage;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f12800a) {
                 return;
             }
-            LegoHotPageView.this.p(updateAttentionMessage.getData());
+            this.f18086a.p(updateAttentionMessage.getData());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
-        public b(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LegoHotPageView f18087a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(LegoHotPageView legoHotPageView, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {legoHotPageView, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18087a = legoHotPageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
+                d.a.s0.n1.p.b bVar = new d.a.s0.n1.p.b();
+                bVar.f63884a = String.valueOf(customResponsedMessage.getData());
+                bVar.f63885b = true;
+                this.f18087a.p(bVar);
             }
-            d.a.o0.k1.p.b bVar = new d.a.o0.k1.p.b();
-            bVar.f60553a = String.valueOf(customResponsedMessage.getData());
-            bVar.f60554b = true;
-            LegoHotPageView.this.p(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
-        public c(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LegoHotPageView f18088a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(LegoHotPageView legoHotPageView, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {legoHotPageView, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18088a = legoHotPageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
+                d.a.s0.n1.p.b bVar = new d.a.s0.n1.p.b();
+                bVar.f63884a = String.valueOf(customResponsedMessage.getData());
+                bVar.f63885b = false;
+                this.f18088a.p(bVar);
             }
-            d.a.o0.k1.p.b bVar = new d.a.o0.k1.p.b();
-            bVar.f60553a = String.valueOf(customResponsedMessage.getData());
-            bVar.f60554b = false;
-            LegoHotPageView.this.p(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements h.c {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LegoHotPageView f18089a;
+
+        public d(LegoHotPageView legoHotPageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {legoHotPageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18089a = legoHotPageView;
         }
 
-        @Override // d.a.o0.k1.h.c
-        public void a(List<d.a.o0.k1.p.d> list) {
-            if (LegoHotPageView.this.k != null) {
-                LegoHotPageView.this.k.a(list);
-            }
-        }
-
-        @Override // d.a.o0.k1.h.c
-        public void b(long j, String str) {
-            boolean t = LegoHotPageView.this.t();
-            LegoHotPageView.this.r();
-            if (t) {
-                LegoHotPageView legoHotPageView = LegoHotPageView.this;
-                legoHotPageView.x(true, legoHotPageView.getResources().getDimensionPixelSize(R.dimen.ds360));
-            }
-            if (LegoHotPageView.this.k != null) {
-                LegoHotPageView.this.k.c(j, str);
-            }
-        }
-
-        @Override // d.a.o0.k1.h.c
-        public void c(int i2, String str) {
-            if (LegoHotPageView.this.k == null || LegoHotPageView.this.f17955e == null) {
+        @Override // d.a.s0.n1.h.c
+        public void a(List<d.a.s0.n1.p.d> list) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || this.f18089a.k == null) {
                 return;
             }
-            LegoHotPageView.this.k.e(LegoHotPageView.this.f17955e.f60572a, LegoHotPageView.this.f17955e.f60573b, i2, str);
+            this.f18089a.k.a(list);
         }
 
-        @Override // d.a.o0.k1.h.c
-        public void d(String str, String str2, String str3, List<d.a.o0.k1.p.e> list) {
-            if (LegoHotPageView.this.k != null) {
-                LegoHotPageView.this.k.d(str, str2, str3, list);
+        @Override // d.a.s0.n1.h.c
+        public void b(long j, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
+                boolean t = this.f18089a.t();
+                this.f18089a.r();
+                if (t) {
+                    LegoHotPageView legoHotPageView = this.f18089a;
+                    legoHotPageView.x(true, legoHotPageView.getResources().getDimensionPixelSize(R.dimen.ds360));
+                }
+                if (this.f18089a.k != null) {
+                    this.f18089a.k.c(j, str);
+                }
             }
         }
 
-        @Override // d.a.o0.k1.h.c
+        @Override // d.a.s0.n1.h.c
+        public void c(int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) || this.f18089a.k == null || this.f18089a.f18081e == null) {
+                return;
+            }
+            this.f18089a.k.e(this.f18089a.f18081e.f63903a, this.f18089a.f18081e.f63904b, i2, str);
+        }
+
+        @Override // d.a.s0.n1.h.c
+        public void d(String str, String str2, String str3, List<d.a.s0.n1.p.e> list) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, list) == null) || this.f18089a.k == null) {
+                return;
+            }
+            this.f18089a.k.d(str, str2, str3, list);
+        }
+
+        @Override // d.a.s0.n1.h.c
         public void onError(int i2, String str) {
-            LegoHotPageView.this.q();
-            if (i2 != 1) {
-                LegoHotPageView.this.f17958h.setVisibility(8);
-                LegoHotPageView legoHotPageView = LegoHotPageView.this;
-                legoHotPageView.y(legoHotPageView, str, true);
-            } else if (j.z()) {
-                LegoHotPageView.this.j.showToast(str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
+                this.f18089a.q();
+                if (i2 != 1) {
+                    this.f18089a.f18084h.setVisibility(8);
+                    LegoHotPageView legoHotPageView = this.f18089a;
+                    legoHotPageView.y(legoHotPageView, str, true);
+                } else if (j.z()) {
+                    this.f18089a.j.showToast(str);
+                }
             }
         }
 
-        @Override // d.a.o0.k1.h.c
+        @Override // d.a.s0.n1.h.c
         public void onSuccess() {
-            LegoHotPageView.this.q();
-            LegoHotPageView.this.r();
-            LegoHotPageView.this.f17958h.setVisibility(0);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.f18089a.q();
+                this.f18089a.r();
+                this.f18089a.f18084h.setVisibility(0);
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements f.g {
-        public e() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LegoHotPageView f18090e;
+
+        public e(LegoHotPageView legoHotPageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {legoHotPageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18090e = legoHotPageView;
         }
 
-        @Override // d.a.n0.r.f0.f.g
+        @Override // d.a.r0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            LegoHotPageView.this.l.m(LegoHotPageView.this.o, LegoHotPageView.this.p);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.f18090e.l.m(this.f18090e.o, this.f18090e.p);
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements BdListView.p {
-        public f() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LegoHotPageView f18091e;
+
+        public f(LegoHotPageView legoHotPageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {legoHotPageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18091e = legoHotPageView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (LegoHotPageView.this.q) {
-                if (LegoHotPageView.this.f17957g != null) {
-                    LegoHotPageView.this.f17957g.O();
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f18091e.q) {
+                if (this.f18091e.f18083g != null) {
+                    this.f18091e.f18083g.O();
                 }
-                LegoHotPageView.this.l.g();
+                this.f18091e.l.g();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements View.OnClickListener {
-        public g() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ LegoHotPageView f18092e;
+
+        public g(LegoHotPageView legoHotPageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {legoHotPageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18092e = legoHotPageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (LegoHotPageView.this.l == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18092e.l == null) {
                 return;
             }
-            if (LegoHotPageView.this.f17955e != null) {
-                LegoHotPageView.this.l.m(LegoHotPageView.this.f17955e.f60572a, LegoHotPageView.this.f17955e.f60573b);
+            if (this.f18092e.f18081e != null) {
+                this.f18092e.l.m(this.f18092e.f18081e.f63903a, this.f18092e.f18081e.f63904b);
             } else {
-                LegoHotPageView.this.l.m(LegoHotPageView.this.o, LegoHotPageView.this.p);
+                this.f18092e.l.m(this.f18092e.o, this.f18092e.p);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LegoHotPageView(Context context) {
         super(context);
-        this.r = new a(2001115);
-        this.s = new b(2001335);
-        this.t = new c(2001336);
-        this.u = new d();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.r = new a(this, 2001115);
+        this.s = new b(this, 2001335);
+        this.t = new c(this, 2001336);
+        this.u = new d(this);
         s(context);
     }
 
     private void setHasMore(boolean z) {
-        this.q = z;
-        if (this.f17958h == null) {
-            return;
-        }
-        if (this.f17957g.b().getParent() == null) {
-            this.f17958h.setNextPage(this.f17957g);
-        }
-        if (this.q) {
-            this.f17957g.A(getContext().getString(R.string.pb_load_more));
-        } else {
-            this.f17957g.A("");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, this, z) == null) {
+            this.q = z;
+            if (this.f18084h == null) {
+                return;
+            }
+            if (this.f18083g.b().getParent() == null) {
+                this.f18084h.setNextPage(this.f18083g);
+            }
+            if (this.q) {
+                this.f18083g.A(getContext().getString(R.string.pb_load_more));
+            } else {
+                this.f18083g.A("");
+            }
         }
     }
 
     public void A(DataRes dataRes, boolean z) {
-        PbListView pbListView = this.f17957g;
-        if (pbListView != null) {
-            pbListView.f();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, dataRes, z) == null) {
+            PbListView pbListView = this.f18083g;
+            if (pbListView != null) {
+                pbListView.f();
+            }
+            this.l.i(z, dataRes, 0, null);
+            setHasMore(this.l.c());
         }
-        this.l.i(z, dataRes, 0, null);
-        setHasMore(this.l.c());
     }
 
     public void B(String str, int i2) {
-        PbListView pbListView = this.f17957g;
-        if (pbListView != null) {
-            pbListView.f();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
+            PbListView pbListView = this.f18083g;
+            if (pbListView != null) {
+                pbListView.f();
+            }
+            this.l.i(true, null, i2, str);
         }
-        this.l.i(true, null, i2, str);
     }
 
     public long getTagCode() {
-        d.a.o0.k1.p.e eVar = this.f17955e;
-        if (eVar == null) {
-            return 0L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            d.a.s0.n1.p.e eVar = this.f18081e;
+            if (eVar == null) {
+                return 0L;
+            }
+            return eVar.f63903a;
         }
-        return eVar.f60572a;
+        return invokeV.longValue;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048579, this, absListView, i2, i3, i4) == null) {
+        }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i2) {
-        if (i2 == 0) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048580, this, absListView, i2) == null) && i2 == 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, -1));
             v();
         }
@@ -276,7 +492,8 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
 
     public final void p(Object obj) {
         h hVar;
-        if (this.f17959i == null || (hVar = this.l) == null || hVar.b() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, obj) == null) || this.f18085i == null || (hVar = this.l) == null || hVar.b() == null) {
             return;
         }
         boolean z = false;
@@ -286,190 +503,265 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             }
         }
         if (z) {
-            this.f17959i.notifyDataSetChanged();
+            this.f18085i.notifyDataSetChanged();
         }
     }
 
     public final void q() {
-        d.a.n0.d0.g gVar = this.m;
-        if (gVar != null) {
-            gVar.dettachView(this);
-            this.m = null;
-        }
-        d.a.o0.k1.c cVar = this.k;
-        if (cVar != null) {
-            cVar.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            d.a.r0.d0.g gVar = this.m;
+            if (gVar != null) {
+                gVar.dettachView(this);
+                this.m = null;
+            }
+            d.a.s0.n1.c cVar = this.k;
+            if (cVar != null) {
+                cVar.b();
+            }
         }
     }
 
     public final void r() {
-        d.a.n0.d0.h hVar = this.n;
-        if (hVar != null) {
-            hVar.dettachView(this);
-            this.n = null;
+        d.a.r0.d0.h hVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (hVar = this.n) == null) {
+            return;
         }
+        hVar.dettachView(this);
+        this.n = null;
     }
 
     public final void s(Context context) {
-        d.a.c.a.f<?> a2 = d.a.c.a.j.a(context);
-        a2.registerListener(this.r);
-        a2.registerListener(this.s);
-        a2.registerListener(this.t);
-        if (a2 instanceof TbPageContext) {
-            this.j = (TbPageContext) a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+            d.a.c.a.f<?> a2 = d.a.c.a.j.a(context);
+            a2.registerListener(this.r);
+            a2.registerListener(this.s);
+            a2.registerListener(this.t);
+            if (a2 instanceof TbPageContext) {
+                this.j = (TbPageContext) a2;
+            }
+            BdListView bdListView = new BdListView(context);
+            this.f18084h = bdListView;
+            bdListView.setDividerHeight(0);
+            this.f18084h.setSelector(17170445);
+            d.a.s0.n1.n.a aVar = new d.a.s0.n1.n.a(this.j);
+            this.f18085i = aVar;
+            this.f18084h.setAdapter((ListAdapter) aVar);
+            PbListView pbListView = new PbListView(context);
+            this.f18083g = pbListView;
+            pbListView.a();
+            this.f18083g.o(R.color.CAM_X0204);
+            this.f18083g.C(SkinManager.getColor(R.color.CAM_X0109));
+            this.f18083g.d(TbadkCoreApplication.getInst().getSkinType());
+            d.a.r0.r.f0.g gVar = new d.a.r0.r.f0.g(this.j);
+            this.f18082f = gVar;
+            this.f18084h.setPullRefresh(gVar);
+            this.f18082f.B(true);
+            this.f18082f.a(new e(this));
+            this.f18084h.setOnSrollToBottomListener(new f(this));
+            this.f18084h.setOnScrollListener(this);
+            h hVar = new h(this.f18084h, this.f18085i);
+            this.l = hVar;
+            hVar.l(this.u);
+            addView(this.f18084h);
         }
-        BdListView bdListView = new BdListView(context);
-        this.f17958h = bdListView;
-        bdListView.setDividerHeight(0);
-        this.f17958h.setSelector(17170445);
-        d.a.o0.k1.n.a aVar = new d.a.o0.k1.n.a(this.j);
-        this.f17959i = aVar;
-        this.f17958h.setAdapter((ListAdapter) aVar);
-        PbListView pbListView = new PbListView(context);
-        this.f17957g = pbListView;
-        pbListView.a();
-        this.f17957g.o(R.color.CAM_X0204);
-        this.f17957g.C(SkinManager.getColor(R.color.CAM_X0109));
-        this.f17957g.d(TbadkCoreApplication.getInst().getSkinType());
-        d.a.n0.r.f0.g gVar = new d.a.n0.r.f0.g(this.j);
-        this.f17956f = gVar;
-        this.f17958h.setPullRefresh(gVar);
-        this.f17956f.B(true);
-        this.f17956f.a(new e());
-        this.f17958h.setOnSrollToBottomListener(new f());
-        this.f17958h.setOnScrollListener(this);
-        h hVar = new h(this.f17958h, this.f17959i);
-        this.l = hVar;
-        hVar.l(this.u);
-        addView(this.f17958h);
     }
 
-    public void setCallback(d.a.o0.k1.c cVar) {
-        this.k = cVar;
+    public void setCallback(d.a.s0.n1.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+            this.k = cVar;
+        }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        d.a.n0.r.f0.g gVar = this.f17956f;
-        if (gVar != null) {
-            gVar.Z(bdUniqueId);
+        d.a.r0.r.f0.g gVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) || (gVar = this.f18082f) == null) {
+            return;
         }
+        gVar.a0(bdUniqueId);
     }
 
-    public void setTagInfo(d.a.o0.k1.p.e eVar) {
-        this.f17955e = eVar;
+    public void setTagInfo(d.a.s0.n1.p.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
+            this.f18081e = eVar;
+        }
     }
 
     public void setViewBackGround() {
-        u(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            u(true);
+        }
     }
 
     public void setViewForeground() {
-        u(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            u(false);
+        }
     }
 
     public final boolean t() {
-        d.a.n0.d0.h hVar = this.n;
-        return hVar != null && hVar.isViewAttached();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            d.a.r0.d0.h hVar = this.n;
+            return hVar != null && hVar.isViewAttached();
+        }
+        return invokeV.booleanValue;
     }
 
     public void u(boolean z) {
-        if (this.f17958h == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.f18084h == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f17958h.getChildCount(); i2++) {
-            View childAt = this.f17958h.getChildAt(i2);
-            if (childAt instanceof d.a.o0.k1.o.l.e) {
+        for (int i2 = 0; i2 < this.f18084h.getChildCount(); i2++) {
+            View childAt = this.f18084h.getChildAt(i2);
+            if (childAt instanceof d.a.s0.n1.o.l.e) {
                 if (z) {
-                    ((d.a.o0.k1.o.l.e) childAt).f();
+                    ((d.a.s0.n1.o.l.e) childAt).f();
                 } else {
-                    ((d.a.o0.k1.o.l.e) childAt).k();
+                    ((d.a.s0.n1.o.l.e) childAt).k();
                 }
             }
         }
     }
 
     public final void v() {
-        if (this.f17958h == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.f18084h == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f17958h.getChildCount(); i2++) {
-            View childAt = this.f17958h.getChildAt(i2);
-            if (childAt instanceof d.a.o0.k1.o.l.e) {
-                ((d.a.o0.k1.o.l.e) childAt).j();
+        for (int i2 = 0; i2 < this.f18084h.getChildCount(); i2++) {
+            View childAt = this.f18084h.getChildAt(i2);
+            if (childAt instanceof d.a.s0.n1.o.l.e) {
+                ((d.a.s0.n1.o.l.e) childAt).j();
             }
         }
     }
 
     public void w(int i2) {
-        d.a.n0.d0.g gVar = this.m;
-        if (gVar != null) {
-            gVar.onChangeSkinType();
-        }
-        d.a.n0.d0.h hVar = this.n;
-        if (hVar != null) {
-            hVar.onChangeSkinType();
-        }
-        d.a.n0.r.f0.g gVar2 = this.f17956f;
-        if (gVar2 != null) {
-            gVar2.I(i2);
-        }
-        BdListView bdListView = this.f17958h;
-        if (bdListView != null) {
-            SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0204, i2);
-        }
-        PbListView pbListView = this.f17957g;
-        if (pbListView != null) {
-            pbListView.C(SkinManager.getColor(R.color.CAM_X0109));
-            this.f17957g.d(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            d.a.r0.d0.g gVar = this.m;
+            if (gVar != null) {
+                gVar.onChangeSkinType();
+            }
+            d.a.r0.d0.h hVar = this.n;
+            if (hVar != null) {
+                hVar.onChangeSkinType();
+            }
+            d.a.r0.r.f0.g gVar2 = this.f18082f;
+            if (gVar2 != null) {
+                gVar2.I(i2);
+            }
+            BdListView bdListView = this.f18084h;
+            if (bdListView != null) {
+                SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0204, i2);
+            }
+            PbListView pbListView = this.f18083g;
+            if (pbListView != null) {
+                pbListView.C(SkinManager.getColor(R.color.CAM_X0109));
+                this.f18083g.d(i2);
+            }
         }
     }
 
     public final void x(boolean z, int i2) {
-        if (this.m == null) {
-            if (i2 < 0) {
-                this.m = new d.a.n0.d0.g(getContext());
-            } else {
-                this.m = new d.a.n0.d0.g(getContext(), i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (this.m == null) {
+                if (i2 < 0) {
+                    this.m = new d.a.r0.d0.g(getContext());
+                } else {
+                    this.m = new d.a.r0.d0.g(getContext(), i2);
+                }
+                this.m.onChangeSkinType();
             }
-            this.m.onChangeSkinType();
+            this.m.attachView(this, z);
         }
-        this.m.attachView(this, z);
     }
 
     public final void y(View view, String str, boolean z) {
-        if (this.n == null) {
-            this.n = new d.a.n0.d0.h(getContext(), new g());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048595, this, view, str, z) == null) {
+            if (this.n == null) {
+                this.n = new d.a.r0.d0.h(getContext(), new g(this));
+            }
+            this.n.j(getResources().getDimensionPixelSize(R.dimen.ds160));
+            this.n.l(str);
+            this.n.attachView(view, z);
+            this.n.o();
         }
-        this.n.j(getResources().getDimensionPixelSize(R.dimen.ds160));
-        this.n.l(str);
-        this.n.attachView(view, z);
-        this.n.o();
     }
 
     public void z(long j, String str) {
-        this.o = j;
-        this.p = str;
-        h hVar = this.l;
-        if (hVar != null) {
-            hVar.m(j, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048596, this, j, str) == null) {
+            this.o = j;
+            this.p = str;
+            h hVar = this.l;
+            if (hVar != null) {
+                hVar.m(j, str);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LegoHotPageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.r = new a(2001115);
-        this.s = new b(2001335);
-        this.t = new c(2001336);
-        this.u = new d();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.r = new a(this, 2001115);
+        this.s = new b(this, 2001335);
+        this.t = new c(this, 2001336);
+        this.u = new d(this);
         s(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LegoHotPageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.r = new a(2001115);
-        this.s = new b(2001335);
-        this.t = new c(2001336);
-        this.u = new d();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.r = new a(this, 2001115);
+        this.s = new b(this, 2001335);
+        this.t = new c(this, 2001336);
+        this.u = new d(this);
         s(context);
     }
 }

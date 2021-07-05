@@ -1,32 +1,59 @@
 package com.xiaomi.push.service;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ad extends ai.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f41822a;
+    public final /* synthetic */ int f43565a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ao f876a;
+    public final /* synthetic */ ao f879a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f877a;
+    public final /* synthetic */ String f880a;
 
     public ad(String str, ao aoVar, int i2) {
-        this.f877a = str;
-        this.f876a = aoVar;
-        this.f41822a = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aoVar, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f880a = str;
+        this.f879a = aoVar;
+        this.f43565a = i2;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo170a() {
-        return this.f877a;
+    public String mo184a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f880a : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f876a.a(this.f41822a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f879a.a(this.f43565a);
+        }
     }
 }

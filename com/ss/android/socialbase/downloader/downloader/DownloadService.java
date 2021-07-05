@@ -3,92 +3,170 @@ package com.ss.android.socialbase.downloader.downloader;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import d.o.a.e.b.g.d;
-import d.o.a.e.b.g.o;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.l.a.e.b.g.e;
+import d.l.a.e.b.g.p;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes7.dex */
 public class DownloadService extends Service {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39768b = DownloadService.class.getSimpleName();
+    public static final String f41511b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public o f39769a;
+    public p f41512a;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f39770e;
+        public final /* synthetic */ Intent f41513e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f39771f;
+        public final /* synthetic */ int f41514f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f39772g;
+        public final /* synthetic */ int f41515g;
 
-        public a(Intent intent, int i2, int i3) {
-            this.f39770e = intent;
-            this.f39771f = i2;
-            this.f39772g = i3;
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ DownloadService f41516h;
+
+        public a(DownloadService downloadService, Intent intent, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {downloadService, intent, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f41516h = downloadService;
+            this.f41513e = intent;
+            this.f41514f = i2;
+            this.f41515g = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            o oVar = DownloadService.this.f39769a;
-            if (oVar != null) {
-                oVar.a(this.f39770e, this.f39771f, this.f39772g);
+            p pVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pVar = this.f41516h.f41512a) == null) {
+                return;
+            }
+            pVar.a(this.f41513e, this.f41514f, this.f41515g);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2008717398, "Lcom/ss/android/socialbase/downloader/downloader/DownloadService;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2008717398, "Lcom/ss/android/socialbase/downloader/downloader/DownloadService;");
+                return;
+            }
+        }
+        f41511b = DownloadService.class.getSimpleName();
+    }
+
+    public DownloadService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        String str = f39768b;
-        StringBuilder sb = new StringBuilder();
-        sb.append("onBind downloadServiceHandler != null:");
-        sb.append(this.f39769a != null);
-        d.o.a.e.b.c.a.g(str, sb.toString());
-        o oVar = this.f39769a;
-        if (oVar != null) {
-            return oVar.a(intent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            String str = f41511b;
+            StringBuilder sb = new StringBuilder();
+            sb.append("onBind downloadServiceHandler != null:");
+            sb.append(this.f41512a != null);
+            d.l.a.e.b.c.a.g(str, sb.toString());
+            p pVar = this.f41512a;
+            if (pVar != null) {
+                return pVar.a(intent);
+            }
+            return null;
         }
-        return null;
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        super.onCreate();
-        d.y(this);
-        o J0 = d.J0();
-        this.f39769a = J0;
-        J0.c(new WeakReference(this));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            e.C(this);
+            p N0 = e.N0();
+            this.f41512a = N0;
+            N0.c(new WeakReference(this));
+        }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (d.o.a.e.b.c.a.e()) {
-            d.o.a.e.b.c.a.g(f39768b, "Service onDestroy");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (d.l.a.e.b.c.a.e()) {
+                d.l.a.e.b.c.a.g(f41511b, "Service onDestroy");
+            }
+            p pVar = this.f41512a;
+            if (pVar != null) {
+                pVar.d();
+                this.f41512a = null;
+            }
+            super.onDestroy();
         }
-        o oVar = this.f39769a;
-        if (oVar != null) {
-            oVar.d();
-            this.f39769a = null;
-        }
-        super.onDestroy();
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i2, int i3) {
-        if (d.o.a.e.b.c.a.e()) {
-            d.o.a.e.b.c.a.g(f39768b, "DownloadService onStartCommand");
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
+            if (d.l.a.e.b.c.a.e()) {
+                d.l.a.e.b.c.a.g(f41511b, "DownloadService onStartCommand");
+            }
+            this.f41512a.c();
+            ExecutorService A0 = e.A0();
+            if (A0 != null) {
+                A0.execute(new a(this, intent, i2, i3));
+            }
+            return e.y0() ? 2 : 3;
         }
-        this.f39769a.c();
-        ExecutorService w0 = d.w0();
-        if (w0 != null) {
-            w0.execute(new a(intent, i2, i3));
-        }
-        return d.u0() ? 2 : 3;
+        return invokeLII.intValue;
     }
 }

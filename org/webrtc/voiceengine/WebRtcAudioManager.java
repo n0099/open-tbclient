@@ -4,14 +4,21 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WebRtcAudioManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;
     public static final boolean DEBUG = false;
     public static final int DEFAULT_FRAME_PER_BUFFER = 256;
@@ -21,6 +28,7 @@ public class WebRtcAudioManager {
     public static boolean blacklistDeviceForOpenSLESUsageIsOverridden;
     public static boolean useStereoInput;
     public static boolean useStereoOutput;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean aAudio;
     public final AudioManager audioManager;
     public boolean hardwareAEC;
@@ -40,20 +48,40 @@ public class WebRtcAudioManager {
     public int sampleRate;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class VolumeLogger {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
         public static final int TIMER_PERIOD_IN_SECONDS = 30;
+        public transient /* synthetic */ FieldHolder $fh;
         public final AudioManager audioManager;
         @Nullable
         public Timer timer;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public class LogVolumeTask extends TimerTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
             public final int maxRingVolume;
             public final int maxVoiceCallVolume;
+            public final /* synthetic */ VolumeLogger this$0;
 
-            public LogVolumeTask(int i2, int i3) {
+            public LogVolumeTask(VolumeLogger volumeLogger, int i2, int i3) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {volumeLogger, Integer.valueOf(i2), Integer.valueOf(i3)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i4 = newInitContext.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = volumeLogger;
                 this.maxRingVolume = i2;
                 this.maxVoiceCallVolume = i3;
             }
@@ -62,49 +90,85 @@ public class WebRtcAudioManager {
             public void run() {
                 StringBuilder sb;
                 int i2;
-                int mode = VolumeLogger.this.audioManager.getMode();
-                if (mode == 1) {
-                    sb = new StringBuilder();
-                    sb.append("STREAM_RING stream volume: ");
-                    sb.append(VolumeLogger.this.audioManager.getStreamVolume(2));
-                    sb.append(" (max=");
-                    i2 = this.maxRingVolume;
-                } else if (mode != 3) {
-                    return;
-                } else {
-                    sb = new StringBuilder();
-                    sb.append("VOICE_CALL stream volume: ");
-                    sb.append(VolumeLogger.this.audioManager.getStreamVolume(0));
-                    sb.append(" (max=");
-                    i2 = this.maxVoiceCallVolume;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    int mode = this.this$0.audioManager.getMode();
+                    if (mode == 1) {
+                        sb = new StringBuilder();
+                        sb.append("STREAM_RING stream volume: ");
+                        sb.append(this.this$0.audioManager.getStreamVolume(2));
+                        sb.append(" (max=");
+                        i2 = this.maxRingVolume;
+                    } else if (mode != 3) {
+                        return;
+                    } else {
+                        sb = new StringBuilder();
+                        sb.append("VOICE_CALL stream volume: ");
+                        sb.append(this.this$0.audioManager.getStreamVolume(0));
+                        sb.append(" (max=");
+                        i2 = this.maxVoiceCallVolume;
+                    }
+                    sb.append(i2);
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                    Logging.d(WebRtcAudioManager.TAG, sb.toString());
                 }
-                sb.append(i2);
-                sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                Logging.d(WebRtcAudioManager.TAG, sb.toString());
             }
         }
 
         public VolumeLogger(AudioManager audioManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {audioManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.audioManager = audioManager;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void stop() {
-            Timer timer = this.timer;
-            if (timer != null) {
-                timer.cancel();
-                this.timer = null;
+            Timer timer;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (timer = this.timer) == null) {
+                return;
             }
+            timer.cancel();
+            this.timer = null;
         }
 
         public void start() {
-            Timer timer = new Timer("WebRtcVolumeLevelLoggerThread");
-            this.timer = timer;
-            timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, 30000L);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Timer timer = new Timer("WebRtcVolumeLevelLoggerThread");
+                this.timer = timer;
+                timer.schedule(new LogVolumeTask(this, this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, 30000L);
+            }
         }
     }
 
     public WebRtcAudioManager(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
         this.nativeAudioManager = j;
         AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
@@ -116,165 +180,250 @@ public class WebRtcAudioManager {
     }
 
     public static void assertTrue(boolean z) {
-        if (!z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65537, null, z) == null) && !z) {
             throw new AssertionError("Expected condition to be true");
         }
     }
 
     private void dispose() {
-        Logging.d(TAG, "dispose" + WebRtcAudioUtils.getThreadInfo());
-        if (this.initialized) {
-            this.volumeLogger.stop();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            Logging.d(TAG, "dispose" + WebRtcAudioUtils.getThreadInfo());
+            if (this.initialized) {
+                this.volumeLogger.stop();
+            }
         }
     }
 
     private int getLowLatencyInputFramesPerBuffer() {
-        assertTrue(isLowLatencyInputSupported());
-        return getLowLatencyOutputFramesPerBuffer();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            assertTrue(isLowLatencyInputSupported());
+            return getLowLatencyOutputFramesPerBuffer();
+        }
+        return invokeV.intValue;
     }
 
     private int getLowLatencyOutputFramesPerBuffer() {
+        InterceptResult invokeV;
         String property;
-        assertTrue(isLowLatencyOutputSupported());
-        if (Build.VERSION.SDK_INT >= 17 && (property = this.audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER")) != null) {
-            return Integer.parseInt(property);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            assertTrue(isLowLatencyOutputSupported());
+            if (Build.VERSION.SDK_INT >= 17 && (property = this.audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER")) != null) {
+                return Integer.parseInt(property);
+            }
+            return 256;
         }
-        return 256;
+        return invokeV.intValue;
     }
 
     public static int getMinInputFrameSize(int i2, int i3) {
-        return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) {
+            return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
+        }
+        return invokeII.intValue;
     }
 
     public static int getMinOutputFrameSize(int i2, int i3) {
-        return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) {
+            return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
+        }
+        return invokeII.intValue;
     }
 
     private int getNativeOutputSampleRate() {
-        if (WebRtcAudioUtils.runningOnEmulator()) {
-            Logging.d(TAG, "Running emulator, overriding sample rate to 8 kHz.");
-            return 8000;
-        } else if (WebRtcAudioUtils.isDefaultSampleRateOverridden()) {
-            Logging.d(TAG, "Default sample rate is overriden to " + WebRtcAudioUtils.getDefaultSampleRateHz() + " Hz");
-            return WebRtcAudioUtils.getDefaultSampleRateHz();
-        } else {
-            int sampleRateForApiLevel = getSampleRateForApiLevel();
-            Logging.d(TAG, "Sample rate is set to " + sampleRateForApiLevel + " Hz");
-            return sampleRateForApiLevel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            if (WebRtcAudioUtils.runningOnEmulator()) {
+                Logging.d(TAG, "Running emulator, overriding sample rate to 8 kHz.");
+                return 8000;
+            } else if (WebRtcAudioUtils.isDefaultSampleRateOverridden()) {
+                Logging.d(TAG, "Default sample rate is overriden to " + WebRtcAudioUtils.getDefaultSampleRateHz() + " Hz");
+                return WebRtcAudioUtils.getDefaultSampleRateHz();
+            } else {
+                int sampleRateForApiLevel = getSampleRateForApiLevel();
+                Logging.d(TAG, "Sample rate is set to " + sampleRateForApiLevel + " Hz");
+                return sampleRateForApiLevel;
+            }
         }
+        return invokeV.intValue;
     }
 
     private int getSampleRateForApiLevel() {
+        InterceptResult invokeV;
         String property;
-        if (Build.VERSION.SDK_INT >= 17 && (property = this.audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE")) != null) {
-            return Integer.parseInt(property);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 17 && (property = this.audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE")) != null) {
+                return Integer.parseInt(property);
+            }
+            return WebRtcAudioUtils.getDefaultSampleRateHz();
         }
-        return WebRtcAudioUtils.getDefaultSampleRateHz();
+        return invokeV.intValue;
     }
 
     public static boolean getStereoInput() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (WebRtcAudioManager.class) {
-            z = useStereoInput;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            synchronized (WebRtcAudioManager.class) {
+                z = useStereoInput;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     public static boolean getStereoOutput() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (WebRtcAudioManager.class) {
-            z = useStereoOutput;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            synchronized (WebRtcAudioManager.class) {
+                z = useStereoOutput;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     private boolean hasEarpiece() {
-        return ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.telephony");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.telephony") : invokeV.booleanValue;
     }
 
     private boolean init() {
-        Logging.d(TAG, "init" + WebRtcAudioUtils.getThreadInfo());
-        if (this.initialized) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            Logging.d(TAG, "init" + WebRtcAudioUtils.getThreadInfo());
+            if (this.initialized) {
+                return true;
+            }
+            Logging.d(TAG, "audio mode is: " + WebRtcAudioUtils.modeToString(this.audioManager.getMode()));
+            this.initialized = true;
+            this.volumeLogger.start();
             return true;
         }
-        Logging.d(TAG, "audio mode is: " + WebRtcAudioUtils.modeToString(this.audioManager.getMode()));
-        this.initialized = true;
-        this.volumeLogger.start();
-        return true;
+        return invokeV.booleanValue;
     }
 
     private boolean isAAudioSupported() {
-        Logging.w(TAG, "AAudio support is currently disabled on all devices!");
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            Logging.w(TAG, "AAudio support is currently disabled on all devices!");
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isAcousticEchoCancelerSupported() {
-        return WebRtcAudioEffects.canUseAcousticEchoCanceler();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? WebRtcAudioEffects.canUseAcousticEchoCanceler() : invokeV.booleanValue;
     }
 
     private boolean isCommunicationModeEnabled() {
-        return this.audioManager.getMode() == 3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? this.audioManager.getMode() == 3 : invokeV.booleanValue;
     }
 
     private boolean isDeviceBlacklistedForOpenSLESUsage() {
-        boolean deviceIsBlacklistedForOpenSLESUsage = blacklistDeviceForOpenSLESUsageIsOverridden ? blacklistDeviceForOpenSLESUsage : WebRtcAudioUtils.deviceIsBlacklistedForOpenSLESUsage();
-        if (deviceIsBlacklistedForOpenSLESUsage) {
-            Logging.d(TAG, Build.MODEL + " is blacklisted for OpenSL ES usage!");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            boolean deviceIsBlacklistedForOpenSLESUsage = blacklistDeviceForOpenSLESUsageIsOverridden ? blacklistDeviceForOpenSLESUsage : WebRtcAudioUtils.deviceIsBlacklistedForOpenSLESUsage();
+            if (deviceIsBlacklistedForOpenSLESUsage) {
+                Logging.d(TAG, Build.MODEL + " is blacklisted for OpenSL ES usage!");
+            }
+            return deviceIsBlacklistedForOpenSLESUsage;
         }
-        return deviceIsBlacklistedForOpenSLESUsage;
+        return invokeV.booleanValue;
     }
 
     private boolean isLowLatencyOutputSupported() {
-        return ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.low_latency");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.low_latency") : invokeV.booleanValue;
     }
 
     public static boolean isNoiseSuppressorSupported() {
-        return WebRtcAudioEffects.canUseNoiseSuppressor();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? WebRtcAudioEffects.canUseNoiseSuppressor() : invokeV.booleanValue;
     }
 
     private boolean isProAudioSupported() {
-        return Build.VERSION.SDK_INT >= 23 && ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.pro");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? Build.VERSION.SDK_INT >= 23 && ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.pro") : invokeV.booleanValue;
     }
 
     private native void nativeCacheAudioParameters(int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, long j);
 
     public static void setBlacklistDeviceForOpenSLESUsage(boolean z) {
-        synchronized (WebRtcAudioManager.class) {
-            blacklistDeviceForOpenSLESUsageIsOverridden = true;
-            blacklistDeviceForOpenSLESUsage = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65557, null, z) == null) {
+            synchronized (WebRtcAudioManager.class) {
+                blacklistDeviceForOpenSLESUsageIsOverridden = true;
+                blacklistDeviceForOpenSLESUsage = z;
+            }
         }
     }
 
     public static void setStereoInput(boolean z) {
-        synchronized (WebRtcAudioManager.class) {
-            Logging.w(TAG, "Overriding default input behavior: setStereoInput(" + z + ')');
-            useStereoInput = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
+            synchronized (WebRtcAudioManager.class) {
+                Logging.w(TAG, "Overriding default input behavior: setStereoInput(" + z + ')');
+                useStereoInput = z;
+            }
         }
     }
 
     public static void setStereoOutput(boolean z) {
-        synchronized (WebRtcAudioManager.class) {
-            Logging.w(TAG, "Overriding default output behavior: setStereoOutput(" + z + ')');
-            useStereoOutput = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65559, null, z) == null) {
+            synchronized (WebRtcAudioManager.class) {
+                Logging.w(TAG, "Overriding default output behavior: setStereoOutput(" + z + ')');
+                useStereoOutput = z;
+            }
         }
     }
 
     private void storeAudioParameters() {
-        this.outputChannels = getStereoOutput() ? 2 : 1;
-        this.inputChannels = getStereoInput() ? 2 : 1;
-        this.sampleRate = getNativeOutputSampleRate();
-        this.hardwareAEC = isAcousticEchoCancelerSupported();
-        this.hardwareAGC = false;
-        this.hardwareNS = isNoiseSuppressorSupported();
-        this.lowLatencyOutput = isLowLatencyOutputSupported();
-        this.lowLatencyInput = isLowLatencyInputSupported();
-        this.proAudio = isProAudioSupported();
-        this.aAudio = isAAudioSupported();
-        this.outputBufferSize = this.lowLatencyOutput ? getLowLatencyOutputFramesPerBuffer() : getMinOutputFrameSize(this.sampleRate, this.outputChannels);
-        this.inputBufferSize = this.lowLatencyInput ? getLowLatencyInputFramesPerBuffer() : getMinInputFrameSize(this.sampleRate, this.inputChannels);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+            this.outputChannels = getStereoOutput() ? 2 : 1;
+            this.inputChannels = getStereoInput() ? 2 : 1;
+            this.sampleRate = getNativeOutputSampleRate();
+            this.hardwareAEC = isAcousticEchoCancelerSupported();
+            this.hardwareAGC = false;
+            this.hardwareNS = isNoiseSuppressorSupported();
+            this.lowLatencyOutput = isLowLatencyOutputSupported();
+            this.lowLatencyInput = isLowLatencyInputSupported();
+            this.proAudio = isProAudioSupported();
+            this.aAudio = isAAudioSupported();
+            this.outputBufferSize = this.lowLatencyOutput ? getLowLatencyOutputFramesPerBuffer() : getMinOutputFrameSize(this.sampleRate, this.outputChannels);
+            this.inputBufferSize = this.lowLatencyInput ? getLowLatencyInputFramesPerBuffer() : getMinInputFrameSize(this.sampleRate, this.inputChannels);
+        }
     }
 
     public boolean isLowLatencyInputSupported() {
-        return Build.VERSION.SDK_INT >= 21 && isLowLatencyOutputSupported();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Build.VERSION.SDK_INT >= 21 && isLowLatencyOutputSupported() : invokeV.booleanValue;
     }
 }

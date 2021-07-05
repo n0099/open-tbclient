@@ -11,6 +11,13 @@ import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,170 +26,251 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.cid.cesium.c.d.d f8186a;
+    public com.baidu.mobads.cid.cesium.c.d.d f8259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f8187b;
+    public List<b> f8260b;
 
     public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a();
     }
 
     public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         StringBuilder sb;
-        if (bArr != null) {
-            String str = "";
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
-                if (hexString.length() == 1) {
-                    sb = new StringBuilder();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr != null) {
+                String str = "";
+                for (byte b2 : bArr) {
+                    String hexString = Integer.toHexString(b2 & 255);
+                    if (hexString.length() == 1) {
+                        sb = new StringBuilder();
+                        sb.append(str);
+                        str = "0";
+                    } else {
+                        sb = new StringBuilder();
+                    }
                     sb.append(str);
-                    str = "0";
-                } else {
-                    sb = new StringBuilder();
+                    sb.append(hexString);
+                    str = sb.toString();
                 }
-                sb.append(str);
-                sb.append(hexString);
-                str = sb.toString();
+                return str.toLowerCase();
             }
-            return str.toLowerCase();
+            throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
         }
-        throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
+        return (String) invokeL.objValue;
     }
 
     private void a() {
-        this.f8186a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.f8259a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
+        }
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
-        if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, strArr, strArr2)) == null) {
+            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
+                return false;
+            }
+            HashSet hashSet = new HashSet();
+            for (String str : strArr) {
+                hashSet.add(str);
+            }
+            HashSet hashSet2 = new HashSet();
+            for (String str2 : strArr2) {
+                hashSet2.add(str2);
+            }
+            return hashSet.equals(hashSet2);
         }
-        HashSet hashSet = new HashSet();
-        for (String str : strArr) {
-            hashSet.add(str);
-        }
-        HashSet hashSet2 = new HashSet();
-        for (String str2 : strArr2) {
-            hashSet2.add(str2);
-        }
-        return hashSet.equals(hashSet2);
+        return invokeLL.booleanValue;
     }
 
     public static byte[] a(byte[] bArr, com.baidu.mobads.cid.cesium.c.d.d dVar) {
-        com.baidu.mobads.cid.cesium.c.d.a a2 = com.baidu.mobads.cid.cesium.c.d.a.a();
-        a2.a(2, dVar);
-        return a2.a(bArr);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, dVar)) == null) {
+            com.baidu.mobads.cid.cesium.c.d.a a2 = com.baidu.mobads.cid.cesium.c.d.a.a();
+            a2.a(2, dVar);
+            return a2.a(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
     }
 
     private String[] a(Signature[] signatureArr) {
-        int length = signatureArr.length;
-        String[] strArr = new String[length];
-        for (int i2 = 0; i2 < length; i2++) {
-            strArr[i2] = a(com.baidu.mobads.cid.cesium.d.c.a(signatureArr[i2].toByteArray()));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, signatureArr)) == null) {
+            int length = signatureArr.length;
+            String[] strArr = new String[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                strArr[i2] = a(com.baidu.mobads.cid.cesium.d.c.a(signatureArr[i2].toByteArray()));
+            }
+            return strArr;
         }
-        return strArr;
+        return (String[]) invokeL.objValue;
     }
 
     public List<b> a(Context context, Intent intent, boolean z) {
-        ArrayList arrayList = new ArrayList();
-        PackageManager packageManager = context.getPackageManager();
-        List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
-        if (queryBroadcastReceivers != null) {
-            for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                ActivityInfo activityInfo = resolveInfo.activityInfo;
-                if (activityInfo != null && activityInfo.applicationInfo != null) {
-                    try {
-                        Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
-                        if (bundle != null) {
-                            String string = bundle.getString("galaxy_data");
-                            if (!TextUtils.isEmpty(string)) {
-                                byte[] a2 = com.baidu.mobads.cid.cesium.d.a.a(string.getBytes("utf-8"));
-                                JSONObject jSONObject = new JSONObject(new String(a2));
-                                b bVar = new b();
-                                bVar.f8120b = jSONObject.getInt("priority");
-                                bVar.f8119a = resolveInfo.activityInfo.applicationInfo;
-                                if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                    bVar.f8122d = true;
-                                }
-                                if (z) {
-                                    String string2 = bundle.getString("galaxy_sf");
-                                    if (!TextUtils.isEmpty(string2)) {
-                                        PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
-                                        JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-                                        int length = jSONArray.length();
-                                        String[] strArr = new String[length];
-                                        for (int i2 = 0; i2 < length; i2++) {
-                                            strArr[i2] = jSONArray.getString(i2);
-                                        }
-                                        if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f8186a);
-                                            if (a3 != null && Arrays.equals(a3, com.baidu.mobads.cid.cesium.d.c.a(a2))) {
-                                                bVar.f8121c = true;
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, intent, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
+            if (queryBroadcastReceivers != null) {
+                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    if (activityInfo != null && activityInfo.applicationInfo != null) {
+                        try {
+                            Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
+                            if (bundle != null) {
+                                String string = bundle.getString("galaxy_data");
+                                if (!TextUtils.isEmpty(string)) {
+                                    byte[] a2 = com.baidu.mobads.cid.cesium.d.a.a(string.getBytes("utf-8"));
+                                    JSONObject jSONObject = new JSONObject(new String(a2));
+                                    b bVar = new b();
+                                    bVar.f8193b = jSONObject.getInt("priority");
+                                    bVar.f8192a = resolveInfo.activityInfo.applicationInfo;
+                                    if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                        bVar.f8195d = true;
+                                    }
+                                    if (z) {
+                                        String string2 = bundle.getString("galaxy_sf");
+                                        if (!TextUtils.isEmpty(string2)) {
+                                            PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
+                                            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+                                            int length = jSONArray.length();
+                                            String[] strArr = new String[length];
+                                            for (int i2 = 0; i2 < length; i2++) {
+                                                strArr[i2] = jSONArray.getString(i2);
+                                            }
+                                            if (a(strArr, a(packageInfo.signatures))) {
+                                                byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f8259a);
+                                                if (a3 != null && Arrays.equals(a3, com.baidu.mobads.cid.cesium.d.c.a(a2))) {
+                                                    bVar.f8194c = true;
+                                                }
                                             }
                                         }
                                     }
+                                    arrayList.add(bVar);
                                 }
-                                arrayList.add(bVar);
+                            }
+                        } catch (Exception unused) {
+                        }
+                    }
+                }
+            }
+            Collections.sort(arrayList, new Comparator<b>(this) { // from class: com.baidu.mobads.cid.cesium.c.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ c f8261a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f8261a = this;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                /* renamed from: a */
+                public int compare(b bVar2, b bVar3) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, bVar2, bVar3)) == null) {
+                        int i3 = bVar3.f8193b - bVar2.f8193b;
+                        if (i3 == 0) {
+                            if (bVar2.f8195d && bVar3.f8195d) {
+                                return 0;
+                            }
+                            if (bVar2.f8195d) {
+                                return -1;
+                            }
+                            if (bVar3.f8195d) {
+                                return 1;
                             }
                         }
-                    } catch (Exception unused) {
+                        return i3;
                     }
+                    return invokeLL.intValue;
                 }
-            }
+            });
+            return arrayList;
         }
-        Collections.sort(arrayList, new Comparator<b>() { // from class: com.baidu.mobads.cid.cesium.c.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(b bVar2, b bVar3) {
-                int i3 = bVar3.f8120b - bVar2.f8120b;
-                if (i3 == 0) {
-                    if (bVar2.f8122d && bVar3.f8122d) {
-                        return 0;
-                    }
-                    if (bVar2.f8122d) {
-                        return -1;
-                    }
-                    if (bVar3.f8122d) {
-                        return 1;
-                    }
-                }
-                return i3;
-            }
-        });
-        return arrayList;
+        return (List) invokeLLZ.objValue;
     }
 
     public boolean a(Context context) {
-        List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
-        if (a2 == null || a2.size() == 0) {
-            for (int i2 = 0; i2 < 3; i2++) {
-                Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
+            if (a2 == null || a2.size() == 0) {
+                for (int i2 = 0; i2 < 3; i2++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
+                }
+                return false;
             }
-            return false;
-        }
-        boolean z = a2.get(0).f8121c;
-        if (!z) {
-            for (int i3 = 0; i3 < 3; i3++) {
-                Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
+            boolean z = a2.get(0).f8194c;
+            if (!z) {
+                for (int i3 = 0; i3 < 3; i3++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
+                }
             }
+            return z;
         }
-        return z;
+        return invokeL.booleanValue;
     }
 
     public List<b> b(Context context) {
-        List<b> list = this.f8187b;
-        if (list != null) {
-            return list;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            List<b> list = this.f8260b;
+            if (list != null) {
+                return list;
+            }
+            a(context);
+            List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
+            this.f8260b = a2;
+            return a2;
         }
-        a(context);
-        List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-        this.f8187b = a2;
-        return a2;
+        return (List) invokeL.objValue;
     }
 }

@@ -5,26 +5,107 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCAudioSamples;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class RTCRoomProvider {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes2.dex */
-    public enum CyberRtcLiveTransferMode {
-        RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION,
-        RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION
+    /* loaded from: classes3.dex */
+    public static final class CyberRtcLiveTransferMode {
+        public static /* synthetic */ Interceptable $ic;
+        public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION;
+        public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ CyberRtcLiveTransferMode[] f5012a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1806424764, "Lcom/baidu/cyberplayer/sdk/rtc/RTCRoomProvider$CyberRtcLiveTransferMode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1806424764, "Lcom/baidu/cyberplayer/sdk/rtc/RTCRoomProvider$CyberRtcLiveTransferMode;");
+                    return;
+                }
+            }
+            RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION = new CyberRtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION", 0);
+            CyberRtcLiveTransferMode cyberRtcLiveTransferMode = new CyberRtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION", 1);
+            RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION = cyberRtcLiveTransferMode;
+            f5012a = new CyberRtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION, cyberRtcLiveTransferMode};
+        }
+
+        public CyberRtcLiveTransferMode(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static CyberRtcLiveTransferMode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CyberRtcLiveTransferMode) Enum.valueOf(CyberRtcLiveTransferMode.class, str) : (CyberRtcLiveTransferMode) invokeL.objValue;
+        }
+
+        public static CyberRtcLiveTransferMode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcLiveTransferMode[]) f5012a.clone() : (CyberRtcLiveTransferMode[]) invokeV.objValue;
+        }
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CyberRtcRoomAudioLevel {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String nicName;
         public long userID;
         public int volumeLevel;
 
         public CyberRtcRoomAudioLevel(long j, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.userID = j;
             this.nicName = str;
             this.volumeLevel = i2;
@@ -32,7 +113,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CyberRtcRoomDelegate {
         void onEngineStatisticsInfo(int i2);
 
@@ -48,14 +129,30 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CyberRtcRoomUserInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public String attribute;
         public int role;
         public long userID;
         public String userName;
 
         public CyberRtcRoomUserInfo(long j, String str, String str2, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.userID = j;
             this.userName = str;
             this.attribute = str2;
@@ -64,18 +161,104 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CyberRtcRoomVideoDimension {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int videoHeight;
         public int videoRotation;
         public int videoWidth;
+
+        public CyberRtcRoomVideoDimension() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes2.dex */
-    public enum CyberRtcSoundMode {
-        RTC_SOUND_MODE_SPEAKER,
-        RTC_SOUND_MODE_EAR
+    /* loaded from: classes3.dex */
+    public static final class CyberRtcSoundMode {
+        public static /* synthetic */ Interceptable $ic;
+        public static final CyberRtcSoundMode RTC_SOUND_MODE_EAR;
+        public static final CyberRtcSoundMode RTC_SOUND_MODE_SPEAKER;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ CyberRtcSoundMode[] f5013a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1215551218, "Lcom/baidu/cyberplayer/sdk/rtc/RTCRoomProvider$CyberRtcSoundMode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1215551218, "Lcom/baidu/cyberplayer/sdk/rtc/RTCRoomProvider$CyberRtcSoundMode;");
+                    return;
+                }
+            }
+            RTC_SOUND_MODE_SPEAKER = new CyberRtcSoundMode("RTC_SOUND_MODE_SPEAKER", 0);
+            CyberRtcSoundMode cyberRtcSoundMode = new CyberRtcSoundMode("RTC_SOUND_MODE_EAR", 1);
+            RTC_SOUND_MODE_EAR = cyberRtcSoundMode;
+            f5013a = new CyberRtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, cyberRtcSoundMode};
+        }
+
+        public CyberRtcSoundMode(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static CyberRtcSoundMode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CyberRtcSoundMode) Enum.valueOf(CyberRtcSoundMode.class, str) : (CyberRtcSoundMode) invokeL.objValue;
+        }
+
+        public static CyberRtcSoundMode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcSoundMode[]) f5013a.clone() : (CyberRtcSoundMode[]) invokeV.objValue;
+        }
+    }
+
+    public RTCRoomProvider() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public abstract void changeSurfaceSize(long j, int i2, int i3);

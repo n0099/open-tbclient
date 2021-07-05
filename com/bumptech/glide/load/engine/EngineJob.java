@@ -6,6 +6,16 @@ import android.os.Message;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.util.Pools;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.DecodeJob;
@@ -18,11 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
-    public static final EngineResourceFactory DEFAULT_FACTORY = new EngineResourceFactory();
-    public static final Handler MAIN_THREAD_HANDLER = new Handler(Looper.getMainLooper(), new MainThreadCallback());
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final EngineResourceFactory DEFAULT_FACTORY;
+    public static final Handler MAIN_THREAD_HANDLER;
     public static final int MSG_CANCELLED = 3;
     public static final int MSG_COMPLETE = 1;
     public static final int MSG_EXCEPTION = 2;
+    public transient /* synthetic */ FieldHolder $fh;
     public final GlideExecutor animationExecutor;
     public final List<ResourceCallback> cbs;
     public DataSource dataSource;
@@ -50,90 +62,185 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     @VisibleForTesting
     /* loaded from: classes6.dex */
     public static class EngineResourceFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public EngineResourceFactory() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public <R> EngineResource<R> build(Resource<R> resource, boolean z) {
-            return new EngineResource<>(resource, z, true);
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, resource, z)) == null) ? new EngineResource<>(resource, z, true) : (EngineResource) invokeLZ.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
     public static class MainThreadCallback implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public MainThreadCallback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            EngineJob engineJob = (EngineJob) message.obj;
-            int i2 = message.what;
-            if (i2 == 1) {
-                engineJob.handleResultOnMainThread();
-            } else if (i2 == 2) {
-                engineJob.handleExceptionOnMainThread();
-            } else if (i2 == 3) {
-                engineJob.handleCancelledOnMainThread();
-            } else {
-                throw new IllegalStateException("Unrecognized message: " + message.what);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                EngineJob engineJob = (EngineJob) message.obj;
+                int i2 = message.what;
+                if (i2 == 1) {
+                    engineJob.handleResultOnMainThread();
+                } else if (i2 == 2) {
+                    engineJob.handleExceptionOnMainThread();
+                } else if (i2 == 3) {
+                    engineJob.handleCancelledOnMainThread();
+                } else {
+                    throw new IllegalStateException("Unrecognized message: " + message.what);
+                }
+                return true;
             }
-            return true;
+            return invokeL.booleanValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-840970793, "Lcom/bumptech/glide/load/engine/EngineJob;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-840970793, "Lcom/bumptech/glide/load/engine/EngineJob;");
+                return;
+            }
+        }
+        DEFAULT_FACTORY = new EngineResourceFactory();
+        MAIN_THREAD_HANDLER = new Handler(Looper.getMainLooper(), new MainThreadCallback());
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, Pools.Pool<EngineJob<?>> pool) {
         this(glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener, pool, DEFAULT_FACTORY);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener, pool};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((GlideExecutor) objArr2[0], (GlideExecutor) objArr2[1], (GlideExecutor) objArr2[2], (GlideExecutor) objArr2[3], (EngineJobListener) objArr2[4], (Pools.Pool) objArr2[5], (EngineResourceFactory) objArr2[6]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private void addIgnoredCallback(ResourceCallback resourceCallback) {
-        if (this.ignoredCallbacks == null) {
-            this.ignoredCallbacks = new ArrayList(2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, resourceCallback) == null) {
+            if (this.ignoredCallbacks == null) {
+                this.ignoredCallbacks = new ArrayList(2);
+            }
+            if (this.ignoredCallbacks.contains(resourceCallback)) {
+                return;
+            }
+            this.ignoredCallbacks.add(resourceCallback);
         }
-        if (this.ignoredCallbacks.contains(resourceCallback)) {
-            return;
-        }
-        this.ignoredCallbacks.add(resourceCallback);
     }
 
     private GlideExecutor getActiveSourceExecutor() {
-        if (this.useUnlimitedSourceGeneratorPool) {
-            return this.sourceUnlimitedExecutor;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (this.useUnlimitedSourceGeneratorPool) {
+                return this.sourceUnlimitedExecutor;
+            }
+            return this.useAnimationPool ? this.animationExecutor : this.sourceExecutor;
         }
-        return this.useAnimationPool ? this.animationExecutor : this.sourceExecutor;
+        return (GlideExecutor) invokeV.objValue;
     }
 
     private boolean isInIgnoredCallbacks(ResourceCallback resourceCallback) {
-        List<ResourceCallback> list = this.ignoredCallbacks;
-        return list != null && list.contains(resourceCallback);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, resourceCallback)) == null) {
+            List<ResourceCallback> list = this.ignoredCallbacks;
+            return list != null && list.contains(resourceCallback);
+        }
+        return invokeL.booleanValue;
     }
 
     private void release(boolean z) {
-        Util.assertMainThread();
-        this.cbs.clear();
-        this.key = null;
-        this.engineResource = null;
-        this.resource = null;
-        List<ResourceCallback> list = this.ignoredCallbacks;
-        if (list != null) {
-            list.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, this, z) == null) {
+            Util.assertMainThread();
+            this.cbs.clear();
+            this.key = null;
+            this.engineResource = null;
+            this.resource = null;
+            List<ResourceCallback> list = this.ignoredCallbacks;
+            if (list != null) {
+                list.clear();
+            }
+            this.hasLoadFailed = false;
+            this.isCancelled = false;
+            this.hasResource = false;
+            this.decodeJob.release(z);
+            this.decodeJob = null;
+            this.exception = null;
+            this.dataSource = null;
+            this.pool.release(this);
         }
-        this.hasLoadFailed = false;
-        this.isCancelled = false;
-        this.hasResource = false;
-        this.decodeJob.release(z);
-        this.decodeJob = null;
-        this.exception = null;
-        this.dataSource = null;
-        this.pool.release(this);
     }
 
     public void addCallback(ResourceCallback resourceCallback) {
-        Util.assertMainThread();
-        this.stateVerifier.throwIfRecycled();
-        if (this.hasResource) {
-            resourceCallback.onResourceReady(this.engineResource, this.dataSource);
-        } else if (this.hasLoadFailed) {
-            resourceCallback.onLoadFailed(this.exception);
-        } else {
-            this.cbs.add(resourceCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, resourceCallback) == null) {
+            Util.assertMainThread();
+            this.stateVerifier.throwIfRecycled();
+            if (this.hasResource) {
+                resourceCallback.onResourceReady(this.engineResource, this.dataSource);
+            } else if (this.hasLoadFailed) {
+                resourceCallback.onLoadFailed(this.exception);
+            } else {
+                this.cbs.add(resourceCallback);
+            }
         }
     }
 
     public void cancel() {
-        if (this.hasLoadFailed || this.hasResource || this.isCancelled) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.hasLoadFailed || this.hasResource || this.isCancelled) {
             return;
         }
         this.isCancelled = true;
@@ -144,136 +251,185 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
     @NonNull
     public StateVerifier getVerifier() {
-        return this.stateVerifier;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.stateVerifier : (StateVerifier) invokeV.objValue;
     }
 
     public void handleCancelledOnMainThread() {
-        this.stateVerifier.throwIfRecycled();
-        if (this.isCancelled) {
-            this.listener.onEngineJobCancelled(this, this.key);
-            release(false);
-            return;
-        }
-        throw new IllegalStateException("Not cancelled");
-    }
-
-    public void handleExceptionOnMainThread() {
-        this.stateVerifier.throwIfRecycled();
-        if (this.isCancelled) {
-            release(false);
-        } else if (!this.cbs.isEmpty()) {
-            if (!this.hasLoadFailed) {
-                this.hasLoadFailed = true;
-                this.listener.onEngineJobComplete(this, this.key, null);
-                for (ResourceCallback resourceCallback : this.cbs) {
-                    if (!isInIgnoredCallbacks(resourceCallback)) {
-                        resourceCallback.onLoadFailed(this.exception);
-                    }
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.stateVerifier.throwIfRecycled();
+            if (this.isCancelled) {
+                this.listener.onEngineJobCancelled(this, this.key);
                 release(false);
                 return;
             }
-            throw new IllegalStateException("Already failed once");
-        } else {
-            throw new IllegalStateException("Received an exception without any callbacks to notify");
+            throw new IllegalStateException("Not cancelled");
+        }
+    }
+
+    public void handleExceptionOnMainThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.stateVerifier.throwIfRecycled();
+            if (this.isCancelled) {
+                release(false);
+            } else if (!this.cbs.isEmpty()) {
+                if (!this.hasLoadFailed) {
+                    this.hasLoadFailed = true;
+                    this.listener.onEngineJobComplete(this, this.key, null);
+                    for (ResourceCallback resourceCallback : this.cbs) {
+                        if (!isInIgnoredCallbacks(resourceCallback)) {
+                            resourceCallback.onLoadFailed(this.exception);
+                        }
+                    }
+                    release(false);
+                    return;
+                }
+                throw new IllegalStateException("Already failed once");
+            } else {
+                throw new IllegalStateException("Received an exception without any callbacks to notify");
+            }
         }
     }
 
     public void handleResultOnMainThread() {
-        this.stateVerifier.throwIfRecycled();
-        if (this.isCancelled) {
-            this.resource.recycle();
-            release(false);
-        } else if (!this.cbs.isEmpty()) {
-            if (!this.hasResource) {
-                EngineResource<?> build = this.engineResourceFactory.build(this.resource, this.isCacheable);
-                this.engineResource = build;
-                this.hasResource = true;
-                build.acquire();
-                this.listener.onEngineJobComplete(this, this.key, this.engineResource);
-                int size = this.cbs.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    ResourceCallback resourceCallback = this.cbs.get(i2);
-                    if (!isInIgnoredCallbacks(resourceCallback)) {
-                        this.engineResource.acquire();
-                        resourceCallback.onResourceReady(this.engineResource, this.dataSource);
-                    }
-                }
-                this.engineResource.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.stateVerifier.throwIfRecycled();
+            if (this.isCancelled) {
+                this.resource.recycle();
                 release(false);
-                return;
+            } else if (!this.cbs.isEmpty()) {
+                if (!this.hasResource) {
+                    EngineResource<?> build = this.engineResourceFactory.build(this.resource, this.isCacheable);
+                    this.engineResource = build;
+                    this.hasResource = true;
+                    build.acquire();
+                    this.listener.onEngineJobComplete(this, this.key, this.engineResource);
+                    int size = this.cbs.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        ResourceCallback resourceCallback = this.cbs.get(i2);
+                        if (!isInIgnoredCallbacks(resourceCallback)) {
+                            this.engineResource.acquire();
+                            resourceCallback.onResourceReady(this.engineResource, this.dataSource);
+                        }
+                    }
+                    this.engineResource.release();
+                    release(false);
+                    return;
+                }
+                throw new IllegalStateException("Already have resource");
+            } else {
+                throw new IllegalStateException("Received a resource without any callbacks to notify");
             }
-            throw new IllegalStateException("Already have resource");
-        } else {
-            throw new IllegalStateException("Received a resource without any callbacks to notify");
         }
     }
 
     @VisibleForTesting
     public EngineJob<R> init(Key key, boolean z, boolean z2, boolean z3, boolean z4) {
-        this.key = key;
-        this.isCacheable = z;
-        this.useUnlimitedSourceGeneratorPool = z2;
-        this.useAnimationPool = z3;
-        this.onlyRetrieveFromCache = z4;
-        return this;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{key, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            this.key = key;
+            this.isCacheable = z;
+            this.useUnlimitedSourceGeneratorPool = z2;
+            this.useAnimationPool = z3;
+            this.onlyRetrieveFromCache = z4;
+            return this;
+        }
+        return (EngineJob) invokeCommon.objValue;
     }
 
     public boolean isCancelled() {
-        return this.isCancelled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isCancelled : invokeV.booleanValue;
     }
 
     @Override // com.bumptech.glide.load.engine.DecodeJob.Callback
     public void onLoadFailed(GlideException glideException) {
-        this.exception = glideException;
-        MAIN_THREAD_HANDLER.obtainMessage(2, this).sendToTarget();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, glideException) == null) {
+            this.exception = glideException;
+            MAIN_THREAD_HANDLER.obtainMessage(2, this).sendToTarget();
+        }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.bumptech.glide.load.engine.Resource<R> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.bumptech.glide.load.engine.Resource<R> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bumptech.glide.load.engine.DecodeJob.Callback
     public void onResourceReady(Resource<R> resource, DataSource dataSource) {
-        this.resource = resource;
-        this.dataSource = dataSource;
-        MAIN_THREAD_HANDLER.obtainMessage(1, this).sendToTarget();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, resource, dataSource) == null) {
+            this.resource = resource;
+            this.dataSource = dataSource;
+            MAIN_THREAD_HANDLER.obtainMessage(1, this).sendToTarget();
+        }
     }
 
     public boolean onlyRetrieveFromCache() {
-        return this.onlyRetrieveFromCache;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.onlyRetrieveFromCache : invokeV.booleanValue;
     }
 
     public void removeCallback(ResourceCallback resourceCallback) {
-        Util.assertMainThread();
-        this.stateVerifier.throwIfRecycled();
-        if (!this.hasResource && !this.hasLoadFailed) {
-            this.cbs.remove(resourceCallback);
-            if (this.cbs.isEmpty()) {
-                cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, resourceCallback) == null) {
+            Util.assertMainThread();
+            this.stateVerifier.throwIfRecycled();
+            if (!this.hasResource && !this.hasLoadFailed) {
+                this.cbs.remove(resourceCallback);
+                if (this.cbs.isEmpty()) {
+                    cancel();
+                    return;
+                }
                 return;
             }
-            return;
+            addIgnoredCallback(resourceCallback);
         }
-        addIgnoredCallback(resourceCallback);
     }
 
     @Override // com.bumptech.glide.load.engine.DecodeJob.Callback
     public void reschedule(DecodeJob<?> decodeJob) {
-        getActiveSourceExecutor().execute(decodeJob);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, decodeJob) == null) {
+            getActiveSourceExecutor().execute(decodeJob);
+        }
     }
 
     public void start(DecodeJob<R> decodeJob) {
         GlideExecutor activeSourceExecutor;
-        this.decodeJob = decodeJob;
-        if (decodeJob.willDecodeFromCache()) {
-            activeSourceExecutor = this.diskCacheExecutor;
-        } else {
-            activeSourceExecutor = getActiveSourceExecutor();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, decodeJob) == null) {
+            this.decodeJob = decodeJob;
+            if (decodeJob.willDecodeFromCache()) {
+                activeSourceExecutor = this.diskCacheExecutor;
+            } else {
+                activeSourceExecutor = getActiveSourceExecutor();
+            }
+            activeSourceExecutor.execute(decodeJob);
         }
-        activeSourceExecutor.execute(decodeJob);
     }
 
     @VisibleForTesting
     public EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, Pools.Pool<EngineJob<?>> pool, EngineResourceFactory engineResourceFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener, pool, engineResourceFactory};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.cbs = new ArrayList(2);
         this.stateVerifier = StateVerifier.newInstance();
         this.diskCacheExecutor = glideExecutor;

@@ -19,148 +19,233 @@ import android.util.Log;
 import android.view.KeyEvent;
 import androidx.annotation.RestrictTo;
 import androidx.media.MediaBrowserServiceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MediaButtonReceiver extends BroadcastReceiver {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaButtonReceiver";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class MediaButtonConnectionCallback extends MediaBrowserCompat.ConnectionCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Context mContext;
         public final Intent mIntent;
         public MediaBrowserCompat mMediaBrowser;
         public final BroadcastReceiver.PendingResult mPendingResult;
 
         public MediaButtonConnectionCallback(Context context, Intent intent, BroadcastReceiver.PendingResult pendingResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, intent, pendingResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mContext = context;
             this.mIntent = intent;
             this.mPendingResult = pendingResult;
         }
 
         private void finish() {
-            this.mMediaBrowser.disconnect();
-            this.mPendingResult.finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+                this.mMediaBrowser.disconnect();
+                this.mPendingResult.finish();
+            }
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.ConnectionCallback
         public void onConnected() {
-            try {
-                new MediaControllerCompat(this.mContext, this.mMediaBrowser.getSessionToken()).dispatchMediaButtonEvent((KeyEvent) this.mIntent.getParcelableExtra("android.intent.extra.KEY_EVENT"));
-            } catch (RemoteException e2) {
-                Log.e(MediaButtonReceiver.TAG, "Failed to create a media controller", e2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    new MediaControllerCompat(this.mContext, this.mMediaBrowser.getSessionToken()).dispatchMediaButtonEvent((KeyEvent) this.mIntent.getParcelableExtra("android.intent.extra.KEY_EVENT"));
+                } catch (RemoteException e2) {
+                    Log.e(MediaButtonReceiver.TAG, "Failed to create a media controller", e2);
+                }
+                finish();
             }
-            finish();
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.ConnectionCallback
         public void onConnectionFailed() {
-            finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                finish();
+            }
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.ConnectionCallback
         public void onConnectionSuspended() {
-            finish();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                finish();
+            }
         }
 
         public void setMediaBrowser(MediaBrowserCompat mediaBrowserCompat) {
-            this.mMediaBrowser = mediaBrowserCompat;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, mediaBrowserCompat) == null) {
+                this.mMediaBrowser = mediaBrowserCompat;
+            }
+        }
+    }
+
+    public MediaButtonReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static PendingIntent buildMediaButtonPendingIntent(Context context, long j) {
-        ComponentName mediaButtonReceiverComponent = getMediaButtonReceiverComponent(context);
-        if (mediaButtonReceiverComponent == null) {
-            Log.w(TAG, "A unique media button receiver could not be found in the given context, so couldn't build a pending intent.");
-            return null;
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
+            ComponentName mediaButtonReceiverComponent = getMediaButtonReceiverComponent(context);
+            if (mediaButtonReceiverComponent == null) {
+                Log.w(TAG, "A unique media button receiver could not be found in the given context, so couldn't build a pending intent.");
+                return null;
+            }
+            return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j);
         }
-        return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j);
+        return (PendingIntent) invokeLJ.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static ComponentName getMediaButtonReceiverComponent(Context context) {
-        Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
-        intent.setPackage(context.getPackageName());
-        List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-        if (queryBroadcastReceivers.size() == 1) {
-            ActivityInfo activityInfo = queryBroadcastReceivers.get(0).activityInfo;
-            return new ComponentName(activityInfo.packageName, activityInfo.name);
-        } else if (queryBroadcastReceivers.size() > 1) {
-            Log.w(TAG, "More than one BroadcastReceiver that handles android.intent.action.MEDIA_BUTTON was found, returning null.");
-            return null;
-        } else {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
+            intent.setPackage(context.getPackageName());
+            List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 0);
+            if (queryBroadcastReceivers.size() == 1) {
+                ActivityInfo activityInfo = queryBroadcastReceivers.get(0).activityInfo;
+                return new ComponentName(activityInfo.packageName, activityInfo.name);
+            } else if (queryBroadcastReceivers.size() > 1) {
+                Log.w(TAG, "More than one BroadcastReceiver that handles android.intent.action.MEDIA_BUTTON was found, returning null.");
+                return null;
+            } else {
+                return null;
+            }
         }
+        return (ComponentName) invokeL.objValue;
     }
 
     public static ComponentName getServiceComponentByAction(Context context, String str) {
-        PackageManager packageManager = context.getPackageManager();
-        Intent intent = new Intent(str);
-        intent.setPackage(context.getPackageName());
-        List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 0);
-        if (queryIntentServices.size() == 1) {
-            ServiceInfo serviceInfo = queryIntentServices.get(0).serviceInfo;
-            return new ComponentName(serviceInfo.packageName, serviceInfo.name);
-        } else if (queryIntentServices.isEmpty()) {
-            return null;
-        } else {
-            throw new IllegalStateException("Expected 1 service that handles " + str + ", found " + queryIntentServices.size());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+            PackageManager packageManager = context.getPackageManager();
+            Intent intent = new Intent(str);
+            intent.setPackage(context.getPackageName());
+            List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 0);
+            if (queryIntentServices.size() == 1) {
+                ServiceInfo serviceInfo = queryIntentServices.get(0).serviceInfo;
+                return new ComponentName(serviceInfo.packageName, serviceInfo.name);
+            } else if (queryIntentServices.isEmpty()) {
+                return null;
+            } else {
+                throw new IllegalStateException("Expected 1 service that handles " + str + ", found " + queryIntentServices.size());
+            }
         }
+        return (ComponentName) invokeLL.objValue;
     }
 
     public static KeyEvent handleIntent(MediaSessionCompat mediaSessionCompat, Intent intent) {
-        if (mediaSessionCompat == null || intent == null || !"android.intent.action.MEDIA_BUTTON".equals(intent.getAction()) || !intent.hasExtra("android.intent.extra.KEY_EVENT")) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, mediaSessionCompat, intent)) == null) {
+            if (mediaSessionCompat == null || intent == null || !"android.intent.action.MEDIA_BUTTON".equals(intent.getAction()) || !intent.hasExtra("android.intent.extra.KEY_EVENT")) {
+                return null;
+            }
+            KeyEvent keyEvent = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
+            mediaSessionCompat.getController().dispatchMediaButtonEvent(keyEvent);
+            return keyEvent;
         }
-        KeyEvent keyEvent = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
-        mediaSessionCompat.getController().dispatchMediaButtonEvent(keyEvent);
-        return keyEvent;
+        return (KeyEvent) invokeLL.objValue;
     }
 
     public static void startForegroundService(Context context, Intent intent) {
-        if (Build.VERSION.SDK_INT >= 26) {
-            context.startForegroundService(intent);
-        } else {
-            context.startService(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, intent) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                context.startForegroundService(intent);
+            } else {
+                context.startService(intent);
+            }
         }
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (intent != null && "android.intent.action.MEDIA_BUTTON".equals(intent.getAction()) && intent.hasExtra("android.intent.extra.KEY_EVENT")) {
-            ComponentName serviceComponentByAction = getServiceComponentByAction(context, "android.intent.action.MEDIA_BUTTON");
-            if (serviceComponentByAction != null) {
-                intent.setComponent(serviceComponentByAction);
-                startForegroundService(context, intent);
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            if (intent != null && "android.intent.action.MEDIA_BUTTON".equals(intent.getAction()) && intent.hasExtra("android.intent.extra.KEY_EVENT")) {
+                ComponentName serviceComponentByAction = getServiceComponentByAction(context, "android.intent.action.MEDIA_BUTTON");
+                if (serviceComponentByAction != null) {
+                    intent.setComponent(serviceComponentByAction);
+                    startForegroundService(context, intent);
+                    return;
+                }
+                ComponentName serviceComponentByAction2 = getServiceComponentByAction(context, MediaBrowserServiceCompat.SERVICE_INTERFACE);
+                if (serviceComponentByAction2 != null) {
+                    BroadcastReceiver.PendingResult goAsync = goAsync();
+                    Context applicationContext = context.getApplicationContext();
+                    MediaButtonConnectionCallback mediaButtonConnectionCallback = new MediaButtonConnectionCallback(applicationContext, intent, goAsync);
+                    MediaBrowserCompat mediaBrowserCompat = new MediaBrowserCompat(applicationContext, serviceComponentByAction2, mediaButtonConnectionCallback, null);
+                    mediaButtonConnectionCallback.setMediaBrowser(mediaBrowserCompat);
+                    mediaBrowserCompat.connect();
+                    return;
+                }
+                throw new IllegalStateException("Could not find any Service that handles android.intent.action.MEDIA_BUTTON or implements a media browser service.");
             }
-            ComponentName serviceComponentByAction2 = getServiceComponentByAction(context, MediaBrowserServiceCompat.SERVICE_INTERFACE);
-            if (serviceComponentByAction2 != null) {
-                BroadcastReceiver.PendingResult goAsync = goAsync();
-                Context applicationContext = context.getApplicationContext();
-                MediaButtonConnectionCallback mediaButtonConnectionCallback = new MediaButtonConnectionCallback(applicationContext, intent, goAsync);
-                MediaBrowserCompat mediaBrowserCompat = new MediaBrowserCompat(applicationContext, serviceComponentByAction2, mediaButtonConnectionCallback, null);
-                mediaButtonConnectionCallback.setMediaBrowser(mediaBrowserCompat);
-                mediaBrowserCompat.connect();
-                return;
-            }
-            throw new IllegalStateException("Could not find any Service that handles android.intent.action.MEDIA_BUTTON or implements a media browser service.");
+            Log.d(TAG, "Ignore unsupported intent: " + intent);
         }
-        Log.d(TAG, "Ignore unsupported intent: " + intent);
     }
 
     public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j) {
-        if (componentName == null) {
-            Log.w(TAG, "The component name of media button receiver should be provided.");
-            return null;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j)})) == null) {
+            if (componentName == null) {
+                Log.w(TAG, "The component name of media button receiver should be provided.");
+                return null;
+            }
+            int keyCode = PlaybackStateCompat.toKeyCode(j);
+            if (keyCode == 0) {
+                Log.w(TAG, "Cannot build a media button pending intent with the given action: " + j);
+                return null;
+            }
+            Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
+            intent.setComponent(componentName);
+            intent.putExtra("android.intent.extra.KEY_EVENT", new KeyEvent(0, keyCode));
+            return PendingIntent.getBroadcast(context, keyCode, intent, 0);
         }
-        int keyCode = PlaybackStateCompat.toKeyCode(j);
-        if (keyCode == 0) {
-            Log.w(TAG, "Cannot build a media button pending intent with the given action: " + j);
-            return null;
-        }
-        Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
-        intent.setComponent(componentName);
-        intent.putExtra("android.intent.extra.KEY_EVENT", new KeyEvent(0, keyCode));
-        return PendingIntent.getBroadcast(context, keyCode, intent, 0);
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

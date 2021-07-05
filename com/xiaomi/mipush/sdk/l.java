@@ -1,65 +1,114 @@
 package com.xiaomi.mipush.sdk;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hk;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<e, a> f41054a = new HashMap<>();
+    public static HashMap<e, a> f42797a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f41055a;
+        public String f42798a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41056b;
+        public String f42799b;
 
         public a(String str, String str2) {
-            this.f41055a = str;
-            this.f41056b = str2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f42798a = str;
+            this.f42799b = str2;
         }
     }
 
     static {
-        a(e.ASSEMBLE_PUSH_HUAWEI, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.ASSEMBLE_PUSH_FCM, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.ASSEMBLE_PUSH_COS, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.ASSEMBLE_PUSH_FTOS, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(78186115, "Lcom/xiaomi/mipush/sdk/l;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(78186115, "Lcom/xiaomi/mipush/sdk/l;");
+                return;
+            }
+        }
+        f42797a = new HashMap<>();
+        a(e.f42787a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
+        a(e.f42788b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.f42789c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.f42790d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
-        int i2 = m.f41057a[eVar.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    if (i2 != 4) {
-                        return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eVar)) == null) {
+            int i2 = m.f42800a[eVar.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            return null;
+                        }
+                        return at.f42776f;
                     }
-                    return at.UPLOAD_FTOS_TOKEN;
+                    return at.f42775e;
                 }
-                return at.UPLOAD_COS_TOKEN;
+                return at.f42774d;
             }
-            return at.UPLOAD_FCM_TOKEN;
+            return at.f42773c;
         }
-        return at.UPLOAD_HUAWEI_TOKEN;
+        return (at) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m120a(e eVar) {
-        return f41054a.get(eVar);
+    public static a m134a(e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? f42797a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hk m121a(e eVar) {
-        return hk.AggregatePushSwitch;
+    public static hk m135a(e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) ? hk.ao : (hk) invokeL.objValue;
     }
 
     public static void a(e eVar, a aVar) {
-        if (aVar != null) {
-            f41054a.put(eVar, aVar);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65540, null, eVar, aVar) == null) || aVar == null) {
+            return;
         }
+        f42797a.put(eVar, aVar);
     }
 }

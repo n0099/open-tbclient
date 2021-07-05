@@ -14,174 +14,246 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
 import com.baidu.wallet.base.widget.pulltorefresh.ui.RefreshLoadingDrawable;
 import com.baidu.wallet.base.widget.pulltorefresh.ui.RotateLoadingLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HeaderLoadingLayout extends LoadingLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f23873a;
+    public ImageView f24416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f23874b;
+    public ProgressBar f24417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23875c;
+    public TextView f24418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f23876d;
+    public TextView f24419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation f23877e;
+    public Animation f24420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f23878f;
+    public Animation f24421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CharSequence f23879g;
+    public CharSequence f24422g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LoadingLayout.AnimationStyle f23880h;
+    public LoadingLayout.AnimationStyle f24423h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ObjectAnimator f23881i;
+    public ObjectAnimator f24424i;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeaderLoadingLayout(Context context) {
         super(context);
-        this.f23880h = LoadingLayout.AnimationStyle.FLIP;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24423h = LoadingLayout.AnimationStyle.FLIP;
         a(context);
     }
 
     private void a(Context context) {
-        setLayerType(1, null);
-        this.f23873a = (ImageView) findViewById(ResUtils.id(context, "bd_wallet_tip_img"));
-        this.f23875c = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_title"));
-        this.f23874b = (ProgressBar) findViewById(ResUtils.id(context, "bd_wallet_progress_bar"));
-        this.f23876d = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_time"));
-        Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_up"));
-        this.f23877e = loadAnimation;
-        loadAnimation.setFillAfter(true);
-        Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_down"));
-        this.f23878f = loadAnimation2;
-        loadAnimation2.setFillAfter(true);
-        this.f23881i = RotateLoadingLayout.getRotateYAnim(this.f23873a);
-        if (this.f23880h == LoadingLayout.AnimationStyle.ROTATE) {
-            this.f23873a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(context));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
+            setLayerType(1, null);
+            this.f24416a = (ImageView) findViewById(ResUtils.id(context, "bd_wallet_tip_img"));
+            this.f24418c = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_title"));
+            this.f24417b = (ProgressBar) findViewById(ResUtils.id(context, "bd_wallet_progress_bar"));
+            this.f24419d = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_time"));
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_up"));
+            this.f24420e = loadAnimation;
+            loadAnimation.setFillAfter(true);
+            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_down"));
+            this.f24421f = loadAnimation2;
+            loadAnimation2.setFillAfter(true);
+            this.f24424i = RotateLoadingLayout.getRotateYAnim(this.f24416a);
+            if (this.f24423h == LoadingLayout.AnimationStyle.ROTATE) {
+                this.f24416a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(context));
+            }
         }
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     @SuppressLint({"InflateParams"})
     public View createLoadingView(Context context, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(ResUtils.layout(getContext(), "wallet_ui_refresh_bar"), (ViewGroup) null);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) ? LayoutInflater.from(context).inflate(ResUtils.layout(getContext(), "wallet_ui_refresh_bar"), (ViewGroup) null) : (View) invokeLL.objValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public int getContentSize() {
-        return (int) getResources().getDimension(ResUtils.dimen(getContext(), "wallet_header_height"));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) getResources().getDimension(ResUtils.dimen(getContext(), "wallet_header_height")) : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onPull(float f2) {
-        if (this.f23880h == LoadingLayout.AnimationStyle.ROTATE) {
-            Drawable drawable = this.f23873a.getDrawable();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048579, this, f2) == null) && this.f24423h == LoadingLayout.AnimationStyle.ROTATE) {
+            Drawable drawable = this.f24416a.getDrawable();
             if (drawable instanceof RefreshLoadingDrawable) {
                 ((RefreshLoadingDrawable) drawable).setProgress(RotateLoadingLayout.getProgress(f2));
-                this.f23873a.invalidate();
+                this.f24416a.invalidate();
             }
         }
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onPullToRefresh() {
-        if (this.f23880h == LoadingLayout.AnimationStyle.FLIP && LoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
-            this.f23873a.clearAnimation();
-            this.f23873a.startAnimation(this.f23878f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f24423h == LoadingLayout.AnimationStyle.FLIP && LoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
+                this.f24416a.clearAnimation();
+                this.f24416a.startAnimation(this.f24421f);
+            }
+            this.f24418c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
         }
-        this.f23875c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onRefreshing() {
-        if (this.f23880h == LoadingLayout.AnimationStyle.FLIP) {
-            this.f23873a.clearAnimation();
-            this.f23873a.setVisibility(4);
-            this.f23874b.setVisibility(0);
-        } else {
-            this.f23881i.start();
-            this.f23873a.setVisibility(0);
-            this.f23874b.setVisibility(8);
-        }
-        if (TextUtils.isEmpty(this.f23879g)) {
-            this.f23875c.setText(ResUtils.getString(getContext(), "wallet_refresh_loading"));
-        } else {
-            this.f23875c.setText(this.f23879g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.f24423h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f24416a.clearAnimation();
+                this.f24416a.setVisibility(4);
+                this.f24417b.setVisibility(0);
+            } else {
+                this.f24424i.start();
+                this.f24416a.setVisibility(0);
+                this.f24417b.setVisibility(8);
+            }
+            if (TextUtils.isEmpty(this.f24422g)) {
+                this.f24418c.setText(ResUtils.getString(getContext(), "wallet_refresh_loading"));
+            } else {
+                this.f24418c.setText(this.f24422g);
+            }
         }
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onReleaseToRefresh() {
-        if (this.f23880h == LoadingLayout.AnimationStyle.FLIP) {
-            this.f23873a.clearAnimation();
-            this.f23873a.startAnimation(this.f23877e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.f24423h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f24416a.clearAnimation();
+                this.f24416a.startAnimation(this.f24420e);
+            }
+            this.f24418c.setText(ResUtils.getString(getContext(), "wallet_refresh_release"));
         }
-        this.f23875c.setText(ResUtils.getString(getContext(), "wallet_refresh_release"));
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onReset() {
-        if (this.f23880h == LoadingLayout.AnimationStyle.FLIP) {
-            this.f23873a.clearAnimation();
-        } else {
-            this.f23881i.cancel();
-            this.f23873a.setRotationY(0.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.f24423h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f24416a.clearAnimation();
+            } else {
+                this.f24424i.cancel();
+                this.f24416a.setRotationY(0.0f);
+            }
+            this.f24418c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
         }
-        this.f23875c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onStateChanged(LoadingLayout.State state, LoadingLayout.State state2) {
-        if (this.f23880h == LoadingLayout.AnimationStyle.FLIP) {
-            this.f23873a.setVisibility(0);
-            this.f23874b.setVisibility(4);
-        } else {
-            this.f23873a.setVisibility(0);
-            this.f23874b.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state, state2) == null) {
+            if (this.f24423h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f24416a.setVisibility(0);
+                this.f24417b.setVisibility(4);
+            } else {
+                this.f24416a.setVisibility(0);
+                this.f24417b.setVisibility(8);
+            }
+            super.onStateChanged(state, state2);
         }
-        super.onStateChanged(state, state2);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        this.f23876d.setText(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
+            this.f24419d.setText(charSequence);
+        }
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void setRefreshingLabel(CharSequence charSequence) {
-        if (TextUtils.isEmpty(charSequence)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f23879g = charSequence;
-        TextView textView = this.f23875c;
+        this.f24422g = charSequence;
+        TextView textView = this.f24418c;
         if (textView != null) {
             textView.setText(charSequence);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeaderLoadingLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23880h = LoadingLayout.AnimationStyle.FLIP;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24423h = LoadingLayout.AnimationStyle.FLIP;
         a(context);
     }
 
     public void a(LoadingLayout.AnimationStyle animationStyle) {
-        this.f23880h = animationStyle;
-        if (animationStyle == LoadingLayout.AnimationStyle.ROTATE) {
-            this.f23873a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(getContext()));
-        } else {
-            this.f23873a.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_base_refresh_arrow"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animationStyle) == null) {
+            this.f24423h = animationStyle;
+            if (animationStyle == LoadingLayout.AnimationStyle.ROTATE) {
+                this.f24416a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(getContext()));
+            } else {
+                this.f24416a.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_base_refresh_arrow"));
+            }
         }
     }
 }

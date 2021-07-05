@@ -2,21 +2,32 @@ package com.baidu.wallet.base.datamodel;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CardData implements NoProguard {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class BondCard implements NoProguard, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int UNBIND_CARD_DISABLE_BAIDU_FINANCE = 0;
         public static final long serialVersionUID = -7665566829025394683L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String account_bank_code;
         public String account_no;
         public String account_no_head_tail;
@@ -29,6 +40,7 @@ public class CardData implements NoProguard {
         public String card_hint_msg;
         public String card_hint_url;
         public String card_required_msg;
+        public String card_state;
         public int card_type;
         public String certificate_code;
         public String certificate_code_ec;
@@ -36,7 +48,10 @@ public class CardData implements NoProguard {
         public GetCardInfoResponse.CertificateTypeInfo[] certificate_type_info;
         public String channelDiscountDesc;
         public ChannelQuota channel_quota;
+        public String find_pwd_by_sms;
+        public boolean hideSMSDialog;
         public String icon;
+        public boolean isCheckPass;
         public int is_need_repaired;
         public String is_recommended;
         public int is_sign_jump_bank;
@@ -49,6 +64,7 @@ public class CardData implements NoProguard {
         public String need_sms_code;
         public String need_true_name;
         public String need_valid_date;
+        public int pay_need_sms_code;
         public String quota_show_msg;
         public GetCardInfoResponse.CardItemRequired required_card_items;
         public String single_quota;
@@ -60,153 +76,255 @@ public class CardData implements NoProguard {
         public String unsupport_find_pwd_msg;
         public String valid_date;
         public String verify_code;
-        public int pay_need_sms_code = 1;
-        public String card_state = "1";
-        public String find_pwd_by_sms = "1";
-        public boolean isCheckPass = false;
-        public boolean hideSMSDialog = false;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class ChannelQuota implements NoProguard, Serializable {
+            public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3143189382088186302L;
+            public transient /* synthetic */ FieldHolder $fh;
             public String day_limit;
             public String month_limit;
             public String show_msg;
             public String single_limit;
 
+            public ChannelQuota() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             public String getChannelQuotaMsg() {
-                return !TextUtils.isEmpty(this.show_msg) ? this.show_msg : "";
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.show_msg) ? this.show_msg : "" : (String) invokeV.objValue;
             }
         }
 
-        public void decrypt() {
-            try {
-                if (!TextUtils.isEmpty(this.certificate_code_ec)) {
-                    this.certificate_code = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.certificate_code_ec));
-                }
-                if (TextUtils.isEmpty(this.mobile_ec)) {
+        public BondCard() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                this.mobile = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.mobile_ec));
-            } catch (Exception e2) {
-                if (BeanConstants.DEBUG) {
-                    e2.printStackTrace();
+            }
+            this.pay_need_sms_code = 1;
+            this.card_state = "1";
+            this.find_pwd_by_sms = "1";
+            this.isCheckPass = false;
+            this.hideSMSDialog = false;
+        }
+
+        public void decrypt() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (!TextUtils.isEmpty(this.certificate_code_ec)) {
+                        this.certificate_code = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.certificate_code_ec));
+                    }
+                    if (TextUtils.isEmpty(this.mobile_ec)) {
+                        return;
+                    }
+                    this.mobile = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.mobile_ec));
+                } catch (Exception e2) {
+                    if (BeanConstants.DEBUG) {
+                        e2.printStackTrace();
+                    }
                 }
             }
         }
 
         public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || BondCard.class != obj.getClass()) {
+                    return false;
+                }
+                return this.account_no.equals(((BondCard) obj).account_no);
             }
-            if (obj == null || BondCard.class != obj.getClass()) {
-                return false;
-            }
-            return this.account_no.equals(((BondCard) obj).account_no);
+            return invokeL.booleanValue;
         }
 
         public boolean getCanFindPWDBySms() {
-            return TextUtils.isEmpty(this.find_pwd_by_sms) || !this.find_pwd_by_sms.equals("0");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.find_pwd_by_sms) || !this.find_pwd_by_sms.equals("0") : invokeV.booleanValue;
         }
 
         public String getCardDesc(Context context, boolean z) {
-            return getCardDesc(this.bank_name, this.account_no, getCardType(context), z);
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, context, z)) == null) ? getCardDesc(this.bank_name, this.account_no, getCardType(context), z) : (String) invokeLZ.objValue;
         }
 
         public String getCardDescShort() {
+            InterceptResult invokeV;
             String substring;
-            if (TextUtils.isEmpty(this.account_no)) {
-                substring = "";
-            } else {
-                int length = this.account_no.length();
-                substring = length > 3 ? this.account_no.substring(length - 4) : this.account_no;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (TextUtils.isEmpty(this.account_no)) {
+                    substring = "";
+                } else {
+                    int length = this.account_no.length();
+                    substring = length > 3 ? this.account_no.substring(length - 4) : this.account_no;
+                }
+                return "(" + this.bank_name + substring + SmallTailInfo.EMOTION_SUFFIX;
             }
-            return "(" + this.bank_name + substring + SmallTailInfo.EMOTION_SUFFIX;
+            return (String) invokeV.objValue;
         }
 
         public String getCardType(Context context) {
-            if (!TextUtils.isEmpty(this.type_name)) {
-                return this.type_name;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+                if (!TextUtils.isEmpty(this.type_name)) {
+                    return this.type_name;
+                }
+                String str = "wallet_base_mode_debit";
+                if (1 == this.card_type) {
+                    str = "wallet_base_mode_credit";
+                }
+                return ResUtils.getString(context, str);
             }
-            String str = "wallet_base_mode_debit";
-            if (1 == this.card_type) {
-                str = "wallet_base_mode_credit";
-            }
-            return ResUtils.getString(context, str);
+            return (String) invokeL.objValue;
         }
 
         public String getLast4Num() {
-            if (TextUtils.isEmpty(this.account_no) || this.account_no.length() <= 4) {
-                return "";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                if (TextUtils.isEmpty(this.account_no) || this.account_no.length() <= 4) {
+                    return "";
+                }
+                String str = this.account_no;
+                return str.substring(str.length() - 4);
             }
-            String str = this.account_no;
-            return str.substring(str.length() - 4);
+            return (String) invokeV.objValue;
         }
 
         public boolean hasCvv() {
-            return !"1".equals(this.need_cvv2);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !"1".equals(this.need_cvv2) : invokeV.booleanValue;
         }
 
         public boolean hasDate() {
-            return !"1".equals(this.need_valid_date);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !"1".equals(this.need_valid_date) : invokeV.booleanValue;
         }
 
         public boolean hasId() {
-            return !"1".equals(this.need_identity_code);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !"1".equals(this.need_identity_code) : invokeV.booleanValue;
         }
 
         public boolean hasIdType() {
-            return !"1".equals(this.need_identity_type);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !"1".equals(this.need_identity_type) : invokeV.booleanValue;
         }
 
         public boolean hasMobile() {
-            return !"1".equals(this.need_phone_num);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !"1".equals(this.need_phone_num) : invokeV.booleanValue;
         }
 
         public boolean hasName() {
-            return !"1".equals(this.need_true_name);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? !"1".equals(this.need_true_name) : invokeV.booleanValue;
         }
 
         public int hashCode() {
-            return this.account_no.hashCode();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.account_no.hashCode() : invokeV.intValue;
         }
 
         public boolean isCompled() {
-            return this.is_need_repaired != 1;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.is_need_repaired != 1 : invokeV.booleanValue;
         }
 
         public boolean isNeedSendSms() {
-            return this.pay_need_sms_code == 1;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.pay_need_sms_code == 1 : invokeV.booleanValue;
         }
 
         public String toString() {
-            return "BondCard Info [\nbank_code = " + this.bank_code + "\naccount_no = " + this.account_no + "\ncard_type = " + this.card_type + "\nmobile = " + this.mobile + "\naccount_no_head_tail = " + this.account_no_head_tail + "\nbank_name = " + this.bank_name + "\nbank_url = " + this.bank_url + "\nbankground_url = " + this.background_url + "\nbind_time = " + this.bind_time + "\npay_need_sms_code = " + this.pay_need_sms_code + "\nbank_card_msg = " + this.bank_card_msg + "\n" + PreferencesUtil.RIGHT_MOUNT;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return "BondCard Info [\nbank_code = " + this.bank_code + "\naccount_no = " + this.account_no + "\ncard_type = " + this.card_type + "\nmobile = " + this.mobile + "\naccount_no_head_tail = " + this.account_no_head_tail + "\nbank_name = " + this.bank_name + "\nbank_url = " + this.bank_url + "\nbankground_url = " + this.background_url + "\nbind_time = " + this.bind_time + "\npay_need_sms_code = " + this.pay_need_sms_code + "\nbank_card_msg = " + this.bank_card_msg + "\n" + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
         }
 
         public static String getCardDesc(String str, String str2, String str3, boolean z) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(str)) {
-                sb.append(str);
-            }
-            if (z) {
-                sb.append(" ");
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                sb.append(str3);
-            }
-            if (!TextUtils.isEmpty(str2)) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+                StringBuilder sb = new StringBuilder();
+                if (!TextUtils.isEmpty(str)) {
+                    sb.append(str);
+                }
                 if (z) {
                     sb.append(" ");
                 }
-                int length = str2.length();
-                sb.append("(");
-                if (length > 3) {
-                    str2 = str2.substring(length - 4);
+                if (!TextUtils.isEmpty(str3)) {
+                    sb.append(str3);
                 }
-                sb.append(str2);
-                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                if (!TextUtils.isEmpty(str2)) {
+                    if (z) {
+                        sb.append(" ");
+                    }
+                    int length = str2.length();
+                    sb.append("(");
+                    if (length > 3) {
+                        str2 = str2.substring(length - 4);
+                    }
+                    sb.append(str2);
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                }
+                return sb.toString();
             }
-            return sb.toString();
+            return (String) invokeCommon.objValue;
+        }
+    }
+
+    public CardData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

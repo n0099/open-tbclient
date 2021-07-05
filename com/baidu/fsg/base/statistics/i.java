@@ -6,172 +6,224 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class i extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5275a = "logsender";
+    public static final String f5305a = "logsender";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5276d = "rim_stat_event";
+    public static final String f5306d = "rim_stat_event";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5277e = "rim_stat_event.db";
+    public static final String f5307e = "rim_stat_event.db";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5278f = 1;
+    public static final int f5308f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5279g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
+    public static final String f5309g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
 
     /* renamed from: i  reason: collision with root package name */
-    public static i f5280i;
+    public static i f5310i;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f5281b;
+    public SQLiteDatabase f5311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f5282c;
+    public final byte[] f5312c;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f5283h;
+    public int f5313h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
         super(context, str, cursorFactory, i2);
-        this.f5282c = new byte[0];
-        this.f5283h = 200;
-        this.f5281b = getWritableDatabase();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f5312c = new byte[0];
+        this.f5313h = 200;
+        this.f5311b = getWritableDatabase();
     }
 
     public static synchronized i a(Context context) {
+        InterceptResult invokeL;
         i iVar;
-        synchronized (i.class) {
-            if (f5280i == null) {
-                f5280i = new i(context, f5277e, null, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (i.class) {
+                if (f5310i == null) {
+                    f5310i = new i(context, f5307e, null, 1);
+                }
+                iVar = f5310i;
             }
-            iVar = f5280i;
+            return iVar;
         }
-        return iVar;
+        return (i) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x009a A[Catch: all -> 0x0095, TryCatch #2 {all -> 0x0095, blocks: (B:9:0x0014, B:10:0x0017, B:18:0x007c, B:33:0x009a, B:34:0x009c, B:24:0x008a, B:25:0x008d, B:28:0x0091), top: B:38:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x009e A[Catch: all -> 0x0099, TryCatch #1 {all -> 0x0099, blocks: (B:11:0x0018, B:12:0x001b, B:20:0x0080, B:35:0x009e, B:36:0x00a0, B:26:0x008e, B:27:0x0091, B:30:0x0095), top: B:44:0x0009 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public h[] b() {
+        InterceptResult invokeV;
         h[] hVarArr;
         h[] hVarArr2;
         Cursor rawQuery;
-        synchronized (this.f5282c) {
-            Cursor cursor = null;
-            try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.f5312c) {
+                Cursor cursor = null;
                 try {
-                    rawQuery = this.f5281b.rawQuery("select * from rim_stat_event", null);
                     try {
-                    } catch (Exception unused) {
-                        hVarArr = null;
-                        cursor = rawQuery;
-                        if (cursor != null) {
-                            cursor.close();
+                        rawQuery = this.f5311b.rawQuery("select * from rim_stat_event", null);
+                        try {
+                        } catch (Exception unused) {
+                            hVarArr = null;
+                            cursor = rawQuery;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            hVarArr2 = hVarArr;
+                            if (hVarArr2 == null) {
+                            }
+                            return hVarArr2;
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor = rawQuery;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            throw th;
                         }
-                        hVarArr2 = hVarArr;
-                        if (hVarArr2 == null) {
-                        }
-                        return hVarArr2;
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = rawQuery;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        throw th;
+                    } finally {
                     }
-                } finally {
+                } catch (Exception unused2) {
+                    hVarArr = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Exception unused2) {
-                hVarArr = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            if (rawQuery == null) {
-                h[] hVarArr3 = new h[0];
+                if (rawQuery == null) {
+                    h[] hVarArr3 = new h[0];
+                    if (rawQuery != null) {
+                        rawQuery.close();
+                    }
+                    return hVarArr3;
+                }
+                hVarArr2 = new h[rawQuery.getCount()];
+                int i2 = 0;
+                while (rawQuery.moveToNext()) {
+                    h hVar = new h();
+                    hVar.p = rawQuery.getString(rawQuery.getColumnIndex("en"));
+                    hVar.q = rawQuery.getLong(rawQuery.getColumnIndex("et"));
+                    hVar.r = rawQuery.getString(rawQuery.getColumnIndex("ev"));
+                    hVar.s = rawQuery.getString(rawQuery.getColumnIndex("eg"));
+                    hVar.t = rawQuery.getString(rawQuery.getColumnIndex("lk"));
+                    hVar.u = rawQuery.getInt(rawQuery.getColumnIndex("nu"));
+                    int i3 = i2 + 1;
+                    hVarArr2[i2] = hVar;
+                    i2 = i3;
+                }
                 if (rawQuery != null) {
                     rawQuery.close();
                 }
-                return hVarArr3;
+                if (hVarArr2 == null) {
+                    hVarArr2 = new h[0];
+                }
+                return hVarArr2;
             }
-            hVarArr2 = new h[rawQuery.getCount()];
-            int i2 = 0;
-            while (rawQuery.moveToNext()) {
-                h hVar = new h();
-                hVar.p = rawQuery.getString(rawQuery.getColumnIndex("en"));
-                hVar.q = rawQuery.getLong(rawQuery.getColumnIndex("et"));
-                hVar.r = rawQuery.getString(rawQuery.getColumnIndex("ev"));
-                hVar.s = rawQuery.getString(rawQuery.getColumnIndex("eg"));
-                hVar.t = rawQuery.getString(rawQuery.getColumnIndex("lk"));
-                hVar.u = rawQuery.getInt(rawQuery.getColumnIndex("nu"));
-                int i3 = i2 + 1;
-                hVarArr2[i2] = hVar;
-                i2 = i3;
-            }
-            if (rawQuery != null) {
-                rawQuery.close();
-            }
-            if (hVarArr2 == null) {
-                hVarArr2 = new h[0];
-            }
-            return hVarArr2;
         }
+        return (h[]) invokeV.objValue;
     }
 
     public void finalize() throws Throwable {
-        SQLiteDatabase sQLiteDatabase = this.f5281b;
-        if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-            this.f5281b.close();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SQLiteDatabase sQLiteDatabase = this.f5311b;
+            if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+                this.f5311b.close();
+            }
+            this.f5311b = null;
+            super.finalize();
         }
-        this.f5281b = null;
-        super.finalize();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(f5279g);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(f5309g);
+        }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i2, i3) == null) {
+        }
     }
 
     public void a(h hVar) {
-        synchronized (this.f5282c) {
-            if (hVar != null) {
-                if (!TextUtils.isEmpty(hVar.p)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("en", hVar.p);
-                    contentValues.put("et", Long.valueOf(hVar.q));
-                    contentValues.put("ev", hVar.r);
-                    contentValues.put("eg", hVar.s);
-                    contentValues.put("lk", hVar.t);
-                    try {
-                        this.f5281b.insert(f5276d, null, contentValues);
-                    } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
+            synchronized (this.f5312c) {
+                if (hVar != null) {
+                    if (!TextUtils.isEmpty(hVar.p)) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("en", hVar.p);
+                        contentValues.put("et", Long.valueOf(hVar.q));
+                        contentValues.put("ev", hVar.r);
+                        contentValues.put("eg", hVar.s);
+                        contentValues.put("lk", hVar.t);
+                        try {
+                            this.f5311b.insert(f5306d, null, contentValues);
+                        } catch (Exception unused) {
+                        }
+                        LogUtil.d("logsender", "插入一条数据" + hVar.p);
                     }
-                    LogUtil.d("logsender", "插入一条数据" + hVar.p);
                 }
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0022, code lost:
-        if (r1 != null) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0026, code lost:
+        if (r1 != null) goto L21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int a() {
-        synchronized (this.f5282c) {
-            Cursor rawQuery = this.f5281b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+            return invokeV.intValue;
+        }
+        synchronized (this.f5312c) {
+            Cursor rawQuery = this.f5311b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
             if (rawQuery == null) {
                 return 0;
             }
@@ -188,30 +240,28 @@ public class i extends SQLiteOpenHelper {
                     rawQuery.close();
                 }
                 return 0;
-            } catch (Throwable th) {
-                if (rawQuery != null) {
-                    rawQuery.close();
-                }
-                throw th;
             }
         }
     }
 
     public void a(h[] hVarArr) {
-        synchronized (this.f5282c) {
-            if (hVarArr != null) {
-                if (hVarArr.length != 0) {
-                    LogUtil.d("logsender", "=====removeEvents-begin=====size=" + hVarArr.length);
-                    for (h hVar : hVarArr) {
-                        if (hVar != null) {
-                            this.f5281b.delete(f5276d, "nu=" + hVar.u, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVarArr) == null) {
+            synchronized (this.f5312c) {
+                if (hVarArr != null) {
+                    if (hVarArr.length != 0) {
+                        LogUtil.d("logsender", "=====removeEvents-begin=====size=" + hVarArr.length);
+                        for (h hVar : hVarArr) {
+                            if (hVar != null) {
+                                this.f5311b.delete(f5306d, "nu=" + hVar.u, null);
+                            }
                         }
+                        LogUtil.d("logsender", "=====removeEvents-end=====");
+                        return;
                     }
-                    LogUtil.d("logsender", "=====removeEvents-end=====");
-                    return;
                 }
+                LogUtil.d("logsender", "=====removeEvents=====size=0");
             }
-            LogUtil.d("logsender", "=====removeEvents=====size=0");
         }
     }
 }

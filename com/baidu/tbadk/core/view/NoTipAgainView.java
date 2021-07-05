@@ -8,53 +8,87 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.a.n0.r.s.a;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.s.a;
+/* loaded from: classes4.dex */
 public class NoTipAgainView extends LinearLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12439e;
+    public TextView f12494e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f12440f;
+    public ImageView f12495f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12441g;
+    public boolean f12496g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.f f12442h;
+    public a.f f12497h;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void a() {
-        LinearLayout.inflate(getContext(), R.layout.view_no_tip_again, this);
-        this.f12439e = (TextView) findViewById(R.id.no_tip_again_text);
-        this.f12440f = (ImageView) findViewById(R.id.checkbox);
-        c();
-        this.f12440f.setOnClickListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout.inflate(getContext(), R.layout.view_no_tip_again, this);
+            this.f12494e = (TextView) findViewById(R.id.no_tip_again_text);
+            this.f12495f = (ImageView) findViewById(R.id.checkbox);
+            c();
+            this.f12495f.setOnClickListener(this);
+        }
     }
 
     public boolean b() {
-        return this.f12441g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12496g : invokeV.booleanValue;
     }
 
     public void c() {
-        d();
-        SkinManager.setViewTextColor(this.f12439e, R.color.CAM_X0107);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d();
+            SkinManager.setViewTextColor(this.f12494e, R.color.CAM_X0107);
+        }
     }
 
     public final void d() {
+        ImageView imageView;
         Drawable maskDrawable;
-        ImageView imageView = this.f12440f;
-        if (imageView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (imageView = this.f12495f) == null) {
             return;
         }
-        if (this.f12441g) {
+        if (this.f12496g) {
             maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_mask_use_complete16_svg, R.color.CAM_X0304, null);
         } else {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
@@ -64,10 +98,11 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f12440f) {
-            this.f12441g = !this.f12441g;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f12495f) {
+            this.f12496g = !this.f12496g;
             d();
-            a.f fVar = this.f12442h;
+            a.f fVar = this.f12497h;
             if (fVar != null) {
                 fVar.a();
             }
@@ -75,16 +110,53 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     }
 
     public void setOnNoTipAgainCheckListener(a.f fVar) {
-        this.f12442h = fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+            this.f12497h = fVar;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f12441g = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f12496g = false;
         a();
     }
 }

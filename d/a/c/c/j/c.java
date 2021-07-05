@@ -1,36 +1,81 @@
 package d.a.c.c.j;
-/* loaded from: classes.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class c extends d {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f42166c;
+    public static c f43975c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2092684314, "Ld/a/c/c/j/c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(2092684314, "Ld/a/c/c/j/c;");
+        }
+    }
 
     public c() {
-        this.f42167a = new e(20000, 10000, 5000);
-        this.f42168b = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f43976a = new e(20000, 10000, 5000);
+        this.f43977b = 3;
     }
 
     public static c c() {
-        if (f42166c == null) {
-            synchronized (c.class) {
-                if (f42166c == null) {
-                    f42166c = new c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f43975c == null) {
+                synchronized (c.class) {
+                    if (f43975c == null) {
+                        f43975c = new c();
+                    }
                 }
             }
+            return f43975c;
         }
-        return f42166c;
+        return (c) invokeV.objValue;
     }
 
     public void d(int i2, int i3, int i4) {
-        if (i2 < 3000) {
-            i2 = 3000;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
+            if (i2 < 3000) {
+                i2 = 3000;
+            }
+            if (i3 < 3000) {
+                i3 = 3000;
+            }
+            if (i4 < 3000) {
+                i4 = 3000;
+            }
+            this.f43976a = new e(i2, i3, i4);
         }
-        if (i3 < 3000) {
-            i3 = 3000;
-        }
-        if (i4 < 3000) {
-            i4 = 3000;
-        }
-        this.f42167a = new e(i2, i3, i4);
     }
 }

@@ -2,7 +2,15 @@ package com.baidu.tieba.tbadkCore.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.RecommendTopicData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,37 +20,93 @@ import tbclient.RecomTopicList;
 import tbclient.WorksInfo;
 /* loaded from: classes5.dex */
 public class WorksInfoData implements Serializable, Parcelable {
-    public static final Parcelable.Creator<WorksInfoData> CREATOR = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<WorksInfoData> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean isWorks;
     public List<RecommendTopicData.RecommendTopicListData> topicListData;
 
     /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<WorksInfoData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public WorksInfoData createFromParcel(Parcel parcel) {
-            return new WorksInfoData(parcel);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new WorksInfoData(parcel) : (WorksInfoData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
         public WorksInfoData[] newArray(int i2) {
-            return new WorksInfoData[i2];
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new WorksInfoData[i2] : (WorksInfoData[]) invokeI.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1108683170, "Lcom/baidu/tieba/tbadkCore/data/WorksInfoData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1108683170, "Lcom/baidu/tieba/tbadkCore/data/WorksInfoData;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
+
     public WorksInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.isWorks = jSONObject.optInt("is_works") == 1;
@@ -58,7 +122,8 @@ public class WorksInfoData implements Serializable, Parcelable {
     }
 
     public void parseProto(WorksInfo worksInfo) {
-        if (worksInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, worksInfo) == null) || worksInfo == null) {
             return;
         }
         this.isWorks = worksInfo.is_works.intValue() == 1;
@@ -74,11 +139,28 @@ public class WorksInfoData implements Serializable, Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeByte(this.isWorks ? (byte) 1 : (byte) 0);
-        parcel.writeList(this.topicListData);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+            parcel.writeByte(this.isWorks ? (byte) 1 : (byte) 0);
+            parcel.writeList(this.topicListData);
+        }
     }
 
     public WorksInfoData(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.isWorks = parcel.readByte() != 0;
         ArrayList arrayList = new ArrayList();
         this.topicListData = arrayList;

@@ -1,7 +1,17 @@
 package c;
 
+import androidx.core.view.InputDeviceCompat;
 import bolts.ExecutorException;
 import bolts.UnobservedTaskException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -9,208 +19,316 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 /* loaded from: classes.dex */
 public class e<TResult> {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Executor f1481i;
+    public static final Executor f1484i;
     public static volatile f j;
     public static e<?> k;
     public static e<Boolean> l;
     public static e<Boolean> m;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f1483b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f1484c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TResult f1485d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Exception f1486e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f1487f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public g f1488g;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f1482a = new Object();
+    public final Object f1485a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f1486b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f1487c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TResult f1488d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Exception f1489e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f1490f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public g f1491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c.d<TResult, Void>> f1489h = new ArrayList();
+    public List<c.d<TResult, Void>> f1492h;
 
     /* loaded from: classes.dex */
     public class a implements c.d<TResult, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.f f1490a;
+        public final /* synthetic */ c.f f1493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.d f1491b;
+        public final /* synthetic */ c.d f1494b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Executor f1492c;
+        public final /* synthetic */ Executor f1495c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.c f1493d;
+        public final /* synthetic */ c.c f1496d;
 
         public a(e eVar, c.f fVar, c.d dVar, Executor executor, c.c cVar) {
-            this.f1490a = fVar;
-            this.f1491b = dVar;
-            this.f1492c = executor;
-            this.f1493d = cVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, fVar, dVar, executor, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1493a = fVar;
+            this.f1494b = dVar;
+            this.f1495c = executor;
+            this.f1496d = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.d
         /* renamed from: a */
         public Void then(e<TResult> eVar) {
-            e.f(this.f1490a, this.f1491b, eVar, this.f1492c, this.f1493d);
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
+                e.f(this.f1493a, this.f1494b, eVar, this.f1495c, this.f1496d);
+                return null;
+            }
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public class b implements c.d<TResult, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.f f1494a;
+        public final /* synthetic */ c.f f1497a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.d f1495b;
+        public final /* synthetic */ c.d f1498b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Executor f1496c;
+        public final /* synthetic */ Executor f1499c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.c f1497d;
+        public final /* synthetic */ c.c f1500d;
 
         public b(e eVar, c.f fVar, c.d dVar, Executor executor, c.c cVar) {
-            this.f1494a = fVar;
-            this.f1495b = dVar;
-            this.f1496c = executor;
-            this.f1497d = cVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, fVar, dVar, executor, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1497a = fVar;
+            this.f1498b = dVar;
+            this.f1499c = executor;
+            this.f1500d = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.d
         /* renamed from: a */
         public Void then(e<TResult> eVar) {
-            e.e(this.f1494a, this.f1495b, eVar, this.f1496c, this.f1497d);
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
+                e.e(this.f1497a, this.f1498b, eVar, this.f1499c, this.f1500d);
+                return null;
+            }
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.c f1498e;
+        public final /* synthetic */ c.c f1501e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.f f1499f;
+        public final /* synthetic */ c.f f1502f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.d f1500g;
+        public final /* synthetic */ c.d f1503g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f1501h;
+        public final /* synthetic */ e f1504h;
 
         public c(c.c cVar, c.f fVar, c.d dVar, e eVar) {
-            this.f1498e = cVar;
-            this.f1499f = fVar;
-            this.f1500g = dVar;
-            this.f1501h = eVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, fVar, dVar, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1501e = cVar;
+            this.f1502f = fVar;
+            this.f1503g = dVar;
+            this.f1504h = eVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: c.f */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
-            c.c cVar = this.f1498e;
-            if (cVar != null && cVar.a()) {
-                this.f1499f.b();
-                return;
-            }
-            try {
-                this.f1499f.d(this.f1500g.then(this.f1501h));
-            } catch (CancellationException unused) {
-                this.f1499f.b();
-            } catch (Exception e2) {
-                this.f1499f.c(e2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c.c cVar = this.f1501e;
+                if (cVar != null && cVar.a()) {
+                    this.f1502f.b();
+                    return;
+                }
+                try {
+                    this.f1502f.d(this.f1503g.then(this.f1504h));
+                } catch (CancellationException unused) {
+                    this.f1502f.b();
+                } catch (Exception e2) {
+                    this.f1502f.c(e2);
+                }
             }
         }
     }
 
     /* loaded from: classes.dex */
     public static class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.c f1502e;
+        public final /* synthetic */ c.c f1505e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.f f1503f;
+        public final /* synthetic */ c.f f1506f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.d f1504g;
+        public final /* synthetic */ c.d f1507g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f1505h;
+        public final /* synthetic */ e f1508h;
 
         /* loaded from: classes.dex */
         public class a implements c.d<TContinuationResult, Void> {
-            public a() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ d f1509a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f1509a = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: c.f */
+            /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: c.f */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // c.d
             /* renamed from: a */
             public Void then(e<TContinuationResult> eVar) {
-                c.c cVar = d.this.f1502e;
-                if (cVar != null && cVar.a()) {
-                    d.this.f1503f.b();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
+                    c.c cVar = this.f1509a.f1505e;
+                    if (cVar != null && cVar.a()) {
+                        this.f1509a.f1506f.b();
+                        return null;
+                    }
+                    if (eVar.p()) {
+                        this.f1509a.f1506f.b();
+                    } else if (eVar.r()) {
+                        this.f1509a.f1506f.c(eVar.m());
+                    } else {
+                        this.f1509a.f1506f.d(eVar.n());
+                    }
                     return null;
                 }
-                if (eVar.p()) {
-                    d.this.f1503f.b();
-                } else if (eVar.r()) {
-                    d.this.f1503f.c(eVar.m());
-                } else {
-                    d.this.f1503f.d(eVar.n());
-                }
-                return null;
+                return (Void) invokeL.objValue;
             }
         }
 
         public d(c.c cVar, c.f fVar, c.d dVar, e eVar) {
-            this.f1502e = cVar;
-            this.f1503f = fVar;
-            this.f1504g = dVar;
-            this.f1505h = eVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, fVar, dVar, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1505e = cVar;
+            this.f1506f = fVar;
+            this.f1507g = dVar;
+            this.f1508h = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.c cVar = this.f1502e;
-            if (cVar != null && cVar.a()) {
-                this.f1503f.b();
-                return;
-            }
-            try {
-                e eVar = (e) this.f1504g.then(this.f1505h);
-                if (eVar == null) {
-                    this.f1503f.d(null);
-                } else {
-                    eVar.g(new a());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c.c cVar = this.f1505e;
+                if (cVar != null && cVar.a()) {
+                    this.f1506f.b();
+                    return;
                 }
-            } catch (CancellationException unused) {
-                this.f1503f.b();
-            } catch (Exception e2) {
-                this.f1503f.c(e2);
+                try {
+                    e eVar = (e) this.f1507g.then(this.f1508h);
+                    if (eVar == null) {
+                        this.f1506f.d(null);
+                    } else {
+                        eVar.g(new a(this));
+                    }
+                } catch (CancellationException unused) {
+                    this.f1506f.b();
+                } catch (Exception e2) {
+                    this.f1506f.c(e2);
+                }
             }
         }
     }
@@ -218,37 +336,56 @@ public class e<TResult> {
     /* renamed from: c.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class RunnableC0014e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.c f1507e;
+        public final /* synthetic */ c.c f1510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.f f1508f;
+        public final /* synthetic */ c.f f1511f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Callable f1509g;
+        public final /* synthetic */ Callable f1512g;
 
         public RunnableC0014e(c.c cVar, c.f fVar, Callable callable) {
-            this.f1507e = cVar;
-            this.f1508f = fVar;
-            this.f1509g = callable;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, fVar, callable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1510e = cVar;
+            this.f1511f = fVar;
+            this.f1512g = callable;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: c.f */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: c.f */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
-            c.c cVar = this.f1507e;
-            if (cVar != null && cVar.a()) {
-                this.f1508f.b();
-                return;
-            }
-            try {
-                this.f1508f.d(this.f1509g.call());
-            } catch (CancellationException unused) {
-                this.f1508f.b();
-            } catch (Exception e2) {
-                this.f1508f.c(e2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c.c cVar = this.f1510e;
+                if (cVar != null && cVar.a()) {
+                    this.f1511f.b();
+                    return;
+                }
+                try {
+                    this.f1511f.d(this.f1512g.call());
+                } catch (CancellationException unused) {
+                    this.f1511f.b();
+                } catch (Exception e2) {
+                    this.f1511f.c(e2);
+                }
             }
         }
     }
@@ -259,8 +396,20 @@ public class e<TResult> {
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(73185262, "Lc/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(73185262, "Lc/e;");
+                return;
+            }
+        }
         c.b.a();
-        f1481i = c.b.b();
+        f1484i = c.b.b();
         c.a.c();
         k = new e<>((Object) null);
         l = new e<>(Boolean.TRUE);
@@ -269,208 +418,336 @@ public class e<TResult> {
     }
 
     public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f1485a = new Object();
+        this.f1492h = new ArrayList();
     }
 
     public static <TResult> e<TResult> c(Callable<TResult> callable, Executor executor) {
-        return d(callable, executor, null);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, callable, executor)) == null) ? d(callable, executor, null) : (e) invokeLL.objValue;
     }
 
     public static <TResult> e<TResult> d(Callable<TResult> callable, Executor executor, c.c cVar) {
-        c.f fVar = new c.f();
-        try {
-            executor.execute(new RunnableC0014e(cVar, fVar, callable));
-        } catch (Exception e2) {
-            fVar.c(new ExecutorException(e2));
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, callable, executor, cVar)) == null) {
+            c.f fVar = new c.f();
+            try {
+                executor.execute(new RunnableC0014e(cVar, fVar, callable));
+            } catch (Exception e2) {
+                fVar.c(new ExecutorException(e2));
+            }
+            return fVar.a();
         }
-        return fVar.a();
+        return (e) invokeLLL.objValue;
     }
 
     public static <TContinuationResult, TResult> void e(c.f<TContinuationResult> fVar, c.d<TResult, e<TContinuationResult>> dVar, e<TResult> eVar, Executor executor, c.c cVar) {
-        try {
-            executor.execute(new d(cVar, fVar, dVar, eVar));
-        } catch (Exception e2) {
-            fVar.c(new ExecutorException(e2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65544, null, fVar, dVar, eVar, executor, cVar) == null) {
+            try {
+                executor.execute(new d(cVar, fVar, dVar, eVar));
+            } catch (Exception e2) {
+                fVar.c(new ExecutorException(e2));
+            }
         }
     }
 
     public static <TContinuationResult, TResult> void f(c.f<TContinuationResult> fVar, c.d<TResult, TContinuationResult> dVar, e<TResult> eVar, Executor executor, c.c cVar) {
-        try {
-            executor.execute(new c(cVar, fVar, dVar, eVar));
-        } catch (Exception e2) {
-            fVar.c(new ExecutorException(e2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65545, null, fVar, dVar, eVar, executor, cVar) == null) {
+            try {
+                executor.execute(new c(cVar, fVar, dVar, eVar));
+            } catch (Exception e2) {
+                fVar.c(new ExecutorException(e2));
+            }
         }
     }
 
     public static <TResult> e<TResult> k(Exception exc) {
-        c.f fVar = new c.f();
-        fVar.c(exc);
-        return fVar.a();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, exc)) == null) {
+            c.f fVar = new c.f();
+            fVar.c(exc);
+            return fVar.a();
+        }
+        return (e) invokeL.objValue;
     }
 
     public static <TResult> e<TResult> l(TResult tresult) {
-        if (tresult == null) {
-            return (e<TResult>) k;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tresult)) == null) {
+            if (tresult == null) {
+                return (e<TResult>) k;
+            }
+            if (tresult instanceof Boolean) {
+                return ((Boolean) tresult).booleanValue() ? (e<TResult>) l : (e<TResult>) m;
+            }
+            c.f fVar = new c.f();
+            fVar.d(tresult);
+            return fVar.a();
         }
-        if (tresult instanceof Boolean) {
-            return ((Boolean) tresult).booleanValue() ? (e<TResult>) l : (e<TResult>) m;
-        }
-        c.f fVar = new c.f();
-        fVar.d(tresult);
-        return fVar.a();
+        return (e) invokeL.objValue;
     }
 
     public static f o() {
-        return j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? j : (f) invokeV.objValue;
     }
 
     public <TContinuationResult> e<TContinuationResult> g(c.d<TResult, TContinuationResult> dVar) {
-        return h(dVar, f1481i, null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? h(dVar, f1484i, null) : (e) invokeL.objValue;
     }
 
     public <TContinuationResult> e<TContinuationResult> h(c.d<TResult, TContinuationResult> dVar, Executor executor, c.c cVar) {
+        InterceptResult invokeLLL;
         boolean q;
-        c.f fVar = new c.f();
-        synchronized (this.f1482a) {
-            q = q();
-            if (!q) {
-                this.f1489h.add(new a(this, fVar, dVar, executor, cVar));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, executor, cVar)) == null) {
+            c.f fVar = new c.f();
+            synchronized (this.f1485a) {
+                q = q();
+                if (!q) {
+                    this.f1492h.add(new a(this, fVar, dVar, executor, cVar));
+                }
             }
+            if (q) {
+                f(fVar, dVar, this, executor, cVar);
+            }
+            return fVar.a();
         }
-        if (q) {
-            f(fVar, dVar, this, executor, cVar);
-        }
-        return fVar.a();
+        return (e) invokeLLL.objValue;
     }
 
     public <TContinuationResult> e<TContinuationResult> i(c.d<TResult, e<TContinuationResult>> dVar) {
-        return j(dVar, f1481i, null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) ? j(dVar, f1484i, null) : (e) invokeL.objValue;
     }
 
     public <TContinuationResult> e<TContinuationResult> j(c.d<TResult, e<TContinuationResult>> dVar, Executor executor, c.c cVar) {
+        InterceptResult invokeLLL;
         boolean q;
-        c.f fVar = new c.f();
-        synchronized (this.f1482a) {
-            q = q();
-            if (!q) {
-                this.f1489h.add(new b(this, fVar, dVar, executor, cVar));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, dVar, executor, cVar)) == null) {
+            c.f fVar = new c.f();
+            synchronized (this.f1485a) {
+                q = q();
+                if (!q) {
+                    this.f1492h.add(new b(this, fVar, dVar, executor, cVar));
+                }
             }
+            if (q) {
+                e(fVar, dVar, this, executor, cVar);
+            }
+            return fVar.a();
         }
-        if (q) {
-            e(fVar, dVar, this, executor, cVar);
-        }
-        return fVar.a();
+        return (e) invokeLLL.objValue;
     }
 
     public Exception m() {
+        InterceptResult invokeV;
         Exception exc;
-        synchronized (this.f1482a) {
-            if (this.f1486e != null) {
-                this.f1487f = true;
-                if (this.f1488g != null) {
-                    this.f1488g.a();
-                    this.f1488g = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.f1485a) {
+                if (this.f1489e != null) {
+                    this.f1490f = true;
+                    if (this.f1491g != null) {
+                        this.f1491g.a();
+                        this.f1491g = null;
+                    }
                 }
+                exc = this.f1489e;
             }
-            exc = this.f1486e;
+            return exc;
         }
-        return exc;
+        return (Exception) invokeV.objValue;
     }
 
     public TResult n() {
+        InterceptResult invokeV;
         TResult tresult;
-        synchronized (this.f1482a) {
-            tresult = this.f1485d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this.f1485a) {
+                tresult = this.f1488d;
+            }
+            return tresult;
         }
-        return tresult;
+        return (TResult) invokeV.objValue;
     }
 
     public boolean p() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (this.f1482a) {
-            z = this.f1484c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this.f1485a) {
+                z = this.f1487c;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     public boolean q() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (this.f1482a) {
-            z = this.f1483b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this.f1485a) {
+                z = this.f1486b;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     public boolean r() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (this.f1482a) {
-            z = m() != null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this.f1485a) {
+                z = m() != null;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     public final void s() {
-        synchronized (this.f1482a) {
-            for (c.d<TResult, Void> dVar : this.f1489h) {
-                try {
-                    dVar.then(this);
-                } catch (RuntimeException e2) {
-                    throw e2;
-                } catch (Exception e3) {
-                    throw new RuntimeException(e3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this.f1485a) {
+                for (c.d<TResult, Void> dVar : this.f1492h) {
+                    try {
+                        dVar.then(this);
+                    } catch (RuntimeException e2) {
+                        throw e2;
+                    } catch (Exception e3) {
+                        throw new RuntimeException(e3);
+                    }
                 }
+                this.f1492h = null;
             }
-            this.f1489h = null;
         }
     }
 
     public boolean t() {
-        synchronized (this.f1482a) {
-            if (this.f1483b) {
-                return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            synchronized (this.f1485a) {
+                if (this.f1486b) {
+                    return false;
+                }
+                this.f1486b = true;
+                this.f1487c = true;
+                this.f1485a.notifyAll();
+                s();
+                return true;
             }
-            this.f1483b = true;
-            this.f1484c = true;
-            this.f1482a.notifyAll();
-            s();
-            return true;
         }
+        return invokeV.booleanValue;
     }
 
     public boolean u(Exception exc) {
-        synchronized (this.f1482a) {
-            if (this.f1483b) {
-                return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, exc)) == null) {
+            synchronized (this.f1485a) {
+                if (this.f1486b) {
+                    return false;
+                }
+                this.f1486b = true;
+                this.f1489e = exc;
+                this.f1490f = false;
+                this.f1485a.notifyAll();
+                s();
+                if (!this.f1490f && o() != null) {
+                    this.f1491g = new g(this);
+                }
+                return true;
             }
-            this.f1483b = true;
-            this.f1486e = exc;
-            this.f1487f = false;
-            this.f1482a.notifyAll();
-            s();
-            if (!this.f1487f && o() != null) {
-                this.f1488g = new g(this);
-            }
-            return true;
         }
+        return invokeL.booleanValue;
     }
 
     public boolean v(TResult tresult) {
-        synchronized (this.f1482a) {
-            if (this.f1483b) {
-                return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tresult)) == null) {
+            synchronized (this.f1485a) {
+                if (this.f1486b) {
+                    return false;
+                }
+                this.f1486b = true;
+                this.f1488d = tresult;
+                this.f1485a.notifyAll();
+                s();
+                return true;
             }
-            this.f1483b = true;
-            this.f1485d = tresult;
-            this.f1482a.notifyAll();
-            s();
-            return true;
         }
+        return invokeL.booleanValue;
     }
 
     public e(TResult tresult) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tresult};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f1485a = new Object();
+        this.f1492h = new ArrayList();
         v(tresult);
     }
 
     public e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f1485a = new Object();
+        this.f1492h = new ArrayList();
         if (z) {
             t();
         } else {

@@ -5,35 +5,90 @@ import android.content.Context;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class KwaiHdrCodecCapabilities {
+    public static /* synthetic */ Interceptable $ic;
     public static KwaiHdrCodecCapabilities sHdrCapabilitiesUtil;
-    public boolean misInited = false;
-    public String mHdr10 = "";
-    public String mHdrDolby = "";
-    public String mHdrVp9 = "";
+    public transient /* synthetic */ FieldHolder $fh;
+    public String mHdr10;
+    public String mHdrDolby;
+    public String mHdrVp9;
+    public boolean misInited;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-830264412, "Lcom/kwai/player/KwaiHdrCodecCapabilities;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-830264412, "Lcom/kwai/player/KwaiHdrCodecCapabilities;");
+        }
+    }
+
+    public KwaiHdrCodecCapabilities() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.misInited = false;
+        this.mHdr10 = "";
+        this.mHdrDolby = "";
+        this.mHdrVp9 = "";
+    }
 
     public static synchronized KwaiHdrCodecCapabilities getInstance() {
+        InterceptResult invokeV;
         KwaiHdrCodecCapabilities kwaiHdrCodecCapabilities;
-        synchronized (KwaiHdrCodecCapabilities.class) {
-            if (sHdrCapabilitiesUtil == null) {
-                sHdrCapabilitiesUtil = new KwaiHdrCodecCapabilities();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (KwaiHdrCodecCapabilities.class) {
+                if (sHdrCapabilitiesUtil == null) {
+                    sHdrCapabilitiesUtil = new KwaiHdrCodecCapabilities();
+                }
+                kwaiHdrCodecCapabilities = sHdrCapabilitiesUtil;
             }
-            kwaiHdrCodecCapabilities = sHdrCapabilitiesUtil;
+            return kwaiHdrCodecCapabilities;
         }
-        return kwaiHdrCodecCapabilities;
+        return (KwaiHdrCodecCapabilities) invokeV.objValue;
     }
 
     public String getHdr10() {
-        return this.mHdr10;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHdr10 : (String) invokeV.objValue;
     }
 
     public String getHdrDolby() {
-        return this.mHdrDolby;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHdrDolby : (String) invokeV.objValue;
     }
 
     public String getHdrVp9() {
-        return this.mHdrVp9;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHdrVp9 : (String) invokeV.objValue;
     }
 
     @RequiresApi(api = 16)
@@ -44,7 +99,8 @@ public class KwaiHdrCodecCapabilities {
         String str;
         StringBuilder sb2;
         String str2;
-        if (this.misInited) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.misInited) {
             return;
         }
         int codecCount = MediaCodecList.getCodecCount();

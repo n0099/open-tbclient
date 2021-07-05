@@ -6,81 +6,135 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NHCreditMiniGroup extends BaseItemLayout {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final float HIEGHT = 98.5f;
     public static final int ITEM_LIMIT = 12;
     public static final float WIDTH_DIVIDER = 15.0f;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NHTitleView f24544a;
+    public NHTitleView f25087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f24545b;
+    public LinearLayout f25088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f24546c;
+    public List<BaseItemView> f25089c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditMiniGroup(Context context) {
         super(context);
-        this.f24546c = new ArrayList();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f25089c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24546c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25089c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
-        LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_layout"), this);
-        this.f24544a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_mini_title"));
-        this.f24545b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_layout"), this);
+            this.f25087a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_mini_title"));
+            this.f25088b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
+        }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public boolean isDataValid() {
+        InterceptResult invokeV;
         HomeCfgResponse.DataItem[] dataItemArr;
-        HomeCfgResponse.ConfigData configData = this.mConfigData;
-        return (configData == null || (dataItemArr = configData.list) == null || dataItemArr.length <= 0) ? false : true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HomeCfgResponse.ConfigData configData = this.mConfigData;
+            return (configData == null || (dataItemArr = configData.list) == null || dataItemArr.length <= 0) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
         int dip2px;
-        this.f24544a.setData(this.mConfigData, getWalletInterface());
-        this.f24544a.setHasGap(this.mConfigData.isLayoutHasGap());
-        int displayWidth = DisplayUtils.getDisplayWidth(getContext());
-        if (this.mConfigData.list.length <= 2) {
-            this.f24545b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
-            dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.0f);
-        } else {
-            this.f24545b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.2d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f25087a.setData(this.mConfigData, getWalletInterface());
+            this.f25087a.setHasGap(this.mConfigData.isLayoutHasGap());
+            int displayWidth = DisplayUtils.getDisplayWidth(getContext());
+            if (this.mConfigData.list.length <= 2) {
+                this.f25088b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
+                dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.0f);
+            } else {
+                this.f25088b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+                dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.2d);
+            }
+            HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
+            int length = 12 >= dataItemArr.length ? dataItemArr.length : 12;
+            for (int i2 = 0; i2 < length; i2++) {
+                NHCreditMiniItem nHCreditMiniItem = new NHCreditMiniItem(getContext());
+                nHCreditMiniItem.setData(this.mConfigData.list[i2], getWalletInterface());
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dip2px, DisplayUtils.dip2px(getContext(), 98.5f));
+                layoutParams.width = dip2px;
+                layoutParams.setMargins(DisplayUtils.dip2px(getContext(), 15.0f), 0, 0, 0);
+                this.f25088b.addView(nHCreditMiniItem, layoutParams);
+                this.f25089c.add(nHCreditMiniItem);
+            }
+            this.f25088b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
         }
-        HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-        int length = 12 >= dataItemArr.length ? dataItemArr.length : 12;
-        for (int i2 = 0; i2 < length; i2++) {
-            NHCreditMiniItem nHCreditMiniItem = new NHCreditMiniItem(getContext());
-            nHCreditMiniItem.setData(this.mConfigData.list[i2], getWalletInterface());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dip2px, DisplayUtils.dip2px(getContext(), 98.5f));
-            layoutParams.width = dip2px;
-            layoutParams.setMargins(DisplayUtils.dip2px(getContext(), 15.0f), 0, 0, 0);
-            this.f24545b.addView(nHCreditMiniItem, layoutParams);
-            this.f24546c.add(nHCreditMiniItem);
-        }
-        this.f24545b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditMiniGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24546c = new ArrayList();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f25089c = new ArrayList();
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.livesdk.sdk;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.api.account.Account;
 import com.baidu.livesdk.api.http.HttpRequestManager;
 import com.baidu.livesdk.api.http.download.DownloadManager;
@@ -19,9 +21,16 @@ import com.baidu.livesdk.api.share.Share;
 import com.baidu.livesdk.api.widget.LikeView;
 import com.baidu.livesdk.api.widget.LoadingView;
 import com.baidu.livesdk.api.widget.UniversalToast;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class LiveSDK {
+    public static /* synthetic */ Interceptable $ic;
     public static volatile LiveSDK mSDK;
+    public transient /* synthetic */ FieldHolder $fh;
     public Account mAccount;
     public Context mContext;
     public DownloadManager mDownloadManager;
@@ -44,200 +53,317 @@ public class LiveSDK {
     public PlayerBuilder playerBuilder;
 
     public LiveSDK(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context.getApplicationContext();
     }
 
     public static LiveSDK getInstance(Context context) {
-        if (mSDK == null) {
-            synchronized (LiveSDK.class) {
-                if (mSDK == null) {
-                    mSDK = new LiveSDK(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (mSDK == null) {
+                synchronized (LiveSDK.class) {
+                    if (mSDK == null) {
+                        mSDK = new LiveSDK(context);
+                    }
                 }
             }
+            return mSDK;
         }
-        return mSDK;
+        return (LiveSDK) invokeL.objValue;
     }
 
     public HttpRequestManager createHttpManager() throws IllegalAccessException, InstantiationException {
-        return this.mHttpRequestManagerClass.newInstance();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHttpRequestManagerClass.newInstance() : (HttpRequestManager) invokeV.objValue;
     }
 
     public Account getAccount() {
-        return this.mAccount;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAccount : (Account) invokeV.objValue;
     }
 
     public DownloadManager getDownloadManager() {
-        return this.mDownloadManager;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadManager : (DownloadManager) invokeV.objValue;
     }
 
     public Home getHome() {
-        return this.mHome;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHome : (Home) invokeV.objValue;
     }
 
     public ImageLoader getImageLoader() {
-        return this.mImageLoader;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mImageLoader : (ImageLoader) invokeV.objValue;
     }
 
     public LikeRequest getLikeRequest() {
-        return this.mLikeRequest;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLikeRequest : (LikeRequest) invokeV.objValue;
     }
 
     public LikeView getLikeView() {
-        return this.mLikeView;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mLikeView : (LikeView) invokeV.objValue;
     }
 
     public LiveDataRequest getLiveDataRequest() {
-        return this.mLiveDataRequest;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLiveDataRequest : (LiveDataRequest) invokeV.objValue;
     }
 
     public LiveIM getLiveIM() {
-        return this.mLiveIM;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mLiveIM : (LiveIM) invokeV.objValue;
     }
 
     public LiveSDKParams getLiveSDKParams() {
-        return this.mLiveSDKParams;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLiveSDKParams : (LiveSDKParams) invokeV.objValue;
     }
 
     public LoadingView getLoadingView() {
-        return this.mLoadingView;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mLoadingView : (LoadingView) invokeV.objValue;
     }
 
     public Pay getPay() {
-        return this.mPay;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPay : (Pay) invokeV.objValue;
     }
 
     public Player getPlayer() {
-        return this.mPlayer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mPlayer : (Player) invokeV.objValue;
     }
 
     public PlayerBuilder getPlayerBuilder() {
-        return this.playerBuilder;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.playerBuilder : (PlayerBuilder) invokeV.objValue;
     }
 
     public Scheme getScheme() {
-        return this.mScheme;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mScheme : (Scheme) invokeV.objValue;
     }
 
     public Share getShare() {
-        return this.mShare;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mShare : (Share) invokeV.objValue;
     }
 
     public Tab getTab() {
-        return this.mTab;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mTab : (Tab) invokeV.objValue;
     }
 
     public UniversalToast getToast() {
-        return this.mToast;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mToast : (UniversalToast) invokeV.objValue;
     }
 
     public Ubc getmUbc() {
-        return this.mUbc;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mUbc : (Ubc) invokeV.objValue;
     }
 
     public void release() {
-        ImageLoader imageLoader = this.mImageLoader;
-        if (imageLoader != null) {
-            imageLoader.release();
-        }
-        Account account = this.mAccount;
-        if (account != null) {
-            account.clearAccountChangeListener();
-        }
-        Pay pay = this.mPay;
-        if (pay != null) {
-            pay.release();
-        }
-        Player player = this.mPlayer;
-        if (player != null) {
-            player.release();
-        }
-        LiveDataRequest liveDataRequest = this.mLiveDataRequest;
-        if (liveDataRequest != null) {
-            liveDataRequest.release();
-        }
-        Share share = this.mShare;
-        if (share != null) {
-            share.release();
-        }
-        LikeView likeView = this.mLikeView;
-        if (likeView != null) {
-            likeView.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            ImageLoader imageLoader = this.mImageLoader;
+            if (imageLoader != null) {
+                imageLoader.release();
+            }
+            Account account = this.mAccount;
+            if (account != null) {
+                account.clearAccountChangeListener();
+            }
+            Pay pay = this.mPay;
+            if (pay != null) {
+                pay.release();
+            }
+            Player player = this.mPlayer;
+            if (player != null) {
+                player.release();
+            }
+            LiveDataRequest liveDataRequest = this.mLiveDataRequest;
+            if (liveDataRequest != null) {
+                liveDataRequest.release();
+            }
+            Share share = this.mShare;
+            if (share != null) {
+                share.release();
+            }
+            LikeView likeView = this.mLikeView;
+            if (likeView != null) {
+                likeView.release();
+            }
         }
     }
 
     public void setAccount(Account account) {
-        this.mAccount = account;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, account) == null) {
+            this.mAccount = account;
+        }
     }
 
     public void setDownloadManager(DownloadManager downloadManager) {
-        this.mDownloadManager = downloadManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, downloadManager) == null) {
+            this.mDownloadManager = downloadManager;
+        }
     }
 
     public void setHome(Home home) {
-        this.mHome = home;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, home) == null) {
+            this.mHome = home;
+        }
     }
 
     public void setImageLoader(ImageLoader imageLoader) {
-        this.mImageLoader = imageLoader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, imageLoader) == null) {
+            this.mImageLoader = imageLoader;
+        }
     }
 
     public void setLikeRequest(LikeRequest likeRequest) {
-        this.mLikeRequest = likeRequest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, likeRequest) == null) {
+            this.mLikeRequest = likeRequest;
+        }
     }
 
     public void setLikeView(LikeView likeView) {
-        this.mLikeView = likeView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, likeView) == null) {
+            this.mLikeView = likeView;
+        }
     }
 
     public void setLiveDataRequest(LiveDataRequest liveDataRequest) {
-        this.mLiveDataRequest = liveDataRequest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, liveDataRequest) == null) {
+            this.mLiveDataRequest = liveDataRequest;
+        }
     }
 
     public void setLiveIM(LiveIM liveIM) {
-        this.mLiveIM = liveIM;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, liveIM) == null) {
+            this.mLiveIM = liveIM;
+        }
     }
 
     public void setLiveSDKParams(LiveSDKParams liveSDKParams) {
-        this.mLiveSDKParams = liveSDKParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, liveSDKParams) == null) {
+            this.mLiveSDKParams = liveSDKParams;
+        }
     }
 
     public void setLoadingView(LoadingView loadingView) {
-        this.mLoadingView = loadingView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, loadingView) == null) {
+            this.mLoadingView = loadingView;
+        }
     }
 
     public void setPay(Pay pay) {
-        this.mPay = pay;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, pay) == null) {
+            this.mPay = pay;
+        }
     }
 
     public void setPlayer(Player player) {
-        this.mPlayer = player;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, player) == null) {
+            this.mPlayer = player;
+        }
     }
 
     public void setPlayerBuilder(PlayerBuilder playerBuilder) {
-        this.playerBuilder = playerBuilder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, playerBuilder) == null) {
+            this.playerBuilder = playerBuilder;
+        }
     }
 
     public void setRequest(Class<? extends HttpRequestManager> cls) {
-        this.mHttpRequestManagerClass = cls;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, cls) == null) {
+            this.mHttpRequestManagerClass = cls;
+        }
     }
 
     public void setScheme(Scheme scheme) {
-        this.mScheme = scheme;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, scheme) == null) {
+            this.mScheme = scheme;
+        }
     }
 
     public void setShare(Share share) {
-        this.mShare = share;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, share) == null) {
+            this.mShare = share;
+        }
     }
 
     public void setTab(Tab tab) {
-        this.mTab = tab;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, tab) == null) {
+            this.mTab = tab;
+        }
     }
 
     public void setToast(UniversalToast universalToast) {
-        this.mToast = universalToast;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, universalToast) == null) {
+            this.mToast = universalToast;
+        }
     }
 
     public void setmUbc(Ubc ubc) {
-        this.mUbc = ubc;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, ubc) == null) {
+            this.mUbc = ubc;
+        }
     }
 }

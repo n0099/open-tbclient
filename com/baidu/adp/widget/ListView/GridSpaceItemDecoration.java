@@ -4,35 +4,58 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2391a;
+    public int f2389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2392b;
+    public int f2390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2393c;
+    public int f2391c;
 
     public GridSpaceItemDecoration(int i2, int i3, int i4) {
-        this.f2391a = i2;
-        this.f2392b = i3;
-        this.f2393c = i4;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f2389a = i2;
+        this.f2390b = i3;
+        this.f2391c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
-        if (layoutParams.getSpanIndex() != -1) {
-            if (layoutParams.getSpanIndex() % 2 == 0) {
-                rect.left = this.f2391a;
-                rect.right = this.f2392b;
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
+            GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
+            if (layoutParams.getSpanIndex() != -1) {
+                if (layoutParams.getSpanIndex() % 2 == 0) {
+                    rect.left = this.f2389a;
+                    rect.right = this.f2390b;
+                    return;
+                }
+                rect.left = this.f2390b;
+                rect.right = this.f2391c;
             }
-            rect.left = this.f2392b;
-            rect.right = this.f2393c;
         }
     }
 }

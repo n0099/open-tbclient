@@ -4,14 +4,34 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class f implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f22740a;
+    public final /* synthetic */ ScreenCapEditActivity f23256a;
 
     public f(ScreenCapEditActivity screenCapEditActivity) {
-        this.f22740a = screenCapEditActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {screenCapEditActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23256a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,13 +39,16 @@ public final class f implements View.OnClickListener {
         ImageView imageView;
         Bitmap bitmap;
         Handler handler;
-        imageView = this.f22740a.f22723e;
-        if (imageView != null) {
-            bitmap = this.f22740a.f22725g;
-            if (bitmap != null) {
-                this.f22740a.a(true);
-                handler = this.f22740a.N;
-                handler.obtainMessage(0).sendToTarget();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            imageView = this.f23256a.f23239e;
+            if (imageView != null) {
+                bitmap = this.f23256a.f23241g;
+                if (bitmap != null) {
+                    this.f23256a.a(true);
+                    handler = this.f23256a.N;
+                    handler.obtainMessage(0).sendToTarget();
+                }
             }
         }
     }

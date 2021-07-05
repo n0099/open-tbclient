@@ -1,5 +1,12 @@
 package com.google.gson;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.Excluder;
 import com.google.gson.internal.bind.TreeTypeAdapter;
@@ -13,8 +20,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class GsonBuilder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean complexMapKeySerialization;
     public String datePattern;
     public int dateStyle;
@@ -33,6 +42,18 @@ public final class GsonBuilder {
     public int timeStyle;
 
     public GsonBuilder() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.excluder = Excluder.DEFAULT;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
@@ -54,174 +75,311 @@ public final class GsonBuilder {
         DefaultDateTypeAdapter defaultDateTypeAdapter;
         DefaultDateTypeAdapter defaultDateTypeAdapter2;
         DefaultDateTypeAdapter defaultDateTypeAdapter3;
-        if (str != null && !"".equals(str.trim())) {
-            defaultDateTypeAdapter = new DefaultDateTypeAdapter(Date.class, str);
-            defaultDateTypeAdapter2 = new DefaultDateTypeAdapter(Timestamp.class, str);
-            defaultDateTypeAdapter3 = new DefaultDateTypeAdapter(java.sql.Date.class, str);
-        } else if (i2 == 2 || i3 == 2) {
-            return;
-        } else {
-            DefaultDateTypeAdapter defaultDateTypeAdapter4 = new DefaultDateTypeAdapter(Date.class, i2, i3);
-            DefaultDateTypeAdapter defaultDateTypeAdapter5 = new DefaultDateTypeAdapter(Timestamp.class, i2, i3);
-            DefaultDateTypeAdapter defaultDateTypeAdapter6 = new DefaultDateTypeAdapter(java.sql.Date.class, i2, i3);
-            defaultDateTypeAdapter = defaultDateTypeAdapter4;
-            defaultDateTypeAdapter2 = defaultDateTypeAdapter5;
-            defaultDateTypeAdapter3 = defaultDateTypeAdapter6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
+            if (str != null && !"".equals(str.trim())) {
+                defaultDateTypeAdapter = new DefaultDateTypeAdapter(Date.class, str);
+                defaultDateTypeAdapter2 = new DefaultDateTypeAdapter(Timestamp.class, str);
+                defaultDateTypeAdapter3 = new DefaultDateTypeAdapter(java.sql.Date.class, str);
+            } else if (i2 == 2 || i3 == 2) {
+                return;
+            } else {
+                DefaultDateTypeAdapter defaultDateTypeAdapter4 = new DefaultDateTypeAdapter(Date.class, i2, i3);
+                DefaultDateTypeAdapter defaultDateTypeAdapter5 = new DefaultDateTypeAdapter(Timestamp.class, i2, i3);
+                DefaultDateTypeAdapter defaultDateTypeAdapter6 = new DefaultDateTypeAdapter(java.sql.Date.class, i2, i3);
+                defaultDateTypeAdapter = defaultDateTypeAdapter4;
+                defaultDateTypeAdapter2 = defaultDateTypeAdapter5;
+                defaultDateTypeAdapter3 = defaultDateTypeAdapter6;
+            }
+            list.add(TypeAdapters.newFactory(Date.class, defaultDateTypeAdapter));
+            list.add(TypeAdapters.newFactory(Timestamp.class, defaultDateTypeAdapter2));
+            list.add(TypeAdapters.newFactory(java.sql.Date.class, defaultDateTypeAdapter3));
         }
-        list.add(TypeAdapters.newFactory(Date.class, defaultDateTypeAdapter));
-        list.add(TypeAdapters.newFactory(Timestamp.class, defaultDateTypeAdapter2));
-        list.add(TypeAdapters.newFactory(java.sql.Date.class, defaultDateTypeAdapter3));
     }
 
     public GsonBuilder addDeserializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
-        this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, false, true);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, exclusionStrategy)) == null) {
+            this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, false, true);
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder addSerializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
-        this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, false);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exclusionStrategy)) == null) {
+            this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, false);
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public Gson create() {
-        List<TypeAdapterFactory> arrayList = new ArrayList<>(this.factories.size() + this.hierarchyFactories.size() + 3);
-        arrayList.addAll(this.factories);
-        Collections.reverse(arrayList);
-        ArrayList arrayList2 = new ArrayList(this.hierarchyFactories);
-        Collections.reverse(arrayList2);
-        arrayList.addAll(arrayList2);
-        addTypeAdaptersForDate(this.datePattern, this.dateStyle, this.timeStyle, arrayList);
-        return new Gson(this.excluder, this.fieldNamingPolicy, this.instanceCreators, this.serializeNulls, this.complexMapKeySerialization, this.generateNonExecutableJson, this.escapeHtmlChars, this.prettyPrinting, this.lenient, this.serializeSpecialFloatingPointValues, this.longSerializationPolicy, this.datePattern, this.dateStyle, this.timeStyle, this.factories, this.hierarchyFactories, arrayList);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<TypeAdapterFactory> arrayList = new ArrayList<>(this.factories.size() + this.hierarchyFactories.size() + 3);
+            arrayList.addAll(this.factories);
+            Collections.reverse(arrayList);
+            ArrayList arrayList2 = new ArrayList(this.hierarchyFactories);
+            Collections.reverse(arrayList2);
+            arrayList.addAll(arrayList2);
+            addTypeAdaptersForDate(this.datePattern, this.dateStyle, this.timeStyle, arrayList);
+            return new Gson(this.excluder, this.fieldNamingPolicy, this.instanceCreators, this.serializeNulls, this.complexMapKeySerialization, this.generateNonExecutableJson, this.escapeHtmlChars, this.prettyPrinting, this.lenient, this.serializeSpecialFloatingPointValues, this.longSerializationPolicy, this.datePattern, this.dateStyle, this.timeStyle, this.factories, this.hierarchyFactories, arrayList);
+        }
+        return (Gson) invokeV.objValue;
     }
 
     public GsonBuilder disableHtmlEscaping() {
-        this.escapeHtmlChars = false;
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.escapeHtmlChars = false;
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.disableInnerClassSerialization();
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.excluder = this.excluder.disableInnerClassSerialization();
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder enableComplexMapKeySerialization() {
-        this.complexMapKeySerialization = true;
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            this.complexMapKeySerialization = true;
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder excludeFieldsWithModifiers(int... iArr) {
-        this.excluder = this.excluder.withModifiers(iArr);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iArr)) == null) {
+            this.excluder = this.excluder.withModifiers(iArr);
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.excludeFieldsWithoutExposeAnnotation();
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            this.excluder = this.excluder.excludeFieldsWithoutExposeAnnotation();
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder generateNonExecutableJson() {
-        this.generateNonExecutableJson = true;
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            this.generateNonExecutableJson = true;
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder registerTypeAdapter(Type type, Object obj) {
-        boolean z = obj instanceof JsonSerializer;
-        C$Gson$Preconditions.checkArgument(z || (obj instanceof JsonDeserializer) || (obj instanceof InstanceCreator) || (obj instanceof TypeAdapter));
-        if (obj instanceof InstanceCreator) {
-            this.instanceCreators.put(type, (InstanceCreator) obj);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, type, obj)) == null) {
+            boolean z = obj instanceof JsonSerializer;
+            C$Gson$Preconditions.checkArgument(z || (obj instanceof JsonDeserializer) || (obj instanceof InstanceCreator) || (obj instanceof TypeAdapter));
+            if (obj instanceof InstanceCreator) {
+                this.instanceCreators.put(type, (InstanceCreator) obj);
+            }
+            if (z || (obj instanceof JsonDeserializer)) {
+                this.factories.add(TreeTypeAdapter.newFactoryWithMatchRawType(TypeToken.get(type), obj));
+            }
+            if (obj instanceof TypeAdapter) {
+                this.factories.add(TypeAdapters.newFactory(TypeToken.get(type), (TypeAdapter) obj));
+            }
+            return this;
         }
-        if (z || (obj instanceof JsonDeserializer)) {
-            this.factories.add(TreeTypeAdapter.newFactoryWithMatchRawType(TypeToken.get(type), obj));
-        }
-        if (obj instanceof TypeAdapter) {
-            this.factories.add(TypeAdapters.newFactory(TypeToken.get(type), (TypeAdapter) obj));
-        }
-        return this;
+        return (GsonBuilder) invokeLL.objValue;
     }
 
     public GsonBuilder registerTypeAdapterFactory(TypeAdapterFactory typeAdapterFactory) {
-        this.factories.add(typeAdapterFactory);
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, typeAdapterFactory)) == null) {
+            this.factories.add(typeAdapterFactory);
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder registerTypeHierarchyAdapter(Class<?> cls, Object obj) {
-        boolean z = obj instanceof JsonSerializer;
-        C$Gson$Preconditions.checkArgument(z || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
-        if ((obj instanceof JsonDeserializer) || z) {
-            this.hierarchyFactories.add(TreeTypeAdapter.newTypeHierarchyFactory(cls, obj));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, cls, obj)) == null) {
+            boolean z = obj instanceof JsonSerializer;
+            C$Gson$Preconditions.checkArgument(z || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
+            if ((obj instanceof JsonDeserializer) || z) {
+                this.hierarchyFactories.add(TreeTypeAdapter.newTypeHierarchyFactory(cls, obj));
+            }
+            if (obj instanceof TypeAdapter) {
+                this.factories.add(TypeAdapters.newTypeHierarchyFactory(cls, (TypeAdapter) obj));
+            }
+            return this;
         }
-        if (obj instanceof TypeAdapter) {
-            this.factories.add(TypeAdapters.newTypeHierarchyFactory(cls, (TypeAdapter) obj));
-        }
-        return this;
+        return (GsonBuilder) invokeLL.objValue;
     }
 
     public GsonBuilder serializeNulls() {
-        this.serializeNulls = true;
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            this.serializeNulls = true;
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder serializeSpecialFloatingPointValues() {
-        this.serializeSpecialFloatingPointValues = true;
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            this.serializeSpecialFloatingPointValues = true;
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder setDateFormat(String str) {
-        this.datePattern = str;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            this.datePattern = str;
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder setExclusionStrategies(ExclusionStrategy... exclusionStrategyArr) {
-        for (ExclusionStrategy exclusionStrategy : exclusionStrategyArr) {
-            this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, true);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, exclusionStrategyArr)) == null) {
+            for (ExclusionStrategy exclusionStrategy : exclusionStrategyArr) {
+                this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, true);
+            }
+            return this;
         }
-        return this;
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder setFieldNamingPolicy(FieldNamingPolicy fieldNamingPolicy) {
-        this.fieldNamingPolicy = fieldNamingPolicy;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, fieldNamingPolicy)) == null) {
+            this.fieldNamingPolicy = fieldNamingPolicy;
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder setFieldNamingStrategy(FieldNamingStrategy fieldNamingStrategy) {
-        this.fieldNamingPolicy = fieldNamingStrategy;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, fieldNamingStrategy)) == null) {
+            this.fieldNamingPolicy = fieldNamingStrategy;
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder setLenient() {
-        this.lenient = true;
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            this.lenient = true;
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder setLongSerializationPolicy(LongSerializationPolicy longSerializationPolicy) {
-        this.longSerializationPolicy = longSerializationPolicy;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, longSerializationPolicy)) == null) {
+            this.longSerializationPolicy = longSerializationPolicy;
+            return this;
+        }
+        return (GsonBuilder) invokeL.objValue;
     }
 
     public GsonBuilder setPrettyPrinting() {
-        this.prettyPrinting = true;
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            this.prettyPrinting = true;
+            return this;
+        }
+        return (GsonBuilder) invokeV.objValue;
     }
 
     public GsonBuilder setVersion(double d2) {
-        this.excluder = this.excluder.withVersion(d2);
-        return this;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Double.valueOf(d2)})) == null) {
+            this.excluder = this.excluder.withVersion(d2);
+            return this;
+        }
+        return (GsonBuilder) invokeCommon.objValue;
     }
 
     public GsonBuilder setDateFormat(int i2) {
-        this.dateStyle = i2;
-        this.datePattern = null;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+            this.dateStyle = i2;
+            this.datePattern = null;
+            return this;
+        }
+        return (GsonBuilder) invokeI.objValue;
     }
 
     public GsonBuilder setDateFormat(int i2, int i3) {
-        this.dateStyle = i2;
-        this.timeStyle = i3;
-        this.datePattern = null;
-        return this;
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048591, this, i2, i3)) == null) {
+            this.dateStyle = i2;
+            this.timeStyle = i3;
+            this.datePattern = null;
+            return this;
+        }
+        return (GsonBuilder) invokeII.objValue;
     }
 
     public GsonBuilder(Gson gson) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gson};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.excluder = Excluder.DEFAULT;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;

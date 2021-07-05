@@ -8,75 +8,118 @@ import android.util.Log;
 import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public final class CompoundButtonCompat {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CompoundButtonCompat";
     public static Field sButtonDrawableField;
     public static boolean sButtonDrawableFieldFetched;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public CompoundButtonCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Nullable
     public static Drawable getButtonDrawable(@NonNull CompoundButton compoundButton) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            return compoundButton.getButtonDrawable();
-        }
-        if (!sButtonDrawableFieldFetched) {
-            try {
-                Field declaredField = CompoundButton.class.getDeclaredField("mButtonDrawable");
-                sButtonDrawableField = declaredField;
-                declaredField.setAccessible(true);
-            } catch (NoSuchFieldException e2) {
-                Log.i(TAG, "Failed to retrieve mButtonDrawable field", e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, compoundButton)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return compoundButton.getButtonDrawable();
             }
-            sButtonDrawableFieldFetched = true;
-        }
-        Field field = sButtonDrawableField;
-        if (field != null) {
-            try {
-                return (Drawable) field.get(compoundButton);
-            } catch (IllegalAccessException e3) {
-                Log.i(TAG, "Failed to get button drawable via reflection", e3);
-                sButtonDrawableField = null;
+            if (!sButtonDrawableFieldFetched) {
+                try {
+                    Field declaredField = CompoundButton.class.getDeclaredField("mButtonDrawable");
+                    sButtonDrawableField = declaredField;
+                    declaredField.setAccessible(true);
+                } catch (NoSuchFieldException e2) {
+                    Log.i(TAG, "Failed to retrieve mButtonDrawable field", e2);
+                }
+                sButtonDrawableFieldFetched = true;
             }
+            Field field = sButtonDrawableField;
+            if (field != null) {
+                try {
+                    return (Drawable) field.get(compoundButton);
+                } catch (IllegalAccessException e3) {
+                    Log.i(TAG, "Failed to get button drawable via reflection", e3);
+                    sButtonDrawableField = null;
+                }
+            }
+            return null;
         }
-        return null;
+        return (Drawable) invokeL.objValue;
     }
 
     @Nullable
     public static ColorStateList getButtonTintList(@NonNull CompoundButton compoundButton) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return compoundButton.getButtonTintList();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, compoundButton)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return compoundButton.getButtonTintList();
+            }
+            if (compoundButton instanceof TintableCompoundButton) {
+                return ((TintableCompoundButton) compoundButton).getSupportButtonTintList();
+            }
+            return null;
         }
-        if (compoundButton instanceof TintableCompoundButton) {
-            return ((TintableCompoundButton) compoundButton).getSupportButtonTintList();
-        }
-        return null;
+        return (ColorStateList) invokeL.objValue;
     }
 
     @Nullable
     public static PorterDuff.Mode getButtonTintMode(@NonNull CompoundButton compoundButton) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return compoundButton.getButtonTintMode();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, compoundButton)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return compoundButton.getButtonTintMode();
+            }
+            if (compoundButton instanceof TintableCompoundButton) {
+                return ((TintableCompoundButton) compoundButton).getSupportButtonTintMode();
+            }
+            return null;
         }
-        if (compoundButton instanceof TintableCompoundButton) {
-            return ((TintableCompoundButton) compoundButton).getSupportButtonTintMode();
-        }
-        return null;
+        return (PorterDuff.Mode) invokeL.objValue;
     }
 
     public static void setButtonTintList(@NonNull CompoundButton compoundButton, @Nullable ColorStateList colorStateList) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            compoundButton.setButtonTintList(colorStateList);
-        } else if (compoundButton instanceof TintableCompoundButton) {
-            ((TintableCompoundButton) compoundButton).setSupportButtonTintList(colorStateList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65540, null, compoundButton, colorStateList) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                compoundButton.setButtonTintList(colorStateList);
+            } else if (compoundButton instanceof TintableCompoundButton) {
+                ((TintableCompoundButton) compoundButton).setSupportButtonTintList(colorStateList);
+            }
         }
     }
 
     public static void setButtonTintMode(@NonNull CompoundButton compoundButton, @Nullable PorterDuff.Mode mode) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            compoundButton.setButtonTintMode(mode);
-        } else if (compoundButton instanceof TintableCompoundButton) {
-            ((TintableCompoundButton) compoundButton).setSupportButtonTintMode(mode);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, compoundButton, mode) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                compoundButton.setButtonTintMode(mode);
+            } else if (compoundButton instanceof TintableCompoundButton) {
+                ((TintableCompoundButton) compoundButton).setSupportButtonTintMode(mode);
+            }
         }
     }
 }

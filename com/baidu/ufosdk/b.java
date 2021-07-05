@@ -1,9 +1,15 @@
 package com.baidu.ufosdk;
 
 import android.graphics.Bitmap;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public final class b {
+    public static /* synthetic */ Interceptable $ic = null;
     public static int A = -1;
     public static int B = -460552;
     public static int C = -921103;
@@ -32,7 +38,7 @@ public final class b {
     public static float Z = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f22656a = false;
+    public static boolean f23172a = false;
     public static int aa = 200;
     public static HashMap ab = null;
     public static ResumeCallBack ac = null;
@@ -44,28 +50,28 @@ public final class b {
     public static int ai = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f22657b = "";
+    public static String f23173b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f22658c = "";
+    public static String f23174c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f22659d = "";
+    public static String f23175d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f22660e = 0;
+    public static int f23176e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f22661f = "";
+    public static String f23177f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static Bitmap f22662g = null;
+    public static Bitmap f23178g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f22663h = "";
+    public static String f23179h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f22664i = "";
+    public static String f23180i = "";
     public static int j = 0;
     public static int k = 0;
     public static String l = "";
@@ -83,4 +89,20 @@ public final class b {
     public static int x = -16777216;
     public static int y = -5262406;
     public static int z = -657673;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-516310978, "Lcom/baidu/ufosdk/b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-516310978, "Lcom/baidu/ufosdk/b;");
+        }
+    }
 }

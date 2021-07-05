@@ -1,172 +1,306 @@
 package com.baidu.mapapi.synchronization.histroytrace;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class HistoryTraceDisplayOptions {
-    public boolean j = true;
-    public int k = 30;
-    public int l = 30;
-    public int m = 30;
-    public int n = 30;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDescriptor f7434a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+    public BitmapDescriptor f7464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f7435b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+    public BitmapDescriptor f7465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BitmapDescriptor f7436c = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
+    public BitmapDescriptor f7466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BitmapDescriptor f7437d = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Gray_Arrow.png");
+    public BitmapDescriptor f7467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7438e = 22;
+    public int f7468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7439f = true;
+    public boolean f7469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7440g = true;
+    public boolean f7470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f7441h = false;
+    public boolean f7471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f7442i = true;
+    public boolean f7472i;
+    public boolean j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+
+    public HistoryTraceDisplayOptions() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = true;
+        this.k = 30;
+        this.l = 30;
+        this.m = 30;
+        this.n = 30;
+        this.f7464a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+        this.f7465b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+        this.f7466c = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
+        this.f7467d = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Gray_Arrow.png");
+        this.f7468e = 22;
+        this.f7469f = true;
+        this.f7470g = true;
+        this.f7471h = false;
+        this.f7472i = true;
+    }
 
     public BitmapDescriptor getCarIcon() {
-        return this.f7436c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7466c : (BitmapDescriptor) invokeV.objValue;
     }
 
     public BitmapDescriptor getEndPositionIcon() {
-        return this.f7435b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7465b : (BitmapDescriptor) invokeV.objValue;
     }
 
     public int getPaddingBottom() {
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.n : invokeV.intValue;
     }
 
     public int getPaddingLeft() {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int getPaddingRight() {
-        return this.l;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : invokeV.intValue;
     }
 
     public int getPaddingTop() {
-        return this.m;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.m : invokeV.intValue;
     }
 
     public BitmapDescriptor getRouteLineTexture() {
-        return this.f7437d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7467d : (BitmapDescriptor) invokeV.objValue;
     }
 
     public int getRouteLineWidth() {
-        return this.f7438e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7468e : invokeV.intValue;
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.f7434a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7464a : (BitmapDescriptor) invokeV.objValue;
     }
 
     public boolean isRouteLineRenderBySubSection() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
     public boolean isShowCarIcon() {
-        return this.f7441h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f7471h : invokeV.booleanValue;
     }
 
     public boolean isShowEndPositionIcon() {
-        return this.f7440g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f7470g : invokeV.booleanValue;
     }
 
     public boolean isShowRoutePlan() {
-        return this.f7442i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7472i : invokeV.booleanValue;
     }
 
     public boolean isShowStartPositionIcon() {
-        return this.f7439f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f7469f : invokeV.booleanValue;
     }
 
     public HistoryTraceDisplayOptions setCarIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f7436c = bitmapDescriptor;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bitmapDescriptor)) == null) {
+            this.f7466c = bitmapDescriptor;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeL.objValue;
     }
 
     public HistoryTraceDisplayOptions setEndPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f7435b = bitmapDescriptor;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, bitmapDescriptor)) == null) {
+            this.f7465b = bitmapDescriptor;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeL.objValue;
     }
 
     public HistoryTraceDisplayOptions setPaddingBottom(int i2) {
-        this.n = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+            this.n = i2;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeI.objValue;
     }
 
     public HistoryTraceDisplayOptions setPaddingLeft(int i2) {
-        this.k = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            this.k = i2;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeI.objValue;
     }
 
     public HistoryTraceDisplayOptions setPaddingRight(int i2) {
-        this.l = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
+            this.l = i2;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeI.objValue;
     }
 
     public HistoryTraceDisplayOptions setPaddingTop(int i2) {
-        this.m = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+            this.m = i2;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeI.objValue;
     }
 
     public void setRouteLineRenderBySubSection(boolean z) {
-        this.j = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.j = z;
+        }
     }
 
     public HistoryTraceDisplayOptions setRouteLineTexture(BitmapDescriptor bitmapDescriptor) {
-        this.f7437d = bitmapDescriptor;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, bitmapDescriptor)) == null) {
+            this.f7467d = bitmapDescriptor;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeL.objValue;
     }
 
     public HistoryTraceDisplayOptions setRouteLineWidth(int i2) {
-        int i3 = 5;
-        if (i2 >= 5) {
-            i3 = 40;
-            if (i2 <= 40) {
-                this.f7438e = i2;
-                return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
+            int i3 = 5;
+            if (i2 >= 5) {
+                i3 = 40;
+                if (i2 <= 40) {
+                    this.f7468e = i2;
+                    return this;
+                }
             }
+            this.f7468e = i3;
+            return this;
         }
-        this.f7438e = i3;
-        return this;
+        return (HistoryTraceDisplayOptions) invokeI.objValue;
     }
 
     public HistoryTraceDisplayOptions setShowCarIcon(boolean z) {
-        this.f7441h = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
+            this.f7471h = z;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeZ.objValue;
     }
 
     public HistoryTraceDisplayOptions setShowEndPositionIcon(boolean z) {
-        this.f7440g = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
+            this.f7470g = z;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeZ.objValue;
     }
 
     public HistoryTraceDisplayOptions setShowRoutePlan(boolean z) {
-        this.f7442i = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z)) == null) {
+            this.f7472i = z;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeZ.objValue;
     }
 
     public HistoryTraceDisplayOptions setShowStartPositionIcon(boolean z) {
-        this.f7439f = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048602, this, z)) == null) {
+            this.f7469f = z;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeZ.objValue;
     }
 
     public HistoryTraceDisplayOptions setStartPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f7434a = bitmapDescriptor;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, bitmapDescriptor)) == null) {
+            this.f7464a = bitmapDescriptor;
+            return this;
+        }
+        return (HistoryTraceDisplayOptions) invokeL.objValue;
     }
 }

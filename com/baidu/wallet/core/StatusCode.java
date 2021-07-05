@@ -1,6 +1,12 @@
 package com.baidu.wallet.core;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public abstract class StatusCode {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int B_SAO_C_AUTH_SERVICE_TYPE = 1153;
     public static final int DOUDBLE_CHECK_CVV2 = 69249;
     public static final int ERROR_AUTH_INFO_NOT_MATCH = 65340;
@@ -78,4 +84,19 @@ public abstract class StatusCode {
     public static final int SERVICE_THIRD_HALF_USER = 100035;
     public static final int SERVICE_THIRD_USER = 100036;
     public static final int SESSION_TIME_OUT = 65025;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public StatusCode() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -1,64 +1,84 @@
 package com.bytedance.sdk.openadsdk.m;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import java.util.LinkedList;
-import java.util.List;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class g implements f {
+public class g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Context f29754a;
-
-    public g(Context context) {
-        this.f29754a = context;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.m.f
-    public synchronized List<e> a() {
-        LinkedList linkedList;
-        linkedList = new LinkedList();
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29754a, "trackurl", null, null, null, null, null, null);
-        if (a2 != null) {
-            while (a2.moveToNext()) {
-                linkedList.add(new e(a2.getString(a2.getColumnIndex("id")), a2.getString(a2.getColumnIndex("url")), a2.getInt(a2.getColumnIndex("replaceholder")) > 0, a2.getInt(a2.getColumnIndex(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM))));
-            }
-            if (a2 != null) {
-                a2.close();
+    public static void a(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 17) {
+                    webSettings.setMediaPlaybackRequiresUserGesture(false);
+                }
+            } catch (Throwable th) {
+                e.a("WebViewSettings", "allowMediaPlayWithoutUserGesture error", th);
             }
         }
-        return linkedList;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.m.f
-    public synchronized void b(e eVar) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("id", eVar.a());
-        contentValues.put("url", eVar.b());
-        contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
-        contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29754a, "trackurl", contentValues, "id=?", new String[]{eVar.a()});
+    public static void b(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, webView) == null) {
+            try {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
+                webView.removeJavascriptInterface("accessibility");
+                webView.removeJavascriptInterface("accessibilityTraversal");
+            } catch (Throwable th) {
+                e.a("WebViewSettings", "removeJavascriptInterfacesSafe error", th);
+            }
+        }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.m.f
-    public synchronized void c(e eVar) {
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29754a, "trackurl", "id=?", new String[]{eVar.a()});
-    }
-
-    public static String b() {
-        return "CREATE TABLE IF NOT EXISTS trackurl (_id INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE,url TEXT ,replaceholder INTEGER default 0, " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " INTEGER default 0" + SmallTailInfo.EMOTION_SUFFIX;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.m.f
-    public synchronized void a(e eVar) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("id", eVar.a());
-        contentValues.put("url", eVar.b());
-        contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
-        contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29754a, "trackurl", contentValues);
+    public static void a(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            b(webView);
+            WebSettings settings = webView.getSettings();
+            a(settings);
+            if (settings == null) {
+                return;
+            }
+            try {
+                settings.setJavaScriptEnabled(true);
+            } catch (Throwable th) {
+                e.a("WebViewSettings", "setJavaScriptEnabled error", th);
+            }
+            try {
+                settings.setSupportZoom(false);
+            } catch (Throwable th2) {
+                e.a("WebViewSettings", "setSupportZoom error", th2);
+            }
+            settings.setLoadWithOverviewMode(true);
+            settings.setUseWideViewPort(true);
+            settings.setDomStorageEnabled(true);
+            settings.setAllowFileAccess(false);
+            settings.setBlockNetworkImage(false);
+            settings.setDisplayZoomControls(false);
+            if (Build.VERSION.SDK_INT >= 16) {
+                settings.setAllowFileAccessFromFileURLs(false);
+                settings.setAllowUniversalAccessFromFileURLs(false);
+            }
+            settings.setSavePassword(false);
+            boolean z = Build.VERSION.SDK_INT >= 28;
+            try {
+                if (Build.VERSION.SDK_INT >= 11 && !z) {
+                    webView.setLayerType(0, null);
+                } else if (Build.VERSION.SDK_INT >= 16 && z) {
+                    webView.setLayerType(2, null);
+                }
+            } catch (Throwable th3) {
+                e.a("WebViewSettings", "setLayerType error", th3);
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+                webView.getSettings().setMixedContentMode(0);
+            }
+        }
     }
 }

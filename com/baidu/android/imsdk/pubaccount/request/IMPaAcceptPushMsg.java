@@ -10,15 +10,36 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class IMPaAcceptPushMsg extends Message {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean mAcceptPush;
     public Context mContext;
     public long mPaId;
 
     public IMPaAcceptPushMsg(Context context, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = null;
         initCommonParameter(context);
         this.mContext = context;
@@ -29,44 +50,57 @@ public class IMPaAcceptPushMsg extends Message {
     }
 
     public static IMPaAcceptPushMsg newInstance(Context context, Intent intent) {
-        if (intent.hasExtra(Constants.EXTRA_PA_ID) && intent.hasExtra(Constants.EXTRA_PA_ACCEPT_PUSH)) {
-            return new IMPaAcceptPushMsg(context, intent.getLongExtra(Constants.EXTRA_PA_ID, -1L), intent.getBooleanExtra(Constants.EXTRA_PA_ACCEPT_PUSH, true));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
+            if (intent.hasExtra(Constants.EXTRA_PA_ID) && intent.hasExtra(Constants.EXTRA_PA_ACCEPT_PUSH)) {
+                return new IMPaAcceptPushMsg(context, intent.getLongExtra(Constants.EXTRA_PA_ID, -1L), intent.getBooleanExtra(Constants.EXTRA_PA_ACCEPT_PUSH, true));
+            }
+            return null;
         }
-        return null;
+        return (IMPaAcceptPushMsg) invokeLL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void buildBody() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("method", 105);
-            jSONObject.put("appid", this.mAppid);
-            jSONObject.put("uk", this.mUk);
-            jSONObject.put("pa_uid", this.mPaId);
-            jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
-            jSONObject.put("is_accept_msg", this.mAcceptPush);
-            this.mBody = jSONObject.toString();
-        } catch (JSONException e2) {
-            LogUtils.e(LogUtils.TAG, "buildBody:", e2);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("method", 105);
+                jSONObject.put("appid", this.mAppid);
+                jSONObject.put("uk", this.mUk);
+                jSONObject.put("pa_uid", this.mPaId);
+                jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
+                jSONObject.put("is_accept_msg", this.mAcceptPush);
+                this.mBody = jSONObject.toString();
+            } catch (JSONException e2) {
+                LogUtils.e(LogUtils.TAG, "buildBody:", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            }
         }
     }
 
     public long getPaId() {
-        return this.mPaId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPaId : invokeV.longValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
-        if (i2 == 0) {
-            try {
-                PaInfoDBManager.getInstance(context).acceptPaPush(this.mPaId, this.mAcceptPush);
-            } catch (Exception e2) {
-                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i2, str) == null) {
+            if (i2 == 0) {
+                try {
+                    PaInfoDBManager.getInstance(context).acceptPaPush(this.mPaId, this.mAcceptPush);
+                } catch (Exception e2) {
+                    LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                }
             }
+            super.handleMessageResult(context, jSONObject, i2, str);
+            PaManagerImpl.getInstance(context).onAcceptPaPushResult(getListenerKey(), i2, str, this.mPaId);
         }
-        super.handleMessageResult(context, jSONObject, i2, str);
-        PaManagerImpl.getInstance(context).onAcceptPaPushResult(getListenerKey(), i2, str, this.mPaId);
     }
 }

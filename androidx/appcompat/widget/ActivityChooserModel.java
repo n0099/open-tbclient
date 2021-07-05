@@ -10,7 +10,17 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Xml;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,6 +36,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 /* loaded from: classes.dex */
 public class ActivityChooserModel extends DataSetObservable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTRIBUTE_ACTIVITY = "activity";
     public static final String ATTRIBUTE_TIME = "time";
     public static final String ATTRIBUTE_WEIGHT = "weight";
@@ -36,24 +47,25 @@ public class ActivityChooserModel extends DataSetObservable {
     public static final int DEFAULT_HISTORY_MAX_LENGTH = 50;
     public static final String HISTORY_FILE_EXTENSION = ".xml";
     public static final int INVALID_INDEX = -1;
+    public static final String LOG_TAG;
     public static final String TAG_HISTORICAL_RECORD = "historical-record";
     public static final String TAG_HISTORICAL_RECORDS = "historical-records";
+    public static final Map<String, ActivityChooserModel> sDataModelRegistry;
+    public static final Object sRegistryLock;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final List<ActivityResolveInfo> mActivities;
     public OnChooseActivityListener mActivityChoserModelPolicy;
+    public ActivitySorter mActivitySorter;
+    public boolean mCanReadHistoricalData;
     public final Context mContext;
+    public final List<HistoricalRecord> mHistoricalRecords;
+    public boolean mHistoricalRecordsChanged;
     public final String mHistoryFileName;
+    public int mHistoryMaxSize;
+    public final Object mInstanceLock;
     public Intent mIntent;
-    public static final String LOG_TAG = ActivityChooserModel.class.getSimpleName();
-    public static final Object sRegistryLock = new Object();
-    public static final Map<String, ActivityChooserModel> sDataModelRegistry = new HashMap();
-    public final Object mInstanceLock = new Object();
-    public final List<ActivityResolveInfo> mActivities = new ArrayList();
-    public final List<HistoricalRecord> mHistoricalRecords = new ArrayList();
-    public ActivitySorter mActivitySorter = new DefaultSorter();
-    public int mHistoryMaxSize = 50;
-    public boolean mCanReadHistoricalData = true;
-    public boolean mReadShareHistoryCalled = false;
-    public boolean mHistoricalRecordsChanged = true;
-    public boolean mReloadActivities = false;
+    public boolean mReadShareHistoryCalled;
+    public boolean mReloadActivities;
 
     /* loaded from: classes.dex */
     public interface ActivityChooserModelClient {
@@ -62,32 +74,62 @@ public class ActivityChooserModel extends DataSetObservable {
 
     /* loaded from: classes.dex */
     public static final class ActivityResolveInfo implements Comparable<ActivityResolveInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ResolveInfo resolveInfo;
         public float weight;
 
         public ActivityResolveInfo(ResolveInfo resolveInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {resolveInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.resolveInfo = resolveInfo;
         }
 
         public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                return obj != null && ActivityResolveInfo.class == obj.getClass() && Float.floatToIntBits(this.weight) == Float.floatToIntBits(((ActivityResolveInfo) obj).weight);
             }
-            return obj != null && ActivityResolveInfo.class == obj.getClass() && Float.floatToIntBits(this.weight) == Float.floatToIntBits(((ActivityResolveInfo) obj).weight);
+            return invokeL.booleanValue;
         }
 
         public int hashCode() {
-            return Float.floatToIntBits(this.weight) + 31;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Float.floatToIntBits(this.weight) + 31 : invokeV.intValue;
         }
 
         public String toString() {
-            return PreferencesUtil.LEFT_MOUNT + "resolveInfo:" + this.resolveInfo.toString() + "; weight:" + new BigDecimal(this.weight) + PreferencesUtil.RIGHT_MOUNT;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return PreferencesUtil.LEFT_MOUNT + "resolveInfo:" + this.resolveInfo.toString() + "; weight:" + new BigDecimal(this.weight) + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         public int compareTo(ActivityResolveInfo activityResolveInfo) {
-            return Float.floatToIntBits(activityResolveInfo.weight) - Float.floatToIntBits(this.weight);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activityResolveInfo)) == null) ? Float.floatToIntBits(activityResolveInfo.weight) - Float.floatToIntBits(this.weight) : invokeL.intValue;
         }
     }
 
@@ -98,74 +140,143 @@ public class ActivityChooserModel extends DataSetObservable {
 
     /* loaded from: classes.dex */
     public static final class DefaultSorter implements ActivitySorter {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final float WEIGHT_DECAY_COEFFICIENT = 0.95f;
-        public final Map<ComponentName, ActivityResolveInfo> mPackageNameToActivityMap = new HashMap();
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<ComponentName, ActivityResolveInfo> mPackageNameToActivityMap;
+
+        public DefaultSorter() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mPackageNameToActivityMap = new HashMap();
+        }
 
         @Override // androidx.appcompat.widget.ActivityChooserModel.ActivitySorter
         public void sort(Intent intent, List<ActivityResolveInfo> list, List<HistoricalRecord> list2) {
-            Map<ComponentName, ActivityResolveInfo> map = this.mPackageNameToActivityMap;
-            map.clear();
-            int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ActivityResolveInfo activityResolveInfo = list.get(i2);
-                activityResolveInfo.weight = 0.0f;
-                ActivityInfo activityInfo = activityResolveInfo.resolveInfo.activityInfo;
-                map.put(new ComponentName(activityInfo.packageName, activityInfo.name), activityResolveInfo);
-            }
-            float f2 = 1.0f;
-            for (int size2 = list2.size() - 1; size2 >= 0; size2--) {
-                HistoricalRecord historicalRecord = list2.get(size2);
-                ActivityResolveInfo activityResolveInfo2 = map.get(historicalRecord.activity);
-                if (activityResolveInfo2 != null) {
-                    activityResolveInfo2.weight += historicalRecord.weight * f2;
-                    f2 *= 0.95f;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, intent, list, list2) == null) {
+                Map<ComponentName, ActivityResolveInfo> map = this.mPackageNameToActivityMap;
+                map.clear();
+                int size = list.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    ActivityResolveInfo activityResolveInfo = list.get(i2);
+                    activityResolveInfo.weight = 0.0f;
+                    ActivityInfo activityInfo = activityResolveInfo.resolveInfo.activityInfo;
+                    map.put(new ComponentName(activityInfo.packageName, activityInfo.name), activityResolveInfo);
                 }
+                float f2 = 1.0f;
+                for (int size2 = list2.size() - 1; size2 >= 0; size2--) {
+                    HistoricalRecord historicalRecord = list2.get(size2);
+                    ActivityResolveInfo activityResolveInfo2 = map.get(historicalRecord.activity);
+                    if (activityResolveInfo2 != null) {
+                        activityResolveInfo2.weight += historicalRecord.weight * f2;
+                        f2 *= 0.95f;
+                    }
+                }
+                Collections.sort(list);
             }
-            Collections.sort(list);
         }
     }
 
     /* loaded from: classes.dex */
     public static final class HistoricalRecord {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ComponentName activity;
         public final long time;
         public final float weight;
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public HistoricalRecord(String str, long j, float f2) {
             this(ComponentName.unflattenFromString(str), j, f2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j), Float.valueOf(f2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((ComponentName) objArr2[0], ((Long) objArr2[1]).longValue(), ((Float) objArr2[2]).floatValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
         }
 
         public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && HistoricalRecord.class == obj.getClass()) {
-                HistoricalRecord historicalRecord = (HistoricalRecord) obj;
-                ComponentName componentName = this.activity;
-                if (componentName == null) {
-                    if (historicalRecord.activity != null) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj != null && HistoricalRecord.class == obj.getClass()) {
+                    HistoricalRecord historicalRecord = (HistoricalRecord) obj;
+                    ComponentName componentName = this.activity;
+                    if (componentName == null) {
+                        if (historicalRecord.activity != null) {
+                            return false;
+                        }
+                    } else if (!componentName.equals(historicalRecord.activity)) {
                         return false;
                     }
-                } else if (!componentName.equals(historicalRecord.activity)) {
-                    return false;
+                    return this.time == historicalRecord.time && Float.floatToIntBits(this.weight) == Float.floatToIntBits(historicalRecord.weight);
                 }
-                return this.time == historicalRecord.time && Float.floatToIntBits(this.weight) == Float.floatToIntBits(historicalRecord.weight);
+                return false;
             }
-            return false;
+            return invokeL.booleanValue;
         }
 
         public int hashCode() {
-            ComponentName componentName = this.activity;
-            int hashCode = componentName == null ? 0 : componentName.hashCode();
-            long j = this.time;
-            return ((((hashCode + 31) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + Float.floatToIntBits(this.weight);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ComponentName componentName = this.activity;
+                int hashCode = componentName == null ? 0 : componentName.hashCode();
+                long j = this.time;
+                return ((((hashCode + 31) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + Float.floatToIntBits(this.weight);
+            }
+            return invokeV.intValue;
         }
 
         public String toString() {
-            return PreferencesUtil.LEFT_MOUNT + "; activity:" + this.activity + "; time:" + this.time + "; weight:" + new BigDecimal(this.weight) + PreferencesUtil.RIGHT_MOUNT;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return PreferencesUtil.LEFT_MOUNT + "; activity:" + this.activity + "; time:" + this.time + "; weight:" + new BigDecimal(this.weight) + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
         }
 
         public HistoricalRecord(ComponentName componentName, long j, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {componentName, Long.valueOf(j), Float.valueOf(f2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.activity = componentName;
             this.time = j;
             this.weight = f2;
@@ -179,27 +290,46 @@ public class ActivityChooserModel extends DataSetObservable {
 
     /* loaded from: classes.dex */
     public final class PersistHistoryAsyncTask extends AsyncTask<Object, Void, Void> {
-        public PersistHistoryAsyncTask() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ActivityChooserModel this$0;
+
+        public PersistHistoryAsyncTask(ActivityChooserModel activityChooserModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activityChooserModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = activityChooserModel;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IPUT]}, finally: {[IGET, IPUT, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:10:0x006b, code lost:
-            if (r15 != null) goto L15;
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x006f, code lost:
+            if (r15 != null) goto L17;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x006d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0071, code lost:
             r15.close();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:18:0x0090, code lost:
-            if (r15 == null) goto L13;
+        /* JADX WARN: Code restructure failed: missing block: B:20:0x0094, code lost:
+            if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x00b0, code lost:
-            if (r15 == null) goto L13;
+        /* JADX WARN: Code restructure failed: missing block: B:25:0x00b4, code lost:
+            if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:28:0x00d0, code lost:
-            if (r15 == null) goto L13;
+        /* JADX WARN: Code restructure failed: missing block: B:30:0x00d4, code lost:
+            if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:30:0x00d3, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x00d7, code lost:
             return null;
          */
         @Override // android.os.AsyncTask
@@ -207,10 +337,15 @@ public class ActivityChooserModel extends DataSetObservable {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public Void doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) != null) {
+                return (Void) invokeL.objValue;
+            }
             List list = (List) objArr[0];
             String str = (String) objArr[1];
             try {
-                FileOutputStream openFileOutput = ActivityChooserModel.this.mContext.openFileOutput(str, 0);
+                FileOutputStream openFileOutput = this.this$0.mContext.openFileOutput(str, 0);
                 XmlSerializer newSerializer = Xml.newSerializer();
                 try {
                     try {
@@ -229,9 +364,9 @@ public class ActivityChooserModel extends DataSetObservable {
                             }
                             newSerializer.endTag(null, ActivityChooserModel.TAG_HISTORICAL_RECORDS);
                             newSerializer.endDocument();
-                            ActivityChooserModel.this.mCanReadHistoricalData = true;
+                            this.this$0.mCanReadHistoricalData = true;
                         } catch (Throwable th) {
-                            ActivityChooserModel.this.mCanReadHistoricalData = true;
+                            this.this$0.mCanReadHistoricalData = true;
                             if (openFileOutput != null) {
                                 try {
                                     openFileOutput.close();
@@ -240,19 +375,19 @@ public class ActivityChooserModel extends DataSetObservable {
                             }
                             throw th;
                         }
-                    } catch (IOException e2) {
+                    } catch (IllegalArgumentException e2) {
                         String str2 = ActivityChooserModel.LOG_TAG;
-                        Log.e(str2, "Error writing historical record file: " + ActivityChooserModel.this.mHistoryFileName, e2);
-                        ActivityChooserModel.this.mCanReadHistoricalData = true;
+                        Log.e(str2, "Error writing historical record file: " + this.this$0.mHistoryFileName, e2);
+                        this.this$0.mCanReadHistoricalData = true;
                     }
-                } catch (IllegalArgumentException e3) {
+                } catch (IOException e3) {
                     String str3 = ActivityChooserModel.LOG_TAG;
-                    Log.e(str3, "Error writing historical record file: " + ActivityChooserModel.this.mHistoryFileName, e3);
-                    ActivityChooserModel.this.mCanReadHistoricalData = true;
+                    Log.e(str3, "Error writing historical record file: " + this.this$0.mHistoryFileName, e3);
+                    this.this$0.mCanReadHistoricalData = true;
                 } catch (IllegalStateException e4) {
                     String str4 = ActivityChooserModel.LOG_TAG;
-                    Log.e(str4, "Error writing historical record file: " + ActivityChooserModel.this.mHistoryFileName, e4);
-                    ActivityChooserModel.this.mCanReadHistoricalData = true;
+                    Log.e(str4, "Error writing historical record file: " + this.this$0.mHistoryFileName, e4);
+                    this.this$0.mCanReadHistoricalData = true;
                 }
             } catch (FileNotFoundException e5) {
                 String str5 = ActivityChooserModel.LOG_TAG;
@@ -262,7 +397,48 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-703257703, "Landroidx/appcompat/widget/ActivityChooserModel;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-703257703, "Landroidx/appcompat/widget/ActivityChooserModel;");
+                return;
+            }
+        }
+        LOG_TAG = ActivityChooserModel.class.getSimpleName();
+        sRegistryLock = new Object();
+        sDataModelRegistry = new HashMap();
+    }
+
     public ActivityChooserModel(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mInstanceLock = new Object();
+        this.mActivities = new ArrayList();
+        this.mHistoricalRecords = new ArrayList();
+        this.mActivitySorter = new DefaultSorter();
+        this.mHistoryMaxSize = 50;
+        this.mCanReadHistoricalData = true;
+        this.mReadShareHistoryCalled = false;
+        this.mHistoricalRecordsChanged = true;
+        this.mReloadActivities = false;
         this.mContext = context.getApplicationContext();
         if (!TextUtils.isEmpty(str) && !str.endsWith(HISTORY_FILE_EXTENSION)) {
             this.mHistoryFileName = str + HISTORY_FILE_EXTENSION;
@@ -272,70 +448,92 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private boolean addHistoricalRecord(HistoricalRecord historicalRecord) {
-        boolean add = this.mHistoricalRecords.add(historicalRecord);
-        if (add) {
-            this.mHistoricalRecordsChanged = true;
-            pruneExcessiveHistoricalRecordsIfNeeded();
-            persistHistoricalDataIfNeeded();
-            sortActivitiesIfNeeded();
-            notifyChanged();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, historicalRecord)) == null) {
+            boolean add = this.mHistoricalRecords.add(historicalRecord);
+            if (add) {
+                this.mHistoricalRecordsChanged = true;
+                pruneExcessiveHistoricalRecordsIfNeeded();
+                persistHistoricalDataIfNeeded();
+                sortActivitiesIfNeeded();
+                notifyChanged();
+            }
+            return add;
         }
-        return add;
+        return invokeL.booleanValue;
     }
 
     private void ensureConsistentState() {
-        boolean loadActivitiesIfNeeded = loadActivitiesIfNeeded() | readHistoricalDataIfNeeded();
-        pruneExcessiveHistoricalRecordsIfNeeded();
-        if (loadActivitiesIfNeeded) {
-            sortActivitiesIfNeeded();
-            notifyChanged();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            boolean loadActivitiesIfNeeded = loadActivitiesIfNeeded() | readHistoricalDataIfNeeded();
+            pruneExcessiveHistoricalRecordsIfNeeded();
+            if (loadActivitiesIfNeeded) {
+                sortActivitiesIfNeeded();
+                notifyChanged();
+            }
         }
     }
 
     public static ActivityChooserModel get(Context context, String str) {
+        InterceptResult invokeLL;
         ActivityChooserModel activityChooserModel;
-        synchronized (sRegistryLock) {
-            activityChooserModel = sDataModelRegistry.get(str);
-            if (activityChooserModel == null) {
-                activityChooserModel = new ActivityChooserModel(context, str);
-                sDataModelRegistry.put(str, activityChooserModel);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+            synchronized (sRegistryLock) {
+                activityChooserModel = sDataModelRegistry.get(str);
+                if (activityChooserModel == null) {
+                    activityChooserModel = new ActivityChooserModel(context, str);
+                    sDataModelRegistry.put(str, activityChooserModel);
+                }
             }
+            return activityChooserModel;
         }
-        return activityChooserModel;
+        return (ActivityChooserModel) invokeLL.objValue;
     }
 
     private boolean loadActivitiesIfNeeded() {
-        if (!this.mReloadActivities || this.mIntent == null) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (!this.mReloadActivities || this.mIntent == null) {
+                return false;
+            }
+            this.mReloadActivities = false;
+            this.mActivities.clear();
+            List<ResolveInfo> queryIntentActivities = this.mContext.getPackageManager().queryIntentActivities(this.mIntent, 0);
+            int size = queryIntentActivities.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                this.mActivities.add(new ActivityResolveInfo(queryIntentActivities.get(i2)));
+            }
+            return true;
         }
-        this.mReloadActivities = false;
-        this.mActivities.clear();
-        List<ResolveInfo> queryIntentActivities = this.mContext.getPackageManager().queryIntentActivities(this.mIntent, 0);
-        int size = queryIntentActivities.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            this.mActivities.add(new ActivityResolveInfo(queryIntentActivities.get(i2)));
-        }
-        return true;
+        return invokeV.booleanValue;
     }
 
     private void persistHistoricalDataIfNeeded() {
-        if (this.mReadShareHistoryCalled) {
-            if (this.mHistoricalRecordsChanged) {
-                this.mHistoricalRecordsChanged = false;
-                if (TextUtils.isEmpty(this.mHistoryFileName)) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            if (this.mReadShareHistoryCalled) {
+                if (this.mHistoricalRecordsChanged) {
+                    this.mHistoricalRecordsChanged = false;
+                    if (TextUtils.isEmpty(this.mHistoryFileName)) {
+                        return;
+                    }
+                    new PersistHistoryAsyncTask(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new ArrayList(this.mHistoricalRecords), this.mHistoryFileName);
                     return;
                 }
-                new PersistHistoryAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new ArrayList(this.mHistoricalRecords), this.mHistoryFileName);
                 return;
             }
-            return;
+            throw new IllegalStateException("No preceding call to #readHistoricalData");
         }
-        throw new IllegalStateException("No preceding call to #readHistoricalData");
     }
 
     private void pruneExcessiveHistoricalRecordsIfNeeded() {
-        int size = this.mHistoricalRecords.size() - this.mHistoryMaxSize;
-        if (size <= 0) {
+        int size;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (size = this.mHistoricalRecords.size() - this.mHistoryMaxSize) <= 0) {
             return;
         }
         this.mHistoricalRecordsChanged = true;
@@ -345,220 +543,287 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private boolean readHistoricalDataIfNeeded() {
-        if (this.mCanReadHistoricalData && this.mHistoricalRecordsChanged && !TextUtils.isEmpty(this.mHistoryFileName)) {
-            this.mCanReadHistoricalData = false;
-            this.mReadShareHistoryCalled = true;
-            readHistoricalDataImpl();
-            return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            if (this.mCanReadHistoricalData && this.mHistoricalRecordsChanged && !TextUtils.isEmpty(this.mHistoryFileName)) {
+                this.mCanReadHistoricalData = false;
+                this.mReadShareHistoryCalled = true;
+                readHistoricalDataImpl();
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeV.booleanValue;
     }
 
     private void readHistoricalDataImpl() {
         XmlPullParser newPullParser;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(65545, this) != null) {
+            return;
+        }
         try {
             FileInputStream openFileInput = this.mContext.openFileInput(this.mHistoryFileName);
             try {
                 try {
-                    try {
-                        newPullParser = Xml.newPullParser();
-                        newPullParser.setInput(openFileInput, "UTF-8");
-                        for (int i2 = 0; i2 != 1 && i2 != 2; i2 = newPullParser.next()) {
+                    newPullParser = Xml.newPullParser();
+                    newPullParser.setInput(openFileInput, "UTF-8");
+                    for (int i2 = 0; i2 != 1 && i2 != 2; i2 = newPullParser.next()) {
+                    }
+                } catch (Throwable th) {
+                    if (openFileInput != null) {
+                        try {
+                            openFileInput.close();
+                        } catch (IOException unused) {
                         }
-                    } catch (IOException e2) {
-                        String str = LOG_TAG;
-                        Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
+                    }
+                    throw th;
+                }
+            } catch (IOException e2) {
+                String str = LOG_TAG;
+                Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
+                if (openFileInput == null) {
+                    return;
+                }
+            } catch (XmlPullParserException e3) {
+                String str2 = LOG_TAG;
+                Log.e(str2, "Error reading historical recrod file: " + this.mHistoryFileName, e3);
+                if (openFileInput == null) {
+                    return;
+                }
+            }
+            if (TAG_HISTORICAL_RECORDS.equals(newPullParser.getName())) {
+                List<HistoricalRecord> list = this.mHistoricalRecords;
+                list.clear();
+                while (true) {
+                    int next = newPullParser.next();
+                    if (next == 1) {
                         if (openFileInput == null) {
                             return;
                         }
-                    }
-                } catch (XmlPullParserException e3) {
-                    String str2 = LOG_TAG;
-                    Log.e(str2, "Error reading historical recrod file: " + this.mHistoryFileName, e3);
-                    if (openFileInput == null) {
-                        return;
-                    }
-                }
-                if (TAG_HISTORICAL_RECORDS.equals(newPullParser.getName())) {
-                    List<HistoricalRecord> list = this.mHistoricalRecords;
-                    list.clear();
-                    while (true) {
-                        int next = newPullParser.next();
-                        if (next == 1) {
-                            if (openFileInput == null) {
-                                return;
-                            }
-                        } else if (next != 3 && next != 4) {
-                            if (TAG_HISTORICAL_RECORD.equals(newPullParser.getName())) {
-                                list.add(new HistoricalRecord(newPullParser.getAttributeValue(null, "activity"), Long.parseLong(newPullParser.getAttributeValue(null, "time")), Float.parseFloat(newPullParser.getAttributeValue(null, "weight"))));
-                            } else {
-                                throw new XmlPullParserException("Share records file not well-formed.");
-                            }
+                    } else if (next != 3 && next != 4) {
+                        if (TAG_HISTORICAL_RECORD.equals(newPullParser.getName())) {
+                            list.add(new HistoricalRecord(newPullParser.getAttributeValue(null, "activity"), Long.parseLong(newPullParser.getAttributeValue(null, "time")), Float.parseFloat(newPullParser.getAttributeValue(null, "weight"))));
+                        } else {
+                            throw new XmlPullParserException("Share records file not well-formed.");
                         }
                     }
-                    try {
-                        openFileInput.close();
-                    } catch (IOException unused) {
-                    }
-                } else {
-                    throw new XmlPullParserException("Share records file does not start with historical-records tag.");
                 }
-            } catch (Throwable th) {
-                if (openFileInput != null) {
-                    try {
-                        openFileInput.close();
-                    } catch (IOException unused2) {
-                    }
+                try {
+                    openFileInput.close();
+                } catch (IOException unused2) {
                 }
-                throw th;
+            } else {
+                throw new XmlPullParserException("Share records file does not start with historical-records tag.");
             }
         } catch (FileNotFoundException unused3) {
         }
     }
 
     private boolean sortActivitiesIfNeeded() {
-        if (this.mActivitySorter == null || this.mIntent == null || this.mActivities.isEmpty() || this.mHistoricalRecords.isEmpty()) {
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            if (this.mActivitySorter == null || this.mIntent == null || this.mActivities.isEmpty() || this.mHistoricalRecords.isEmpty()) {
+                return false;
+            }
+            this.mActivitySorter.sort(this.mIntent, this.mActivities, Collections.unmodifiableList(this.mHistoricalRecords));
+            return true;
         }
-        this.mActivitySorter.sort(this.mIntent, this.mActivities, Collections.unmodifiableList(this.mHistoricalRecords));
-        return true;
+        return invokeV.booleanValue;
     }
 
     public Intent chooseActivity(int i2) {
-        synchronized (this.mInstanceLock) {
-            if (this.mIntent == null) {
-                return null;
-            }
-            ensureConsistentState();
-            ActivityResolveInfo activityResolveInfo = this.mActivities.get(i2);
-            ComponentName componentName = new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name);
-            Intent intent = new Intent(this.mIntent);
-            intent.setComponent(componentName);
-            if (this.mActivityChoserModelPolicy != null) {
-                if (this.mActivityChoserModelPolicy.onChooseActivity(this, new Intent(intent))) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            synchronized (this.mInstanceLock) {
+                if (this.mIntent == null) {
                     return null;
                 }
+                ensureConsistentState();
+                ActivityResolveInfo activityResolveInfo = this.mActivities.get(i2);
+                ComponentName componentName = new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name);
+                Intent intent = new Intent(this.mIntent);
+                intent.setComponent(componentName);
+                if (this.mActivityChoserModelPolicy != null) {
+                    if (this.mActivityChoserModelPolicy.onChooseActivity(this, new Intent(intent))) {
+                        return null;
+                    }
+                }
+                addHistoricalRecord(new HistoricalRecord(componentName, System.currentTimeMillis(), 1.0f));
+                return intent;
             }
-            addHistoricalRecord(new HistoricalRecord(componentName, System.currentTimeMillis(), 1.0f));
-            return intent;
         }
+        return (Intent) invokeI.objValue;
     }
 
     public ResolveInfo getActivity(int i2) {
+        InterceptResult invokeI;
         ResolveInfo resolveInfo;
-        synchronized (this.mInstanceLock) {
-            ensureConsistentState();
-            resolveInfo = this.mActivities.get(i2).resolveInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            synchronized (this.mInstanceLock) {
+                ensureConsistentState();
+                resolveInfo = this.mActivities.get(i2).resolveInfo;
+            }
+            return resolveInfo;
         }
-        return resolveInfo;
+        return (ResolveInfo) invokeI.objValue;
     }
 
     public int getActivityCount() {
+        InterceptResult invokeV;
         int size;
-        synchronized (this.mInstanceLock) {
-            ensureConsistentState();
-            size = this.mActivities.size();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.mInstanceLock) {
+                ensureConsistentState();
+                size = this.mActivities.size();
+            }
+            return size;
         }
-        return size;
+        return invokeV.intValue;
     }
 
     public int getActivityIndex(ResolveInfo resolveInfo) {
-        synchronized (this.mInstanceLock) {
-            ensureConsistentState();
-            List<ActivityResolveInfo> list = this.mActivities;
-            int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (list.get(i2).resolveInfo == resolveInfo) {
-                    return i2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, resolveInfo)) == null) {
+            synchronized (this.mInstanceLock) {
+                ensureConsistentState();
+                List<ActivityResolveInfo> list = this.mActivities;
+                int size = list.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (list.get(i2).resolveInfo == resolveInfo) {
+                        return i2;
+                    }
                 }
+                return -1;
             }
-            return -1;
         }
+        return invokeL.intValue;
     }
 
     public ResolveInfo getDefaultActivity() {
-        synchronized (this.mInstanceLock) {
-            ensureConsistentState();
-            if (this.mActivities.isEmpty()) {
-                return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.mInstanceLock) {
+                ensureConsistentState();
+                if (this.mActivities.isEmpty()) {
+                    return null;
+                }
+                return this.mActivities.get(0).resolveInfo;
             }
-            return this.mActivities.get(0).resolveInfo;
         }
+        return (ResolveInfo) invokeV.objValue;
     }
 
     public int getHistoryMaxSize() {
+        InterceptResult invokeV;
         int i2;
-        synchronized (this.mInstanceLock) {
-            i2 = this.mHistoryMaxSize;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this.mInstanceLock) {
+                i2 = this.mHistoryMaxSize;
+            }
+            return i2;
         }
-        return i2;
+        return invokeV.intValue;
     }
 
     public int getHistorySize() {
+        InterceptResult invokeV;
         int size;
-        synchronized (this.mInstanceLock) {
-            ensureConsistentState();
-            size = this.mHistoricalRecords.size();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this.mInstanceLock) {
+                ensureConsistentState();
+                size = this.mHistoricalRecords.size();
+            }
+            return size;
         }
-        return size;
+        return invokeV.intValue;
     }
 
     public Intent getIntent() {
+        InterceptResult invokeV;
         Intent intent;
-        synchronized (this.mInstanceLock) {
-            intent = this.mIntent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this.mInstanceLock) {
+                intent = this.mIntent;
+            }
+            return intent;
         }
-        return intent;
+        return (Intent) invokeV.objValue;
     }
 
     public void setActivitySorter(ActivitySorter activitySorter) {
-        synchronized (this.mInstanceLock) {
-            if (this.mActivitySorter == activitySorter) {
-                return;
-            }
-            this.mActivitySorter = activitySorter;
-            if (sortActivitiesIfNeeded()) {
-                notifyChanged();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activitySorter) == null) {
+            synchronized (this.mInstanceLock) {
+                if (this.mActivitySorter == activitySorter) {
+                    return;
+                }
+                this.mActivitySorter = activitySorter;
+                if (sortActivitiesIfNeeded()) {
+                    notifyChanged();
+                }
             }
         }
     }
 
     public void setDefaultActivity(int i2) {
-        synchronized (this.mInstanceLock) {
-            ensureConsistentState();
-            ActivityResolveInfo activityResolveInfo = this.mActivities.get(i2);
-            ActivityResolveInfo activityResolveInfo2 = this.mActivities.get(0);
-            addHistoricalRecord(new HistoricalRecord(new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name), System.currentTimeMillis(), activityResolveInfo2 != null ? (activityResolveInfo2.weight - activityResolveInfo.weight) + 5.0f : 1.0f));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            synchronized (this.mInstanceLock) {
+                ensureConsistentState();
+                ActivityResolveInfo activityResolveInfo = this.mActivities.get(i2);
+                ActivityResolveInfo activityResolveInfo2 = this.mActivities.get(0);
+                addHistoricalRecord(new HistoricalRecord(new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name), System.currentTimeMillis(), activityResolveInfo2 != null ? (activityResolveInfo2.weight - activityResolveInfo.weight) + 5.0f : 1.0f));
+            }
         }
     }
 
     public void setHistoryMaxSize(int i2) {
-        synchronized (this.mInstanceLock) {
-            if (this.mHistoryMaxSize == i2) {
-                return;
-            }
-            this.mHistoryMaxSize = i2;
-            pruneExcessiveHistoricalRecordsIfNeeded();
-            if (sortActivitiesIfNeeded()) {
-                notifyChanged();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            synchronized (this.mInstanceLock) {
+                if (this.mHistoryMaxSize == i2) {
+                    return;
+                }
+                this.mHistoryMaxSize = i2;
+                pruneExcessiveHistoricalRecordsIfNeeded();
+                if (sortActivitiesIfNeeded()) {
+                    notifyChanged();
+                }
             }
         }
     }
 
     public void setIntent(Intent intent) {
-        synchronized (this.mInstanceLock) {
-            if (this.mIntent == intent) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, intent) == null) {
+            synchronized (this.mInstanceLock) {
+                if (this.mIntent == intent) {
+                    return;
+                }
+                this.mIntent = intent;
+                this.mReloadActivities = true;
+                ensureConsistentState();
             }
-            this.mIntent = intent;
-            this.mReloadActivities = true;
-            ensureConsistentState();
         }
     }
 
     public void setOnChooseActivityListener(OnChooseActivityListener onChooseActivityListener) {
-        synchronized (this.mInstanceLock) {
-            this.mActivityChoserModelPolicy = onChooseActivityListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onChooseActivityListener) == null) {
+            synchronized (this.mInstanceLock) {
+                this.mActivityChoserModelPolicy = onChooseActivityListener;
+            }
         }
     }
 }

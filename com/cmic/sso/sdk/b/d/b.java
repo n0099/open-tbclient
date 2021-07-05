@@ -1,42 +1,81 @@
 package com.cmic.sso.sdk.b.d;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30724a;
+    public int f32517a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<String>> f30725b;
+    public Map<String, List<String>> f32518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30726c;
+    public String f32519c;
 
     public b(int i2, Map<String, List<String>> map, String str) {
-        this.f30724a = i2;
-        this.f30725b = map;
-        this.f30726c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), map, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32517a = i2;
+        this.f32518b = map;
+        this.f32519c = str;
     }
 
     public int a() {
-        return this.f30724a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32517a : invokeV.intValue;
     }
 
     public Map<String, List<String>> b() {
-        Map<String, List<String>> map = this.f30725b;
-        return map == null ? new HashMap() : map;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Map<String, List<String>> map = this.f32518b;
+            return map == null ? new HashMap() : map;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public String c() {
-        String str = this.f30726c;
-        return str == null ? "" : str;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.f32519c;
+            return str == null ? "" : str;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean d() {
-        int i2 = this.f30724a;
-        return i2 == 302 || i2 == 301;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i2 = this.f32517a;
+            return i2 == 302 || i2 == 301;
+        }
+        return invokeV.booleanValue;
     }
 }

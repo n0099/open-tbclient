@@ -1,55 +1,100 @@
 package io.reactivex.schedulers;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class Timed<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final long time;
     public final TimeUnit unit;
     public final T value;
 
     public Timed(@NonNull T t, long j, @NonNull TimeUnit timeUnit) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t, Long.valueOf(j), timeUnit};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.value = t;
         this.time = j;
         this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
     }
 
     public boolean equals(Object obj) {
-        if (obj instanceof Timed) {
-            Timed timed = (Timed) obj;
-            return ObjectHelper.equals(this.value, timed.value) && this.time == timed.time && ObjectHelper.equals(this.unit, timed.unit);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj instanceof Timed) {
+                Timed timed = (Timed) obj;
+                return ObjectHelper.equals(this.value, timed.value) && this.time == timed.time && ObjectHelper.equals(this.unit, timed.unit);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int hashCode() {
-        T t = this.value;
-        int hashCode = t != null ? t.hashCode() : 0;
-        long j = this.time;
-        return (((hashCode * 31) + ((int) (j ^ (j >>> 31)))) * 31) + this.unit.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.value;
+            int hashCode = t != null ? t.hashCode() : 0;
+            long j = this.time;
+            return (((hashCode * 31) + ((int) (j ^ (j >>> 31)))) * 31) + this.unit.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public long time() {
-        return this.time;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.time : invokeV.longValue;
     }
 
     public String toString() {
-        return "Timed[time=" + this.time + ", unit=" + this.unit + ", value=" + this.value + PreferencesUtil.RIGHT_MOUNT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "Timed[time=" + this.time + ", unit=" + this.unit + ", value=" + this.value + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 
     @NonNull
     public TimeUnit unit() {
-        return this.unit;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.unit : (TimeUnit) invokeV.objValue;
     }
 
     @NonNull
     public T value() {
-        return this.value;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.value : (T) invokeV.objValue;
     }
 
     public long time(@NonNull TimeUnit timeUnit) {
-        return timeUnit.convert(this.time, this.unit);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, timeUnit)) == null) ? timeUnit.convert(this.time, this.unit) : invokeL.longValue;
     }
 }

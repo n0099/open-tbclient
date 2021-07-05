@@ -3,6 +3,12 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -10,106 +16,127 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class dq extends ai.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41228a;
+    public int f42971a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f238a;
+    public Context f241a;
 
     public dq(Context context, int i2) {
-        this.f41228a = i2;
-        this.f238a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42971a = i2;
+        this.f241a = context;
     }
 
     public static void a(Context context, hn hnVar) {
-        di m232a = dj.a().m232a();
-        String a2 = m232a == null ? "" : m232a.a();
-        if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(hnVar.a())) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, hnVar) == null) {
+            di m246a = dj.a().m246a();
+            String a2 = m246a == null ? "" : m246a.a();
+            if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(hnVar.a())) {
+                return;
+            }
+            a(context, hnVar, a2);
         }
-        a(context, hnVar, a2);
     }
 
     public static void a(Context context, hn hnVar, String str) {
+        byte[] b2;
         BufferedOutputStream bufferedOutputStream;
         RandomAccessFile randomAccessFile;
-        byte[] b2 = dl.b(str, ip.a(hnVar));
-        if (b2 == null || b2.length == 0) {
+        FileLock lock;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, hnVar, str) == null) || (b2 = dl.b(str, ip.a(hnVar))) == null || b2.length == 0) {
             return;
         }
-        synchronized (dm.f41223a) {
+        synchronized (dm.f42966a) {
             FileLock fileLock = null;
             try {
                 try {
                     File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m629a(file);
+                    y.m643a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
-                        FileLock lock = randomAccessFile.getChannel().lock();
+                        lock = randomAccessFile.getChannel().lock();
                         try {
                             bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getExternalFilesDir(null), "push_cdata.data"), true));
-                            try {
-                                bufferedOutputStream.write(ac.a(b2.length));
-                                bufferedOutputStream.write(b2);
-                                bufferedOutputStream.flush();
-                                if (lock != null && lock.isValid()) {
-                                    try {
-                                        lock.release();
-                                    } catch (IOException unused) {
-                                    }
-                                }
-                                y.a(bufferedOutputStream);
-                            } catch (IOException e2) {
-                                e = e2;
-                                fileLock = lock;
-                                try {
-                                    e.printStackTrace();
-                                    if (fileLock != null && fileLock.isValid()) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException unused2) {
-                                        }
-                                    }
-                                    y.a(bufferedOutputStream);
-                                    y.a(randomAccessFile);
-                                } catch (Throwable th) {
-                                    th = th;
-                                    if (fileLock != null && fileLock.isValid()) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException unused3) {
-                                        }
-                                    }
-                                    y.a(bufferedOutputStream);
-                                    y.a(randomAccessFile);
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                fileLock = lock;
-                                if (fileLock != null) {
-                                    fileLock.release();
-                                }
-                                y.a(bufferedOutputStream);
-                                y.a(randomAccessFile);
-                                throw th;
-                            }
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             bufferedOutputStream = null;
-                        } catch (Throwable th3) {
-                            th = th3;
+                        } catch (Throwable th) {
+                            th = th;
                             bufferedOutputStream = null;
                         }
+                    } catch (IOException e3) {
+                        e = e3;
+                        bufferedOutputStream = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedOutputStream = null;
+                    }
+                    try {
+                        bufferedOutputStream.write(ac.a(b2.length));
+                        bufferedOutputStream.write(b2);
+                        bufferedOutputStream.flush();
+                        if (lock != null && lock.isValid()) {
+                            try {
+                                lock.release();
+                            } catch (IOException unused) {
+                            }
+                        }
+                        y.a(bufferedOutputStream);
                     } catch (IOException e4) {
                         e = e4;
-                        bufferedOutputStream = null;
+                        fileLock = lock;
+                        try {
+                            e.printStackTrace();
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException unused2) {
+                                }
+                            }
+                            y.a(bufferedOutputStream);
+                            y.a(randomAccessFile);
+                        } catch (Throwable th3) {
+                            th = th3;
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException unused3) {
+                                }
+                            }
+                            y.a(bufferedOutputStream);
+                            y.a(randomAccessFile);
+                            throw th;
+                        }
                     } catch (Throwable th4) {
                         th = th4;
-                        bufferedOutputStream = null;
+                        fileLock = lock;
+                        if (fileLock != null) {
+                            fileLock.release();
+                        }
+                        y.a(bufferedOutputStream);
+                        y.a(randomAccessFile);
+                        throw th;
                     }
                 } catch (Throwable th5) {
                     throw th5;
@@ -128,66 +155,91 @@ public abstract class dq extends ai.a {
     }
 
     private String c() {
-        return "dc_job_result_time_" + mo170a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return "dc_job_result_time_" + mo184a();
+        }
+        return (String) invokeV.objValue;
     }
 
     private String d() {
-        return "dc_job_result_" + mo170a();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            return "dc_job_result_" + mo184a();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract hh mo170a();
+    public abstract hh mo184a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo170a() {
-        return dl.a(this.f238a, String.valueOf(mo170a()), this.f41228a);
+    public boolean mo184a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f241a, String.valueOf(mo184a()), this.f42971a) : invokeV.booleanValue;
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m234b() {
-        return true;
+    public boolean m248b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m235c() {
-        return false;
+    public boolean m249c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        String b2 = b();
-        if (TextUtils.isEmpty(b2)) {
-            return;
-        }
-        if (mo170a()) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("DC run job mutual: " + mo170a());
-            return;
-        }
-        di m232a = dj.a().m232a();
-        String a2 = m232a == null ? "" : m232a.a();
-        if (!TextUtils.isEmpty(a2) && m234b()) {
-            if (m235c()) {
-                SharedPreferences sharedPreferences = this.f238a.getSharedPreferences("mipush_extra", 0);
-                if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
-                    long j = sharedPreferences.getLong(c(), 0L);
-                    int a3 = com.xiaomi.push.service.aq.a(this.f238a).a(hk.DCJobUploadRepeatedInterval.a(), 604800);
-                    if ((System.currentTimeMillis() - j) / 1000 < this.f41228a) {
-                        return;
-                    }
-                    if ((System.currentTimeMillis() - j) / 1000 < a3) {
-                        b2 = "same_" + j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String b2 = b();
+            if (TextUtils.isEmpty(b2)) {
+                return;
+            }
+            if (mo184a()) {
+                com.xiaomi.channel.commonutils.logger.b.m70a("DC run job mutual: " + mo184a());
+                return;
+            }
+            di m246a = dj.a().m246a();
+            String a2 = m246a == null ? "" : m246a.a();
+            if (!TextUtils.isEmpty(a2) && m248b()) {
+                if (m249c()) {
+                    SharedPreferences sharedPreferences = this.f241a.getSharedPreferences("mipush_extra", 0);
+                    if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
+                        long j = sharedPreferences.getLong(c(), 0L);
+                        int a3 = com.xiaomi.push.service.aq.a(this.f241a).a(hk.ba.a(), 604800);
+                        if ((System.currentTimeMillis() - j) / 1000 < this.f42971a) {
+                            return;
+                        }
+                        if ((System.currentTimeMillis() - j) / 1000 < a3) {
+                            b2 = "same_" + j;
+                        }
                     }
                 }
+                hn hnVar = new hn();
+                hnVar.a(b2);
+                hnVar.a(System.currentTimeMillis());
+                hnVar.a(mo184a());
+                a(this.f241a, hnVar, a2);
             }
-            hn hnVar = new hn();
-            hnVar.a(b2);
-            hnVar.a(System.currentTimeMillis());
-            hnVar.a(mo170a());
-            a(this.f238a, hnVar, a2);
         }
     }
 }

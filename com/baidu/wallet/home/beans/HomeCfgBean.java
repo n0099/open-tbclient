@@ -1,100 +1,180 @@
 package com.baidu.wallet.home.beans;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.home.WalletHomeBeanConstants;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static String PAGE_CREDIT = "3";
     public static String PAGE_FINANCE = "1";
     public static String PAGE_HOME = "2";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24327a;
+    public String f24870a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24328b;
+    public String f24871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24329c;
+    public String f24872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24330d;
+    public boolean f24873d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24331e;
+    public String f24874e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24332f;
+    public String f24875f;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1561659366, "Lcom/baidu/wallet/home/beans/HomeCfgBean;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1561659366, "Lcom/baidu/wallet/home/beans/HomeCfgBean;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> HomeCfgBean(Context context) {
         super(context.getApplicationContext());
-        this.f24327a = "";
-        this.f24328b = "";
-        this.f24329c = "";
-        this.f24330d = false;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24870a = "";
+        this.f24871b = "";
+        this.f24872c = "";
+        this.f24873d = false;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        super.execBean(HomeCfgResponse.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.execBean(HomeCfgResponse.class);
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("cate[layout_content]", this.f24327a));
-        arrayList.add(new RestNameValuePair("cate[layout_title]", this.f24328b));
-        arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f24329c));
-        arrayList.add(new RestNameValuePair("page", this.f24332f));
-        arrayList.add(new RestNameValuePair("changedSign", this.f24331e));
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new RestNameValuePair("cate[layout_content]", this.f24870a));
+            arrayList.add(new RestNameValuePair("cate[layout_title]", this.f24871b));
+            arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f24872c));
+            arrayList.add(new RestNameValuePair("page", this.f24875f));
+            arrayList.add(new RestNameValuePair("changedSign", this.f24874e));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return WalletHomeBeanFactory.BEAN_ID_HOME_CFG;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? WalletHomeBeanFactory.BEAN_ID_HOME_CFG : invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getHttpMethod() {
-        return 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(DomainConfig.getInstance().getAppHost());
-        sb.append(this.f24330d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
-        return sb.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(DomainConfig.getInstance().getAppHost());
+            sb.append(this.f24873d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setAbtypeHomePage(boolean z) {
-        this.f24330d = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f24873d = z;
+        }
     }
 
     public void setAllFingerPrint(String str) {
-        this.f24327a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f24870a = str;
+        }
     }
 
     public void setChangeSign(String str) {
-        this.f24331e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f24874e = str;
+        }
     }
 
     public void setFooterFingerPrint(String str) {
-        this.f24329c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f24872c = str;
+        }
     }
 
     public void setPageId(String str) {
-        this.f24332f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f24875f = str;
+        }
     }
 
     public void setTitleFingerPrint(String str) {
-        this.f24328b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f24871b = str;
+        }
     }
 }

@@ -1,59 +1,113 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.utils.Log;
-import d.a.a0.a.f;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.e0.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChildVerifyActivity extends BaseActivity {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_EXTERNAL_URL = "external_url";
     public static final String t = "ChildVerifyActivity";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ChildVerifyActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        try {
-            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
-            setupViews();
-        } catch (Throwable th) {
-            reportWebviewError(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setupViews();
+            } catch (Throwable th) {
+                reportWebviewError(th);
+            }
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
-        super.setupViews();
-        this.sapiWebView.setWebviewPageFinishCallback(new SapiJsCallBacks.WebviewPageFinishCallback() { // from class: com.baidu.sapi2.activity.ChildVerifyActivity.1
-            @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
-            public void onFinish(String str) {
-                Log.d(ChildVerifyActivity.t, "WebviewPageFinishCallback onFinish result=" + str);
-                AccountRealNameCallback accountRealNameCallback = CoreViewRouter.getInstance().getAccountRealNameCallback();
-                if (accountRealNameCallback != null) {
-                    AccountRealNameResult accountRealNameResult = new AccountRealNameResult();
-                    JSONObject jSONObject = null;
-                    try {
-                        jSONObject = new JSONObject(str);
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.setupViews();
+            this.sapiWebView.setWebviewPageFinishCallback(new SapiJsCallBacks.WebviewPageFinishCallback(this) { // from class: com.baidu.sapi2.activity.ChildVerifyActivity.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ ChildVerifyActivity f9741a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                    if (jSONObject != null) {
-                        accountRealNameResult.setResultCode(0);
-                        accountRealNameResult.setResultMsg("成功");
-                        accountRealNameResult.callbackkey = jSONObject.optString("callbackKey");
-                    } else {
-                        accountRealNameResult.setResultCode(-202);
-                        accountRealNameResult.setResultMsg("网络连接失败，请检查网络设置");
-                    }
-                    accountRealNameCallback.onFinish(accountRealNameResult);
+                    this.f9741a = this;
                 }
-                ChildVerifyActivity.this.finish();
-            }
-        });
-        this.sapiWebView.loadUrl(getIntent().getStringExtra("external_url"));
+
+                @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
+                public void onFinish(String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                        Log.d(ChildVerifyActivity.t, "WebviewPageFinishCallback onFinish result=" + str);
+                        AccountRealNameCallback accountRealNameCallback = CoreViewRouter.getInstance().getAccountRealNameCallback();
+                        if (accountRealNameCallback != null) {
+                            AccountRealNameResult accountRealNameResult = new AccountRealNameResult();
+                            JSONObject jSONObject = null;
+                            try {
+                                jSONObject = new JSONObject(str);
+                            } catch (JSONException e2) {
+                                Log.e(e2);
+                            }
+                            if (jSONObject != null) {
+                                accountRealNameResult.setResultCode(0);
+                                accountRealNameResult.setResultMsg("成功");
+                                accountRealNameResult.callbackkey = jSONObject.optString("callbackKey");
+                            } else {
+                                accountRealNameResult.setResultCode(-202);
+                                accountRealNameResult.setResultMsg("网络连接失败，请检查网络设置");
+                            }
+                            accountRealNameCallback.onFinish(accountRealNameResult);
+                        }
+                        this.f9741a.finish();
+                    }
+                }
+            });
+            this.sapiWebView.loadUrl(getIntent().getStringExtra("external_url"));
+        }
     }
 }

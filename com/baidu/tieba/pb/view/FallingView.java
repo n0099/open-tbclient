@@ -6,38 +6,69 @@ import android.graphics.Paint;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.view.FallingView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.e2.p.c;
+import d.a.s0.h2.p.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class FallingView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f19680e;
+    public List<c> f19830e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19681f;
+    public int f19831f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19682g;
+    public int f19832g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19683h;
+    public boolean f19833h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f19684i;
+    public Runnable f19834i;
     public Handler j;
     public Paint k;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FallingView(Context context) {
         super(context);
-        this.f19683h = false;
-        this.f19684i = new Runnable() { // from class: d.a.o0.e2.p.b
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f19833h = false;
+        this.f19834i = new Runnable() { // from class: d.a.s0.h2.p.b
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
             @Override // java.lang.Runnable
             public final void run() {
-                FallingView.this.d();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    FallingView.this.d();
+                }
             }
         };
         this.j = new Handler();
@@ -45,29 +76,37 @@ public class FallingView extends View {
     }
 
     public void a(c cVar, int i2) {
-        if (this.f19681f == 0) {
-            this.f19681f = l.k(getContext());
-        }
-        if (this.f19682g == 0) {
-            this.f19682g = l.i(getContext());
-        }
-        for (int i3 = 0; i3 < i2; i3++) {
-            c cVar2 = new c(cVar.f57720i, this.f19681f, this.f19682g);
-            cVar2.f57716e = (-i3) * 180;
-            this.f19680e.add(cVar2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) {
+            if (this.f19831f == 0) {
+                this.f19831f = l.k(getContext());
+            }
+            if (this.f19832g == 0) {
+                this.f19832g = l.i(getContext());
+            }
+            for (int i3 = 0; i3 < i2; i3++) {
+                c cVar2 = new c(cVar.f61125i, this.f19831f, this.f19832g);
+                cVar2.f61121e = (-i3) * 180;
+                this.f19830e.add(cVar2);
+            }
         }
     }
 
     public final void b() {
-        this.f19680e = new ArrayList();
-        Paint paint = new Paint();
-        this.k = paint;
-        paint.setDither(true);
-        setLayerType(1, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f19830e = new ArrayList();
+            Paint paint = new Paint();
+            this.k = paint;
+            paint.setDither(true);
+            setLayerType(1, null);
+        }
     }
 
     public boolean c() {
-        return this.f19683h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19833h : invokeV.booleanValue;
     }
 
     public /* synthetic */ void d() {
@@ -75,53 +114,93 @@ public class FallingView extends View {
     }
 
     public final int e(int i2, int i3) {
-        int mode = View.MeasureSpec.getMode(i3);
-        int size = View.MeasureSpec.getSize(i3);
-        return mode == 1073741824 ? size : mode == Integer.MIN_VALUE ? Math.min(i2, size) : i2;
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
+            int mode = View.MeasureSpec.getMode(i3);
+            int size = View.MeasureSpec.getSize(i3);
+            return mode == 1073741824 ? size : mode == Integer.MIN_VALUE ? Math.min(i2, size) : i2;
+        }
+        return invokeII.intValue;
     }
 
     public void f() {
-        this.f19683h = true;
-        invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f19833h = true;
+            invalidate();
+        }
     }
 
     public void g() {
-        this.f19683h = false;
-        if (getHandler() != null) {
-            getHandler().removeCallbacks(this.f19684i);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f19833h = false;
+            if (getHandler() != null) {
+                getHandler().removeCallbacks(this.f19834i);
+            }
+            this.f19830e.clear();
         }
-        this.f19680e.clear();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        long currentTimeMillis = System.currentTimeMillis();
-        super.onDraw(canvas);
-        if (this.f19680e.size() > 0) {
-            for (int i2 = 0; i2 < this.f19680e.size(); i2++) {
-                this.f19680e.get(i2).b(canvas, this.k);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            super.onDraw(canvas);
+            if (this.f19830e.size() > 0) {
+                for (int i2 = 0; i2 < this.f19830e.size(); i2++) {
+                    this.f19830e.get(i2).b(canvas, this.k);
+                }
+                this.j.postDelayed(this.f19834i, (currentTimeMillis + 5) - System.currentTimeMillis());
             }
-            this.j.postDelayed(this.f19684i, (currentTimeMillis + 5) - System.currentTimeMillis());
         }
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        int e2 = e(1000, i3);
-        int e3 = e(600, i2);
-        setMeasuredDimension(e3, e2);
-        this.f19681f = e3;
-        this.f19682g = e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            int e2 = e(1000, i3);
+            int e3 = e(600, i2);
+            setMeasuredDimension(e3, e2);
+            this.f19831f = e3;
+            this.f19832g = e2;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FallingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19683h = false;
-        this.f19684i = new Runnable() { // from class: d.a.o0.e2.p.b
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f19833h = false;
+        this.f19834i = new Runnable() { // from class: d.a.s0.h2.p.b
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
             @Override // java.lang.Runnable
             public final void run() {
-                FallingView.this.d();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    FallingView.this.d();
+                }
             }
         };
         this.j = new Handler();

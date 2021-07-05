@@ -1,8 +1,10 @@
 package com.baidu.tieba.im.message.chat;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
@@ -10,6 +12,13 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.c.e.c.a;
 import d.a.c.e.m.b;
 import d.a.c.k.e.n;
@@ -17,8 +26,18 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class ChatMessage extends TbSocketMessage implements a, n {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
+    public static final BdUniqueId TYPE_MSG_LEFT;
+    public static final BdUniqueId TYPE_MSG_MID;
+    public static final BdUniqueId TYPE_MSG_MULTI_PIC_TEXT;
+    public static final BdUniqueId TYPE_MSG_PHOTOLIVE;
+    public static final BdUniqueId TYPE_MSG_REPLY_CARD;
+    public static final BdUniqueId TYPE_MSG_RIGHT;
+    public static final BdUniqueId TYPE_MSG_TOPIC;
+    public transient /* synthetic */ FieldHolder $fh;
     public long bornTime;
     public transient MsgCacheData cacheData;
     public String content;
@@ -56,17 +75,48 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
     public long userId;
     public UserData userInfo;
     public int width;
-    public static final BdUniqueId TYPE_MSG_LEFT = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_RIGHT = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_MID = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_TOPIC = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_MULTI_PIC_TEXT = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(51080606, "Lcom/baidu/tieba/im/message/chat/ChatMessage;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(51080606, "Lcom/baidu/tieba/im/message/chat/ChatMessage;");
+                return;
+            }
+        }
+        TYPE_MSG_LEFT = BdUniqueId.gen();
+        TYPE_MSG_RIGHT = BdUniqueId.gen();
+        TYPE_MSG_MID = BdUniqueId.gen();
+        TYPE_MSG_TOPIC = BdUniqueId.gen();
+        TYPE_MSG_GROUP_ACTIVITY = BdUniqueId.gen();
+        TYPE_MSG_MULTI_PIC_TEXT = BdUniqueId.gen();
+        TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
+        TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChatMessage(int i2) {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.progressValue = 0;
         this.statisticsTaskId = -1L;
         this.statisticsServiceId = -1L;
@@ -76,33 +126,48 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
     }
 
     public long getBornTime() {
-        return this.bornTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bornTime : invokeV.longValue;
     }
 
     public MsgCacheData getCacheData() {
-        return this.cacheData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cacheData : (MsgCacheData) invokeV.objValue;
     }
 
     public String getContent() {
-        return this.content;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.content : (String) invokeV.objValue;
     }
 
     public int getCustomGroupType() {
-        return this.customGroupType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.customGroupType : invokeV.intValue;
     }
 
     public int getFollowStatus() {
-        return this.followStatus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.followStatus : invokeV.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0023  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x006d A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0027  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0071 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public GifInfo getGifInfo() {
+        InterceptResult invokeV;
         JSONObject jSONObject;
         JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048581, this)) != null) {
+            return (GifInfo) invokeV.objValue;
+        }
         GifInfo gifInfo = this.gifInfo;
         if (gifInfo != null) {
             return gifInfo;
@@ -112,9 +177,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
             try {
                 jSONArray = new JSONArray(str);
             } catch (JSONException unused) {
-                jSONObject = new JSONObject(str);
             }
         } catch (JSONException unused2) {
+            jSONObject = new JSONObject(str);
         }
         if (jSONArray.length() > 0) {
             jSONObject = jSONArray.getJSONObject(0);
@@ -148,327 +213,502 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
     }
 
     public String getGroupId() {
-        return this.groupId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.groupId : (String) invokeV.objValue;
     }
 
     public int getHeight() {
-        return this.height;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.height : invokeV.intValue;
     }
 
     public int getIsFriend() {
-        return this.isFriend;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isFriend : invokeV.intValue;
     }
 
     public boolean getIsUploading() {
-        return this.isUploading;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isUploading : invokeV.booleanValue;
     }
 
     public String getLink() {
-        return this.link;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.link : (String) invokeV.objValue;
     }
 
     public MsgLocalData getLocalData() {
-        return this.localData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.localData : (MsgLocalData) invokeV.objValue;
     }
 
     public long getLogTime() {
-        return this.logTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.logTime : invokeV.longValue;
     }
 
     public long getMsgId() {
-        return this.msgId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.msgId : invokeV.longValue;
     }
 
     public int getMsgType() {
-        return this.msgType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.msgType : invokeV.intValue;
     }
 
     public Object getObjContent() {
-        return this.objContent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.objContent : invokeV.objValue;
     }
 
     public int getProgressValue() {
-        return this.progressValue;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.progressValue : invokeV.intValue;
     }
 
     public int getReadCountPv() {
-        return this.readCountPv;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.readCountPv : invokeV.intValue;
     }
 
     public long getRecordId() {
-        return this.recordId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.recordId : invokeV.longValue;
     }
 
     public long getServiceId() {
-        return this.serviceId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.serviceId : invokeV.longValue;
     }
 
     public long getSid() {
-        return this.sid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.sid : invokeV.longValue;
     }
 
     public String getSt_type() {
-        return this.st_type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.st_type : (String) invokeV.objValue;
     }
 
     public String getStat() {
-        return this.stat;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.stat : (String) invokeV.objValue;
     }
 
     public long getStatTaskId() {
-        long j = this.statisticsTaskId;
-        if (j != -1) {
-            return j;
-        }
-        if (!TextUtils.isEmpty(this.content)) {
-            try {
-                JSONArray jSONArray = new JSONArray(this.content);
-                if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
-                }
-            } catch (Exception unused) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            long j = this.statisticsTaskId;
+            if (j != -1) {
+                return j;
             }
+            if (!TextUtils.isEmpty(this.content)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(this.content);
+                    if (jSONArray.length() > 0) {
+                        this.statisticsTaskId = b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            if (this.statisticsTaskId <= 0) {
+                long j2 = this.taskId;
+                this.statisticsTaskId = j2 >= 0 ? j2 : 0L;
+            }
+            return this.statisticsTaskId;
         }
-        if (this.statisticsTaskId <= 0) {
-            long j2 = this.taskId;
-            this.statisticsTaskId = j2 >= 0 ? j2 : 0L;
-        }
-        return this.statisticsTaskId;
+        return invokeV.longValue;
     }
 
     public long getStatisticsServiceId() {
-        long j = this.statisticsServiceId;
-        if (j != -1) {
-            return j;
-        }
-        if (!TextUtils.isEmpty(this.content)) {
-            try {
-                JSONArray jSONArray = new JSONArray(this.content);
-                if (jSONArray.length() > 0) {
-                    this.statisticsServiceId = b.f(jSONArray.optJSONObject(0).optString("service_id"), 0L);
-                }
-            } catch (Exception unused) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            long j = this.statisticsServiceId;
+            if (j != -1) {
+                return j;
             }
+            if (!TextUtils.isEmpty(this.content)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(this.content);
+                    if (jSONArray.length() > 0) {
+                        this.statisticsServiceId = b.f(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            if (this.statisticsServiceId <= 0) {
+                long j2 = this.serviceId;
+                this.statisticsServiceId = j2 >= 0 ? j2 : 0L;
+            }
+            return this.statisticsServiceId;
         }
-        if (this.statisticsServiceId <= 0) {
-            long j2 = this.serviceId;
-            this.statisticsServiceId = j2 >= 0 ? j2 : 0L;
-        }
-        return this.statisticsServiceId;
+        return invokeV.longValue;
     }
 
     public LinkedList<IconData> getTShowInfo() {
-        return this.mTShowIconInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mTShowIconInfo : (LinkedList) invokeV.objValue;
     }
 
     public long getTaskId() {
-        return this.taskId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.taskId : invokeV.longValue;
     }
 
     public long getTime() {
-        return this.time;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.time : invokeV.longValue;
     }
 
     public long getToUserId() {
-        return this.mToUserId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mToUserId : invokeV.longValue;
     }
 
     public UserData getToUserInfo() {
-        return this.toUserInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
     @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        int i2 = this.msgType;
-        if (i2 == 11) {
-            return TYPE_MSG_MID;
-        }
-        if (i2 == 12) {
-            return TYPE_MSG_TOPIC;
-        }
-        if (i2 == 6) {
-            return TYPE_MSG_GROUP_ACTIVITY;
-        }
-        if (i2 == 7) {
-            return TYPE_MSG_MULTI_PIC_TEXT;
-        }
-        if (i2 == 23) {
-            return TYPE_MSG_REPLY_CARD;
-        }
-        if (i2 == 25) {
-            return TYPE_MSG_PHOTOLIVE;
-        }
-        if (getUserInfo() != null && getUserInfo().getUserId() != null) {
-            if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                return TYPE_MSG_RIGHT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            int i2 = this.msgType;
+            if (i2 == 11) {
+                return TYPE_MSG_MID;
+            }
+            if (i2 == 12) {
+                return TYPE_MSG_TOPIC;
+            }
+            if (i2 == 6) {
+                return TYPE_MSG_GROUP_ACTIVITY;
+            }
+            if (i2 == 7) {
+                return TYPE_MSG_MULTI_PIC_TEXT;
+            }
+            if (i2 == 23) {
+                return TYPE_MSG_REPLY_CARD;
+            }
+            if (i2 == 25) {
+                return TYPE_MSG_PHOTOLIVE;
+            }
+            if (getUserInfo() != null && getUserInfo().getUserId() != null) {
+                if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    return TYPE_MSG_RIGHT;
+                }
+                return TYPE_MSG_LEFT;
             }
             return TYPE_MSG_LEFT;
         }
-        return TYPE_MSG_LEFT;
+        return (BdUniqueId) invokeV.objValue;
     }
 
     public long getUserId() {
-        return this.userId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userId : invokeV.longValue;
     }
 
     public UserData getUserInfo() {
-        return this.userInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.userInfo : (UserData) invokeV.objValue;
     }
 
     public int getWidth() {
-        return this.width;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.width : invokeV.intValue;
     }
 
     public boolean isGifLoadSuccess() {
-        return this.isGifLoadSuccess;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.isGifLoadSuccess : invokeV.booleanValue;
     }
 
     public boolean isHasRead() {
-        return this.hasRead;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.hasRead : invokeV.booleanValue;
     }
 
     public boolean isPushForOperateAccount() {
-        return this.mIsPushForOperateAccount;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mIsPushForOperateAccount : invokeV.booleanValue;
     }
 
     @Override // d.a.c.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
-        if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
-            ChatMessage chatMessage = (ChatMessage) socketMessage;
-            return chatMessage.getGroupId() != null && chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, socketMessage)) == null) {
+            if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
+                ChatMessage chatMessage = (ChatMessage) socketMessage;
+                return chatMessage.getGroupId() != null && chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public void setBornTime(long j) {
-        this.bornTime = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048614, this, j) == null) {
+            this.bornTime = j;
+        }
     }
 
     public void setCacheData(MsgCacheData msgCacheData) {
-        this.cacheData = msgCacheData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, msgCacheData) == null) {
+            this.cacheData = msgCacheData;
+        }
     }
 
     public void setContent(String str) {
-        this.content = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+            this.content = str;
+        }
     }
 
     public void setCustomGroupType(int i2) {
-        this.customGroupType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
+            this.customGroupType = i2;
+        }
     }
 
     public void setFollowStatus(int i2) {
-        this.followStatus = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+            this.followStatus = i2;
+        }
     }
 
     public void setGifLoadSuccess(boolean z) {
-        this.isGifLoadSuccess = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+            this.isGifLoadSuccess = z;
+        }
     }
 
     public void setGroupId(String str) {
-        this.groupId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+            this.groupId = str;
+        }
     }
 
     public void setHasRead(boolean z) {
-        this.hasRead = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+            this.hasRead = z;
+        }
     }
 
     public void setHeight(int i2) {
-        this.height = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            this.height = i2;
+        }
     }
 
     public void setIsFriend(int i2) {
-        this.isFriend = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+            this.isFriend = i2;
+        }
     }
 
     public void setIsPushForOperateAccount(boolean z) {
-        this.mIsPushForOperateAccount = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            this.mIsPushForOperateAccount = z;
+        }
     }
 
     public void setIsUploading(boolean z) {
-        this.isUploading = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+            this.isUploading = z;
+        }
     }
 
     public void setLink(String str) {
-        this.link = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
+            this.link = str;
+        }
     }
 
     public void setLocalData(MsgLocalData msgLocalData) {
-        this.localData = msgLocalData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, msgLocalData) == null) {
+            this.localData = msgLocalData;
+        }
     }
 
     public void setLogTime(long j) {
-        this.logTime = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
+            this.logTime = j;
+        }
     }
 
     public void setMsgId(long j) {
-        this.msgId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
+            this.msgId = j;
+        }
     }
 
     public void setMsgType(int i2) {
-        this.msgType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
+            this.msgType = i2;
+        }
     }
 
     public void setObjContent(Object obj) {
-        this.objContent = obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, obj) == null) {
+            this.objContent = obj;
+        }
     }
 
     public void setProgressValue(int i2) {
-        this.progressValue = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
+            this.progressValue = i2;
+        }
     }
 
     public void setReadCountPv(int i2) {
-        this.readCountPv = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
+            this.readCountPv = i2;
+        }
     }
 
     public void setRecordId(long j) {
-        this.recordId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
+            this.recordId = j;
+        }
     }
 
     public void setServiceId(long j) {
-        this.serviceId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
+            this.serviceId = j;
+        }
     }
 
     public void setSid(long j) {
-        this.sid = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
+            this.sid = j;
+        }
     }
 
     public void setSt_type(String str) {
-        this.st_type = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
+            this.st_type = str;
+        }
     }
 
     public void setStat(String str) {
-        this.stat = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
+            this.stat = str;
+        }
     }
 
     public void setTShowInfo(LinkedList<IconData> linkedList) {
-        this.mTShowIconInfo = linkedList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, linkedList) == null) {
+            this.mTShowIconInfo = linkedList;
+        }
     }
 
     public void setTaskId(long j) {
-        this.taskId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048640, this, j) == null) {
+            this.taskId = j;
+        }
     }
 
     public void setTime(long j) {
-        this.time = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
+            this.time = j;
+        }
     }
 
     public void setToUserId(long j) {
-        this.mToUserId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048642, this, j) == null) {
+            this.mToUserId = j;
+        }
     }
 
     public void setToUserInfo(UserData userData) {
-        this.toUserInfo = userData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, userData) == null) {
+            this.toUserInfo = userData;
+        }
     }
 
     public void setUserId(long j) {
-        this.userId = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
+            this.userId = j;
+        }
     }
 
     public void setUserInfo(UserData userData) {
-        this.userInfo = userData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048645, this, userData) == null) {
+            this.userInfo = userData;
+        }
     }
 
     public void setWidth(int i2) {
-        this.width = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048646, this, i2) == null) {
+            this.width = i2;
+        }
     }
 }

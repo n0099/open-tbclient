@@ -1,38 +1,47 @@
 package com.kwai.filedownloader.download;
 
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f37839a;
+    public long f39602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f37840b;
+    public final f f39603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f37841c;
+    public final int f39604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f37842d;
+    public final int f39605d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f37843e;
+    public final c f39606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.kwai.filedownloader.a.b f37844f;
+    public final com.kwai.filedownloader.a.b f39607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f37845g;
+    public final boolean f39608g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long f37846h;
+    public final long f39609h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f37847i;
+    public final long f39610i;
     public final long j;
     public final String k;
     public com.kwai.filedownloader.e.a l;
@@ -41,140 +50,235 @@ public class e {
     public volatile long o;
     public volatile long p;
 
+    /* renamed from: com.kwai.filedownloader.download.e$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
     /* loaded from: classes7.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c f37848a;
+        public c f39611a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwai.filedownloader.a.b f37849b;
+        public com.kwai.filedownloader.a.b f39612b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.kwai.filedownloader.download.a f37850c;
+        public com.kwai.filedownloader.download.a f39613c;
 
         /* renamed from: d  reason: collision with root package name */
-        public f f37851d;
+        public f f39614d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f37852e;
+        public String f39615e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Boolean f37853f;
+        public Boolean f39616f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Integer f37854g;
+        public Integer f39617g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Integer f37855h;
+        public Integer f39618h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public a a(int i2) {
-            this.f37854g = Integer.valueOf(i2);
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+                this.f39617g = Integer.valueOf(i2);
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
 
         public a a(com.kwai.filedownloader.a.b bVar) {
-            this.f37849b = bVar;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
+                this.f39612b = bVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(com.kwai.filedownloader.download.a aVar) {
-            this.f37850c = aVar;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
+                this.f39613c = aVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(c cVar) {
-            this.f37848a = cVar;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
+                this.f39611a = cVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(f fVar) {
-            this.f37851d = fVar;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fVar)) == null) {
+                this.f39614d = fVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(String str) {
-            this.f37852e = str;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.f39615e = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(boolean z) {
-            this.f37853f = Boolean.valueOf(z);
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                this.f39616f = Boolean.valueOf(z);
+                return this;
+            }
+            return (a) invokeZ.objValue;
         }
 
         public e a() {
+            InterceptResult invokeV;
             com.kwai.filedownloader.a.b bVar;
             com.kwai.filedownloader.download.a aVar;
             Integer num;
-            if (this.f37853f == null || (bVar = this.f37849b) == null || (aVar = this.f37850c) == null || this.f37851d == null || this.f37852e == null || (num = this.f37855h) == null || this.f37854g == null) {
-                throw new IllegalArgumentException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                if (this.f39616f == null || (bVar = this.f39612b) == null || (aVar = this.f39613c) == null || this.f39614d == null || this.f39615e == null || (num = this.f39618h) == null || this.f39617g == null) {
+                    throw new IllegalArgumentException();
+                }
+                return new e(bVar, aVar, this.f39611a, num.intValue(), this.f39617g.intValue(), this.f39616f.booleanValue(), this.f39614d, this.f39615e, null);
             }
-            return new e(bVar, aVar, this.f37848a, num.intValue(), this.f37854g.intValue(), this.f37853f.booleanValue(), this.f37851d, this.f37852e);
+            return (e) invokeV.objValue;
         }
 
         public a b(int i2) {
-            this.f37855h = Integer.valueOf(i2);
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+                this.f39618h = Integer.valueOf(i2);
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
     }
 
     public e(com.kwai.filedownloader.a.b bVar, com.kwai.filedownloader.download.a aVar, c cVar, int i2, int i3, boolean z, f fVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, aVar, cVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), fVar, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.o = 0L;
         this.p = 0L;
-        this.f37840b = fVar;
+        this.f39603b = fVar;
         this.k = str;
-        this.f37844f = bVar;
-        this.f37845g = z;
-        this.f37843e = cVar;
-        this.f37842d = i3;
-        this.f37841c = i2;
+        this.f39607f = bVar;
+        this.f39608g = z;
+        this.f39606e = cVar;
+        this.f39605d = i3;
+        this.f39604c = i2;
         this.n = b.a().c();
-        this.f37846h = aVar.f37803a;
-        this.f37847i = aVar.f37805c;
-        this.f37839a = aVar.f37804b;
-        this.j = aVar.f37806d;
+        this.f39609h = aVar.f39566a;
+        this.f39610i = aVar.f39568c;
+        this.f39602a = aVar.f39567b;
+        this.j = aVar.f39569d;
+    }
+
+    public /* synthetic */ e(com.kwai.filedownloader.a.b bVar, com.kwai.filedownloader.download.a aVar, c cVar, int i2, int i3, boolean z, f fVar, String str, AnonymousClass1 anonymousClass1) {
+        this(bVar, aVar, cVar, i2, i3, z, fVar, str);
     }
 
     private void c() {
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (com.kwai.filedownloader.f.f.a(this.f37839a - this.o, elapsedRealtime - this.p)) {
-            d();
-            this.o = this.f37839a;
-            this.p = elapsedRealtime;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            if (com.kwai.filedownloader.f.f.a(this.f39602a - this.o, elapsedRealtime - this.p)) {
+                d();
+                this.o = this.f39602a;
+                this.p = elapsedRealtime;
+            }
         }
     }
 
     private void d() {
         boolean z;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        try {
-            this.l.a();
-            z = true;
-        } catch (IOException e2) {
-            if (com.kwai.filedownloader.f.d.f37874a) {
-                com.kwai.filedownloader.f.d.c(this, "Because of the system cannot guarantee that all the buffers have been synchronized with physical media, or write to filefailed, we just not flushAndSync process to database too %s", e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            long uptimeMillis = SystemClock.uptimeMillis();
+            try {
+                this.l.a();
+                z = true;
+            } catch (IOException e2) {
+                if (com.kwai.filedownloader.f.d.f39637a) {
+                    com.kwai.filedownloader.f.d.c(this, "Because of the system cannot guarantee that all the buffers have been synchronized with physical media, or write to filefailed, we just not flushAndSync process to database too %s", e2);
+                }
+                z = false;
             }
-            z = false;
-        }
-        if (z) {
-            if (this.f37843e != null) {
-                this.n.a(this.f37841c, this.f37842d, this.f37839a);
-            } else {
-                this.f37840b.c();
-            }
-            if (com.kwai.filedownloader.f.d.f37874a) {
-                com.kwai.filedownloader.f.d.c(this, "require flushAndSync id[%d] index[%d] offset[%d], consume[%d]", Integer.valueOf(this.f37841c), Integer.valueOf(this.f37842d), Long.valueOf(this.f37839a), Long.valueOf(SystemClock.uptimeMillis() - uptimeMillis));
+            if (z) {
+                if (this.f39606e != null) {
+                    this.n.a(this.f39604c, this.f39605d, this.f39602a);
+                } else {
+                    this.f39603b.c();
+                }
+                if (com.kwai.filedownloader.f.d.f39637a) {
+                    com.kwai.filedownloader.f.d.c(this, "require flushAndSync id[%d] index[%d] offset[%d], consume[%d]", Integer.valueOf(this.f39604c), Integer.valueOf(this.f39605d), Long.valueOf(this.f39602a), Long.valueOf(SystemClock.uptimeMillis() - uptimeMillis));
+                }
             }
         }
     }
 
     public void a() {
-        this.m = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.m = true;
+        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:119:0x01e7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:121:0x01eb, code lost:
         throw new com.kwai.filedownloader.exception.FileDownloadNetworkPolicyException();
      */
     /*
@@ -183,35 +287,36 @@ public class e {
     public void b() {
         Throwable th;
         com.kwai.filedownloader.e.a aVar;
-        if (this.m) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.m) {
             return;
         }
-        long b2 = com.kwai.filedownloader.f.f.b(this.f37842d, this.f37844f);
+        long b2 = com.kwai.filedownloader.f.f.b(this.f39605d, this.f39607f);
         if (b2 == 0) {
-            throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("there isn't any content need to download on %d-%d with the content-length is 0", Integer.valueOf(this.f37841c), Integer.valueOf(this.f37842d)));
+            throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("there isn't any content need to download on %d-%d with the content-length is 0", Integer.valueOf(this.f39604c), Integer.valueOf(this.f39605d)));
         }
         long j = this.j;
         char c2 = 3;
         if (j > 0 && b2 != j) {
-            throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("require %s with contentLength(%d), but the backend response contentLength is %d on downloadId[%d]-connectionIndex[%d], please ask your backend dev to fix such problem.", this.f37847i == 0 ? com.kwai.filedownloader.f.f.a("range[%d-)", Long.valueOf(this.f37839a)) : com.kwai.filedownloader.f.f.a("range[%d-%d)", Long.valueOf(this.f37839a), Long.valueOf(this.f37847i)), Long.valueOf(this.j), Long.valueOf(b2), Integer.valueOf(this.f37841c), Integer.valueOf(this.f37842d)));
+            throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("require %s with contentLength(%d), but the backend response contentLength is %d on downloadId[%d]-connectionIndex[%d], please ask your backend dev to fix such problem.", this.f39610i == 0 ? com.kwai.filedownloader.f.f.a("range[%d-)", Long.valueOf(this.f39602a)) : com.kwai.filedownloader.f.f.a("range[%d-%d)", Long.valueOf(this.f39602a), Long.valueOf(this.f39610i)), Long.valueOf(this.j), Long.valueOf(b2), Integer.valueOf(this.f39604c), Integer.valueOf(this.f39605d)));
         }
-        long j2 = this.f37839a;
+        long j2 = this.f39602a;
         InputStream inputStream = null;
         try {
             boolean e2 = b.a().e();
-            if (this.f37843e != null && !e2) {
+            if (this.f39606e != null && !e2) {
                 throw new IllegalAccessException("can't using multi-download when the output stream can't support seek");
             }
             aVar = com.kwai.filedownloader.f.f.l(this.k);
             try {
                 this.l = aVar;
                 if (e2) {
-                    aVar.a(this.f37839a);
+                    aVar.a(this.f39602a);
                 }
-                if (com.kwai.filedownloader.f.d.f37874a) {
-                    com.kwai.filedownloader.f.d.c(this, "start fetch(%d): range [%d, %d), seek to[%d]", Integer.valueOf(this.f37842d), Long.valueOf(this.f37846h), Long.valueOf(this.f37847i), Long.valueOf(this.f37839a));
+                if (com.kwai.filedownloader.f.d.f39637a) {
+                    com.kwai.filedownloader.f.d.c(this, "start fetch(%d): range [%d, %d), seek to[%d]", Integer.valueOf(this.f39605d), Long.valueOf(this.f39609h), Long.valueOf(this.f39610i), Long.valueOf(this.f39602a));
                 }
-                inputStream = this.f37844f.a();
+                inputStream = this.f39607f.a();
                 byte[] bArr = new byte[4096];
                 if (this.m) {
                     if (inputStream != null) {
@@ -268,24 +373,24 @@ public class e {
                                 e7.printStackTrace();
                             }
                         }
-                        long j3 = this.f37839a - j2;
+                        long j3 = this.f39602a - j2;
                         if (b2 == -1 || b2 == j3) {
-                            this.f37840b.a(this.f37843e, this.f37846h, this.f37847i);
+                            this.f39603b.a(this.f39606e, this.f39609h, this.f39610i);
                             return;
                         }
                         Object[] objArr = new Object[6];
                         objArr[0] = Long.valueOf(j3);
                         objArr[1] = Long.valueOf(b2);
-                        objArr[2] = Long.valueOf(this.f37846h);
-                        objArr[c2] = Long.valueOf(this.f37847i);
-                        objArr[4] = Long.valueOf(this.f37839a);
+                        objArr[2] = Long.valueOf(this.f39609h);
+                        objArr[c2] = Long.valueOf(this.f39610i);
+                        objArr[4] = Long.valueOf(this.f39602a);
                         objArr[5] = Long.valueOf(j2);
                         throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("fetched length[%d] != content length[%d], range[%d, %d) offset[%d] fetch begin offset", objArr));
                     }
                     aVar.a(bArr, 0, read);
                     long j4 = read;
-                    this.f37839a += j4;
-                    this.f37840b.a(j4);
+                    this.f39602a += j4;
+                    this.f39603b.a(j4);
                     c();
                     if (this.m) {
                         if (inputStream != null) {
@@ -312,7 +417,7 @@ public class e {
                         }
                         return;
                     }
-                    if (this.f37845g && com.kwai.filedownloader.f.f.d()) {
+                    if (this.f39608g && com.kwai.filedownloader.f.f.d()) {
                         break;
                     }
                     c2 = 3;

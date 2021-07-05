@@ -13,23 +13,33 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.MotionEvent;
-import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.rtc.PeerConnectionClient;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.filter.FilterValue;
+import com.faceunity.encoder.TextureMovieEncoder;
+import com.faceunity.gles.FullFrameRect;
+import com.faceunity.gles.GeneratedTexture;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.wrapper.faceunity;
-import d.a.o0.r3.l.f;
-import d.a.o0.r3.l.g;
-import d.a.o0.r3.l.h;
-import d.a.o0.u1.k;
-import d.e.b.d;
+import d.a.s0.v3.k.f;
+import d.a.s0.v3.k.g;
+import d.a.s0.v3.k.h;
+import d.a.s0.x1.k;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -40,39 +50,64 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes5.dex */
 public class GLVideoPreviewView extends GLSurfaceView implements g {
+    public static /* synthetic */ Interceptable $ic = null;
     public static int n = 720;
     public static int o = 960;
     public static boolean p;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f21461e;
+    public h f21590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f21462f;
+    public c f21591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f21463g;
+    public TextureMovieEncoder f21592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21464h;
+    public b f21593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21465i;
+    public int f21594i;
     public int j;
     public g.a k;
     public boolean l;
-    public d.a.o0.u1.g m;
+    public d.a.s0.x1.g m;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ GLVideoPreviewView f21595e;
+
+        public a(GLVideoPreviewView gLVideoPreviewView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gLVideoPreviewView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21595e = gLVideoPreviewView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (GLVideoPreviewView.this.f21462f != null) {
-                GLVideoPreviewView.this.f21462f.I();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21595e.f21591f == null) {
+                return;
             }
+            this.f21595e.f21591f.I();
         }
     }
 
@@ -83,319 +118,446 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
     /* loaded from: classes5.dex */
     public static class c implements GLSurfaceView.Renderer, Camera.PreviewCallback, SurfaceTexture.OnFrameAvailableListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public float A;
+        public int B;
+        public float C;
+        public int D;
         public byte[] E;
         public boolean F;
         public boolean G;
-        public d H;
+        public TextureMovieEncoder H;
         public String I;
         public boolean J;
         public String K;
-        public d.a.o0.u1.g L;
+        public d.a.s0.x1.g L;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.e.c.c f21467e;
+        public FullFrameRect f21596e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.e.c.c f21468f;
+        public FullFrameRect f21597f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile SurfaceTexture f21469g;
+        public volatile SurfaceTexture f21598g;
 
         /* renamed from: h  reason: collision with root package name */
-        public GLVideoPreviewView f21470h;
+        public GLVideoPreviewView f21599h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f21600i;
+        public int j;
         public int k;
+        public int l;
+        public int m;
+        public int n;
+        public int[] o;
+        public boolean p;
+        public int q;
+        public long r;
         public HandlerThread s;
         public Handler t;
+        public String u;
+        public String v;
         public float w;
         public float x;
         public float y;
         public float z;
 
-        /* renamed from: i  reason: collision with root package name */
-        public int f21471i = PeerConnectionClient.HD_VIDEO_HEIGHT;
-        public int j = TbConfig.HEAD_IMG_SIZE;
-        public int l = 0;
-        public int m = 0;
-        public int n = 0;
-        public int[] o = {0, 0, 0};
-        public boolean p = true;
-        public int q = 0;
-        public long r = 0;
-        public String u = "";
-        public String v = "origin";
-        public int B = 3;
-        public float C = 0.5f;
-        public int D = 0;
-
         /* loaded from: classes5.dex */
         public class a extends BdAsyncTask<Void, Void, Void> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f21472a;
+            public final /* synthetic */ Bitmap f21601a;
 
-            public a(Bitmap bitmap) {
-                this.f21472a = bitmap;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ c f21602b;
+
+            public a(c cVar, Bitmap bitmap) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, bitmap};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f21602b = cVar;
+                this.f21601a = bitmap;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: b */
-            public void onPostExecute(Void r3) {
-                if (c.this.f21470h == null || c.this.f21470h.k == null) {
+            public void onPostExecute(Void r5) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || this.f21602b.f21599h == null || this.f21602b.f21599h.k == null) {
                     return;
                 }
-                c.this.f21470h.k.a(true, c.this.K);
+                this.f21602b.f21599h.k.a(true, this.f21602b.K);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                try {
-                    c.this.K = FileHelper.saveFileAsPic(d.a.o0.r3.c.f63814f, "pic_" + System.currentTimeMillis(), this.f21472a, 80, Bitmap.CompressFormat.JPEG);
-                    return null;
-                } finally {
-                    Bitmap bitmap = this.f21472a;
-                    if (bitmap != null && !bitmap.isRecycled()) {
-                        this.f21472a.recycle();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
+                    try {
+                        this.f21602b.K = FileHelper.saveFileAsPic(d.a.s0.v3.c.f68594g, "pic_" + System.currentTimeMillis(), this.f21601a, 80, Bitmap.CompressFormat.JPEG);
+                        return null;
+                    } finally {
+                        Bitmap bitmap = this.f21601a;
+                        if (bitmap != null && !bitmap.isRecycled()) {
+                            this.f21601a.recycle();
+                        }
                     }
                 }
+                return (Void) invokeL.objValue;
             }
         }
 
         /* loaded from: classes5.dex */
         public class b implements Runnable {
-            public b() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ c f21603e;
+
+            public b(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f21603e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f21467e != null) {
-                    c.this.f21467e.c(false);
-                    c.this.f21467e = null;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.f21603e.f21596e != null) {
+                        this.f21603e.f21596e.release(false);
+                        this.f21603e.f21596e = null;
+                    }
+                    if (this.f21603e.f21597f != null) {
+                        this.f21603e.f21597f.release(false);
+                        this.f21603e.f21597f = null;
+                    }
+                    if (this.f21603e.f21598g != null) {
+                        this.f21603e.f21598g.release();
+                        this.f21603e.f21598g = null;
+                    }
+                    faceunity.fuDestroyItem(this.f21603e.m);
+                    int[] iArr = this.f21603e.o;
+                    this.f21603e.m = 0;
+                    iArr[1] = 0;
+                    faceunity.fuDestroyItem(this.f21603e.l);
+                    int[] iArr2 = this.f21603e.o;
+                    this.f21603e.l = 0;
+                    iArr2[0] = 0;
+                    faceunity.fuOnDeviceLost();
+                    this.f21603e.E = null;
+                    this.f21603e.p = true;
                 }
-                if (c.this.f21468f != null) {
-                    c.this.f21468f.c(false);
-                    c.this.f21468f = null;
-                }
-                if (c.this.f21469g != null) {
-                    c.this.f21469g.release();
-                    c.this.f21469g = null;
-                }
-                faceunity.fuDestroyItem(c.this.m);
-                int[] iArr = c.this.o;
-                c.this.m = 0;
-                iArr[1] = 0;
-                faceunity.fuDestroyItem(c.this.l);
-                int[] iArr2 = c.this.o;
-                c.this.l = 0;
-                iArr2[0] = 0;
-                faceunity.fuOnDeviceLost();
-                c.this.E = null;
-                c.this.p = true;
             }
         }
 
         /* renamed from: com.baidu.tieba.video.record.GLVideoPreviewView$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class HandlerC0219c extends Handler {
+        public class HandlerC0241c extends Handler {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public WeakReference<Context> f21475a;
+            public WeakReference<Context> f21604a;
 
-            public HandlerC0219c(Looper looper, Context context) {
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ c f21605b;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public HandlerC0241c(c cVar, Looper looper, Context context) {
                 super(looper);
-                this.f21475a = new WeakReference<>(context);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, looper, context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super((Looper) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f21605b = cVar;
+                this.f21604a = new WeakReference<>(context);
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                this.f21475a.get();
-                super.handleMessage(message);
-                int i2 = message.what;
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        return;
-                    }
-                    try {
-                        InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
-                        byte[] bArr = new byte[open.available()];
-                        open.read(bArr);
-                        open.close();
-                        faceunity.fuSetup(bArr, null, f.a());
-                        c.this.G = true;
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                        if (c.this.L != null) {
-                            c.this.L.b(25, d.a.o0.u1.a.a(e2));
-                        }
-                    }
-                    try {
-                        InputStream open2 = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/face_beautification.mp3");
-                        byte[] bArr2 = new byte[open2.available()];
-                        open2.read(bArr2);
-                        open2.close();
-                        c.this.l = faceunity.fuCreateItemFromPackage(bArr2);
-                        c.this.o[0] = c.this.l;
-                        c.this.G = true;
-                        return;
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                        if (c.this.L != null) {
-                            c.this.L.b(26, d.a.o0.u1.a.a(e3));
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                    this.f21604a.get();
+                    super.handleMessage(message);
+                    int i2 = message.what;
+                    if (i2 != 1) {
+                        if (i2 != 2) {
                             return;
                         }
-                        return;
-                    }
-                }
-                try {
-                    if (StringUtils.isNull(c.this.u)) {
-                        int[] iArr = c.this.o;
-                        c.this.m = 0;
-                        iArr[1] = 0;
-                        int[] iArr2 = c.this.o;
-                        c.this.n = 0;
-                        iArr2[2] = 0;
-                        return;
-                    }
-                    FileInputStream fileInputStream = new FileInputStream(new File(c.this.u));
-                    byte[] bArr3 = new byte[fileInputStream.available()];
-                    fileInputStream.read(bArr3);
-                    fileInputStream.close();
-                    int i3 = c.this.o[1] != 0 ? c.this.o[1] : c.this.o[2];
-                    double d2 = 270.0d;
-                    if (c.this.F) {
-                        c.this.n = faceunity.fuCreateItemFromPackage(bArr3);
-                        c.this.o[2] = c.this.n;
-                        c.this.m = 0;
-                        c.this.o[1] = c.this.m;
-                        faceunity.fuItemSetParam(c.this.n, "isAndroid", 1.0d);
-                        int i4 = c.this.n;
-                        if (!c.this.y()) {
-                            d2 = 90.0d;
+                        try {
+                            InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
+                            byte[] bArr = new byte[open.available()];
+                            open.read(bArr);
+                            open.close();
+                            faceunity.fuSetup(bArr, null, f.a());
+                            this.f21605b.G = true;
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                            if (this.f21605b.L != null) {
+                                this.f21605b.L.b(25, d.a.s0.x1.a.a(e2));
+                            }
                         }
-                        faceunity.fuItemSetParam(i4, "rotationAngle", d2);
-                    } else {
-                        c.this.m = faceunity.fuCreateItemFromPackage(bArr3);
-                        c.this.o[1] = c.this.m;
-                        c.this.n = 0;
-                        c.this.o[2] = c.this.n;
-                        faceunity.fuItemSetParam(c.this.m, "isAndroid", 1.0d);
-                        int i5 = c.this.m;
-                        if (!c.this.y()) {
-                            d2 = 90.0d;
+                        try {
+                            InputStream open2 = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/face_beautification.mp3");
+                            byte[] bArr2 = new byte[open2.available()];
+                            open2.read(bArr2);
+                            open2.close();
+                            this.f21605b.l = faceunity.fuCreateItemFromPackage(bArr2);
+                            this.f21605b.o[0] = this.f21605b.l;
+                            this.f21605b.G = true;
+                            return;
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                            if (this.f21605b.L != null) {
+                                this.f21605b.L.b(26, d.a.s0.x1.a.a(e3));
+                                return;
+                            }
+                            return;
                         }
-                        faceunity.fuItemSetParam(i5, "rotationAngle", d2);
                     }
-                    if (i3 != 0) {
-                        faceunity.fuDestroyItem(i3);
-                    }
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                    if (c.this.L != null) {
-                        c.this.L.b(24, d.a.o0.u1.a.a(e4));
+                    try {
+                        if (StringUtils.isNull(this.f21605b.u)) {
+                            int[] iArr = this.f21605b.o;
+                            this.f21605b.m = 0;
+                            iArr[1] = 0;
+                            int[] iArr2 = this.f21605b.o;
+                            this.f21605b.n = 0;
+                            iArr2[2] = 0;
+                            return;
+                        }
+                        FileInputStream fileInputStream = new FileInputStream(new File(this.f21605b.u));
+                        byte[] bArr3 = new byte[fileInputStream.available()];
+                        fileInputStream.read(bArr3);
+                        fileInputStream.close();
+                        int i3 = this.f21605b.o[1] != 0 ? this.f21605b.o[1] : this.f21605b.o[2];
+                        double d2 = 270.0d;
+                        if (this.f21605b.F) {
+                            this.f21605b.n = faceunity.fuCreateItemFromPackage(bArr3);
+                            this.f21605b.o[2] = this.f21605b.n;
+                            this.f21605b.m = 0;
+                            this.f21605b.o[1] = this.f21605b.m;
+                            faceunity.fuItemSetParam(this.f21605b.n, "isAndroid", 1.0d);
+                            int i4 = this.f21605b.n;
+                            if (!this.f21605b.y()) {
+                                d2 = 90.0d;
+                            }
+                            faceunity.fuItemSetParam(i4, "rotationAngle", d2);
+                        } else {
+                            this.f21605b.m = faceunity.fuCreateItemFromPackage(bArr3);
+                            this.f21605b.o[1] = this.f21605b.m;
+                            this.f21605b.n = 0;
+                            this.f21605b.o[2] = this.f21605b.n;
+                            faceunity.fuItemSetParam(this.f21605b.m, "isAndroid", 1.0d);
+                            int i5 = this.f21605b.m;
+                            if (!this.f21605b.y()) {
+                                d2 = 90.0d;
+                            }
+                            faceunity.fuItemSetParam(i5, "rotationAngle", d2);
+                        }
+                        if (i3 != 0) {
+                            faceunity.fuDestroyItem(i3);
+                        }
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                        if (this.f21605b.L != null) {
+                            this.f21605b.L.b(24, d.a.s0.x1.a.a(e4));
+                        }
                     }
                 }
             }
         }
 
-        public c(Context context, GLVideoPreviewView gLVideoPreviewView, d.a.o0.u1.g gVar) {
-            this.f21470h = gLVideoPreviewView;
+        public c(Context context, GLVideoPreviewView gLVideoPreviewView, d.a.s0.x1.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, gLVideoPreviewView, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21600i = 720;
+            this.j = 960;
+            this.l = 0;
+            this.m = 0;
+            this.n = 0;
+            this.o = new int[]{0, 0, 0};
+            this.p = true;
+            this.q = 0;
+            this.r = 0L;
+            this.u = "";
+            this.v = FilterValue.DEFAULT_FILTER_VALUE;
+            this.B = 3;
+            this.C = 0.5f;
+            this.D = 0;
+            this.f21599h = gLVideoPreviewView;
             this.L = gVar;
             HandlerThread handlerThread = new HandlerThread("CreateItemThread");
             this.s = handlerThread;
             handlerThread.start();
-            this.t = new HandlerC0219c(this.s.getLooper(), context);
-            D(d.a.o0.r3.a.b(2));
+            this.t = new HandlerC0241c(this, this.s.getLooper(), context);
+            D(d.a.s0.v3.a.b(2));
         }
 
         public void A() {
-            this.f21470h.queueEvent(new b());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f21599h.queueEvent(new b(this));
+            }
         }
 
         public final void B(Bitmap bitmap) {
-            this.K = null;
-            if (bitmap != null && !bitmap.isRecycled()) {
-                new a(bitmap).execute(new Void[0]);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+                this.K = null;
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    new a(this, bitmap).execute(new Void[0]);
+                    return;
+                }
+                GLVideoPreviewView gLVideoPreviewView = this.f21599h;
+                if (gLVideoPreviewView == null || gLVideoPreviewView.k == null) {
+                    return;
+                }
+                this.f21599h.k.a(false, this.K);
             }
-            GLVideoPreviewView gLVideoPreviewView = this.f21470h;
-            if (gLVideoPreviewView == null || gLVideoPreviewView.k == null) {
-                return;
-            }
-            this.f21470h.k.a(false, this.K);
         }
 
         public final void C() {
-            GLVideoPreviewView gLVideoPreviewView = this.f21470h;
-            if (gLVideoPreviewView != null) {
-                Handler mainHandler = gLVideoPreviewView.getMainHandler();
-                mainHandler.sendMessage(mainHandler.obtainMessage(1));
-                int i2 = this.n;
-                if (i2 != 0) {
-                    faceunity.fuItemSetParam(i2, "rotationAngle", y() ? 270.0d : 90.0d);
-                }
-                int i3 = this.m;
-                if (i3 != 0) {
-                    faceunity.fuItemSetParam(i3, "rotationAngle", y() ? 270.0d : 90.0d);
-                }
+            GLVideoPreviewView gLVideoPreviewView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gLVideoPreviewView = this.f21599h) == null) {
+                return;
+            }
+            Handler mainHandler = gLVideoPreviewView.getMainHandler();
+            mainHandler.sendMessage(mainHandler.obtainMessage(1));
+            int i2 = this.n;
+            if (i2 != 0) {
+                faceunity.fuItemSetParam(i2, "rotationAngle", y() ? 270.0d : 90.0d);
+            }
+            int i3 = this.m;
+            if (i3 != 0) {
+                faceunity.fuItemSetParam(i3, "rotationAngle", y() ? 270.0d : 90.0d);
             }
         }
 
-        public void D(d.a.o0.r3.a aVar) {
-            if (aVar == null) {
+        public void D(d.a.s0.v3.a aVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
                 return;
             }
-            this.w = aVar.f63796b;
-            this.x = aVar.f63797c;
-            this.y = aVar.f63798d;
-            this.z = aVar.f63799e;
-            this.A = aVar.f63800f;
+            this.w = aVar.f68575b;
+            this.x = aVar.f68576c;
+            this.y = aVar.f68577d;
+            this.z = aVar.f68578e;
+            this.A = aVar.f68579f;
         }
 
         public void E(String str) {
-            if (TextUtils.isEmpty(str)) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
             this.v = str;
         }
 
-        public void F(d dVar) {
-            if (dVar != null) {
-                this.H = dVar;
+        public void F(TextureMovieEncoder textureMovieEncoder) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, textureMovieEncoder) == null) || textureMovieEncoder == null) {
+                return;
             }
+            this.H = textureMovieEncoder;
         }
 
         public void G(StickerItem stickerItem) {
-            if (stickerItem != null) {
-                this.u = stickerItem.localPath;
-                if (StringUtils.isNull(stickerItem.desc)) {
-                    this.F = false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, stickerItem) == null) {
+                if (stickerItem != null) {
+                    this.u = stickerItem.localPath;
+                    if (StringUtils.isNull(stickerItem.desc)) {
+                        this.F = false;
+                    } else {
+                        this.F = true;
+                    }
                 } else {
-                    this.F = true;
+                    this.u = null;
                 }
-            } else {
-                this.u = null;
+                this.t.sendEmptyMessage(1);
             }
-            this.t.sendEmptyMessage(1);
         }
 
         public final void H() {
-            this.t.sendEmptyMessage(2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.t.sendEmptyMessage(2);
+            }
         }
 
         public void I() {
-            if (this.f21469g != null) {
-                faceunity.fuOnCameraChange();
-                this.f21469g.release();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                if (this.f21598g != null) {
+                    faceunity.fuOnCameraChange();
+                    this.f21598g.release();
+                }
+                this.f21598g = new SurfaceTexture(this.k);
+                C();
             }
-            this.f21469g = new SurfaceTexture(this.k);
-            C();
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onDrawFrame(GL10 gl10) {
-            if (this.J) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048585, this, gl10) == null) || this.J) {
                 return;
             }
             int i2 = this.q + 1;
@@ -407,25 +569,25 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             }
             float[] fArr = new float[16];
             try {
-                this.f21469g.updateTexImage();
-                this.f21469g.getTransformMatrix(fArr);
+                this.f21598g.updateTexImage();
+                this.f21598g.getTransformMatrix(fArr);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                d.a.o0.u1.g gVar = this.L;
+                d.a.s0.x1.g gVar = this.L;
                 if (gVar != null) {
-                    gVar.b(22, d.a.o0.u1.a.a(e2));
+                    gVar.b(22, d.a.s0.x1.a.a(e2));
                 }
             }
             if (this.p) {
                 this.p = false;
                 this.t.sendEmptyMessage(1);
             }
-            if (this.f21470h.f21464h != null) {
-                this.f21470h.f21464h.onFaceIdentifyState(faceunity.fuIsTracking() > 0);
+            if (this.f21599h.f21593h != null) {
+                this.f21599h.f21593h.onFaceIdentifyState(faceunity.fuIsTracking() > 0);
             }
             faceunity.fuItemSetParam(this.l, "color_level", this.w);
             faceunity.fuItemSetParam(this.l, "blur_level", this.x);
-            faceunity.fuItemSetParam(this.l, "filter_name", this.v);
+            faceunity.fuItemSetParam(this.l, TbFileVideoActivityConfig.FILTER_NAME, this.v);
             faceunity.fuItemSetParam(this.l, "cheek_thinning", this.y);
             faceunity.fuItemSetParam(this.l, "eye_enlarging", this.z);
             faceunity.fuItemSetParam(this.l, "face_shape", this.B);
@@ -435,7 +597,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             faceunity.fuItemSetParam(this.l, "tooth_whiten", 0.0d);
             byte[] bArr = this.E;
             if (bArr != null && bArr.length != 0 && this.G) {
-                int i3 = 1 | (this.f21470h.f21461e.l == 1 ? 0 : 32);
+                int i3 = 1 | (this.f21599h.f21590e.l == 1 ? 0 : 32);
                 if (this.F) {
                     faceunity.fuItemSetParam(this.n, "isAndroid", 1.0d);
                     faceunity.fuItemSetParam(this.n, "rotationAngle", y() ? 270.0d : 90.0d);
@@ -443,263 +605,347 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                     faceunity.fuItemSetParam(this.m, "isAndroid", 1.0d);
                     faceunity.fuItemSetParam(this.m, "rotationAngle", y() ? 270.0d : 90.0d);
                 }
-                this.f21470h.f21461e.j();
+                this.f21599h.f21590e.j();
                 long currentTimeMillis = System.currentTimeMillis();
                 byte[] bArr2 = this.E;
                 int i4 = this.k;
-                int i5 = this.f21471i;
+                int i5 = this.f21600i;
                 int i6 = this.j;
                 int i7 = this.D;
                 this.D = i7 + 1;
                 int fuDualInputToTexture = faceunity.fuDualInputToTexture(bArr2, i4, i3, i5, i6, i7, this.o);
                 this.r += System.currentTimeMillis() - currentTimeMillis;
                 try {
-                    this.f21467e.b(fuDualInputToTexture, fArr);
-                    if (this.f21470h.l) {
+                    this.f21596e.drawFrame(fuDualInputToTexture, fArr);
+                    if (this.f21599h.l) {
                         z(gl10);
-                        this.f21470h.l = false;
+                        this.f21599h.l = false;
                     }
-                    if (this.H != null && this.H.s(2) && this.f21470h.f21461e != null) {
-                        this.I = this.f21470h.f21461e.o();
-                        this.H.E(new d.c(new File(this.I), GLVideoPreviewView.n, GLVideoPreviewView.o, 2097152, null, this.f21469g.getTimestamp()));
+                    if (this.H != null && this.H.checkRecordingStatus(2) && this.f21599h.f21590e != null) {
+                        this.I = this.f21599h.f21590e.o();
+                        this.H.startRecording(new TextureMovieEncoder.EncoderConfig(new File(this.I), GLVideoPreviewView.n, GLVideoPreviewView.o, 2097152, null, this.f21598g.getTimestamp()));
                     }
-                    if (this.H == null || !this.H.s(1)) {
+                    if (this.H == null || !this.H.checkRecordingStatus(1)) {
                         return;
                     }
-                    this.H.D(this.f21467e, fuDualInputToTexture, fArr);
+                    this.H.setTextureId(this.f21596e, fuDualInputToTexture, fArr);
                     if (GLVideoPreviewView.p) {
-                        this.H.t(this.f21469g);
+                        this.H.frameAvailable(this.f21598g);
                     }
                     boolean unused = GLVideoPreviewView.p = true;
                     return;
                 } catch (Throwable th) {
                     BdLog.e(th);
-                    this.f21470h.e(null);
-                    d.a.o0.u1.g gVar2 = this.L;
+                    this.f21599h.e(null);
+                    d.a.s0.x1.g gVar2 = this.L;
                     if (gVar2 != null) {
-                        gVar2.b(23, d.a.o0.u1.a.a(th));
+                        gVar2.b(23, d.a.s0.x1.a.a(th));
                         return;
                     }
                     return;
                 }
             }
-            this.f21470h.requestRender();
+            this.f21599h.requestRender();
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) {
+            }
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
-            this.E = bArr;
-            this.f21470h.requestRender();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048587, this, bArr, camera) == null) {
+                this.E = bArr;
+                this.f21599h.requestRender();
+            }
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
-            this.f21470h.f21465i = i2;
-            this.f21470h.j = i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048588, this, gl10, i2, i3) == null) {
+                this.f21599h.f21594i = i2;
+                this.f21599h.j = i3;
+            }
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            this.f21467e = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            d.e.c.c cVar = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.f21468f = cVar;
-            this.k = cVar.a();
-            I();
-            boolean unused = GLVideoPreviewView.p = false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048589, this, gl10, eGLConfig) == null) {
+                this.f21596e = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+                FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+                this.f21597f = fullFrameRect;
+                this.k = fullFrameRect.createTextureObject();
+                I();
+                boolean unused = GLVideoPreviewView.p = false;
+            }
         }
 
         public boolean y() {
-            return this.f21470h.f21461e.j();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f21599h.f21590e.j() : invokeV.booleanValue;
         }
 
         public final void z(GL10 gl10) {
             Context context;
-            Bitmap bitmap = null;
-            try {
-                System.gc();
-                System.gc();
-                int i2 = this.f21470h.f21465i;
-                int i3 = this.f21470h.j;
-                int i4 = i2 * i3;
-                int[] iArr = new int[i4];
-                int[] iArr2 = new int[i4];
-                IntBuffer wrap = IntBuffer.wrap(iArr);
-                wrap.position(0);
-                gl10.glReadPixels(0, 0, i2, i3, 6408, 5121, wrap);
-                for (int i5 = 0; i5 < i3; i5++) {
-                    int i6 = i5 * i2;
-                    int i7 = ((i3 - i5) - 1) * i2;
-                    for (int i8 = 0; i8 < i2; i8++) {
-                        int i9 = iArr[i6 + i8];
-                        iArr2[i7 + i8] = (i9 & (-16711936)) | ((i9 << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK) | ((i9 >> 16) & 255);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048591, this, gl10) == null) {
+                Bitmap bitmap = null;
+                try {
+                    System.gc();
+                    System.gc();
+                    int i2 = this.f21599h.f21594i;
+                    int i3 = this.f21599h.j;
+                    int i4 = i2 * i3;
+                    int[] iArr = new int[i4];
+                    int[] iArr2 = new int[i4];
+                    IntBuffer wrap = IntBuffer.wrap(iArr);
+                    wrap.position(0);
+                    gl10.glReadPixels(0, 0, i2, i3, GeneratedTexture.FORMAT, 5121, wrap);
+                    for (int i5 = 0; i5 < i3; i5++) {
+                        int i6 = i5 * i2;
+                        int i7 = ((i3 - i5) - 1) * i2;
+                        for (int i8 = 0; i8 < i2; i8++) {
+                            int i9 = iArr[i6 + i8];
+                            iArr2[i7 + i8] = (i9 & (-16711936)) | ((i9 << 16) & 16711680) | ((i9 >> 16) & 255);
+                        }
                     }
+                    bitmap = Bitmap.createBitmap(iArr2, i2, i3, Bitmap.Config.ARGB_8888);
+                } catch (GLException unused) {
+                } catch (OutOfMemoryError unused2) {
+                    GLVideoPreviewView gLVideoPreviewView = this.f21599h;
+                    if (gLVideoPreviewView != null && (context = gLVideoPreviewView.getContext()) != null && (context instanceof Activity)) {
+                        ((Activity) context).finish();
+                    }
+                    System.gc();
+                    System.gc();
                 }
-                bitmap = Bitmap.createBitmap(iArr2, i2, i3, Bitmap.Config.ARGB_8888);
-            } catch (GLException unused) {
-            } catch (OutOfMemoryError unused2) {
-                GLVideoPreviewView gLVideoPreviewView = this.f21470h;
-                if (gLVideoPreviewView != null && (context = gLVideoPreviewView.getContext()) != null && (context instanceof Activity)) {
-                    ((Activity) context).finish();
+                if (bitmap == null || bitmap.isRecycled()) {
+                    return;
                 }
-                System.gc();
-                System.gc();
+                B(bitmap);
             }
-            if (bitmap == null || bitmap.isRecycled()) {
-                return;
-            }
-            B(bitmap);
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2141625816, "Lcom/baidu/tieba/video/record/GLVideoPreviewView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2141625816, "Lcom/baidu/tieba/video/record/GLVideoPreviewView;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GLVideoPreviewView(Context context, h hVar) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, hVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
             this.m = kVar.get();
         }
-        this.f21461e = hVar;
-        this.f21462f = new c(context, this, this.m);
+        this.f21590e = hVar;
+        this.f21591f = new c(context, this, this.m);
         setEGLContextClientVersion(2);
-        setRenderer(this.f21462f);
+        setRenderer(this.f21591f);
         setRenderMode(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Handler getMainHandler() {
-        return this.f21461e.n();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.f21590e.n() : (Handler) invokeV.objValue;
     }
 
-    @Override // d.a.o0.r3.l.g
+    @Override // d.a.s0.v3.k.g
     public void a(Camera camera) {
-        if (camera != null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, camera) == null) || camera == null) {
+            return;
+        }
+        try {
+            camera.setPreviewCallback(this.f21591f);
+            camera.setPreviewTexture(this.f21591f.f21598g);
+            this.f21591f.f21598g.setOnFrameAvailableListener(this.f21591f);
+            camera.startPreview();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            d.a.s0.x1.g gVar = this.m;
+            if (gVar != null) {
+                gVar.b(20, d.a.s0.x1.a.a(e2));
+            }
+        }
+    }
+
+    @Override // d.a.s0.v3.k.g
+    public void b(Camera camera) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, camera) == null) {
             try {
-                camera.setPreviewCallback(this.f21462f);
-                camera.setPreviewTexture(this.f21462f.f21469g);
-                this.f21462f.f21469g.setOnFrameAvailableListener(this.f21462f);
-                camera.startPreview();
+                this.f21591f.A();
             } catch (Exception e2) {
                 e2.printStackTrace();
-                d.a.o0.u1.g gVar = this.m;
+                d.a.s0.x1.g gVar = this.m;
                 if (gVar != null) {
-                    gVar.b(20, d.a.o0.u1.a.a(e2));
+                    gVar.b(18, d.a.s0.x1.a.a(e2));
                 }
             }
         }
     }
 
-    @Override // d.a.o0.r3.l.g
-    public void b(Camera camera) {
-        try {
-            this.f21462f.A();
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            d.a.o0.u1.g gVar = this.m;
-            if (gVar != null) {
-                gVar.b(18, d.a.o0.u1.a.a(e2));
-            }
-        }
-    }
-
-    @Override // d.a.o0.r3.l.g
+    @Override // d.a.s0.v3.k.g
     public void c(g.a aVar) {
-        this.k = aVar;
-        this.l = true;
-        requestRender();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.k = aVar;
+            this.l = true;
+            requestRender();
+        }
     }
 
-    @Override // d.a.o0.r3.l.g
+    @Override // d.a.s0.v3.k.g
     public void d(Camera camera) {
-        try {
-            d dVar = new d();
-            this.f21463g = dVar;
-            this.f21462f.F(dVar);
-            p = false;
-        } catch (Throwable th) {
-            BdLog.e(th);
-            d.a.o0.u1.g gVar = this.m;
-            if (gVar != null) {
-                gVar.b(21, d.a.o0.u1.a.a(th));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, camera) == null) {
+            try {
+                TextureMovieEncoder textureMovieEncoder = new TextureMovieEncoder();
+                this.f21592g = textureMovieEncoder;
+                this.f21591f.F(textureMovieEncoder);
+                p = false;
+            } catch (Throwable th) {
+                BdLog.e(th);
+                d.a.s0.x1.g gVar = this.m;
+                if (gVar != null) {
+                    gVar.b(21, d.a.s0.x1.a.a(th));
+                }
             }
         }
     }
 
-    @Override // d.a.o0.r3.l.g
+    @Override // d.a.s0.v3.k.g
     public void e(Camera camera) {
-        try {
-            if (this.f21463g != null) {
-                this.f21463g.F();
-            }
-        } catch (Throwable th) {
-            BdLog.e(th);
-            d.a.o0.u1.g gVar = this.m;
-            if (gVar != null) {
-                gVar.b(19, d.a.o0.u1.a.a(th));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, camera) == null) {
+            try {
+                if (this.f21592g != null) {
+                    this.f21592g.stopRecording();
+                }
+            } catch (Throwable th) {
+                BdLog.e(th);
+                d.a.s0.x1.g gVar = this.m;
+                if (gVar != null) {
+                    gVar.b(19, d.a.s0.x1.a.a(th));
+                }
             }
         }
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
-        super.onResume();
-        c cVar = this.f21462f;
-        if (cVar != null) {
-            cVar.H();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onResume();
+            c cVar = this.f21591f;
+            if (cVar != null) {
+                cVar.H();
+            }
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        h hVar = this.f21461e;
-        if (hVar == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            h hVar = this.f21590e;
+            if (hVar == null) {
+                return false;
+            }
+            return hVar.w(motionEvent, getParent());
         }
-        return hVar.w(motionEvent, getParent());
+        return invokeL.booleanValue;
     }
 
-    public void setBeautyLevel(d.a.o0.r3.a aVar) {
-        c cVar = this.f21462f;
-        if (cVar != null) {
-            cVar.D(aVar);
+    public void setBeautyLevel(d.a.s0.v3.a aVar) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || (cVar = this.f21591f) == null) {
+            return;
         }
+        cVar.D(aVar);
     }
 
     public void setFaceIdentifyStateListener(b bVar) {
-        if (bVar != null) {
-            this.f21464h = bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) || bVar == null) {
+            return;
         }
+        this.f21593h = bVar;
     }
 
     public void setFilter(String str) {
-        c cVar = this.f21462f;
-        if (cVar != null) {
-            cVar.E(str);
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (cVar = this.f21591f) == null) {
+            return;
         }
+        cVar.E(str);
     }
 
     public void setIsChangingCamera(boolean z) {
-        this.f21462f.J = z;
-    }
-
-    @Override // d.a.o0.r3.l.g
-    public void setOnEncoderStatusUpdateListener(d.InterfaceC1907d interfaceC1907d) {
-        d dVar = this.f21463g;
-        if (dVar != null) {
-            dVar.C(interfaceC1907d);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.f21591f.J = z;
         }
     }
 
-    @Override // d.a.o0.r3.l.g
-    public void setPreviewSize(int i2, int i3) {
-        if (i2 <= 0 || i3 <= 0) {
+    @Override // d.a.s0.v3.k.g
+    public void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
+        TextureMovieEncoder textureMovieEncoder;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, onEncoderStatusUpdateListener) == null) || (textureMovieEncoder = this.f21592g) == null) {
             return;
         }
-        c cVar = this.f21462f;
-        cVar.f21471i = i2;
+        textureMovieEncoder.setOnEncoderStatusUpdateListener(onEncoderStatusUpdateListener);
+    }
+
+    @Override // d.a.s0.v3.k.g
+    public void setPreviewSize(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
+            return;
+        }
+        c cVar = this.f21591f;
+        cVar.f21600i = i2;
         cVar.j = i3;
         int round = Math.round(n * ((i2 * 1.0f) / i3));
         if (round % 2 == 1) {
@@ -711,20 +957,27 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     }
 
     public void setSticker(StickerItem stickerItem) {
-        c cVar = this.f21462f;
-        if (cVar != null) {
-            cVar.G(stickerItem);
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, stickerItem) == null) || (cVar = this.f21591f) == null) {
+            return;
         }
+        cVar.G(stickerItem);
     }
 
     public void t() {
-        c cVar = this.f21462f;
-        if (cVar != null) {
-            cVar.E = null;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (cVar = this.f21591f) == null) {
+            return;
         }
+        cVar.E = null;
     }
 
     public void u() {
-        queueEvent(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            queueEvent(new a(this));
+        }
     }
 }

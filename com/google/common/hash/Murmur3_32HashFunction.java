@@ -1,347 +1,506 @@
 package com.google.common.hash;
 
-import com.baidu.tbadk.TbConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Ints;
-import d.g.c.a.n;
-import d.g.c.d.b;
-import d.g.c.d.c;
-import d.g.c.d.e;
-import d.g.c.d.f;
-import d.g.c.d.j;
+import d.f.d.a.n;
+import d.f.d.d.b;
+import d.f.d.d.c;
+import d.f.d.d.e;
+import d.f.d.d.f;
+import d.f.d.d.j;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Murmur3_32HashFunction extends b implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int C1 = -862048943;
+    public static final int C2 = 461845907;
+    public static final int CHUNK_SIZE = 4;
+    public static final e GOOD_FAST_HASH_32;
+    public static final e MURMUR3_32;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int seed;
-    public static final e MURMUR3_32 = new Murmur3_32HashFunction(0);
-    public static final e GOOD_FAST_HASH_32 = new Murmur3_32HashFunction(Hashing.f31533a);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31541a;
+        public int f33402a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f31542b;
+        public long f33403b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31543c;
+        public int f33404c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f31544d = 0;
+        public int f33405d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f31545e = false;
+        public boolean f33406e;
 
         public a(int i2) {
-            this.f31541a = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33402a = i2;
+            this.f33405d = 0;
+            this.f33406e = false;
         }
 
-        @Override // d.g.c.d.f, d.g.c.d.j
+        @Override // d.f.d.d.f, d.f.d.d.j
         public /* bridge */ /* synthetic */ j a(int i2) {
             a(i2);
             return this;
         }
 
-        @Override // d.g.c.d.f, d.g.c.d.j
+        @Override // d.f.d.d.f, d.f.d.d.j
         public /* bridge */ /* synthetic */ j b(long j) {
             b(j);
             return this;
         }
 
-        @Override // d.g.c.d.f
+        @Override // d.f.d.d.f
         public HashCode e() {
-            n.w(!this.f31545e);
-            this.f31545e = true;
-            int g2 = this.f31541a ^ Murmur3_32HashFunction.g((int) this.f31542b);
-            this.f31541a = g2;
-            return Murmur3_32HashFunction.d(g2, this.f31544d);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                n.w(!this.f33406e);
+                this.f33406e = true;
+                int mixK1 = this.f33402a ^ Murmur3_32HashFunction.mixK1((int) this.f33403b);
+                this.f33402a = mixK1;
+                return Murmur3_32HashFunction.fmix(mixK1, this.f33405d);
+            }
+            return (HashCode) invokeV.objValue;
         }
 
-        @Override // d.g.c.d.c, d.g.c.d.f
+        @Override // d.f.d.d.c, d.f.d.d.f
         public f h(byte[] bArr, int i2, int i3) {
-            n.v(i2, i2 + i3, bArr.length);
-            int i4 = 0;
-            while (true) {
-                int i5 = i4 + 4;
-                if (i5 > i3) {
-                    break;
-                }
-                m(4, Murmur3_32HashFunction.e(bArr, i4 + i2));
-                i4 = i5;
-            }
-            while (i4 < i3) {
-                l(bArr[i2 + i4]);
-                i4++;
-            }
-            return this;
-        }
-
-        @Override // d.g.c.d.f
-        public f i(ByteBuffer byteBuffer) {
-            ByteOrder order = byteBuffer.order();
-            byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
-            while (byteBuffer.remaining() >= 4) {
-                a(byteBuffer.getInt());
-            }
-            while (byteBuffer.hasRemaining()) {
-                l(byteBuffer.get());
-            }
-            byteBuffer.order(order);
-            return this;
-        }
-
-        @Override // d.g.c.d.c
-        public f k(char c2) {
-            m(2, c2);
-            return this;
-        }
-
-        public f l(byte b2) {
-            m(1, b2 & 255);
-            return this;
-        }
-
-        public final void m(int i2, long j) {
-            long j2 = this.f31542b;
-            int i3 = this.f31543c;
-            long j3 = ((j & 4294967295L) << i3) | j2;
-            this.f31542b = j3;
-            int i4 = i3 + (i2 * 8);
-            this.f31543c = i4;
-            this.f31544d += i2;
-            if (i4 >= 32) {
-                this.f31541a = Murmur3_32HashFunction.f(this.f31541a, Murmur3_32HashFunction.g((int) j3));
-                this.f31542b >>>= 32;
-                this.f31543c -= 32;
-            }
-        }
-
-        @Override // d.g.c.d.f, d.g.c.d.j
-        public f a(int i2) {
-            m(4, i2);
-            return this;
-        }
-
-        @Override // d.g.c.d.f, d.g.c.d.j
-        public f b(long j) {
-            m(4, (int) j);
-            m(4, j >>> 32);
-            return this;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.d.c, d.g.c.d.f, d.g.c.d.j
-        public f d(CharSequence charSequence, Charset charset) {
-            if (d.g.c.a.c.f70064a.equals(charset)) {
-                int length = charSequence.length();
-                int i2 = 0;
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i2, i3)) == null) {
+                n.v(i2, i2 + i3, bArr.length);
+                int i4 = 0;
                 while (true) {
-                    int i3 = i2 + 4;
-                    if (i3 > length) {
+                    int i5 = i4 + 4;
+                    if (i5 > i3) {
                         break;
                     }
-                    char charAt = charSequence.charAt(i2);
-                    char charAt2 = charSequence.charAt(i2 + 1);
-                    char charAt3 = charSequence.charAt(i2 + 2);
-                    char charAt4 = charSequence.charAt(i2 + 3);
-                    if (charAt >= 128 || charAt2 >= 128 || charAt3 >= 128 || charAt4 >= 128) {
-                        break;
-                    }
-                    m(4, (charAt2 << '\b') | charAt | (charAt3 << 16) | (charAt4 << 24));
-                    i2 = i3;
+                    m(4, Murmur3_32HashFunction.getIntLittleEndian(bArr, i4 + i2));
+                    i4 = i5;
                 }
-                while (i2 < length) {
-                    char charAt5 = charSequence.charAt(i2);
-                    if (charAt5 < 128) {
-                        m(1, charAt5);
-                    } else if (charAt5 < 2048) {
-                        m(2, Murmur3_32HashFunction.b(charAt5));
-                    } else if (charAt5 < 55296 || charAt5 > 57343) {
-                        m(3, Murmur3_32HashFunction.a(charAt5));
-                    } else {
-                        int codePointAt = Character.codePointAt(charSequence, i2);
-                        if (codePointAt != charAt5) {
-                            i2++;
-                            m(4, Murmur3_32HashFunction.c(codePointAt));
-                        } else {
-                            f(charSequence.subSequence(i2, length).toString().getBytes(charset));
-                            return this;
-                        }
-                    }
-                    i2++;
+                while (i4 < i3) {
+                    l(bArr[i2 + i4]);
+                    i4++;
                 }
                 return this;
             }
-            return super.d(charSequence, charset);
+            return (f) invokeLII.objValue;
         }
+
+        @Override // d.f.d.d.f
+        public f i(ByteBuffer byteBuffer) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) {
+                ByteOrder order = byteBuffer.order();
+                byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
+                while (byteBuffer.remaining() >= 4) {
+                    a(byteBuffer.getInt());
+                }
+                while (byteBuffer.hasRemaining()) {
+                    l(byteBuffer.get());
+                }
+                byteBuffer.order(order);
+                return this;
+            }
+            return (f) invokeL.objValue;
+        }
+
+        @Override // d.f.d.d.c
+        public f k(char c2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Character.valueOf(c2)})) == null) {
+                m(2, c2);
+                return this;
+            }
+            return (f) invokeCommon.objValue;
+        }
+
+        public f l(byte b2) {
+            InterceptResult invokeB;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeB = interceptable.invokeB(1048586, this, b2)) == null) {
+                m(1, b2 & 255);
+                return this;
+            }
+            return (f) invokeB.objValue;
+        }
+
+        public final void m(int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                long j2 = this.f33403b;
+                int i3 = this.f33404c;
+                long j3 = ((j & 4294967295L) << i3) | j2;
+                this.f33403b = j3;
+                int i4 = i3 + (i2 * 8);
+                this.f33404c = i4;
+                this.f33405d += i2;
+                if (i4 >= 32) {
+                    this.f33402a = Murmur3_32HashFunction.mixH1(this.f33402a, Murmur3_32HashFunction.mixK1((int) j3));
+                    this.f33403b >>>= 32;
+                    this.f33404c -= 32;
+                }
+            }
+        }
+
+        @Override // d.f.d.d.f, d.f.d.d.j
+        public f a(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+                m(4, i2);
+                return this;
+            }
+            return (f) invokeI.objValue;
+        }
+
+        @Override // d.f.d.d.f, d.f.d.d.j
+        public f b(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                m(4, (int) j);
+                m(4, j >>> 32);
+                return this;
+            }
+            return (f) invokeJ.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.f.d.d.c, d.f.d.d.f, d.f.d.d.j
+        public f d(CharSequence charSequence, Charset charset) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, charset)) == null) {
+                if (d.f.d.a.c.f73717a.equals(charset)) {
+                    int length = charSequence.length();
+                    int i2 = 0;
+                    while (true) {
+                        int i3 = i2 + 4;
+                        if (i3 > length) {
+                            break;
+                        }
+                        char charAt = charSequence.charAt(i2);
+                        char charAt2 = charSequence.charAt(i2 + 1);
+                        char charAt3 = charSequence.charAt(i2 + 2);
+                        char charAt4 = charSequence.charAt(i2 + 3);
+                        if (charAt >= 128 || charAt2 >= 128 || charAt3 >= 128 || charAt4 >= 128) {
+                            break;
+                        }
+                        m(4, (charAt2 << '\b') | charAt | (charAt3 << 16) | (charAt4 << 24));
+                        i2 = i3;
+                    }
+                    while (i2 < length) {
+                        char charAt5 = charSequence.charAt(i2);
+                        if (charAt5 < 128) {
+                            m(1, charAt5);
+                        } else if (charAt5 < 2048) {
+                            m(2, Murmur3_32HashFunction.charToTwoUtf8Bytes(charAt5));
+                        } else if (charAt5 < 55296 || charAt5 > 57343) {
+                            m(3, Murmur3_32HashFunction.charToThreeUtf8Bytes(charAt5));
+                        } else {
+                            int codePointAt = Character.codePointAt(charSequence, i2);
+                            if (codePointAt != charAt5) {
+                                i2++;
+                                m(4, Murmur3_32HashFunction.codePointToFourUtf8Bytes(codePointAt));
+                            } else {
+                                f(charSequence.subSequence(i2, length).toString().getBytes(charset));
+                                return this;
+                            }
+                        }
+                        i2++;
+                    }
+                    return this;
+                }
+                return super.d(charSequence, charset);
+            }
+            return (f) invokeLL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2034500271, "Lcom/google/common/hash/Murmur3_32HashFunction;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2034500271, "Lcom/google/common/hash/Murmur3_32HashFunction;");
+                return;
+            }
+        }
+        MURMUR3_32 = new Murmur3_32HashFunction(0);
+        GOOD_FAST_HASH_32 = new Murmur3_32HashFunction(Hashing.f33394a);
     }
 
     public Murmur3_32HashFunction(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.seed = i2;
     }
 
-    public static long a(char c2) {
-        return (((c2 & '?') | 128) << 16) | (((c2 >>> '\f') | 480) & 255) | ((((c2 >>> 6) & 63) | 128) << 8);
+    public static long charToThreeUtf8Bytes(char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Character.valueOf(c2)})) == null) ? (((c2 & '?') | 128) << 16) | (((c2 >>> '\f') | 480) & 255) | ((((c2 >>> 6) & 63) | 128) << 8) : invokeCommon.longValue;
     }
 
-    public static long b(char c2) {
-        return (((c2 & '?') | 128) << 8) | (((c2 >>> 6) | TbConfig.HEAD_IMG_SIZE) & 255);
+    public static long charToTwoUtf8Bytes(char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Character.valueOf(c2)})) == null) ? (((c2 & '?') | 128) << 8) | (((c2 >>> 6) | 960) & 255) : invokeCommon.longValue;
     }
 
-    public static long c(int i2) {
-        return (((i2 >>> 18) | 240) & 255) | ((((i2 >>> 12) & 63) | 128) << 8) | ((((i2 >>> 6) & 63) | 128) << 16) | (((i2 & 63) | 128) << 24);
+    public static long codePointToFourUtf8Bytes(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) ? (((i2 >>> 18) | 240) & 255) | ((((i2 >>> 12) & 63) | 128) << 8) | ((((i2 >>> 6) & 63) | 128) << 16) | (((i2 & 63) | 128) << 24) : invokeI.longValue;
     }
 
-    public static HashCode d(int i2, int i3) {
-        int i4 = i2 ^ i3;
-        int i5 = (i4 ^ (i4 >>> 16)) * (-2048144789);
-        int i6 = (i5 ^ (i5 >>> 13)) * (-1028477387);
-        return HashCode.fromInt(i6 ^ (i6 >>> 16));
+    public static HashCode fmix(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i2, i3)) == null) {
+            int i4 = i2 ^ i3;
+            int i5 = (i4 ^ (i4 >>> 16)) * (-2048144789);
+            int i6 = (i5 ^ (i5 >>> 13)) * (-1028477387);
+            return HashCode.fromInt(i6 ^ (i6 >>> 16));
+        }
+        return (HashCode) invokeII.objValue;
     }
 
-    public static int e(byte[] bArr, int i2) {
-        return Ints.e(bArr[i2 + 3], bArr[i2 + 2], bArr[i2 + 1], bArr[i2]);
+    public static int getIntLittleEndian(byte[] bArr, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, bArr, i2)) == null) ? Ints.e(bArr[i2 + 3], bArr[i2 + 2], bArr[i2 + 1], bArr[i2]) : invokeLI.intValue;
     }
 
-    public static int f(int i2, int i3) {
-        return (Integer.rotateLeft(i2 ^ i3, 13) * 5) - 430675100;
+    public static int mixH1(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i2, i3)) == null) ? (Integer.rotateLeft(i2 ^ i3, 13) * 5) - 430675100 : invokeII.intValue;
     }
 
-    public static int g(int i2) {
-        return Integer.rotateLeft(i2 * (-862048943), 15) * 461845907;
+    public static int mixK1(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) ? Integer.rotateLeft(i2 * C1, 15) * C2 : invokeI.intValue;
     }
 
     public int bits() {
-        return 32;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 32;
+        }
+        return invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof Murmur3_32HashFunction) && this.seed == ((Murmur3_32HashFunction) obj).seed;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Murmur3_32HashFunction) && this.seed == ((Murmur3_32HashFunction) obj).seed : invokeL.booleanValue;
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.f.d.d.b
     public HashCode hashBytes(byte[] bArr, int i2, int i3) {
-        n.v(i2, i2 + i3, bArr.length);
-        int i4 = this.seed;
-        int i5 = 0;
-        int i6 = 0;
-        while (true) {
-            int i7 = i6 + 4;
-            if (i7 > i3) {
-                break;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) {
+            n.v(i2, i2 + i3, bArr.length);
+            int i4 = this.seed;
+            int i5 = 0;
+            int i6 = 0;
+            while (true) {
+                int i7 = i6 + 4;
+                if (i7 > i3) {
+                    break;
+                }
+                i4 = mixH1(i4, mixK1(getIntLittleEndian(bArr, i6 + i2)));
+                i6 = i7;
             }
-            i4 = f(i4, g(e(bArr, i6 + i2)));
-            i6 = i7;
+            int i8 = i6;
+            int i9 = 0;
+            while (i8 < i3) {
+                i5 ^= d.f.d.g.b.c(bArr[i2 + i8]) << i9;
+                i8++;
+                i9 += 8;
+            }
+            return fmix(mixK1(i5) ^ i4, i3);
         }
-        int i8 = i6;
-        int i9 = 0;
-        while (i8 < i3) {
-            i5 ^= d.g.c.g.b.c(bArr[i2 + i8]) << i9;
-            i8++;
-            i9 += 8;
-        }
-        return d(g(i5) ^ i4, i3);
+        return (HashCode) invokeLII.objValue;
     }
 
     public int hashCode() {
-        return Murmur3_32HashFunction.class.hashCode() ^ this.seed;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Murmur3_32HashFunction.class.hashCode() ^ this.seed : invokeV.intValue;
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.f.d.d.b
     public HashCode hashInt(int i2) {
-        return d(f(this.seed, g(i2)), 4);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? fmix(mixH1(this.seed, mixK1(i2)), 4) : (HashCode) invokeI.objValue;
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.f.d.d.b
     public HashCode hashLong(long j) {
-        int i2 = (int) (j >>> 32);
-        return d(f(f(this.seed, g((int) j)), g(i2)), 8);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            return fmix(mixH1(mixH1(this.seed, mixK1((int) j)), mixK1((int) (j >>> 32))), 8);
+        }
+        return (HashCode) invokeJ.objValue;
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.f.d.d.b
     public HashCode hashString(CharSequence charSequence, Charset charset) {
-        if (d.g.c.a.c.f70064a.equals(charset)) {
-            int length = charSequence.length();
-            int i2 = this.seed;
-            int i3 = 0;
-            int i4 = 0;
-            int i5 = 0;
-            while (true) {
-                int i6 = i4 + 4;
-                if (i6 > length) {
-                    break;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, charSequence, charset)) == null) {
+            if (d.f.d.a.c.f73717a.equals(charset)) {
+                int length = charSequence.length();
+                int i2 = this.seed;
+                int i3 = 0;
+                int i4 = 0;
+                int i5 = 0;
+                while (true) {
+                    int i6 = i4 + 4;
+                    if (i6 > length) {
+                        break;
+                    }
+                    char charAt = charSequence.charAt(i4);
+                    char charAt2 = charSequence.charAt(i4 + 1);
+                    char charAt3 = charSequence.charAt(i4 + 2);
+                    char charAt4 = charSequence.charAt(i4 + 3);
+                    if (charAt >= 128 || charAt2 >= 128 || charAt3 >= 128 || charAt4 >= 128) {
+                        break;
+                    }
+                    i2 = mixH1(i2, mixK1((charAt2 << '\b') | charAt | (charAt3 << 16) | (charAt4 << 24)));
+                    i5 += 4;
+                    i4 = i6;
                 }
-                char charAt = charSequence.charAt(i4);
-                char charAt2 = charSequence.charAt(i4 + 1);
-                char charAt3 = charSequence.charAt(i4 + 2);
-                char charAt4 = charSequence.charAt(i4 + 3);
-                if (charAt >= 128 || charAt2 >= 128 || charAt3 >= 128 || charAt4 >= 128) {
-                    break;
-                }
-                i2 = f(i2, g((charAt2 << '\b') | charAt | (charAt3 << 16) | (charAt4 << 24)));
-                i5 += 4;
-                i4 = i6;
-            }
-            long j = 0;
-            while (i4 < length) {
-                char charAt5 = charSequence.charAt(i4);
-                if (charAt5 < 128) {
-                    j |= charAt5 << i3;
-                    i3 += 8;
-                    i5++;
-                } else if (charAt5 < 2048) {
-                    j |= b(charAt5) << i3;
-                    i3 += 16;
-                    i5 += 2;
-                } else if (charAt5 >= 55296 && charAt5 <= 57343) {
-                    int codePointAt = Character.codePointAt(charSequence, i4);
-                    if (codePointAt == charAt5) {
-                        return hashBytes(charSequence.toString().getBytes(charset));
+                long j = 0;
+                while (i4 < length) {
+                    char charAt5 = charSequence.charAt(i4);
+                    if (charAt5 < 128) {
+                        j |= charAt5 << i3;
+                        i3 += 8;
+                        i5++;
+                    } else if (charAt5 < 2048) {
+                        j |= charToTwoUtf8Bytes(charAt5) << i3;
+                        i3 += 16;
+                        i5 += 2;
+                    } else if (charAt5 >= 55296 && charAt5 <= 57343) {
+                        int codePointAt = Character.codePointAt(charSequence, i4);
+                        if (codePointAt == charAt5) {
+                            return hashBytes(charSequence.toString().getBytes(charset));
+                        }
+                        i4++;
+                        j |= codePointToFourUtf8Bytes(codePointAt) << i3;
+                        i5 += 4;
+                    } else {
+                        j |= charToThreeUtf8Bytes(charAt5) << i3;
+                        i3 += 24;
+                        i5 += 3;
+                    }
+                    if (i3 >= 32) {
+                        i2 = mixH1(i2, mixK1((int) j));
+                        j >>>= 32;
+                        i3 -= 32;
                     }
                     i4++;
-                    j |= c(codePointAt) << i3;
-                    i5 += 4;
-                } else {
-                    j |= a(charAt5) << i3;
-                    i3 += 24;
-                    i5 += 3;
                 }
-                if (i3 >= 32) {
-                    i2 = f(i2, g((int) j));
-                    j >>>= 32;
-                    i3 -= 32;
-                }
-                i4++;
+                return fmix(mixK1((int) j) ^ i2, i5);
             }
-            return d(g((int) j) ^ i2, i5);
+            return hashBytes(charSequence.toString().getBytes(charset));
         }
-        return hashBytes(charSequence.toString().getBytes(charset));
+        return (HashCode) invokeLL.objValue;
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.f.d.d.b
     public HashCode hashUnencodedChars(CharSequence charSequence) {
-        int i2 = this.seed;
-        for (int i3 = 1; i3 < charSequence.length(); i3 += 2) {
-            i2 = f(i2, g(charSequence.charAt(i3 - 1) | (charSequence.charAt(i3) << 16)));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
+            int i2 = this.seed;
+            for (int i3 = 1; i3 < charSequence.length(); i3 += 2) {
+                i2 = mixH1(i2, mixK1(charSequence.charAt(i3 - 1) | (charSequence.charAt(i3) << 16)));
+            }
+            if ((charSequence.length() & 1) == 1) {
+                i2 ^= mixK1(charSequence.charAt(charSequence.length() - 1));
+            }
+            return fmix(i2, charSequence.length() * 2);
         }
-        if ((charSequence.length() & 1) == 1) {
-            i2 ^= g(charSequence.charAt(charSequence.length() - 1));
-        }
-        return d(i2, charSequence.length() * 2);
+        return (HashCode) invokeL.objValue;
     }
 
-    @Override // d.g.c.d.e
+    @Override // d.f.d.d.e
     public f newHasher() {
-        return new a(this.seed);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new a(this.seed) : (f) invokeV.objValue;
     }
 
     public String toString() {
-        return "Hashing.murmur3_32(" + this.seed + SmallTailInfo.EMOTION_SUFFIX;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "Hashing.murmur3_32(" + this.seed + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

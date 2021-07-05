@@ -1,42 +1,81 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
-import d.a.o0.f1.f.i.b;
-import d.a.o0.f1.t.d;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
+import d.a.s0.i1.f.i.b;
+import d.a.s0.i1.t.d;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_TYPE = 12;
+    public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialBarTipModel(TbPageContext tbPageContext) {
         super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private boolean isNeed(ImMessageCenterPojo imMessageCenterPojo) {
-        return imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && (imMessageCenterPojo.getUserType() == 1 || imMessageCenterPojo.getUserType() == 3) && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, imMessageCenterPojo)) == null) ? imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && (imMessageCenterPojo.getUserType() == 1 || imMessageCenterPojo.getUserType() == 3) && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void deleteSelectedDatas(b bVar) {
-        LinkedList<ImMessageCenterShowItemData> linkedList = this.mList;
-        if (linkedList == null) {
+        LinkedList<ImMessageCenterShowItemData> linkedList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linkedList = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
@@ -52,23 +91,33 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        return 4;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterShowItemData)) == null) {
+            return 4;
+        }
+        return invokeL.intValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
-        return isNeed(imMessageCenterPojo);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
-        return isNeed(imMessageCenterPojo);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
-        if (buildNormalItem == null) {
+        ImMessageCenterShowItemData buildNormalItem;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
             return;
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
@@ -80,20 +129,26 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     }
 
     public void subscribeBar(boolean z, String str) {
-        RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
-        if (z) {
-            requestUpdateMaskInfoMessage.setIsMask(0);
-        } else {
-            requestUpdateMaskInfoMessage.setIsMask(1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048583, this, z, str) == null) {
+            RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
+            if (z) {
+                requestUpdateMaskInfoMessage.setIsMask(0);
+            } else {
+                requestUpdateMaskInfoMessage.setIsMask(1);
+            }
+            requestUpdateMaskInfoMessage.setMaskType(12);
+            requestUpdateMaskInfoMessage.setList(str);
+            sendMessage(requestUpdateMaskInfoMessage);
         }
-        requestUpdateMaskInfoMessage.setMaskType(12);
-        requestUpdateMaskInfoMessage.setList(str);
-        sendMessage(requestUpdateMaskInfoMessage);
     }
 
     public void updateEditStatus(boolean z) {
-        for (int i2 = 0; i2 != this.mList.size(); i2++) {
-            this.mList.get(i2).setSelected(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            for (int i2 = 0; i2 != this.mList.size(); i2++) {
+                this.mList.get(i2).setSelected(z);
+            }
         }
     }
 }

@@ -1,20 +1,36 @@
 package d.a.c.e.j.b;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static int a(InputStream inputStream, OutputStream outputStream) throws IOException {
-        long b2 = b(inputStream, outputStream);
-        if (b2 > 2147483647L) {
-            return -1;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
+            long b2 = b(inputStream, outputStream);
+            if (b2 > 2147483647L) {
+                return -1;
+            }
+            return (int) b2;
         }
-        return (int) b2;
+        return invokeLL.intValue;
     }
 
     public static long b(InputStream inputStream, OutputStream outputStream) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) != null) {
+            return invokeLL.longValue;
+        }
         if (inputStream == null) {
             return -1L;
         }
@@ -31,12 +47,19 @@ public class b {
     }
 
     public static boolean c(String str) {
-        return str != null && str.contains("vnd.wap.wml");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str != null && str.contains("vnd.wap.wml") : invokeL.booleanValue;
     }
 
     public static byte[] d(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        a(inputStream, byteArrayOutputStream);
-        return byteArrayOutputStream.toByteArray();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            a(inputStream, byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

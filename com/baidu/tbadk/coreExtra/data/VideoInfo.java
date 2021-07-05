@@ -1,16 +1,24 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.video.EditVideoData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoInfo extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAFT_JSON_NAME = "new_video_info";
     public static final String KEY_VIDEO_DURATION = "video_l";
     public static final String KEY_VIDEO_HEIGHT = "video_h";
@@ -21,12 +29,14 @@ public class VideoInfo extends OrmObject implements Serializable {
     public static final int VIDEO_TYPE_RECORD = 1;
     public static final int VIDEO_TYPE_UPLOAD = 2;
     public static final long serialVersionUID = 4168698601975684150L;
+    public transient /* synthetic */ FieldHolder $fh;
     public EditVideoData editVideoData;
     public boolean isCompressedVideo;
     public List<String> mBeautifyListInfo;
     public List<String> mFilterListInfo;
     public List<String> mMusicListInfo;
     public List<String> mStickListInfo;
+    public TbMultiMediaData multiMediaData;
     public String thumbId;
     public String thumbPath;
     public String thumbUriStr;
@@ -40,12 +50,32 @@ public class VideoInfo extends OrmObject implements Serializable {
     public String videoUrl;
     public int videoWidth;
 
+    public VideoInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public String buildContent() {
-        return VIDEO_CONTENT_PREFFIX + this.thumbId + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoMd5 + "," + this.videoUrl + "," + this.videoDuration + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoLength + "," + this.videoType + SmallTailInfo.EMOTION_SUFFIX;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "#(movideo," + this.thumbId + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoMd5 + "," + this.videoUrl + "," + this.videoDuration + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoLength + "," + this.videoType + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void copy(VideoInfo videoInfo) {
-        if (videoInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) || videoInfo == null) {
             return;
         }
         this.videoPath = videoInfo.videoPath;
@@ -64,191 +94,311 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.mStickListInfo = videoInfo.mStickListInfo;
         if (videoInfo.editVideoData == null) {
             this.editVideoData = null;
-            return;
+        } else {
+            EditVideoData editVideoData = new EditVideoData();
+            this.editVideoData = editVideoData;
+            editVideoData.copy(videoInfo.editVideoData);
         }
-        EditVideoData editVideoData = new EditVideoData();
-        this.editVideoData = editVideoData;
-        editVideoData.copy(videoInfo.editVideoData);
+        this.multiMediaData = videoInfo.multiMediaData;
     }
 
     public List<String> getBeautifyListInfo() {
-        return this.mBeautifyListInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBeautifyListInfo : (List) invokeV.objValue;
     }
 
     public EditVideoData getEditVideoData() {
-        return this.editVideoData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.editVideoData : (EditVideoData) invokeV.objValue;
     }
 
     public List<String> getFilterListInfo() {
-        return this.mFilterListInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFilterListInfo : (List) invokeV.objValue;
+    }
+
+    public TbMultiMediaData getMultiMediaData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.multiMediaData : (TbMultiMediaData) invokeV.objValue;
     }
 
     public List<String> getMusicListInfo() {
-        return this.mMusicListInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mMusicListInfo : (List) invokeV.objValue;
     }
 
     public List<String> getStickListInfo() {
-        return this.mStickListInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mStickListInfo : (List) invokeV.objValue;
     }
 
     public String getThumbId() {
-        return this.thumbId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.thumbId : (String) invokeV.objValue;
     }
 
     public String getThumbPath() {
-        return this.thumbPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.thumbPath : (String) invokeV.objValue;
     }
 
     public String getThumbUriStr() {
-        return this.thumbUriStr;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.thumbUriStr : (String) invokeV.objValue;
     }
 
     public int getVideoDuration() {
-        return this.videoDuration;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.videoDuration : invokeV.intValue;
     }
 
     public int getVideoHeight() {
-        return this.videoHeight;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.videoHeight : invokeV.intValue;
     }
 
     public long getVideoLength() {
-        return this.videoLength;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.videoLength : invokeV.longValue;
     }
 
     public String getVideoMd5() {
-        return this.videoMd5;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.videoMd5 : (String) invokeV.objValue;
     }
 
     public String getVideoPath() {
-        return this.videoPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.videoPath : (String) invokeV.objValue;
     }
 
     public int getVideoType() {
-        return this.videoType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.videoType : invokeV.intValue;
     }
 
     public String getVideoUriStr() {
-        return this.videoUriStr;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.videoUriStr : (String) invokeV.objValue;
     }
 
     public String getVideoUrl() {
-        return this.videoUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.videoUrl : (String) invokeV.objValue;
     }
 
     public int getVideoWidth() {
-        return this.videoWidth;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.videoWidth : invokeV.intValue;
     }
 
     public boolean hasUpload() {
-        return (StringUtils.isNull(this.videoUrl) || StringUtils.isNull(this.videoMd5)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (StringUtils.isNull(this.videoUrl) || StringUtils.isNull(this.videoMd5)) ? false : true : invokeV.booleanValue;
     }
 
     public boolean isAvaliable() {
-        return (StringUtils.isNull(this.videoPath) || StringUtils.isNull(this.thumbPath) || !new File(this.videoPath).exists()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (StringUtils.isNull(this.videoPath) || StringUtils.isNull(this.thumbPath) || !new File(this.videoPath).exists()) ? false : true : invokeV.booleanValue;
     }
 
     public boolean isCompressedVideo() {
-        return this.isCompressedVideo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.isCompressedVideo : invokeV.booleanValue;
     }
 
     public boolean isEditVideoDataLegal() {
-        EditVideoData editVideoData = this.editVideoData;
-        return editVideoData != null && editVideoData.isLegal();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            EditVideoData editVideoData = this.editVideoData;
+            return editVideoData != null && editVideoData.isLegal();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isVideoMixFinished() {
+        InterceptResult invokeV;
         EditVideoData editVideoData;
-        return isAvaliable() && (editVideoData = this.editVideoData) != null && StringHelper.equals(this.videoPath, editVideoData.finalPath);
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? isAvaliable() && (editVideoData = this.editVideoData) != null && StringHelper.equals(this.videoPath, editVideoData.finalPath) : invokeV.booleanValue;
     }
 
     public boolean needUploadThunmb() {
-        return !StringUtils.isNull(this.thumbPath) && StringUtils.isNull(this.thumbId);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? !StringUtils.isNull(this.thumbPath) && StringUtils.isNull(this.thumbId) : invokeV.booleanValue;
     }
 
     public boolean needUploadVideo() {
-        return StringUtils.isNull(this.videoUrl);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? StringUtils.isNull(this.videoUrl) : invokeV.booleanValue;
     }
 
     public void parseFromIntent(Intent intent) {
-        if (intent == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, intent) == null) || intent == null) {
             return;
         }
         this.videoPath = intent.getStringExtra("video");
         this.thumbPath = intent.getStringExtra("image");
-        this.videoDuration = (int) (intent.getLongExtra(KEY_VIDEO_DURATION, 8000L) / 1000);
-        this.videoHeight = intent.getIntExtra(KEY_VIDEO_HEIGHT, 480);
-        this.videoWidth = intent.getIntExtra(KEY_VIDEO_WIDTH, 480);
+        this.videoDuration = (int) (intent.getLongExtra("video_l", 8000L) / 1000);
+        this.videoHeight = intent.getIntExtra("video_h", 480);
+        this.videoWidth = intent.getIntExtra("video_w", 480);
     }
 
     public void setBeautifyListInfo(List<String> list) {
-        this.mBeautifyListInfo = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
+            this.mBeautifyListInfo = list;
+        }
     }
 
     public void setEditVideoData(EditVideoData editVideoData) {
-        this.editVideoData = editVideoData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, editVideoData) == null) {
+            this.editVideoData = editVideoData;
+        }
     }
 
     public void setFilterListInfo(List<String> list) {
-        this.mFilterListInfo = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, list) == null) {
+            this.mFilterListInfo = list;
+        }
     }
 
     public void setIsCompressedVideo(boolean z) {
-        this.isCompressedVideo = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.isCompressedVideo = z;
+        }
+    }
+
+    public void setMultiMediaData(TbMultiMediaData tbMultiMediaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, tbMultiMediaData) == null) {
+            this.multiMediaData = tbMultiMediaData;
+        }
     }
 
     public void setMusicListInfo(List<String> list) {
-        this.mMusicListInfo = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, list) == null) {
+            this.mMusicListInfo = list;
+        }
     }
 
     public void setStickListInfo(List<String> list) {
-        this.mStickListInfo = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, list) == null) {
+            this.mStickListInfo = list;
+        }
     }
 
     public void setThumbId(String str) {
-        this.thumbId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.thumbId = str;
+        }
     }
 
     public void setThumbPath(String str) {
-        this.thumbPath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+            this.thumbPath = str;
+        }
     }
 
     public void setThumbUriStr(String str) {
-        this.thumbUriStr = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+            this.thumbUriStr = str;
+        }
     }
 
     public void setVideoDuration(int i2) {
-        this.videoDuration = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            this.videoDuration = i2;
+        }
     }
 
     public void setVideoHeight(int i2) {
-        this.videoHeight = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            this.videoHeight = i2;
+        }
     }
 
     public void setVideoLength(long j) {
-        this.videoLength = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.videoLength = j;
+        }
     }
 
     public void setVideoMd5(String str) {
-        this.videoMd5 = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+            this.videoMd5 = str;
+        }
     }
 
     public void setVideoPath(String str) {
-        this.videoPath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+            this.videoPath = str;
+        }
     }
 
     public void setVideoType(int i2) {
-        this.videoType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
+            this.videoType = i2;
+        }
     }
 
     public void setVideoUriStr(String str) {
-        this.videoUriStr = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+            this.videoUriStr = str;
+        }
     }
 
     public void setVideoUrl(String str) {
-        this.videoUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+            this.videoUrl = str;
+        }
     }
 
     public void setVideoWidth(int i2) {
-        this.videoWidth = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            this.videoWidth = i2;
+        }
     }
 }

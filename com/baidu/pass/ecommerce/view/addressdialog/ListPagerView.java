@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.adapter.AddrPagerListAdapter;
 import com.baidu.pass.ecommerce.common.mvp.BaseMvpView;
 import com.baidu.pass.ecommerce.common.mvp.IBaseView;
@@ -15,12 +17,21 @@ import com.baidu.pass.ecommerce.view.addressdialog.ElementNode;
 import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorRequestParam;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerListAdapter.OnAddressSelectedListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_ACTION = 101;
     public static final String REQUEST_PARAM_CHINA = "CHN";
     public static final String REQUEST_PARAM_SORT = "py_init.asc";
+    public transient /* synthetic */ FieldHolder $fh;
     public AddrPagerListAdapter mAdapter;
     public Context mContext;
     public ElementNode.AddressEntity mDataEntity;
@@ -36,11 +47,25 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     public String mSelectedAddressId;
 
     /* renamed from: com.baidu.pass.ecommerce.view.addressdialog.ListPagerView$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-166150910, "Lcom/baidu/pass/ecommerce/view/addressdialog/ListPagerView$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-166150910, "Lcom/baidu/pass/ecommerce/view/addressdialog/ListPagerView$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[ViewStatus.values().length];
             $SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus = iArr;
             try {
@@ -62,17 +87,35 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnEntitySelectedListener {
         void onEntitySelected(int i2, AddressBean addressBean);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListPagerView(@NonNull Context context, int i2, OnEntitySelectedListener onEntitySelectedListener) {
         this(context, i2, false, onEntitySelectedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2), onEntitySelectedListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue(), (OnEntitySelectedListener) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private void changeViewStatus(ViewStatus viewStatus, String str) {
-        if (this.mRecyclerView == null || this.mLoadingView == null || this.mEmptyView == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, viewStatus, str) == null) || this.mRecyclerView == null || this.mLoadingView == null || this.mEmptyView == null) {
             return;
         }
         int i2 = AnonymousClass1.$SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus[viewStatus.ordinal()];
@@ -103,65 +146,89 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     }
 
     private void refershEntity(ElementNode.AddressEntity addressEntity) {
-        if (addressEntity == null) {
-            changeViewStatus(ViewStatus.EMPTY, null);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, addressEntity) == null) {
+            if (addressEntity == null) {
+                changeViewStatus(ViewStatus.EMPTY, null);
+                return;
+            }
+            List<AddressBean> list = addressEntity.list;
+            if (list == null || list.isEmpty()) {
+                changeViewStatus(ViewStatus.EMPTY, null);
+            }
+            ElementNode.AddressEntity addressEntity2 = this.mDataEntity;
+            addressEntity2.list = list;
+            addressEntity2.hotlists = addressEntity.hotlists;
+            this.mPresenter.makeSelectedEntity(addressEntity2, this.mSelectedAddressId);
+            setEntity2View();
         }
-        List<AddressBean> list = addressEntity.list;
-        if (list == null || list.isEmpty()) {
-            changeViewStatus(ViewStatus.EMPTY, null);
-        }
-        ElementNode.AddressEntity addressEntity2 = this.mDataEntity;
-        addressEntity2.list = list;
-        addressEntity2.hotlists = addressEntity.hotlists;
-        this.mPresenter.makeSelectedEntity(addressEntity2, this.mSelectedAddressId);
-        setEntity2View();
     }
 
     private void setEntity2View() {
-        AddrPagerListAdapter addrPagerListAdapter = this.mAdapter;
-        if (addrPagerListAdapter == null) {
-            AddrPagerListAdapter addrPagerListAdapter2 = new AddrPagerListAdapter(this.mContext, this.mIsDarkMode, this.mDataEntity);
-            this.mAdapter = addrPagerListAdapter2;
-            addrPagerListAdapter2.setAddressSelectedListener(this);
-            this.mRecyclerView.setAdapter(this.mAdapter);
-        } else {
-            addrPagerListAdapter.setEntity(this.mDataEntity);
-            this.mAdapter.notifyDataSetChanged();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            AddrPagerListAdapter addrPagerListAdapter = this.mAdapter;
+            if (addrPagerListAdapter == null) {
+                AddrPagerListAdapter addrPagerListAdapter2 = new AddrPagerListAdapter(this.mContext, this.mIsDarkMode, this.mDataEntity);
+                this.mAdapter = addrPagerListAdapter2;
+                addrPagerListAdapter2.setAddressSelectedListener(this);
+                this.mRecyclerView.setAdapter(this.mAdapter);
+            } else {
+                addrPagerListAdapter.setEntity(this.mDataEntity);
+                this.mAdapter.notifyDataSetChanged();
+            }
+            changeViewStatus(ViewStatus.SUCCESS, null);
         }
-        changeViewStatus(ViewStatus.SUCCESS, null);
     }
 
     public void destroy() {
-        AddrListPagerPresenter addrListPagerPresenter = this.mPresenter;
-        if (addrListPagerPresenter != null) {
-            addrListPagerPresenter.destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            AddrListPagerPresenter addrListPagerPresenter = this.mPresenter;
+            if (addrListPagerPresenter != null) {
+                addrListPagerPresenter.destroy();
+            }
+            this.mContext = null;
         }
-        this.mContext = null;
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
     public void doFailure(int i2, int i3, String str, String str2) {
-        changeViewStatus(ViewStatus.ERROR, this.mPresenter.getErrorMsg(i3));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
+            changeViewStatus(ViewStatus.ERROR, this.mPresenter.getErrorMsg(i3));
+        }
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
     public void doResult(int i2, Object obj, String str) {
-        refershEntity((ElementNode.AddressEntity) obj);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
+            refershEntity((ElementNode.AddressEntity) obj);
+        }
     }
 
     public String getPagerAddressId() {
-        String str = this.mPagerAddressId;
-        return str == null ? "" : str;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.mPagerAddressId;
+            return str == null ? "" : str;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void loadData() {
-        loadData(REQUEST_PARAM_CHINA);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            loadData(REQUEST_PARAM_CHINA);
+        }
     }
 
     @Override // com.baidu.pass.ecommerce.adapter.AddrPagerListAdapter.OnAddressSelectedListener
     public void onAddressSelected(int i2, AddressBean addressBean) {
-        if (addressBean == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i2, addressBean) == null) || addressBean == null) {
             return;
         }
         if (i2 != -1) {
@@ -188,22 +255,47 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     }
 
     public void setOnEntitySelectedListener(OnEntitySelectedListener onEntitySelectedListener) {
-        this.mOnEntitySelectedListener = onEntitySelectedListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onEntitySelectedListener) == null) {
+            this.mOnEntitySelectedListener = onEntitySelectedListener;
+        }
     }
 
     public void setSelectedAddressId(String str) {
-        this.mSelectedAddressId = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.mSelectedAddressId = str;
+        }
     }
 
     public void setSelectedPositionInfo(String str, String str2, String str3) {
-        ElementNode.AddressEntity addressEntity = this.mDataEntity;
-        addressEntity.selectedId = str;
-        addressEntity.selectedName = str2;
-        addressEntity.selectedType = str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) {
+            ElementNode.AddressEntity addressEntity = this.mDataEntity;
+            addressEntity.selectedId = str;
+            addressEntity.selectedName = str2;
+            addressEntity.selectedType = str3;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ListPagerView(@NonNull Context context, int i2, boolean z, OnEntitySelectedListener onEntitySelectedListener) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2), Boolean.valueOf(z), onEntitySelectedListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
         this.mPageIndex = i2;
         this.mIsDarkMode = z;
@@ -222,24 +314,33 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     }
 
     public void loadData(String str) {
-        this.mPagerAddressId = str;
-        changeViewStatus(ViewStatus.LOADING, null);
-        AddrSelectorRequestParam addrSelectorRequestParam = new AddrSelectorRequestParam();
-        addrSelectorRequestParam.setId(str);
-        addrSelectorRequestParam.setLeafs("1");
-        addrSelectorRequestParam.setSort(REQUEST_PARAM_SORT);
-        this.mPresenter.getAddressGetRegion(101, addrSelectorRequestParam);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.mPagerAddressId = str;
+            changeViewStatus(ViewStatus.LOADING, null);
+            AddrSelectorRequestParam addrSelectorRequestParam = new AddrSelectorRequestParam();
+            addrSelectorRequestParam.setId(str);
+            addrSelectorRequestParam.setLeafs("1");
+            addrSelectorRequestParam.setSort(REQUEST_PARAM_SORT);
+            this.mPresenter.getAddressGetRegion(101, addrSelectorRequestParam);
+        }
     }
 
     public void setSelectedPositionInfo(String str, String str2, String str3, int i2) {
-        ElementNode.AddressEntity addressEntity = this.mDataEntity;
-        addressEntity.selectedId = str;
-        addressEntity.selectedName = str2;
-        addressEntity.selectedType = str3;
-        addressEntity.selectedPosition = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048587, this, str, str2, str3, i2) == null) {
+            ElementNode.AddressEntity addressEntity = this.mDataEntity;
+            addressEntity.selectedId = str;
+            addressEntity.selectedName = str2;
+            addressEntity.selectedType = str3;
+            addressEntity.selectedPosition = i2;
+        }
     }
 
     public void setSelectedPositionInfo(int i2) {
-        this.mDataEntity.selectedPosition = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.mDataEntity.selectedPosition = i2;
+        }
     }
 }

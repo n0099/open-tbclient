@@ -1,5 +1,11 @@
 package io.reactivex.internal.operators.flowable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,27 +15,48 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithUpstream<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 163080509307634843L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
+        public final AtomicReference<T> current;
         public volatile boolean done;
         public Throwable error;
+        public final AtomicLong requested;
         public Subscription s;
-        public final AtomicLong requested = new AtomicLong();
-        public final AtomicReference<T> current = new AtomicReference<>();
 
         public BackpressureLatestSubscriber(Subscriber<? super T> subscriber) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.requested = new AtomicLong();
+            this.current = new AtomicReference<>();
             this.actual = subscriber;
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            if (this.cancelled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
                 return;
             }
             this.cancelled = true;
@@ -40,86 +67,123 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
         }
 
         public boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber, AtomicReference<T> atomicReference) {
-            if (this.cancelled) {
-                atomicReference.lazySet(null);
-                return true;
-            } else if (z) {
-                Throwable th = this.error;
-                if (th != null) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, atomicReference})) == null) {
+                if (this.cancelled) {
                     atomicReference.lazySet(null);
-                    subscriber.onError(th);
                     return true;
-                } else if (z2) {
-                    subscriber.onComplete();
-                    return true;
+                } else if (z) {
+                    Throwable th = this.error;
+                    if (th != null) {
+                        atomicReference.lazySet(null);
+                        subscriber.onError(th);
+                        return true;
+                    } else if (z2) {
+                        subscriber.onComplete();
+                        return true;
+                    } else {
+                        return false;
+                    }
                 } else {
                     return false;
                 }
-            } else {
-                return false;
             }
+            return invokeCommon.booleanValue;
         }
 
+        /* JADX WARN: Code restructure failed: missing block: B:22:0x0042, code lost:
+            if (r7 != r1.get()) goto L28;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0044, code lost:
+            r9 = r13.done;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x004a, code lost:
+            if (r2.get() != null) goto L24;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:25:0x004c, code lost:
+            r11 = true;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:27:0x0051, code lost:
+            if (checkTerminated(r9, r11, r0, r2) == false) goto L28;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
+            return;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
+            if (r7 == 0) goto L31;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
+            io.reactivex.internal.util.BackpressureHelper.produced(r1, r7);
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x005b, code lost:
+            r4 = addAndGet(-r4);
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public void drain() {
-            if (getAndIncrement() != 0) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
+                Subscriber<? super T> subscriber = this.actual;
+                AtomicLong atomicLong = this.requested;
+                AtomicReference<T> atomicReference = this.current;
+                int i2 = 1;
+                do {
+                    long j = 0;
+                    while (true) {
+                        boolean z = false;
+                        if (j == atomicLong.get()) {
+                            break;
+                        }
+                        boolean z2 = this.done;
+                        Object obj = (T) atomicReference.getAndSet(null);
+                        boolean z3 = obj == null;
+                        if (checkTerminated(z2, z3, subscriber, atomicReference)) {
+                            return;
+                        }
+                        if (z3) {
+                            break;
+                        }
+                        subscriber.onNext(obj);
+                        j++;
+                    }
+                } while (i2 != 0);
             }
-            Subscriber<? super T> subscriber = this.actual;
-            AtomicLong atomicLong = this.requested;
-            AtomicReference<T> atomicReference = this.current;
-            int i2 = 1;
-            do {
-                long j = 0;
-                while (true) {
-                    if (j == atomicLong.get()) {
-                        break;
-                    }
-                    boolean z = this.done;
-                    Object obj = (T) atomicReference.getAndSet(null);
-                    boolean z2 = obj == null;
-                    if (checkTerminated(z, z2, subscriber, atomicReference)) {
-                        return;
-                    }
-                    if (z2) {
-                        break;
-                    }
-                    subscriber.onNext(obj);
-                    j++;
-                }
-                if (j == atomicLong.get()) {
-                    if (checkTerminated(this.done, atomicReference.get() == null, subscriber, atomicReference)) {
-                        return;
-                    }
-                }
-                if (j != 0) {
-                    BackpressureHelper.produced(atomicLong, j);
-                }
-                i2 = addAndGet(-i2);
-            } while (i2 != 0);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            this.done = true;
-            drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.done = true;
+                drain();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            this.error = th;
-            this.done = true;
-            drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
+                this.error = th;
+                this.done = true;
+                drain();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            this.current.lazySet(t);
-            drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.current.lazySet(t);
+                drain();
+            }
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            if (SubscriptionHelper.validate(this.s, subscription)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
                 subscription.request(Long.MAX_VALUE);
@@ -128,19 +192,39 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
                 BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowableOnBackpressureLatest(Flowable<T> flowable) {
         super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        this.source.subscribe((FlowableSubscriber) new BackpressureLatestSubscriber(subscriber));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            this.source.subscribe((FlowableSubscriber) new BackpressureLatestSubscriber(subscriber));
+        }
     }
 }

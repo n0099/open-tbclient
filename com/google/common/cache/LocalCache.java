@@ -1,5 +1,15 @@
 package com.google.common.cache;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.base.Equivalence;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -10,7 +20,12 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.primitives.Ints;
 import com.google.common.util.concurrent.ExecutionError;
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.MoreExecutors;
+import com.google.common.util.concurrent.SettableFuture;
 import com.google.common.util.concurrent.UncheckedExecutionException;
+import com.google.common.util.concurrent.Uninterruptibles;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
@@ -41,288 +56,691 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap<K, V> {
-    public static final Logger A = Logger.getLogger(LocalCache.class.getName());
-    public static final s<Object, Object> B = new a();
-    public static final Queue<?> C = new b();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Logger A;
+    public static final s<Object, Object> B;
+    public static final Queue<?> C;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f31003e;
+    public final int f32915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f31004f;
+    public final int f32916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Segment<K, V>[] f31005g;
+    public final Segment<K, V>[] f32917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f31006h;
+    public final int f32918h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Equivalence<Object> f31007i;
+    public final Equivalence<Object> f32919i;
     public final Equivalence<Object> j;
     public final Strength k;
     public final Strength l;
     public final long m;
-    public final d.g.c.b.j<K, V> n;
+    public final d.f.d.b.j<K, V> n;
     public final long o;
     public final long p;
     public final long q;
     public final Queue<RemovalNotification<K, V>> r;
-    public final d.g.c.b.i<K, V> s;
-    public final d.g.c.a.t t;
+    public final d.f.d.b.i<K, V> s;
+    public final d.f.d.a.t t;
     public final EntryFactory u;
-    public final d.g.c.b.b v;
+    public final d.f.d.b.b v;
     public final CacheLoader<? super K, V> w;
     public Set<K> x;
     public Collection<V> y;
     public Set<Map.Entry<K, V>> z;
 
-    /* loaded from: classes6.dex */
-    public enum EntryFactory {
-        STRONG { // from class: com.google.common.cache.LocalCache.EntryFactory.1
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new o(k, i2, hVar);
-            }
-        },
-        STRONG_ACCESS { // from class: com.google.common.cache.LocalCache.EntryFactory.2
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> copyEntry(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-                d.g.c.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
-                copyAccessEntry(hVar, copyEntry);
-                return copyEntry;
-            }
-
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new m(k, i2, hVar);
-            }
-        },
-        STRONG_WRITE { // from class: com.google.common.cache.LocalCache.EntryFactory.3
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> copyEntry(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-                d.g.c.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
-                copyWriteEntry(hVar, copyEntry);
-                return copyEntry;
-            }
-
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new q(k, i2, hVar);
-            }
-        },
-        STRONG_ACCESS_WRITE { // from class: com.google.common.cache.LocalCache.EntryFactory.4
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> copyEntry(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-                d.g.c.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
-                copyAccessEntry(hVar, copyEntry);
-                copyWriteEntry(hVar, copyEntry);
-                return copyEntry;
-            }
-
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new n(k, i2, hVar);
-            }
-        },
-        WEAK { // from class: com.google.common.cache.LocalCache.EntryFactory.5
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new w(segment.keyReferenceQueue, k, i2, hVar);
-            }
-        },
-        WEAK_ACCESS { // from class: com.google.common.cache.LocalCache.EntryFactory.6
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> copyEntry(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-                d.g.c.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
-                copyAccessEntry(hVar, copyEntry);
-                return copyEntry;
-            }
-
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new u(segment.keyReferenceQueue, k, i2, hVar);
-            }
-        },
-        WEAK_WRITE { // from class: com.google.common.cache.LocalCache.EntryFactory.7
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> copyEntry(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-                d.g.c.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
-                copyWriteEntry(hVar, copyEntry);
-                return copyEntry;
-            }
-
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new y(segment.keyReferenceQueue, k, i2, hVar);
-            }
-        },
-        WEAK_ACCESS_WRITE { // from class: com.google.common.cache.LocalCache.EntryFactory.8
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> copyEntry(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-                d.g.c.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
-                copyAccessEntry(hVar, copyEntry);
-                copyWriteEntry(hVar, copyEntry);
-                return copyEntry;
-            }
-
-            @Override // com.google.common.cache.LocalCache.EntryFactory
-            public <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar) {
-                return new v(segment.keyReferenceQueue, k, i2, hVar);
-            }
-        };
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static abstract class EntryFactory {
+        public static final /* synthetic */ EntryFactory[] $VALUES;
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int ACCESS_MASK = 1;
+        public static final EntryFactory STRONG;
+        public static final EntryFactory STRONG_ACCESS;
+        public static final EntryFactory STRONG_ACCESS_WRITE;
+        public static final EntryFactory STRONG_WRITE;
+        public static final EntryFactory WEAK;
+        public static final EntryFactory WEAK_ACCESS;
+        public static final EntryFactory WEAK_ACCESS_WRITE;
         public static final int WEAK_MASK = 4;
+        public static final EntryFactory WEAK_WRITE;
         public static final int WRITE_MASK = 2;
         public static final EntryFactory[] factories;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            EntryFactory entryFactory = WEAK_ACCESS_WRITE;
-            factories = new EntryFactory[]{STRONG, STRONG_ACCESS, STRONG_WRITE, STRONG_ACCESS_WRITE, WEAK, WEAK_ACCESS, WEAK_WRITE, entryFactory};
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(105659723, "Lcom/google/common/cache/LocalCache$EntryFactory;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(105659723, "Lcom/google/common/cache/LocalCache$EntryFactory;");
+                    return;
+                }
+            }
+            STRONG = new EntryFactory("STRONG", 0) { // from class: com.google.common.cache.LocalCache.EntryFactory.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048576, this, segment, k, i2, hVar)) == null) ? new o(k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            STRONG_ACCESS = new EntryFactory("STRONG_ACCESS", 1) { // from class: com.google.common.cache.LocalCache.EntryFactory.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> copyEntry(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+                    InterceptResult invokeLLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, segment, hVar, hVar2)) == null) {
+                        d.f.d.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
+                        copyAccessEntry(hVar, copyEntry);
+                        return copyEntry;
+                    }
+                    return (d.f.d.b.h) invokeLLL.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new m(k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            STRONG_WRITE = new EntryFactory("STRONG_WRITE", 2) { // from class: com.google.common.cache.LocalCache.EntryFactory.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> copyEntry(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+                    InterceptResult invokeLLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, segment, hVar, hVar2)) == null) {
+                        d.f.d.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
+                        copyWriteEntry(hVar, copyEntry);
+                        return copyEntry;
+                    }
+                    return (d.f.d.b.h) invokeLLL.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new q(k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            STRONG_ACCESS_WRITE = new EntryFactory("STRONG_ACCESS_WRITE", 3) { // from class: com.google.common.cache.LocalCache.EntryFactory.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> copyEntry(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+                    InterceptResult invokeLLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, segment, hVar, hVar2)) == null) {
+                        d.f.d.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
+                        copyAccessEntry(hVar, copyEntry);
+                        copyWriteEntry(hVar, copyEntry);
+                        return copyEntry;
+                    }
+                    return (d.f.d.b.h) invokeLLL.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new n(k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            WEAK = new EntryFactory("WEAK", 4) { // from class: com.google.common.cache.LocalCache.EntryFactory.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048576, this, segment, k, i2, hVar)) == null) ? new w(segment.keyReferenceQueue, k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            WEAK_ACCESS = new EntryFactory("WEAK_ACCESS", 5) { // from class: com.google.common.cache.LocalCache.EntryFactory.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> copyEntry(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+                    InterceptResult invokeLLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, segment, hVar, hVar2)) == null) {
+                        d.f.d.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
+                        copyAccessEntry(hVar, copyEntry);
+                        return copyEntry;
+                    }
+                    return (d.f.d.b.h) invokeLLL.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new u(segment.keyReferenceQueue, k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            WEAK_WRITE = new EntryFactory("WEAK_WRITE", 6) { // from class: com.google.common.cache.LocalCache.EntryFactory.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> copyEntry(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+                    InterceptResult invokeLLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, segment, hVar, hVar2)) == null) {
+                        d.f.d.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
+                        copyWriteEntry(hVar, copyEntry);
+                        return copyEntry;
+                    }
+                    return (d.f.d.b.h) invokeLLL.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new y(segment.keyReferenceQueue, k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            EntryFactory entryFactory = new EntryFactory("WEAK_ACCESS_WRITE", 7) { // from class: com.google.common.cache.LocalCache.EntryFactory.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> copyEntry(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+                    InterceptResult invokeLLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, segment, hVar, hVar2)) == null) {
+                        d.f.d.b.h<K, V> copyEntry = super.copyEntry(segment, hVar, hVar2);
+                        copyAccessEntry(hVar, copyEntry);
+                        copyWriteEntry(hVar, copyEntry);
+                        return copyEntry;
+                    }
+                    return (d.f.d.b.h) invokeLLL.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.EntryFactory
+                public <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar) {
+                    InterceptResult invokeLLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, k, i2, hVar)) == null) ? new v(segment.keyReferenceQueue, k, i2, hVar) : (d.f.d.b.h) invokeLLIL.objValue;
+                }
+            };
+            WEAK_ACCESS_WRITE = entryFactory;
+            EntryFactory entryFactory2 = STRONG;
+            EntryFactory entryFactory3 = STRONG_ACCESS;
+            EntryFactory entryFactory4 = STRONG_WRITE;
+            EntryFactory entryFactory5 = STRONG_ACCESS_WRITE;
+            EntryFactory entryFactory6 = WEAK;
+            EntryFactory entryFactory7 = WEAK_ACCESS;
+            EntryFactory entryFactory8 = WEAK_WRITE;
+            $VALUES = new EntryFactory[]{entryFactory2, entryFactory3, entryFactory4, entryFactory5, entryFactory6, entryFactory7, entryFactory8, entryFactory};
+            factories = new EntryFactory[]{entryFactory2, entryFactory3, entryFactory4, entryFactory5, entryFactory6, entryFactory7, entryFactory8, entryFactory};
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: boolean */
+        public EntryFactory(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: boolean */
         /* JADX WARN: Multi-variable type inference failed */
         public static EntryFactory getFactory(Strength strength, boolean z, boolean z2) {
-            return factories[(strength == Strength.WEAK ? 4 : 0) | (z ? 1 : 0) | (z2 ? 2 : 0)];
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{strength, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+                return factories[(strength == Strength.WEAK ? 4 : 0) | (z ? 1 : 0) | (z2 ? 2 : 0)];
+            }
+            return (EntryFactory) invokeCommon.objValue;
         }
 
-        public <K, V> void copyAccessEntry(d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-            hVar2.setAccessTime(hVar.getAccessTime());
-            LocalCache.c(hVar.getPreviousInAccessQueue(), hVar2);
-            LocalCache.c(hVar2, hVar.getNextInAccessQueue());
-            LocalCache.x(hVar);
+        public static EntryFactory valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (EntryFactory) Enum.valueOf(EntryFactory.class, str) : (EntryFactory) invokeL.objValue;
         }
 
-        public <K, V> d.g.c.b.h<K, V> copyEntry(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-            return newEntry(segment, hVar.getKey(), hVar.getHash(), hVar2);
+        public static EntryFactory[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (EntryFactory[]) $VALUES.clone() : (EntryFactory[]) invokeV.objValue;
         }
 
-        public <K, V> void copyWriteEntry(d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-            hVar2.setWriteTime(hVar.getWriteTime());
-            LocalCache.d(hVar.getPreviousInWriteQueue(), hVar2);
-            LocalCache.d(hVar2, hVar.getNextInWriteQueue());
-            LocalCache.y(hVar);
+        public <K, V> void copyAccessEntry(d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, hVar, hVar2) == null) {
+                hVar2.setAccessTime(hVar.getAccessTime());
+                LocalCache.c(hVar.getPreviousInAccessQueue(), hVar2);
+                LocalCache.c(hVar2, hVar.getNextInAccessQueue());
+                LocalCache.x(hVar);
+            }
         }
 
-        public abstract <K, V> d.g.c.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.g.c.b.h<K, V> hVar);
+        public <K, V> d.f.d.b.h<K, V> copyEntry(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, hVar, hVar2)) == null) ? newEntry(segment, hVar.getKey(), hVar.getHash(), hVar2) : (d.f.d.b.h) invokeLLL.objValue;
+        }
 
-        /* synthetic */ EntryFactory(a aVar) {
-            this();
+        public <K, V> void copyWriteEntry(d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hVar, hVar2) == null) {
+                hVar2.setWriteTime(hVar.getWriteTime());
+                LocalCache.d(hVar.getPreviousInWriteQueue(), hVar2);
+                LocalCache.d(hVar2, hVar.getNextInWriteQueue());
+                LocalCache.y(hVar);
+            }
+        }
+
+        public abstract <K, V> d.f.d.b.h<K, V> newEntry(Segment<K, V> segment, K k, int i2, d.f.d.b.h<K, V> hVar);
+
+        public /* synthetic */ EntryFactory(String str, int i2, a aVar) {
+            this(str, i2);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class LoadingSerializationProxy<K, V> extends ManualSerializationProxy<K, V> implements d.g.c.b.f<K, V>, Serializable {
+    /* loaded from: classes7.dex */
+    public static final class LoadingSerializationProxy<K, V> extends ManualSerializationProxy<K, V> implements d.f.d.b.f<K, V>, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
-        public transient d.g.c.b.f<K, V> autoDelegate;
+        public transient /* synthetic */ FieldHolder $fh;
+        public transient d.f.d.b.f<K, V> autoDelegate;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LoadingSerializationProxy(LocalCache<K, V> localCache) {
             super(localCache);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((LocalCache) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
-        /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.google.common.cache.CacheLoader<? super K, V>, com.google.common.cache.CacheLoader<? super K1 extends K, V1 extends V> */
+        /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.google.common.cache.CacheLoader<? super K, V>, com.google.common.cache.CacheLoader<? super K1 extends K, V1 extends V> */
         private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-            objectInputStream.defaultReadObject();
-            this.autoDelegate = (d.g.c.b.f<K, V>) recreateCacheBuilder().b((CacheLoader<? super K, V>) this.loader);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65537, this, objectInputStream) == null) {
+                objectInputStream.defaultReadObject();
+                this.autoDelegate = (d.f.d.b.f<K, V>) recreateCacheBuilder().b((CacheLoader<? super K, V>) this.loader);
+            }
         }
 
         private Object readResolve() {
-            return this.autoDelegate;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.autoDelegate : invokeV.objValue;
         }
 
-        @Override // d.g.c.b.f, d.g.c.a.g
+        @Override // d.f.d.b.f, d.f.d.a.g
         public final V apply(K k) {
-            return this.autoDelegate.apply(k);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.autoDelegate.apply(k) : (V) invokeL.objValue;
         }
 
-        @Override // d.g.c.b.f
+        @Override // d.f.d.b.f
         public V get(K k) throws ExecutionException {
-            return this.autoDelegate.get(k);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.autoDelegate.get(k) : (V) invokeL.objValue;
         }
 
-        @Override // d.g.c.b.f
+        @Override // d.f.d.b.f
         public ImmutableMap<K, V> getAll(Iterable<? extends K> iterable) throws ExecutionException {
-            return this.autoDelegate.getAll(iterable);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iterable)) == null) ? this.autoDelegate.getAll(iterable) : (ImmutableMap) invokeL.objValue;
         }
 
-        @Override // d.g.c.b.f
+        @Override // d.f.d.b.f
         public V getUnchecked(K k) {
-            return this.autoDelegate.getUnchecked(k);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) ? this.autoDelegate.getUnchecked(k) : (V) invokeL.objValue;
         }
 
-        @Override // d.g.c.b.f
+        @Override // d.f.d.b.f
         public void refresh(K k) {
-            this.autoDelegate.refresh(k);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, k) == null) {
+                this.autoDelegate.refresh(k);
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class LocalLoadingCache<K, V> extends LocalManualCache<K, V> implements d.g.c.b.f<K, V> {
+    /* loaded from: classes7.dex */
+    public static class LocalLoadingCache<K, V> extends LocalManualCache<K, V> implements d.f.d.b.f<K, V> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LocalLoadingCache(CacheBuilder<? super K, ? super V> cacheBuilder, CacheLoader<? super K, V> cacheLoader) {
             super(new LocalCache(cacheBuilder, cacheLoader), null);
-            d.g.c.a.n.p(cacheLoader);
-        }
-
-        @Override // d.g.c.b.f, d.g.c.a.g
-        public final V apply(K k) {
-            return getUnchecked(k);
-        }
-
-        @Override // d.g.c.b.f
-        public V get(K k) throws ExecutionException {
-            return this.localCache.p(k);
-        }
-
-        @Override // d.g.c.b.f
-        public ImmutableMap<K, V> getAll(Iterable<? extends K> iterable) throws ExecutionException {
-            return this.localCache.l(iterable);
-        }
-
-        @Override // d.g.c.b.f
-        public V getUnchecked(K k) {
-            try {
-                return get(k);
-            } catch (ExecutionException e2) {
-                throw new UncheckedExecutionException(e2.getCause());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cacheBuilder, cacheLoader};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((LocalCache) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            d.f.d.a.n.p(cacheLoader);
         }
 
-        @Override // d.g.c.b.f
+        @Override // d.f.d.b.f, d.f.d.a.g
+        public final V apply(K k) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? getUnchecked(k) : (V) invokeL.objValue;
+        }
+
+        @Override // d.f.d.b.f
+        public V get(K k) throws ExecutionException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.localCache.p(k) : (V) invokeL.objValue;
+        }
+
+        @Override // d.f.d.b.f
+        public ImmutableMap<K, V> getAll(Iterable<? extends K> iterable) throws ExecutionException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iterable)) == null) ? this.localCache.l(iterable) : (ImmutableMap) invokeL.objValue;
+        }
+
+        @Override // d.f.d.b.f
+        public V getUnchecked(K k) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) {
+                try {
+                    return get(k);
+                } catch (ExecutionException e2) {
+                    throw new UncheckedExecutionException(e2.getCause());
+                }
+            }
+            return (V) invokeL.objValue;
+        }
+
+        @Override // d.f.d.b.f
         public void refresh(K k) {
-            this.localCache.F(k);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, k) == null) {
+                this.localCache.F(k);
+            }
         }
 
         @Override // com.google.common.cache.LocalCache.LocalManualCache
         public Object writeReplace() {
-            return new LoadingSerializationProxy(this.localCache);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new LoadingSerializationProxy(this.localCache) : invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class LocalManualCache<K, V> implements d.g.c.b.c<K, V>, Serializable {
+    /* loaded from: classes7.dex */
+    public static class LocalManualCache<K, V> implements d.f.d.b.c<K, V>, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
+        public transient /* synthetic */ FieldHolder $fh;
         public final LocalCache<K, V> localCache;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a extends CacheLoader<Object, V> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Callable f31008a;
+            public final /* synthetic */ Callable f32920a;
 
             public a(LocalManualCache localManualCache, Callable callable) {
-                this.f31008a = callable;
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {localManualCache, callable};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32920a = callable;
             }
 
             @Override // com.google.common.cache.CacheLoader
             public V load(Object obj) throws Exception {
-                return (V) this.f31008a.call();
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (V) this.f32920a.call() : (V) invokeL.objValue;
             }
         }
 
@@ -330,156 +748,267 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             this(localCache);
         }
 
-        @Override // d.g.c.b.c
+        @Override // d.f.d.b.c
         public ConcurrentMap<K, V> asMap() {
-            return this.localCache;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.localCache : (ConcurrentMap) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.c
+        @Override // d.f.d.b.c
         public void cleanUp() {
-            this.localCache.b();
-        }
-
-        @Override // d.g.c.b.c
-        public V get(K k, Callable<? extends V> callable) throws ExecutionException {
-            d.g.c.a.n.p(callable);
-            return this.localCache.k(k, new a(this, callable));
-        }
-
-        @Override // d.g.c.b.c
-        public ImmutableMap<K, V> getAllPresent(Iterable<?> iterable) {
-            return this.localCache.m(iterable);
-        }
-
-        @Override // d.g.c.b.c
-        public V getIfPresent(Object obj) {
-            return this.localCache.n(obj);
-        }
-
-        @Override // d.g.c.b.c
-        public void invalidate(Object obj) {
-            d.g.c.a.n.p(obj);
-            this.localCache.remove(obj);
-        }
-
-        @Override // d.g.c.b.c
-        public void invalidateAll(Iterable<?> iterable) {
-            this.localCache.r(iterable);
-        }
-
-        @Override // d.g.c.b.c
-        public void put(K k, V v) {
-            this.localCache.put(k, v);
-        }
-
-        @Override // d.g.c.b.c
-        public void putAll(Map<? extends K, ? extends V> map) {
-            this.localCache.putAll(map);
-        }
-
-        @Override // d.g.c.b.c
-        public long size() {
-            return this.localCache.u();
-        }
-
-        @Override // d.g.c.b.c
-        public d.g.c.b.d stats() {
-            d.g.c.b.a aVar = new d.g.c.b.a();
-            aVar.g(this.localCache.v);
-            for (Segment<K, V> segment : this.localCache.f31005g) {
-                aVar.g(segment.statsCounter);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.localCache.b();
             }
-            return aVar.f();
+        }
+
+        @Override // d.f.d.b.c
+        public V get(K k, Callable<? extends V> callable) throws ExecutionException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, callable)) == null) {
+                d.f.d.a.n.p(callable);
+                return this.localCache.k(k, new a(this, callable));
+            }
+            return (V) invokeLL.objValue;
+        }
+
+        @Override // d.f.d.b.c
+        public ImmutableMap<K, V> getAllPresent(Iterable<?> iterable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iterable)) == null) ? this.localCache.m(iterable) : (ImmutableMap) invokeL.objValue;
+        }
+
+        @Override // d.f.d.b.c
+        public V getIfPresent(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.localCache.n(obj) : (V) invokeL.objValue;
+        }
+
+        @Override // d.f.d.b.c
+        public void invalidate(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                d.f.d.a.n.p(obj);
+                this.localCache.remove(obj);
+            }
+        }
+
+        @Override // d.f.d.b.c
+        public void invalidateAll(Iterable<?> iterable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, iterable) == null) {
+                this.localCache.r(iterable);
+            }
+        }
+
+        @Override // d.f.d.b.c
+        public void put(K k, V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v) == null) {
+                this.localCache.put(k, v);
+            }
+        }
+
+        @Override // d.f.d.b.c
+        public void putAll(Map<? extends K, ? extends V> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
+                this.localCache.putAll(map);
+            }
+        }
+
+        @Override // d.f.d.b.c
+        public long size() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.localCache.u() : invokeV.longValue;
+        }
+
+        @Override // d.f.d.b.c
+        public d.f.d.b.d stats() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                d.f.d.b.a aVar = new d.f.d.b.a();
+                aVar.g(this.localCache.v);
+                for (Segment<K, V> segment : this.localCache.f32917g) {
+                    aVar.g(segment.statsCounter);
+                }
+                return aVar.f();
+            }
+            return (d.f.d.b.d) invokeV.objValue;
         }
 
         public Object writeReplace() {
-            return new ManualSerializationProxy(this.localCache);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new ManualSerializationProxy(this.localCache) : invokeV.objValue;
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public LocalManualCache(CacheBuilder<? super K, ? super V> cacheBuilder) {
             this(new LocalCache(cacheBuilder, null));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cacheBuilder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    this((LocalCache) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
-        @Override // d.g.c.b.c
+        @Override // d.f.d.b.c
         public void invalidateAll() {
-            this.localCache.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.localCache.clear();
+            }
         }
 
         public LocalManualCache(LocalCache<K, V> localCache) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.localCache = localCache;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class ManualSerializationProxy<K, V> extends d.g.c.b.e<K, V> implements Serializable {
+    /* loaded from: classes7.dex */
+    public static class ManualSerializationProxy<K, V> extends d.f.d.b.e<K, V> implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
+        public transient /* synthetic */ FieldHolder $fh;
         public final int concurrencyLevel;
-        public transient d.g.c.b.c<K, V> delegate;
+        public transient d.f.d.b.c<K, V> delegate;
         public final long expireAfterAccessNanos;
         public final long expireAfterWriteNanos;
         public final Equivalence<Object> keyEquivalence;
         public final Strength keyStrength;
         public final CacheLoader<? super K, V> loader;
         public final long maxWeight;
-        public final d.g.c.b.i<? super K, ? super V> removalListener;
-        public final d.g.c.a.t ticker;
+        public final d.f.d.b.i<? super K, ? super V> removalListener;
+        public final d.f.d.a.t ticker;
         public final Equivalence<Object> valueEquivalence;
         public final Strength valueStrength;
-        public final d.g.c.b.j<K, V> weigher;
+        public final d.f.d.b.j<K, V> weigher;
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public ManualSerializationProxy(LocalCache<K, V> localCache) {
-            this(localCache.k, localCache.l, localCache.f31007i, localCache.j, localCache.p, localCache.o, localCache.m, localCache.n, localCache.f31006h, localCache.s, localCache.t, localCache.w);
+            this(localCache.k, localCache.l, localCache.f32919i, localCache.j, localCache.p, localCache.o, localCache.m, localCache.n, localCache.f32918h, localCache.s, localCache.t, localCache.w);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {localCache};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((Strength) objArr2[0], (Strength) objArr2[1], (Equivalence) objArr2[2], (Equivalence) objArr2[3], ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue(), ((Long) objArr2[6]).longValue(), (d.f.d.b.j) objArr2[7], ((Integer) objArr2[8]).intValue(), (d.f.d.b.i) objArr2[9], (d.f.d.a.t) objArr2[10], (CacheLoader) objArr2[11]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
         }
 
         private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-            objectInputStream.defaultReadObject();
-            this.delegate = (d.g.c.b.c<K, V>) recreateCacheBuilder().a();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, this, objectInputStream) == null) {
+                objectInputStream.defaultReadObject();
+                this.delegate = (d.f.d.b.c<K, V>) recreateCacheBuilder().a();
+            }
         }
 
         private Object readResolve() {
-            return this.delegate;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.delegate : invokeV.objValue;
         }
 
-        /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: d.g.c.b.i<? super K, ? super V>, d.g.c.b.i<? super K1 extends K, ? super V1 extends V> */
-        /* JADX DEBUG: Type inference failed for r1v9. Raw type applied. Possible types: d.g.c.b.j<K, V>, d.g.c.b.j<? super K1 extends K, ? super V1 extends V> */
+        /* JADX DEBUG: Type inference failed for r1v11. Raw type applied. Possible types: d.f.d.b.j<K, V>, d.f.d.b.j<? super K1 extends K, ? super V1 extends V> */
+        /* JADX DEBUG: Type inference failed for r1v7. Raw type applied. Possible types: d.f.d.b.i<? super K, ? super V>, d.f.d.b.i<? super K1 extends K, ? super V1 extends V> */
         public CacheBuilder<K, V> recreateCacheBuilder() {
-            CacheBuilder<K, V> cacheBuilder = (CacheBuilder<K, V>) CacheBuilder.y();
-            cacheBuilder.A(this.keyStrength);
-            cacheBuilder.B(this.valueStrength);
-            cacheBuilder.v(this.keyEquivalence);
-            cacheBuilder.D(this.valueEquivalence);
-            cacheBuilder.e(this.concurrencyLevel);
-            cacheBuilder.z(this.removalListener);
-            cacheBuilder.f30989a = false;
-            long j = this.expireAfterWriteNanos;
-            if (j > 0) {
-                cacheBuilder.g(j, TimeUnit.NANOSECONDS);
-            }
-            long j2 = this.expireAfterAccessNanos;
-            if (j2 > 0) {
-                cacheBuilder.f(j2, TimeUnit.NANOSECONDS);
-            }
-            d.g.c.b.j jVar = this.weigher;
-            if (jVar != CacheBuilder.OneWeigher.INSTANCE) {
-                cacheBuilder.E(jVar);
-                long j3 = this.maxWeight;
-                if (j3 != -1) {
-                    cacheBuilder.x(j3);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                CacheBuilder<K, V> cacheBuilder = (CacheBuilder<K, V>) CacheBuilder.y();
+                cacheBuilder.A(this.keyStrength);
+                cacheBuilder.B(this.valueStrength);
+                cacheBuilder.v(this.keyEquivalence);
+                cacheBuilder.D(this.valueEquivalence);
+                cacheBuilder.e(this.concurrencyLevel);
+                cacheBuilder.z(this.removalListener);
+                cacheBuilder.f32901a = false;
+                long j = this.expireAfterWriteNanos;
+                if (j > 0) {
+                    cacheBuilder.g(j, TimeUnit.NANOSECONDS);
                 }
-            } else {
-                long j4 = this.maxWeight;
-                if (j4 != -1) {
-                    cacheBuilder.w(j4);
+                long j2 = this.expireAfterAccessNanos;
+                if (j2 > 0) {
+                    cacheBuilder.f(j2, TimeUnit.NANOSECONDS);
                 }
+                d.f.d.b.j jVar = this.weigher;
+                if (jVar != CacheBuilder.OneWeigher.INSTANCE) {
+                    cacheBuilder.E(jVar);
+                    long j3 = this.maxWeight;
+                    if (j3 != -1) {
+                        cacheBuilder.x(j3);
+                    }
+                } else {
+                    long j4 = this.maxWeight;
+                    if (j4 != -1) {
+                        cacheBuilder.w(j4);
+                    }
+                }
+                d.f.d.a.t tVar = this.ticker;
+                if (tVar != null) {
+                    cacheBuilder.C(tVar);
+                }
+                return cacheBuilder;
             }
-            d.g.c.a.t tVar = this.ticker;
-            if (tVar != null) {
-                cacheBuilder.C(tVar);
-            }
-            return cacheBuilder;
+            return (CacheBuilder) invokeV.objValue;
         }
 
-        public ManualSerializationProxy(Strength strength, Strength strength2, Equivalence<Object> equivalence, Equivalence<Object> equivalence2, long j, long j2, long j3, d.g.c.b.j<K, V> jVar, int i2, d.g.c.b.i<? super K, ? super V> iVar, d.g.c.a.t tVar, CacheLoader<? super K, V> cacheLoader) {
+        public ManualSerializationProxy(Strength strength, Strength strength2, Equivalence<Object> equivalence, Equivalence<Object> equivalence2, long j, long j2, long j3, d.f.d.b.j<K, V> jVar, int i2, d.f.d.b.i<? super K, ? super V> iVar, d.f.d.a.t tVar, CacheLoader<? super K, V> cacheLoader) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {strength, strength2, equivalence, equivalence2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), jVar, Integer.valueOf(i2), iVar, tVar, cacheLoader};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.keyStrength = strength;
             this.valueStrength = strength2;
             this.keyEquivalence = equivalence;
@@ -490,401 +1019,916 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             this.weigher = jVar;
             this.concurrencyLevel = i2;
             this.removalListener = iVar;
-            this.ticker = (tVar == d.g.c.a.t.b() || tVar == CacheBuilder.s) ? null : null;
+            this.ticker = (tVar == d.f.d.a.t.b() || tVar == CacheBuilder.s) ? null : null;
             this.loader = cacheLoader;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.b.e, d.g.c.c.y
-        public d.g.c.b.c<K, V> delegate() {
-            return this.delegate;
+        @Override // d.f.d.b.e, d.f.d.c.h0
+        public d.f.d.b.c<K, V> delegate() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.delegate : (d.f.d.b.c) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public enum NullEntry implements d.g.c.b.h<Object, Object> {
-        INSTANCE;
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static final class NullEntry implements d.f.d.b.h<Object, Object> {
+        public static final /* synthetic */ NullEntry[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final NullEntry INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // d.g.c.b.h
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(288106792, "Lcom/google/common/cache/LocalCache$NullEntry;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(288106792, "Lcom/google/common/cache/LocalCache$NullEntry;");
+                    return;
+                }
+            }
+            NullEntry nullEntry = new NullEntry("INSTANCE", 0);
+            INSTANCE = nullEntry;
+            $VALUES = new NullEntry[]{nullEntry};
+        }
+
+        public NullEntry(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static NullEntry valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NullEntry) Enum.valueOf(NullEntry.class, str) : (NullEntry) invokeL.objValue;
+        }
+
+        public static NullEntry[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NullEntry[]) $VALUES.clone() : (NullEntry[]) invokeV.objValue;
+        }
+
+        @Override // d.f.d.b.h
         public long getAccessTime() {
-            return 0L;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public int getHash() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public Object getKey() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<Object, Object> getNext() {
-            return null;
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<Object, Object> getNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return null;
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<Object, Object> getNextInAccessQueue() {
-            return this;
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<Object, Object> getNextInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<Object, Object> getNextInWriteQueue() {
-            return this;
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<Object, Object> getNextInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<Object, Object> getPreviousInAccessQueue() {
-            return this;
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<Object, Object> getPreviousInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<Object, Object> getPreviousInWriteQueue() {
-            return this;
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<Object, Object> getPreviousInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public s<Object, Object> getValueReference() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return null;
+            }
+            return (s) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public long getWriteTime() {
-            return 0L;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public void setAccessTime(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setNextInAccessQueue(d.g.c.b.h<Object, Object> hVar) {
+        @Override // d.f.d.b.h
+        public void setNextInAccessQueue(d.f.d.b.h<Object, Object> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, hVar) == null) {
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setNextInWriteQueue(d.g.c.b.h<Object, Object> hVar) {
+        @Override // d.f.d.b.h
+        public void setNextInWriteQueue(d.f.d.b.h<Object, Object> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, hVar) == null) {
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setPreviousInAccessQueue(d.g.c.b.h<Object, Object> hVar) {
+        @Override // d.f.d.b.h
+        public void setPreviousInAccessQueue(d.f.d.b.h<Object, Object> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, hVar) == null) {
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setPreviousInWriteQueue(d.g.c.b.h<Object, Object> hVar) {
+        @Override // d.f.d.b.h
+        public void setPreviousInWriteQueue(d.f.d.b.h<Object, Object> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048590, this, hVar) == null) {
+            }
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public void setValueReference(s<Object, Object> sVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048591, this, sVar) == null) {
+            }
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public void setWriteTime(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public enum Strength {
-        STRONG { // from class: com.google.common.cache.LocalCache.Strength.1
-            @Override // com.google.common.cache.LocalCache.Strength
-            public Equivalence<Object> defaultEquivalence() {
-                return Equivalence.equals();
-            }
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static abstract class Strength {
+        public static final /* synthetic */ Strength[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Strength SOFT;
+        public static final Strength STRONG;
+        public static final Strength WEAK;
+        public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.google.common.cache.LocalCache.Strength
-            public <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, V v, int i2) {
-                return i2 == 1 ? new p(v) : new a0(v, i2);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(210472546, "Lcom/google/common/cache/LocalCache$Strength;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(210472546, "Lcom/google/common/cache/LocalCache$Strength;");
+                    return;
+                }
             }
-        },
-        SOFT { // from class: com.google.common.cache.LocalCache.Strength.2
-            @Override // com.google.common.cache.LocalCache.Strength
-            public Equivalence<Object> defaultEquivalence() {
-                return Equivalence.identity();
-            }
+            STRONG = new Strength("STRONG", 0) { // from class: com.google.common.cache.LocalCache.Strength.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.google.common.cache.LocalCache.Strength
-            public <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, V v, int i2) {
-                return i2 == 1 ? new l(segment.valueReferenceQueue, v, hVar) : new z(segment.valueReferenceQueue, v, hVar, i2);
-            }
-        },
-        WEAK { // from class: com.google.common.cache.LocalCache.Strength.3
-            @Override // com.google.common.cache.LocalCache.Strength
-            public Equivalence<Object> defaultEquivalence() {
-                return Equivalence.identity();
-            }
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
 
-            @Override // com.google.common.cache.LocalCache.Strength
-            public <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, V v, int i2) {
-                return i2 == 1 ? new x(segment.valueReferenceQueue, v, hVar) : new b0(segment.valueReferenceQueue, v, hVar, i2);
+                @Override // com.google.common.cache.LocalCache.Strength
+                public Equivalence<Object> defaultEquivalence() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Equivalence.equals() : (Equivalence) invokeV.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.Strength
+                public <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, V v, int i2) {
+                    InterceptResult invokeLLLI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLLI = interceptable2.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, hVar, v, i2)) == null) ? i2 == 1 ? new p(v) : new a0(v, i2) : (s) invokeLLLI.objValue;
+                }
+            };
+            SOFT = new Strength("SOFT", 1) { // from class: com.google.common.cache.LocalCache.Strength.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.Strength
+                public Equivalence<Object> defaultEquivalence() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Equivalence.identity() : (Equivalence) invokeV.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.Strength
+                public <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, V v, int i2) {
+                    InterceptResult invokeLLLI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLLI = interceptable2.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, hVar, v, i2)) == null) ? i2 == 1 ? new l(segment.valueReferenceQueue, v, hVar) : new z(segment.valueReferenceQueue, v, hVar, i2) : (s) invokeLLLI.objValue;
+                }
+            };
+            Strength strength = new Strength("WEAK", 2) { // from class: com.google.common.cache.LocalCache.Strength.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r9, Integer.valueOf(r10)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (a) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // com.google.common.cache.LocalCache.Strength
+                public Equivalence<Object> defaultEquivalence() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Equivalence.identity() : (Equivalence) invokeV.objValue;
+                }
+
+                @Override // com.google.common.cache.LocalCache.Strength
+                public <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, V v, int i2) {
+                    InterceptResult invokeLLLI;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLLLI = interceptable2.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, segment, hVar, v, i2)) == null) ? i2 == 1 ? new x(segment.valueReferenceQueue, v, hVar) : new b0(segment.valueReferenceQueue, v, hVar, i2) : (s) invokeLLLI.objValue;
+                }
+            };
+            WEAK = strength;
+            $VALUES = new Strength[]{STRONG, SOFT, strength};
+        }
+
+        public Strength(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
-        };
+        }
+
+        public static Strength valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Strength) Enum.valueOf(Strength.class, str) : (Strength) invokeL.objValue;
+        }
+
+        public static Strength[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Strength[]) $VALUES.clone() : (Strength[]) invokeV.objValue;
+        }
 
         public abstract Equivalence<Object> defaultEquivalence();
 
-        public abstract <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.g.c.b.h<K, V> hVar, V v, int i2);
+        public abstract <K, V> s<K, V> referenceValue(Segment<K, V> segment, d.f.d.b.h<K, V> hVar, V v, int i2);
 
-        /* synthetic */ Strength(a aVar) {
-            this();
+        public /* synthetic */ Strength(String str, int i2, a aVar) {
+            this(str, i2);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements s<Object, Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.google.common.cache.LocalCache.s
-        public d.g.c.b.h<Object, Object> a() {
-            return null;
+        public d.f.d.b.h<Object, Object> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public void b(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            }
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public int c() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public Object d() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean e() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public s<Object, Object> f(ReferenceQueue<Object> referenceQueue, Object obj, d.g.c.b.h<Object, Object> hVar) {
-            return this;
+        public s<Object, Object> f(ReferenceQueue<Object> referenceQueue, Object obj, d.f.d.b.h<Object, Object> hVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, referenceQueue, obj, hVar)) == null) ? this : (s) invokeLLL.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public Object get() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean isActive() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a0<K, V> extends p<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31014f;
+        public final int f32926f;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a0(V v, int i2) {
             super(v);
-            this.f31014f = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32926f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.p, com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31014f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32926f : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b extends AbstractQueue<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<Object> iterator() {
-            return ImmutableSet.of().iterator();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ImmutableSet.of().iterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.Queue
         public boolean offer(Object obj) {
-            return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Queue
         public Object peek() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
         }
 
         @Override // java.util.Queue
         public Object poll() {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b0<K, V> extends x<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31015f;
+        public final int f32927f;
 
-        public b0(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar, int i2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b0(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar, int i2) {
             super(referenceQueue, v, hVar);
-            this.f31015f = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, v, hVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ReferenceQueue) objArr2[0], objArr2[1], (d.f.d.b.h) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32927f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.x, com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31015f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32927f : invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.x, com.google.common.cache.LocalCache.s
-        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return new b0(referenceQueue, v, hVar, this.f31015f);
+        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, referenceQueue, v, hVar)) == null) ? new b0(referenceQueue, v, hVar, this.f32927f) : (s) invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public abstract class c<T> extends AbstractSet<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentMap<?, ?> f31016e;
+        public final ConcurrentMap<?, ?> f32928e;
 
         public c(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
-            this.f31016e = concurrentMap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache, concurrentMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32928e = concurrentMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
-            this.f31016e.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f32928e.clear();
+            }
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean isEmpty() {
-            return this.f31016e.isEmpty();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32928e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f31016e.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32928e.size() : invokeV.intValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public Object[] toArray() {
-            return LocalCache.J(this).toArray();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? LocalCache.J(this).toArray() : (Object[]) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public <E> E[] toArray(E[] eArr) {
-            return (E[]) LocalCache.J(this).toArray(eArr);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, eArr)) == null) ? (E[]) LocalCache.J(this).toArray(eArr) : (E[]) ((Object[]) invokeL.objValue);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class c0<K, V> extends AbstractQueue<d.g.c.b.h<K, V>> {
+    /* loaded from: classes7.dex */
+    public static final class c0<K, V> extends AbstractQueue<d.f.d.b.h<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31017e = new a(this);
+        public final d.f.d.b.h<K, V> f32929e;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a extends d<K, V> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31018e = this;
+            public d.f.d.b.h<K, V> f32930e;
 
             /* renamed from: f  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31019f = this;
+            public d.f.d.b.h<K, V> f32931f;
 
             public a(c0 c0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {c0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32930e = this;
+                this.f32931f = this;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public d.g.c.b.h<K, V> getNextInWriteQueue() {
-                return this.f31018e;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public d.f.d.b.h<K, V> getNextInWriteQueue() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32930e : (d.f.d.b.h) invokeV.objValue;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-                return this.f31019f;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public d.f.d.b.h<K, V> getPreviousInWriteQueue() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32931f : (d.f.d.b.h) invokeV.objValue;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
             public long getWriteTime() {
-                return Long.MAX_VALUE;
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return Long.MAX_VALUE;
+                }
+                return invokeV.longValue;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31018e = hVar;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public void setNextInWriteQueue(d.f.d.b.h<K, V> hVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
+                    this.f32930e = hVar;
+                }
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31019f = hVar;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public void setPreviousInWriteQueue(d.f.d.b.h<K, V> hVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
+                    this.f32931f = hVar;
+                }
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
             public void setWriteTime(long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                }
             }
         }
 
-        /* loaded from: classes6.dex */
-        public class b extends d.g.c.c.g<d.g.c.b.h<K, V>> {
-            public b(d.g.c.b.h hVar) {
+        /* loaded from: classes7.dex */
+        public class b extends d.f.d.c.g<d.f.d.b.h<K, V>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ c0 f32932f;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public b(c0 c0Var, d.f.d.b.h hVar) {
                 super(hVar);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {c0Var, hVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super(newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32932f = c0Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.g.c.c.g
+            @Override // d.f.d.c.g
             /* renamed from: b */
-            public d.g.c.b.h<K, V> a(d.g.c.b.h<K, V> hVar) {
-                d.g.c.b.h<K, V> nextInWriteQueue = hVar.getNextInWriteQueue();
-                if (nextInWriteQueue == c0.this.f31017e) {
-                    return null;
+            public d.f.d.b.h<K, V> a(d.f.d.b.h<K, V> hVar) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar)) == null) {
+                    d.f.d.b.h<K, V> nextInWriteQueue = hVar.getNextInWriteQueue();
+                    if (nextInWriteQueue == this.f32932f.f32929e) {
+                        return null;
+                    }
+                    return nextInWriteQueue;
                 }
-                return nextInWriteQueue;
+                return (d.f.d.b.h) invokeL.objValue;
             }
+        }
+
+        public c0() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32929e = new a(this);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Queue
         /* renamed from: a */
-        public boolean offer(d.g.c.b.h<K, V> hVar) {
-            LocalCache.d(hVar.getPreviousInWriteQueue(), hVar.getNextInWriteQueue());
-            LocalCache.d(this.f31017e.getPreviousInWriteQueue(), hVar);
-            LocalCache.d(hVar, this.f31017e);
-            return true;
+        public boolean offer(d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
+                LocalCache.d(hVar.getPreviousInWriteQueue(), hVar.getNextInWriteQueue());
+                LocalCache.d(this.f32929e.getPreviousInWriteQueue(), hVar);
+                LocalCache.d(hVar, this.f32929e);
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Queue
         /* renamed from: b */
-        public d.g.c.b.h<K, V> peek() {
-            d.g.c.b.h<K, V> nextInWriteQueue = this.f31017e.getNextInWriteQueue();
-            if (nextInWriteQueue == this.f31017e) {
-                return null;
+        public d.f.d.b.h<K, V> peek() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                d.f.d.b.h<K, V> nextInWriteQueue = this.f32929e.getNextInWriteQueue();
+                if (nextInWriteQueue == this.f32929e) {
+                    return null;
+                }
+                return nextInWriteQueue;
             }
-            return nextInWriteQueue;
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Queue
         /* renamed from: c */
-        public d.g.c.b.h<K, V> poll() {
-            d.g.c.b.h<K, V> nextInWriteQueue = this.f31017e.getNextInWriteQueue();
-            if (nextInWriteQueue == this.f31017e) {
-                return null;
+        public d.f.d.b.h<K, V> poll() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                d.f.d.b.h<K, V> nextInWriteQueue = this.f32929e.getNextInWriteQueue();
+                if (nextInWriteQueue == this.f32929e) {
+                    return null;
+                }
+                remove(nextInWriteQueue);
+                return nextInWriteQueue;
             }
-            remove(nextInWriteQueue);
-            return nextInWriteQueue;
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
         @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
         public void clear() {
-            d.g.c.b.h<K, V> nextInWriteQueue = this.f31017e.getNextInWriteQueue();
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+                return;
+            }
+            d.f.d.b.h<K, V> nextInWriteQueue = this.f32929e.getNextInWriteQueue();
             while (true) {
-                d.g.c.b.h<K, V> hVar = this.f31017e;
+                d.f.d.b.h<K, V> hVar = this.f32929e;
                 if (nextInWriteQueue != hVar) {
-                    d.g.c.b.h<K, V> nextInWriteQueue2 = nextInWriteQueue.getNextInWriteQueue();
+                    d.f.d.b.h<K, V> nextInWriteQueue2 = nextInWriteQueue.getNextInWriteQueue();
                     LocalCache.y(nextInWriteQueue);
                     nextInWriteQueue = nextInWriteQueue2;
                 } else {
                     hVar.setNextInWriteQueue(hVar);
-                    d.g.c.b.h<K, V> hVar2 = this.f31017e;
+                    d.f.d.b.h<K, V> hVar2 = this.f32929e;
                     hVar2.setPreviousInWriteQueue(hVar2);
                     return;
                 }
@@ -893,288 +1937,534 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean contains(Object obj) {
-            return ((d.g.c.b.h) obj).getNextInWriteQueue() != NullEntry.INSTANCE;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? ((d.f.d.b.h) obj).getNextInWriteQueue() != NullEntry.INSTANCE : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
-            return this.f31017e.getNextInWriteQueue() == this.f31017e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32929e.getNextInWriteQueue() == this.f32929e : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-        public Iterator<d.g.c.b.h<K, V>> iterator() {
-            return new b(peek());
+        public Iterator<d.f.d.b.h<K, V>> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new b(this, peek()) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean remove(Object obj) {
-            d.g.c.b.h hVar = (d.g.c.b.h) obj;
-            d.g.c.b.h<K, V> previousInWriteQueue = hVar.getPreviousInWriteQueue();
-            d.g.c.b.h<K, V> nextInWriteQueue = hVar.getNextInWriteQueue();
-            LocalCache.d(previousInWriteQueue, nextInWriteQueue);
-            LocalCache.y(hVar);
-            return nextInWriteQueue != NullEntry.INSTANCE;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+                d.f.d.b.h hVar = (d.f.d.b.h) obj;
+                d.f.d.b.h<K, V> previousInWriteQueue = hVar.getPreviousInWriteQueue();
+                d.f.d.b.h<K, V> nextInWriteQueue = hVar.getNextInWriteQueue();
+                LocalCache.d(previousInWriteQueue, nextInWriteQueue);
+                LocalCache.y(hVar);
+                return nextInWriteQueue != NullEntry.INSTANCE;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            int i2 = 0;
-            for (d.g.c.b.h<K, V> nextInWriteQueue = this.f31017e.getNextInWriteQueue(); nextInWriteQueue != this.f31017e; nextInWriteQueue = nextInWriteQueue.getNextInWriteQueue()) {
-                i2++;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                int i2 = 0;
+                for (d.f.d.b.h<K, V> nextInWriteQueue = this.f32929e.getNextInWriteQueue(); nextInWriteQueue != this.f32929e; nextInWriteQueue = nextInWriteQueue.getNextInWriteQueue()) {
+                    i2++;
+                }
+                return i2;
             }
-            return i2;
+            return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static abstract class d<K, V> implements d.g.c.b.h<K, V> {
-        @Override // d.g.c.b.h
+    /* loaded from: classes7.dex */
+    public static abstract class d<K, V> implements d.f.d.b.h<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // d.f.d.b.h
         public long getAccessTime() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeV.longValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public int getHash() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeV.intValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public K getKey() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (K) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<K, V> getNext() {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<K, V> getNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInWriteQueue() {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public s<K, V> getValueReference() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (s) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public long getWriteTime() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeV.longValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public void setAccessTime(long j) {
-            throw new UnsupportedOperationException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public void setNextInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public void setNextInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public void setPreviousInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        @Override // d.g.c.b.h
-        public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        @Override // d.f.d.b.h
+        public void setPreviousInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048590, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public void setValueReference(s<K, V> sVar) {
-            throw new UnsupportedOperationException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048591, this, sVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public void setWriteTime(long j) {
-            throw new UnsupportedOperationException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class d0 implements Map.Entry<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31021e;
+        public final K f32933e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f31022f;
+        public V f32934f;
 
-        public d0(K k, V v) {
-            this.f31021e = k;
-            this.f31022f = v;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ LocalCache f32935g;
+
+        public d0(LocalCache localCache, K k, V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache, k, v};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32935g = localCache;
+            this.f32933e = k;
+            this.f32934f = v;
         }
 
         @Override // java.util.Map.Entry
         public boolean equals(Object obj) {
-            if (obj instanceof Map.Entry) {
-                Map.Entry entry = (Map.Entry) obj;
-                return this.f31021e.equals(entry.getKey()) && this.f31022f.equals(entry.getValue());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (obj instanceof Map.Entry) {
+                    Map.Entry entry = (Map.Entry) obj;
+                    return this.f32933e.equals(entry.getKey()) && this.f32934f.equals(entry.getValue());
+                }
+                return false;
             }
-            return false;
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Map.Entry
         public K getKey() {
-            return this.f31021e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32933e : (K) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
-            return this.f31022f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32934f : (V) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
         public int hashCode() {
-            return this.f31021e.hashCode() ^ this.f31022f.hashCode();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32933e.hashCode() ^ this.f32934f.hashCode() : invokeV.intValue;
         }
 
         @Override // java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = (V) LocalCache.this.put(this.f31021e, v);
-            this.f31022f = v;
-            return v2;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, v)) == null) {
+                V v2 = (V) this.f32935g.put(this.f32933e, v);
+                this.f32934f = v;
+                return v2;
+            }
+            return (V) invokeL.objValue;
         }
 
         public String toString() {
-            return getKey() + "=" + getValue();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return getKey() + "=" + getValue();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class e<K, V> extends AbstractQueue<d.g.c.b.h<K, V>> {
+    /* loaded from: classes7.dex */
+    public static final class e<K, V> extends AbstractQueue<d.f.d.b.h<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31024e = new a(this);
+        public final d.f.d.b.h<K, V> f32936e;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a extends d<K, V> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31025e = this;
+            public d.f.d.b.h<K, V> f32937e;
 
             /* renamed from: f  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31026f = this;
+            public d.f.d.b.h<K, V> f32938f;
 
             public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32937e = this;
+                this.f32938f = this;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
             public long getAccessTime() {
-                return Long.MAX_VALUE;
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return Long.MAX_VALUE;
+                }
+                return invokeV.longValue;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public d.g.c.b.h<K, V> getNextInAccessQueue() {
-                return this.f31025e;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public d.f.d.b.h<K, V> getNextInAccessQueue() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32937e : (d.f.d.b.h) invokeV.objValue;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-                return this.f31026f;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public d.f.d.b.h<K, V> getPreviousInAccessQueue() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32938f : (d.f.d.b.h) invokeV.objValue;
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
             public void setAccessTime(long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+                }
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31025e = hVar;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public void setNextInAccessQueue(d.f.d.b.h<K, V> hVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
+                    this.f32937e = hVar;
+                }
             }
 
-            @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-            public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31026f = hVar;
+            @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+            public void setPreviousInAccessQueue(d.f.d.b.h<K, V> hVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
+                    this.f32938f = hVar;
+                }
             }
         }
 
-        /* loaded from: classes6.dex */
-        public class b extends d.g.c.c.g<d.g.c.b.h<K, V>> {
-            public b(d.g.c.b.h hVar) {
+        /* loaded from: classes7.dex */
+        public class b extends d.f.d.c.g<d.f.d.b.h<K, V>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ e f32939f;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public b(e eVar, d.f.d.b.h hVar) {
                 super(hVar);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, hVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super(newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32939f = eVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.g.c.c.g
+            @Override // d.f.d.c.g
             /* renamed from: b */
-            public d.g.c.b.h<K, V> a(d.g.c.b.h<K, V> hVar) {
-                d.g.c.b.h<K, V> nextInAccessQueue = hVar.getNextInAccessQueue();
-                if (nextInAccessQueue == e.this.f31024e) {
-                    return null;
+            public d.f.d.b.h<K, V> a(d.f.d.b.h<K, V> hVar) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar)) == null) {
+                    d.f.d.b.h<K, V> nextInAccessQueue = hVar.getNextInAccessQueue();
+                    if (nextInAccessQueue == this.f32939f.f32936e) {
+                        return null;
+                    }
+                    return nextInAccessQueue;
                 }
-                return nextInAccessQueue;
+                return (d.f.d.b.h) invokeL.objValue;
             }
+        }
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32936e = new a(this);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Queue
         /* renamed from: a */
-        public boolean offer(d.g.c.b.h<K, V> hVar) {
-            LocalCache.c(hVar.getPreviousInAccessQueue(), hVar.getNextInAccessQueue());
-            LocalCache.c(this.f31024e.getPreviousInAccessQueue(), hVar);
-            LocalCache.c(hVar, this.f31024e);
-            return true;
+        public boolean offer(d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
+                LocalCache.c(hVar.getPreviousInAccessQueue(), hVar.getNextInAccessQueue());
+                LocalCache.c(this.f32936e.getPreviousInAccessQueue(), hVar);
+                LocalCache.c(hVar, this.f32936e);
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Queue
         /* renamed from: b */
-        public d.g.c.b.h<K, V> peek() {
-            d.g.c.b.h<K, V> nextInAccessQueue = this.f31024e.getNextInAccessQueue();
-            if (nextInAccessQueue == this.f31024e) {
-                return null;
+        public d.f.d.b.h<K, V> peek() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                d.f.d.b.h<K, V> nextInAccessQueue = this.f32936e.getNextInAccessQueue();
+                if (nextInAccessQueue == this.f32936e) {
+                    return null;
+                }
+                return nextInAccessQueue;
             }
-            return nextInAccessQueue;
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Queue
         /* renamed from: c */
-        public d.g.c.b.h<K, V> poll() {
-            d.g.c.b.h<K, V> nextInAccessQueue = this.f31024e.getNextInAccessQueue();
-            if (nextInAccessQueue == this.f31024e) {
-                return null;
+        public d.f.d.b.h<K, V> poll() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                d.f.d.b.h<K, V> nextInAccessQueue = this.f32936e.getNextInAccessQueue();
+                if (nextInAccessQueue == this.f32936e) {
+                    return null;
+                }
+                remove(nextInAccessQueue);
+                return nextInAccessQueue;
             }
-            remove(nextInAccessQueue);
-            return nextInAccessQueue;
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
         @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
         public void clear() {
-            d.g.c.b.h<K, V> nextInAccessQueue = this.f31024e.getNextInAccessQueue();
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+                return;
+            }
+            d.f.d.b.h<K, V> nextInAccessQueue = this.f32936e.getNextInAccessQueue();
             while (true) {
-                d.g.c.b.h<K, V> hVar = this.f31024e;
+                d.f.d.b.h<K, V> hVar = this.f32936e;
                 if (nextInAccessQueue != hVar) {
-                    d.g.c.b.h<K, V> nextInAccessQueue2 = nextInAccessQueue.getNextInAccessQueue();
+                    d.f.d.b.h<K, V> nextInAccessQueue2 = nextInAccessQueue.getNextInAccessQueue();
                     LocalCache.x(nextInAccessQueue);
                     nextInAccessQueue = nextInAccessQueue2;
                 } else {
                     hVar.setNextInAccessQueue(hVar);
-                    d.g.c.b.h<K, V> hVar2 = this.f31024e;
+                    d.f.d.b.h<K, V> hVar2 = this.f32936e;
                     hVar2.setPreviousInAccessQueue(hVar2);
                     return;
                 }
@@ -1183,123 +2473,213 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean contains(Object obj) {
-            return ((d.g.c.b.h) obj).getNextInAccessQueue() != NullEntry.INSTANCE;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? ((d.f.d.b.h) obj).getNextInAccessQueue() != NullEntry.INSTANCE : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
-            return this.f31024e.getNextInAccessQueue() == this.f31024e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32936e.getNextInAccessQueue() == this.f32936e : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-        public Iterator<d.g.c.b.h<K, V>> iterator() {
-            return new b(peek());
+        public Iterator<d.f.d.b.h<K, V>> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new b(this, peek()) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean remove(Object obj) {
-            d.g.c.b.h hVar = (d.g.c.b.h) obj;
-            d.g.c.b.h<K, V> previousInAccessQueue = hVar.getPreviousInAccessQueue();
-            d.g.c.b.h<K, V> nextInAccessQueue = hVar.getNextInAccessQueue();
-            LocalCache.c(previousInAccessQueue, nextInAccessQueue);
-            LocalCache.x(hVar);
-            return nextInAccessQueue != NullEntry.INSTANCE;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+                d.f.d.b.h hVar = (d.f.d.b.h) obj;
+                d.f.d.b.h<K, V> previousInAccessQueue = hVar.getPreviousInAccessQueue();
+                d.f.d.b.h<K, V> nextInAccessQueue = hVar.getNextInAccessQueue();
+                LocalCache.c(previousInAccessQueue, nextInAccessQueue);
+                LocalCache.x(hVar);
+                return nextInAccessQueue != NullEntry.INSTANCE;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            int i2 = 0;
-            for (d.g.c.b.h<K, V> nextInAccessQueue = this.f31024e.getNextInAccessQueue(); nextInAccessQueue != this.f31024e; nextInAccessQueue = nextInAccessQueue.getNextInAccessQueue()) {
-                i2++;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                int i2 = 0;
+                for (d.f.d.b.h<K, V> nextInAccessQueue = this.f32936e.getNextInAccessQueue(); nextInAccessQueue != this.f32936e; nextInAccessQueue = nextInAccessQueue.getNextInAccessQueue()) {
+                    i2++;
+                }
+                return i2;
             }
-            return i2;
+            return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class f extends LocalCache<K, V>.h<Map.Entry<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(LocalCache localCache) {
-            super();
+            super(localCache);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((LocalCache) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: f */
         public Map.Entry<K, V> next() {
-            return c();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c() : (Map.Entry) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class g extends LocalCache<K, V>.c<Map.Entry<K, V>> {
-        public g(ConcurrentMap<?, ?> concurrentMap) {
-            super(LocalCache.this, concurrentMap);
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ LocalCache f32940f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
+            super(localCache, concurrentMap);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache, concurrentMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((LocalCache) objArr2[0], (ConcurrentMap) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32940f = localCache;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
+            InterceptResult invokeL;
             Map.Entry entry;
             Object key;
             Object obj2;
-            return (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && (obj2 = LocalCache.this.get(key)) != null && LocalCache.this.j.equivalent(entry.getValue(), obj2);
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && (obj2 = this.f32940f.get(key)) != null && this.f32940f.j.equivalent(entry.getValue(), obj2) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Map.Entry<K, V>> iterator() {
-            return new f(LocalCache.this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new f(this.f32940f) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
+            InterceptResult invokeL;
             Map.Entry entry;
             Object key;
-            return (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && LocalCache.this.remove(key, entry.getValue());
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && this.f32940f.remove(key, entry.getValue()) : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public abstract class h<T> implements Iterator<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31029e;
+        public int f32941e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31030f = -1;
+        public int f32942f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Segment<K, V> f31031g;
+        public Segment<K, V> f32943g;
 
         /* renamed from: h  reason: collision with root package name */
-        public AtomicReferenceArray<d.g.c.b.h<K, V>> f31032h;
+        public AtomicReferenceArray<d.f.d.b.h<K, V>> f32944h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31033i;
+        public d.f.d.b.h<K, V> f32945i;
         public LocalCache<K, V>.d0 j;
         public LocalCache<K, V>.d0 k;
+        public final /* synthetic */ LocalCache l;
 
-        public h() {
-            this.f31029e = LocalCache.this.f31005g.length - 1;
+        public h(LocalCache localCache) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.l = localCache;
+            this.f32941e = localCache.f32917g.length - 1;
+            this.f32942f = -1;
             a();
         }
 
         public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
             this.j = null;
             if (d() || e()) {
                 return;
             }
             while (true) {
-                int i2 = this.f31029e;
+                int i2 = this.f32941e;
                 if (i2 < 0) {
                     return;
                 }
-                Segment<K, V>[] segmentArr = LocalCache.this.f31005g;
-                this.f31029e = i2 - 1;
+                Segment<K, V>[] segmentArr = this.l.f32917g;
+                this.f32941e = i2 - 1;
                 Segment<K, V> segment = segmentArr[i2];
-                this.f31031g = segment;
+                this.f32943g = segment;
                 if (segment.count != 0) {
-                    AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.f31031g.table;
-                    this.f31032h = atomicReferenceArray;
-                    this.f31030f = atomicReferenceArray.length() - 1;
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.f32943g.table;
+                    this.f32944h = atomicReferenceArray;
+                    this.f32942f = atomicReferenceArray.length() - 1;
                     if (e()) {
                         return;
                     }
@@ -1307,62 +2687,82 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public boolean b(d.g.c.b.h<K, V> hVar) {
+        public boolean b(d.f.d.b.h<K, V> hVar) {
             boolean z;
-            try {
-                long a2 = LocalCache.this.t.a();
-                K key = hVar.getKey();
-                Object o = LocalCache.this.o(hVar, a2);
-                if (o != null) {
-                    this.j = new d0(key, o);
-                    z = true;
-                } else {
-                    z = false;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar)) == null) {
+                try {
+                    long a2 = this.l.t.a();
+                    K key = hVar.getKey();
+                    Object o = this.l.o(hVar, a2);
+                    if (o != null) {
+                        this.j = new d0(this.l, key, o);
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    return z;
+                } finally {
+                    this.f32943g.postReadCleanup();
                 }
-                return z;
-            } finally {
-                this.f31031g.postReadCleanup();
             }
+            return invokeL.booleanValue;
         }
 
         public LocalCache<K, V>.d0 c() {
-            LocalCache<K, V>.d0 d0Var = this.j;
-            if (d0Var != null) {
-                this.k = d0Var;
-                a();
-                return this.k;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                LocalCache<K, V>.d0 d0Var = this.j;
+                if (d0Var != null) {
+                    this.k = d0Var;
+                    a();
+                    return this.k;
+                }
+                throw new NoSuchElementException();
             }
-            throw new NoSuchElementException();
+            return (d0) invokeV.objValue;
         }
 
         public boolean d() {
-            d.g.c.b.h<K, V> hVar = this.f31033i;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+                return invokeV.booleanValue;
+            }
+            d.f.d.b.h<K, V> hVar = this.f32945i;
             if (hVar == null) {
                 return false;
             }
             while (true) {
-                this.f31033i = hVar.getNext();
-                d.g.c.b.h<K, V> hVar2 = this.f31033i;
+                this.f32945i = hVar.getNext();
+                d.f.d.b.h<K, V> hVar2 = this.f32945i;
                 if (hVar2 == null) {
                     return false;
                 }
                 if (b(hVar2)) {
                     return true;
                 }
-                hVar = this.f31033i;
+                hVar = this.f32945i;
             }
         }
 
         public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
+                return invokeV.booleanValue;
+            }
             while (true) {
-                int i2 = this.f31030f;
+                int i2 = this.f32942f;
                 if (i2 < 0) {
                     return false;
                 }
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.f31032h;
-                this.f31030f = i2 - 1;
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(i2);
-                this.f31033i = hVar;
+                AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.f32944h;
+                this.f32942f = i2 - 1;
+                d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(i2);
+                this.f32945i = hVar;
                 if (hVar != null && (b(hVar) || d())) {
                     return true;
                 }
@@ -1371,278 +2771,524 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.j != null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j != null : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            d.g.c.a.n.w(this.k != null);
-            LocalCache.this.remove(this.k.getKey());
-            this.k = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                d.f.d.a.n.w(this.k != null);
+                this.l.remove(this.k.getKey());
+                this.k = null;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class i extends LocalCache<K, V>.h<K> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(LocalCache localCache) {
-            super();
+            super(localCache);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((LocalCache) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         @Override // java.util.Iterator
         public K next() {
-            return c().getKey();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c().getKey() : (K) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class j extends LocalCache<K, V>.c<K> {
-        public j(ConcurrentMap<?, ?> concurrentMap) {
-            super(LocalCache.this, concurrentMap);
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ LocalCache f32946f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public j(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
+            super(localCache, concurrentMap);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache, concurrentMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((LocalCache) objArr2[0], (ConcurrentMap) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32946f = localCache;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f31016e.containsKey(obj);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f32928e.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<K> iterator() {
-            return new i(LocalCache.this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new i(this.f32946f) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
-            return this.f31016e.remove(obj) != null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f32928e.remove(obj) != null : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class k<K, V> implements s<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile s<K, V> f31035e;
+        public volatile s<K, V> f32947e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d.g.c.i.a.q<V> f31036f;
+        public final SettableFuture<V> f32948f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final d.g.c.a.p f31037g;
+        public final d.f.d.a.p f32949g;
 
-        /* loaded from: classes6.dex */
-        public class a implements d.g.c.a.g<V, V> {
-            public a() {
+        /* loaded from: classes7.dex */
+        public class a implements d.f.d.a.g<V, V> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ k f32950e;
+
+            public a(k kVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {kVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32950e = kVar;
             }
 
-            @Override // d.g.c.a.g
+            @Override // d.f.d.a.g
             public V apply(V v) {
-                k.this.k(v);
-                return v;
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) {
+                    this.f32950e.k(v);
+                    return v;
+                }
+                return (V) invokeL.objValue;
             }
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public k() {
             this(LocalCache.K());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    this((s) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public d.g.c.b.h<K, V> a() {
-            return null;
+        public d.f.d.b.h<K, V> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public void b(V v) {
-            if (v != null) {
-                k(v);
-            } else {
-                this.f31035e = LocalCache.K();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v) == null) {
+                if (v != null) {
+                    k(v);
+                } else {
+                    this.f32947e = LocalCache.K();
+                }
             }
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31035e.c();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32947e.c() : invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V d() throws ExecutionException {
-            return (V) d.g.c.i.a.t.a(this.f31036f);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (V) Uninterruptibles.getUninterruptibly(this.f32948f) : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean e() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return this;
+        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, referenceQueue, v, hVar)) == null) ? this : (s) invokeLLL.objValue;
         }
 
         public long g() {
-            return this.f31037g.e(TimeUnit.NANOSECONDS);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32949g.e(TimeUnit.NANOSECONDS) : invokeV.longValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V get() {
-            return this.f31035e.get();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32947e.get() : (V) invokeV.objValue;
         }
 
-        public final d.g.c.i.a.l<V> h(Throwable th) {
-            return d.g.c.i.a.g.c(th);
+        public final ListenableFuture<V> h(Throwable th) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th)) == null) ? Futures.immediateFailedFuture(th) : (ListenableFuture) invokeL.objValue;
         }
 
         public s<K, V> i() {
-            return this.f31035e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32947e : (s) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean isActive() {
-            return this.f31035e.isActive();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f32947e.isActive() : invokeV.booleanValue;
         }
 
-        public d.g.c.i.a.l<V> j(K k, CacheLoader<? super K, V> cacheLoader) {
-            try {
-                this.f31037g.g();
-                V v = this.f31035e.get();
-                if (v == null) {
-                    V load = cacheLoader.load(k);
-                    return k(load) ? this.f31036f : d.g.c.i.a.g.d(load);
+        public ListenableFuture<V> j(K k, CacheLoader<? super K, V> cacheLoader) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k, cacheLoader)) == null) {
+                try {
+                    this.f32949g.h();
+                    V v = this.f32947e.get();
+                    if (v == null) {
+                        V load = cacheLoader.load(k);
+                        return k(load) ? this.f32948f : Futures.immediateFuture(load);
+                    }
+                    ListenableFuture<V> reload = cacheLoader.reload(k, v);
+                    if (reload == null) {
+                        return Futures.immediateFuture(null);
+                    }
+                    return Futures.transform(reload, new a(this), MoreExecutors.directExecutor());
+                } catch (Throwable th) {
+                    ListenableFuture<V> h2 = l(th) ? this.f32948f : h(th);
+                    if (th instanceof InterruptedException) {
+                        Thread.currentThread().interrupt();
+                    }
+                    return h2;
                 }
-                d.g.c.i.a.l<V> reload = cacheLoader.reload(k, v);
-                if (reload == null) {
-                    return d.g.c.i.a.g.d(null);
-                }
-                return d.g.c.i.a.g.e(reload, new a(), d.g.c.i.a.n.a());
-            } catch (Throwable th) {
-                d.g.c.i.a.l<V> h2 = l(th) ? this.f31036f : h(th);
-                if (th instanceof InterruptedException) {
-                    Thread.currentThread().interrupt();
-                }
-                return h2;
             }
+            return (ListenableFuture) invokeLL.objValue;
         }
 
         public boolean k(V v) {
-            return this.f31036f.A(v);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, v)) == null) ? this.f32948f.set(v) : invokeL.booleanValue;
         }
 
         public boolean l(Throwable th) {
-            return this.f31036f.B(th);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, th)) == null) ? this.f32948f.setException(th) : invokeL.booleanValue;
         }
 
         public k(s<K, V> sVar) {
-            this.f31036f = d.g.c.i.a.q.F();
-            this.f31037g = d.g.c.a.p.d();
-            this.f31035e = sVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f32948f = SettableFuture.create();
+            this.f32949g = d.f.d.a.p.d();
+            this.f32947e = sVar;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class l<K, V> extends SoftReference<V> implements s<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31039e;
+        public final d.f.d.b.h<K, V> f32951e;
 
-        public l(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public l(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
             super(v, referenceQueue);
-            this.f31039e = hVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, v, hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(objArr2[0], (ReferenceQueue) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32951e = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public d.g.c.b.h<K, V> a() {
-            return this.f31039e;
+        public d.f.d.b.h<K, V> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32951e : (d.f.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public void b(V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v) == null) {
+            }
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public int c() {
-            return 1;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V d() {
-            return get();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean e() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return new l(referenceQueue, v, hVar);
+        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, referenceQueue, v, hVar)) == null) ? new l(referenceQueue, v, hVar) : (s) invokeLLL.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean isActive() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class m<K, V> extends o<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f31040i;
-        public d.g.c.b.h<K, V> j;
-        public d.g.c.b.h<K, V> k;
+        public volatile long f32952i;
+        public d.f.d.b.h<K, V> j;
+        public d.f.d.b.h<K, V> k;
 
-        public m(K k, int i2, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public m(K k, int i2, d.f.d.b.h<K, V> hVar) {
             super(k, i2, hVar);
-            this.f31040i = Long.MAX_VALUE;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(objArr2[0], ((Integer) objArr2[1]).intValue(), (d.f.d.b.h) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32952i = Long.MAX_VALUE;
             this.j = LocalCache.w();
             this.k = LocalCache.w();
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public long getAccessTime() {
-            return this.f31040i;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32952i : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            return this.j;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-            return this.k;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public void setAccessTime(long j) {
-            this.f31040i = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+                this.f32952i = j;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.j = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setNextInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
+                this.j = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.k = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setPreviousInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
+                this.k = hVar;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class n<K, V> extends o<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f31041i;
-        public d.g.c.b.h<K, V> j;
-        public d.g.c.b.h<K, V> k;
+        public volatile long f32953i;
+        public d.f.d.b.h<K, V> j;
+        public d.f.d.b.h<K, V> k;
         public volatile long l;
-        public d.g.c.b.h<K, V> m;
-        public d.g.c.b.h<K, V> n;
+        public d.f.d.b.h<K, V> m;
+        public d.f.d.b.h<K, V> n;
 
-        public n(K k, int i2, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public n(K k, int i2, d.f.d.b.h<K, V> hVar) {
             super(k, i2, hVar);
-            this.f31041i = Long.MAX_VALUE;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(objArr2[0], ((Integer) objArr2[1]).intValue(), (d.f.d.b.h) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32953i = Long.MAX_VALUE;
             this.j = LocalCache.w();
             this.k = LocalCache.w();
             this.l = Long.MAX_VALUE;
@@ -1650,225 +3296,383 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             this.n = LocalCache.w();
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public long getAccessTime() {
-            return this.f31041i;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32953i : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            return this.j;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInWriteQueue() {
-            return this.m;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-            return this.k;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-            return this.n;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public long getWriteTime() {
-            return this.l;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.l : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public void setAccessTime(long j) {
-            this.f31041i = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                this.f32953i = j;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.j = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setNextInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, hVar) == null) {
+                this.j = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.m = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setNextInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hVar) == null) {
+                this.m = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.k = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setPreviousInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
+                this.k = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.n = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setPreviousInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
+                this.n = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public void setWriteTime(long j) {
-            this.l = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+                this.l = j;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class o<K, V> extends d<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31042e;
+        public final K f32954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31043f;
+        public final int f32955f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31044g;
+        public final d.f.d.b.h<K, V> f32956g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile s<K, V> f31045h = LocalCache.K();
+        public volatile s<K, V> f32957h;
 
-        public o(K k, int i2, d.g.c.b.h<K, V> hVar) {
-            this.f31042e = k;
-            this.f31043f = i2;
-            this.f31044g = hVar;
+        public o(K k, int i2, d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32957h = LocalCache.K();
+            this.f32954e = k;
+            this.f32955f = i2;
+            this.f32956g = hVar;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public int getHash() {
-            return this.f31043f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32955f : invokeV.intValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public K getKey() {
-            return this.f31042e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32954e : (K) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNext() {
-            return this.f31044g;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32956g : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public s<K, V> getValueReference() {
-            return this.f31045h;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32957h : (s) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public void setValueReference(s<K, V> sVar) {
-            this.f31045h = sVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, sVar) == null) {
+                this.f32957h = sVar;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class p<K, V> implements s<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final V f31046e;
+        public final V f32958e;
 
         public p(V v) {
-            this.f31046e = v;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32958e = v;
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public d.g.c.b.h<K, V> a() {
-            return null;
+        public d.f.d.b.h<K, V> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public void b(V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v) == null) {
+            }
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public int c() {
-            return 1;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V d() {
-            return get();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean e() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return this;
+        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, referenceQueue, v, hVar)) == null) ? this : (s) invokeLLL.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V get() {
-            return this.f31046e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32958e : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean isActive() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class q<K, V> extends o<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f31047i;
-        public d.g.c.b.h<K, V> j;
-        public d.g.c.b.h<K, V> k;
+        public volatile long f32959i;
+        public d.f.d.b.h<K, V> j;
+        public d.f.d.b.h<K, V> k;
 
-        public q(K k, int i2, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public q(K k, int i2, d.f.d.b.h<K, V> hVar) {
             super(k, i2, hVar);
-            this.f31047i = Long.MAX_VALUE;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(objArr2[0], ((Integer) objArr2[1]).intValue(), (d.f.d.b.h) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32959i = Long.MAX_VALUE;
             this.j = LocalCache.w();
             this.k = LocalCache.w();
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInWriteQueue() {
-            return this.j;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-            return this.k;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public long getWriteTime() {
-            return this.f31047i;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32959i : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.j = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setNextInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
+                this.j = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
-        public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.k = hVar;
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
+        public void setPreviousInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
+                this.k = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.d, d.f.d.b.h
         public void setWriteTime(long j) {
-            this.f31047i = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.f32959i = j;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class r extends LocalCache<K, V>.h<V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public r(LocalCache localCache) {
-            super();
+            super(localCache);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((LocalCache) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         @Override // java.util.Iterator
         public V next() {
-            return c().getValue();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c().getValue() : (V) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface s<K, V> {
-        d.g.c.b.h<K, V> a();
+        d.f.d.b.h<K, V> a();
 
         void b(V v);
 
@@ -1878,410 +3682,738 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         boolean e();
 
-        s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar);
+        s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar);
 
         V get();
 
         boolean isActive();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class t extends AbstractCollection<V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentMap<?, ?> f31048e;
+        public final ConcurrentMap<?, ?> f32960e;
 
-        public t(ConcurrentMap<?, ?> concurrentMap) {
-            this.f31048e = concurrentMap;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ LocalCache f32961f;
+
+        public t(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache, concurrentMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32961f = localCache;
+            this.f32960e = concurrentMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public void clear() {
-            this.f31048e.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f32960e.clear();
+            }
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean contains(Object obj) {
-            return this.f31048e.containsValue(obj);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f32960e.containsValue(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
-            return this.f31048e.isEmpty();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32960e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<V> iterator() {
-            return new r(LocalCache.this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new r(this.f32961f) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return this.f31048e.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32960e.size() : invokeV.intValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public Object[] toArray() {
-            return LocalCache.J(this).toArray();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? LocalCache.J(this).toArray() : (Object[]) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public <E> E[] toArray(E[] eArr) {
-            return (E[]) LocalCache.J(this).toArray(eArr);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, eArr)) == null) ? (E[]) LocalCache.J(this).toArray(eArr) : (E[]) ((Object[]) invokeL.objValue);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class u<K, V> extends w<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f31050h;
+        public volatile long f32962h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31051i;
-        public d.g.c.b.h<K, V> j;
+        public d.f.d.b.h<K, V> f32963i;
+        public d.f.d.b.h<K, V> j;
 
-        public u(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public u(ReferenceQueue<K> referenceQueue, K k, int i2, d.f.d.b.h<K, V> hVar) {
             super(referenceQueue, k, i2, hVar);
-            this.f31050h = Long.MAX_VALUE;
-            this.f31051i = LocalCache.w();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ReferenceQueue) objArr2[0], objArr2[1], ((Integer) objArr2[2]).intValue(), (d.f.d.b.h) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32962h = Long.MAX_VALUE;
+            this.f32963i = LocalCache.w();
             this.j = LocalCache.w();
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public long getAccessTime() {
-            return this.f31050h;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32962h : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            return this.f31051i;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32963i : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-            return this.j;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public void setAccessTime(long j) {
-            this.f31050h = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+                this.f32962h = j;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.f31051i = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setNextInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
+                this.f32963i = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.j = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setPreviousInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
+                this.j = hVar;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class v<K, V> extends w<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f31052h;
+        public volatile long f32964h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31053i;
-        public d.g.c.b.h<K, V> j;
+        public d.f.d.b.h<K, V> f32965i;
+        public d.f.d.b.h<K, V> j;
         public volatile long k;
-        public d.g.c.b.h<K, V> l;
-        public d.g.c.b.h<K, V> m;
+        public d.f.d.b.h<K, V> l;
+        public d.f.d.b.h<K, V> m;
 
-        public v(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public v(ReferenceQueue<K> referenceQueue, K k, int i2, d.f.d.b.h<K, V> hVar) {
             super(referenceQueue, k, i2, hVar);
-            this.f31052h = Long.MAX_VALUE;
-            this.f31053i = LocalCache.w();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ReferenceQueue) objArr2[0], objArr2[1], ((Integer) objArr2[2]).intValue(), (d.f.d.b.h) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32964h = Long.MAX_VALUE;
+            this.f32965i = LocalCache.w();
             this.j = LocalCache.w();
             this.k = Long.MAX_VALUE;
             this.l = LocalCache.w();
             this.m = LocalCache.w();
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public long getAccessTime() {
-            return this.f31052h;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32964h : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            return this.f31053i;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32965i : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInWriteQueue() {
-            return this.l;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-            return this.j;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-            return this.m;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public long getWriteTime() {
-            return this.k;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public void setAccessTime(long j) {
-            this.f31052h = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                this.f32964h = j;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.f31053i = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setNextInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, hVar) == null) {
+                this.f32965i = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.l = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setNextInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hVar) == null) {
+                this.l = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.j = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setPreviousInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
+                this.j = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.m = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setPreviousInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
+                this.m = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public void setWriteTime(long j) {
-            this.k = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+                this.k = j;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class w<K, V> extends WeakReference<K> implements d.g.c.b.h<K, V> {
+    /* loaded from: classes7.dex */
+    public static class w<K, V> extends WeakReference<K> implements d.f.d.b.h<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f31054e;
+        public final int f32966e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31055f;
+        public final d.f.d.b.h<K, V> f32967f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile s<K, V> f31056g;
+        public volatile s<K, V> f32968g;
 
-        public w(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public w(ReferenceQueue<K> referenceQueue, K k, int i2, d.f.d.b.h<K, V> hVar) {
             super(k, referenceQueue);
-            this.f31056g = LocalCache.K();
-            this.f31054e = i2;
-            this.f31055f = hVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(objArr2[0], (ReferenceQueue) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32968g = LocalCache.K();
+            this.f32966e = i2;
+            this.f32967f = hVar;
         }
 
         public long getAccessTime() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeV.longValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public int getHash() {
-            return this.f31054e;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32966e : invokeV.intValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public K getKey() {
-            return get();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() : (K) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
-        public d.g.c.b.h<K, V> getNext() {
-            return this.f31055f;
+        @Override // d.f.d.b.h
+        public d.f.d.b.h<K, V> getNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32967f : (d.f.d.b.h) invokeV.objValue;
         }
 
-        public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            throw new UnsupportedOperationException();
+        public d.f.d.b.h<K, V> getNextInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        public d.g.c.b.h<K, V> getNextInWriteQueue() {
-            throw new UnsupportedOperationException();
+        public d.f.d.b.h<K, V> getNextInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-            throw new UnsupportedOperationException();
+        public d.f.d.b.h<K, V> getPreviousInAccessQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-            throw new UnsupportedOperationException();
+        public d.f.d.b.h<K, V> getPreviousInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public s<K, V> getValueReference() {
-            return this.f31056g;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32968g : (s) invokeV.objValue;
         }
 
         public long getWriteTime() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeV.longValue;
         }
 
         public void setAccessTime(long j) {
-            throw new UnsupportedOperationException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        public void setNextInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        public void setNextInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        public void setPreviousInAccessQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            throw new UnsupportedOperationException();
+        public void setPreviousInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048590, this, hVar) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        @Override // d.g.c.b.h
+        @Override // d.f.d.b.h
         public void setValueReference(s<K, V> sVar) {
-            this.f31056g = sVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048591, this, sVar) == null) {
+                this.f32968g = sVar;
+            }
         }
 
         public void setWriteTime(long j) {
-            throw new UnsupportedOperationException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class x<K, V> extends WeakReference<V> implements s<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31057e;
+        public final d.f.d.b.h<K, V> f32969e;
 
-        public x(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public x(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
             super(v, referenceQueue);
-            this.f31057e = hVar;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, v, hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(objArr2[0], (ReferenceQueue) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32969e = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.s
-        public d.g.c.b.h<K, V> a() {
-            return this.f31057e;
+        public d.f.d.b.h<K, V> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32969e : (d.f.d.b.h) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public void b(V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v) == null) {
+            }
         }
 
         public int c() {
-            return 1;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V d() {
-            return get();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean e() {
-            return false;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
-        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return new x(referenceQueue, v, hVar);
+        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, referenceQueue, v, hVar)) == null) ? new x(referenceQueue, v, hVar) : (s) invokeLLL.objValue;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean isActive() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class y<K, V> extends w<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f31058h;
+        public volatile long f32970h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31059i;
-        public d.g.c.b.h<K, V> j;
+        public d.f.d.b.h<K, V> f32971i;
+        public d.f.d.b.h<K, V> j;
 
-        public y(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public y(ReferenceQueue<K> referenceQueue, K k, int i2, d.f.d.b.h<K, V> hVar) {
             super(referenceQueue, k, i2, hVar);
-            this.f31058h = Long.MAX_VALUE;
-            this.f31059i = LocalCache.w();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ReferenceQueue) objArr2[0], objArr2[1], ((Integer) objArr2[2]).intValue(), (d.f.d.b.h) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32970h = Long.MAX_VALUE;
+            this.f32971i = LocalCache.w();
             this.j = LocalCache.w();
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getNextInWriteQueue() {
-            return this.f31059i;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getNextInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32971i : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-            return this.j;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public d.f.d.b.h<K, V> getPreviousInWriteQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (d.f.d.b.h) invokeV.objValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public long getWriteTime() {
-            return this.f31058h;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32970h : invokeV.longValue;
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.f31059i = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setNextInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
+                this.f32971i = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
-        public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.j = hVar;
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
+        public void setPreviousInWriteQueue(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
+                this.j = hVar;
+            }
         }
 
-        @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
+        @Override // com.google.common.cache.LocalCache.w, d.f.d.b.h
         public void setWriteTime(long j) {
-            this.f31058h = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.f32970h = j;
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class z<K, V> extends l<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31060f;
+        public final int f32972f;
 
-        public z(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar, int i2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public z(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar, int i2) {
             super(referenceQueue, v, hVar);
-            this.f31060f = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {referenceQueue, v, hVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ReferenceQueue) objArr2[0], objArr2[1], (d.f.d.b.h) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32972f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.l, com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31060f;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32972f : invokeV.intValue;
         }
 
         @Override // com.google.common.cache.LocalCache.l, com.google.common.cache.LocalCache.s
-        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return new z(referenceQueue, v, hVar, this.f31060f);
+        public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, referenceQueue, v, hVar)) == null) ? new z(referenceQueue, v, hVar, this.f32972f) : (s) invokeLLL.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2093419345, "Lcom/google/common/cache/LocalCache;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2093419345, "Lcom/google/common/cache/LocalCache;");
+                return;
+            }
+        }
+        A = Logger.getLogger(LocalCache.class.getName());
+        B = new a();
+        C = new b();
+    }
+
     public LocalCache(CacheBuilder<? super K, ? super V> cacheBuilder, CacheLoader<? super K, V> cacheLoader) {
-        this.f31006h = Math.min(cacheBuilder.h(), 65536);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cacheBuilder, cacheLoader};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f32918h = Math.min(cacheBuilder.h(), 65536);
         this.k = cacheBuilder.m();
         this.l = cacheBuilder.t();
-        this.f31007i = cacheBuilder.l();
+        this.f32919i = cacheBuilder.l();
         this.j = cacheBuilder.s();
         this.m = cacheBuilder.n();
-        this.n = (d.g.c.b.j<K, V>) cacheBuilder.u();
+        this.n = (d.f.d.b.j<K, V>) cacheBuilder.u();
         this.o = cacheBuilder.i();
         this.p = cacheBuilder.j();
         this.q = cacheBuilder.o();
-        d.g.c.b.i<K, V> iVar = (d.g.c.b.i<K, V>) cacheBuilder.p();
+        d.f.d.b.i<K, V> iVar = (d.f.d.b.i<K, V>) cacheBuilder.p();
         this.s = iVar;
         this.r = iVar == CacheBuilder.NullListener.INSTANCE ? g() : new ConcurrentLinkedQueue<>();
         this.t = cacheBuilder.r(D());
@@ -2292,557 +4424,754 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         if (h() && !f()) {
             min = (int) Math.min(min, this.m);
         }
-        int i2 = 0;
-        int i3 = 1;
-        int i4 = 1;
-        int i5 = 0;
-        while (i4 < this.f31006h && (!h() || i4 * 20 <= this.m)) {
-            i5++;
-            i4 <<= 1;
+        int i4 = 0;
+        int i5 = 1;
+        int i6 = 1;
+        int i7 = 0;
+        while (i6 < this.f32918h && (!h() || i6 * 20 <= this.m)) {
+            i7++;
+            i6 <<= 1;
         }
-        this.f31004f = 32 - i5;
-        this.f31003e = i4 - 1;
-        this.f31005g = v(i4);
-        int i6 = min / i4;
-        while (i3 < (i6 * i4 < min ? i6 + 1 : i6)) {
-            i3 <<= 1;
+        this.f32916f = 32 - i7;
+        this.f32915e = i6 - 1;
+        this.f32917g = v(i6);
+        int i8 = min / i6;
+        while (i5 < (i8 * i6 < min ? i8 + 1 : i8)) {
+            i5 <<= 1;
         }
         if (h()) {
             long j2 = this.m;
-            long j3 = i4;
+            long j3 = i6;
             long j4 = (j2 / j3) + 1;
             long j5 = j2 % j3;
-            while (i2 < this.f31005g.length) {
-                if (i2 == j5) {
+            while (i4 < this.f32917g.length) {
+                if (i4 == j5) {
                     j4--;
                 }
-                this.f31005g[i2] = e(i3, j4, cacheBuilder.q().get());
-                i2++;
+                this.f32917g[i4] = e(i5, j4, cacheBuilder.q().get());
+                i4++;
             }
             return;
         }
         while (true) {
-            Segment<K, V>[] segmentArr = this.f31005g;
-            if (i2 >= segmentArr.length) {
+            Segment<K, V>[] segmentArr = this.f32917g;
+            if (i4 >= segmentArr.length) {
                 return;
             }
-            segmentArr[i2] = e(i3, -1L, cacheBuilder.q().get());
-            i2++;
+            segmentArr[i4] = e(i5, -1L, cacheBuilder.q().get());
+            i4++;
         }
     }
 
     public static int H(int i2) {
-        int i3 = i2 + ((i2 << 15) ^ (-12931));
-        int i4 = i3 ^ (i3 >>> 10);
-        int i5 = i4 + (i4 << 3);
-        int i6 = i5 ^ (i5 >>> 6);
-        int i7 = i6 + (i6 << 2) + (i6 << 14);
-        return i7 ^ (i7 >>> 16);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            int i3 = i2 + ((i2 << 15) ^ (-12931));
+            int i4 = i3 ^ (i3 >>> 10);
+            int i5 = i4 + (i4 << 3);
+            int i6 = i5 ^ (i5 >>> 6);
+            int i7 = i6 + (i6 << 2) + (i6 << 14);
+            return i7 ^ (i7 >>> 16);
+        }
+        return invokeI.intValue;
     }
 
     public static <E> ArrayList<E> J(Collection<E> collection) {
-        ArrayList<E> arrayList = new ArrayList<>(collection.size());
-        Iterators.a(arrayList, collection.iterator());
-        return arrayList;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, collection)) == null) {
+            ArrayList<E> arrayList = new ArrayList<>(collection.size());
+            Iterators.a(arrayList, collection.iterator());
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
     }
 
     public static <K, V> s<K, V> K() {
-        return (s<K, V>) B;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (s<K, V>) B : (s) invokeV.objValue;
     }
 
-    public static <K, V> void c(d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-        hVar.setNextInAccessQueue(hVar2);
-        hVar2.setPreviousInAccessQueue(hVar);
+    public static <K, V> void c(d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, hVar, hVar2) == null) {
+            hVar.setNextInAccessQueue(hVar2);
+            hVar2.setPreviousInAccessQueue(hVar);
+        }
     }
 
-    public static <K, V> void d(d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-        hVar.setNextInWriteQueue(hVar2);
-        hVar2.setPreviousInWriteQueue(hVar);
+    public static <K, V> void d(d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, hVar, hVar2) == null) {
+            hVar.setNextInWriteQueue(hVar2);
+            hVar2.setPreviousInWriteQueue(hVar);
+        }
     }
 
     public static <E> Queue<E> g() {
-        return (Queue<E>) C;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (Queue<E>) C : (Queue) invokeV.objValue;
     }
 
-    public static <K, V> d.g.c.b.h<K, V> w() {
-        return NullEntry.INSTANCE;
+    public static <K, V> d.f.d.b.h<K, V> w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? NullEntry.INSTANCE : (d.f.d.b.h) invokeV.objValue;
     }
 
-    public static <K, V> void x(d.g.c.b.h<K, V> hVar) {
-        d.g.c.b.h<K, V> w2 = w();
-        hVar.setNextInAccessQueue(w2);
-        hVar.setPreviousInAccessQueue(w2);
+    public static <K, V> void x(d.f.d.b.h<K, V> hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, hVar) == null) {
+            d.f.d.b.h<K, V> w2 = w();
+            hVar.setNextInAccessQueue(w2);
+            hVar.setPreviousInAccessQueue(w2);
+        }
     }
 
-    public static <K, V> void y(d.g.c.b.h<K, V> hVar) {
-        d.g.c.b.h<K, V> w2 = w();
-        hVar.setNextInWriteQueue(w2);
-        hVar.setPreviousInWriteQueue(w2);
+    public static <K, V> void y(d.f.d.b.h<K, V> hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, hVar) == null) {
+            d.f.d.b.h<K, V> w2 = w();
+            hVar.setNextInWriteQueue(w2);
+            hVar.setPreviousInWriteQueue(w2);
+        }
     }
 
-    public void A(d.g.c.b.h<K, V> hVar) {
-        int hash = hVar.getHash();
-        I(hash).reclaimKey(hVar, hash);
+    public void A(d.f.d.b.h<K, V> hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) {
+            int hash = hVar.getHash();
+            I(hash).reclaimKey(hVar, hash);
+        }
     }
 
     public void B(s<K, V> sVar) {
-        d.g.c.b.h<K, V> a2 = sVar.a();
-        int hash = a2.getHash();
-        I(hash).reclaimValue(a2.getKey(), hash, sVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar) == null) {
+            d.f.d.b.h<K, V> a2 = sVar.a();
+            int hash = a2.getHash();
+            I(hash).reclaimValue(a2.getKey(), hash, sVar);
+        }
     }
 
     public boolean C() {
-        return i();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() : invokeV.booleanValue;
     }
 
     public boolean D() {
-        return E() || C();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? E() || C() : invokeV.booleanValue;
     }
 
     public boolean E() {
-        return j() || G();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j() || G() : invokeV.booleanValue;
     }
 
     public void F(K k2) {
-        d.g.c.a.n.p(k2);
-        int q2 = q(k2);
-        I(q2).refresh(k2, q2, this.w, false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, k2) == null) {
+            d.f.d.a.n.p(k2);
+            int q2 = q(k2);
+            I(q2).refresh(k2, q2, this.w, false);
+        }
     }
 
     public boolean G() {
-        return this.q > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.q > 0 : invokeV.booleanValue;
     }
 
     public Segment<K, V> I(int i2) {
-        return this.f31005g[(i2 >>> this.f31004f) & this.f31003e];
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f32917g[(i2 >>> this.f32916f) & this.f32915e] : (Segment) invokeI.objValue;
     }
 
     public boolean L() {
-        return M() || C();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? M() || C() : invokeV.booleanValue;
     }
 
     public boolean M() {
-        return i() || h();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? i() || h() : invokeV.booleanValue;
     }
 
     public boolean N() {
-        return this.k != Strength.STRONG;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k != Strength.STRONG : invokeV.booleanValue;
     }
 
     public boolean O() {
-        return this.l != Strength.STRONG;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l != Strength.STRONG : invokeV.booleanValue;
     }
 
     public boolean P() {
-        return Q() || E();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? Q() || E() : invokeV.booleanValue;
     }
 
     public boolean Q() {
-        return j();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? j() : invokeV.booleanValue;
     }
 
     public void b() {
-        for (Segment<K, V> segment : this.f31005g) {
-            segment.cleanUp();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            for (Segment<K, V> segment : this.f32917g) {
+                segment.cleanUp();
+            }
         }
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public void clear() {
-        for (Segment<K, V> segment : this.f31005g) {
-            segment.clear();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            for (Segment<K, V> segment : this.f32917g) {
+                segment.clear();
+            }
         }
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean containsKey(Object obj) {
-        if (obj == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            int q2 = q(obj);
+            return I(q2).containsKey(obj, q2);
         }
-        int q2 = q(obj);
-        return I(q2).containsKey(obj, q2);
+        return invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean containsValue(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        long a2 = this.t.a();
-        Segment<K, V>[] segmentArr = this.f31005g;
-        long j2 = -1;
-        int i2 = 0;
-        while (i2 < 3) {
-            long j3 = 0;
-            int length = segmentArr.length;
-            int i3 = 0;
-            while (i3 < length) {
-                Segment<K, V> segment = segmentArr[i3];
-                int i4 = segment.count;
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = segment.table;
-                for (int i5 = 0; i5 < atomicReferenceArray.length(); i5++) {
-                    d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(i5);
-                    while (hVar != null) {
-                        Segment<K, V>[] segmentArr2 = segmentArr;
-                        V liveValue = segment.getLiveValue(hVar, a2);
-                        long j4 = a2;
-                        if (liveValue != null && this.j.equivalent(obj, liveValue)) {
-                            return true;
-                        }
-                        hVar = hVar.getNext();
-                        segmentArr = segmentArr2;
-                        a2 = j4;
-                    }
-                }
-                j3 += segment.modCount;
-                i3++;
-                a2 = a2;
-            }
-            long j5 = a2;
-            Segment<K, V>[] segmentArr3 = segmentArr;
-            if (j3 == j2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, obj)) == null) {
+            if (obj == null) {
                 return false;
             }
-            i2++;
-            j2 = j3;
-            segmentArr = segmentArr3;
-            a2 = j5;
+            long a2 = this.t.a();
+            Segment<K, V>[] segmentArr = this.f32917g;
+            long j2 = -1;
+            int i2 = 0;
+            while (i2 < 3) {
+                long j3 = 0;
+                int length = segmentArr.length;
+                int i3 = 0;
+                while (i3 < length) {
+                    Segment<K, V> segment = segmentArr[i3];
+                    int i4 = segment.count;
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = segment.table;
+                    for (int i5 = 0; i5 < atomicReferenceArray.length(); i5++) {
+                        d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(i5);
+                        while (hVar != null) {
+                            Segment<K, V>[] segmentArr2 = segmentArr;
+                            V liveValue = segment.getLiveValue(hVar, a2);
+                            long j4 = a2;
+                            if (liveValue != null && this.j.equivalent(obj, liveValue)) {
+                                return true;
+                            }
+                            hVar = hVar.getNext();
+                            segmentArr = segmentArr2;
+                            a2 = j4;
+                        }
+                    }
+                    j3 += segment.modCount;
+                    i3++;
+                    a2 = a2;
+                }
+                long j5 = a2;
+                Segment<K, V>[] segmentArr3 = segmentArr;
+                if (j3 == j2) {
+                    return false;
+                }
+                i2++;
+                j2 = j3;
+                segmentArr = segmentArr3;
+                a2 = j5;
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
-    public Segment<K, V> e(int i2, long j2, d.g.c.b.b bVar) {
-        return new Segment<>(this, i2, j2, bVar);
+    public Segment<K, V> e(int i2, long j2, d.f.d.b.b bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), bVar})) == null) ? new Segment<>(this, i2, j2, bVar) : (Segment) invokeCommon.objValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
-        Set<Map.Entry<K, V>> set = this.z;
-        if (set != null) {
-            return set;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            Set<Map.Entry<K, V>> set = this.z;
+            if (set != null) {
+                return set;
+            }
+            g gVar = new g(this, this);
+            this.z = gVar;
+            return gVar;
         }
-        g gVar = new g(this);
-        this.z = gVar;
-        return gVar;
+        return (Set) invokeV.objValue;
     }
 
     public boolean f() {
-        return this.n != CacheBuilder.OneWeigher.INSTANCE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.n != CacheBuilder.OneWeigher.INSTANCE : invokeV.booleanValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public V get(Object obj) {
-        if (obj == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            int q2 = q(obj);
+            return I(q2).get(obj, q2);
         }
-        int q2 = q(obj);
-        return I(q2).get(obj, q2);
+        return (V) invokeL.objValue;
     }
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public V getOrDefault(Object obj, V v2) {
-        V v3 = get(obj);
-        return v3 != null ? v3 : v2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, obj, v2)) == null) {
+            V v3 = get(obj);
+            return v3 != null ? v3 : v2;
+        }
+        return (V) invokeLL.objValue;
     }
 
     public boolean h() {
-        return this.m >= 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.m >= 0 : invokeV.booleanValue;
     }
 
     public boolean i() {
-        return this.o > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.o > 0 : invokeV.booleanValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean isEmpty() {
-        Segment<K, V>[] segmentArr = this.f31005g;
-        long j2 = 0;
-        for (int i2 = 0; i2 < segmentArr.length; i2++) {
-            if (segmentArr[i2].count != 0) {
-                return false;
-            }
-            j2 += segmentArr[i2].modCount;
-        }
-        if (j2 != 0) {
-            for (int i3 = 0; i3 < segmentArr.length; i3++) {
-                if (segmentArr[i3].count != 0) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            Segment<K, V>[] segmentArr = this.f32917g;
+            long j2 = 0;
+            for (int i2 = 0; i2 < segmentArr.length; i2++) {
+                if (segmentArr[i2].count != 0) {
                     return false;
                 }
-                j2 -= segmentArr[i3].modCount;
+                j2 += segmentArr[i2].modCount;
             }
-            return j2 == 0;
+            if (j2 != 0) {
+                for (int i3 = 0; i3 < segmentArr.length; i3++) {
+                    if (segmentArr[i3].count != 0) {
+                        return false;
+                    }
+                    j2 -= segmentArr[i3].modCount;
+                }
+                return j2 == 0;
+            }
+            return true;
         }
-        return true;
+        return invokeV.booleanValue;
     }
 
     public boolean j() {
-        return this.p > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.p > 0 : invokeV.booleanValue;
     }
 
     public V k(K k2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
-        d.g.c.a.n.p(k2);
-        int q2 = q(k2);
-        return I(q2).get(k2, q2, cacheLoader);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, k2, cacheLoader)) == null) {
+            d.f.d.a.n.p(k2);
+            int q2 = q(k2);
+            return I(q2).get(k2, q2, cacheLoader);
+        }
+        return (V) invokeLL.objValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set<K> keySet() {
-        Set<K> set = this.x;
-        if (set != null) {
-            return set;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            Set<K> set = this.x;
+            if (set != null) {
+                return set;
+            }
+            j jVar = new j(this, this);
+            this.x = jVar;
+            return jVar;
         }
-        j jVar = new j(this);
-        this.x = jVar;
-        return jVar;
+        return (Set) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.google.common.cache.LocalCache<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
     public ImmutableMap<K, V> l(Iterable<? extends K> iterable) throws ExecutionException {
-        LinkedHashMap s2 = Maps.s();
-        LinkedHashSet f2 = Sets.f();
-        int i2 = 0;
-        int i3 = 0;
-        for (K k2 : iterable) {
-            Object obj = get(k2);
-            if (!s2.containsKey(k2)) {
-                s2.put(k2, obj);
-                if (obj == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, iterable)) == null) {
+            LinkedHashMap v2 = Maps.v();
+            LinkedHashSet i2 = Sets.i();
+            int i3 = 0;
+            int i4 = 0;
+            for (K k2 : iterable) {
+                Object obj = get(k2);
+                if (!v2.containsKey(k2)) {
+                    v2.put(k2, obj);
+                    if (obj == null) {
+                        i4++;
+                        i2.add(k2);
+                    } else {
+                        i3++;
+                    }
+                }
+            }
+            try {
+                if (!i2.isEmpty()) {
+                    try {
+                        Map t2 = t(i2, this.w);
+                        for (Object obj2 : i2) {
+                            Object obj3 = t2.get(obj2);
+                            if (obj3 != null) {
+                                v2.put(obj2, obj3);
+                            } else {
+                                throw new CacheLoader.InvalidCacheLoadException("loadAll failed to return a value for " + obj2);
+                            }
+                        }
+                    } catch (CacheLoader.UnsupportedLoadingOperationException unused) {
+                        for (Object obj4 : i2) {
+                            i4--;
+                            v2.put(obj4, k(obj4, this.w));
+                        }
+                    }
+                }
+                return ImmutableMap.copyOf((Map) v2);
+            } finally {
+                this.v.a(i3);
+                this.v.d(i4);
+            }
+        }
+        return (ImmutableMap) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
+    /* JADX WARN: Multi-variable type inference failed */
+    public ImmutableMap<K, V> m(Iterable<?> iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, iterable)) == null) {
+            LinkedHashMap v2 = Maps.v();
+            int i2 = 0;
+            int i3 = 0;
+            for (Object obj : iterable) {
+                V v3 = get(obj);
+                if (v3 == null) {
                     i3++;
-                    f2.add(k2);
                 } else {
+                    v2.put(obj, v3);
                     i2++;
                 }
             }
-        }
-        try {
-            if (!f2.isEmpty()) {
-                try {
-                    Map t2 = t(f2, this.w);
-                    for (Object obj2 : f2) {
-                        Object obj3 = t2.get(obj2);
-                        if (obj3 != null) {
-                            s2.put(obj2, obj3);
-                        } else {
-                            throw new CacheLoader.InvalidCacheLoadException("loadAll failed to return a value for " + obj2);
-                        }
-                    }
-                } catch (CacheLoader.UnsupportedLoadingOperationException unused) {
-                    for (Object obj4 : f2) {
-                        i3--;
-                        s2.put(obj4, k(obj4, this.w));
-                    }
-                }
-            }
-            return ImmutableMap.copyOf((Map) s2);
-        } finally {
             this.v.a(i2);
             this.v.d(i3);
+            return ImmutableMap.copyOf((Map) v2);
         }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
-    public ImmutableMap<K, V> m(Iterable<?> iterable) {
-        LinkedHashMap s2 = Maps.s();
-        int i2 = 0;
-        int i3 = 0;
-        for (Object obj : iterable) {
-            V v2 = get(obj);
-            if (v2 == null) {
-                i3++;
-            } else {
-                s2.put(obj, v2);
-                i2++;
-            }
-        }
-        this.v.a(i2);
-        this.v.d(i3);
-        return ImmutableMap.copyOf((Map) s2);
+        return (ImmutableMap) invokeL.objValue;
     }
 
     public V n(Object obj) {
-        d.g.c.a.n.p(obj);
-        int q2 = q(obj);
-        V v2 = I(q2).get(obj, q2);
-        if (v2 == null) {
-            this.v.d(1);
-        } else {
-            this.v.a(1);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, obj)) == null) {
+            d.f.d.a.n.p(obj);
+            int q2 = q(obj);
+            V v2 = I(q2).get(obj, q2);
+            if (v2 == null) {
+                this.v.d(1);
+            } else {
+                this.v.a(1);
+            }
+            return v2;
         }
-        return v2;
+        return (V) invokeL.objValue;
     }
 
-    public V o(d.g.c.b.h<K, V> hVar, long j2) {
+    public V o(d.f.d.b.h<K, V> hVar, long j2) {
+        InterceptResult invokeLJ;
         V v2;
-        if (hVar.getKey() == null || (v2 = hVar.getValueReference().get()) == null || s(hVar, j2)) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048608, this, hVar, j2)) == null) {
+            if (hVar.getKey() == null || (v2 = hVar.getValueReference().get()) == null || s(hVar, j2)) {
+                return null;
+            }
+            return v2;
         }
-        return v2;
+        return (V) invokeLJ.objValue;
     }
 
     public V p(K k2) throws ExecutionException {
-        return k(k2, this.w);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, k2)) == null) ? k(k2, this.w) : (V) invokeL.objValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public V put(K k2, V v2) {
-        d.g.c.a.n.p(k2);
-        d.g.c.a.n.p(v2);
-        int q2 = q(k2);
-        return I(q2).put(k2, q2, v2, false);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, k2, v2)) == null) {
+            d.f.d.a.n.p(k2);
+            d.f.d.a.n.p(v2);
+            int q2 = q(k2);
+            return I(q2).put(k2, q2, v2, false);
+        }
+        return (V) invokeLL.objValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public void putAll(Map<? extends K, ? extends V> map) {
-        for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-            put(entry.getKey(), entry.getValue());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, map) == null) {
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                put(entry.getKey(), entry.getValue());
+            }
         }
     }
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public V putIfAbsent(K k2, V v2) {
-        d.g.c.a.n.p(k2);
-        d.g.c.a.n.p(v2);
-        int q2 = q(k2);
-        return I(q2).put(k2, q2, v2, true);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, k2, v2)) == null) {
+            d.f.d.a.n.p(k2);
+            d.f.d.a.n.p(v2);
+            int q2 = q(k2);
+            return I(q2).put(k2, q2, v2, true);
+        }
+        return (V) invokeLL.objValue;
     }
 
     public int q(Object obj) {
-        return H(this.f31007i.hash(obj));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, obj)) == null) ? H(this.f32919i.hash(obj)) : invokeL.intValue;
     }
 
     public void r(Iterable<?> iterable) {
-        Iterator<?> it = iterable.iterator();
-        while (it.hasNext()) {
-            remove(it.next());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, iterable) == null) {
+            Iterator<?> it = iterable.iterator();
+            while (it.hasNext()) {
+                remove(it.next());
+            }
         }
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public V remove(Object obj) {
-        if (obj == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            int q2 = q(obj);
+            return I(q2).remove(obj, q2);
         }
-        int q2 = q(obj);
-        return I(q2).remove(obj, q2);
+        return (V) invokeL.objValue;
     }
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public boolean replace(K k2, V v2, V v3) {
-        d.g.c.a.n.p(k2);
-        d.g.c.a.n.p(v3);
-        if (v2 == null) {
-            return false;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048618, this, k2, v2, v3)) == null) {
+            d.f.d.a.n.p(k2);
+            d.f.d.a.n.p(v3);
+            if (v2 == null) {
+                return false;
+            }
+            int q2 = q(k2);
+            return I(q2).replace(k2, q2, v2, v3);
         }
-        int q2 = q(k2);
-        return I(q2).replace(k2, q2, v2, v3);
+        return invokeLLL.booleanValue;
     }
 
-    public boolean s(d.g.c.b.h<K, V> hVar, long j2) {
-        d.g.c.a.n.p(hVar);
-        if (!i() || j2 - hVar.getAccessTime() < this.o) {
-            return j() && j2 - hVar.getWriteTime() >= this.p;
+    public boolean s(d.f.d.b.h<K, V> hVar, long j2) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048619, this, hVar, j2)) == null) {
+            d.f.d.a.n.p(hVar);
+            if (!i() || j2 - hVar.getAccessTime() < this.o) {
+                return j() && j2 - hVar.getWriteTime() >= this.p;
+            }
+            return true;
         }
-        return true;
+        return invokeLJ.booleanValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public int size() {
-        return Ints.j(u());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? Ints.j(u()) : invokeV.intValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.google.common.cache.LocalCache<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00b9  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00bd  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Map<K, V> t(Set<? extends K> set, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
-        d.g.c.a.n.p(cacheLoader);
-        d.g.c.a.n.p(set);
-        d.g.c.a.p c2 = d.g.c.a.p.c();
-        boolean z2 = true;
-        boolean z3 = false;
-        try {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048621, this, set, cacheLoader)) == null) {
+            d.f.d.a.n.p(cacheLoader);
+            d.f.d.a.n.p(set);
+            d.f.d.a.p c2 = d.f.d.a.p.c();
+            boolean z2 = true;
+            boolean z3 = false;
             try {
                 try {
-                    Map map = (Map<? super K, V>) cacheLoader.loadAll(set);
-                    if (map != null) {
-                        c2.h();
-                        for (Map.Entry<K, V> entry : map.entrySet()) {
-                            K key = entry.getKey();
-                            V value = entry.getValue();
-                            if (key == null || value == null) {
-                                z3 = true;
-                            } else {
-                                put(key, value);
-                            }
-                        }
-                        if (!z3) {
-                            this.v.c(c2.e(TimeUnit.NANOSECONDS));
-                            return map;
-                        }
-                        this.v.e(c2.e(TimeUnit.NANOSECONDS));
-                        throw new CacheLoader.InvalidCacheLoadException(cacheLoader + " returned null keys or values from loadAll");
-                    }
-                    this.v.e(c2.e(TimeUnit.NANOSECONDS));
-                    throw new CacheLoader.InvalidCacheLoadException(cacheLoader + " returned null map from loadAll");
-                } catch (CacheLoader.UnsupportedLoadingOperationException e2) {
                     try {
-                        throw e2;
+                        try {
+                            try {
+                                Map map = (Map<? super K, V>) cacheLoader.loadAll(set);
+                                if (map != null) {
+                                    c2.i();
+                                    for (Map.Entry<K, V> entry : map.entrySet()) {
+                                        K key = entry.getKey();
+                                        V value = entry.getValue();
+                                        if (key == null || value == null) {
+                                            z3 = true;
+                                        } else {
+                                            put(key, value);
+                                        }
+                                    }
+                                    if (!z3) {
+                                        this.v.c(c2.e(TimeUnit.NANOSECONDS));
+                                        return map;
+                                    }
+                                    this.v.e(c2.e(TimeUnit.NANOSECONDS));
+                                    throw new CacheLoader.InvalidCacheLoadException(cacheLoader + " returned null keys or values from loadAll");
+                                }
+                                this.v.e(c2.e(TimeUnit.NANOSECONDS));
+                                throw new CacheLoader.InvalidCacheLoadException(cacheLoader + " returned null map from loadAll");
+                            } catch (RuntimeException e2) {
+                                throw new UncheckedExecutionException(e2);
+                            }
+                        } catch (InterruptedException e3) {
+                            Thread.currentThread().interrupt();
+                            throw new ExecutionException(e3);
+                        }
+                    } catch (Error e4) {
+                        throw new ExecutionError(e4);
+                    }
+                } catch (CacheLoader.UnsupportedLoadingOperationException e5) {
+                    try {
+                        throw e5;
                     } catch (Throwable th) {
                         th = th;
                         if (!z2) {
-                            this.v.e(c2.e(TimeUnit.NANOSECONDS));
                         }
                         throw th;
                     }
-                } catch (Exception e3) {
-                    throw new ExecutionException(e3);
+                } catch (Exception e6) {
+                    throw new ExecutionException(e6);
                 }
-            } catch (Error e4) {
-                throw new ExecutionError(e4);
-            } catch (InterruptedException e5) {
-                Thread.currentThread().interrupt();
-                throw new ExecutionException(e5);
-            } catch (RuntimeException e6) {
-                throw new UncheckedExecutionException(e6);
+            } catch (Throwable th2) {
+                th = th2;
+                z2 = false;
+                if (!z2) {
+                    this.v.e(c2.e(TimeUnit.NANOSECONDS));
+                }
+                throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            z2 = false;
-            if (!z2) {
-            }
-            throw th;
         }
+        return (Map) invokeLL.objValue;
     }
 
     public long u() {
-        long j2 = 0;
-        for (Segment<K, V> segment : this.f31005g) {
-            j2 += Math.max(0, segment.count);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            long j2 = 0;
+            for (Segment<K, V> segment : this.f32917g) {
+                j2 += Math.max(0, segment.count);
+            }
+            return j2;
         }
-        return j2;
+        return invokeV.longValue;
     }
 
     public final Segment<K, V>[] v(int i2) {
-        return new Segment[i2];
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i2)) == null) ? new Segment[i2] : (Segment[]) invokeI.objValue;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Collection<V> values() {
-        Collection<V> collection = this.y;
-        if (collection != null) {
-            return collection;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            Collection<V> collection = this.y;
+            if (collection != null) {
+                return collection;
+            }
+            t tVar = new t(this, this);
+            this.y = tVar;
+            return tVar;
         }
-        t tVar = new t(this);
-        this.y = tVar;
-        return tVar;
+        return (Collection) invokeV.objValue;
     }
 
     public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048625, this) != null) {
+            return;
+        }
         while (true) {
             RemovalNotification<K, V> poll = this.r.poll();
             if (poll == null) {
@@ -2858,77 +5187,127 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public boolean remove(Object obj, Object obj2) {
-        if (obj == null || obj2 == null) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, obj, obj2)) == null) {
+            if (obj == null || obj2 == null) {
+                return false;
+            }
+            int q2 = q(obj);
+            return I(q2).remove(obj, q2, obj2);
         }
-        int q2 = q(obj);
-        return I(q2).remove(obj, q2, obj2);
+        return invokeLL.booleanValue;
     }
 
     @Override // java.util.Map, java.util.concurrent.ConcurrentMap
     public V replace(K k2, V v2) {
-        d.g.c.a.n.p(k2);
-        d.g.c.a.n.p(v2);
-        int q2 = q(k2);
-        return I(q2).replace(k2, q2, v2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, k2, v2)) == null) {
+            d.f.d.a.n.p(k2);
+            d.f.d.a.n.p(v2);
+            int q2 = q(k2);
+            return I(q2).replace(k2, q2, v2);
+        }
+        return (V) invokeLL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Segment<K, V> extends ReentrantLock {
-        public final Queue<d.g.c.b.h<K, V>> accessQueue;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Queue<d.f.d.b.h<K, V>> accessQueue;
         public volatile int count;
         public final ReferenceQueue<K> keyReferenceQueue;
         public final LocalCache<K, V> map;
         public final long maxSegmentWeight;
         public int modCount;
-        public final AtomicInteger readCount = new AtomicInteger();
-        public final Queue<d.g.c.b.h<K, V>> recencyQueue;
-        public final d.g.c.b.b statsCounter;
-        public volatile AtomicReferenceArray<d.g.c.b.h<K, V>> table;
+        public final AtomicInteger readCount;
+        public final Queue<d.f.d.b.h<K, V>> recencyQueue;
+        public final d.f.d.b.b statsCounter;
+        public volatile AtomicReferenceArray<d.f.d.b.h<K, V>> table;
         public int threshold;
         public long totalWeight;
         public final ReferenceQueue<V> valueReferenceQueue;
-        public final Queue<d.g.c.b.h<K, V>> writeQueue;
+        public final Queue<d.f.d.b.h<K, V>> writeQueue;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f31009e;
+            public final /* synthetic */ Object f32921e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f31010f;
+            public final /* synthetic */ int f32922f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f31011g;
+            public final /* synthetic */ k f32923g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ d.g.c.i.a.l f31012h;
+            public final /* synthetic */ ListenableFuture f32924h;
 
-            public a(Object obj, int i2, k kVar, d.g.c.i.a.l lVar) {
-                this.f31009e = obj;
-                this.f31010f = i2;
-                this.f31011g = kVar;
-                this.f31012h = lVar;
+            /* renamed from: i  reason: collision with root package name */
+            public final /* synthetic */ Segment f32925i;
+
+            public a(Segment segment, Object obj, int i2, k kVar, ListenableFuture listenableFuture) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {segment, obj, Integer.valueOf(i2), kVar, listenableFuture};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32925i = segment;
+                this.f32921e = obj;
+                this.f32922f = i2;
+                this.f32923g = kVar;
+                this.f32924h = listenableFuture;
             }
 
-            /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.google.common.cache.LocalCache$Segment */
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.google.common.cache.LocalCache$Segment */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
-                try {
-                    Segment.this.getAndRecordStats(this.f31009e, this.f31010f, this.f31011g, this.f31012h);
-                } catch (Throwable th) {
-                    LocalCache.A.log(Level.WARNING, "Exception thrown during refresh", th);
-                    this.f31011g.l(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    try {
+                        this.f32925i.getAndRecordStats(this.f32921e, this.f32922f, this.f32923g, this.f32924h);
+                    } catch (Throwable th) {
+                        LocalCache.A.log(Level.WARNING, "Exception thrown during refresh", th);
+                        this.f32923g.l(th);
+                    }
                 }
             }
         }
 
-        public Segment(LocalCache<K, V> localCache, int i2, long j, d.g.c.b.b bVar) {
+        public Segment(LocalCache<K, V> localCache, int i2, long j, d.f.d.b.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localCache, Integer.valueOf(i2), Long.valueOf(j), bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.readCount = new AtomicInteger();
             this.map = localCache;
             this.maxSegmentWeight = j;
-            d.g.c.a.n.p(bVar);
+            d.f.d.a.n.p(bVar);
             this.statsCounter = bVar;
             initTable(newEntryArray(i2));
             this.keyReferenceQueue = localCache.N() ? new ReferenceQueue<>() : null;
@@ -2939,132 +5318,168 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public void cleanUp() {
-            runLockedCleanup(this.map.t.a());
-            runUnlockedCleanup();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                runLockedCleanup(this.map.t.a());
+                runUnlockedCleanup();
+            }
         }
 
         public void clear() {
             RemovalCause removalCause;
-            if (this.count != 0) {
-                lock();
-                try {
-                    preWriteCleanup(this.map.t.a());
-                    AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                    for (int i2 = 0; i2 < atomicReferenceArray.length(); i2++) {
-                        for (d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(i2); hVar != null; hVar = hVar.getNext()) {
-                            if (hVar.getValueReference().isActive()) {
-                                K key = hVar.getKey();
-                                V v = hVar.getValueReference().get();
-                                if (key != null && v != null) {
-                                    removalCause = RemovalCause.EXPLICIT;
-                                    enqueueNotification(key, hVar.getHash(), v, hVar.getValueReference().c(), removalCause);
-                                }
-                                removalCause = RemovalCause.COLLECTED;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.count == 0) {
+                return;
+            }
+            lock();
+            try {
+                preWriteCleanup(this.map.t.a());
+                AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                for (int i2 = 0; i2 < atomicReferenceArray.length(); i2++) {
+                    for (d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(i2); hVar != null; hVar = hVar.getNext()) {
+                        if (hVar.getValueReference().isActive()) {
+                            K key = hVar.getKey();
+                            V v = hVar.getValueReference().get();
+                            if (key != null && v != null) {
+                                removalCause = RemovalCause.EXPLICIT;
                                 enqueueNotification(key, hVar.getHash(), v, hVar.getValueReference().c(), removalCause);
                             }
+                            removalCause = RemovalCause.COLLECTED;
+                            enqueueNotification(key, hVar.getHash(), v, hVar.getValueReference().c(), removalCause);
                         }
                     }
-                    for (int i3 = 0; i3 < atomicReferenceArray.length(); i3++) {
-                        atomicReferenceArray.set(i3, null);
-                    }
-                    clearReferenceQueues();
-                    this.writeQueue.clear();
-                    this.accessQueue.clear();
-                    this.readCount.set(0);
-                    this.modCount++;
-                    this.count = 0;
-                } finally {
-                    unlock();
-                    postWriteCleanup();
                 }
+                for (int i3 = 0; i3 < atomicReferenceArray.length(); i3++) {
+                    atomicReferenceArray.set(i3, null);
+                }
+                clearReferenceQueues();
+                this.writeQueue.clear();
+                this.accessQueue.clear();
+                this.readCount.set(0);
+                this.modCount++;
+                this.count = 0;
+            } finally {
+                unlock();
+                postWriteCleanup();
             }
         }
 
         public void clearKeyReferenceQueue() {
-            do {
-            } while (this.keyReferenceQueue.poll() != null);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                do {
+                } while (this.keyReferenceQueue.poll() != null);
+            }
         }
 
         public void clearReferenceQueues() {
-            if (this.map.N()) {
-                clearKeyReferenceQueue();
-            }
-            if (this.map.O()) {
-                clearValueReferenceQueue();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                if (this.map.N()) {
+                    clearKeyReferenceQueue();
+                }
+                if (this.map.O()) {
+                    clearValueReferenceQueue();
+                }
             }
         }
 
         public void clearValueReferenceQueue() {
-            do {
-            } while (this.valueReferenceQueue.poll() != null);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                do {
+                } while (this.valueReferenceQueue.poll() != null);
+            }
         }
 
         public boolean containsKey(Object obj, int i2) {
-            try {
-                if (this.count != 0) {
-                    d.g.c.b.h<K, V> liveEntry = getLiveEntry(obj, i2, this.map.t.a());
-                    if (liveEntry == null) {
-                        return false;
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i2)) == null) {
+                try {
+                    if (this.count != 0) {
+                        d.f.d.b.h<K, V> liveEntry = getLiveEntry(obj, i2, this.map.t.a());
+                        if (liveEntry == null) {
+                            return false;
+                        }
+                        return liveEntry.getValueReference().get() != null;
                     }
-                    return liveEntry.getValueReference().get() != null;
+                    return false;
+                } finally {
+                    postReadCleanup();
                 }
-                return false;
-            } finally {
-                postReadCleanup();
             }
+            return invokeLI.booleanValue;
         }
 
         public boolean containsValue(Object obj) {
-            try {
-                if (this.count != 0) {
-                    long a2 = this.map.t.a();
-                    AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                    int length = atomicReferenceArray.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        for (d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(i2); hVar != null; hVar = hVar.getNext()) {
-                            V liveValue = getLiveValue(hVar, a2);
-                            if (liveValue != null && this.map.j.equivalent(obj, liveValue)) {
-                                postReadCleanup();
-                                return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+                try {
+                    if (this.count != 0) {
+                        long a2 = this.map.t.a();
+                        AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                        int length = atomicReferenceArray.length();
+                        for (int i2 = 0; i2 < length; i2++) {
+                            for (d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(i2); hVar != null; hVar = hVar.getNext()) {
+                                V liveValue = getLiveValue(hVar, a2);
+                                if (liveValue != null && this.map.j.equivalent(obj, liveValue)) {
+                                    postReadCleanup();
+                                    return true;
+                                }
                             }
                         }
                     }
+                    return false;
+                } finally {
+                    postReadCleanup();
                 }
-                return false;
-            } finally {
-                postReadCleanup();
             }
+            return invokeL.booleanValue;
         }
 
-        public d.g.c.b.h<K, V> copyEntry(d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-            if (hVar.getKey() == null) {
-                return null;
+        public d.f.d.b.h<K, V> copyEntry(d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, hVar, hVar2)) == null) {
+                if (hVar.getKey() == null) {
+                    return null;
+                }
+                s<K, V> valueReference = hVar.getValueReference();
+                V v = valueReference.get();
+                if (v == null && valueReference.isActive()) {
+                    return null;
+                }
+                d.f.d.b.h<K, V> copyEntry = this.map.u.copyEntry(this, hVar, hVar2);
+                copyEntry.setValueReference(valueReference.f(this.valueReferenceQueue, v, copyEntry));
+                return copyEntry;
             }
-            s<K, V> valueReference = hVar.getValueReference();
-            V v = valueReference.get();
-            if (v == null && valueReference.isActive()) {
-                return null;
-            }
-            d.g.c.b.h<K, V> copyEntry = this.map.u.copyEntry(this, hVar, hVar2);
-            copyEntry.setValueReference(valueReference.f(this.valueReferenceQueue, v, copyEntry));
-            return copyEntry;
+            return (d.f.d.b.h) invokeLL.objValue;
         }
 
         public void drainKeyReferenceQueue() {
-            int i2 = 0;
-            do {
-                Reference<? extends K> poll = this.keyReferenceQueue.poll();
-                if (poll == null) {
-                    return;
-                }
-                this.map.A((d.g.c.b.h) poll);
-                i2++;
-            } while (i2 != 16);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                int i2 = 0;
+                do {
+                    Reference<? extends K> poll = this.keyReferenceQueue.poll();
+                    if (poll == null) {
+                        return;
+                    }
+                    this.map.A((d.f.d.b.h) poll);
+                    i2++;
+                } while (i2 != 16);
+            }
         }
 
         public void drainRecencyQueue() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048585, this) != null) {
+                return;
+            }
             while (true) {
-                d.g.c.b.h<K, V> poll = this.recencyQueue.poll();
+                d.f.d.b.h<K, V> poll = this.recencyQueue.poll();
                 if (poll == null) {
                     return;
                 }
@@ -3075,44 +5490,54 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public void drainReferenceQueues() {
-            if (this.map.N()) {
-                drainKeyReferenceQueue();
-            }
-            if (this.map.O()) {
-                drainValueReferenceQueue();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                if (this.map.N()) {
+                    drainKeyReferenceQueue();
+                }
+                if (this.map.O()) {
+                    drainValueReferenceQueue();
+                }
             }
         }
 
         public void drainValueReferenceQueue() {
-            int i2 = 0;
-            do {
-                Reference<? extends V> poll = this.valueReferenceQueue.poll();
-                if (poll == null) {
-                    return;
-                }
-                this.map.B((s) poll);
-                i2++;
-            } while (i2 != 16);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                int i2 = 0;
+                do {
+                    Reference<? extends V> poll = this.valueReferenceQueue.poll();
+                    if (poll == null) {
+                        return;
+                    }
+                    this.map.B((s) poll);
+                    i2++;
+                } while (i2 != 16);
+            }
         }
 
         public void enqueueNotification(K k, int i2, V v, int i3, RemovalCause removalCause) {
-            this.totalWeight -= i3;
-            if (removalCause.wasEvicted()) {
-                this.statsCounter.b();
-            }
-            if (this.map.r != LocalCache.C) {
-                this.map.r.offer(RemovalNotification.create(k, v, removalCause));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{k, Integer.valueOf(i2), v, Integer.valueOf(i3), removalCause}) == null) {
+                this.totalWeight -= i3;
+                if (removalCause.wasEvicted()) {
+                    this.statsCounter.b();
+                }
+                if (this.map.r != LocalCache.C) {
+                    this.map.r.offer(RemovalNotification.create(k, v, removalCause));
+                }
             }
         }
 
-        public void evictEntries(d.g.c.b.h<K, V> hVar) {
-            if (this.map.h()) {
+        public void evictEntries(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048589, this, hVar) == null) && this.map.h()) {
                 drainRecencyQueue();
                 if (hVar.getValueReference().c() > this.maxSegmentWeight && !removeEntry(hVar, hVar.getHash(), RemovalCause.SIZE)) {
                     throw new AssertionError();
                 }
                 while (this.totalWeight > this.maxSegmentWeight) {
-                    d.g.c.b.h<K, V> nextEvictable = getNextEvictable();
+                    d.f.d.b.h<K, V> nextEvictable = getNextEvictable();
                     if (!removeEntry(nextEvictable, nextEvictable.getHash(), RemovalCause.SIZE)) {
                         throw new AssertionError();
                     }
@@ -3121,24 +5546,25 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public void expand() {
-            AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-            int length = atomicReferenceArray.length();
-            if (length >= 1073741824) {
+            AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray;
+            int length;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (length = (atomicReferenceArray = this.table).length()) >= 1073741824) {
                 return;
             }
             int i2 = this.count;
-            AtomicReferenceArray<d.g.c.b.h<K, V>> newEntryArray = newEntryArray(length << 1);
+            AtomicReferenceArray<d.f.d.b.h<K, V>> newEntryArray = newEntryArray(length << 1);
             this.threshold = (newEntryArray.length() * 3) / 4;
             int length2 = newEntryArray.length() - 1;
             for (int i3 = 0; i3 < length; i3++) {
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(i3);
+                d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(i3);
                 if (hVar != null) {
-                    d.g.c.b.h<K, V> next = hVar.getNext();
+                    d.f.d.b.h<K, V> next = hVar.getNext();
                     int hash = hVar.getHash() & length2;
                     if (next == null) {
                         newEntryArray.set(hash, hVar);
                     } else {
-                        d.g.c.b.h<K, V> hVar2 = hVar;
+                        d.f.d.b.h<K, V> hVar2 = hVar;
                         while (next != null) {
                             int hash2 = next.getHash() & length2;
                             if (hash2 != hash) {
@@ -3150,7 +5576,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         newEntryArray.set(hash, hVar2);
                         while (hVar != hVar2) {
                             int hash3 = hVar.getHash() & length2;
-                            d.g.c.b.h<K, V> copyEntry = copyEntry(hVar, newEntryArray.get(hash3));
+                            d.f.d.b.h<K, V> copyEntry = copyEntry(hVar, newEntryArray.get(hash3));
                             if (copyEntry != null) {
                                 newEntryArray.set(hash3, copyEntry);
                             } else {
@@ -3167,63 +5593,78 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public void expireEntries(long j) {
-            d.g.c.b.h<K, V> peek;
-            d.g.c.b.h<K, V> peek2;
-            drainRecencyQueue();
-            do {
-                peek = this.writeQueue.peek();
-                if (peek == null || !this.map.s(peek, j)) {
-                    do {
-                        peek2 = this.accessQueue.peek();
-                        if (peek2 == null || !this.map.s(peek2, j)) {
-                            return;
-                        }
-                    } while (removeEntry(peek2, peek2.getHash(), RemovalCause.EXPIRED));
-                    throw new AssertionError();
-                }
-            } while (removeEntry(peek, peek.getHash(), RemovalCause.EXPIRED));
-            throw new AssertionError();
-        }
-
-        public V get(K k, int i2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
-            d.g.c.b.h<K, V> entry;
-            d.g.c.a.n.p(k);
-            d.g.c.a.n.p(cacheLoader);
-            try {
-                try {
-                    if (this.count != 0 && (entry = getEntry(k, i2)) != null) {
-                        long a2 = this.map.t.a();
-                        V liveValue = getLiveValue(entry, a2);
-                        if (liveValue != null) {
-                            recordRead(entry, a2);
-                            this.statsCounter.a(1);
-                            return scheduleRefresh(entry, k, i2, liveValue, a2, cacheLoader);
-                        }
-                        s<K, V> valueReference = entry.getValueReference();
-                        if (valueReference.e()) {
-                            return waitForLoadingValue(entry, k, valueReference);
-                        }
+            d.f.d.b.h<K, V> peek;
+            d.f.d.b.h<K, V> peek2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+                drainRecencyQueue();
+                do {
+                    peek = this.writeQueue.peek();
+                    if (peek == null || !this.map.s(peek, j)) {
+                        do {
+                            peek2 = this.accessQueue.peek();
+                            if (peek2 == null || !this.map.s(peek2, j)) {
+                                return;
+                            }
+                        } while (removeEntry(peek2, peek2.getHash(), RemovalCause.EXPIRED));
+                        throw new AssertionError();
                     }
-                    return lockedGetOrLoad(k, i2, cacheLoader);
-                } catch (ExecutionException e2) {
-                    Throwable cause = e2.getCause();
-                    if (!(cause instanceof Error)) {
-                        if (cause instanceof RuntimeException) {
-                            throw new UncheckedExecutionException(cause);
-                        }
-                        throw e2;
-                    }
-                    throw new ExecutionError((Error) cause);
-                }
-            } finally {
-                postReadCleanup();
+                } while (removeEntry(peek, peek.getHash(), RemovalCause.EXPIRED));
+                throw new AssertionError();
             }
         }
 
-        public V getAndRecordStats(K k, int i2, k<K, V> kVar, d.g.c.i.a.l<V> lVar) throws ExecutionException {
+        public V get(K k, int i2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
+            InterceptResult invokeLIL;
+            d.f.d.b.h<K, V> entry;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048593, this, k, i2, cacheLoader)) == null) {
+                d.f.d.a.n.p(k);
+                d.f.d.a.n.p(cacheLoader);
+                try {
+                    try {
+                        if (this.count != 0 && (entry = getEntry(k, i2)) != null) {
+                            long a2 = this.map.t.a();
+                            V liveValue = getLiveValue(entry, a2);
+                            if (liveValue != null) {
+                                recordRead(entry, a2);
+                                this.statsCounter.a(1);
+                                return scheduleRefresh(entry, k, i2, liveValue, a2, cacheLoader);
+                            }
+                            s<K, V> valueReference = entry.getValueReference();
+                            if (valueReference.e()) {
+                                return waitForLoadingValue(entry, k, valueReference);
+                            }
+                        }
+                        return lockedGetOrLoad(k, i2, cacheLoader);
+                    } catch (ExecutionException e2) {
+                        Throwable cause = e2.getCause();
+                        if (!(cause instanceof Error)) {
+                            if (cause instanceof RuntimeException) {
+                                throw new UncheckedExecutionException(cause);
+                            }
+                            throw e2;
+                        }
+                        throw new ExecutionError((Error) cause);
+                    }
+                } finally {
+                    postReadCleanup();
+                }
+            }
+            return (V) invokeLIL.objValue;
+        }
+
+        public V getAndRecordStats(K k, int i2, k<K, V> kVar, ListenableFuture<V> listenableFuture) throws ExecutionException {
             V v;
-            try {
-                v = (V) d.g.c.i.a.t.a(lVar);
+            InterceptResult invokeLILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048594, this, k, i2, kVar, listenableFuture)) == null) {
+                try {
+                    v = (V) Uninterruptibles.getUninterruptibly(listenableFuture);
+                } catch (Throwable th) {
+                    th = th;
+                    v = null;
+                }
                 try {
                     if (v != null) {
                         this.statsCounter.c(kVar.g());
@@ -3235,231 +5676,299 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         return v;
                     }
                     throw new CacheLoader.InvalidCacheLoadException("CacheLoader returned null for key " + k + ".");
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (v == null) {
                         this.statsCounter.e(kVar.g());
                         removeLoadingValue(k, i2, kVar);
                     }
                     throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                v = null;
             }
+            return (V) invokeLILL.objValue;
         }
 
-        public d.g.c.b.h<K, V> getEntry(Object obj, int i2) {
-            for (d.g.c.b.h<K, V> first = getFirst(i2); first != null; first = first.getNext()) {
-                if (first.getHash() == i2) {
-                    K key = first.getKey();
-                    if (key == null) {
-                        tryDrainReferenceQueues();
-                    } else if (this.map.f31007i.equivalent(obj, key)) {
-                        return first;
+        public d.f.d.b.h<K, V> getEntry(Object obj, int i2) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, obj, i2)) == null) {
+                for (d.f.d.b.h<K, V> first = getFirst(i2); first != null; first = first.getNext()) {
+                    if (first.getHash() == i2) {
+                        K key = first.getKey();
+                        if (key == null) {
+                            tryDrainReferenceQueues();
+                        } else if (this.map.f32919i.equivalent(obj, key)) {
+                            return first;
+                        }
                     }
                 }
+                return null;
             }
-            return null;
+            return (d.f.d.b.h) invokeLI.objValue;
         }
 
-        public d.g.c.b.h<K, V> getFirst(int i2) {
-            AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-            return atomicReferenceArray.get(i2 & (atomicReferenceArray.length() - 1));
+        public d.f.d.b.h<K, V> getFirst(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+                AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                return atomicReferenceArray.get(i2 & (atomicReferenceArray.length() - 1));
+            }
+            return (d.f.d.b.h) invokeI.objValue;
         }
 
-        public d.g.c.b.h<K, V> getLiveEntry(Object obj, int i2, long j) {
-            d.g.c.b.h<K, V> entry = getEntry(obj, i2);
-            if (entry == null) {
-                return null;
+        public d.f.d.b.h<K, V> getLiveEntry(Object obj, int i2, long j) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{obj, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+                d.f.d.b.h<K, V> entry = getEntry(obj, i2);
+                if (entry == null) {
+                    return null;
+                }
+                if (this.map.s(entry, j)) {
+                    tryExpireEntries(j);
+                    return null;
+                }
+                return entry;
             }
-            if (this.map.s(entry, j)) {
-                tryExpireEntries(j);
-                return null;
-            }
-            return entry;
+            return (d.f.d.b.h) invokeCommon.objValue;
         }
 
-        public V getLiveValue(d.g.c.b.h<K, V> hVar, long j) {
-            if (hVar.getKey() == null) {
-                tryDrainReferenceQueues();
-                return null;
-            }
-            V v = hVar.getValueReference().get();
-            if (v == null) {
-                tryDrainReferenceQueues();
-                return null;
-            } else if (this.map.s(hVar, j)) {
-                tryExpireEntries(j);
-                return null;
-            } else {
-                return v;
-            }
-        }
-
-        public d.g.c.b.h<K, V> getNextEvictable() {
-            for (d.g.c.b.h<K, V> hVar : this.accessQueue) {
-                if (hVar.getValueReference().c() > 0) {
-                    return hVar;
+        public V getLiveValue(d.f.d.b.h<K, V> hVar, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048598, this, hVar, j)) == null) {
+                if (hVar.getKey() == null) {
+                    tryDrainReferenceQueues();
+                    return null;
+                }
+                V v = hVar.getValueReference().get();
+                if (v == null) {
+                    tryDrainReferenceQueues();
+                    return null;
+                } else if (this.map.s(hVar, j)) {
+                    tryExpireEntries(j);
+                    return null;
+                } else {
+                    return v;
                 }
             }
-            throw new AssertionError();
+            return (V) invokeLJ.objValue;
         }
 
-        public void initTable(AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray) {
-            this.threshold = (atomicReferenceArray.length() * 3) / 4;
-            if (!this.map.f()) {
-                int i2 = this.threshold;
-                if (i2 == this.maxSegmentWeight) {
-                    this.threshold = i2 + 1;
+        public d.f.d.b.h<K, V> getNextEvictable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                for (d.f.d.b.h<K, V> hVar : this.accessQueue) {
+                    if (hVar.getValueReference().c() > 0) {
+                        return hVar;
+                    }
                 }
+                throw new AssertionError();
             }
-            this.table = atomicReferenceArray;
+            return (d.f.d.b.h) invokeV.objValue;
+        }
+
+        public void initTable(AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048600, this, atomicReferenceArray) == null) {
+                this.threshold = (atomicReferenceArray.length() * 3) / 4;
+                if (!this.map.f()) {
+                    int i2 = this.threshold;
+                    if (i2 == this.maxSegmentWeight) {
+                        this.threshold = i2 + 1;
+                    }
+                }
+                this.table = atomicReferenceArray;
+            }
         }
 
         public k<K, V> insertLoadingValueReference(K k, int i2, boolean z) {
-            lock();
-            try {
-                long a2 = this.map.t.a();
-                preWriteCleanup(a2);
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i2;
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                for (d.g.c.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(k, key)) {
-                        s<K, V> valueReference = hVar2.getValueReference();
-                        if (!valueReference.e() && (!z || a2 - hVar2.getWriteTime() >= this.map.q)) {
-                            this.modCount++;
-                            k<K, V> kVar = new k<>(valueReference);
-                            hVar2.setValueReference(kVar);
-                            return kVar;
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{k, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                lock();
+                try {
+                    long a2 = this.map.t.a();
+                    preWriteCleanup(a2);
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = (atomicReferenceArray.length() - 1) & i2;
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    for (d.f.d.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(k, key)) {
+                            s<K, V> valueReference = hVar2.getValueReference();
+                            if (!valueReference.e() && (!z || a2 - hVar2.getWriteTime() >= this.map.q)) {
+                                this.modCount++;
+                                k<K, V> kVar = new k<>(valueReference);
+                                hVar2.setValueReference(kVar);
+                                return kVar;
+                            }
+                            return null;
                         }
-                        return null;
                     }
+                    this.modCount++;
+                    k<K, V> kVar2 = new k<>();
+                    d.f.d.b.h<K, V> newEntry = newEntry(k, i2, hVar);
+                    newEntry.setValueReference(kVar2);
+                    atomicReferenceArray.set(length, newEntry);
+                    return kVar2;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
                 }
-                this.modCount++;
-                k<K, V> kVar2 = new k<>();
-                d.g.c.b.h<K, V> newEntry = newEntry(k, i2, hVar);
-                newEntry.setValueReference(kVar2);
-                atomicReferenceArray.set(length, newEntry);
-                return kVar2;
-            } finally {
-                unlock();
-                postWriteCleanup();
             }
+            return (k) invokeCommon.objValue;
         }
 
-        public d.g.c.i.a.l<V> loadAsync(K k, int i2, k<K, V> kVar, CacheLoader<? super K, V> cacheLoader) {
-            d.g.c.i.a.l<V> j = kVar.j(k, cacheLoader);
-            j.a(new a(k, i2, kVar, j), d.g.c.i.a.n.a());
-            return j;
+        public ListenableFuture<V> loadAsync(K k, int i2, k<K, V> kVar, CacheLoader<? super K, V> cacheLoader) {
+            InterceptResult invokeLILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048602, this, k, i2, kVar, cacheLoader)) == null) {
+                ListenableFuture<V> j = kVar.j(k, cacheLoader);
+                j.addListener(new a(this, k, i2, kVar, j), MoreExecutors.directExecutor());
+                return j;
+            }
+            return (ListenableFuture) invokeLILL.objValue;
         }
 
         public V loadSync(K k, int i2, k<K, V> kVar, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
-            return getAndRecordStats(k, i2, kVar, kVar.j(k, cacheLoader));
+            InterceptResult invokeLILL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048603, this, k, i2, kVar, cacheLoader)) == null) ? getAndRecordStats(k, i2, kVar, kVar.j(k, cacheLoader)) : (V) invokeLILL.objValue;
         }
 
         public V lockedGetOrLoad(K k, int i2, CacheLoader<? super K, V> cacheLoader) throws ExecutionException {
+            InterceptResult invokeLIL;
             k<K, V> kVar;
             s<K, V> sVar;
             boolean z;
             V loadSync;
-            lock();
-            try {
-                long a2 = this.map.t.a();
-                preWriteCleanup(a2);
-                int i3 = this.count - 1;
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = i2 & (atomicReferenceArray.length() - 1);
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
-                while (true) {
-                    kVar = null;
-                    if (hVar2 == null) {
-                        sVar = null;
-                        break;
-                    }
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(k, key)) {
-                        s<K, V> valueReference = hVar2.getValueReference();
-                        if (valueReference.e()) {
-                            z = false;
-                            sVar = valueReference;
-                        } else {
-                            V v = valueReference.get();
-                            if (v == null) {
-                                enqueueNotification(key, i2, v, valueReference.c(), RemovalCause.COLLECTED);
-                            } else if (this.map.s(hVar2, a2)) {
-                                enqueueNotification(key, i2, v, valueReference.c(), RemovalCause.EXPIRED);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048604, this, k, i2, cacheLoader)) == null) {
+                lock();
+                try {
+                    long a2 = this.map.t.a();
+                    preWriteCleanup(a2);
+                    int i3 = this.count - 1;
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = i2 & (atomicReferenceArray.length() - 1);
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    d.f.d.b.h<K, V> hVar2 = hVar;
+                    while (true) {
+                        kVar = null;
+                        if (hVar2 == null) {
+                            sVar = null;
+                            break;
+                        }
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(k, key)) {
+                            s<K, V> valueReference = hVar2.getValueReference();
+                            if (valueReference.e()) {
+                                z = false;
+                                sVar = valueReference;
                             } else {
-                                recordLockedRead(hVar2, a2);
-                                this.statsCounter.a(1);
-                                return v;
+                                V v = valueReference.get();
+                                if (v == null) {
+                                    enqueueNotification(key, i2, v, valueReference.c(), RemovalCause.COLLECTED);
+                                } else if (this.map.s(hVar2, a2)) {
+                                    enqueueNotification(key, i2, v, valueReference.c(), RemovalCause.EXPIRED);
+                                } else {
+                                    recordLockedRead(hVar2, a2);
+                                    this.statsCounter.a(1);
+                                    return v;
+                                }
+                                this.writeQueue.remove(hVar2);
+                                this.accessQueue.remove(hVar2);
+                                this.count = i3;
+                                sVar = valueReference;
                             }
-                            this.writeQueue.remove(hVar2);
-                            this.accessQueue.remove(hVar2);
-                            this.count = i3;
-                            sVar = valueReference;
+                        } else {
+                            hVar2 = hVar2.getNext();
                         }
-                    } else {
-                        hVar2 = hVar2.getNext();
                     }
-                }
-                z = true;
-                if (z) {
-                    kVar = new k<>();
-                    if (hVar2 == null) {
-                        hVar2 = newEntry(k, i2, hVar);
-                        hVar2.setValueReference(kVar);
-                        atomicReferenceArray.set(length, hVar2);
-                    } else {
-                        hVar2.setValueReference(kVar);
-                    }
-                }
-                if (z) {
-                    try {
-                        synchronized (hVar2) {
-                            loadSync = loadSync(k, i2, kVar, cacheLoader);
+                    z = true;
+                    if (z) {
+                        kVar = new k<>();
+                        if (hVar2 == null) {
+                            hVar2 = newEntry(k, i2, hVar);
+                            hVar2.setValueReference(kVar);
+                            atomicReferenceArray.set(length, hVar2);
+                        } else {
+                            hVar2.setValueReference(kVar);
                         }
-                        return loadSync;
-                    } finally {
-                        this.statsCounter.d(1);
                     }
+                    if (z) {
+                        try {
+                            synchronized (hVar2) {
+                                loadSync = loadSync(k, i2, kVar, cacheLoader);
+                            }
+                            return loadSync;
+                        } finally {
+                            this.statsCounter.d(1);
+                        }
+                    }
+                    return waitForLoadingValue(hVar2, k, sVar);
+                } finally {
+                    unlock();
+                    postWriteCleanup();
                 }
-                return waitForLoadingValue(hVar2, k, sVar);
-            } finally {
-                unlock();
-                postWriteCleanup();
             }
+            return (V) invokeLIL.objValue;
         }
 
-        public d.g.c.b.h<K, V> newEntry(K k, int i2, d.g.c.b.h<K, V> hVar) {
-            EntryFactory entryFactory = this.map.u;
-            d.g.c.a.n.p(k);
-            return entryFactory.newEntry(this, k, i2, hVar);
+        public d.f.d.b.h<K, V> newEntry(K k, int i2, d.f.d.b.h<K, V> hVar) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048605, this, k, i2, hVar)) == null) {
+                EntryFactory entryFactory = this.map.u;
+                d.f.d.a.n.p(k);
+                return entryFactory.newEntry(this, k, i2, hVar);
+            }
+            return (d.f.d.b.h) invokeLIL.objValue;
         }
 
-        public AtomicReferenceArray<d.g.c.b.h<K, V>> newEntryArray(int i2) {
-            return new AtomicReferenceArray<>(i2);
+        public AtomicReferenceArray<d.f.d.b.h<K, V>> newEntryArray(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) ? new AtomicReferenceArray<>(i2) : (AtomicReferenceArray) invokeI.objValue;
         }
 
         public void postReadCleanup() {
-            if ((this.readCount.incrementAndGet() & 63) == 0) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (this.readCount.incrementAndGet() & 63) == 0) {
                 cleanUp();
             }
         }
 
         public void postWriteCleanup() {
-            runUnlockedCleanup();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+                runUnlockedCleanup();
+            }
         }
 
         public void preWriteCleanup(long j) {
-            runLockedCleanup(j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048609, this, j) == null) {
+                runLockedCleanup(j);
+            }
         }
 
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x0093, code lost:
+            return null;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public V put(K k, int i2, V v, boolean z) {
+            InterceptResult invokeCommon;
             int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{k, Integer.valueOf(i2), v, Boolean.valueOf(z)})) != null) {
+                return (V) invokeCommon.objValue;
+            }
             lock();
             try {
                 long a2 = this.map.t.a();
@@ -3467,14 +5976,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 if (this.count + 1 > this.threshold) {
                     expand();
                 }
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
+                AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
                 int length = i2 & (atomicReferenceArray.length() - 1);
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
+                d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                d.f.d.b.h<K, V> hVar2 = hVar;
                 while (true) {
                     if (hVar2 != null) {
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(k, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             V v2 = valueReference.get();
                             if (v2 != null) {
@@ -3504,7 +6013,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         }
                     } else {
                         this.modCount++;
-                        d.g.c.b.h<K, V> newEntry = newEntry(k, i2, hVar);
+                        d.f.d.b.h<K, V> newEntry = newEntry(k, i2, hVar);
                         setValue(newEntry, k, v, a2);
                         atomicReferenceArray.set(length, newEntry);
                         this.count++;
@@ -3512,299 +6021,351 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         break;
                     }
                 }
-                return null;
             } finally {
                 unlock();
                 postWriteCleanup();
             }
         }
 
-        public boolean reclaimKey(d.g.c.b.h<K, V> hVar, int i2) {
-            lock();
-            try {
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i2;
-                d.g.c.b.h<K, V> hVar2 = atomicReferenceArray.get(length);
-                for (d.g.c.b.h<K, V> hVar3 = hVar2; hVar3 != null; hVar3 = hVar3.getNext()) {
-                    if (hVar3 == hVar) {
-                        this.modCount++;
-                        atomicReferenceArray.set(length, removeValueFromChain(hVar2, hVar3, hVar3.getKey(), i2, hVar3.getValueReference().get(), hVar3.getValueReference(), RemovalCause.COLLECTED));
-                        this.count--;
-                        return true;
+        public boolean reclaimKey(d.f.d.b.h<K, V> hVar, int i2) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048611, this, hVar, i2)) == null) {
+                lock();
+                try {
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = (atomicReferenceArray.length() - 1) & i2;
+                    d.f.d.b.h<K, V> hVar2 = atomicReferenceArray.get(length);
+                    for (d.f.d.b.h<K, V> hVar3 = hVar2; hVar3 != null; hVar3 = hVar3.getNext()) {
+                        if (hVar3 == hVar) {
+                            this.modCount++;
+                            atomicReferenceArray.set(length, removeValueFromChain(hVar2, hVar3, hVar3.getKey(), i2, hVar3.getValueReference().get(), hVar3.getValueReference(), RemovalCause.COLLECTED));
+                            this.count--;
+                            return true;
+                        }
                     }
+                    return false;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
                 }
-                return false;
-            } finally {
-                unlock();
-                postWriteCleanup();
             }
+            return invokeLI.booleanValue;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, INVOKE]}, finally: {[INVOKE, INVOKE, INVOKE, IF] complete} */
         public boolean reclaimValue(K k, int i2, s<K, V> sVar) {
-            lock();
-            try {
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i2;
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                for (d.g.c.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(k, key)) {
-                        if (hVar2.getValueReference() == sVar) {
-                            this.modCount++;
-                            atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, sVar.get(), sVar, RemovalCause.COLLECTED));
-                            this.count--;
-                            return true;
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048612, this, k, i2, sVar)) == null) {
+                lock();
+                try {
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = (atomicReferenceArray.length() - 1) & i2;
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    for (d.f.d.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(k, key)) {
+                            if (hVar2.getValueReference() == sVar) {
+                                this.modCount++;
+                                atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, sVar.get(), sVar, RemovalCause.COLLECTED));
+                                this.count--;
+                                return true;
+                            }
+                            unlock();
+                            if (!isHeldByCurrentThread()) {
+                                postWriteCleanup();
+                            }
+                            return false;
                         }
-                        unlock();
-                        if (!isHeldByCurrentThread()) {
-                            postWriteCleanup();
-                        }
-                        return false;
+                    }
+                    unlock();
+                    if (!isHeldByCurrentThread()) {
+                        postWriteCleanup();
+                    }
+                    return false;
+                } finally {
+                    unlock();
+                    if (!isHeldByCurrentThread()) {
+                        postWriteCleanup();
                     }
                 }
-                unlock();
-                if (!isHeldByCurrentThread()) {
-                    postWriteCleanup();
+            }
+            return invokeLIL.booleanValue;
+        }
+
+        public void recordLockedRead(d.f.d.b.h<K, V> hVar, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048613, this, hVar, j) == null) {
+                if (this.map.C()) {
+                    hVar.setAccessTime(j);
                 }
-                return false;
-            } finally {
-                unlock();
-                if (!isHeldByCurrentThread()) {
-                    postWriteCleanup();
+                this.accessQueue.add(hVar);
+            }
+        }
+
+        public void recordRead(d.f.d.b.h<K, V> hVar, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048614, this, hVar, j) == null) {
+                if (this.map.C()) {
+                    hVar.setAccessTime(j);
                 }
+                this.recencyQueue.add(hVar);
             }
         }
 
-        public void recordLockedRead(d.g.c.b.h<K, V> hVar, long j) {
-            if (this.map.C()) {
-                hVar.setAccessTime(j);
+        public void recordWrite(d.f.d.b.h<K, V> hVar, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{hVar, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                drainRecencyQueue();
+                this.totalWeight += i2;
+                if (this.map.C()) {
+                    hVar.setAccessTime(j);
+                }
+                if (this.map.E()) {
+                    hVar.setWriteTime(j);
+                }
+                this.accessQueue.add(hVar);
+                this.writeQueue.add(hVar);
             }
-            this.accessQueue.add(hVar);
-        }
-
-        public void recordRead(d.g.c.b.h<K, V> hVar, long j) {
-            if (this.map.C()) {
-                hVar.setAccessTime(j);
-            }
-            this.recencyQueue.add(hVar);
-        }
-
-        public void recordWrite(d.g.c.b.h<K, V> hVar, int i2, long j) {
-            drainRecencyQueue();
-            this.totalWeight += i2;
-            if (this.map.C()) {
-                hVar.setAccessTime(j);
-            }
-            if (this.map.E()) {
-                hVar.setWriteTime(j);
-            }
-            this.accessQueue.add(hVar);
-            this.writeQueue.add(hVar);
         }
 
         public V refresh(K k, int i2, CacheLoader<? super K, V> cacheLoader, boolean z) {
-            k<K, V> insertLoadingValueReference = insertLoadingValueReference(k, i2, z);
-            if (insertLoadingValueReference == null) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{k, Integer.valueOf(i2), cacheLoader, Boolean.valueOf(z)})) == null) {
+                k<K, V> insertLoadingValueReference = insertLoadingValueReference(k, i2, z);
+                if (insertLoadingValueReference == null) {
+                    return null;
+                }
+                ListenableFuture<V> loadAsync = loadAsync(k, i2, insertLoadingValueReference, cacheLoader);
+                if (loadAsync.isDone()) {
+                    try {
+                        return (V) Uninterruptibles.getUninterruptibly(loadAsync);
+                    } catch (Throwable unused) {
+                    }
+                }
                 return null;
             }
-            d.g.c.i.a.l<V> loadAsync = loadAsync(k, i2, insertLoadingValueReference, cacheLoader);
-            if (loadAsync.isDone()) {
-                try {
-                    return (V) d.g.c.i.a.t.a(loadAsync);
-                } catch (Throwable unused) {
-                }
-            }
-            return null;
+            return (V) invokeCommon.objValue;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0038, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x003c, code lost:
             r9 = r5.getValueReference();
             r12 = r9.get();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0040, code lost:
-            if (r12 == null) goto L21;
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x0044, code lost:
+            if (r12 == null) goto L23;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0042, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:15:0x0046, code lost:
             r2 = com.google.common.cache.RemovalCause.EXPLICIT;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x0044, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:16:0x0048, code lost:
             r10 = r2;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:16:0x004a, code lost:
-            if (r9.isActive() == false) goto L24;
+        /* JADX WARN: Code restructure failed: missing block: B:18:0x004e, code lost:
+            if (r9.isActive() == false) goto L26;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:17:0x004c, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:19:0x0050, code lost:
             r2 = com.google.common.cache.RemovalCause.COLLECTED;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:18:0x004f, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
             r11.modCount++;
             r0.set(r1, removeValueFromChain(r4, r5, r6, r13, r12, r9, r10));
             r11.count--;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:20:0x006b, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:22:0x006f, code lost:
             return r12;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public V remove(Object obj, int i2) {
-            lock();
-            try {
-                preWriteCleanup(this.map.t.a());
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i2;
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
-                while (true) {
-                    if (hVar2 == null) {
-                        break;
-                    }
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(obj, key)) {
-                        break;
-                    }
-                    hVar2 = hVar2.getNext();
-                }
-                return null;
-            } finally {
-                unlock();
-                postWriteCleanup();
-            }
-        }
-
-        public void removeCollectedEntry(d.g.c.b.h<K, V> hVar) {
-            enqueueNotification(hVar.getKey(), hVar.getHash(), hVar.getValueReference().get(), hVar.getValueReference().c(), RemovalCause.COLLECTED);
-            this.writeQueue.remove(hVar);
-            this.accessQueue.remove(hVar);
-        }
-
-        public boolean removeEntry(d.g.c.b.h<K, V> hVar, int i2, RemovalCause removalCause) {
-            AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-            int length = (atomicReferenceArray.length() - 1) & i2;
-            d.g.c.b.h<K, V> hVar2 = atomicReferenceArray.get(length);
-            for (d.g.c.b.h<K, V> hVar3 = hVar2; hVar3 != null; hVar3 = hVar3.getNext()) {
-                if (hVar3 == hVar) {
-                    this.modCount++;
-                    atomicReferenceArray.set(length, removeValueFromChain(hVar2, hVar3, hVar3.getKey(), i2, hVar3.getValueReference().get(), hVar3.getValueReference(), removalCause));
-                    this.count--;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public d.g.c.b.h<K, V> removeEntryFromChain(d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2) {
-            int i2 = this.count;
-            d.g.c.b.h<K, V> next = hVar2.getNext();
-            while (hVar != hVar2) {
-                d.g.c.b.h<K, V> copyEntry = copyEntry(hVar, next);
-                if (copyEntry != null) {
-                    next = copyEntry;
-                } else {
-                    removeCollectedEntry(hVar);
-                    i2--;
-                }
-                hVar = hVar.getNext();
-            }
-            this.count = i2;
-            return next;
-        }
-
-        public boolean removeLoadingValue(K k, int i2, k<K, V> kVar) {
-            lock();
-            try {
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = (atomicReferenceArray.length() - 1) & i2;
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
-                while (true) {
-                    if (hVar2 == null) {
-                        break;
-                    }
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(k, key)) {
-                        if (hVar2.getValueReference() == kVar) {
-                            if (kVar.isActive()) {
-                                hVar2.setValueReference(kVar.i());
-                            } else {
-                                atomicReferenceArray.set(length, removeEntryFromChain(hVar, hVar2));
-                            }
-                            return true;
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048617, this, obj, i2)) == null) {
+                lock();
+                try {
+                    preWriteCleanup(this.map.t.a());
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = (atomicReferenceArray.length() - 1) & i2;
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    d.f.d.b.h<K, V> hVar2 = hVar;
+                    while (true) {
+                        if (hVar2 == null) {
+                            break;
                         }
-                    } else {
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(obj, key)) {
+                            break;
+                        }
                         hVar2 = hVar2.getNext();
+                    }
+                    return null;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
+                }
+            }
+            return (V) invokeLI.objValue;
+        }
+
+        public void removeCollectedEntry(d.f.d.b.h<K, V> hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048619, this, hVar) == null) {
+                enqueueNotification(hVar.getKey(), hVar.getHash(), hVar.getValueReference().get(), hVar.getValueReference().c(), RemovalCause.COLLECTED);
+                this.writeQueue.remove(hVar);
+                this.accessQueue.remove(hVar);
+            }
+        }
+
+        public boolean removeEntry(d.f.d.b.h<K, V> hVar, int i2, RemovalCause removalCause) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048620, this, hVar, i2, removalCause)) == null) {
+                AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                int length = (atomicReferenceArray.length() - 1) & i2;
+                d.f.d.b.h<K, V> hVar2 = atomicReferenceArray.get(length);
+                for (d.f.d.b.h<K, V> hVar3 = hVar2; hVar3 != null; hVar3 = hVar3.getNext()) {
+                    if (hVar3 == hVar) {
+                        this.modCount++;
+                        atomicReferenceArray.set(length, removeValueFromChain(hVar2, hVar3, hVar3.getKey(), i2, hVar3.getValueReference().get(), hVar3.getValueReference(), removalCause));
+                        this.count--;
+                        return true;
                     }
                 }
                 return false;
-            } finally {
-                unlock();
-                postWriteCleanup();
             }
+            return invokeLIL.booleanValue;
         }
 
-        public d.g.c.b.h<K, V> removeValueFromChain(d.g.c.b.h<K, V> hVar, d.g.c.b.h<K, V> hVar2, K k, int i2, V v, s<K, V> sVar, RemovalCause removalCause) {
-            enqueueNotification(k, i2, v, sVar.c(), removalCause);
-            this.writeQueue.remove(hVar2);
-            this.accessQueue.remove(hVar2);
-            if (sVar.e()) {
-                sVar.b(null);
-                return hVar;
-            }
-            return removeEntryFromChain(hVar, hVar2);
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:17:0x006f, code lost:
-            return false;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public boolean replace(K k, int i2, V v, V v2) {
-            lock();
-            try {
-                long a2 = this.map.t.a();
-                preWriteCleanup(a2);
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = i2 & (atomicReferenceArray.length() - 1);
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
-                while (true) {
-                    if (hVar2 == null) {
-                        break;
+        public d.f.d.b.h<K, V> removeEntryFromChain(d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048621, this, hVar, hVar2)) == null) {
+                int i2 = this.count;
+                d.f.d.b.h<K, V> next = hVar2.getNext();
+                while (hVar != hVar2) {
+                    d.f.d.b.h<K, V> copyEntry = copyEntry(hVar, next);
+                    if (copyEntry != null) {
+                        next = copyEntry;
+                    } else {
+                        removeCollectedEntry(hVar);
+                        i2--;
                     }
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null) {
-                        if (this.map.f31007i.equivalent(k, key)) {
-                            s<K, V> valueReference = hVar2.getValueReference();
-                            V v3 = valueReference.get();
-                            if (v3 == null) {
-                                if (valueReference.isActive()) {
-                                    this.modCount++;
-                                    atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, v3, valueReference, RemovalCause.COLLECTED));
-                                    this.count--;
+                    hVar = hVar.getNext();
+                }
+                this.count = i2;
+                return next;
+            }
+            return (d.f.d.b.h) invokeLL.objValue;
+        }
+
+        public boolean removeLoadingValue(K k, int i2, k<K, V> kVar) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048622, this, k, i2, kVar)) == null) {
+                lock();
+                try {
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = (atomicReferenceArray.length() - 1) & i2;
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    d.f.d.b.h<K, V> hVar2 = hVar;
+                    while (true) {
+                        if (hVar2 == null) {
+                            break;
+                        }
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(k, key)) {
+                            if (hVar2.getValueReference() == kVar) {
+                                if (kVar.isActive()) {
+                                    hVar2.setValueReference(kVar.i());
+                                } else {
+                                    atomicReferenceArray.set(length, removeEntryFromChain(hVar, hVar2));
                                 }
-                            } else if (this.map.j.equivalent(v, v3)) {
-                                this.modCount++;
-                                enqueueNotification(k, i2, v3, valueReference.c(), RemovalCause.REPLACED);
-                                setValue(hVar2, k, v2, a2);
-                                evictEntries(hVar2);
                                 return true;
-                            } else {
-                                recordLockedRead(hVar2, a2);
                             }
+                        } else {
+                            hVar2 = hVar2.getNext();
                         }
                     }
-                    hVar2 = hVar2.getNext();
+                    return false;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
                 }
-            } finally {
-                unlock();
-                postWriteCleanup();
             }
+            return invokeLIL.booleanValue;
+        }
+
+        public d.f.d.b.h<K, V> removeValueFromChain(d.f.d.b.h<K, V> hVar, d.f.d.b.h<K, V> hVar2, K k, int i2, V v, s<K, V> sVar, RemovalCause removalCause) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{hVar, hVar2, k, Integer.valueOf(i2), v, sVar, removalCause})) == null) {
+                enqueueNotification(k, i2, v, sVar.c(), removalCause);
+                this.writeQueue.remove(hVar2);
+                this.accessQueue.remove(hVar2);
+                if (sVar.e()) {
+                    sVar.b(null);
+                    return hVar;
+                }
+                return removeEntryFromChain(hVar, hVar2);
+            }
+            return (d.f.d.b.h) invokeCommon.objValue;
+        }
+
+        public boolean replace(K k, int i2, V v, V v2) {
+            InterceptResult invokeLILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048625, this, k, i2, v, v2)) == null) {
+                lock();
+                try {
+                    long a2 = this.map.t.a();
+                    preWriteCleanup(a2);
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = i2 & (atomicReferenceArray.length() - 1);
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    d.f.d.b.h<K, V> hVar2 = hVar;
+                    while (true) {
+                        if (hVar2 == null) {
+                            break;
+                        }
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null) {
+                            if (this.map.f32919i.equivalent(k, key)) {
+                                s<K, V> valueReference = hVar2.getValueReference();
+                                V v3 = valueReference.get();
+                                if (v3 == null) {
+                                    if (valueReference.isActive()) {
+                                        this.modCount++;
+                                        atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, v3, valueReference, RemovalCause.COLLECTED));
+                                        this.count--;
+                                    }
+                                } else if (this.map.j.equivalent(v, v3)) {
+                                    this.modCount++;
+                                    enqueueNotification(k, i2, v3, valueReference.c(), RemovalCause.REPLACED);
+                                    setValue(hVar2, k, v2, a2);
+                                    evictEntries(hVar2);
+                                    return true;
+                                } else {
+                                    recordLockedRead(hVar2, a2);
+                                }
+                            }
+                        }
+                        hVar2 = hVar2.getNext();
+                    }
+                    return false;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
+                }
+            }
+            return invokeLILL.booleanValue;
         }
 
         public void runLockedCleanup(long j) {
-            if (tryLock()) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048626, this, j) == null) && tryLock()) {
                 try {
                     drainReferenceQueues();
                     expireEntries(j);
@@ -3816,81 +6377,93 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public void runUnlockedCleanup() {
-            if (isHeldByCurrentThread()) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048627, this) == null) || isHeldByCurrentThread()) {
                 return;
             }
             this.map.z();
         }
 
-        public V scheduleRefresh(d.g.c.b.h<K, V> hVar, K k, int i2, V v, long j, CacheLoader<? super K, V> cacheLoader) {
+        public V scheduleRefresh(d.f.d.b.h<K, V> hVar, K k, int i2, V v, long j, CacheLoader<? super K, V> cacheLoader) {
+            InterceptResult invokeCommon;
             V refresh;
-            return (!this.map.G() || j - hVar.getWriteTime() <= this.map.q || hVar.getValueReference().e() || (refresh = refresh(k, i2, cacheLoader, true)) == null) ? v : refresh;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{hVar, k, Integer.valueOf(i2), v, Long.valueOf(j), cacheLoader})) == null) ? (!this.map.G() || j - hVar.getWriteTime() <= this.map.q || hVar.getValueReference().e() || (refresh = refresh(k, i2, cacheLoader, true)) == null) ? v : refresh : (V) invokeCommon.objValue;
         }
 
-        public void setValue(d.g.c.b.h<K, V> hVar, K k, V v, long j) {
-            s<K, V> valueReference = hVar.getValueReference();
-            int weigh = this.map.n.weigh(k, v);
-            d.g.c.a.n.x(weigh >= 0, "Weights must be non-negative");
-            hVar.setValueReference(this.map.l.referenceValue(this, hVar, v, weigh));
-            recordWrite(hVar, weigh, j);
-            valueReference.b(v);
-        }
-
-        public boolean storeLoadedValue(K k, int i2, k<K, V> kVar, V v) {
-            lock();
-            try {
-                long a2 = this.map.t.a();
-                preWriteCleanup(a2);
-                int i3 = this.count + 1;
-                if (i3 > this.threshold) {
-                    expand();
-                    i3 = this.count + 1;
-                }
-                int i4 = i3;
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = i2 & (atomicReferenceArray.length() - 1);
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
-                while (true) {
-                    if (hVar2 != null) {
-                        K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(k, key)) {
-                            s<K, V> valueReference = hVar2.getValueReference();
-                            V v2 = valueReference.get();
-                            if (kVar != valueReference && (v2 != null || valueReference == LocalCache.B)) {
-                                enqueueNotification(k, i2, v, 0, RemovalCause.REPLACED);
-                                return false;
-                            }
-                            this.modCount++;
-                            if (kVar.isActive()) {
-                                enqueueNotification(k, i2, v2, kVar.c(), v2 == null ? RemovalCause.COLLECTED : RemovalCause.REPLACED);
-                                i4--;
-                            }
-                            setValue(hVar2, k, v, a2);
-                            this.count = i4;
-                            evictEntries(hVar2);
-                        } else {
-                            hVar2 = hVar2.getNext();
-                        }
-                    } else {
-                        this.modCount++;
-                        d.g.c.b.h<K, V> newEntry = newEntry(k, i2, hVar);
-                        setValue(newEntry, k, v, a2);
-                        atomicReferenceArray.set(length, newEntry);
-                        this.count = i4;
-                        evictEntries(newEntry);
-                        break;
-                    }
-                }
-                return true;
-            } finally {
-                unlock();
-                postWriteCleanup();
+        public void setValue(d.f.d.b.h<K, V> hVar, K k, V v, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{hVar, k, v, Long.valueOf(j)}) == null) {
+                s<K, V> valueReference = hVar.getValueReference();
+                int weigh = this.map.n.weigh(k, v);
+                d.f.d.a.n.x(weigh >= 0, "Weights must be non-negative");
+                hVar.setValueReference(this.map.l.referenceValue(this, hVar, v, weigh));
+                recordWrite(hVar, weigh, j);
+                valueReference.b(v);
             }
         }
 
+        public boolean storeLoadedValue(K k, int i2, k<K, V> kVar, V v) {
+            InterceptResult invokeLILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048630, this, k, i2, kVar, v)) == null) {
+                lock();
+                try {
+                    long a2 = this.map.t.a();
+                    preWriteCleanup(a2);
+                    int i3 = this.count + 1;
+                    if (i3 > this.threshold) {
+                        expand();
+                        i3 = this.count + 1;
+                    }
+                    int i4 = i3;
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = i2 & (atomicReferenceArray.length() - 1);
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    d.f.d.b.h<K, V> hVar2 = hVar;
+                    while (true) {
+                        if (hVar2 != null) {
+                            K key = hVar2.getKey();
+                            if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(k, key)) {
+                                s<K, V> valueReference = hVar2.getValueReference();
+                                V v2 = valueReference.get();
+                                if (kVar != valueReference && (v2 != null || valueReference == LocalCache.B)) {
+                                    enqueueNotification(k, i2, v, 0, RemovalCause.REPLACED);
+                                    return false;
+                                }
+                                this.modCount++;
+                                if (kVar.isActive()) {
+                                    enqueueNotification(k, i2, v2, kVar.c(), v2 == null ? RemovalCause.COLLECTED : RemovalCause.REPLACED);
+                                    i4--;
+                                }
+                                setValue(hVar2, k, v, a2);
+                                this.count = i4;
+                                evictEntries(hVar2);
+                            } else {
+                                hVar2 = hVar2.getNext();
+                            }
+                        } else {
+                            this.modCount++;
+                            d.f.d.b.h<K, V> newEntry = newEntry(k, i2, hVar);
+                            setValue(newEntry, k, v, a2);
+                            atomicReferenceArray.set(length, newEntry);
+                            this.count = i4;
+                            evictEntries(newEntry);
+                            break;
+                        }
+                    }
+                    return true;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
+                }
+            }
+            return invokeLILL.booleanValue;
+        }
+
         public void tryDrainReferenceQueues() {
-            if (tryLock()) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048631, this) == null) && tryLock()) {
                 try {
                     drainReferenceQueues();
                 } finally {
@@ -3900,7 +6473,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public void tryExpireEntries(long j) {
-            if (tryLock()) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048632, this, j) == null) && tryLock()) {
                 try {
                     expireEntries(j);
                 } finally {
@@ -3909,151 +6483,166 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             }
         }
 
-        public V waitForLoadingValue(d.g.c.b.h<K, V> hVar, K k, s<K, V> sVar) throws ExecutionException {
-            if (sVar.e()) {
-                d.g.c.a.n.A(!Thread.holdsLock(hVar), "Recursive load of: %s", k);
-                try {
-                    V d2 = sVar.d();
-                    if (d2 != null) {
-                        recordRead(hVar, this.map.t.a());
-                        return d2;
+        public V waitForLoadingValue(d.f.d.b.h<K, V> hVar, K k, s<K, V> sVar) throws ExecutionException {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048633, this, hVar, k, sVar)) == null) {
+                if (sVar.e()) {
+                    d.f.d.a.n.A(!Thread.holdsLock(hVar), "Recursive load of: %s", k);
+                    try {
+                        V d2 = sVar.d();
+                        if (d2 != null) {
+                            recordRead(hVar, this.map.t.a());
+                            return d2;
+                        }
+                        throw new CacheLoader.InvalidCacheLoadException("CacheLoader returned null for key " + k + ".");
+                    } finally {
+                        this.statsCounter.d(1);
                     }
-                    throw new CacheLoader.InvalidCacheLoadException("CacheLoader returned null for key " + k + ".");
-                } finally {
-                    this.statsCounter.d(1);
                 }
+                throw new AssertionError();
             }
-            throw new AssertionError();
+            return (V) invokeLLL.objValue;
         }
 
         public V get(Object obj, int i2) {
-            try {
-                if (this.count != 0) {
-                    long a2 = this.map.t.a();
-                    d.g.c.b.h<K, V> liveEntry = getLiveEntry(obj, i2, a2);
-                    if (liveEntry == null) {
-                        return null;
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, obj, i2)) == null) {
+                try {
+                    if (this.count != 0) {
+                        long a2 = this.map.t.a();
+                        d.f.d.b.h<K, V> liveEntry = getLiveEntry(obj, i2, a2);
+                        if (liveEntry == null) {
+                            return null;
+                        }
+                        V v = liveEntry.getValueReference().get();
+                        if (v != null) {
+                            recordRead(liveEntry, a2);
+                            return scheduleRefresh(liveEntry, liveEntry.getKey(), i2, v, a2, this.map.w);
+                        }
+                        tryDrainReferenceQueues();
                     }
-                    V v = liveEntry.getValueReference().get();
-                    if (v != null) {
-                        recordRead(liveEntry, a2);
-                        return scheduleRefresh(liveEntry, liveEntry.getKey(), i2, v, a2, this.map.w);
-                    }
-                    tryDrainReferenceQueues();
+                    return null;
+                } finally {
+                    postReadCleanup();
                 }
-                return null;
-            } finally {
-                postReadCleanup();
             }
+            return (V) invokeLI.objValue;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0038, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x003c, code lost:
             r10 = r6.getValueReference();
             r9 = r10.get();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0048, code lost:
-            if (r12.map.j.equivalent(r15, r9) == false) goto L22;
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x004c, code lost:
+            if (r12.map.j.equivalent(r15, r9) == false) goto L24;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x004a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:15:0x004e, code lost:
             r13 = com.google.common.cache.RemovalCause.EXPLICIT;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x004d, code lost:
-            if (r9 != null) goto L26;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:16:0x0053, code lost:
-            if (r10.isActive() == false) goto L26;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:17:0x0055, code lost:
-            r13 = com.google.common.cache.RemovalCause.COLLECTED;
+        /* JADX WARN: Code restructure failed: missing block: B:16:0x0051, code lost:
+            if (r9 != null) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:18:0x0057, code lost:
+            if (r10.isActive() == false) goto L28;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:19:0x0059, code lost:
+            r13 = com.google.common.cache.RemovalCause.COLLECTED;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:20:0x005b, code lost:
             r12.modCount++;
             r0.set(r1, removeValueFromChain(r5, r6, r7, r14, r9, r10, r13));
             r12.count--;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:19:0x006d, code lost:
-            if (r13 != com.google.common.cache.RemovalCause.EXPLICIT) goto L17;
+        /* JADX WARN: Code restructure failed: missing block: B:21:0x0071, code lost:
+            if (r13 != com.google.common.cache.RemovalCause.EXPLICIT) goto L19;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:21:0x0070, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0074, code lost:
             r2 = false;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x0077, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:25:0x007b, code lost:
             return r2;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public boolean remove(Object obj, int i2, Object obj2) {
-            lock();
-            try {
-                preWriteCleanup(this.map.t.a());
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                boolean z = true;
-                int length = (atomicReferenceArray.length() - 1) & i2;
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
-                while (true) {
-                    if (hVar2 == null) {
-                        break;
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048618, this, obj, i2, obj2)) == null) {
+                lock();
+                try {
+                    preWriteCleanup(this.map.t.a());
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    boolean z = true;
+                    int length = (atomicReferenceArray.length() - 1) & i2;
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    d.f.d.b.h<K, V> hVar2 = hVar;
+                    while (true) {
+                        if (hVar2 == null) {
+                            break;
+                        }
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null && this.map.f32919i.equivalent(obj, key)) {
+                            break;
+                        }
+                        hVar2 = hVar2.getNext();
                     }
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31007i.equivalent(obj, key)) {
-                        break;
-                    }
-                    hVar2 = hVar2.getNext();
+                    return false;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
                 }
-                return false;
-            } finally {
-                unlock();
-                postWriteCleanup();
             }
+            return invokeLIL.booleanValue;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:17:0x0072, code lost:
-            return null;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         public V replace(K k, int i2, V v) {
-            lock();
-            try {
-                long a2 = this.map.t.a();
-                preWriteCleanup(a2);
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.table;
-                int length = i2 & (atomicReferenceArray.length() - 1);
-                d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
-                d.g.c.b.h<K, V> hVar2 = hVar;
-                while (true) {
-                    if (hVar2 == null) {
-                        break;
-                    }
-                    K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null) {
-                        if (this.map.f31007i.equivalent(k, key)) {
-                            s<K, V> valueReference = hVar2.getValueReference();
-                            V v2 = valueReference.get();
-                            if (v2 == null) {
-                                if (valueReference.isActive()) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048624, this, k, i2, v)) == null) {
+                lock();
+                try {
+                    long a2 = this.map.t.a();
+                    preWriteCleanup(a2);
+                    AtomicReferenceArray<d.f.d.b.h<K, V>> atomicReferenceArray = this.table;
+                    int length = i2 & (atomicReferenceArray.length() - 1);
+                    d.f.d.b.h<K, V> hVar = atomicReferenceArray.get(length);
+                    d.f.d.b.h<K, V> hVar2 = hVar;
+                    while (true) {
+                        if (hVar2 == null) {
+                            break;
+                        }
+                        K key = hVar2.getKey();
+                        if (hVar2.getHash() == i2 && key != null) {
+                            if (this.map.f32919i.equivalent(k, key)) {
+                                s<K, V> valueReference = hVar2.getValueReference();
+                                V v2 = valueReference.get();
+                                if (v2 == null) {
+                                    if (valueReference.isActive()) {
+                                        this.modCount++;
+                                        atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, v2, valueReference, RemovalCause.COLLECTED));
+                                        this.count--;
+                                    }
+                                } else {
                                     this.modCount++;
-                                    atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, v2, valueReference, RemovalCause.COLLECTED));
-                                    this.count--;
+                                    enqueueNotification(k, i2, v2, valueReference.c(), RemovalCause.REPLACED);
+                                    setValue(hVar2, k, v, a2);
+                                    evictEntries(hVar2);
+                                    return v2;
                                 }
-                            } else {
-                                this.modCount++;
-                                enqueueNotification(k, i2, v2, valueReference.c(), RemovalCause.REPLACED);
-                                setValue(hVar2, k, v, a2);
-                                evictEntries(hVar2);
-                                return v2;
                             }
                         }
+                        hVar2 = hVar2.getNext();
                     }
-                    hVar2 = hVar2.getNext();
+                    return null;
+                } finally {
+                    unlock();
+                    postWriteCleanup();
                 }
-            } finally {
-                unlock();
-                postWriteCleanup();
             }
+            return (V) invokeLIL.objValue;
         }
     }
 }

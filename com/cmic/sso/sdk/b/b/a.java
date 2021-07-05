@@ -1,141 +1,255 @@
 package com.cmic.sso.sdk.b.b;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public abstract class a extends g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30671a = "";
+    public String f32464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30672b = "";
+    public String f32465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30673c = "";
+    public String f32466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30674d = "";
+    public String f32467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30675e = "";
+    public String f32468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30676f = "";
+    public String f32469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30677g = "";
+    public String f32470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30678h = "";
+    public String f32471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30679i = "";
-    public String j = "0";
-    public String k = "1.0";
-    public String l = "";
-    public String m = "";
-    public String n = "";
-    public String o = "";
-    public String p = "";
-    public String q = "";
-    public String r = "";
-    public String s = "";
-    public String t = "";
-    public String u = TbEnum.SystemMessage.EVENT_ID_APPLY_SUC;
-    public String v = "";
-    public String w = "";
+    public String f32472i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32464a = "";
+        this.f32465b = "";
+        this.f32466c = "";
+        this.f32467d = "";
+        this.f32468e = "";
+        this.f32469f = "";
+        this.f32470g = "";
+        this.f32471h = "";
+        this.f32472i = "";
+        this.j = "0";
+        this.k = "1.0";
+        this.l = "";
+        this.m = "";
+        this.n = "";
+        this.o = "";
+        this.p = "";
+        this.q = "";
+        this.r = "";
+        this.s = "";
+        this.t = "";
+        this.u = TbEnum.SystemMessage.EVENT_ID_APPLY_SUC;
+        this.v = "";
+        this.w = "";
+    }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30673c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32466c : (String) invokeV.objValue;
     }
 
     public void a_(String str) {
-        this.v = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.v = str;
+        }
     }
 
     public void b(String str) {
-        this.f30671a = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f32464a = v(str);
+        }
     }
 
     public void c(String str) {
-        this.f30672b = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f32465b = v(str);
+        }
     }
 
     public void d(String str) {
-        this.f30673c = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f32466c = v(str);
+        }
     }
 
     public void e(String str) {
-        this.f30674d = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f32467d = v(str);
+        }
     }
 
     public void f(String str) {
-        this.f30675e = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f32468e = v(str);
+        }
     }
 
     public void g(String str) {
-        this.f30676f = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f32469f = v(str);
+        }
     }
 
     public void h(String str) {
-        this.f30677g = URLEncoder.encode(v(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f32470g = URLEncoder.encode(v(str));
+        }
     }
 
     public void i(String str) {
-        this.f30678h = URLEncoder.encode(v(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f32471h = URLEncoder.encode(v(str));
+        }
     }
 
     public void j(String str) {
-        this.f30679i = URLEncoder.encode(v(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f32472i = URLEncoder.encode(v(str));
+        }
     }
 
     public void k(String str) {
-        this.j = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.j = v(str);
+        }
     }
 
     public void l(String str) {
-        this.k = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.k = v(str);
+        }
     }
 
     public void m(String str) {
-        this.m = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.m = v(str);
+        }
     }
 
     public void n(String str) {
-        this.n = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.n = v(str);
+        }
     }
 
     public void o(String str) {
-        this.o = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.o = v(str);
+        }
     }
 
     public void p(String str) {
-        this.p = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.p = v(str);
+        }
     }
 
     public void q(String str) {
-        this.q = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.q = v(str);
+        }
     }
 
     public void r(String str) {
-        this.r = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.r = v(str);
+        }
     }
 
     public void s(String str) {
-        this.s = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.s = v(str);
+        }
     }
 
     public void t(String str) {
-        this.t = v(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.t = v(str);
+        }
     }
 
     public void u(String str) {
-        this.w = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.w = str;
+        }
     }
 
     public final String v(String str) {
-        return str == null ? "" : str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 }

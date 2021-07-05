@@ -1,5 +1,11 @@
 package com.facebook.soloader;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,6 +16,7 @@ import kotlin.UShort;
 import okhttp3.internal.ws.WebSocketProtocol;
 /* loaded from: classes6.dex */
 public final class MinElf {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DT_NEEDED = 1;
     public static final int DT_NULL = 0;
     public static final int DT_STRTAB = 5;
@@ -17,29 +24,78 @@ public final class MinElf {
     public static final int PN_XNUM = 65535;
     public static final int PT_DYNAMIC = 2;
     public static final int PT_LOAD = 1;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
     public static class ElfError extends RuntimeException {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ElfError(String str) {
             super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public MinElf() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static String[] extract_DT_NEEDED(File file) throws IOException {
-        FileInputStream fileInputStream = new FileInputStream(file);
-        try {
-            return extract_DT_NEEDED(fileInputStream.getChannel());
-        } finally {
-            fileInputStream.close();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            try {
+                return extract_DT_NEEDED(fileInputStream.getChannel());
+            } finally {
+                fileInputStream.close();
+            }
         }
+        return (String[]) invokeL.objValue;
     }
 
     public static long get64(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
-        read(fileChannel, byteBuffer, 8, j);
-        return byteBuffer.getLong();
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{fileChannel, byteBuffer, Long.valueOf(j)})) == null) {
+            read(fileChannel, byteBuffer, 8, j);
+            return byteBuffer.getLong();
+        }
+        return invokeCommon.longValue;
     }
 
     public static String getSz(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{fileChannel, byteBuffer, Long.valueOf(j)})) != null) {
+            return (String) invokeCommon.objValue;
+        }
         StringBuilder sb = new StringBuilder();
         while (true) {
             long j2 = 1 + j;
@@ -54,35 +110,54 @@ public final class MinElf {
     }
 
     public static int getu16(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
-        read(fileChannel, byteBuffer, 2, j);
-        return byteBuffer.getShort() & UShort.MAX_VALUE;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{fileChannel, byteBuffer, Long.valueOf(j)})) == null) {
+            read(fileChannel, byteBuffer, 2, j);
+            return byteBuffer.getShort() & UShort.MAX_VALUE;
+        }
+        return invokeCommon.intValue;
     }
 
     public static long getu32(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
-        read(fileChannel, byteBuffer, 4, j);
-        return byteBuffer.getInt() & 4294967295L;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{fileChannel, byteBuffer, Long.valueOf(j)})) == null) {
+            read(fileChannel, byteBuffer, 4, j);
+            return byteBuffer.getInt() & 4294967295L;
+        }
+        return invokeCommon.longValue;
     }
 
     public static short getu8(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
-        read(fileChannel, byteBuffer, 1, j);
-        return (short) (byteBuffer.get() & 255);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{fileChannel, byteBuffer, Long.valueOf(j)})) == null) {
+            read(fileChannel, byteBuffer, 1, j);
+            return (short) (byteBuffer.get() & 255);
+        }
+        return invokeCommon.shortValue;
     }
 
     public static void read(FileChannel fileChannel, ByteBuffer byteBuffer, int i2, long j) throws IOException {
         int read;
-        byteBuffer.position(0);
-        byteBuffer.limit(i2);
-        while (byteBuffer.remaining() > 0 && (read = fileChannel.read(byteBuffer, j)) != -1) {
-            j += read;
-        }
-        if (byteBuffer.remaining() <= 0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{fileChannel, byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             byteBuffer.position(0);
-            return;
+            byteBuffer.limit(i2);
+            while (byteBuffer.remaining() > 0 && (read = fileChannel.read(byteBuffer, j)) != -1) {
+                j += read;
+            }
+            if (byteBuffer.remaining() <= 0) {
+                byteBuffer.position(0);
+                return;
+            }
+            throw new ElfError("ELF file truncated");
         }
-        throw new ElfError("ELF file truncated");
     }
 
     public static String[] extract_DT_NEEDED(FileChannel fileChannel) throws IOException {
+        InterceptResult invokeL;
         long j;
         long j2;
         int i2;
@@ -102,6 +177,10 @@ public final class MinElf {
         long j15;
         long j16;
         long j17;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, fileChannel)) != null) {
+            return (String[]) invokeL.objValue;
+        }
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(ByteOrder.LITTLE_ENDIAN);
         if (getu32(fileChannel, allocate, 0L) == 1179403647) {

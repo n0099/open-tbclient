@@ -3,6 +3,12 @@ package com.bytedance.sdk.openadsdk.preload.geckox.a;
 import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.os.SystemClock;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.Common;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.ComponentModel;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
@@ -19,60 +25,80 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0323a {
+    public static class C0363a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30157a;
+        public String f32007a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30158b;
+        public String f32008b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f30159c;
+        public int f32009c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f30160d;
+        public long f32010d;
 
         /* renamed from: e  reason: collision with root package name */
-        public File f30161e;
+        public File f32011e;
 
-        public C0323a(String str, String str2, int i2, long j, File file) {
-            this.f30157a = str;
-            this.f30158b = str2;
-            this.f30159c = i2;
-            this.f30160d = j;
-            this.f30161e = file;
+        public C0363a(String str, String str2, int i2, long j, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, Integer.valueOf(i2), Long.valueOf(j), file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32007a = str;
+            this.f32008b = str2;
+            this.f32009c = i2;
+            this.f32010d = j;
+            this.f32011e = file;
         }
     }
 
-    public static void b(Context context, List<C0323a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
-        if (list == null || list.isEmpty()) {
+    public static void b(Context context, List<C0363a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, list, aVar) == null) || list == null || list.isEmpty()) {
             return;
         }
-        for (C0323a c0323a : list) {
-            File file = c0323a.f30161e;
+        for (C0363a c0363a : list) {
+            File file = c0363a.f32011e;
             long uptimeMillis = SystemClock.uptimeMillis();
             boolean a2 = d.a(file);
             long uptimeMillis2 = SystemClock.uptimeMillis();
             if (a2) {
                 if (aVar != null) {
-                    aVar.b(c0323a.f30158b);
+                    aVar.b(c0363a.f32008b);
                 }
-                b.a(context).a(c0323a.f30157a, c0323a.f30158b, c0323a.f30159c, 200, c0323a.f30160d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0363a.f32007a, c0363a.f32008b, c0363a.f32009c, 200, c0363a.f32010d, 0, null, uptimeMillis2 - uptimeMillis, 1);
             } else {
-                b.a(context).a(c0323a.f30157a, c0323a.f30158b, c0323a.f30159c, 201, c0323a.f30160d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0363a.f32007a, c0363a.f32008b, c0363a.f32009c, 201, c0363a.f32010d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
             }
         }
     }
 
-    public static void a(final Context context, Map<String, ComponentModel.b> map, File file, final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
-        if (map == null || map.isEmpty()) {
+    public static void a(Context context, Map<String, ComponentModel.b> map, File file, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65539, null, context, map, file, aVar) == null) || map == null || map.isEmpty()) {
             return;
         }
-        final List<C0323a> list = null;
+        List<C0363a> list = null;
         try {
             list = a(map, file);
         } catch (Exception e2) {
@@ -81,19 +107,55 @@ public class a {
         if (list == null) {
             return;
         }
-        f.a().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.a.1
+        f.a().execute(new Runnable(context, list, aVar) { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.a.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Context f32004a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ List f32005b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32006c;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {context, list, aVar};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32004a = context;
+                this.f32005b = list;
+                this.f32006c = aVar;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                try {
-                    a.b(context, list, aVar);
-                } catch (Exception e3) {
-                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("clean-channel", "", e3);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    try {
+                        a.b(this.f32004a, this.f32005b, this.f32006c);
+                    } catch (Exception e3) {
+                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("clean-channel", "", e3);
+                    }
                 }
             }
         });
     }
 
-    public static List<C0323a> a(Map<String, ComponentModel.b> map, File file) {
+    public static List<C0363a> a(Map<String, ComponentModel.b> map, File file) {
+        InterceptResult invokeLL;
         ComponentModel.b value;
         List<ComponentModel.a> list;
         Iterator<Map.Entry<String, ComponentModel.b>> it;
@@ -110,112 +172,119 @@ public class a {
         List<Long> list2;
         File file5;
         String str2;
-        ArrayList arrayList = new ArrayList();
-        Iterator<Map.Entry<String, ComponentModel.b>> it6 = map.entrySet().iterator();
-        while (it6.hasNext()) {
-            Map.Entry<String, ComponentModel.b> next = it6.next();
-            String key = next.getKey();
-            File file6 = new File(file, key);
-            if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f30284a) != null && !list.isEmpty()) {
-                List<ComponentModel.a> list3 = value.f30284a;
-                HashSet hashSet = new HashSet();
-                Iterator<ComponentModel.a> it7 = list3.iterator();
-                while (it7.hasNext()) {
-                    ComponentModel.a next2 = it7.next();
-                    String str3 = next2.f30281a;
-                    if (!hashSet.contains(str3)) {
-                        hashSet.add(str3);
-                        int i2 = next2.f30282b;
-                        List<Long> list4 = next2.f30283c;
-                        File file7 = new File(file6, str3);
-                        String str4 = "";
-                        String str5 = "--pending-delete";
-                        if (i2 != 1) {
-                            if (i2 != 2) {
-                                if (i2 == 3) {
-                                    File file8 = new File(file6, str3);
-                                    File file9 = new File(file6, str3 + "--pending-delete");
-                                    file8.renameTo(file9);
-                                    arrayList.add(new C0323a(key, str3, i2, 0L, file9));
-                                }
-                            } else if (list4 != null && (b3 = k.b(file7)) != null && !b3.isEmpty()) {
-                                for (Long l : b3) {
-                                    if (list4.get(0).longValue() > l.longValue()) {
-                                        File file10 = new File(file7, l + str5);
-                                        it4 = it6;
-                                        new File(file7, l + str4).renameTo(file10);
-                                        it5 = it7;
-                                        str = str5;
-                                        file4 = file7;
-                                        file5 = file6;
-                                        str2 = str4;
-                                        list2 = list4;
-                                        arrayList.add(new C0323a(key, str3, i2, l.longValue(), file10));
-                                    } else {
-                                        it4 = it6;
-                                        it5 = it7;
-                                        str = str5;
-                                        file4 = file7;
-                                        list2 = list4;
-                                        file5 = file6;
-                                        str2 = str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, file)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Iterator<Map.Entry<String, ComponentModel.b>> it6 = map.entrySet().iterator();
+            while (it6.hasNext()) {
+                Map.Entry<String, ComponentModel.b> next = it6.next();
+                String key = next.getKey();
+                File file6 = new File(file, key);
+                if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f32134a) != null && !list.isEmpty()) {
+                    List<ComponentModel.a> list3 = value.f32134a;
+                    HashSet hashSet = new HashSet();
+                    Iterator<ComponentModel.a> it7 = list3.iterator();
+                    while (it7.hasNext()) {
+                        ComponentModel.a next2 = it7.next();
+                        String str3 = next2.f32131a;
+                        if (!hashSet.contains(str3)) {
+                            hashSet.add(str3);
+                            int i2 = next2.f32132b;
+                            List<Long> list4 = next2.f32133c;
+                            File file7 = new File(file6, str3);
+                            String str4 = "";
+                            String str5 = "--pending-delete";
+                            if (i2 != 1) {
+                                if (i2 != 2) {
+                                    if (i2 == 3) {
+                                        File file8 = new File(file6, str3);
+                                        File file9 = new File(file6, str3 + "--pending-delete");
+                                        file8.renameTo(file9);
+                                        arrayList.add(new C0363a(key, str3, i2, 0L, file9));
                                     }
-                                    it6 = it4;
-                                    str5 = str;
-                                    str4 = str2;
-                                    list4 = list2;
-                                    it7 = it5;
-                                    file7 = file4;
-                                    file6 = file5;
+                                } else if (list4 != null && (b3 = k.b(file7)) != null && !b3.isEmpty()) {
+                                    for (Long l : b3) {
+                                        if (list4.get(0).longValue() > l.longValue()) {
+                                            File file10 = new File(file7, l + str5);
+                                            it4 = it6;
+                                            new File(file7, l + str4).renameTo(file10);
+                                            it5 = it7;
+                                            str = str5;
+                                            file4 = file7;
+                                            file5 = file6;
+                                            str2 = str4;
+                                            list2 = list4;
+                                            arrayList.add(new C0363a(key, str3, i2, l.longValue(), file10));
+                                        } else {
+                                            it4 = it6;
+                                            it5 = it7;
+                                            str = str5;
+                                            file4 = file7;
+                                            list2 = list4;
+                                            file5 = file6;
+                                            str2 = str4;
+                                        }
+                                        it6 = it4;
+                                        str5 = str;
+                                        str4 = str2;
+                                        list4 = list2;
+                                        it7 = it5;
+                                        file7 = file4;
+                                        file6 = file5;
+                                    }
+                                }
+                                it = it6;
+                                it2 = it7;
+                                file2 = file6;
+                            } else {
+                                it = it6;
+                                it2 = it7;
+                                File file11 = file7;
+                                file2 = file6;
+                                if (list4 != null && (b2 = k.b(file11)) != null && !b2.isEmpty()) {
+                                    Iterator<Long> it8 = b2.iterator();
+                                    while (it8.hasNext()) {
+                                        Long next3 = it8.next();
+                                        if (list4.contains(next3)) {
+                                            File file12 = file11;
+                                            File file13 = new File(file12, next3 + "--pending-delete");
+                                            new File(file12, next3 + "").renameTo(file13);
+                                            it3 = it8;
+                                            file3 = file12;
+                                            arrayList.add(new C0363a(key, str3, i2, next3.longValue(), file13));
+                                        } else {
+                                            it3 = it8;
+                                            file3 = file11;
+                                        }
+                                        file11 = file3;
+                                        it8 = it3;
+                                    }
                                 }
                             }
-                            it = it6;
-                            it2 = it7;
-                            file2 = file6;
-                        } else {
-                            it = it6;
-                            it2 = it7;
-                            File file11 = file7;
-                            file2 = file6;
-                            if (list4 != null && (b2 = k.b(file11)) != null && !b2.isEmpty()) {
-                                Iterator<Long> it8 = b2.iterator();
-                                while (it8.hasNext()) {
-                                    Long next3 = it8.next();
-                                    if (list4.contains(next3)) {
-                                        File file12 = file11;
-                                        File file13 = new File(file12, next3 + "--pending-delete");
-                                        new File(file12, next3 + "").renameTo(file13);
-                                        it3 = it8;
-                                        file3 = file12;
-                                        arrayList.add(new C0323a(key, str3, i2, next3.longValue(), file13));
-                                    } else {
-                                        it3 = it8;
-                                        file3 = file11;
-                                    }
-                                    file11 = file3;
-                                    it8 = it3;
-                                }
-                            }
+                            it6 = it;
+                            it7 = it2;
+                            file6 = file2;
                         }
-                        it6 = it;
-                        it7 = it2;
-                        file6 = file2;
                     }
                 }
             }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeLL.objValue;
     }
 
     public static List<StatisticModel.PackageStatisticModel> a(Context context) {
-        return b.a(context).a();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? b.a(context).a() : (List) invokeL.objValue;
     }
 
     public static void a(com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
-        if (bVar.c()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65540, null, bVar) == null) && bVar.c()) {
             Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(bVar.a()), i.a(bVar.a()), bVar.k(), bVar.l());
             StatisticModel statisticModel = new StatisticModel();
-            statisticModel.f30293common = common2;
+            statisticModel.f32143common = common2;
             statisticModel.packages.addAll(a(bVar.a()));
             if (statisticModel.packages.isEmpty()) {
                 return;
@@ -235,13 +304,16 @@ public class a {
     }
 
     public static void a(com.bytedance.sdk.openadsdk.preload.geckox.b bVar, String str, String str2) throws Exception {
-        com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = bVar.h().a(str, str2);
-        if (a2.f30269c == 200) {
-            if (new JSONObject(a2.f30268b).getInt("status") != 0) {
-                throw new RuntimeException("upload failed");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, bVar, str, str2) == null) {
+            com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = bVar.h().a(str, str2);
+            if (a2.f32119c == 200) {
+                if (new JSONObject(a2.f32118b).getInt("status") != 0) {
+                    throw new RuntimeException("upload failed");
+                }
+                return;
             }
-            return;
+            throw new NetworkErrorException("net work get failed, code: " + a2.f32119c + ", url:" + str);
         }
-        throw new NetworkErrorException("net work get failed, code: " + a2.f30269c + ", url:" + str);
     }
 }

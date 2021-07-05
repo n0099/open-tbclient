@@ -6,6 +6,15 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,71 +27,111 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class df implements LoggerInterface {
-
-    /* renamed from: a  reason: collision with other field name */
-    public Context f230a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Handler f231a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f41217b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f41218c = "";
-
-    /* renamed from: a  reason: collision with other field name */
-    public static final SimpleDateFormat f228a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41216a = "/MiPushLog";
+    public static String f42959a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<Pair<String, Throwable>> f229a = Collections.synchronizedList(new ArrayList());
+    public static final SimpleDateFormat f231a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static List<Pair<String, Throwable>> f232a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Context f233a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Handler f234a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f42960b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f42961c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56376834, "Lcom/xiaomi/push/df;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56376834, "Lcom/xiaomi/push/df;");
+                return;
+            }
+        }
+        f231a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+        f42959a = "/MiPushLog";
+        f232a = Collections.synchronizedList(new ArrayList());
+    }
 
     public df(Context context) {
-        this.f230a = context;
-        if (context.getApplicationContext() != null) {
-            this.f230a = context.getApplicationContext();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.f41217b = this.f230a.getPackageName();
+        this.f42961c = "";
+        this.f233a = context;
+        if (context.getApplicationContext() != null) {
+            this.f233a = context.getApplicationContext();
+        }
+        this.f42960b = this.f233a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
-        this.f231a = new Handler(handlerThread.getLooper());
+        this.f234a = new Handler(handlerThread.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:85:0x017a -> B:108:0x017f). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:87:0x017e -> B:128:0x0183). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m230a() {
-        RandomAccessFile randomAccessFile;
+    public void m244a() {
         FileLock fileLock;
+        RandomAccessFile randomAccessFile;
         File file;
         File externalFilesDir;
-        BufferedWriter bufferedWriter = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            BufferedWriter bufferedWriter = null;
             try {
                 try {
-                    if (TextUtils.isEmpty(this.f41218c) && (externalFilesDir = this.f230a.getExternalFilesDir(null)) != null) {
-                        this.f41218c = externalFilesDir.getAbsolutePath() + "";
+                    try {
+                        if (TextUtils.isEmpty(this.f42961c) && (externalFilesDir = this.f233a.getExternalFilesDir(null)) != null) {
+                            this.f42961c = externalFilesDir.getAbsolutePath() + "";
+                        }
+                        file = new File(this.f42961c + f42959a);
+                    } catch (Throwable th) {
+                        th = th;
                     }
-                    file = new File(this.f41218c + f41216a);
-                } catch (IOException e2) {
-                    Log.e(this.f41217b, "", e2);
+                } catch (Exception e2) {
+                    e = e2;
+                    fileLock = null;
+                    randomAccessFile = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileLock = null;
+                    randomAccessFile = null;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                fileLock = null;
-                randomAccessFile = null;
-            } catch (Throwable th) {
-                th = th;
-                fileLock = null;
-                randomAccessFile = null;
+            } catch (IOException e3) {
+                Log.e(this.f42960b, "", e3);
             }
             if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                Log.w(this.f41217b, "Create mipushlog directory fail.");
+                Log.w(this.f42960b, "Create mipushlog directory fail.");
                 return;
             }
             File file2 = new File(file, "log.lock");
@@ -94,9 +143,9 @@ public class df implements LoggerInterface {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {
                     BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f229a.isEmpty()) {
+                    while (!f232a.isEmpty()) {
                         try {
-                            Pair<String, Throwable> remove = f229a.remove(0);
+                            Pair<String, Throwable> remove = f232a.remove(0);
                             String str = (String) remove.first;
                             if (remove.second != null) {
                                 str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -105,47 +154,47 @@ public class df implements LoggerInterface {
                         } catch (Exception e4) {
                             e = e4;
                             bufferedWriter = bufferedWriter2;
-                            Log.e(this.f41217b, "", e);
+                            Log.e(this.f42960b, "", e);
                             if (bufferedWriter != null) {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e5) {
-                                    Log.e(this.f41217b, "", e5);
+                                    Log.e(this.f42960b, "", e5);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e6) {
-                                    Log.e(this.f41217b, "", e6);
+                                    Log.e(this.f42960b, "", e6);
                                 }
                             }
                             if (randomAccessFile != null) {
                                 randomAccessFile.close();
                             }
                             return;
-                        } catch (Throwable th2) {
-                            th = th2;
+                        } catch (Throwable th3) {
+                            th = th3;
                             bufferedWriter = bufferedWriter2;
                             if (bufferedWriter != null) {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e7) {
-                                    Log.e(this.f41217b, "", e7);
+                                    Log.e(this.f42960b, "", e7);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e8) {
-                                    Log.e(this.f41217b, "", e8);
+                                    Log.e(this.f42960b, "", e8);
                                 }
                             }
                             if (randomAccessFile != null) {
                                 try {
                                     randomAccessFile.close();
                                 } catch (IOException e9) {
-                                    Log.e(this.f41217b, "", e9);
+                                    Log.e(this.f42960b, "", e9);
                                 }
                             }
                             throw th;
@@ -165,14 +214,14 @@ public class df implements LoggerInterface {
                         try {
                             bufferedWriter.close();
                         } catch (IOException e10) {
-                            Log.e(this.f41217b, "", e10);
+                            Log.e(this.f42960b, "", e10);
                         }
                     }
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
                         } catch (IOException e11) {
-                            Log.e(this.f41217b, "", e11);
+                            Log.e(this.f42960b, "", e11);
                         }
                     }
                     randomAccessFile.close();
@@ -182,27 +231,34 @@ public class df implements LoggerInterface {
             } catch (Exception e13) {
                 e = e13;
                 fileLock = null;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th4) {
+                th = th4;
                 fileLock = null;
             }
-        } catch (Throwable th4) {
-            th = th4;
         }
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void log(String str) {
-        log(str, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            log(str, null);
+        }
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void log(String str, Throwable th) {
-        this.f231a.post(new dg(this, str, th));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
+            this.f234a.post(new dg(this, str, th));
+        }
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void setTag(String str) {
-        this.f41217b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f42960b = str;
+        }
     }
 }

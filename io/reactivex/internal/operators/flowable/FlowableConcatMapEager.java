@@ -1,5 +1,11 @@
 package io.reactivex.internal.operators.flowable;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.exceptions.Exceptions;
@@ -20,41 +26,62 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpstream<T, R> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
     public final Function<? super T, ? extends Publisher<? extends R>> mapper;
     public final int maxConcurrency;
     public final int prefetch;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, InnerQueuedSubscriberSupport<R> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4255299542215038287L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
         public volatile InnerQueuedSubscriber<R> current;
         public volatile boolean done;
         public final ErrorMode errorMode;
+        public final AtomicThrowable errors;
         public final Function<? super T, ? extends Publisher<? extends R>> mapper;
         public final int maxConcurrency;
         public final int prefetch;
+        public final AtomicLong requested;
         public Subscription s;
         public final SpscLinkedArrayQueue<InnerQueuedSubscriber<R>> subscribers;
-        public final AtomicThrowable errors = new AtomicThrowable();
-        public final AtomicLong requested = new AtomicLong();
 
         public ConcatMapEagerDelayErrorSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function, int i2, int i3, ErrorMode errorMode) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, function, Integer.valueOf(i2), Integer.valueOf(i3), errorMode};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.mapper = function;
             this.maxConcurrency = i2;
             this.prefetch = i3;
             this.errorMode = errorMode;
             this.subscribers = new SpscLinkedArrayQueue<>(Math.min(i3, i2));
+            this.errors = new AtomicThrowable();
+            this.requested = new AtomicLong();
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            if (this.cancelled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
                 return;
             }
             this.cancelled = true;
@@ -63,6 +90,10 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
         }
 
         public void cancelAll() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
             while (true) {
                 InnerQueuedSubscriber<R> poll = this.subscribers.poll();
                 if (poll == null) {
@@ -72,69 +103,22 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:56:0x00cc, code lost:
-            r0 = false;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:57:0x00cd, code lost:
-            if (r17 != 0) goto L69;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:59:0x00d1, code lost:
-            if (r19.cancelled == false) goto L55;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:60:0x00d3, code lost:
-            cancelAll();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:61:0x00d6, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:63:0x00d9, code lost:
-            if (r3 != io.reactivex.internal.util.ErrorMode.IMMEDIATE) goto L62;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:65:0x00e3, code lost:
-            if (r19.errors.get() == null) goto L62;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:66:0x00e5, code lost:
-            r19.current = null;
-            r8.cancel();
-            cancelAll();
-            r2.onError(r19.errors.terminate());
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:67:0x00f6, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:68:0x00f7, code lost:
-            r15 = r8.isDone();
-            r12 = r12.isEmpty();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:69:0x00ff, code lost:
-            if (r15 == false) goto L69;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:70:0x0101, code lost:
-            if (r12 == false) goto L69;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:71:0x0103, code lost:
-            r19.current = null;
-            r19.s.request(1);
-            r8 = null;
-            r0 = true;
-         */
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         public void drain() {
             InnerQueuedSubscriber<R> innerQueuedSubscriber;
             int i2;
             long j;
             boolean z;
             SimpleQueue<R> queue;
-            if (getAndIncrement() != 0) {
+            int i3;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
             InnerQueuedSubscriber<R> innerQueuedSubscriber2 = this.current;
             Subscriber<? super R> subscriber = this.actual;
             ErrorMode errorMode = this.errorMode;
-            int i3 = 1;
+            int i4 = 1;
             while (true) {
                 long j2 = this.requested.get();
                 if (innerQueuedSubscriber2 != null) {
@@ -160,15 +144,15 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                     }
                 }
                 if (innerQueuedSubscriber == null || (queue = innerQueuedSubscriber.queue()) == null) {
-                    i2 = i3;
+                    i2 = i4;
                     j = 0;
                     z = false;
                 } else {
-                    i2 = i3;
+                    i2 = i4;
                     j = 0;
                     while (true) {
-                        int i4 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-                        if (i4 == 0) {
+                        i3 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i3 == 0) {
                             break;
                         } else if (this.cancelled) {
                             cancelAll();
@@ -207,16 +191,38 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                             }
                         }
                     }
+                    z = false;
+                    if (i3 == 0) {
+                        if (this.cancelled) {
+                            cancelAll();
+                            return;
+                        } else if (errorMode == ErrorMode.IMMEDIATE && this.errors.get() != null) {
+                            this.current = null;
+                            innerQueuedSubscriber.cancel();
+                            cancelAll();
+                            subscriber.onError(this.errors.terminate());
+                            return;
+                        } else {
+                            boolean isDone2 = innerQueuedSubscriber.isDone();
+                            boolean isEmpty = queue.isEmpty();
+                            if (isDone2 && isEmpty) {
+                                this.current = null;
+                                this.s.request(1L);
+                                innerQueuedSubscriber = null;
+                                z = true;
+                            }
+                        }
+                    }
                 }
                 if (j != 0 && j2 != Long.MAX_VALUE) {
                     this.requested.addAndGet(-j);
                 }
                 if (z) {
                     innerQueuedSubscriber2 = innerQueuedSubscriber;
-                    i3 = i2;
+                    i4 = i2;
                 } else {
-                    i3 = addAndGet(-i2);
-                    if (i3 == 0) {
+                    i4 = addAndGet(-i2);
+                    if (i4 == 0) {
                         return;
                     }
                     innerQueuedSubscriber2 = innerQueuedSubscriber;
@@ -225,7 +231,8 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
         }
 
         public void drainAndCancel() {
-            if (getAndIncrement() == 0) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
                 do {
                     cancelAll();
                 } while (decrementAndGet() != 0);
@@ -234,73 +241,92 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
 
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
         public void innerComplete(InnerQueuedSubscriber<R> innerQueuedSubscriber) {
-            innerQueuedSubscriber.setDone();
-            drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, innerQueuedSubscriber) == null) {
+                innerQueuedSubscriber.setDone();
+                drain();
+            }
         }
 
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
         public void innerError(InnerQueuedSubscriber<R> innerQueuedSubscriber, Throwable th) {
-            if (this.errors.addThrowable(th)) {
-                innerQueuedSubscriber.setDone();
-                if (this.errorMode != ErrorMode.END) {
-                    this.s.cancel();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, innerQueuedSubscriber, th) == null) {
+                if (this.errors.addThrowable(th)) {
+                    innerQueuedSubscriber.setDone();
+                    if (this.errorMode != ErrorMode.END) {
+                        this.s.cancel();
+                    }
+                    drain();
+                    return;
                 }
-                drain();
-                return;
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
         public void innerNext(InnerQueuedSubscriber<R> innerQueuedSubscriber, R r) {
-            if (innerQueuedSubscriber.queue().offer(r)) {
-                drain();
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, innerQueuedSubscriber, r) == null) {
+                if (innerQueuedSubscriber.queue().offer(r)) {
+                    drain();
+                    return;
+                }
+                innerQueuedSubscriber.cancel();
+                innerError(innerQueuedSubscriber, new MissingBackpressureException());
             }
-            innerQueuedSubscriber.cancel();
-            innerError(innerQueuedSubscriber, new MissingBackpressureException());
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            this.done = true;
-            drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.done = true;
+                drain();
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            if (this.errors.addThrowable(th)) {
-                this.done = true;
-                drain();
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
+                if (this.errors.addThrowable(th)) {
+                    this.done = true;
+                    drain();
+                    return;
+                }
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            try {
-                Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null Publisher");
-                InnerQueuedSubscriber<R> innerQueuedSubscriber = new InnerQueuedSubscriber<>(this, this.prefetch);
-                if (this.cancelled) {
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
+                try {
+                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null Publisher");
+                    InnerQueuedSubscriber<R> innerQueuedSubscriber = new InnerQueuedSubscriber<>(this, this.prefetch);
+                    if (this.cancelled) {
+                        return;
+                    }
+                    this.subscribers.offer(innerQueuedSubscriber);
+                    publisher.subscribe(innerQueuedSubscriber);
+                    if (this.cancelled) {
+                        innerQueuedSubscriber.cancel();
+                        drainAndCancel();
+                    }
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    this.s.cancel();
+                    onError(th);
                 }
-                this.subscribers.offer(innerQueuedSubscriber);
-                publisher.subscribe(innerQueuedSubscriber);
-                if (this.cancelled) {
-                    innerQueuedSubscriber.cancel();
-                    drainAndCancel();
-                }
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.cancel();
-                onError(th);
             }
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            if (SubscriptionHelper.validate(this.s, subscription)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048586, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
                 int i2 = this.maxConcurrency;
@@ -310,15 +336,32 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
                 BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowableConcatMapEager(Flowable<T> flowable, Function<? super T, ? extends Publisher<? extends R>> function, int i2, int i3, ErrorMode errorMode) {
         super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, function, Integer.valueOf(i2), Integer.valueOf(i3), errorMode};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mapper = function;
         this.maxConcurrency = i2;
         this.prefetch = i3;
@@ -327,6 +370,9 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super R> subscriber) {
-        this.source.subscribe((FlowableSubscriber) new ConcatMapEagerDelayErrorSubscriber(subscriber, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            this.source.subscribe((FlowableSubscriber) new ConcatMapEagerDelayErrorSubscriber(subscriber, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        }
     }
 }

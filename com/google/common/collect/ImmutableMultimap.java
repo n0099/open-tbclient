@@ -1,12 +1,21 @@
 package com.google.common.collect;
 
-import d.g.c.c.c1;
-import d.g.c.c.h0;
-import d.g.c.c.i0;
-import d.g.c.c.j;
-import d.g.c.c.m;
-import d.g.c.c.n0;
-import d.g.c.c.r0;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.c.d1;
+import d.f.d.c.j;
+import d.f.d.c.m;
+import d.f.d.c.o1;
+import d.f.d.c.q0;
+import d.f.d.c.s0;
+import d.f.d.c.y0;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,492 +23,830 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
     public final transient ImmutableMap<K, ? extends ImmutableCollection<V>> map;
     public final transient int size;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class EntryCollection<K, V> extends ImmutableCollection<Map.Entry<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ImmutableMultimap<K, V> multimap;
 
         public EntryCollection(ImmutableMultimap<K, V> immutableMultimap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {immutableMultimap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.multimap = immutableMultimap;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            if (obj instanceof Map.Entry) {
-                Map.Entry entry = (Map.Entry) obj;
-                return this.multimap.containsEntry(entry.getKey(), entry.getValue());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (obj instanceof Map.Entry) {
+                    Map.Entry entry = (Map.Entry) obj;
+                    return this.multimap.containsEntry(entry.getKey(), entry.getValue());
+                }
+                return false;
             }
-            return false;
+            return invokeL.booleanValue;
         }
 
         @Override // com.google.common.collect.ImmutableCollection
         public boolean isPartialView() {
-            return this.multimap.isPartialView();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.multimap.isPartialView() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return this.multimap.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.multimap.size() : invokeV.intValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
-        public c1<Map.Entry<K, V>> iterator() {
-            return this.multimap.entryIterator();
+        public o1<Map.Entry<K, V>> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.multimap.entryIterator() : (o1) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class Keys extends ImmutableMultiset<K> {
-        public Keys() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImmutableMultimap this$0;
+
+        public Keys(ImmutableMultimap immutableMultimap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {immutableMultimap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = immutableMultimap;
         }
 
         @Override // com.google.common.collect.ImmutableMultiset, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return ImmutableMultimap.this.containsKey(obj);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.this$0.containsKey(obj) : invokeL.booleanValue;
         }
 
-        @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
+        @Override // com.google.common.collect.ImmutableMultiset, d.f.d.c.s0
         public int count(Object obj) {
-            ImmutableCollection<V> immutableCollection = ImmutableMultimap.this.map.get(obj);
-            if (immutableCollection == null) {
-                return 0;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                ImmutableCollection<V> immutableCollection = this.this$0.map.get(obj);
+                if (immutableCollection == null) {
+                    return 0;
+                }
+                return immutableCollection.size();
             }
-            return immutableCollection.size();
+            return invokeL.intValue;
         }
 
         @Override // com.google.common.collect.ImmutableMultiset
-        public i0.a<K> getEntry(int i2) {
-            Map.Entry<K, ? extends ImmutableCollection<V>> entry = ImmutableMultimap.this.map.entrySet().asList().get(i2);
-            return Multisets.g(entry.getKey(), entry.getValue().size());
+        public s0.a<K> getEntry(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+                Map.Entry<K, ? extends ImmutableCollection<V>> entry = this.this$0.map.entrySet().asList().get(i2);
+                return Multisets.h(entry.getKey(), entry.getValue().size());
+            }
+            return (s0.a) invokeI.objValue;
         }
 
         @Override // com.google.common.collect.ImmutableCollection
         public boolean isPartialView() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
-        @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
+        @Override // java.util.AbstractCollection, java.util.Collection, d.f.d.c.s0
         public int size() {
-            return ImmutableMultimap.this.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.this$0.size() : invokeV.intValue;
         }
 
         @Override // com.google.common.collect.ImmutableMultiset, com.google.common.collect.ImmutableCollection
         public Object writeReplace() {
-            return new KeysSerializedForm(ImmutableMultimap.this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new KeysSerializedForm(this.this$0) : invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
+        @Override // com.google.common.collect.ImmutableMultiset, d.f.d.c.s0
         public ImmutableSet<K> elementSet() {
-            return ImmutableMultimap.this.keySet();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.keySet() : (ImmutableSet) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class KeysSerializedForm implements Serializable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ImmutableMultimap<?, ?> multimap;
 
         public KeysSerializedForm(ImmutableMultimap<?, ?> immutableMultimap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {immutableMultimap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.multimap = immutableMultimap;
         }
 
         public Object readResolve() {
-            return this.multimap.keys();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.multimap.keys() : invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Values<K, V> extends ImmutableCollection<V> {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMultimap<K, V> f31220e;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final transient ImmutableMultimap<K, V> multimap;
 
         public Values(ImmutableMultimap<K, V> immutableMultimap) {
-            this.f31220e = immutableMultimap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {immutableMultimap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.multimap = immutableMultimap;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f31220e.containsValue(obj);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.multimap.containsValue(obj) : invokeL.booleanValue;
         }
 
         @Override // com.google.common.collect.ImmutableCollection
         public int copyIntoArray(Object[] objArr, int i2) {
-            c1<? extends ImmutableCollection<V>> it = this.f31220e.map.values().iterator();
-            while (it.hasNext()) {
-                i2 = it.next().copyIntoArray(objArr, i2);
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr, i2)) == null) {
+                o1<? extends ImmutableCollection<V>> it = this.multimap.map.values().iterator();
+                while (it.hasNext()) {
+                    i2 = it.next().copyIntoArray(objArr, i2);
+                }
+                return i2;
             }
-            return i2;
+            return invokeLI.intValue;
         }
 
         @Override // com.google.common.collect.ImmutableCollection
         public boolean isPartialView() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return this.f31220e.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.multimap.size() : invokeV.intValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
-        public c1<V> iterator() {
-            return this.f31220e.valueIterator();
+        public o1<V> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.multimap.valueIterator() : (o1) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends c1<Map.Entry<K, V>> {
+    /* loaded from: classes7.dex */
+    public class a extends o1<Map.Entry<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f31221e;
+        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f33103e;
 
         /* renamed from: f  reason: collision with root package name */
-        public K f31222f = null;
+        public K f33104f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<V> f31223g = Iterators.h();
+        public Iterator<V> f33105g;
 
-        public a() {
-            this.f31221e = ImmutableMultimap.this.map.entrySet().iterator();
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ ImmutableMultimap f33106h;
+
+        public a(ImmutableMultimap immutableMultimap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {immutableMultimap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33106h = immutableMultimap;
+            this.f33103e = this.f33106h.map.entrySet().iterator();
+            this.f33104f = null;
+            this.f33105g = Iterators.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: a */
         public Map.Entry<K, V> next() {
-            if (!this.f31223g.hasNext()) {
-                Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f31221e.next();
-                this.f31222f = next.getKey();
-                this.f31223g = next.getValue().iterator();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.f33105g.hasNext()) {
+                    Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f33103e.next();
+                    this.f33104f = next.getKey();
+                    this.f33105g = next.getValue().iterator();
+                }
+                return Maps.l(this.f33104f, this.f33105g.next());
             }
-            return Maps.j(this.f31222f, this.f31223g.next());
+            return (Map.Entry) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31223g.hasNext() || this.f31221e.hasNext();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33105g.hasNext() || this.f33103e.hasNext() : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends c1<V> {
+    /* loaded from: classes7.dex */
+    public class b extends o1<V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Iterator<? extends ImmutableCollection<V>> f31225e;
+        public Iterator<? extends ImmutableCollection<V>> f33107e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Iterator<V> f31226f = Iterators.h();
+        public Iterator<V> f33108f;
 
-        public b() {
-            this.f31225e = ImmutableMultimap.this.map.values().iterator();
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ ImmutableMultimap f33109g;
+
+        public b(ImmutableMultimap immutableMultimap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {immutableMultimap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33109g = immutableMultimap;
+            this.f33107e = this.f33109g.map.values().iterator();
+            this.f33108f = Iterators.i();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31226f.hasNext() || this.f31225e.hasNext();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33108f.hasNext() || this.f33107e.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public V next() {
-            if (!this.f31226f.hasNext()) {
-                this.f31226f = this.f31225e.next().iterator();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (!this.f33108f.hasNext()) {
+                    this.f33108f = this.f33107e.next().iterator();
+                }
+                return this.f33108f.next();
             }
-            return this.f31226f.next();
+            return (V) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<K, Collection<V>> f31228a = n0.h();
+        public Map<K, Collection<V>> f33110a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super K> f31229b;
+        public Comparator<? super K> f33111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super V> f31230c;
+        public Comparator<? super V> f33112c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33110a = y0.h();
+        }
 
         public ImmutableMultimap<K, V> a() {
-            Collection entrySet = this.f31228a.entrySet();
-            Comparator<? super K> comparator = this.f31229b;
-            if (comparator != null) {
-                entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Collection entrySet = this.f33110a.entrySet();
+                Comparator<? super K> comparator = this.f33111b;
+                if (comparator != null) {
+                    entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
+                }
+                return ImmutableListMultimap.fromMapEntries(entrySet, this.f33112c);
             }
-            return ImmutableListMultimap.fromMapEntries(entrySet, this.f31230c);
+            return (ImmutableMultimap) invokeV.objValue;
         }
 
         public Collection<V> b() {
-            return new ArrayList();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList() : (Collection) invokeV.objValue;
         }
 
         public c<K, V> c(K k, V v) {
-            m.a(k, v);
-            Collection<V> collection = this.f31228a.get(k);
-            if (collection == null) {
-                Map<K, Collection<V>> map = this.f31228a;
-                Collection<V> b2 = b();
-                map.put(k, b2);
-                collection = b2;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
+                m.a(k, v);
+                Collection<V> collection = this.f33110a.get(k);
+                if (collection == null) {
+                    Map<K, Collection<V>> map = this.f33110a;
+                    Collection<V> b2 = b();
+                    map.put(k, b2);
+                    collection = b2;
+                }
+                collection.add(v);
+                return this;
             }
-            collection.add(v);
-            return this;
+            return (c) invokeLL.objValue;
         }
 
         public c<K, V> d(Map.Entry<? extends K, ? extends V> entry) {
-            return c(entry.getKey(), entry.getValue());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, entry)) == null) ? c(entry.getKey(), entry.getValue()) : (c) invokeL.objValue;
         }
 
         public c<K, V> e(Iterable<? extends Map.Entry<? extends K, ? extends V>> iterable) {
-            for (Map.Entry<? extends K, ? extends V> entry : iterable) {
-                d(entry);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iterable)) == null) {
+                for (Map.Entry<? extends K, ? extends V> entry : iterable) {
+                    d(entry);
+                }
+                return this;
             }
-            return this;
+            return (c) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class d {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final r0.b<ImmutableMultimap> f31231a = r0.a(ImmutableMultimap.class, "map");
+        public static final d1.b<ImmutableMultimap> f33113a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final r0.b<ImmutableMultimap> f31232b = r0.a(ImmutableMultimap.class, "size");
+        public static final d1.b<ImmutableMultimap> f33114b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1016095107, "Lcom/google/common/collect/ImmutableMultimap$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1016095107, "Lcom/google/common/collect/ImmutableMultimap$d;");
+                    return;
+                }
+            }
+            f33113a = d1.a(ImmutableMultimap.class, "map");
+            f33114b = d1.a(ImmutableMultimap.class, "size");
+        }
     }
 
     public ImmutableMultimap(ImmutableMap<K, ? extends ImmutableCollection<V>> immutableMap, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {immutableMap, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.map = immutableMap;
         this.size = i2;
     }
 
     public static <K, V> c<K, V> builder() {
-        return new c<>();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new c<>() : (c) invokeV.objValue;
     }
 
-    public static <K, V> ImmutableMultimap<K, V> copyOf(h0<? extends K, ? extends V> h0Var) {
-        if (h0Var instanceof ImmutableMultimap) {
-            ImmutableMultimap<K, V> immutableMultimap = (ImmutableMultimap) h0Var;
-            if (!immutableMultimap.isPartialView()) {
-                return immutableMultimap;
+    public static <K, V> ImmutableMultimap<K, V> copyOf(q0<? extends K, ? extends V> q0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, q0Var)) == null) {
+            if (q0Var instanceof ImmutableMultimap) {
+                ImmutableMultimap<K, V> immutableMultimap = (ImmutableMultimap) q0Var;
+                if (!immutableMultimap.isPartialView()) {
+                    return immutableMultimap;
+                }
             }
+            return ImmutableListMultimap.copyOf((q0) q0Var);
         }
-        return ImmutableListMultimap.copyOf((h0) h0Var);
+        return (ImmutableMultimap) invokeL.objValue;
     }
 
     public static <K, V> ImmutableMultimap<K, V> of() {
-        return ImmutableListMultimap.of();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? ImmutableListMultimap.of() : (ImmutableMultimap) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.h0
+    @Override // d.f.d.c.q0
     @Deprecated
     public void clear() {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public /* bridge */ /* synthetic */ boolean containsEntry(Object obj, Object obj2) {
         return super.containsEntry(obj, obj2);
     }
 
-    @Override // d.g.c.c.h0
+    @Override // d.f.d.c.q0
     public boolean containsKey(Object obj) {
-        return this.map.containsKey(obj);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.map.containsKey(obj) : invokeL.booleanValue;
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public boolean containsValue(Object obj) {
-        return obj != null && super.containsValue(obj);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? obj != null && super.containsValue(obj) : invokeL.booleanValue;
     }
 
-    @Override // d.g.c.c.c
+    @Override // d.f.d.c.c
     public Map<K, Collection<V>> createAsMap() {
-        throw new AssertionError("should never be called");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new AssertionError("should never be called");
+        }
+        return (Map) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.c
+    @Override // d.f.d.c.c
     public Set<K> createKeySet() {
-        throw new AssertionError("unreachable");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            throw new AssertionError("unreachable");
+        }
+        return (Set) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
-    @Override // d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.f.d.c.q0, d.f.d.c.p0
     public abstract ImmutableCollection<V> get(K k);
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.f.d.c.q0, d.f.d.c.p0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((ImmutableMultimap<K, V>) obj);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
     public abstract ImmutableMultimap<V, K> inverse();
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
     public boolean isPartialView() {
-        return this.map.isPartialView();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.map.isPartialView() : invokeV.booleanValue;
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     @Deprecated
     public boolean put(K k, V v) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, k, v)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeLL.booleanValue;
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     @Deprecated
     public boolean putAll(K k, Iterable<? extends V> iterable) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048607, this, k, iterable)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeLL.booleanValue;
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     @Deprecated
     public boolean remove(Object obj, Object obj2) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, obj, obj2)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeLL.booleanValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.f.d.c.c, d.f.d.c.q0, d.f.d.c.p0
     @Deprecated
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableMultimap<K, V>) obj, iterable);
     }
 
-    @Override // d.g.c.c.h0
+    @Override // d.f.d.c.q0
     public int size() {
-        return this.size;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.size : invokeV.intValue;
     }
 
-    @Override // d.g.c.c.c
+    @Override // d.f.d.c.c
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
 
     public static <K, V> ImmutableMultimap<K, V> of(K k, V v) {
-        return ImmutableListMultimap.of((Object) k, (Object) v);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, k, v)) == null) ? ImmutableListMultimap.of((Object) k, (Object) v) : (ImmutableMultimap) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.google.common.collect.ImmutableMap<K, ? extends com.google.common.collect.ImmutableCollection<V>>, com.google.common.collect.ImmutableMap<K, java.util.Collection<V>> */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.google.common.collect.ImmutableMap<K, ? extends com.google.common.collect.ImmutableCollection<V>>, com.google.common.collect.ImmutableMap<K, java.util.Collection<V>> */
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public ImmutableMap<K, Collection<V>> asMap() {
-        return (ImmutableMap<K, ? extends ImmutableCollection<V>>) this.map;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (ImmutableMap<K, ? extends ImmutableCollection<V>>) this.map : (ImmutableMap) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.f.d.c.c
     public ImmutableCollection<Map.Entry<K, V>> createEntries() {
-        return new EntryCollection(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new EntryCollection(this) : (ImmutableCollection) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.f.d.c.c
     public ImmutableMultiset<K> createKeys() {
-        return new Keys();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new Keys(this) : (ImmutableMultiset) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.f.d.c.c
     public ImmutableCollection<V> createValues() {
-        return new Values(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new Values(this) : (ImmutableCollection) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public ImmutableCollection<Map.Entry<K, V>> entries() {
-        return (ImmutableCollection) super.entries();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (ImmutableCollection) super.entries() : (ImmutableCollection) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
-    public c1<Map.Entry<K, V>> entryIterator() {
-        return new a();
+    @Override // d.f.d.c.c
+    public o1<Map.Entry<K, V>> entryIterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new a(this) : (o1) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public ImmutableSet<K> keySet() {
-        return this.map.keySet();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.map.keySet() : (ImmutableSet) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public ImmutableMultiset<K> keys() {
-        return (ImmutableMultiset) super.keys();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? (ImmutableMultiset) super.keys() : (ImmutableMultiset) invokeV.objValue;
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     @Deprecated
-    public boolean putAll(h0<? extends K, ? extends V> h0Var) {
-        throw new UnsupportedOperationException();
+    public boolean putAll(q0<? extends K, ? extends V> q0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, q0Var)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.f.d.c.q0, d.f.d.c.p0
     @Deprecated
     public ImmutableCollection<V> removeAll(Object obj) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, obj)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (ImmutableCollection) invokeL.objValue;
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.f.d.c.c, d.f.d.c.q0, d.f.d.c.p0
     @Deprecated
     public ImmutableCollection<V> replaceValues(K k, Iterable<? extends V> iterable) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, k, iterable)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (ImmutableCollection) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
-    public c1<V> valueIterator() {
-        return new b();
+    @Override // d.f.d.c.c
+    public o1<V> valueIterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? new b(this) : (o1) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.f.d.c.c, d.f.d.c.q0
     public ImmutableCollection<V> values() {
-        return (ImmutableCollection) super.values();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? (ImmutableCollection) super.values() : (ImmutableCollection) invokeV.objValue;
     }
 
     public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, k, v, k2, v2)) == null) ? ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2) : (ImmutableMultimap) invokeLLLL.objValue;
     }
 
     public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{k, v, k2, v2, k3, v3})) == null) ? ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3) : (ImmutableMultimap) invokeCommon.objValue;
     }
 
     public static <K, V> ImmutableMultimap<K, V> copyOf(Iterable<? extends Map.Entry<? extends K, ? extends V>> iterable) {
-        return ImmutableListMultimap.copyOf((Iterable) iterable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) ? ImmutableListMultimap.copyOf((Iterable) iterable) : (ImmutableMultimap) invokeL.objValue;
     }
 
     public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4})) == null) ? ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4) : (ImmutableMultimap) invokeCommon.objValue;
     }
 
     public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4, (Object) k5, (Object) v5);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5})) == null) ? ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4, (Object) k5, (Object) v5) : (ImmutableMultimap) invokeCommon.objValue;
     }
 }

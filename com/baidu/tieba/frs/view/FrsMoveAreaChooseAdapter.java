@@ -5,73 +5,123 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
-import d.a.n0.r.f0.m.c;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.f0.m.c;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsMoveAreaChooseView f15992e;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f15994g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f15995h = -1;
+    public FrsMoveAreaChooseView f16131e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<FrsTabInfo> f15993f = d.a.o0.r0.a.h().g();
+    public List<FrsTabInfo> f16132f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f16133g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f16134h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<FrsTabInfo> f15996i = new SparseArray<>();
+    public SparseArray<FrsTabInfo> f16135i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends RecyclerView.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TBSpecificationBtn f15997a;
+        public TBSpecificationBtn f16136a;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FrsMoveAreaChooseAdapter frsMoveAreaChooseAdapter, View view) {
             super(view);
-            this.f15997a = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsMoveAreaChooseAdapter, view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16136a = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
         }
     }
 
     public FrsMoveAreaChooseAdapter(FrsMoveAreaChooseView frsMoveAreaChooseView) {
-        this.f15994g = -1;
-        this.f15992e = frsMoveAreaChooseView;
-        if (ListUtils.isEmpty(this.f15993f)) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsMoveAreaChooseView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f16133g = -1;
+        this.f16134h = -1;
+        this.f16131e = frsMoveAreaChooseView;
+        this.f16132f = d.a.s0.u0.a.h().g();
+        this.f16135i = new SparseArray<>();
+        if (ListUtils.isEmpty(this.f16132f)) {
             return;
         }
-        for (int i2 = 0; i2 < this.f15993f.size(); i2++) {
-            FrsTabInfo frsTabInfo = this.f15993f.get(i2);
-            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == d.a.o0.r0.a.h().e() || frsTabInfo.tab_type.intValue() == 3)) {
-                if (frsTabInfo.tab_id.intValue() == d.a.o0.r0.a.h().e()) {
-                    this.f15994g = i2;
+        for (int i4 = 0; i4 < this.f16132f.size(); i4++) {
+            FrsTabInfo frsTabInfo = this.f16132f.get(i4);
+            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == d.a.s0.u0.a.h().e() || frsTabInfo.tab_type.intValue() == 3)) {
+                if (frsTabInfo.tab_id.intValue() == d.a.s0.u0.a.h().e()) {
+                    this.f16133g = i4;
                 }
-                this.f15996i.append(i2, frsTabInfo);
+                this.f16135i.append(i4, frsTabInfo);
             }
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f15993f);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f16132f) : invokeV.intValue;
     }
 
     public int m() {
-        return this.f15994g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16133g : invokeV.intValue;
     }
 
     public int n() {
-        return this.f15995h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16134h : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,39 +129,41 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     /* renamed from: o */
     public void onBindViewHolder(@NonNull a aVar, int i2) {
         FrsTabInfo frsTabInfo;
-        if (ListUtils.isEmpty(this.f15993f) || (frsTabInfo = (FrsTabInfo) ListUtils.getItem(this.f15993f, i2)) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, aVar, i2) == null) || ListUtils.isEmpty(this.f16132f) || (frsTabInfo = (FrsTabInfo) ListUtils.getItem(this.f16132f, i2)) == null) {
             return;
         }
-        aVar.f15997a.setTag(Integer.valueOf(i2));
-        aVar.f15997a.setText(frsTabInfo.tab_name);
-        aVar.f15997a.setOnClickListener(this);
-        p(aVar.f15997a, i2);
+        aVar.f16136a.setTag(Integer.valueOf(i2));
+        aVar.f16136a.setText(frsTabInfo.tab_name);
+        aVar.f16136a.setOnClickListener(this);
+        p(aVar.f16136a, i2);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getTag() instanceof Integer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && (view.getTag() instanceof Integer)) {
             int intValue = ((Integer) view.getTag()).intValue();
-            if (this.f15996i.get(intValue) != null) {
-                FrsMoveAreaChooseView frsMoveAreaChooseView = this.f15992e;
-                if (frsMoveAreaChooseView == null || frsMoveAreaChooseView.getContext() == null || this.f15992e.getParent() == null) {
+            if (this.f16135i.get(intValue) != null) {
+                FrsMoveAreaChooseView frsMoveAreaChooseView = this.f16131e;
+                if (frsMoveAreaChooseView == null || frsMoveAreaChooseView.getContext() == null || this.f16131e.getParent() == null) {
                     return;
                 }
-                if (intValue == this.f15994g) {
-                    BdTopToast bdTopToast = new BdTopToast(this.f15992e.getContext());
+                if (intValue == this.f16133g) {
+                    BdTopToast bdTopToast = new BdTopToast(this.f16131e.getContext());
                     bdTopToast.i(false);
                     bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip));
-                    bdTopToast.j((ViewGroup) this.f15992e.getParent());
+                    bdTopToast.j((ViewGroup) this.f16131e.getParent());
                     return;
                 }
-                BdTopToast bdTopToast2 = new BdTopToast(this.f15992e.getContext());
+                BdTopToast bdTopToast2 = new BdTopToast(this.f16131e.getContext());
                 bdTopToast2.i(false);
                 bdTopToast2.h(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip));
-                bdTopToast2.j((ViewGroup) this.f15992e.getParent());
+                bdTopToast2.j((ViewGroup) this.f16131e.getParent());
                 return;
             }
-            this.f15995h = intValue;
-            FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f15992e;
+            this.f16134h = intValue;
+            FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f16131e;
             if (frsMoveAreaChooseView2 != null) {
                 frsMoveAreaChooseView2.onClick(view);
             }
@@ -120,24 +172,27 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     }
 
     public final void p(TBSpecificationBtn tBSpecificationBtn, int i2) {
-        if (i2 == this.f15995h) {
-            c cVar = new c();
-            cVar.o(R.color.CAM_X0304);
-            tBSpecificationBtn.setConfig(cVar);
-            tBSpecificationBtn.k();
-            tBSpecificationBtn.setUseDisableState(false);
-        } else if (this.f15996i.get(i2) != null) {
-            c cVar2 = new c();
-            cVar2.q(R.color.CAM_X0105);
-            tBSpecificationBtn.setConfig(cVar2);
-            tBSpecificationBtn.k();
-            tBSpecificationBtn.setUseDisableState(true);
-        } else {
-            c cVar3 = new c();
-            cVar3.q(R.color.CAM_X0105);
-            tBSpecificationBtn.setConfig(cVar3);
-            tBSpecificationBtn.k();
-            tBSpecificationBtn.setUseDisableState(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, tBSpecificationBtn, i2) == null) {
+            if (i2 == this.f16134h) {
+                c cVar = new c();
+                cVar.o(R.color.CAM_X0304);
+                tBSpecificationBtn.setConfig(cVar);
+                tBSpecificationBtn.k();
+                tBSpecificationBtn.setUseDisableState(false);
+            } else if (this.f16135i.get(i2) != null) {
+                c cVar2 = new c();
+                cVar2.q(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(cVar2);
+                tBSpecificationBtn.k();
+                tBSpecificationBtn.setUseDisableState(true);
+            } else {
+                c cVar3 = new c();
+                cVar3.q(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(cVar3);
+                tBSpecificationBtn.k();
+                tBSpecificationBtn.setUseDisableState(false);
+            }
         }
     }
 
@@ -146,6 +201,8 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     @NonNull
     /* renamed from: q */
     public a onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell_frs_area_choose_layout, viewGroup, false));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell_frs_area_choose_layout, viewGroup, false)) : (a) invokeLI.objValue;
     }
 }

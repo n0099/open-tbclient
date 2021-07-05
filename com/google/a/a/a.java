@@ -3,52 +3,89 @@ package com.google.a.a;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class a implements IInterface {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final IBinder f30923a;
+    public final IBinder f32694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30924b;
+    public final String f32695b;
 
     public a(IBinder iBinder, String str) {
-        this.f30923a = iBinder;
-        this.f30924b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iBinder, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32694a = iBinder;
+        this.f32695b = str;
     }
 
     public final Parcel a() {
-        Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken(this.f30924b);
-        return obtain;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Parcel obtain = Parcel.obtain();
+            obtain.writeInterfaceToken(this.f32695b);
+            return obtain;
+        }
+        return (Parcel) invokeV.objValue;
     }
 
     @Override // android.os.IInterface
     public IBinder asBinder() {
-        return this.f30923a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32694a : (IBinder) invokeV.objValue;
     }
 
     public final void b(int i2, Parcel parcel) {
-        try {
-            this.f30923a.transact(i2, parcel, null, 1);
-        } finally {
-            parcel.recycle();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, parcel) == null) {
+            try {
+                this.f32694a.transact(i2, parcel, null, 1);
+            } finally {
+                parcel.recycle();
+            }
         }
     }
 
     public final Parcel a(int i2, Parcel parcel) {
-        Parcel obtain = Parcel.obtain();
-        try {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, parcel)) == null) {
+            Parcel obtain = Parcel.obtain();
             try {
-                this.f30923a.transact(i2, parcel, obtain, 0);
-                obtain.readException();
-                return obtain;
-            } catch (RuntimeException e2) {
-                obtain.recycle();
-                throw e2;
+                try {
+                    this.f32694a.transact(i2, parcel, obtain, 0);
+                    obtain.readException();
+                    return obtain;
+                } catch (RuntimeException e2) {
+                    obtain.recycle();
+                    throw e2;
+                }
+            } finally {
+                parcel.recycle();
             }
-        } finally {
-            parcel.recycle();
         }
+        return (Parcel) invokeIL.objValue;
     }
 }

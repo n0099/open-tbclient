@@ -1,99 +1,178 @@
 package com.baidu.wallet.core.utils.contacts;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class ContractInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24130a;
+    public String f24673a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24131b;
+    public String f24674b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24132c;
+    public int f24675c;
 
     public ContractInfo() {
-        this.f24130a = "";
-        this.f24131b = "";
-        this.f24132c = -1;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24673a = "";
+        this.f24674b = "";
+        this.f24675c = -1;
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj != null && ContractInfo.class == obj.getClass()) {
-            ContractInfo contractInfo = (ContractInfo) obj;
-            String str = this.f24131b;
-            if (str == null) {
-                if (contractInfo.f24131b != null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && ContractInfo.class == obj.getClass()) {
+                ContractInfo contractInfo = (ContractInfo) obj;
+                String str = this.f24674b;
+                if (str == null) {
+                    if (contractInfo.f24674b != null) {
+                        return false;
+                    }
+                } else if (!str.equals(contractInfo.f24674b)) {
                     return false;
                 }
-            } else if (!str.equals(contractInfo.f24131b)) {
-                return false;
-            }
-            String str2 = this.f24130a;
-            if (str2 == null) {
-                if (contractInfo.f24130a != null) {
+                String str2 = this.f24673a;
+                if (str2 == null) {
+                    if (contractInfo.f24673a != null) {
+                        return false;
+                    }
+                } else if (!str2.equals(contractInfo.f24673a)) {
                     return false;
                 }
-            } else if (!str2.equals(contractInfo.f24130a)) {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int getErrordigit() {
-        return this.f24132c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24675c : invokeV.intValue;
     }
 
     public String getMobile() {
-        return this.f24131b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24674b : (String) invokeV.objValue;
     }
 
     public String getName() {
-        return this.f24130a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24673a : (String) invokeV.objValue;
     }
 
     public int hashCode() {
-        String str = this.f24131b;
-        int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-        String str2 = this.f24130a;
-        return hashCode + (str2 != null ? str2.hashCode() : 0);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.f24674b;
+            int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
+            String str2 = this.f24673a;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
     }
 
     public void setErrordigit(int i2) {
-        this.f24132c = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.f24675c = i2;
+        }
     }
 
     public void setMobile(String str) {
-        this.f24131b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f24674b = str;
+        }
     }
 
     public void setName(String str) {
-        this.f24130a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f24673a = str;
+        }
     }
 
     public String toString() {
-        return "通讯录 [name=" + this.f24130a + ", mobile=" + this.f24131b + PreferencesUtil.RIGHT_MOUNT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "通讯录 [name=" + this.f24673a + ", mobile=" + this.f24674b + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ContractInfo(String str) {
-        this.f24130a = "";
-        this.f24131b = "";
-        this.f24132c = -1;
-        this.f24131b = str;
-        this.f24130a = "";
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f24673a = "";
+        this.f24674b = "";
+        this.f24675c = -1;
+        this.f24674b = str;
+        this.f24673a = "";
     }
 
     public ContractInfo(String str, String str2) {
-        this.f24130a = "";
-        this.f24131b = "";
-        this.f24132c = -1;
-        this.f24131b = str;
-        this.f24130a = str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f24673a = "";
+        this.f24674b = "";
+        this.f24675c = -1;
+        this.f24674b = str;
+        this.f24673a = str2;
     }
 }

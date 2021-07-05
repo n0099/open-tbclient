@@ -2,9 +2,18 @@ package com.baidu.android.lbspay.channelpay.baidu;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.pay.PayCallBack;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
@@ -13,59 +22,98 @@ import com.baidu.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ChannelBaiduPayForTransCashier {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f2666a = new ChannelBaiduPayForTransCashier();
+        public static ChannelBaiduPayForTransCashier f2664a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-155396990, "Lcom/baidu/android/lbspay/channelpay/baidu/ChannelBaiduPayForTransCashier$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-155396990, "Lcom/baidu/android/lbspay/channelpay/baidu/ChannelBaiduPayForTransCashier$a;");
+                    return;
+                }
+            }
+            f2664a = new ChannelBaiduPayForTransCashier();
+        }
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
-        return a.f2666a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f2664a : (ChannelBaiduPayForTransCashier) invokeV.objValue;
     }
 
     private String getNotify(String str) {
+        InterceptResult invokeL;
         String[] split;
-        String str2 = "";
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                for (String str3 : str.split(";")) {
-                    if (str3.startsWith("notify")) {
-                        str2 = gatValue(str3, "notify");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+            String str2 = "";
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    for (String str3 : str.split(";")) {
+                        if (str3.startsWith("notify")) {
+                            str2 = gatValue(str3, "notify");
+                        }
                     }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
+            return str2;
         }
-        return str2;
+        return (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlepayResult(Context context, int i2, String str) {
-        if (i2 == 0) {
-            paySuccess(context, str);
-        } else if (i2 == 1) {
-            paying(context);
-        } else if (i2 != 2) {
-        } else {
-            payCancel(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, this, context, i2, str) == null) {
+            if (i2 == 0) {
+                paySuccess(context, str);
+            } else if (i2 == 1) {
+                paying(context);
+            } else if (i2 != 2) {
+            } else {
+                payCancel(context);
+            }
         }
     }
 
     private void paySuccess(Context context, String str) {
-        LBSPayResult.payResult(context, 0, getNotify(str));
-        StatisticManager.onEventWithValue(StatServiceEvent.LBS_BAIDU_PAY, "success");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, context, str) == null) {
+            LBSPayResult.payResult(context, 0, getNotify(str));
+            StatisticManager.onEventWithValue(StatServiceEvent.LBS_BAIDU_PAY, "success");
+        }
     }
 
     public String gatValue(String str, String str2) {
-        String str3 = str2 + "={";
-        return str.substring(str.indexOf(str3) + str3.length(), str.indexOf("}"));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String str3 = str2 + "={";
+            return str.substring(str.indexOf(str3) + str3.length(), str.indexOf("}"));
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public void pay(final Context context, String str, PrecashierCreateOrderResponse precashierCreateOrderResponse, CashierDataNew cashierDataNew) {
-        if (TextUtils.isEmpty(str) || precashierCreateOrderResponse == null) {
+    public void pay(Context context, String str, PrecashierCreateOrderResponse precashierCreateOrderResponse, CashierDataNew cashierDataNew) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, precashierCreateOrderResponse, cashierDataNew) == null) || TextUtils.isEmpty(str) || precashierCreateOrderResponse == null) {
             return;
         }
         String str2 = StatServiceEvent.LBS_TRANSPARENT_POLYMERPAY;
@@ -75,31 +123,83 @@ public class ChannelBaiduPayForTransCashier {
         sb.append("");
         sb.toString();
         WalletLoginHelper.getInstance().getLoginToken();
-        BaiduPayDelegate.getInstance().doPrecashierPay(context, str, new PayCallBack() { // from class: com.baidu.android.lbspay.channelpay.baidu.ChannelBaiduPayForTransCashier.1
+        BaiduPayDelegate.getInstance().doPrecashierPay(context, str, new PayCallBack(this, context) { // from class: com.baidu.android.lbspay.channelpay.baidu.ChannelBaiduPayForTransCashier.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Context f2662a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ ChannelBaiduPayForTransCashier f2663b;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, context};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f2663b = this;
+                this.f2662a = context;
+            }
+
             @Override // com.baidu.android.pay.PayCallBack
             public boolean isHideLoadingDialog() {
-                return false;
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return false;
+                }
+                return invokeV.booleanValue;
             }
 
             @Override // com.baidu.android.pay.PayCallBack
             public void onPayResult(int i2, String str3) {
-                ChannelBaiduPayForTransCashier.this.handlepayResult(context, i2, str3);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
+                    this.f2663b.handlepayResult(this.f2662a, i2, str3);
+                }
             }
         }, new HashMap(), precashierCreateOrderResponse, null);
     }
 
     public void payCancel(Context context) {
-        if (context != null) {
-            LBSPayResult.payResult(context, 2, "");
-            StatisticManager.onEventWithValue(StatServiceEvent.LBS_BAIDU_PAY, "canncel");
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || context == null) {
+            return;
         }
+        LBSPayResult.payResult(context, 2, "");
+        StatisticManager.onEventWithValue(StatServiceEvent.LBS_BAIDU_PAY, "canncel");
     }
 
     public void paying(Context context) {
-        LBSPayResult.payResult(context, 1, "");
-        StatisticManager.onEventWithValue(StatServiceEvent.LBS_BAIDU_PAY, "paying");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            LBSPayResult.payResult(context, 1, "");
+            StatisticManager.onEventWithValue(StatServiceEvent.LBS_BAIDU_PAY, "paying");
+        }
     }
 
     public ChannelBaiduPayForTransCashier() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

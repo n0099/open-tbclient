@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.parser;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
@@ -24,7 +25,17 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.io.Closeable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -46,10 +57,12 @@ import java.util.TreeSet;
 import kotlin.text.Typography;
 /* loaded from: classes.dex */
 public class DefaultJSONParser implements Closeable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int NONE = 0;
     public static final int NeedToResolve = 1;
     public static final int TypeNameRedirect = 2;
-    public static final Set<Class<?>> primitiveClasses = new HashSet();
+    public static final Set<Class<?>> primitiveClasses;
+    public transient /* synthetic */ FieldHolder $fh;
     public String[] autoTypeAccept;
     public boolean autoTypeEnable;
     public ParserConfig config;
@@ -71,74 +84,133 @@ public class DefaultJSONParser implements Closeable {
 
     /* loaded from: classes.dex */
     public static class ResolveTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ParseContext context;
         public FieldDeserializer fieldDeserializer;
         public ParseContext ownerContext;
         public final String referenceValue;
 
         public ResolveTask(ParseContext parseContext, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parseContext, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.context = parseContext;
             this.referenceValue = str;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1755127227, "Lcom/alibaba/fastjson/parser/DefaultJSONParser;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1755127227, "Lcom/alibaba/fastjson/parser/DefaultJSONParser;");
+                return;
+            }
+        }
+        primitiveClasses = new HashSet();
         primitiveClasses.addAll(Arrays.asList(Boolean.TYPE, Byte.TYPE, Short.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE, Boolean.class, Byte.class, Short.class, Integer.class, Long.class, Float.class, Double.class, BigInteger.class, BigDecimal.class, String.class));
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultJSONParser(String str) {
         this(str, ParserConfig.getGlobalInstance(), JSON.DEFAULT_PARSER_FEATURE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65540, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (ParserConfig) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65540, newInitContext);
+                return;
+            }
+        }
     }
 
     private void addContext(ParseContext parseContext) {
-        int i2 = this.contextArrayIndex;
-        this.contextArrayIndex = i2 + 1;
-        ParseContext[] parseContextArr = this.contextArray;
-        if (parseContextArr == null) {
-            this.contextArray = new ParseContext[8];
-        } else if (i2 >= parseContextArr.length) {
-            ParseContext[] parseContextArr2 = new ParseContext[(parseContextArr.length * 3) / 2];
-            System.arraycopy(parseContextArr, 0, parseContextArr2, 0, parseContextArr.length);
-            this.contextArray = parseContextArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, parseContext) == null) {
+            int i2 = this.contextArrayIndex;
+            this.contextArrayIndex = i2 + 1;
+            ParseContext[] parseContextArr = this.contextArray;
+            if (parseContextArr == null) {
+                this.contextArray = new ParseContext[8];
+            } else if (i2 >= parseContextArr.length) {
+                ParseContext[] parseContextArr2 = new ParseContext[(parseContextArr.length * 3) / 2];
+                System.arraycopy(parseContextArr, 0, parseContextArr2, 0, parseContextArr.length);
+                this.contextArray = parseContextArr2;
+            }
+            this.contextArray[i2] = parseContext;
         }
-        this.contextArray[i2] = parseContext;
     }
 
     public final void accept(int i2) {
-        JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == i2) {
-            jSONLexer.nextToken();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            JSONLexer jSONLexer = this.lexer;
+            if (jSONLexer.token() == i2) {
+                jSONLexer.nextToken();
+                return;
+            }
+            throw new JSONException("syntax error, expect " + JSONToken.name(i2) + ", actual " + JSONToken.name(jSONLexer.token()));
         }
-        throw new JSONException("syntax error, expect " + JSONToken.name(i2) + ", actual " + JSONToken.name(jSONLexer.token()));
     }
 
     public void acceptType(String str) {
-        JSONLexer jSONLexer = this.lexer;
-        jSONLexer.nextTokenWithColon();
-        if (jSONLexer.token() == 4) {
-            if (str.equals(jSONLexer.stringVal())) {
-                jSONLexer.nextToken();
-                if (jSONLexer.token() == 16) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONLexer jSONLexer = this.lexer;
+            jSONLexer.nextTokenWithColon();
+            if (jSONLexer.token() == 4) {
+                if (str.equals(jSONLexer.stringVal())) {
                     jSONLexer.nextToken();
+                    if (jSONLexer.token() == 16) {
+                        jSONLexer.nextToken();
+                        return;
+                    }
                     return;
                 }
-                return;
+                throw new JSONException("type not match error");
             }
             throw new JSONException("type not match error");
         }
-        throw new JSONException("type not match error");
     }
 
     public void addResolveTask(ResolveTask resolveTask) {
-        if (this.resolveTaskList == null) {
-            this.resolveTaskList = new ArrayList(2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, resolveTask) == null) {
+            if (this.resolveTaskList == null) {
+                this.resolveTaskList = new ArrayList(2);
+            }
+            this.resolveTaskList.add(resolveTask);
         }
-        this.resolveTaskList.add(resolveTask);
     }
 
     public void checkListResolve(Collection collection) {
-        if (this.resolveStatus == 1) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, collection) == null) && this.resolveStatus == 1) {
             if (collection instanceof List) {
                 ResolveTask lastResolveTask = getLastResolveTask();
                 lastResolveTask.fieldDeserializer = new ResolveFieldDeserializer(this, (List) collection, collection.size() - 1);
@@ -154,7 +226,8 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public void checkMapResolve(Map map, Object obj) {
-        if (this.resolveStatus == 1) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, map, obj) == null) && this.resolveStatus == 1) {
             ResolveFieldDeserializer resolveFieldDeserializer = new ResolveFieldDeserializer(map, obj);
             ResolveTask lastResolveTask = getLastResolveTask();
             lastResolveTask.fieldDeserializer = resolveFieldDeserializer;
@@ -165,109 +238,167 @@ public class DefaultJSONParser implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        JSONLexer jSONLexer = this.lexer;
-        try {
-            if (jSONLexer.isEnabled(Feature.AutoCloseSource) && jSONLexer.token() != 20) {
-                throw new JSONException("not close json text, token : " + JSONToken.name(jSONLexer.token()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            JSONLexer jSONLexer = this.lexer;
+            try {
+                if (jSONLexer.isEnabled(Feature.AutoCloseSource) && jSONLexer.token() != 20) {
+                    throw new JSONException("not close json text, token : " + JSONToken.name(jSONLexer.token()));
+                }
+            } finally {
+                jSONLexer.close();
             }
-        } finally {
-            jSONLexer.close();
         }
     }
 
     public void config(Feature feature, boolean z) {
-        this.lexer.config(feature, z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, feature, z) == null) {
+            this.lexer.config(feature, z);
+        }
     }
 
     public ParserConfig getConfig() {
-        return this.config;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.config : (ParserConfig) invokeV.objValue;
     }
 
     public ParseContext getContext() {
-        return this.context;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.context : (ParseContext) invokeV.objValue;
     }
 
     public String getDateFomartPattern() {
-        return this.dateFormatPattern;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.dateFormatPattern : (String) invokeV.objValue;
     }
 
     public DateFormat getDateFormat() {
-        if (this.dateFormat == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.dateFormatPattern, this.lexer.getLocale());
-            this.dateFormat = simpleDateFormat;
-            simpleDateFormat.setTimeZone(this.lexer.getTimeZone());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.dateFormat == null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.dateFormatPattern, this.lexer.getLocale());
+                this.dateFormat = simpleDateFormat;
+                simpleDateFormat.setTimeZone(this.lexer.getTimeZone());
+            }
+            return this.dateFormat;
         }
-        return this.dateFormat;
+        return (DateFormat) invokeV.objValue;
     }
 
     public List<ExtraProcessor> getExtraProcessors() {
-        if (this.extraProcessors == null) {
-            this.extraProcessors = new ArrayList(2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.extraProcessors == null) {
+                this.extraProcessors = new ArrayList(2);
+            }
+            return this.extraProcessors;
         }
-        return this.extraProcessors;
+        return (List) invokeV.objValue;
     }
 
     public List<ExtraTypeProvider> getExtraTypeProviders() {
-        if (this.extraTypeProviders == null) {
-            this.extraTypeProviders = new ArrayList(2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.extraTypeProviders == null) {
+                this.extraTypeProviders = new ArrayList(2);
+            }
+            return this.extraTypeProviders;
         }
-        return this.extraTypeProviders;
+        return (List) invokeV.objValue;
     }
 
     public FieldTypeResolver getFieldTypeResolver() {
-        return this.fieldTypeResolver;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.fieldTypeResolver : (FieldTypeResolver) invokeV.objValue;
     }
 
     public String getInput() {
-        Object obj = this.input;
-        if (obj instanceof char[]) {
-            return new String((char[]) this.input);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            Object obj = this.input;
+            if (obj instanceof char[]) {
+                return new String((char[]) this.input);
+            }
+            return obj.toString();
         }
-        return obj.toString();
+        return (String) invokeV.objValue;
     }
 
     public ResolveTask getLastResolveTask() {
-        List<ResolveTask> list = this.resolveTaskList;
-        return list.get(list.size() - 1);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            List<ResolveTask> list = this.resolveTaskList;
+            return list.get(list.size() - 1);
+        }
+        return (ResolveTask) invokeV.objValue;
     }
 
     public JSONLexer getLexer() {
-        return this.lexer;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.lexer : (JSONLexer) invokeV.objValue;
     }
 
     public Object getObject(String str) {
-        for (int i2 = 0; i2 < this.contextArrayIndex; i2++) {
-            if (str.equals(this.contextArray[i2].toString())) {
-                return this.contextArray[i2].object;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            for (int i2 = 0; i2 < this.contextArrayIndex; i2++) {
+                if (str.equals(this.contextArray[i2].toString())) {
+                    return this.contextArray[i2].object;
+                }
             }
+            return null;
         }
-        return null;
+        return invokeL.objValue;
     }
 
     public ParseContext getOwnerContext() {
-        return this.context.parent;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.context.parent : (ParseContext) invokeV.objValue;
     }
 
     public int getResolveStatus() {
-        return this.resolveStatus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.resolveStatus : invokeV.intValue;
     }
 
     public List<ResolveTask> getResolveTaskList() {
-        if (this.resolveTaskList == null) {
-            this.resolveTaskList = new ArrayList(2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (this.resolveTaskList == null) {
+                this.resolveTaskList = new ArrayList(2);
+            }
+            return this.resolveTaskList;
         }
-        return this.resolveTaskList;
+        return (List) invokeV.objValue;
     }
 
     public SymbolTable getSymbolTable() {
-        return this.symbolTable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.symbolTable : (SymbolTable) invokeV.objValue;
     }
 
     public void handleResovleTask(Object obj) {
+        List<ResolveTask> list;
         Object obj2;
         FieldInfo fieldInfo;
-        List<ResolveTask> list = this.resolveTaskList;
-        if (list == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, obj) == null) || (list = this.resolveTaskList) == null) {
             return;
         }
         int size = list.size();
@@ -308,230 +439,253 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public boolean isEnabled(Feature feature) {
-        return this.lexer.isEnabled(feature);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, feature)) == null) ? this.lexer.isEnabled(feature) : invokeL.booleanValue;
     }
 
     public Object parse() {
-        return parse(null);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? parse(null) : invokeV.objValue;
     }
 
     public <T> List<T> parseArray(Class<T> cls) {
-        ArrayList arrayList = new ArrayList();
-        parseArray((Class<?>) cls, (Collection) arrayList);
-        return arrayList;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, cls)) == null) {
+            ArrayList arrayList = new ArrayList();
+            parseArray((Class<?>) cls, (Collection) arrayList);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 
     public Object parseArrayWithType(Type type) {
-        if (this.lexer.token() == 8) {
-            this.lexer.nextToken();
-            return null;
-        }
-        Type[] actualTypeArguments = ((ParameterizedType) type).getActualTypeArguments();
-        if (actualTypeArguments.length == 1) {
-            Type type2 = actualTypeArguments[0];
-            if (type2 instanceof Class) {
-                ArrayList arrayList = new ArrayList();
-                parseArray((Class) type2, (Collection) arrayList);
-                return arrayList;
-            } else if (type2 instanceof WildcardType) {
-                WildcardType wildcardType = (WildcardType) type2;
-                Type type3 = wildcardType.getUpperBounds()[0];
-                if (Object.class.equals(type3)) {
-                    if (wildcardType.getLowerBounds().length == 0) {
-                        return parse();
-                    }
-                    throw new JSONException("not support type : " + type);
-                }
-                ArrayList arrayList2 = new ArrayList();
-                parseArray((Class) type3, (Collection) arrayList2);
-                return arrayList2;
-            } else {
-                if (type2 instanceof TypeVariable) {
-                    TypeVariable typeVariable = (TypeVariable) type2;
-                    Type[] bounds = typeVariable.getBounds();
-                    if (bounds.length == 1) {
-                        Type type4 = bounds[0];
-                        if (type4 instanceof Class) {
-                            ArrayList arrayList3 = new ArrayList();
-                            parseArray((Class) type4, (Collection) arrayList3);
-                            return arrayList3;
-                        }
-                    } else {
-                        throw new JSONException("not support : " + typeVariable);
-                    }
-                }
-                if (type2 instanceof ParameterizedType) {
-                    ArrayList arrayList4 = new ArrayList();
-                    parseArray((ParameterizedType) type2, arrayList4);
-                    return arrayList4;
-                }
-                throw new JSONException("TODO : " + type);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, type)) == null) {
+            if (this.lexer.token() == 8) {
+                this.lexer.nextToken();
+                return null;
             }
+            Type[] actualTypeArguments = ((ParameterizedType) type).getActualTypeArguments();
+            if (actualTypeArguments.length == 1) {
+                Type type2 = actualTypeArguments[0];
+                if (type2 instanceof Class) {
+                    ArrayList arrayList = new ArrayList();
+                    parseArray((Class) type2, (Collection) arrayList);
+                    return arrayList;
+                } else if (type2 instanceof WildcardType) {
+                    WildcardType wildcardType = (WildcardType) type2;
+                    Type type3 = wildcardType.getUpperBounds()[0];
+                    if (Object.class.equals(type3)) {
+                        if (wildcardType.getLowerBounds().length == 0) {
+                            return parse();
+                        }
+                        throw new JSONException("not support type : " + type);
+                    }
+                    ArrayList arrayList2 = new ArrayList();
+                    parseArray((Class) type3, (Collection) arrayList2);
+                    return arrayList2;
+                } else {
+                    if (type2 instanceof TypeVariable) {
+                        TypeVariable typeVariable = (TypeVariable) type2;
+                        Type[] bounds = typeVariable.getBounds();
+                        if (bounds.length == 1) {
+                            Type type4 = bounds[0];
+                            if (type4 instanceof Class) {
+                                ArrayList arrayList3 = new ArrayList();
+                                parseArray((Class) type4, (Collection) arrayList3);
+                                return arrayList3;
+                            }
+                        } else {
+                            throw new JSONException("not support : " + typeVariable);
+                        }
+                    }
+                    if (type2 instanceof ParameterizedType) {
+                        ArrayList arrayList4 = new ArrayList();
+                        parseArray((ParameterizedType) type2, arrayList4);
+                        return arrayList4;
+                    }
+                    throw new JSONException("TODO : " + type);
+                }
+            }
+            throw new JSONException("not support type " + type);
         }
-        throw new JSONException("not support type " + type);
+        return invokeL.objValue;
     }
 
     public void parseExtra(Object obj, String str) {
         Object parseObject;
-        this.lexer.nextTokenWithColon();
-        List<ExtraTypeProvider> list = this.extraTypeProviders;
-        Type type = null;
-        if (list != null) {
-            for (ExtraTypeProvider extraTypeProvider : list) {
-                type = extraTypeProvider.getExtraType(obj, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048612, this, obj, str) == null) {
+            this.lexer.nextTokenWithColon();
+            List<ExtraTypeProvider> list = this.extraTypeProviders;
+            Type type = null;
+            if (list != null) {
+                for (ExtraTypeProvider extraTypeProvider : list) {
+                    type = extraTypeProvider.getExtraType(obj, str);
+                }
             }
-        }
-        if (type == null) {
-            parseObject = parse();
-        } else {
-            parseObject = parseObject(type);
-        }
-        if (obj instanceof ExtraProcessable) {
-            ((ExtraProcessable) obj).processExtra(str, parseObject);
-            return;
-        }
-        List<ExtraProcessor> list2 = this.extraProcessors;
-        if (list2 != null) {
-            for (ExtraProcessor extraProcessor : list2) {
-                extraProcessor.processExtra(obj, str, parseObject);
+            if (type == null) {
+                parseObject = parse();
+            } else {
+                parseObject = parseObject(type);
             }
-        }
-        if (this.resolveStatus == 1) {
-            this.resolveStatus = 0;
+            if (obj instanceof ExtraProcessable) {
+                ((ExtraProcessable) obj).processExtra(str, parseObject);
+                return;
+            }
+            List<ExtraProcessor> list2 = this.extraProcessors;
+            if (list2 != null) {
+                for (ExtraProcessor extraProcessor : list2) {
+                    extraProcessor.processExtra(obj, str, parseObject);
+                }
+            }
+            if (this.resolveStatus == 1) {
+                this.resolveStatus = 0;
+            }
         }
     }
 
     public Object parseKey() {
-        if (this.lexer.token() == 18) {
-            String stringVal = this.lexer.stringVal();
-            this.lexer.nextToken(16);
-            return stringVal;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            if (this.lexer.token() == 18) {
+                String stringVal = this.lexer.stringVal();
+                this.lexer.nextToken(16);
+                return stringVal;
+            }
+            return parse(null);
         }
-        return parse(null);
+        return invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:142:0x0289, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:144:0x028d, code lost:
         r4.nextToken(16);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:143:0x0294, code lost:
-        if (r4.token() != 13) goto L82;
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x0298, code lost:
+        if (r4.token() != 13) goto L84;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x0296, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:146:0x029a, code lost:
         r4.nextToken(16);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:146:0x02a1, code lost:
-        if ((r17.config.getDeserializer(r7) instanceof com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) == false) goto L78;
+    /* JADX WARN: Code restructure failed: missing block: B:148:0x02a5, code lost:
+        if ((r17.config.getDeserializer(r7) instanceof com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) == false) goto L80;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:147:0x02a3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:149:0x02a7, code lost:
         r0 = com.alibaba.fastjson.util.TypeUtils.cast((java.lang.Object) r18, (java.lang.Class<java.lang.Object>) r7, r17.config);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:148:0x02aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:150:0x02ae, code lost:
         r0 = r12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:149:0x02ab, code lost:
-        if (r0 != null) goto L76;
-     */
     /* JADX WARN: Code restructure failed: missing block: B:151:0x02af, code lost:
-        if (r7 != java.lang.Cloneable.class) goto L69;
+        if (r0 != null) goto L78;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:152:0x02b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:153:0x02b3, code lost:
+        if (r7 != java.lang.Cloneable.class) goto L71;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:154:0x02b5, code lost:
         r0 = new java.util.HashMap();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:154:0x02bd, code lost:
-        if ("java.util.Collections$EmptyMap".equals(r6) == false) goto L72;
+    /* JADX WARN: Code restructure failed: missing block: B:156:0x02c1, code lost:
+        if ("java.util.Collections$EmptyMap".equals(r6) == false) goto L74;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:155:0x02bf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:157:0x02c3, code lost:
         r0 = java.util.Collections.emptyMap();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:157:0x02ca, code lost:
-        if ("java.util.Collections$UnmodifiableMap".equals(r6) == false) goto L75;
+    /* JADX WARN: Code restructure failed: missing block: B:159:0x02ce, code lost:
+        if ("java.util.Collections$UnmodifiableMap".equals(r6) == false) goto L77;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:158:0x02cc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:160:0x02d0, code lost:
         r0 = java.util.Collections.unmodifiableMap(new java.util.HashMap());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:159:0x02d6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:161:0x02da, code lost:
         r0 = r7.newInstance();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:161:0x02dd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:163:0x02e1, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:162:0x02de, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:164:0x02e2, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:164:0x02e6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:166:0x02ea, code lost:
         throw new com.alibaba.fastjson.JSONException("create instance error", r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:165:0x02e7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:167:0x02eb, code lost:
         setResolveStatus(2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:166:0x02ed, code lost:
-        if (r17.context == null) goto L90;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:167:0x02ef, code lost:
-        if (r19 == null) goto L90;
+    /* JADX WARN: Code restructure failed: missing block: B:168:0x02f1, code lost:
+        if (r17.context == null) goto L92;
      */
     /* JADX WARN: Code restructure failed: missing block: B:169:0x02f3, code lost:
-        if ((r19 instanceof java.lang.Integer) != false) goto L90;
+        if (r19 == null) goto L92;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:171:0x02fb, code lost:
-        if ((r17.context.fieldName instanceof java.lang.Integer) != false) goto L90;
+    /* JADX WARN: Code restructure failed: missing block: B:171:0x02f7, code lost:
+        if ((r19 instanceof java.lang.Integer) != false) goto L92;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:172:0x02fd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:173:0x02ff, code lost:
+        if ((r17.context.fieldName instanceof java.lang.Integer) != false) goto L92;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:174:0x0301, code lost:
         popContext();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:174:0x0304, code lost:
-        if (r18.size() <= 0) goto L95;
+    /* JADX WARN: Code restructure failed: missing block: B:176:0x0308, code lost:
+        if (r18.size() <= 0) goto L97;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:175:0x0306, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:177:0x030a, code lost:
         r0 = com.alibaba.fastjson.util.TypeUtils.cast((java.lang.Object) r18, (java.lang.Class<java.lang.Object>) r7, r17.config);
         setResolveStatus(0);
         parseObject(r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:177:0x0316, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:179:0x031a, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:178:0x0317, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:180:0x031b, code lost:
         r0 = r17.config.getDeserializer(r7);
         r3 = r0.getClass();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:179:0x0327, code lost:
-        if (com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer.class.isAssignableFrom(r3) == false) goto L105;
-     */
     /* JADX WARN: Code restructure failed: missing block: B:181:0x032b, code lost:
-        if (r3 == com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer.class) goto L105;
+        if (com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer.class.isAssignableFrom(r3) == false) goto L107;
      */
     /* JADX WARN: Code restructure failed: missing block: B:183:0x032f, code lost:
-        if (r3 == com.alibaba.fastjson.parser.deserializer.ThrowableDeserializer.class) goto L105;
+        if (r3 == com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer.class) goto L107;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:184:0x0331, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:185:0x0333, code lost:
+        if (r3 == com.alibaba.fastjson.parser.deserializer.ThrowableDeserializer.class) goto L107;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:186:0x0335, code lost:
         setResolveStatus(0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:186:0x0338, code lost:
-        if ((r0 instanceof com.alibaba.fastjson.parser.deserializer.MapDeserializer) == false) goto L102;
+    /* JADX WARN: Code restructure failed: missing block: B:188:0x033c, code lost:
+        if ((r0 instanceof com.alibaba.fastjson.parser.deserializer.MapDeserializer) == false) goto L104;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:187:0x033a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:189:0x033e, code lost:
         setResolveStatus(0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:190:0x0345, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:192:0x0349, code lost:
         return r0.deserialze(r17, r7, r19);
      */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x0217 A[Catch: all -> 0x0698, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:250:0x0455 A[Catch: all -> 0x0698, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:267:0x0480 A[Catch: all -> 0x0698, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:274:0x04a9  */
-    /* JADX WARN: Removed duplicated region for block: B:287:0x04dc A[Catch: all -> 0x0698, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:344:0x05e0 A[Catch: all -> 0x0698, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:349:0x05ec A[Catch: all -> 0x0698, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:352:0x05f8 A[Catch: all -> 0x0698, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:358:0x060d A[Catch: all -> 0x0698, TRY_ENTER, TryCatch #2 {all -> 0x0698, blocks: (B:24:0x0072, B:26:0x0076, B:29:0x0080, B:32:0x0093, B:36:0x00ab, B:115:0x0217, B:116:0x021d, B:118:0x0228, B:120:0x0230, B:124:0x0245, B:126:0x0253, B:141:0x0283, B:142:0x0289, B:144:0x0296, B:145:0x0299, B:147:0x02a3, B:152:0x02b1, B:153:0x02b7, B:155:0x02bf, B:156:0x02c4, B:158:0x02cc, B:159:0x02d6, B:163:0x02df, B:164:0x02e6, B:165:0x02e7, B:168:0x02f1, B:170:0x02f5, B:172:0x02fd, B:173:0x0300, B:175:0x0306, B:178:0x0317, B:184:0x0331, B:188:0x033e, B:185:0x0336, B:187:0x033a, B:128:0x025a, B:130:0x0260, B:135:0x026d, B:138:0x0273, B:195:0x0350, B:197:0x0356, B:199:0x035e, B:201:0x0368, B:203:0x0379, B:205:0x0384, B:207:0x038c, B:209:0x0390, B:211:0x0398, B:214:0x039d, B:216:0x03a1, B:239:0x0407, B:241:0x040f, B:244:0x0418, B:245:0x0432, B:218:0x03a8, B:220:0x03b0, B:222:0x03b4, B:223:0x03b7, B:224:0x03c3, B:227:0x03cc, B:229:0x03d0, B:230:0x03d3, B:232:0x03d7, B:233:0x03db, B:234:0x03e7, B:236:0x03f1, B:238:0x03fe, B:246:0x0433, B:247:0x0451, B:250:0x0455, B:252:0x0459, B:254:0x045f, B:256:0x0465, B:257:0x0468, B:261:0x0470, B:267:0x0480, B:269:0x048f, B:271:0x049a, B:272:0x04a2, B:273:0x04a5, B:285:0x04d1, B:287:0x04dc, B:291:0x04e9, B:294:0x04f9, B:295:0x0519, B:280:0x04b5, B:282:0x04bf, B:284:0x04ce, B:283:0x04c4, B:298:0x051e, B:300:0x0528, B:302:0x0530, B:303:0x0533, B:305:0x053e, B:306:0x0542, B:308:0x054d, B:311:0x0554, B:314:0x055d, B:315:0x0562, B:318:0x0567, B:320:0x056c, B:324:0x0577, B:326:0x057f, B:328:0x0594, B:332:0x05b3, B:334:0x05bb, B:337:0x05c1, B:339:0x05c7, B:341:0x05cf, B:344:0x05e0, B:347:0x05e8, B:349:0x05ec, B:350:0x05f3, B:352:0x05f8, B:353:0x05fb, B:355:0x0603, B:358:0x060d, B:361:0x0617, B:362:0x061c, B:363:0x0621, B:364:0x063b, B:329:0x059f, B:330:0x05a6, B:365:0x063c, B:367:0x064e, B:370:0x0655, B:373:0x0663, B:374:0x0683, B:39:0x00bd, B:40:0x00db, B:43:0x00e0, B:45:0x00eb, B:47:0x00ef, B:49:0x00f5, B:51:0x00fb, B:52:0x00fe, B:59:0x010d, B:61:0x0115, B:64:0x0125, B:65:0x013d, B:66:0x013e, B:67:0x0143, B:78:0x0158, B:79:0x015e, B:81:0x0165, B:83:0x016e, B:90:0x0180, B:93:0x0188, B:94:0x01a0, B:88:0x017b, B:82:0x016a, B:95:0x01a1, B:96:0x01b9, B:102:0x01c3, B:104:0x01cb, B:107:0x01dc, B:108:0x01fc, B:109:0x01fd, B:110:0x0202, B:111:0x0203, B:113:0x020d, B:375:0x0684, B:376:0x068b, B:377:0x068c, B:378:0x0691, B:379:0x0692, B:380:0x0697), top: B:387:0x0072, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:400:0x0188 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:405:0x0603 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:413:0x04e5 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x0186  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x021b A[Catch: all -> 0x069c, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:252:0x0459 A[Catch: all -> 0x069c, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:269:0x0484 A[Catch: all -> 0x069c, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:276:0x04ad  */
+    /* JADX WARN: Removed duplicated region for block: B:289:0x04e0 A[Catch: all -> 0x069c, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:346:0x05e4 A[Catch: all -> 0x069c, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:351:0x05f0 A[Catch: all -> 0x069c, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:354:0x05fc A[Catch: all -> 0x069c, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:360:0x0611 A[Catch: all -> 0x069c, TRY_ENTER, TryCatch #1 {all -> 0x069c, blocks: (B:26:0x0076, B:28:0x007a, B:31:0x0084, B:34:0x0097, B:38:0x00af, B:117:0x021b, B:118:0x0221, B:120:0x022c, B:122:0x0234, B:126:0x0249, B:128:0x0257, B:143:0x0287, B:144:0x028d, B:146:0x029a, B:147:0x029d, B:149:0x02a7, B:154:0x02b5, B:155:0x02bb, B:157:0x02c3, B:158:0x02c8, B:160:0x02d0, B:161:0x02da, B:165:0x02e3, B:166:0x02ea, B:167:0x02eb, B:170:0x02f5, B:172:0x02f9, B:174:0x0301, B:175:0x0304, B:177:0x030a, B:180:0x031b, B:186:0x0335, B:190:0x0342, B:187:0x033a, B:189:0x033e, B:130:0x025e, B:132:0x0264, B:137:0x0271, B:140:0x0277, B:197:0x0354, B:199:0x035a, B:201:0x0362, B:203:0x036c, B:205:0x037d, B:207:0x0388, B:209:0x0390, B:211:0x0394, B:213:0x039c, B:216:0x03a1, B:218:0x03a5, B:241:0x040b, B:243:0x0413, B:246:0x041c, B:247:0x0436, B:220:0x03ac, B:222:0x03b4, B:224:0x03b8, B:225:0x03bb, B:226:0x03c7, B:229:0x03d0, B:231:0x03d4, B:232:0x03d7, B:234:0x03db, B:235:0x03df, B:236:0x03eb, B:238:0x03f5, B:240:0x0402, B:248:0x0437, B:249:0x0455, B:252:0x0459, B:254:0x045d, B:256:0x0463, B:258:0x0469, B:259:0x046c, B:263:0x0474, B:269:0x0484, B:271:0x0493, B:273:0x049e, B:274:0x04a6, B:275:0x04a9, B:287:0x04d5, B:289:0x04e0, B:293:0x04ed, B:296:0x04fd, B:297:0x051d, B:282:0x04b9, B:284:0x04c3, B:286:0x04d2, B:285:0x04c8, B:300:0x0522, B:302:0x052c, B:304:0x0534, B:305:0x0537, B:307:0x0542, B:308:0x0546, B:310:0x0551, B:313:0x0558, B:316:0x0561, B:317:0x0566, B:320:0x056b, B:322:0x0570, B:326:0x057b, B:328:0x0583, B:330:0x0598, B:334:0x05b7, B:336:0x05bf, B:339:0x05c5, B:341:0x05cb, B:343:0x05d3, B:346:0x05e4, B:349:0x05ec, B:351:0x05f0, B:352:0x05f7, B:354:0x05fc, B:355:0x05ff, B:357:0x0607, B:360:0x0611, B:363:0x061b, B:364:0x0620, B:365:0x0625, B:366:0x063f, B:331:0x05a3, B:332:0x05aa, B:367:0x0640, B:369:0x0652, B:372:0x0659, B:375:0x0667, B:376:0x0687, B:41:0x00c1, B:42:0x00df, B:45:0x00e4, B:47:0x00ef, B:49:0x00f3, B:51:0x00f9, B:53:0x00ff, B:54:0x0102, B:61:0x0111, B:63:0x0119, B:66:0x0129, B:67:0x0141, B:68:0x0142, B:69:0x0147, B:80:0x015c, B:81:0x0162, B:83:0x0169, B:85:0x0172, B:92:0x0184, B:95:0x018c, B:96:0x01a4, B:90:0x017f, B:84:0x016e, B:97:0x01a5, B:98:0x01bd, B:104:0x01c7, B:106:0x01cf, B:109:0x01e0, B:110:0x0200, B:111:0x0201, B:112:0x0206, B:113:0x0207, B:115:0x0211, B:377:0x0688, B:378:0x068f, B:379:0x0690, B:380:0x0695, B:381:0x0696, B:382:0x069b), top: B:392:0x0076, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:406:0x018c A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:411:0x0607 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:419:0x04e9 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x018a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final Object parseObject(Map map, Object obj) {
+        InterceptResult invokeLL;
         Object parse;
         boolean z;
         Object decimalValue;
@@ -545,6 +699,10 @@ public class DefaultJSONParser implements Closeable {
         Object fluentPut;
         Object obj4;
         Class<?> cls;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048619, this, map, obj)) != null) {
+            return invokeLL.objValue;
+        }
         JSONLexer jSONLexer = this.lexer;
         if (jSONLexer.token() == 8) {
             jSONLexer.nextToken();
@@ -694,7 +852,7 @@ public class DefaultJSONParser implements Closeable {
                                         if (jSONLexer.token() == 16) {
                                             innerMap.put(parse, stringVal);
                                         } else {
-                                            if ("@".equals(stringVal)) {
+                                            if (TNCManager.TNC_PROBE_HEADER_SECEPTOR.equals(stringVal)) {
                                                 if (this.context != null) {
                                                     ParseContext parseContext2 = this.context;
                                                     Object obj5 = parseContext2.object;
@@ -918,7 +1076,8 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public void popContext() {
-        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048621, this) == null) || this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
             return;
         }
         this.context = this.context.parent;
@@ -932,185 +1091,300 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public Object resolveReference(String str) {
-        if (this.contextArray == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) {
+            if (this.contextArray == null) {
+                return null;
+            }
+            int i2 = 0;
+            while (true) {
+                ParseContext[] parseContextArr = this.contextArray;
+                if (i2 >= parseContextArr.length || i2 >= this.contextArrayIndex) {
+                    break;
+                }
+                ParseContext parseContext = parseContextArr[i2];
+                if (parseContext.toString().equals(str)) {
+                    return parseContext.object;
+                }
+                i2++;
+            }
             return null;
         }
-        int i2 = 0;
-        while (true) {
-            ParseContext[] parseContextArr = this.contextArray;
-            if (i2 >= parseContextArr.length || i2 >= this.contextArrayIndex) {
-                break;
-            }
-            ParseContext parseContext = parseContextArr[i2];
-            if (parseContext.toString().equals(str)) {
-                return parseContext.object;
-            }
-            i2++;
-        }
-        return null;
+        return invokeL.objValue;
     }
 
     public void setConfig(ParserConfig parserConfig) {
-        this.config = parserConfig;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, parserConfig) == null) {
+            this.config = parserConfig;
+        }
     }
 
     public void setContext(ParseContext parseContext) {
-        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048626, this, parseContext) == null) || this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
             return;
         }
         this.context = parseContext;
     }
 
     public void setDateFomrat(DateFormat dateFormat) {
-        setDateFormat(dateFormat);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, dateFormat) == null) {
+            setDateFormat(dateFormat);
+        }
     }
 
     public void setDateFormat(String str) {
-        this.dateFormatPattern = str;
-        this.dateFormat = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+            this.dateFormatPattern = str;
+            this.dateFormat = null;
+        }
     }
 
     public void setFieldTypeResolver(FieldTypeResolver fieldTypeResolver) {
-        this.fieldTypeResolver = fieldTypeResolver;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, fieldTypeResolver) == null) {
+            this.fieldTypeResolver = fieldTypeResolver;
+        }
     }
 
     public void setResolveStatus(int i2) {
-        this.resolveStatus = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
+            this.resolveStatus = i2;
+        }
     }
 
     public void throwException(int i2) {
-        throw new JSONException("syntax error, expect " + JSONToken.name(i2) + ", actual " + JSONToken.name(this.lexer.token()));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
+            throw new JSONException("syntax error, expect " + JSONToken.name(i2) + ", actual " + JSONToken.name(this.lexer.token()));
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultJSONParser(String str, ParserConfig parserConfig) {
         this(str, new JSONScanner(str, JSON.DEFAULT_PARSER_FEATURE), parserConfig);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, parserConfig};
+            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(objArr2[0], (JSONLexer) objArr2[1], (ParserConfig) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                return;
+            }
+        }
     }
 
     public Object parse(Object obj) {
-        JSONLexer jSONLexer = this.lexer;
-        int i2 = jSONLexer.token();
-        if (i2 == 2) {
-            Number integerValue = jSONLexer.integerValue();
-            jSONLexer.nextToken();
-            return integerValue;
-        } else if (i2 == 3) {
-            Number decimalValue = jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
-            jSONLexer.nextToken();
-            return decimalValue;
-        } else if (i2 == 4) {
-            String stringVal = jSONLexer.stringVal();
-            jSONLexer.nextToken(16);
-            if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
-                JSONScanner jSONScanner = new JSONScanner(stringVal);
-                try {
-                    if (jSONScanner.scanISO8601DateIfMatch()) {
-                        return jSONScanner.getCalendar().getTime();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, obj)) == null) {
+            JSONLexer jSONLexer = this.lexer;
+            int i2 = jSONLexer.token();
+            if (i2 == 2) {
+                Number integerValue = jSONLexer.integerValue();
+                jSONLexer.nextToken();
+                return integerValue;
+            } else if (i2 == 3) {
+                Number decimalValue = jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
+                jSONLexer.nextToken();
+                return decimalValue;
+            } else if (i2 == 4) {
+                String stringVal = jSONLexer.stringVal();
+                jSONLexer.nextToken(16);
+                if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
+                    JSONScanner jSONScanner = new JSONScanner(stringVal);
+                    try {
+                        if (jSONScanner.scanISO8601DateIfMatch()) {
+                            return jSONScanner.getCalendar().getTime();
+                        }
+                    } finally {
+                        jSONScanner.close();
                     }
-                } finally {
-                    jSONScanner.close();
                 }
-            }
-            return stringVal;
-        } else if (i2 != 12) {
-            if (i2 == 14) {
-                JSONArray jSONArray = new JSONArray();
-                parseArray(jSONArray, obj);
-                return jSONLexer.isEnabled(Feature.UseObjectArray) ? jSONArray.toArray() : jSONArray;
-            } else if (i2 == 18) {
-                if (WalletPayViewController.DEF_CHANNEL_TITLE.equals(jSONLexer.stringVal())) {
-                    jSONLexer.nextToken();
-                    return null;
-                }
-                throw new JSONException("syntax error, " + jSONLexer.info());
-            } else if (i2 != 26) {
-                switch (i2) {
-                    case 6:
-                        jSONLexer.nextToken();
-                        return Boolean.TRUE;
-                    case 7:
-                        jSONLexer.nextToken();
-                        return Boolean.FALSE;
-                    case 8:
+                return stringVal;
+            } else if (i2 != 12) {
+                if (i2 == 14) {
+                    JSONArray jSONArray = new JSONArray();
+                    parseArray(jSONArray, obj);
+                    return jSONLexer.isEnabled(Feature.UseObjectArray) ? jSONArray.toArray() : jSONArray;
+                } else if (i2 == 18) {
+                    if (WalletPayViewController.DEF_CHANNEL_TITLE.equals(jSONLexer.stringVal())) {
                         jSONLexer.nextToken();
                         return null;
-                    case 9:
-                        jSONLexer.nextToken(18);
-                        if (jSONLexer.token() == 18) {
-                            jSONLexer.nextToken(10);
-                            accept(10);
-                            long longValue = jSONLexer.integerValue().longValue();
-                            accept(2);
-                            accept(11);
-                            return new Date(longValue);
-                        }
-                        throw new JSONException("syntax error");
-                    default:
-                        switch (i2) {
-                            case 20:
-                                if (jSONLexer.isBlankInput()) {
+                    }
+                    throw new JSONException("syntax error, " + jSONLexer.info());
+                } else if (i2 != 26) {
+                    switch (i2) {
+                        case 6:
+                            jSONLexer.nextToken();
+                            return Boolean.TRUE;
+                        case 7:
+                            jSONLexer.nextToken();
+                            return Boolean.FALSE;
+                        case 8:
+                            jSONLexer.nextToken();
+                            return null;
+                        case 9:
+                            jSONLexer.nextToken(18);
+                            if (jSONLexer.token() == 18) {
+                                jSONLexer.nextToken(10);
+                                accept(10);
+                                long longValue = jSONLexer.integerValue().longValue();
+                                accept(2);
+                                accept(11);
+                                return new Date(longValue);
+                            }
+                            throw new JSONException("syntax error");
+                        default:
+                            switch (i2) {
+                                case 20:
+                                    if (jSONLexer.isBlankInput()) {
+                                        return null;
+                                    }
+                                    throw new JSONException("unterminated json string, " + jSONLexer.info());
+                                case 21:
+                                    jSONLexer.nextToken();
+                                    HashSet hashSet = new HashSet();
+                                    parseArray(hashSet, obj);
+                                    return hashSet;
+                                case 22:
+                                    jSONLexer.nextToken();
+                                    TreeSet treeSet = new TreeSet();
+                                    parseArray(treeSet, obj);
+                                    return treeSet;
+                                case 23:
+                                    jSONLexer.nextToken();
                                     return null;
-                                }
-                                throw new JSONException("unterminated json string, " + jSONLexer.info());
-                            case 21:
-                                jSONLexer.nextToken();
-                                HashSet hashSet = new HashSet();
-                                parseArray(hashSet, obj);
-                                return hashSet;
-                            case 22:
-                                jSONLexer.nextToken();
-                                TreeSet treeSet = new TreeSet();
-                                parseArray(treeSet, obj);
-                                return treeSet;
-                            case 23:
-                                jSONLexer.nextToken();
-                                return null;
-                            default:
-                                throw new JSONException("syntax error, " + jSONLexer.info());
-                        }
+                                default:
+                                    throw new JSONException("syntax error, " + jSONLexer.info());
+                            }
+                    }
+                } else {
+                    byte[] bytesValue = jSONLexer.bytesValue();
+                    jSONLexer.nextToken();
+                    return bytesValue;
                 }
             } else {
-                byte[] bytesValue = jSONLexer.bytesValue();
-                jSONLexer.nextToken();
-                return bytesValue;
+                return parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), obj);
             }
-        } else {
-            return parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), obj);
         }
+        return invokeL.objValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultJSONParser(String str, ParserConfig parserConfig, int i2) {
         this(str, new JSONScanner(str, i2), parserConfig);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, parserConfig, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(objArr2[0], (JSONLexer) objArr2[1], (ParserConfig) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                return;
+            }
+        }
     }
 
     public void parseArray(Class<?> cls, Collection collection) {
-        parseArray((Type) cls, collection);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048605, this, cls, collection) == null) {
+            parseArray((Type) cls, collection);
+        }
     }
 
     public ParseContext setContext(Object obj, Object obj2) {
-        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048625, this, obj, obj2)) == null) {
+            if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+                return null;
+            }
+            return setContext(this.context, obj, obj2);
         }
-        return setContext(this.context, obj, obj2);
+        return (ParseContext) invokeLL.objValue;
     }
 
     public void setDateFormat(DateFormat dateFormat) {
-        this.dateFormat = dateFormat;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, dateFormat) == null) {
+            this.dateFormat = dateFormat;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultJSONParser(char[] cArr, int i2, ParserConfig parserConfig, int i3) {
         this(cArr, new JSONScanner(cArr, i2, i3), parserConfig);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cArr, Integer.valueOf(i2), parserConfig, Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65543, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(objArr2[0], (JSONLexer) objArr2[1], (ParserConfig) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65543, newInitContext);
+                return;
+            }
+        }
     }
 
     public void parseArray(Type type, Collection collection) {
-        parseArray(type, collection, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048606, this, type, collection) == null) {
+            parseArray(type, collection, null);
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultJSONParser(JSONLexer jSONLexer) {
         this(jSONLexer, ParserConfig.getGlobalInstance());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONLexer};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((JSONLexer) objArr2[0], (ParserConfig) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public void parseArray(Type type, Collection collection, Object obj) {
         ObjectDeserializer deserializer;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(1048607, this, type, collection, obj) != null) {
+            return;
+        }
         int i2 = this.lexer.token();
         if (i2 == 21 || i2 == 22) {
             this.lexer.nextToken();
@@ -1184,29 +1458,68 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public ParseContext setContext(ParseContext parseContext, Object obj, Object obj2) {
-        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
-            return null;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048624, this, parseContext, obj, obj2)) == null) {
+            if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+                return null;
+            }
+            ParseContext parseContext2 = new ParseContext(parseContext, obj, obj2);
+            this.context = parseContext2;
+            addContext(parseContext2);
+            return this.context;
         }
-        ParseContext parseContext2 = new ParseContext(parseContext, obj, obj2);
-        this.context = parseContext2;
-        addContext(parseContext2);
-        return this.context;
+        return (ParseContext) invokeLLL.objValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultJSONParser(JSONLexer jSONLexer, ParserConfig parserConfig) {
         this((Object) null, jSONLexer, parserConfig);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONLexer, parserConfig};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(objArr2[0], (JSONLexer) objArr2[1], (ParserConfig) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void accept(int i2, int i3) {
-        JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == i2) {
-            jSONLexer.nextToken(i3);
-        } else {
-            throwException(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+            JSONLexer jSONLexer = this.lexer;
+            if (jSONLexer.token() == i2) {
+                jSONLexer.nextToken(i3);
+            } else {
+                throwException(i2);
+            }
         }
     }
 
     public DefaultJSONParser(Object obj, JSONLexer jSONLexer, ParserConfig parserConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj, jSONLexer, parserConfig};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         this.dateFormatPattern = JSON.DEFFAULT_DATE_FORMAT;
         this.contextArrayIndex = 0;
         this.resolveStatus = 0;
@@ -1232,111 +1545,121 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public Object[] parseArray(Type[] typeArr) {
+        InterceptResult invokeL;
         Object cast;
         Class<?> cls;
         boolean z;
         Class cls2;
-        int i2 = 8;
-        if (this.lexer.token() == 8) {
-            this.lexer.nextToken(16);
-            return null;
-        }
-        int i3 = 14;
-        if (this.lexer.token() == 14) {
-            Object[] objArr = new Object[typeArr.length];
-            if (typeArr.length == 0) {
-                this.lexer.nextToken(15);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, typeArr)) == null) {
+            int i2 = 8;
+            if (this.lexer.token() == 8) {
+                this.lexer.nextToken(16);
+                return null;
+            }
+            int i3 = 14;
+            if (this.lexer.token() == 14) {
+                Object[] objArr = new Object[typeArr.length];
+                if (typeArr.length == 0) {
+                    this.lexer.nextToken(15);
+                    if (this.lexer.token() == 15) {
+                        this.lexer.nextToken(16);
+                        return new Object[0];
+                    }
+                    throw new JSONException("syntax error");
+                }
+                this.lexer.nextToken(2);
+                int i4 = 0;
+                while (i4 < typeArr.length) {
+                    if (this.lexer.token() == i2) {
+                        this.lexer.nextToken(16);
+                        cast = null;
+                    } else {
+                        Type type = typeArr[i4];
+                        if (type != Integer.TYPE && type != Integer.class) {
+                            if (type == String.class) {
+                                if (this.lexer.token() == 4) {
+                                    cast = this.lexer.stringVal();
+                                    this.lexer.nextToken(16);
+                                } else {
+                                    cast = TypeUtils.cast(parse(), type, this.config);
+                                }
+                            } else {
+                                if (i4 == typeArr.length - 1 && (type instanceof Class) && (((cls2 = (Class) type) != byte[].class && cls2 != char[].class) || this.lexer.token() != 4)) {
+                                    z = cls2.isArray();
+                                    cls = cls2.getComponentType();
+                                } else {
+                                    cls = null;
+                                    z = false;
+                                }
+                                if (z && this.lexer.token() != i3) {
+                                    ArrayList arrayList = new ArrayList();
+                                    ObjectDeserializer deserializer = this.config.getDeserializer(cls);
+                                    int fastMatchToken = deserializer.getFastMatchToken();
+                                    if (this.lexer.token() != 15) {
+                                        while (true) {
+                                            arrayList.add(deserializer.deserialze(this, type, null));
+                                            if (this.lexer.token() != 16) {
+                                                break;
+                                            }
+                                            this.lexer.nextToken(fastMatchToken);
+                                        }
+                                        if (this.lexer.token() != 15) {
+                                            throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
+                                        }
+                                    }
+                                    cast = TypeUtils.cast(arrayList, type, this.config);
+                                } else {
+                                    cast = this.config.getDeserializer(type).deserialze(this, type, Integer.valueOf(i4));
+                                }
+                            }
+                        } else if (this.lexer.token() == 2) {
+                            cast = Integer.valueOf(this.lexer.intValue());
+                            this.lexer.nextToken(16);
+                        } else {
+                            cast = TypeUtils.cast(parse(), type, this.config);
+                        }
+                    }
+                    objArr[i4] = cast;
+                    if (this.lexer.token() == 15) {
+                        break;
+                    } else if (this.lexer.token() == 16) {
+                        if (i4 == typeArr.length - 1) {
+                            this.lexer.nextToken(15);
+                        } else {
+                            this.lexer.nextToken(2);
+                        }
+                        i4++;
+                        i2 = 8;
+                        i3 = 14;
+                    } else {
+                        throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
+                    }
+                }
                 if (this.lexer.token() == 15) {
                     this.lexer.nextToken(16);
-                    return new Object[0];
+                    return objArr;
                 }
                 throw new JSONException("syntax error");
             }
-            this.lexer.nextToken(2);
-            int i4 = 0;
-            while (i4 < typeArr.length) {
-                if (this.lexer.token() == i2) {
-                    this.lexer.nextToken(16);
-                    cast = null;
-                } else {
-                    Type type = typeArr[i4];
-                    if (type != Integer.TYPE && type != Integer.class) {
-                        if (type == String.class) {
-                            if (this.lexer.token() == 4) {
-                                cast = this.lexer.stringVal();
-                                this.lexer.nextToken(16);
-                            } else {
-                                cast = TypeUtils.cast(parse(), type, this.config);
-                            }
-                        } else {
-                            if (i4 == typeArr.length - 1 && (type instanceof Class) && (((cls2 = (Class) type) != byte[].class && cls2 != char[].class) || this.lexer.token() != 4)) {
-                                z = cls2.isArray();
-                                cls = cls2.getComponentType();
-                            } else {
-                                cls = null;
-                                z = false;
-                            }
-                            if (z && this.lexer.token() != i3) {
-                                ArrayList arrayList = new ArrayList();
-                                ObjectDeserializer deserializer = this.config.getDeserializer(cls);
-                                int fastMatchToken = deserializer.getFastMatchToken();
-                                if (this.lexer.token() != 15) {
-                                    while (true) {
-                                        arrayList.add(deserializer.deserialze(this, type, null));
-                                        if (this.lexer.token() != 16) {
-                                            break;
-                                        }
-                                        this.lexer.nextToken(fastMatchToken);
-                                    }
-                                    if (this.lexer.token() != 15) {
-                                        throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
-                                    }
-                                }
-                                cast = TypeUtils.cast(arrayList, type, this.config);
-                            } else {
-                                cast = this.config.getDeserializer(type).deserialze(this, type, Integer.valueOf(i4));
-                            }
-                        }
-                    } else if (this.lexer.token() == 2) {
-                        cast = Integer.valueOf(this.lexer.intValue());
-                        this.lexer.nextToken(16);
-                    } else {
-                        cast = TypeUtils.cast(parse(), type, this.config);
-                    }
-                }
-                objArr[i4] = cast;
-                if (this.lexer.token() == 15) {
-                    break;
-                } else if (this.lexer.token() == 16) {
-                    if (i4 == typeArr.length - 1) {
-                        this.lexer.nextToken(15);
-                    } else {
-                        this.lexer.nextToken(2);
-                    }
-                    i4++;
-                    i2 = 8;
-                    i3 = 14;
-                } else {
-                    throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
-                }
-            }
-            if (this.lexer.token() == 15) {
-                this.lexer.nextToken(16);
-                return objArr;
-            }
-            throw new JSONException("syntax error");
+            throw new JSONException("syntax error : " + this.lexer.tokenName());
         }
-        throw new JSONException("syntax error : " + this.lexer.tokenName());
+        return (Object[]) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:86:0x0236, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x023a, code lost:
         return r11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Object parse(PropertyProcessable propertyProcessable, Object obj) {
+        InterceptResult invokeLL;
         String scanSymbolUnQuoted;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048602, this, propertyProcessable, obj)) != null) {
+            return invokeLL.objValue;
+        }
         int i2 = 0;
         if (this.lexer.token() != 12) {
             String str = "syntax error, expect {, actual " + this.lexer.tokenName();
@@ -1449,11 +1772,18 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public final void parseArray(Collection collection) {
-        parseArray(collection, (Object) null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, collection) == null) {
+            parseArray(collection, (Object) null);
+        }
     }
 
     public final void parseArray(Collection collection, Object obj) {
         Number decimalValue;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048609, this, collection, obj) != null) {
+            return;
+        }
         JSONLexer jSONLexer = this.lexer;
         if (jSONLexer.token() == 21 || jSONLexer.token() == 22) {
             jSONLexer.nextToken();
@@ -1549,48 +1879,61 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public <T> T parseObject(Class<T> cls) {
-        return (T) parseObject(cls, (Object) null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, cls)) == null) ? (T) parseObject(cls, (Object) null) : (T) invokeL.objValue;
     }
 
     public <T> T parseObject(Type type) {
-        return (T) parseObject(type, (Object) null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, type)) == null) ? (T) parseObject(type, (Object) null) : (T) invokeL.objValue;
     }
 
     public <T> T parseObject(Type type, Object obj) {
-        int i2 = this.lexer.token();
-        if (i2 == 8) {
-            this.lexer.nextToken();
-            return null;
-        }
-        if (i2 == 4) {
-            if (type == byte[].class) {
-                T t = (T) this.lexer.bytesValue();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, type, obj)) == null) {
+            int i2 = this.lexer.token();
+            if (i2 == 8) {
                 this.lexer.nextToken();
-                return t;
-            } else if (type == char[].class) {
-                String stringVal = this.lexer.stringVal();
-                this.lexer.nextToken();
-                return (T) stringVal.toCharArray();
+                return null;
             }
-        }
-        ObjectDeserializer deserializer = this.config.getDeserializer(type);
-        try {
-            if (deserializer.getClass() == JavaBeanDeserializer.class) {
-                if (this.lexer.token() != 12 && this.lexer.token() != 14) {
-                    throw new JSONException("syntax error,except start with { or [,but actually start with " + this.lexer.tokenName());
+            if (i2 == 4) {
+                if (type == byte[].class) {
+                    T t = (T) this.lexer.bytesValue();
+                    this.lexer.nextToken();
+                    return t;
+                } else if (type == char[].class) {
+                    String stringVal = this.lexer.stringVal();
+                    this.lexer.nextToken();
+                    return (T) stringVal.toCharArray();
                 }
-                return (T) ((JavaBeanDeserializer) deserializer).deserialze(this, type, obj, 0);
             }
-            return (T) deserializer.deserialze(this, type, obj);
-        } catch (JSONException e2) {
-            throw e2;
-        } catch (Throwable th) {
-            throw new JSONException(th.getMessage(), th);
+            ObjectDeserializer deserializer = this.config.getDeserializer(type);
+            try {
+                if (deserializer.getClass() == JavaBeanDeserializer.class) {
+                    if (this.lexer.token() != 12 && this.lexer.token() != 14) {
+                        throw new JSONException("syntax error,except start with { or [,but actually start with " + this.lexer.tokenName());
+                    }
+                    return (T) ((JavaBeanDeserializer) deserializer).deserialze(this, type, obj, 0);
+                }
+                return (T) deserializer.deserialze(this, type, obj);
+            } catch (JSONException e2) {
+                throw e2;
+            } catch (Throwable th) {
+                throw new JSONException(th.getMessage(), th);
+            }
         }
+        return (T) invokeLL.objValue;
     }
 
     public void parseObject(Object obj) {
         Object deserialze;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048620, this, obj) != null) {
+            return;
+        }
         Class<?> cls = obj.getClass();
         ObjectDeserializer deserializer = this.config.getDeserializer(cls);
         JavaBeanDeserializer javaBeanDeserializer = deserializer instanceof JavaBeanDeserializer ? (JavaBeanDeserializer) deserializer : null;
@@ -1646,17 +1989,24 @@ public class DefaultJSONParser implements Closeable {
     }
 
     public Object parseObject(Map map) {
-        return parseObject(map, (Object) null);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, map)) == null) ? parseObject(map, (Object) null) : invokeL.objValue;
     }
 
     public JSONObject parseObject() {
-        Object parseObject = parseObject((Map) new JSONObject(this.lexer.isEnabled(Feature.OrderedField)));
-        if (parseObject instanceof JSONObject) {
-            return (JSONObject) parseObject;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            Object parseObject = parseObject((Map) new JSONObject(this.lexer.isEnabled(Feature.OrderedField)));
+            if (parseObject instanceof JSONObject) {
+                return (JSONObject) parseObject;
+            }
+            if (parseObject == null) {
+                return null;
+            }
+            return new JSONObject((Map) parseObject);
         }
-        if (parseObject == null) {
-            return null;
-        }
-        return new JSONObject((Map) parseObject);
+        return (JSONObject) invokeV.objValue;
     }
 }

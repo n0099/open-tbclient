@@ -9,11 +9,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.eventbus.EventBus;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduWalletDelegate;
-import com.baidu.wallet.api.Constants;
 import com.baidu.wallet.base.controllers.PasswordController;
 import com.baidu.wallet.core.beans.BeanManager;
 import com.baidu.wallet.core.domain.DomainConfig;
@@ -38,166 +44,238 @@ import com.baidu.wallet.personal.ui.fragment.adapter.CardListFragmentPageAdapter
 import com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BankCardListActivity extends PayBaseBeanActivity implements View.OnClickListener, OnTabSelectListener, CardListBaseFragment.a {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "BankCardListActivity";
     public static final String EVENT_BANK_CARD_BIND_SUCCESS = "ev_bank_card_bind_success";
     public static final String EVT_PAY_PWD_CHANGE = "walletpay_forgot_password";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f26447a;
+    public RelativeLayout f26990a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26448b;
-
-    /* renamed from: e  reason: collision with root package name */
-    public CommonTabLayout f26451e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public f f26452f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public NoScrollViewPager f26453g;
-    public List<CardListBaseFragment> k;
+    public TextView f26991b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f26449c = {"银行卡", "电子卡"};
+    public String[] f26992c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<ICustomTabEntity> f26450d = new ArrayList<>();
+    public ArrayList<ICustomTabEntity> f26993d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public CommonTabLayout f26994e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public f f26995f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public NoScrollViewPager f26996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26454h = false;
+    public boolean f26997h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f26455i = false;
-    public boolean j = false;
-    public boolean l = false;
-    public boolean m = false;
-    public BaiduPay.IBindCardCallback n = new BaiduPay.IBindCardCallback() { // from class: com.baidu.wallet.personal.ui.BankCardListActivity.1
-        @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
-        public void onChangeFailed(String str) {
-        }
+    public boolean f26998i;
+    public boolean j;
+    public List<CardListBaseFragment> k;
+    public boolean l;
+    public boolean m;
+    public BaiduPay.IBindCardCallback n;
 
-        @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
-        public void onChangeSucceed(String str) {
-            if (BankCardListActivity.this.f26455i && BankCardListActivity.this.f26447a != null && BankCardListActivity.this.f26447a.getVisibility() == 0) {
-                BankCardListActivity.this.f26447a.setVisibility(8);
+    public BankCardListActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            EventBus eventBus = EventBus.getInstance();
-            eventBus.getClass();
-            eventBus.post(new EventBus.Event(BankCardListActivity.EVENT_BANK_CARD_BIND_SUCCESS, str));
         }
-    };
+        this.f26992c = new String[]{"银行卡", "电子卡"};
+        this.f26993d = new ArrayList<>();
+        this.f26997h = false;
+        this.f26998i = false;
+        this.j = false;
+        this.l = false;
+        this.m = false;
+        this.n = new BaiduPay.IBindCardCallback(this) { // from class: com.baidu.wallet.personal.ui.BankCardListActivity.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ BankCardListActivity f26999a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f26999a = this;
+            }
+
+            @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
+            public void onChangeFailed(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                }
+            }
+
+            @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
+            public void onChangeSucceed(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                    if (this.f26999a.f26998i && this.f26999a.f26990a != null && this.f26999a.f26990a.getVisibility() == 0) {
+                        this.f26999a.f26990a.setVisibility(8);
+                    }
+                    EventBus eventBus = EventBus.getInstance();
+                    eventBus.getClass();
+                    eventBus.post(new EventBus.Event(eventBus, BankCardListActivity.EVENT_BANK_CARD_BIND_SUCCESS, str));
+                }
+            }
+        };
+    }
 
     private void c() {
-        if (this.f26452f == null) {
-            this.f26452f = (f) PayBeanFactory.getInstance().getBean((Context) getActivity(), 606, BEAN_TAG);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            if (this.f26995f == null) {
+                this.f26995f = (f) PayBeanFactory.getInstance().getBean((Context) getActivity(), 606, BEAN_TAG);
+            }
+            this.f26995f.setResponseCallback(this);
+            this.f26995f.execBean();
         }
-        this.f26452f.setResponseCallback(this);
-        this.f26452f.execBean();
     }
 
     private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) != null) {
+            return;
+        }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f26449c;
+            String[] strArr = this.f26992c;
             if (i2 >= strArr.length) {
                 return;
             }
-            this.f26450d.add(new BankCardTabEntity(i2, strArr[i2]));
+            this.f26993d.add(new BankCardTabEntity(i2, strArr[i2]));
             i2++;
         }
     }
 
     private void e() {
-        Activity activity = getActivity();
-        boolean b2 = a.b(activity, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserId(), Boolean.FALSE);
-        Activity activity2 = getActivity();
-        boolean b3 = a.b(activity2, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.FALSE);
-        if (b2 && !b3) {
-            Activity activity3 = getActivity();
-            a.a(activity3, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.TRUE);
-            Activity activity4 = getActivity();
-            a.a(activity4, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserId(), Boolean.FALSE);
-        }
-        if (!b2 && !b3) {
-            Activity activity5 = getActivity();
-            String d2 = a.d(activity5, "key_card_eem_msg" + CardListCache.getInstance().getUserId(), "");
-            Activity activity6 = getActivity();
-            String d3 = a.d(activity6, "key_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), "");
-            if (TextUtils.isEmpty(d2) || !TextUtils.isEmpty(d3)) {
-                d2 = d3;
-            } else {
-                Activity activity7 = getActivity();
-                a.c(activity7, "key_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), d2);
-                Activity activity8 = getActivity();
-                a.c(activity8, "key_card_eem_msg" + CardListCache.getInstance().getUserId(), "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            Activity activity = getActivity();
+            boolean b2 = a.b(activity, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserId(), Boolean.FALSE);
+            Activity activity2 = getActivity();
+            boolean b3 = a.b(activity2, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.FALSE);
+            if (b2 && !b3) {
+                Activity activity3 = getActivity();
+                a.a(activity3, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.TRUE);
+                Activity activity4 = getActivity();
+                a.a(activity4, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserId(), Boolean.FALSE);
             }
-            this.f26451e.setTabTitleTipMsg(1, true, d2);
-            return;
+            if (!b2 && !b3) {
+                Activity activity5 = getActivity();
+                String d2 = a.d(activity5, "key_card_eem_msg" + CardListCache.getInstance().getUserId(), "");
+                Activity activity6 = getActivity();
+                String d3 = a.d(activity6, "key_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), "");
+                if (TextUtils.isEmpty(d2) || !TextUtils.isEmpty(d3)) {
+                    d2 = d3;
+                } else {
+                    Activity activity7 = getActivity();
+                    a.c(activity7, "key_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), d2);
+                    Activity activity8 = getActivity();
+                    a.c(activity8, "key_card_eem_msg" + CardListCache.getInstance().getUserId(), "");
+                }
+                this.f26994e.setTabTitleTipMsg(1, true, d2);
+                return;
+            }
+            this.f26994e.setTabTitleTipMsg(1, false, "");
         }
-        this.f26451e.setTabTitleTipMsg(1, false, "");
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void bindCard() {
-        Bundle bundle = new Bundle();
-        bundle.putBoolean(Constants.BDL_KEY_BANKINFO_EXTRA, !this.f26454h);
-        BaiduPay.getInstance().bindCard(this.mAct, this.n, PayRequestCache.BindCategory.Initiative, 1, "", null, bundle, null, true, BeanConstants.FROM_BIND);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(com.baidu.wallet.api.Constants.BDL_KEY_BANKINFO_EXTRA, !this.f26997h);
+            BaiduPay.getInstance().bindCard(this.mAct, this.n, PayRequestCache.BindCategory.Initiative, 1, "", null, bundle, null, true, BeanConstants.FROM_BIND);
+        }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
-        if (i2 == 606) {
-            LogUtil.i(BEAN_TAG, str);
-        } else {
-            super.handleFailure(i2, i3, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
+            if (i2 == 606) {
+                LogUtil.i(BEAN_TAG, str);
+            } else {
+                super.handleFailure(i2, i3, str);
+            }
         }
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
-        if (i2 != 606 || obj == null) {
-            return;
-        }
-        CardRedEemMasResp cardRedEemMasResp = (CardRedEemMasResp) obj;
-        if (TextUtils.isEmpty(cardRedEemMasResp.msgCode)) {
-            return;
-        }
-        Activity activity = getActivity();
-        String b2 = a.b(activity, "key_card_eem_msg_code" + CardListCache.getInstance().getUserId(), "");
-        Activity activity2 = getActivity();
-        String b3 = a.b(activity2, "key_card_eem_msg_code" + CardListCache.getInstance().getUserIdV2(), "");
-        if (TextUtils.isEmpty(b2) || !TextUtils.isEmpty(b3)) {
-            b2 = b3;
-        } else {
-            Activity activity3 = getActivity();
-            a.a(activity3, "key_card_eem_msg_code" + CardListCache.getInstance().getUserIdV2(), b2);
-            Activity activity4 = getActivity();
-            a.a(activity4, "key_card_eem_msg_code" + CardListCache.getInstance().getUserId(), "");
-        }
-        if (!b2.equals(cardRedEemMasResp.msgCode)) {
-            this.f26451e.setTabTitleTipMsg(1, true, cardRedEemMasResp.notice_msg);
-            if (TextUtils.isEmpty(CardListCache.getInstance().getUserIdV2())) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) && i2 == 606 && obj != null) {
+            CardRedEemMasResp cardRedEemMasResp = (CardRedEemMasResp) obj;
+            if (TextUtils.isEmpty(cardRedEemMasResp.msgCode)) {
                 return;
             }
-            Activity activity5 = getActivity();
-            a.a(activity5, "key_card_eem_msg_code" + CardListCache.getInstance().getUserIdV2(), cardRedEemMasResp.msgCode);
-            Activity activity6 = getActivity();
-            a.c(activity6, "key_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), cardRedEemMasResp.notice_msg);
-            Activity activity7 = getActivity();
-            a.a(activity7, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.FALSE);
-            Activity activity8 = getActivity();
-            a.a(activity8, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserId(), Boolean.FALSE);
-            return;
+            Activity activity = getActivity();
+            String b2 = a.b(activity, "key_card_eem_msg_code" + CardListCache.getInstance().getUserId(), "");
+            Activity activity2 = getActivity();
+            String b3 = a.b(activity2, "key_card_eem_msg_code" + CardListCache.getInstance().getUserIdV2(), "");
+            if (TextUtils.isEmpty(b2) || !TextUtils.isEmpty(b3)) {
+                b2 = b3;
+            } else {
+                Activity activity3 = getActivity();
+                a.a(activity3, "key_card_eem_msg_code" + CardListCache.getInstance().getUserIdV2(), b2);
+                Activity activity4 = getActivity();
+                a.a(activity4, "key_card_eem_msg_code" + CardListCache.getInstance().getUserId(), "");
+            }
+            if (!b2.equals(cardRedEemMasResp.msgCode)) {
+                this.f26994e.setTabTitleTipMsg(1, true, cardRedEemMasResp.notice_msg);
+                if (TextUtils.isEmpty(CardListCache.getInstance().getUserIdV2())) {
+                    return;
+                }
+                Activity activity5 = getActivity();
+                a.a(activity5, "key_card_eem_msg_code" + CardListCache.getInstance().getUserIdV2(), cardRedEemMasResp.msgCode);
+                Activity activity6 = getActivity();
+                a.c(activity6, "key_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), cardRedEemMasResp.notice_msg);
+                Activity activity7 = getActivity();
+                a.a(activity7, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.FALSE);
+                Activity activity8 = getActivity();
+                a.a(activity8, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserId(), Boolean.FALSE);
+                return;
+            }
+            e();
         }
-        e();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f26448b) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == this.f26991b) {
             this.m = true;
             BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
             Activity activity = getActivity();
@@ -207,109 +285,141 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        CommonTabLayout commonTabLayout = this.f26451e;
-        if (commonTabLayout != null) {
-            commonTabLayout.setIsFirstDraw(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            CommonTabLayout commonTabLayout = this.f26994e;
+            if (commonTabLayout != null) {
+                commonTabLayout.setIsFirstDraw(true);
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(ResUtils.layout(this, "wallet_personal_bank_cards"));
-        d();
-        b();
-        initActionBar("wallet_base_my_bank_card");
-        getBdActionBar().setTitleSize(DisplayUtils.dip2px(getActivity(), 18.0f));
-        ((ImageView) findViewById(ResUtils.id(this.mAct, "title_bottom_seperator"))).setVisibility(8);
-        CommonTabLayout commonTabLayout = (CommonTabLayout) findViewById(ResUtils.id(getActivity(), "bank_card_list_tab_layout"));
-        this.f26451e = commonTabLayout;
-        commonTabLayout.setTabData(this.f26450d);
-        this.f26451e.setOnTabSelectListener(this);
-        NoScrollViewPager noScrollViewPager = (NoScrollViewPager) findViewById(ResUtils.id(getActivity(), "bank_card_list_view_pager"));
-        this.f26453g = noScrollViewPager;
-        noScrollViewPager.setScanScroll(false);
-        this.f26447a = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "bd_wallet_pwd_set_layout"));
-        TextView textView = (TextView) findViewById(ResUtils.id(this.mAct, "bd_wallet_setpwd_img"));
-        this.f26448b = textView;
-        textView.setOnClickListener(this);
-        c();
-        a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(ResUtils.layout(this, "wallet_personal_bank_cards"));
+            d();
+            b();
+            initActionBar("wallet_base_my_bank_card");
+            getBdActionBar().setTitleSize(DisplayUtils.dip2px(getActivity(), 18.0f));
+            ((ImageView) findViewById(ResUtils.id(this.mAct, "title_bottom_seperator"))).setVisibility(8);
+            CommonTabLayout commonTabLayout = (CommonTabLayout) findViewById(ResUtils.id(getActivity(), "bank_card_list_tab_layout"));
+            this.f26994e = commonTabLayout;
+            commonTabLayout.setTabData(this.f26993d);
+            this.f26994e.setOnTabSelectListener(this);
+            NoScrollViewPager noScrollViewPager = (NoScrollViewPager) findViewById(ResUtils.id(getActivity(), "bank_card_list_view_pager"));
+            this.f26996g = noScrollViewPager;
+            noScrollViewPager.setScanScroll(false);
+            this.f26990a = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "bd_wallet_pwd_set_layout"));
+            TextView textView = (TextView) findViewById(ResUtils.id(this.mAct, "bd_wallet_setpwd_img"));
+            this.f26991b = textView;
+            textView.setOnClickListener(this);
+            c();
+            a();
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        BeanManager.getInstance().removeAllBeans(BEAN_TAG);
-        PayRequestCache.getInstance().removeBeanRequestFromCache(PayRequestCache.BindCategory.Initiative.name());
-        if (this.j) {
-            PasswordController.getPassWordInstance().clearBindCardCallback();
-        }
-        if (this.l) {
-            PasswordController.getPassWordInstance().clearCheckPwdListener();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroy();
+            BeanManager.getInstance().removeAllBeans(BEAN_TAG);
+            PayRequestCache.getInstance().removeBeanRequestFromCache(PayRequestCache.BindCategory.Initiative.name());
+            if (this.j) {
+                PasswordController.getPassWordInstance().clearBindCardCallback();
+            }
+            if (this.l) {
+                PasswordController.getPassWordInstance().clearCheckPwdListener();
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        if (this.m) {
-            this.m = false;
-            EventBus eventBus = EventBus.getInstance();
-            eventBus.getClass();
-            eventBus.post(new EventBus.Event(CardListBaseFragment.EVENT_NEED_SYNC_SERVER_DATA, ""));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            if (this.m) {
+                this.m = false;
+                EventBus eventBus = EventBus.getInstance();
+                eventBus.getClass();
+                eventBus.post(new EventBus.Event(eventBus, CardListBaseFragment.EVENT_NEED_SYNC_SERVER_DATA, ""));
+            }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+        }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.tablayout.callback.OnTabSelectListener
     public void onTabSelect(int i2) {
         CommonTabLayout commonTabLayout;
-        NoScrollViewPager noScrollViewPager = this.f26453g;
-        if (noScrollViewPager != null) {
-            noScrollViewPager.setCurrentItem(i2);
-        }
-        if (i2 == 1 && (commonTabLayout = this.f26451e) != null && commonTabLayout.isMsgTipsShowing(i2)) {
-            this.f26451e.setTabTitleTipMsg(i2, false, "");
-            Activity activity = getActivity();
-            a.a(activity, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.TRUE);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            NoScrollViewPager noScrollViewPager = this.f26996g;
+            if (noScrollViewPager != null) {
+                noScrollViewPager.setCurrentItem(i2);
+            }
+            if (i2 == 1 && (commonTabLayout = this.f26994e) != null && commonTabLayout.isMsgTipsShowing(i2)) {
+                this.f26994e.setTabTitleTipMsg(i2, false, "");
+                Activity activity = getActivity();
+                a.a(activity, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.TRUE);
+            }
         }
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void setBankCardDetectEnabled(boolean z) {
-        this.f26454h = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.f26997h = z;
+        }
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void setNoBankCardAndPwdFlag(boolean z) {
-        this.f26455i = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f26998i = z;
+        }
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment.a
     public void showPwdLayout(boolean z) {
-        RelativeLayout relativeLayout = this.f26447a;
-        if (relativeLayout != null) {
-            relativeLayout.setVisibility(z ? 0 : 8);
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (relativeLayout = this.f26990a) == null) {
+            return;
         }
+        relativeLayout.setVisibility(z ? 0 : 8);
     }
 
     private void a() {
-        this.f26453g.setAdapter(new CardListFragmentPageAdapter(getSupportFragmentManager(), this.k));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            this.f26996g.setAdapter(new CardListFragmentPageAdapter(getSupportFragmentManager(), this.k));
+        }
     }
 
     private void b() {
-        this.k = new ArrayList();
-        BankCardListFragment bankCardListFragment = new BankCardListFragment();
-        bankCardListFragment.setCallback(this);
-        EemCardListFragment eemCardListFragment = new EemCardListFragment();
-        eemCardListFragment.setCallback(this);
-        this.k.add(bankCardListFragment);
-        this.k.add(eemCardListFragment);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            this.k = new ArrayList();
+            BankCardListFragment bankCardListFragment = new BankCardListFragment();
+            bankCardListFragment.setCallback(this);
+            EemCardListFragment eemCardListFragment = new EemCardListFragment();
+            eemCardListFragment.setCallback(this);
+            this.k.add(bankCardListFragment);
+            this.k.add(eemCardListFragment);
+        }
     }
 }

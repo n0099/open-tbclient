@@ -1,5 +1,12 @@
 package io.reactivex.internal.operators.flowable;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
 import io.reactivex.Flowable;
@@ -18,149 +25,228 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableFlatMapCompletable<T> extends AbstractFlowableWithUpstream<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final Function<? super T, ? extends CompletableSource> mapper;
     public final int maxConcurrency;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class FlatMapCompletableMainSubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T> {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8443155186132538303L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public final boolean delayErrors;
+        public final AtomicThrowable errors;
         public final Function<? super T, ? extends CompletableSource> mapper;
         public final int maxConcurrency;
         public Subscription s;
-        public final AtomicThrowable errors = new AtomicThrowable();
-        public final CompositeDisposable set = new CompositeDisposable();
+        public final CompositeDisposable set;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes10.dex */
         public final class InnerConsumer extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
+            public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8606673141535671828L;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ FlatMapCompletableMainSubscriber this$0;
 
-            public InnerConsumer() {
+            public InnerConsumer(FlatMapCompletableMainSubscriber flatMapCompletableMainSubscriber) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {flatMapCompletableMainSubscriber};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = flatMapCompletableMainSubscriber;
             }
 
             @Override // io.reactivex.disposables.Disposable
             public void dispose() {
-                DisposableHelper.dispose(this);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
+                }
             }
 
             @Override // io.reactivex.disposables.Disposable
             public boolean isDisposed() {
-                return DisposableHelper.isDisposed(get());
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
             }
 
             @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
             public void onComplete() {
-                FlatMapCompletableMainSubscriber.this.innerComplete(this);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    this.this$0.innerComplete(this);
+                }
             }
 
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
-                FlatMapCompletableMainSubscriber.this.innerError(this, th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                    this.this$0.innerError(this, th);
+                }
             }
 
             @Override // io.reactivex.CompletableObserver
             public void onSubscribe(Disposable disposable) {
-                DisposableHelper.setOnce(this, disposable);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
+                    DisposableHelper.setOnce(this, disposable);
+                }
             }
         }
 
         public FlatMapCompletableMainSubscriber(Subscriber<? super T> subscriber, Function<? super T, ? extends CompletableSource> function, boolean z, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, function, Boolean.valueOf(z), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.mapper = function;
             this.delayErrors = z;
+            this.errors = new AtomicThrowable();
+            this.set = new CompositeDisposable();
             this.maxConcurrency = i2;
             lazySet(1);
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            this.cancelled = true;
-            this.s.cancel();
-            this.set.dispose();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.cancelled = true;
+                this.s.cancel();
+                this.set.dispose();
+            }
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
 
         public void innerComplete(FlatMapCompletableMainSubscriber<T>.InnerConsumer innerConsumer) {
-            this.set.delete(innerConsumer);
-            onComplete();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, innerConsumer) == null) {
+                this.set.delete(innerConsumer);
+                onComplete();
+            }
         }
 
         public void innerError(FlatMapCompletableMainSubscriber<T>.InnerConsumer innerConsumer, Throwable th) {
-            this.set.delete(innerConsumer);
-            onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, innerConsumer, th) == null) {
+                this.set.delete(innerConsumer);
+                onError(th);
+            }
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public boolean isEmpty() {
-            return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            if (decrementAndGet() == 0) {
-                Throwable terminate = this.errors.terminate();
-                if (terminate != null) {
-                    this.actual.onError(terminate);
-                } else {
-                    this.actual.onComplete();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                if (decrementAndGet() == 0) {
+                    Throwable terminate = this.errors.terminate();
+                    if (terminate != null) {
+                        this.actual.onError(terminate);
+                    } else {
+                        this.actual.onComplete();
+                    }
+                } else if (this.maxConcurrency != Integer.MAX_VALUE) {
+                    this.s.request(1L);
                 }
-            } else if (this.maxConcurrency != Integer.MAX_VALUE) {
-                this.s.request(1L);
             }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            if (this.errors.addThrowable(th)) {
-                if (this.delayErrors) {
-                    if (decrementAndGet() == 0) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
+                if (this.errors.addThrowable(th)) {
+                    if (this.delayErrors) {
+                        if (decrementAndGet() == 0) {
+                            this.actual.onError(this.errors.terminate());
+                            return;
+                        } else if (this.maxConcurrency != Integer.MAX_VALUE) {
+                            this.s.request(1L);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    cancel();
+                    if (getAndSet(0) > 0) {
                         this.actual.onError(this.errors.terminate());
                         return;
-                    } else if (this.maxConcurrency != Integer.MAX_VALUE) {
-                        this.s.request(1L);
-                        return;
-                    } else {
-                        return;
                     }
-                }
-                cancel();
-                if (getAndSet(0) > 0) {
-                    this.actual.onError(this.errors.terminate());
                     return;
                 }
-                return;
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            try {
-                CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null CompletableSource");
-                getAndIncrement();
-                InnerConsumer innerConsumer = new InnerConsumer();
-                if (this.cancelled || !this.set.add(innerConsumer)) {
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                try {
+                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                    getAndIncrement();
+                    InnerConsumer innerConsumer = new InnerConsumer(this);
+                    if (this.cancelled || !this.set.add(innerConsumer)) {
+                        return;
+                    }
+                    completableSource.subscribe(innerConsumer);
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    this.s.cancel();
+                    onError(th);
                 }
-                completableSource.subscribe(innerConsumer);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.cancel();
-                onError(th);
             }
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            if (SubscriptionHelper.validate(this.s, subscription)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
                 int i2 = this.maxConcurrency;
@@ -175,21 +261,47 @@ public final class FlowableFlatMapCompletable<T> extends AbstractFlowableWithUps
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         @Nullable
         public T poll() throws Exception {
-            return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return null;
+            }
+            return (T) invokeV.objValue;
         }
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
         public int requestFusion(int i2) {
-            return i2 & 2;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? i2 & 2 : invokeI.intValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowableFlatMapCompletable(Flowable<T> flowable, Function<? super T, ? extends CompletableSource> function, boolean z, int i2) {
         super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, function, Boolean.valueOf(z), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mapper = function;
         this.delayErrors = z;
         this.maxConcurrency = i2;
@@ -197,6 +309,9 @@ public final class FlowableFlatMapCompletable<T> extends AbstractFlowableWithUps
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        this.source.subscribe((FlowableSubscriber) new FlatMapCompletableMainSubscriber(subscriber, this.mapper, this.delayErrors, this.maxConcurrency));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            this.source.subscribe((FlowableSubscriber) new FlatMapCompletableMainSubscriber(subscriber, this.mapper, this.delayErrors, this.maxConcurrency));
+        }
     }
 }

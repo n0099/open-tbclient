@@ -1,23 +1,45 @@
 package com.bytedance.sdk.openadsdk.multipro;
 
-import com.bytedance.sdk.openadsdk.core.p;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.bytedance.sdk.openadsdk.core.o;
 /* loaded from: classes6.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29854a = "com.bytedance.openadsdk";
+    public static String f31509a = "com.bytedance.openadsdk";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29855b = "content://" + f29854a + ".TTMultiProvider";
+    public static String f31510b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(935188188, "Lcom/bytedance/sdk/openadsdk/multipro/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(935188188, "Lcom/bytedance/sdk/openadsdk/multipro/e;");
+                return;
+            }
+        }
+        f31510b = "content://" + f31509a + ".TTMultiProvider";
         a();
     }
 
     public static void a() {
-        if (p.a() != null) {
-            f29854a = p.a().getPackageName();
-            f29855b = "content://" + f29854a + ".TTMultiProvider";
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || o.a() == null) {
+            return;
         }
+        f31509a = o.a().getPackageName();
+        f31510b = "content://" + f31509a + ".TTMultiProvider";
     }
 }

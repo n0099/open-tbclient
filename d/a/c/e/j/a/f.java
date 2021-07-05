@@ -1,7 +1,14 @@
 package d.a.c.e.j.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
@@ -11,176 +18,259 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class f {
-
-    /* renamed from: b  reason: collision with root package name */
-    public HttpMessageTask.HTTP_METHOD f42391b;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42390a = "";
+    public String f44199a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public HttpMessageTask.HTTP_METHOD f44200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f42392c = new HashMap();
+    public Map<String, String> f44201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinkedList<BasicNameValuePair> f42393d = new LinkedList<>();
+    public LinkedList<BasicNameValuePair> f44202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, byte[]> f42394e = new HashMap<>();
+    public HashMap<String, byte[]> f44203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42395f = false;
+    public boolean f44204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42396g = false;
+    public boolean f44205g;
+
+    public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44199a = "";
+        this.f44201c = new HashMap();
+        this.f44202d = new LinkedList<>();
+        this.f44203e = new HashMap<>();
+        this.f44204f = false;
+        this.f44205g = false;
+    }
 
     public void a(String str, String str2) {
-        Map<String, String> map = this.f42392c;
-        if (map != null) {
-            map.put(str, str2);
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.f44201c) == null) {
+            return;
         }
+        map.put(str, str2);
     }
 
     public void b(String str, String str2) {
-        this.f42393d.add(new BasicNameValuePair(str, str2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            this.f44202d.add(new BasicNameValuePair(str, str2));
+        }
     }
 
     public void c(String str, byte[] bArr) {
-        this.f42394e.put(str, bArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            this.f44203e.put(str, bArr);
+        }
     }
 
     public void d(BasicNameValuePair basicNameValuePair) {
-        this.f42393d.add(basicNameValuePair);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, basicNameValuePair) == null) {
+            this.f44202d.add(basicNameValuePair);
+        }
     }
 
     public boolean e() {
-        return this.f42395f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44204f : invokeV.booleanValue;
     }
 
     public String f(d dVar) {
-        if (this.f42393d.size() == 0) {
-            if (dVar != null) {
-                dVar.f42377a = this.f42390a.length();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, dVar)) == null) {
+            if (this.f44202d.size() == 0) {
+                if (dVar != null) {
+                    dVar.f44186a = this.f44199a.length();
+                }
+                return this.f44199a;
             }
-            return this.f42390a;
-        }
-        StringBuilder sb = new StringBuilder(30);
-        sb.append(this.f42390a);
-        if (this.f42390a.indexOf("?") < 0) {
-            sb.append("?");
-        } else if (!this.f42390a.endsWith("?") && !this.f42390a.endsWith("&")) {
-            sb.append("&");
-        }
-        for (int i2 = 0; i2 < this.f42393d.size(); i2++) {
-            if (i2 != 0) {
+            StringBuilder sb = new StringBuilder(30);
+            sb.append(this.f44199a);
+            if (this.f44199a.indexOf("?") < 0) {
+                sb.append("?");
+            } else if (!this.f44199a.endsWith("?") && !this.f44199a.endsWith("&")) {
                 sb.append("&");
             }
-            sb.append(this.f42393d.get(i2).getName());
-            sb.append("=");
-            sb.append(k.getUrlEncode(this.f42393d.get(i2).getValue()));
+            for (int i2 = 0; i2 < this.f44202d.size(); i2++) {
+                if (i2 != 0) {
+                    sb.append("&");
+                }
+                sb.append(this.f44202d.get(i2).getName());
+                sb.append("=");
+                sb.append(k.getUrlEncode(this.f44202d.get(i2).getValue()));
+            }
+            if (dVar != null) {
+                dVar.f44186a = sb.length();
+            }
+            return sb.toString();
         }
-        if (dVar != null) {
-            dVar.f42377a = sb.length();
-        }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public String g(String str) {
-        Map<String, String> map = this.f42392c;
-        if (map != null) {
-            return map.get(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            Map<String, String> map = this.f44201c;
+            if (map != null) {
+                return map.get(str);
+            }
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     public HttpMessageTask.HTTP_METHOD h() {
-        return this.f42391b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44200b : (HttpMessageTask.HTTP_METHOD) invokeV.objValue;
     }
 
     public String i() {
-        return this.f42390a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f44199a : (String) invokeV.objValue;
     }
 
     public boolean j() {
-        HashMap<String, byte[]> hashMap = this.f42394e;
-        return hashMap != null && hashMap.size() > 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            HashMap<String, byte[]> hashMap = this.f44203e;
+            return hashMap != null && hashMap.size() > 0;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean k() {
-        return this.f42396g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44205g : invokeV.booleanValue;
     }
 
     public final StringBuilder l() {
-        StringBuilder sb = new StringBuilder(1024);
-        LinkedList<BasicNameValuePair> linkedList = this.f42393d;
-        if (linkedList != null) {
-            int i2 = 0;
-            Iterator<BasicNameValuePair> it = linkedList.iterator();
-            while (it.hasNext()) {
-                BasicNameValuePair next = it.next();
-                if (next != null) {
-                    String name = next.getName();
-                    String value = next.getValue();
-                    if (i2 != 0) {
-                        sb.append("&");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            StringBuilder sb = new StringBuilder(1024);
+            LinkedList<BasicNameValuePair> linkedList = this.f44202d;
+            if (linkedList != null) {
+                int i2 = 0;
+                Iterator<BasicNameValuePair> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    BasicNameValuePair next = it.next();
+                    if (next != null) {
+                        String name = next.getName();
+                        String value = next.getValue();
+                        if (i2 != 0) {
+                            sb.append("&");
+                        }
+                        sb.append(name + "=");
+                        sb.append(k.getUrlEncode(value));
+                        i2++;
                     }
-                    sb.append(name + "=");
-                    sb.append(k.getUrlEncode(value));
-                    i2++;
                 }
             }
+            return sb;
         }
-        return sb;
+        return (StringBuilder) invokeV.objValue;
     }
 
     public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
     }
 
     public void n(boolean z) {
-        this.f42396g = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.f44205g = z;
+        }
     }
 
     public void o(boolean z) {
-        this.f42395f = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.f44204f = z;
+        }
     }
 
     public void p(HashMap<String, String> hashMap) {
-        this.f42392c = hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, hashMap) == null) {
+            this.f44201c = hashMap;
+        }
     }
 
     public void q(HttpMessageTask.HTTP_METHOD http_method) {
-        this.f42391b = http_method;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, http_method) == null) {
+            this.f44200b = http_method;
+        }
     }
 
     public void r(List<Map.Entry<String, Object>> list) {
-        if (list != null) {
-            for (Map.Entry<String, Object> entry : list) {
-                Object value = entry.getValue();
-                if (value != null) {
-                    if (value instanceof String) {
-                        this.f42393d.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
-                    } else if (value instanceof byte[]) {
-                        this.f42394e.put(entry.getKey(), (byte[]) entry.getValue());
-                    } else {
-                        throw new UnsupportedOperationException("post type is not String and byte[]");
-                    }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, list) == null) || list == null) {
+            return;
+        }
+        for (Map.Entry<String, Object> entry : list) {
+            Object value = entry.getValue();
+            if (value != null) {
+                if (value instanceof String) {
+                    this.f44202d.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                } else if (value instanceof byte[]) {
+                    this.f44203e.put(entry.getKey(), (byte[]) entry.getValue());
+                } else {
+                    throw new UnsupportedOperationException("post type is not String and byte[]");
                 }
             }
         }
     }
 
     public void s(String str) {
-        if (str == null) {
-            this.f42390a = "";
-        } else {
-            this.f42390a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            if (str == null) {
+                this.f44199a = "";
+            } else {
+                this.f44199a = str;
+            }
         }
     }
 
     public void t(HttpURLConnection httpURLConnection) {
         Map<String, String> map;
-        if (httpURLConnection == null || (map = this.f42392c) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.f44201c) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -190,74 +280,80 @@ public class f {
 
     public void u(HttpURLConnection httpURLConnection, d dVar) throws Exception {
         int i2;
-        if (httpURLConnection != null) {
-            String sb = l().toString();
-            DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-            try {
-                dataOutputStream.writeBytes(sb);
-                dataOutputStream.flush();
-                d.a.c.e.m.a.d(dataOutputStream);
-                i2 = sb.length();
-            } catch (Throwable th) {
-                d.a.c.e.m.a.d(dataOutputStream);
-                throw th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048596, this, httpURLConnection, dVar) == null) {
+            if (httpURLConnection != null) {
+                String sb = l().toString();
+                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    dataOutputStream.writeBytes(sb);
+                    dataOutputStream.flush();
+                    d.a.c.e.m.a.d(dataOutputStream);
+                    i2 = sb.length();
+                } catch (Throwable th) {
+                    d.a.c.e.m.a.d(dataOutputStream);
+                    throw th;
+                }
+            } else {
+                i2 = 0;
             }
-        } else {
-            i2 = 0;
-        }
-        if (dVar != null) {
-            dVar.f42377a = i2;
+            if (dVar != null) {
+                dVar.f44186a = i2;
+            }
         }
     }
 
     public void v(HttpURLConnection httpURLConnection, String str, d dVar) throws Exception {
         int i2;
-        m();
-        if (httpURLConnection != null) {
-            DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-            try {
-                if (this.f42393d != null) {
-                    Iterator<BasicNameValuePair> it = this.f42393d.iterator();
-                    while (it.hasNext()) {
-                        BasicNameValuePair next = it.next();
-                        if (next != null) {
-                            String name = next.getName();
-                            String value = next.getValue();
-                            if (value != null && name != null) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048597, this, httpURLConnection, str, dVar) == null) {
+            m();
+            if (httpURLConnection != null) {
+                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    if (this.f44202d != null) {
+                        Iterator<BasicNameValuePair> it = this.f44202d.iterator();
+                        while (it.hasNext()) {
+                            BasicNameValuePair next = it.next();
+                            if (next != null) {
+                                String name = next.getName();
+                                String value = next.getValue();
+                                if (value != null && name != null) {
+                                    dataOutputStream.writeBytes("--" + str + Part.CRLF);
+                                    byte[] bytes = value.getBytes("UTF-8");
+                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + Part.CRLF);
+                                    dataOutputStream.writeBytes(Part.CRLF);
+                                    dataOutputStream.write(bytes);
+                                    dataOutputStream.writeBytes(Part.CRLF);
+                                }
+                            }
+                        }
+                    }
+                    if (this.f44203e != null) {
+                        for (Map.Entry<String, byte[]> entry : this.f44203e.entrySet()) {
+                            String key = entry.getKey();
+                            byte[] value2 = entry.getValue();
+                            if (value2 != null) {
                                 dataOutputStream.writeBytes("--" + str + Part.CRLF);
-                                byte[] bytes = value.getBytes("UTF-8");
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + Part.CRLF);
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + Part.CRLF);
                                 dataOutputStream.writeBytes(Part.CRLF);
-                                dataOutputStream.write(bytes);
+                                dataOutputStream.write(value2);
                                 dataOutputStream.writeBytes(Part.CRLF);
                             }
                         }
                     }
+                    dataOutputStream.writeBytes("--" + str + "--" + Part.CRLF);
+                    dataOutputStream.flush();
+                    i2 = dataOutputStream.size();
+                } finally {
+                    d.a.c.e.m.a.d(dataOutputStream);
                 }
-                if (this.f42394e != null) {
-                    for (Map.Entry<String, byte[]> entry : this.f42394e.entrySet()) {
-                        String key = entry.getKey();
-                        byte[] value2 = entry.getValue();
-                        if (value2 != null) {
-                            dataOutputStream.writeBytes("--" + str + Part.CRLF);
-                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + Part.CRLF);
-                            dataOutputStream.writeBytes(Part.CRLF);
-                            dataOutputStream.write(value2);
-                            dataOutputStream.writeBytes(Part.CRLF);
-                        }
-                    }
-                }
-                dataOutputStream.writeBytes("--" + str + "--" + Part.CRLF);
-                dataOutputStream.flush();
-                i2 = dataOutputStream.size();
-            } finally {
-                d.a.c.e.m.a.d(dataOutputStream);
+            } else {
+                i2 = 0;
             }
-        } else {
-            i2 = 0;
-        }
-        if (dVar != null) {
-            dVar.f42377a = i2;
+            if (dVar != null) {
+                dVar.f44186a = i2;
+            }
         }
     }
 }

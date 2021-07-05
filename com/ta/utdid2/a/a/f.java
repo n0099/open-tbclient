@@ -1,24 +1,54 @@
 package com.ta.utdid2.a.a;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f39915a = Pattern.compile("([\t\r\n])+");
+    public static final Pattern f41658a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(641360102, "Lcom/ta/utdid2/a/a/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(641360102, "Lcom/ta/utdid2/a/a/f;");
+                return;
+            }
+        }
+        f41658a = Pattern.compile("([\t\r\n])+");
+    }
 
     public static int hashCode(String str) {
-        if (str.length() > 0) {
-            int i2 = 0;
-            for (char c2 : str.toCharArray()) {
-                i2 = (i2 * 31) + c2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str.length() > 0) {
+                int i2 = 0;
+                for (char c2 : str.toCharArray()) {
+                    i2 = (i2 * 31) + c2;
+                }
+                return i2;
             }
-            return i2;
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     public static boolean isEmpty(String str) {
-        return str == null || str.length() <= 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str == null || str.length() <= 0 : invokeL.booleanValue;
     }
 }

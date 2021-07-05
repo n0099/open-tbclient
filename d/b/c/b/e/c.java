@@ -1,151 +1,82 @@
 package d.b.c.b.e;
 
-import d.b.c.b.d.k;
-import d.b.c.b.d.q;
-import d.b.c.b.f.b;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
-import java.util.TreeMap;
-/* loaded from: classes6.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes10.dex */
 public class c {
-    public static long a(String str) {
-        try {
-            return f().parse(str).getTime();
-        } catch (Throwable th) {
-            q.b(th, "Unable to parse dateStr: %s, falling back to 0", str);
-            return 0L;
-        }
-    }
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static b.a b(k kVar) {
-        boolean z;
-        long j;
-        long j2;
-        long j3;
-        long j4;
-        long j5;
-        long currentTimeMillis = System.currentTimeMillis();
-        Map<String, String> map = kVar.f69629c;
-        String str = map.get("Date");
-        long a2 = str != null ? a(str) : 0L;
-        String str2 = map.get("Cache-Control");
-        int i2 = 0;
-        if (str2 != null) {
-            String[] split = str2.split(",", 0);
-            int i3 = 0;
-            j = 0;
-            j2 = 0;
-            while (i2 < split.length) {
-                String trim = split[i2].trim();
-                if (trim.equals("no-cache") || trim.equals("no-store")) {
-                    return null;
-                }
-                if (trim.startsWith("max-age=")) {
-                    try {
-                        j = Long.parseLong(trim.substring(8));
-                    } catch (Exception unused) {
-                    }
-                } else if (trim.startsWith("stale-while-revalidate=")) {
-                    j2 = Long.parseLong(trim.substring(23));
-                } else if (trim.equals("must-revalidate") || trim.equals("proxy-revalidate")) {
-                    i3 = 1;
-                }
-                i2++;
-            }
-            i2 = i3;
-            z = true;
-        } else {
-            z = false;
-            j = 0;
-            j2 = 0;
-        }
-        String str3 = map.get("Expires");
-        long a3 = str3 != null ? a(str3) : 0L;
-        String str4 = map.get("Last-Modified");
-        long a4 = str4 != null ? a(str4) : 0L;
-        String str5 = map.get("ETag");
-        if (z) {
-            j4 = currentTimeMillis + (j * 1000);
-            if (i2 != 0) {
-                j5 = j4;
-            } else {
-                Long.signum(j2);
-                j5 = (j2 * 1000) + j4;
-            }
-            j3 = j5;
-        } else {
-            j3 = 0;
-            if (a2 <= 0 || a3 < a2) {
-                j4 = 0;
-            } else {
-                j4 = currentTimeMillis + (a3 - a2);
-                j3 = j4;
+    /* renamed from: a  reason: collision with root package name */
+    public String f71849a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public JSONObject f71850b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f71851c;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b.a aVar = new b.a();
-        aVar.f69668a = kVar.f69627a;
-        aVar.f69669b = kVar.f69628b;
-        aVar.f69670c = str5;
-        aVar.f69674g = j4;
-        aVar.f69673f = j3;
-        aVar.f69671d = a2;
-        aVar.f69672e = a4;
-        aVar.f69675h = map;
-        aVar.f69676i = kVar.f69630d;
-        return aVar;
     }
 
-    public static String c(long j) {
-        return f().format(new Date(j));
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71849a : (String) invokeV.objValue;
     }
 
-    public static String d(Map<String, String> map) {
-        return e(map, "UTF-8");
-    }
-
-    public static String e(Map<String, String> map, String str) {
-        String str2 = map.get("Content-Type");
-        if (str2 != null) {
-            String[] split = str2.split(";", 0);
-            for (int i2 = 1; i2 < split.length; i2++) {
-                String[] split2 = split[i2].trim().split("=", 0);
-                if (split2.length == 2 && split2[0].equals("charset")) {
-                    return split2[1];
-                }
-            }
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f71849a = str;
         }
-        return str;
     }
 
-    public static SimpleDateFormat f() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-        return simpleDateFormat;
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.f71850b = jSONObject;
+        }
     }
 
-    public static Map<String, String> g(List<d.b.c.b.d.a> list) {
-        TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        if (list != null) {
-            for (d.b.c.b.d.a aVar : list) {
-                treeMap.put(aVar.a(), aVar.b());
-            }
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f71851c = z;
         }
-        return treeMap;
     }
 
-    public static List<d.b.c.b.d.a> h(Map<String, String> map) {
-        if (map == null) {
-            return new ArrayList();
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71850b : (JSONObject) invokeV.objValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
         }
-        ArrayList arrayList = new ArrayList(map.size());
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            arrayList.add(new d.b.c.b.d.a(entry.getKey(), entry.getValue()));
-        }
-        return arrayList;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71851c : invokeV.booleanValue;
     }
 }

@@ -1,44 +1,185 @@
 package com.google.common.hash;
 
-import d.g.c.d.e;
-import d.g.c.d.g;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.d.e;
+import d.f.d.d.g;
 import java.util.zip.Adler32;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Hashing {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f31533a = (int) System.currentTimeMillis();
+    public static final int f33394a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public enum ChecksumType implements g<Checksum> {
-        CRC_32("Hashing.crc32()") { // from class: com.google.common.hash.Hashing.ChecksumType.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.hash.Hashing.ChecksumType, d.g.c.a.r
-            public Checksum get() {
-                return new CRC32();
-            }
-        },
-        ADLER_32("Hashing.adler32()") { // from class: com.google.common.hash.Hashing.ChecksumType.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.hash.Hashing.ChecksumType, d.g.c.a.r
-            public Checksum get() {
-                return new Adler32();
-            }
-        };
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public static abstract class ChecksumType implements g<Checksum> {
+        public static final /* synthetic */ ChecksumType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final ChecksumType ADLER_32;
+        public static final ChecksumType CRC_32;
+        public transient /* synthetic */ FieldHolder $fh;
         public final e hashFunction;
 
-        @Override // d.g.c.a.r
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1326073365, "Lcom/google/common/hash/Hashing$ChecksumType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1326073365, "Lcom/google/common/hash/Hashing$ChecksumType;");
+                    return;
+                }
+            }
+            CRC_32 = new ChecksumType("CRC_32", 0, "Hashing.crc32()") { // from class: com.google.common.hash.Hashing.ChecksumType.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r10, Integer.valueOf(r11), r12};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (a) objArr2[3]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.common.hash.Hashing.ChecksumType, d.f.d.a.r
+                public Checksum get() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new CRC32() : (Checksum) invokeV.objValue;
+                }
+            };
+            ChecksumType checksumType = new ChecksumType("ADLER_32", 1, "Hashing.adler32()") { // from class: com.google.common.hash.Hashing.ChecksumType.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12, null);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r10, Integer.valueOf(r11), r12};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (a) objArr2[3]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.common.hash.Hashing.ChecksumType, d.f.d.a.r
+                public Checksum get() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Adler32() : (Checksum) invokeV.objValue;
+                }
+            };
+            ADLER_32 = checksumType;
+            $VALUES = new ChecksumType[]{CRC_32, checksumType};
+        }
+
+        public /* synthetic */ ChecksumType(String str, int i2, String str2, a aVar) {
+            this(str, i2, str2);
+        }
+
+        public static ChecksumType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ChecksumType) Enum.valueOf(ChecksumType.class, str) : (ChecksumType) invokeL.objValue;
+        }
+
+        public static ChecksumType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ChecksumType[]) $VALUES.clone() : (ChecksumType[]) invokeV.objValue;
+        }
+
+        @Override // d.f.d.a.r
         public abstract /* synthetic */ T get();
 
-        ChecksumType(String str) {
-            this.hashFunction = new ChecksumHashFunction(this, 32, str);
+        public ChecksumType(String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.hashFunction = new ChecksumHashFunction(this, 32, str2);
         }
     }
 
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1051282880, "Lcom/google/common/hash/Hashing;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1051282880, "Lcom/google/common/hash/Hashing;");
+                return;
+            }
+        }
+        f33394a = (int) System.currentTimeMillis();
+    }
+
     public static e a() {
-        return Murmur3_128HashFunction.MURMUR3_128;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Murmur3_128HashFunction.MURMUR3_128 : (e) invokeV.objValue;
     }
 }

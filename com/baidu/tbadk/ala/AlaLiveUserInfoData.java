@@ -1,13 +1,20 @@
 package com.baidu.tbadk.ala;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import d.a.n0.r.q.o;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.p;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
-/* loaded from: classes3.dex */
-public class AlaLiveUserInfoData extends o implements Serializable {
+/* loaded from: classes4.dex */
+public class AlaLiveUserInfoData extends p implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3860430259513905402L;
+    public transient /* synthetic */ FieldHolder $fh;
     public long alaId;
     public long anchorLive;
     public long charmCount;
@@ -30,8 +37,23 @@ public class AlaLiveUserInfoData extends o implements Serializable {
     public String userName;
     public String verifyStatus;
 
+    public AlaLiveUserInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public void convertFromAlaUserInfoData(AlaUserInfoData alaUserInfoData) {
-        if (alaUserInfoData == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, alaUserInfoData) == null) || alaUserInfoData == null) {
             return;
         }
         this.alaId = alaUserInfoData.ala_id;
@@ -57,12 +79,16 @@ public class AlaLiveUserInfoData extends o implements Serializable {
         this.greatAnchorDescRole = alaUserInfoData.great_anchor_desc_role;
     }
 
-    @Override // d.a.n0.r.q.o
+    @Override // d.a.r0.r.q.p
     public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        }
     }
 
     public void parserProtoBuf(AlaUserInfo alaUserInfo) {
-        if (alaUserInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaUserInfo) == null) || alaUserInfo == null) {
             return;
         }
         this.alaId = alaUserInfo.ala_id.longValue();

@@ -1,21 +1,64 @@
 package alaim;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class LiveInfo extends Message {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Integer DEFAULT_AUDIENCE_COUNT;
+    public static final Integer DEFAULT_BACKSTAGE_TYPE;
+    public static final Integer DEFAULT_BACKSTAGE_UPDATE_TIME;
+    public static final Integer DEFAULT_CHALLENGE_ID;
+    public static final Long DEFAULT_CHANNEL_ID;
     public static final String DEFAULT_CHANNEL_NAME = "";
+    public static final Integer DEFAULT_CHARM_COUNT;
     public static final String DEFAULT_CLOSE_REASON = "";
+    public static final Integer DEFAULT_CLOSE_TYPE;
     public static final String DEFAULT_COVER = "";
     public static final String DEFAULT_DESCRIPTION = "";
+    public static final Integer DEFAULT_END_TIME;
+    public static final Integer DEFAULT_FLOWER_COUNT;
+    public static final Long DEFAULT_FORUM_ID;
     public static final String DEFAULT_FORUM_NAME = "";
+    public static final Long DEFAULT_GIFT_BROAD_MSG_ID;
+    public static final Long DEFAULT_GROUP_ID;
+    public static final Integer DEFAULT_IM_PULL_MODE;
+    public static final Integer DEFAULT_JOIN_COUNT;
+    public static final Long DEFAULT_LAST_MSG_ID;
+    public static final Long DEFAULT_LIVE_DURATION;
+    public static final Long DEFAULT_LIVE_ID;
+    public static final Integer DEFAULT_LIVE_STATUS;
+    public static final Integer DEFAULT_LIVE_TYPE;
     public static final String DEFAULT_LOCATION = "";
+    public static final Long DEFAULT_NOBILITY_BROAD_MSG_ID;
+    public static final Integer DEFAULT_NOTICE_BROAD_MSG_ID;
+    public static final Integer DEFAULT_ON_AUDIO_PRIVATE;
+    public static final Integer DEFAULT_ON_PRIVATE;
+    public static final Integer DEFAULT_OPEN_TYPE;
+    public static final Long DEFAULT_PK_ID;
+    public static final Integer DEFAULT_SCREEN_DIRECTION;
+    public static final Integer DEFAULT_SESSION_DEFAULT;
+    public static final Long DEFAULT_SESSION_EXCEPTION;
+    public static final Integer DEFAULT_SESSION_FORCE;
     public static final String DEFAULT_SESSION_ID = "";
+    public static final Integer DEFAULT_SESSION_STATUS;
+    public static final Integer DEFAULT_SESSION_UPDATE_TIME;
     public static final String DEFAULT_SHARE_URL = "";
+    public static final Integer DEFAULT_START_TIME;
     public static final String DEFAULT_THIRD_APP_ID = "";
     public static final String DEFAULT_THIRD_APP_NAME = "";
+    public static final Long DEFAULT_USER_ID;
     public static final String DEFAULT_USER_NAME = "";
     public static final String DEFAULT_USER_NICKNAME = "";
+    public static final Integer DEFAULT_ZAN_COUNT;
+    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 23, type = Message.Datatype.INT32)
     public final Integer audience_count;
     @ProtoField(tag = 24, type = Message.Datatype.INT32)
@@ -116,43 +159,11 @@ public final class LiveInfo extends Message {
     public final String user_nickname;
     @ProtoField(tag = 9, type = Message.Datatype.INT32)
     public final Integer zan_count;
-    public static final Long DEFAULT_LIVE_ID = 0L;
-    public static final Long DEFAULT_USER_ID = 0L;
-    public static final Long DEFAULT_GROUP_ID = 0L;
-    public static final Integer DEFAULT_JOIN_COUNT = 0;
-    public static final Integer DEFAULT_ZAN_COUNT = 0;
-    public static final Long DEFAULT_LIVE_DURATION = 0L;
-    public static final Integer DEFAULT_CHARM_COUNT = 0;
-    public static final Integer DEFAULT_START_TIME = 0;
-    public static final Integer DEFAULT_END_TIME = 0;
-    public static final Long DEFAULT_CHANNEL_ID = 0L;
-    public static final Integer DEFAULT_LIVE_STATUS = 0;
-    public static final Integer DEFAULT_CLOSE_TYPE = 0;
-    public static final Long DEFAULT_SESSION_EXCEPTION = 0L;
-    public static final Integer DEFAULT_SESSION_UPDATE_TIME = 0;
-    public static final Integer DEFAULT_BACKSTAGE_UPDATE_TIME = 0;
-    public static final Integer DEFAULT_AUDIENCE_COUNT = 0;
-    public static final Integer DEFAULT_BACKSTAGE_TYPE = 0;
-    public static final Integer DEFAULT_SESSION_STATUS = 0;
-    public static final Long DEFAULT_LAST_MSG_ID = 0L;
-    public static final Long DEFAULT_FORUM_ID = 0L;
-    public static final Integer DEFAULT_LIVE_TYPE = 0;
-    public static final Integer DEFAULT_SCREEN_DIRECTION = 0;
-    public static final Integer DEFAULT_ON_PRIVATE = 0;
-    public static final Integer DEFAULT_SESSION_DEFAULT = 0;
-    public static final Integer DEFAULT_SESSION_FORCE = 0;
-    public static final Integer DEFAULT_FLOWER_COUNT = 0;
-    public static final Integer DEFAULT_OPEN_TYPE = 0;
-    public static final Integer DEFAULT_ON_AUDIO_PRIVATE = 0;
-    public static final Long DEFAULT_PK_ID = 0L;
-    public static final Integer DEFAULT_CHALLENGE_ID = 0;
-    public static final Long DEFAULT_GIFT_BROAD_MSG_ID = 0L;
-    public static final Long DEFAULT_NOBILITY_BROAD_MSG_ID = 0L;
-    public static final Integer DEFAULT_IM_PULL_MODE = 0;
-    public static final Integer DEFAULT_NOTICE_BROAD_MSG_ID = 0;
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<LiveInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Integer audience_count;
         public Integer backstage_type;
         public Integer backstage_update_time;
@@ -205,10 +216,37 @@ public final class LiveInfo extends Message {
         public Integer zan_count;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(LiveInfo liveInfo) {
             super(liveInfo);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {liveInfo};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Message) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             if (liveInfo == null) {
                 return;
             }
@@ -268,12 +306,89 @@ public final class LiveInfo extends Message {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public LiveInfo build(boolean z) {
-            return new LiveInfo(this, z);
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new LiveInfo(this, z, null) : (LiveInfo) invokeZ.objValue;
         }
     }
 
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-977420480, "Lalaim/LiveInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-977420480, "Lalaim/LiveInfo;");
+                return;
+            }
+        }
+        DEFAULT_LIVE_ID = 0L;
+        DEFAULT_USER_ID = 0L;
+        DEFAULT_GROUP_ID = 0L;
+        DEFAULT_JOIN_COUNT = 0;
+        DEFAULT_ZAN_COUNT = 0;
+        DEFAULT_LIVE_DURATION = 0L;
+        DEFAULT_CHARM_COUNT = 0;
+        DEFAULT_START_TIME = 0;
+        DEFAULT_END_TIME = 0;
+        DEFAULT_CHANNEL_ID = 0L;
+        DEFAULT_LIVE_STATUS = 0;
+        DEFAULT_CLOSE_TYPE = 0;
+        DEFAULT_SESSION_EXCEPTION = 0L;
+        DEFAULT_SESSION_UPDATE_TIME = 0;
+        DEFAULT_BACKSTAGE_UPDATE_TIME = 0;
+        DEFAULT_AUDIENCE_COUNT = 0;
+        DEFAULT_BACKSTAGE_TYPE = 0;
+        DEFAULT_SESSION_STATUS = 0;
+        DEFAULT_LAST_MSG_ID = 0L;
+        DEFAULT_FORUM_ID = 0L;
+        DEFAULT_LIVE_TYPE = 0;
+        DEFAULT_SCREEN_DIRECTION = 0;
+        DEFAULT_ON_PRIVATE = 0;
+        DEFAULT_SESSION_DEFAULT = 0;
+        DEFAULT_SESSION_FORCE = 0;
+        DEFAULT_FLOWER_COUNT = 0;
+        DEFAULT_OPEN_TYPE = 0;
+        DEFAULT_ON_AUDIO_PRIVATE = 0;
+        DEFAULT_PK_ID = 0L;
+        DEFAULT_CHALLENGE_ID = 0;
+        DEFAULT_GIFT_BROAD_MSG_ID = 0L;
+        DEFAULT_NOBILITY_BROAD_MSG_ID = 0L;
+        DEFAULT_IM_PULL_MODE = 0;
+        DEFAULT_NOTICE_BROAD_MSG_ID = 0;
+    }
+
+    public /* synthetic */ LiveInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveInfo(Builder builder, boolean z) {
         super(builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Message.Builder) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (z) {
             Long l = builder.live_id;
             if (l == null) {

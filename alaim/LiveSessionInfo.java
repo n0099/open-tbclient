@@ -1,14 +1,21 @@
 package alaim;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class LiveSessionInfo extends Message {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DEFAULT_LINE = "";
     public static final String DEFAULT_FLVURL = "";
     public static final String DEFAULT_HLSURL = "";
     public static final String DEFAULT_RTMPURL = "";
     public static final String DEFAULT_SESSIONID = "";
+    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 6)
     public final LiveTranscodeSessionInfo L1;
     @ProtoField(tag = 7)
@@ -30,6 +37,8 @@ public final class LiveSessionInfo extends Message {
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<LiveSessionInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public LiveTranscodeSessionInfo L1;
         public LiveTranscodeSessionInfo L2;
         public LiveTranscodeSessionInfo L3;
@@ -41,10 +50,37 @@ public final class LiveSessionInfo extends Message {
         public String sessionId;
 
         public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(LiveSessionInfo liveSessionInfo) {
             super(liveSessionInfo);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {liveSessionInfo};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Message) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             if (liveSessionInfo == null) {
                 return;
             }
@@ -63,12 +99,40 @@ public final class LiveSessionInfo extends Message {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public LiveSessionInfo build(boolean z) {
-            return new LiveSessionInfo(this, z);
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new LiveSessionInfo(this, z, null) : (LiveSessionInfo) invokeZ.objValue;
         }
     }
 
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public /* synthetic */ LiveSessionInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveSessionInfo(Builder builder, boolean z) {
         super(builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Message.Builder) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         if (z) {
             String str = builder.sessionId;
             if (str == null) {

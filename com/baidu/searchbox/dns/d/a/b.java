@@ -1,9 +1,15 @@
 package com.baidu.searchbox.dns.d.a;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.d.c;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
 import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
@@ -14,8 +20,10 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, a> U;
     public HashMap<String, a> V;
     public String W;
@@ -25,6 +33,20 @@ public class b {
         String str2;
         JSONObject jSONObject;
         ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         ArrayList arrayList2 = null;
         this.W = null;
         this.X = null;
@@ -49,16 +71,16 @@ public class b {
                     if (optJSONObject3 != null) {
                         JSONArray optJSONArray = optJSONObject3.optJSONArray("ip");
                         ArrayList arrayList3 = new ArrayList(optJSONArray.length());
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            arrayList3.add(optJSONArray.getString(i2));
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            arrayList3.add(optJSONArray.getString(i4));
                         }
                         JSONArray optJSONArray2 = optJSONObject3.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
                         if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                             arrayList = arrayList2;
                         } else {
                             ArrayList arrayList4 = new ArrayList(optJSONArray2.length());
-                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                arrayList4.add(optJSONArray2.getString(i3));
+                            for (int i5 = 0; i5 < optJSONArray2.length(); i5++) {
+                                arrayList4.add(optJSONArray2.getString(i5));
                             }
                             arrayList = arrayList4;
                         }
@@ -90,8 +112,8 @@ public class b {
                     if (optJSONObject4 != null) {
                         JSONArray optJSONArray3 = optJSONObject4.optJSONArray("ip");
                         ArrayList arrayList5 = new ArrayList(optJSONArray3.length());
-                        for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                            arrayList5.add(optJSONArray3.getString(i4));
+                        for (int i6 = 0; i6 < optJSONArray3.length(); i6++) {
+                            arrayList5.add(optJSONArray3.getString(i6));
                         }
                         if (!arrayList5.isEmpty()) {
                             this.V.put(next2, new a(optString, optInt, str3, optLong, arrayList5, null));
@@ -106,26 +128,40 @@ public class b {
     }
 
     public Map<String, a> A() {
-        HashMap<String, a> hashMap = this.U;
-        if (hashMap != null) {
-            return Collections.unmodifiableMap(hashMap);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap<String, a> hashMap = this.U;
+            if (hashMap != null) {
+                return Collections.unmodifiableMap(hashMap);
+            }
+            return null;
         }
-        return null;
+        return (Map) invokeV.objValue;
     }
 
     public Map<String, a> B() {
-        HashMap<String, a> hashMap = this.V;
-        if (hashMap != null) {
-            return Collections.unmodifiableMap(hashMap);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap<String, a> hashMap = this.V;
+            if (hashMap != null) {
+                return Collections.unmodifiableMap(hashMap);
+            }
+            return null;
         }
-        return null;
+        return (Map) invokeV.objValue;
     }
 
     public String C() {
-        return this.W;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.W : (String) invokeV.objValue;
     }
 
     public String D() {
-        return this.X;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.X : (String) invokeV.objValue;
     }
 }

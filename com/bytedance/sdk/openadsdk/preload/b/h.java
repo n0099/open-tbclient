@@ -1,75 +1,150 @@
 package com.bytedance.sdk.openadsdk.preload.b;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class h {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<? extends d> f30125a;
+    public Class<? extends d> f31975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.b.b.a f30126b;
+    public com.bytedance.sdk.openadsdk.preload.b.b.a f31976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object[] f30127c;
+    public Object[] f31977c;
+
+    /* renamed from: com.bytedance.sdk.openadsdk.preload.b.h$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* loaded from: classes6.dex */
     public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<? extends d> f30128a;
+        public Class<? extends d> f31978a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.b.b.a f30129b;
+        public com.bytedance.sdk.openadsdk.preload.b.b.a f31979b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Object[] f30130c;
+        public Object[] f31980c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public static a a() {
-            return new a();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
         }
 
         public h b() {
-            return new h(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h(this, null) : (h) invokeV.objValue;
         }
 
         public a a(Class<? extends d> cls) {
-            if (cls != null) {
-                this.f30128a = cls;
-                return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+                if (cls != null) {
+                    this.f31978a = cls;
+                    return this;
+                }
+                throw new IllegalArgumentException("interceptor class == null");
             }
-            throw new IllegalArgumentException("interceptor class == null");
+            return (a) invokeL.objValue;
         }
 
         public a a(com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
-            this.f30129b = aVar;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                this.f31979b = aVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public a a(Object... objArr) {
-            if (objArr != null) {
-                this.f30130c = objArr;
-                return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
+                if (objArr != null) {
+                    this.f31980c = objArr;
+                    return this;
+                }
+                throw new IllegalArgumentException("args == null");
             }
-            throw new IllegalArgumentException("args == null");
+            return (a) invokeL.objValue;
         }
     }
 
+    public /* synthetic */ h(a aVar, AnonymousClass1 anonymousClass1) {
+        this(aVar);
+    }
+
     public Class<? extends d> a() {
-        return this.f30125a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31975a : (Class) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.preload.b.b.a b() {
-        return this.f30126b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31976b : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeV.objValue;
     }
 
     public Object[] c() {
-        return this.f30127c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31977c : (Object[]) invokeV.objValue;
     }
 
     public h(a aVar) {
-        this.f30125a = aVar.f30128a;
-        this.f30126b = aVar.f30129b;
-        this.f30127c = aVar.f30130c;
-        if (this.f30125a == null) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31975a = aVar.f31978a;
+        this.f31976b = aVar.f31979b;
+        this.f31977c = aVar.f31980c;
+        if (this.f31975a == null) {
             throw new IllegalArgumentException("Interceptor class == null");
         }
     }

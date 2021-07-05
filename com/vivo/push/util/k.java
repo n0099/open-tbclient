@@ -3,57 +3,77 @@ package com.vivo.push.util;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public final class k {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40492a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+    public static final boolean f42235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f40493b;
+    public static final String f42236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f40494c;
+    public static final boolean f42237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f40495d;
+    public static final boolean f42238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f40496e;
+    public static final boolean f42239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f40497f;
+    public static final boolean f42240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f40498g;
+    public static final boolean f42241g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f40499h;
+    public static final boolean f42242h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f40500i;
+    public static Method f42243i;
     public static String j;
     public static String k;
     public static String l;
     public static String m;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
         String b2;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(744178449, "Lcom/vivo/push/util/k;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(744178449, "Lcom/vivo/push/util/k;");
+                return;
+            }
+        }
+        f42235a = z.b("ro.vivo.product.overseas", "no").equals("yes");
         if (Build.VERSION.SDK_INT >= 26) {
             b2 = z.b("ro.product.country.region", "N");
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f40493b = b2;
-        f40494c = "RU".equals(b2);
-        f40495d = "IN".equals(f40493b);
-        f40496e = b("rom_1.0");
-        f40497f = b("rom_2.0");
-        f40498g = b("rom_2.5");
-        f40499h = b("rom_3.0");
+        f42236b = b2;
+        f42237c = "RU".equals(b2);
+        f42238d = "IN".equals(f42236b);
+        f42239e = b("rom_1.0");
+        f42240f = b("rom_2.0");
+        f42241g = b("rom_2.5");
+        f42242h = b("rom_3.0");
         j = null;
         k = null;
         l = "";
@@ -61,61 +81,81 @@ public final class k {
     }
 
     public static synchronized String a() {
-        synchronized (k.class) {
-            if (j == null && k == null) {
-                try {
-                    Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                    f40500i = declaredMethod;
-                    declaredMethod.setAccessible(true);
-                    j = (String) f40500i.invoke(null, "ro.vivo.rom", "@><@");
-                    k = (String) f40500i.invoke(null, "ro.vivo.rom.version", "@><@");
-                } catch (Exception unused) {
-                    p.b("Device", "getRomCode error");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (k.class) {
+                if (j == null && k == null) {
+                    try {
+                        Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
+                        f42243i = declaredMethod;
+                        declaredMethod.setAccessible(true);
+                        j = (String) f42243i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) f42243i.invoke(null, "ro.vivo.rom.version", "@><@");
+                    } catch (Exception unused) {
+                        p.b("Device", "getRomCode error");
+                    }
                 }
-            }
-            p.d("Device", "sRomProperty1 : " + j + " ; sRomProperty2 : " + k);
-            String a2 = a(j);
-            if (TextUtils.isEmpty(a2)) {
-                String a3 = a(k);
-                if (TextUtils.isEmpty(a3)) {
-                    return null;
+                p.d("Device", "sRomProperty1 : " + j + " ; sRomProperty2 : " + k);
+                String a2 = a(j);
+                if (TextUtils.isEmpty(a2)) {
+                    String a3 = a(k);
+                    if (TextUtils.isEmpty(a3)) {
+                        return null;
+                    }
+                    return a3;
                 }
-                return a3;
+                return a2;
             }
-            return a2;
         }
+        return (String) invokeV.objValue;
     }
 
     public static boolean b(String str) {
-        String b2 = z.b("ro.vivo.rom", "");
-        String b3 = z.b("ro.vivo.rom.version", "");
-        p.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);
-        if (b2 == null || !b2.contains(str)) {
-            return b3 != null && b3.contains(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            String b2 = z.b("ro.vivo.rom", "");
+            String b3 = z.b("ro.vivo.rom.version", "");
+            p.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);
+            if (b2 == null || !b2.contains(str)) {
+                return b3 != null && b3.contains(str);
+            }
+            return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     public static boolean b() {
-        if (TextUtils.isEmpty(Build.MANUFACTURER)) {
-            p.d("Device", "Build.MANUFACTURER is null");
-            return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TextUtils.isEmpty(Build.MANUFACTURER)) {
+                p.d("Device", "Build.MANUFACTURER is null");
+                return false;
+            }
+            p.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
+            return Build.MANUFACTURER.toLowerCase().contains("bbk") || Build.MANUFACTURER.toLowerCase().startsWith(RomUtils.MANUFACTURER_VIVO);
         }
-        p.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
-        return Build.MANUFACTURER.toLowerCase().contains("bbk") || Build.MANUFACTURER.toLowerCase().startsWith(RomUtils.MANUFACTURER_VIVO);
+        return invokeV.booleanValue;
     }
 
     public static String a(String str) {
-        if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Matcher matcher = Pattern.compile("rom_([\\d]*).?([\\d]*)", 2).matcher(str);
+            if (matcher.find()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(matcher.group(1));
+                sb.append(TextUtils.isEmpty(matcher.group(2)) ? "0" : matcher.group(2).substring(0, 1));
+                return sb.toString();
+            }
             return null;
         }
-        Matcher matcher = Pattern.compile("rom_([\\d]*).?([\\d]*)", 2).matcher(str);
-        if (matcher.find()) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(matcher.group(1));
-            sb.append(TextUtils.isEmpty(matcher.group(2)) ? "0" : matcher.group(2).substring(0, 1));
-            return sb.toString();
-        }
-        return null;
+        return (String) invokeL.objValue;
     }
 }

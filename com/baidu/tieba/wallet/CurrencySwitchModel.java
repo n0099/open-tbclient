@@ -5,15 +5,24 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.a.f;
 import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class CurrencySwitchModel extends BdBaseModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean isSending;
     public OnPostDataCallBack mCallBack;
     public final HttpMessageListener mSwitchCurrencyListener;
@@ -23,19 +32,60 @@ public class CurrencySwitchModel extends BdBaseModel {
         void callback(boolean z, int i2, String str);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CurrencySwitchModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.mSwitchCurrencyListener = new HttpMessageListener(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST) { // from class: com.baidu.tieba.wallet.CurrencySwitchModel.1
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mSwitchCurrencyListener = new HttpMessageListener(this, CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST) { // from class: com.baidu.tieba.wallet.CurrencySwitchModel.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CurrencySwitchModel this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage == null || !(httpResponsedMessage instanceof CurrencySwitchResponseMessage)) {
-                    return;
-                }
-                CurrencySwitchModel.this.isSending = false;
-                CurrencySwitchResponseMessage currencySwitchResponseMessage = (CurrencySwitchResponseMessage) httpResponsedMessage;
-                if (CurrencySwitchModel.this.mCallBack != null) {
-                    CurrencySwitchModel.this.mCallBack.callback(currencySwitchResponseMessage.isSwitchSuccess(), currencySwitchResponseMessage.getError(), currencySwitchResponseMessage.getTipMessage());
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof CurrencySwitchResponseMessage)) {
+                    this.this$0.isSending = false;
+                    CurrencySwitchResponseMessage currencySwitchResponseMessage = (CurrencySwitchResponseMessage) httpResponsedMessage;
+                    if (this.this$0.mCallBack != null) {
+                        this.this$0.mCallBack.callback(currencySwitchResponseMessage.isSwitchSuccess(), currencySwitchResponseMessage.getError(), currencySwitchResponseMessage.getTipMessage());
+                    }
                 }
             }
         };
@@ -44,39 +94,61 @@ public class CurrencySwitchModel extends BdBaseModel {
     }
 
     private void registerPostCurrencySwitchTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST, TbConfig.SERVER_ADDRESS + TbConfig.URL_SWITCH_YY_CURRENCY);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setResponsedClass(CurrencySwitchResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST, TbConfig.SERVER_ADDRESS + TbConfig.URL_SWITCH_YY_CURRENCY);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setResponsedClass(CurrencySwitchResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.isSending = false;
-        cancelMessage();
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.isSending = false;
+            cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST);
-        MessageManager.getInstance().unRegisterListener(this.mSwitchCurrencyListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST);
+            MessageManager.getInstance().unRegisterListener(this.mSwitchCurrencyListener);
+        }
     }
 
     public void sendSwitchRequest() {
-        if (this.isSending) {
-            l.L(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.isSending) {
+                l.L(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
+                return;
+            }
+            this.isSending = true;
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST));
         }
-        this.isSending = true;
-        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST));
     }
 
     public void setOnPostDataCallBack(OnPostDataCallBack onPostDataCallBack) {
-        this.mCallBack = onPostDataCallBack;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onPostDataCallBack) == null) {
+            this.mCallBack = onPostDataCallBack;
+        }
     }
 }

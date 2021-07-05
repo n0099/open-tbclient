@@ -1,30 +1,52 @@
 package com.sdk.mobile.b.a;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.result.OneKeyLoginOptResult;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.g.g;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class b implements com.sdk.base.framework.b.a<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ int f39511a;
+    public /* synthetic */ int f41267a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f39512b;
+    public /* synthetic */ a f41268b;
 
     public b(a aVar, int i2) {
-        this.f39512b = aVar;
-        this.f39511a = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f41268b = aVar;
+        this.f41267a = i2;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
-        this.f39512b.a(i2, i3, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
+            this.f41268b.a(i2, i3, str);
+        }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r13v0, resolved type: T */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, String str, int i3, T t, String str2) {
         Context context;
@@ -32,33 +54,36 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         Boolean bool;
         Context context2;
         Context context3;
-        context = this.f39512b.f39507d;
-        com.sdk.base.framework.f.i.b.b(context);
-        String str4 = t;
-        if (i2 == 0) {
-            try {
-                context2 = this.f39512b.f39507d;
-                com.sdk.base.framework.a.a.a.a(context2, this.f39511a, com.sdk.base.framework.a.a.a.a(t, str2), g.f39475b.a());
-                context3 = this.f39512b.f39507d;
-                String a2 = com.sdk.base.framework.f.k.a.a(context3, String.valueOf(t));
-                if (a2 == null) {
-                    this.f39512b.a(1, "SDK解密异常", 302001, a2, str2);
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
+            context = this.f41268b.f41263d;
+            com.sdk.base.framework.f.i.b.b(context);
+            Object obj = t;
+            if (i2 == 0) {
+                try {
+                    context2 = this.f41268b.f41263d;
+                    com.sdk.base.framework.a.a.a.a(context2, this.f41267a, com.sdk.base.framework.a.a.a.a(t, str2), g.f41231b.a());
+                    context3 = this.f41268b.f41263d;
+                    String a2 = com.sdk.base.framework.f.k.a.a(context3, String.valueOf(t));
+                    if (a2 == null) {
+                        this.f41268b.a(1, "SDK解密异常", 302001, a2, str2);
+                        return;
+                    }
+                    JSONObject jSONObject = new JSONObject(String.valueOf(a2));
+                    obj = a2;
+                    if (this.f41267a == 1) {
+                        jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
+                        obj = jSONObject.toString();
+                    }
+                } catch (Exception e2) {
+                    str3 = a.f41260a;
+                    String exc = e2.toString();
+                    bool = a.f41261b;
+                    com.sdk.base.framework.a.a.c.b(str3, exc, bool);
+                    obj = t;
                 }
-                JSONObject jSONObject = new JSONObject(String.valueOf(a2));
-                str4 = a2;
-                if (this.f39511a == 1) {
-                    jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
-                    str4 = jSONObject.toString();
-                }
-            } catch (Exception e2) {
-                str3 = a.f39504a;
-                String exc = e2.toString();
-                bool = a.f39505b;
-                com.sdk.base.framework.a.a.c.b(str3, exc, bool);
-                str4 = t;
             }
+            this.f41268b.a(i2, str, i3, obj, str2);
         }
-        this.f39512b.a(i2, str, i3, str4, str2);
     }
 }

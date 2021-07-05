@@ -1,5 +1,11 @@
 package com.baidu.sapi2.utils;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -8,57 +14,93 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FileUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 2048;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public static int copy(InputStream inputStream, OutputStream outputStream) throws Exception, IOException {
-        byte[] bArr = new byte[2048];
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream, 2048);
-        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream, 2048);
-        int i2 = 0;
-        while (true) {
-            try {
-                int read = bufferedInputStream.read(bArr, 0, 2048);
-                if (read == -1) {
-                    break;
-                }
-                bufferedOutputStream.write(bArr, 0, read);
-                i2 += read;
-            } finally {
-                try {
-                    bufferedOutputStream.close();
-                } catch (IOException e2) {
-                    Log.e(Log.TAG, e2);
-                }
-                try {
-                    bufferedInputStream.close();
-                } catch (IOException e3) {
-                    Log.e(Log.TAG, e3);
-                }
+    public FileUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        bufferedOutputStream.flush();
-        return i2;
+    }
+
+    public static int copy(InputStream inputStream, OutputStream outputStream) throws Exception, IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
+            byte[] bArr = new byte[2048];
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream, 2048);
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream, 2048);
+            int i2 = 0;
+            while (true) {
+                try {
+                    int read = bufferedInputStream.read(bArr, 0, 2048);
+                    if (read == -1) {
+                        break;
+                    }
+                    bufferedOutputStream.write(bArr, 0, read);
+                    i2 += read;
+                } finally {
+                    try {
+                        bufferedOutputStream.close();
+                    } catch (IOException e2) {
+                        Log.e(Log.TAG, e2);
+                    }
+                    try {
+                        bufferedInputStream.close();
+                    } catch (IOException e3) {
+                        Log.e(Log.TAG, e3);
+                    }
+                }
+            }
+            bufferedOutputStream.flush();
+            return i2;
+        }
+        return invokeLL.intValue;
     }
 
     public static boolean deleteFile(File file) {
-        try {
-            return file.delete();
-        } catch (Exception e2) {
-            Log.i(Log.TAG, e2);
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            try {
+                return file.delete();
+            } catch (Exception e2) {
+                Log.i(Log.TAG, e2);
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
     public static boolean isFileExist(String str) {
-        if (str == null) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            return new File(str).exists();
         }
-        return new File(str).exists();
+        return invokeL.booleanValue;
     }
 
     public static String read(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
         FileInputStream fileInputStream = null;
         try {
             FileInputStream fileInputStream2 = new FileInputStream(str);
@@ -100,6 +142,11 @@ public final class FileUtil {
     }
 
     public static boolean write(File file, byte[] bArr, boolean z) throws IOException {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, file, bArr, z)) != null) {
+            return invokeLLZ.booleanValue;
+        }
         FileOutputStream fileOutputStream = null;
         try {
             if (!file.exists()) {

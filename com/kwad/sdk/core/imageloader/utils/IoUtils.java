@@ -1,68 +1,104 @@
 package com.kwad.sdk.core.imageloader.utils;
 
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes7.dex */
 public final class IoUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CONTINUE_LOADING_PERCENTAGE = 75;
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     public static final int DEFAULT_IMAGE_TOTAL_SIZE = 512000;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface CopyListener {
         boolean onBytesCopied(int i2, int i3);
     }
 
-    public static void closeSilently(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception unused) {
+    public IoUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public static void closeSilently(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception unused) {
         }
     }
 
     public static boolean copyStream(InputStream inputStream, OutputStream outputStream, CopyListener copyListener) {
-        return copyStream(inputStream, outputStream, copyListener, 32768);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, inputStream, outputStream, copyListener)) == null) ? copyStream(inputStream, outputStream, copyListener, 32768) : invokeLLL.booleanValue;
     }
 
     public static boolean copyStream(InputStream inputStream, OutputStream outputStream, CopyListener copyListener, int i2) {
-        int available = inputStream.available();
-        if (available <= 0) {
-            available = 512000;
-        }
-        byte[] bArr = new byte[i2];
-        if (shouldStopLoading(copyListener, 0, available)) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, inputStream, outputStream, copyListener, i2)) == null) {
+            int available = inputStream.available();
+            if (available <= 0) {
+                available = 512000;
+            }
+            byte[] bArr = new byte[i2];
+            if (shouldStopLoading(copyListener, 0, available)) {
+                return false;
+            }
+            int i3 = 0;
+            do {
+                int read = inputStream.read(bArr, 0, i2);
+                if (read == -1) {
+                    outputStream.flush();
+                    return true;
+                }
+                outputStream.write(bArr, 0, read);
+                i3 += read;
+            } while (!shouldStopLoading(copyListener, i3, available));
             return false;
         }
-        int i3 = 0;
-        do {
-            int read = inputStream.read(bArr, 0, i2);
-            if (read == -1) {
-                outputStream.flush();
-                return true;
-            }
-            outputStream.write(bArr, 0, read);
-            i3 += read;
-        } while (!shouldStopLoading(copyListener, i3, available));
-        return false;
+        return invokeLLLI.booleanValue;
     }
 
     public static void readAndCloseStream(InputStream inputStream) {
-        do {
-            try {
-            } catch (IOException unused) {
-            } catch (Throwable th) {
-                closeSilently(inputStream);
-                throw th;
-            }
-        } while (inputStream.read(new byte[32768], 0, 32768) != -1);
-        closeSilently(inputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, inputStream) == null) {
+            do {
+                try {
+                } catch (IOException unused) {
+                } catch (Throwable th) {
+                    closeSilently(inputStream);
+                    throw th;
+                }
+            } while (inputStream.read(new byte[32768], 0, 32768) != -1);
+            closeSilently(inputStream);
+        }
     }
 
     public static boolean shouldStopLoading(CopyListener copyListener, int i2, int i3) {
-        return (copyListener == null || copyListener.onBytesCopied(i2, i3) || (i2 * 100) / i3 >= 75) ? false : true;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, copyListener, i2, i3)) == null) ? (copyListener == null || copyListener.onBytesCopied(i2, i3) || (i2 * 100) / i3 >= 75) ? false : true : invokeLII.booleanValue;
     }
 }

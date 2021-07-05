@@ -47,9 +47,9 @@ public interface TTNativeAd {
 
     TTAdDislike getDislikeDialog(TTDislikeDialogAbstract tTDislikeDialogAbstract);
 
-    DownloadStatusController getDownloadStatusController();
+    DislikeInfo getDislikeInfo();
 
-    List<FilterWord> getFilterWords();
+    DownloadStatusController getDownloadStatusController();
 
     TTImage getIcon();
 
@@ -60,8 +60,6 @@ public interface TTNativeAd {
     int getInteractionType();
 
     Map<String, Object> getMediaExtraInfo();
-
-    PersonalizationPrompt getPersonalizationPrompt();
 
     String getSource();
 

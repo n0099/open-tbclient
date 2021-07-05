@@ -1,5 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.exceptions.Exceptions;
@@ -11,13 +16,17 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Iterator;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpstream<T, V> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<U> other;
     public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class ZipIterableSubscriber<T, U, V> implements FlowableSubscriber<T>, Subscription {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super V> actual;
         public boolean done;
         public final Iterator<U> iterator;
@@ -25,6 +34,20 @@ public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpst
         public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
         public ZipIterableSubscriber(Subscriber<? super V> subscriber, Iterator<U> it, BiFunction<? super T, ? super U, ? extends V> biFunction) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, it, biFunction};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.iterator = it;
             this.zipper = biFunction;
@@ -32,19 +55,26 @@ public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpst
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            this.s.cancel();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.s.cancel();
+            }
         }
 
         public void error(Throwable th) {
-            Exceptions.throwIfFatal(th);
-            this.done = true;
-            this.s.cancel();
-            this.actual.onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                Exceptions.throwIfFatal(th);
+                this.done = true;
+                this.s.cancel();
+                this.actual.onError(th);
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
                 return;
             }
             this.done = true;
@@ -53,17 +83,21 @@ public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpst
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
-            if (this.done) {
-                RxJavaPlugins.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                if (this.done) {
+                    RxJavaPlugins.onError(th);
+                    return;
+                }
+                this.done = true;
+                this.actual.onError(th);
             }
-            this.done = true;
-            this.actual.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onNext(T t) {
-            if (this.done) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
             try {
@@ -89,7 +123,8 @@ public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpst
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
-            if (SubscriptionHelper.validate(this.s, subscription)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
             }
@@ -97,33 +132,55 @@ public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpst
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            this.s.request(j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                this.s.request(j);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowableZipIterable(Flowable<T> flowable, Iterable<U> iterable, BiFunction<? super T, ? super U, ? extends V> biFunction) {
         super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, iterable, biFunction};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.other = iterable;
         this.zipper = biFunction;
     }
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super V> subscriber) {
-        try {
-            Iterator it = (Iterator) ObjectHelper.requireNonNull(this.other.iterator(), "The iterator returned by other is null");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {
-                if (!it.hasNext()) {
-                    EmptySubscription.complete(subscriber);
-                } else {
-                    this.source.subscribe((FlowableSubscriber) new ZipIterableSubscriber(subscriber, it, this.zipper));
+                Iterator it = (Iterator) ObjectHelper.requireNonNull(this.other.iterator(), "The iterator returned by other is null");
+                try {
+                    if (!it.hasNext()) {
+                        EmptySubscription.complete(subscriber);
+                    } else {
+                        this.source.subscribe((FlowableSubscriber) new ZipIterableSubscriber(subscriber, it, this.zipper));
+                    }
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    EmptySubscription.error(th, subscriber);
                 }
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                EmptySubscription.error(th, subscriber);
+            } catch (Throwable th2) {
+                Exceptions.throwIfFatal(th2);
+                EmptySubscription.error(th2, subscriber);
             }
-        } catch (Throwable th2) {
-            Exceptions.throwIfFatal(th2);
-            EmptySubscription.error(th2, subscriber);
         }
     }
 }

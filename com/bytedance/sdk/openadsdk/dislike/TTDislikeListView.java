@@ -6,110 +6,250 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.FilterWord;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import java.util.ArrayList;
+import com.bytedance.sdk.openadsdk.dislike.c.b;
 /* loaded from: classes6.dex */
 public class TTDislikeListView extends ListView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f29058a;
+    public b f30898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f29059b;
+    public AdapterView.OnItemClickListener f30899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f29060c;
+    public AdapterView.OnItemClickListener f30900c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeListView(Context context) {
         super(context);
-        this.f29060c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i2) != null && (TTDislikeListView.this.getAdapter().getItem(i2) instanceof FilterWord)) {
-                    FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i2);
-                    if (filterWord.hasSecondOptions()) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30900c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ TTDislikeListView f30901a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(filterWord);
-                    if (TTDislikeListView.this.f29058a != null) {
-                        com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f29058a, arrayList);
-                    }
-                    if (TTDislikeListView.this.f29059b != null) {
-                        TTDislikeListView.this.f29059b.onItemClick(adapterView, view, i2, j);
-                        return;
-                    }
-                    return;
                 }
-                throw new IllegalArgumentException("adapter数据异常，必须为FilterWord");
+                this.f30901a = this;
+            }
+
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                    if (this.f30901a.getAdapter() != null && this.f30901a.getAdapter().getItem(i4) != null && (this.f30901a.getAdapter().getItem(i4) instanceof FilterWord)) {
+                        FilterWord filterWord = (FilterWord) this.f30901a.getAdapter().getItem(i4);
+                        if (filterWord.hasSecondOptions()) {
+                            return;
+                        }
+                        if (this.f30901a.f30898a != null) {
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f30901a.f30898a, filterWord);
+                        }
+                        if (this.f30901a.f30899b != null) {
+                            this.f30901a.f30899b.onItemClick(adapterView, view, i4, j);
+                            return;
+                        }
+                        return;
+                    }
+                    throw new IllegalArgumentException("adapter数据异常，必须为FilterWord");
+                }
             }
         };
         a();
     }
 
-    public void setMaterialMeta(l lVar) {
-        this.f29058a = lVar;
+    public void setDislikeInfo(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.f30898a = bVar;
+        }
     }
 
     @Override // android.widget.AdapterView
     public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
-        this.f29059b = onItemClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onItemClickListener) == null) {
+            this.f30899b = onItemClickListener;
+        }
     }
 
     private void a() {
-        super.setOnItemClickListener(this.f29060c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            super.setOnItemClickListener(this.f30900c);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f29060c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i2) != null && (TTDislikeListView.this.getAdapter().getItem(i2) instanceof FilterWord)) {
-                    FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i2);
-                    if (filterWord.hasSecondOptions()) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f30900c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ TTDislikeListView f30901a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(filterWord);
-                    if (TTDislikeListView.this.f29058a != null) {
-                        com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f29058a, arrayList);
-                    }
-                    if (TTDislikeListView.this.f29059b != null) {
-                        TTDislikeListView.this.f29059b.onItemClick(adapterView, view, i2, j);
-                        return;
-                    }
-                    return;
                 }
-                throw new IllegalArgumentException("adapter数据异常，必须为FilterWord");
+                this.f30901a = this;
+            }
+
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                    if (this.f30901a.getAdapter() != null && this.f30901a.getAdapter().getItem(i4) != null && (this.f30901a.getAdapter().getItem(i4) instanceof FilterWord)) {
+                        FilterWord filterWord = (FilterWord) this.f30901a.getAdapter().getItem(i4);
+                        if (filterWord.hasSecondOptions()) {
+                            return;
+                        }
+                        if (this.f30901a.f30898a != null) {
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f30901a.f30898a, filterWord);
+                        }
+                        if (this.f30901a.f30899b != null) {
+                            this.f30901a.f30899b.onItemClick(adapterView, view, i4, j);
+                            return;
+                        }
+                        return;
+                    }
+                    throw new IllegalArgumentException("adapter数据异常，必须为FilterWord");
+                }
             }
         };
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f29060c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i22, long j) {
-                if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i22) != null && (TTDislikeListView.this.getAdapter().getItem(i22) instanceof FilterWord)) {
-                    FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i22);
-                    if (filterWord.hasSecondOptions()) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f30900c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ TTDislikeListView f30901a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr22;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(filterWord);
-                    if (TTDislikeListView.this.f29058a != null) {
-                        com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f29058a, arrayList);
-                    }
-                    if (TTDislikeListView.this.f29059b != null) {
-                        TTDislikeListView.this.f29059b.onItemClick(adapterView, view, i22, j);
-                        return;
-                    }
-                    return;
                 }
-                throw new IllegalArgumentException("adapter数据异常，必须为FilterWord");
+                this.f30901a = this;
+            }
+
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i42, long j) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i42), Long.valueOf(j)}) == null) {
+                    if (this.f30901a.getAdapter() != null && this.f30901a.getAdapter().getItem(i42) != null && (this.f30901a.getAdapter().getItem(i42) instanceof FilterWord)) {
+                        FilterWord filterWord = (FilterWord) this.f30901a.getAdapter().getItem(i42);
+                        if (filterWord.hasSecondOptions()) {
+                            return;
+                        }
+                        if (this.f30901a.f30898a != null) {
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f30901a.f30898a, filterWord);
+                        }
+                        if (this.f30901a.f30899b != null) {
+                            this.f30901a.f30899b.onItemClick(adapterView, view, i42, j);
+                            return;
+                        }
+                        return;
+                    }
+                    throw new IllegalArgumentException("adapter数据异常，必须为FilterWord");
+                }
             }
         };
         a();

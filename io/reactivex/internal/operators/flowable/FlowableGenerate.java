@@ -1,5 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Emitter;
 import io.reactivex.Flowable;
 import io.reactivex.exceptions.Exceptions;
@@ -13,15 +18,19 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class FlowableGenerate<T, S> extends Flowable<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Consumer<? super S> disposeState;
     public final BiFunction<S, Emitter<T>, S> generator;
     public final Callable<S> stateSupplier;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class GeneratorSubscription<T, S> extends AtomicLong implements Emitter<T>, Subscription {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7565982551505011832L;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public final Consumer<? super S> disposeState;
@@ -31,6 +40,20 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
         public boolean terminate;
 
         public GeneratorSubscription(Subscriber<? super T> subscriber, BiFunction<S, ? super Emitter<T>, S> biFunction, Consumer<? super S> consumer, S s) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subscriber, biFunction, consumer, s};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.actual = subscriber;
             this.generator = biFunction;
             this.disposeState = consumer;
@@ -38,17 +61,21 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
         }
 
         private void dispose(S s) {
-            try {
-                this.disposeState.accept(s);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                RxJavaPlugins.onError(th);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65537, this, s) == null) {
+                try {
+                    this.disposeState.accept(s);
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    RxJavaPlugins.onError(th);
+                }
             }
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            if (this.cancelled) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
                 return;
             }
             this.cancelled = true;
@@ -61,7 +88,8 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
 
         @Override // io.reactivex.Emitter
         public void onComplete() {
-            if (this.terminate) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.terminate) {
                 return;
             }
             this.terminate = true;
@@ -70,20 +98,24 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
 
         @Override // io.reactivex.Emitter
         public void onError(Throwable th) {
-            if (this.terminate) {
-                RxJavaPlugins.onError(th);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (this.terminate) {
+                    RxJavaPlugins.onError(th);
+                    return;
+                }
+                if (th == null) {
+                    th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+                }
+                this.terminate = true;
+                this.actual.onError(th);
             }
-            if (th == null) {
-                th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-            }
-            this.terminate = true;
-            this.actual.onError(th);
         }
 
         @Override // io.reactivex.Emitter
         public void onNext(T t) {
-            if (this.terminate) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.terminate) {
                 return;
             }
             if (this.hasNext) {
@@ -98,7 +130,8 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
-            if (SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
                 S s = this.state;
                 BiFunction<S, ? super Emitter<T>, S> biFunction = this.generator;
                 do {
@@ -142,6 +175,20 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
     }
 
     public FlowableGenerate(Callable<S> callable, BiFunction<S, Emitter<T>, S> biFunction, Consumer<? super S> consumer) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callable, biFunction, consumer};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.stateSupplier = callable;
         this.generator = biFunction;
         this.disposeState = consumer;
@@ -149,11 +196,14 @@ public final class FlowableGenerate<T, S> extends Flowable<T> {
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super T> subscriber) {
-        try {
-            subscriber.onSubscribe(new GeneratorSubscription(subscriber, this.generator, this.disposeState, this.stateSupplier.call()));
-        } catch (Throwable th) {
-            Exceptions.throwIfFatal(th);
-            EmptySubscription.error(th, subscriber);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            try {
+                subscriber.onSubscribe(new GeneratorSubscription(subscriber, this.generator, this.disposeState, this.stateSupplier.call()));
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                EmptySubscription.error(th, subscriber);
+            }
         }
     }
 }

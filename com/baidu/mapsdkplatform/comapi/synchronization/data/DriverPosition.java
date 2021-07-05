@@ -2,101 +2,187 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class DriverPosition implements Parcelable {
-    public static final Parcelable.Creator<DriverPosition> CREATOR = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<DriverPosition> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7810a;
+    public String f7840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7811b;
+    public LatLng f7841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f7812c;
+    public double f7842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f7813d;
+    public double f7843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7814e;
+    public int f7844e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1483122778, "Lcom/baidu/mapsdkplatform/comapi/synchronization/data/DriverPosition;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1483122778, "Lcom/baidu/mapsdkplatform/comapi/synchronization/data/DriverPosition;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
 
     public DriverPosition() {
-        this.f7810a = null;
-        this.f7811b = null;
-        this.f7812c = 0.0d;
-        this.f7813d = 0.0d;
-        this.f7814e = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f7840a = null;
+        this.f7841b = null;
+        this.f7842c = 0.0d;
+        this.f7843d = 0.0d;
+        this.f7844e = 0;
     }
 
     public DriverPosition(Parcel parcel) {
-        this.f7810a = parcel.readString();
-        this.f7811b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7812c = parcel.readDouble();
-        this.f7813d = parcel.readDouble();
-        this.f7814e = parcel.readInt();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f7840a = parcel.readString();
+        this.f7841b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f7842c = parcel.readDouble();
+        this.f7843d = parcel.readDouble();
+        this.f7844e = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public double getAngle() {
-        return this.f7812c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7842c : invokeV.doubleValue;
     }
 
     public int getOrderStateInPosition() {
-        return this.f7814e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7844e : invokeV.intValue;
     }
 
     public LatLng getPoint() {
-        return this.f7811b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7841b : (LatLng) invokeV.objValue;
     }
 
     public double getSpeed() {
-        return this.f7813d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7843d : invokeV.doubleValue;
     }
 
     public String getTimeStamp() {
-        return this.f7810a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7840a : (String) invokeV.objValue;
     }
 
     public void setAngle(double d2) {
-        double d3 = 0.0d;
-        if (d2 >= 0.0d) {
-            d3 = 360.0d;
-            if (d2 < 360.0d) {
-                this.f7812c = d2;
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)}) == null) {
+            double d3 = 0.0d;
+            if (d2 >= 0.0d) {
+                d3 = 360.0d;
+                if (d2 < 360.0d) {
+                    this.f7842c = d2;
+                    return;
+                }
             }
+            this.f7842c = d3;
         }
-        this.f7812c = d3;
     }
 
     public void setOrderStateInPosition(int i2) {
-        this.f7814e = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.f7844e = i2;
+        }
     }
 
     public void setPoint(LatLng latLng) {
-        this.f7811b = latLng;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, latLng) == null) {
+            this.f7841b = latLng;
+        }
     }
 
     public void setSpeed(double d2) {
-        this.f7813d = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f7843d = d2;
+        }
     }
 
     public void setTimeStamp(String str) {
-        this.f7810a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f7840a = str;
+        }
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f7810a);
-        parcel.writeParcelable(this.f7811b, i2);
-        parcel.writeDouble(this.f7812c);
-        parcel.writeDouble(this.f7813d);
-        parcel.writeInt(this.f7814e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+            parcel.writeString(this.f7840a);
+            parcel.writeParcelable(this.f7841b, i2);
+            parcel.writeDouble(this.f7842c);
+            parcel.writeDouble(this.f7843d);
+            parcel.writeInt(this.f7844e);
+        }
     }
 }

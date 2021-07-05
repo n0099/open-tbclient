@@ -1,184 +1,474 @@
 package com.google.common.collect;
 
-import d.g.c.a.n;
-import d.g.c.c.c0;
-import d.g.c.c.i0;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.common.base.Predicates;
+import d.f.d.a.o;
+import d.f.d.c.l0;
+import d.f.d.c.n;
+import d.f.d.c.o0;
+import d.f.d.c.s0;
 import java.io.Serializable;
 import java.util.AbstractSet;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.SortedSet;
-/* loaded from: classes6.dex */
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes7.dex */
 public final class Sets {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static abstract class a<E> extends AbstractSet<E> {
+    /* loaded from: classes7.dex */
+    public static class a<E> extends n.a<E> implements Set<E> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Set<E> set, o<? super E> oVar) {
+            super(set, oVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {set, oVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Collection) objArr2[0], (o) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // java.util.Collection, java.util.Set
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? Sets.a(this, obj) : invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection, java.util.Set
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Sets.d(this) : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b<E> extends a<E> implements SortedSet<E> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(SortedSet<E> sortedSet, o<? super E> oVar) {
+            super(sortedSet, oVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sortedSet, oVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Set) objArr2[0], (o) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // java.util.SortedSet
+        public Comparator<? super E> comparator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((SortedSet) this.f73768e).comparator() : (Comparator) invokeV.objValue;
+        }
+
+        @Override // java.util.SortedSet
+        public E first() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (E) Iterators.m(this.f73768e.iterator(), this.f73769f) : (E) invokeV.objValue;
+        }
+
+        @Override // java.util.SortedSet
+        public SortedSet<E> headSet(E e2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2)) == null) ? new b(((SortedSet) this.f73768e).headSet(e2), this.f73769f) : (SortedSet) invokeL.objValue;
+        }
+
+        /* JADX WARN: Type inference failed for: r1v1, types: [E, java.lang.Object] */
+        @Override // java.util.SortedSet
+        public E last() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+                return (E) invokeV.objValue;
+            }
+            SortedSet sortedSet = (SortedSet) this.f73768e;
+            while (true) {
+                ?? r1 = (Object) sortedSet.last();
+                if (this.f73769f.apply(r1)) {
+                    return r1;
+                }
+                sortedSet = sortedSet.headSet(r1);
+            }
+        }
+
+        @Override // java.util.SortedSet
+        public SortedSet<E> subSet(E e2, E e3) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, e2, e3)) == null) ? new b(((SortedSet) this.f73768e).subSet(e2, e3), this.f73769f) : (SortedSet) invokeLL.objValue;
+        }
+
+        @Override // java.util.SortedSet
+        public SortedSet<E> tailSet(E e2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) ? new b(((SortedSet) this.f73768e).tailSet(e2), this.f73769f) : (SortedSet) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static abstract class c<E> extends AbstractSet<E> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean removeAll(Collection<?> collection) {
-            return Sets.g(this, collection);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) ? Sets.k(this, collection) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean retainAll(Collection<?> collection) {
-            n.p(collection);
-            return super.retainAll(collection);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
+                d.f.d.a.n.p(collection);
+                return super.retainAll(collection);
+            }
+            return invokeL.booleanValue;
         }
     }
 
     public static boolean a(Set<?> set, Object obj) {
-        if (set == obj) {
-            return true;
-        }
-        if (obj instanceof Set) {
-            Set set2 = (Set) obj;
-            try {
-                if (set.size() == set2.size()) {
-                    if (set.containsAll(set2)) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (ClassCastException | NullPointerException unused) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, set, obj)) == null) {
+            if (set == obj) {
+                return true;
             }
+            if (obj instanceof Set) {
+                Set set2 = (Set) obj;
+                try {
+                    if (set.size() == set2.size()) {
+                        if (set.containsAll(set2)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                } catch (ClassCastException | NullPointerException unused) {
+                }
+            }
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 
-    public static int b(Set<?> set) {
-        Iterator<?> it = set.iterator();
-        int i2 = 0;
-        while (it.hasNext()) {
-            Object next = it.next();
-            i2 = ~(~(i2 + (next != null ? next.hashCode() : 0)));
+    public static <E> Set<E> b(Set<E> set, o<? super E> oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, set, oVar)) == null) {
+            if (set instanceof SortedSet) {
+                return c((SortedSet) set, oVar);
+            }
+            if (set instanceof a) {
+                a aVar = (a) set;
+                return new a((Set) aVar.f73768e, Predicates.c(aVar.f73769f, oVar));
+            }
+            d.f.d.a.n.p(set);
+            d.f.d.a.n.p(oVar);
+            return new a(set, oVar);
         }
-        return i2;
+        return (Set) invokeLL.objValue;
     }
 
-    public static <E> HashSet<E> c() {
-        return new HashSet<>();
+    public static <E> SortedSet<E> c(SortedSet<E> sortedSet, o<? super E> oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sortedSet, oVar)) == null) {
+            if (sortedSet instanceof a) {
+                a aVar = (a) sortedSet;
+                return new b((SortedSet) aVar.f73768e, Predicates.c(aVar.f73769f, oVar));
+            }
+            d.f.d.a.n.p(sortedSet);
+            d.f.d.a.n.p(oVar);
+            return new b(sortedSet, oVar);
+        }
+        return (SortedSet) invokeLL.objValue;
     }
 
-    public static <E> HashSet<E> d(int i2) {
-        return new HashSet<>(Maps.e(i2));
+    public static int d(Set<?> set) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, set)) == null) {
+            Iterator<?> it = set.iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                Object next = it.next();
+                i2 = ~(~(i2 + (next != null ? next.hashCode() : 0)));
+            }
+            return i2;
+        }
+        return invokeL.intValue;
     }
 
     public static <E> Set<E> e() {
-        return Collections.newSetFromMap(Maps.r());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Collections.newSetFromMap(new ConcurrentHashMap()) : (Set) invokeV.objValue;
     }
 
-    public static <E> LinkedHashSet<E> f() {
-        return new LinkedHashSet<>();
+    public static <E> HashSet<E> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new HashSet<>() : (HashSet) invokeV.objValue;
     }
 
-    public static boolean g(Set<?> set, Collection<?> collection) {
-        n.p(collection);
-        if (collection instanceof i0) {
-            collection = ((i0) collection).elementSet();
+    public static <E> HashSet<E> g(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? new HashSet<>(Maps.e(i2)) : (HashSet) invokeI.objValue;
+    }
+
+    public static <E> Set<E> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Collections.newSetFromMap(Maps.u()) : (Set) invokeV.objValue;
+    }
+
+    public static <E> LinkedHashSet<E> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new LinkedHashSet<>() : (LinkedHashSet) invokeV.objValue;
+    }
+
+    public static <E> LinkedHashSet<E> j(Iterable<? extends E> iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, iterable)) == null) {
+            if (iterable instanceof Collection) {
+                return new LinkedHashSet<>(n.a(iterable));
+            }
+            LinkedHashSet<E> i2 = i();
+            o0.a(i2, iterable);
+            return i2;
         }
-        if ((collection instanceof Set) && collection.size() > set.size()) {
-            return Iterators.r(set.iterator(), collection);
+        return (LinkedHashSet) invokeL.objValue;
+    }
+
+    public static boolean k(Set<?> set, Collection<?> collection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, set, collection)) == null) {
+            d.f.d.a.n.p(collection);
+            if (collection instanceof s0) {
+                collection = ((s0) collection).elementSet();
+            }
+            if ((collection instanceof Set) && collection.size() > set.size()) {
+                return Iterators.u(set.iterator(), collection);
+            }
+            return l(set, collection.iterator());
         }
-        return h(set, collection.iterator());
+        return invokeLL.booleanValue;
     }
 
-    public static boolean h(Set<?> set, Iterator<?> it) {
-        boolean z = false;
-        while (it.hasNext()) {
-            z |= set.remove(it.next());
+    public static boolean l(Set<?> set, Iterator<?> it) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, set, it)) == null) {
+            boolean z = false;
+            while (it.hasNext()) {
+                z |= set.remove(it.next());
+            }
+            return z;
         }
-        return z;
+        return invokeLL.booleanValue;
     }
 
-    public static <E> NavigableSet<E> i(NavigableSet<E> navigableSet) {
-        return ((navigableSet instanceof ImmutableCollection) || (navigableSet instanceof UnmodifiableNavigableSet)) ? navigableSet : new UnmodifiableNavigableSet(navigableSet);
+    public static <E> NavigableSet<E> m(NavigableSet<E> navigableSet) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, navigableSet)) == null) ? ((navigableSet instanceof ImmutableCollection) || (navigableSet instanceof UnmodifiableNavigableSet)) ? navigableSet : new UnmodifiableNavigableSet(navigableSet) : (NavigableSet) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static final class UnmodifiableNavigableSet<E> extends c0<E> implements NavigableSet<E>, Serializable {
+    /* loaded from: classes7.dex */
+    public static final class UnmodifiableNavigableSet<E> extends l0<E> implements NavigableSet<E>, Serializable {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
         public final NavigableSet<E> delegate;
-
-        /* renamed from: e  reason: collision with root package name */
-        public transient UnmodifiableNavigableSet<E> f31435e;
+        public transient UnmodifiableNavigableSet<E> descendingSet;
         public final SortedSet<E> unmodifiableDelegate;
 
         public UnmodifiableNavigableSet(NavigableSet<E> navigableSet) {
-            n.p(navigableSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {navigableSet};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            d.f.d.a.n.p(navigableSet);
             this.delegate = navigableSet;
             this.unmodifiableDelegate = Collections.unmodifiableSortedSet(navigableSet);
         }
 
         @Override // java.util.NavigableSet
         public E ceiling(E e2) {
-            return this.delegate.ceiling(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2)) == null) ? this.delegate.ceiling(e2) : (E) invokeL.objValue;
         }
 
         @Override // java.util.NavigableSet
         public Iterator<E> descendingIterator() {
-            return Iterators.x(this.delegate.descendingIterator());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Iterators.B(this.delegate.descendingIterator()) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.NavigableSet
         public NavigableSet<E> descendingSet() {
-            UnmodifiableNavigableSet<E> unmodifiableNavigableSet = this.f31435e;
-            if (unmodifiableNavigableSet == null) {
-                UnmodifiableNavigableSet<E> unmodifiableNavigableSet2 = new UnmodifiableNavigableSet<>(this.delegate.descendingSet());
-                this.f31435e = unmodifiableNavigableSet2;
-                unmodifiableNavigableSet2.f31435e = this;
-                return unmodifiableNavigableSet2;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                UnmodifiableNavigableSet<E> unmodifiableNavigableSet = this.descendingSet;
+                if (unmodifiableNavigableSet == null) {
+                    UnmodifiableNavigableSet<E> unmodifiableNavigableSet2 = new UnmodifiableNavigableSet<>(this.delegate.descendingSet());
+                    this.descendingSet = unmodifiableNavigableSet2;
+                    unmodifiableNavigableSet2.descendingSet = this;
+                    return unmodifiableNavigableSet2;
+                }
+                return unmodifiableNavigableSet;
             }
-            return unmodifiableNavigableSet;
+            return (NavigableSet) invokeV.objValue;
         }
 
         @Override // java.util.NavigableSet
         public E floor(E e2) {
-            return this.delegate.floor(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, e2)) == null) ? this.delegate.floor(e2) : (E) invokeL.objValue;
         }
 
         @Override // java.util.NavigableSet
         public NavigableSet<E> headSet(E e2, boolean z) {
-            return Sets.i(this.delegate.headSet(e2, z));
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, e2, z)) == null) ? Sets.m(this.delegate.headSet(e2, z)) : (NavigableSet) invokeLZ.objValue;
         }
 
         @Override // java.util.NavigableSet
         public E higher(E e2) {
-            return this.delegate.higher(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, e2)) == null) ? this.delegate.higher(e2) : (E) invokeL.objValue;
         }
 
         @Override // java.util.NavigableSet
         public E lower(E e2) {
-            return this.delegate.lower(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, e2)) == null) ? this.delegate.lower(e2) : (E) invokeL.objValue;
         }
 
         @Override // java.util.NavigableSet
         public E pollFirst() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (E) invokeV.objValue;
         }
 
         @Override // java.util.NavigableSet
         public E pollLast() {
-            throw new UnsupportedOperationException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (E) invokeV.objValue;
         }
 
         @Override // java.util.NavigableSet
         public NavigableSet<E> subSet(E e2, boolean z, E e3, boolean z2) {
-            return Sets.i(this.delegate.subSet(e2, z, e3, z2));
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{e2, Boolean.valueOf(z), e3, Boolean.valueOf(z2)})) == null) ? Sets.m(this.delegate.subSet(e2, z, e3, z2)) : (NavigableSet) invokeCommon.objValue;
         }
 
         @Override // java.util.NavigableSet
         public NavigableSet<E> tailSet(E e2, boolean z) {
-            return Sets.i(this.delegate.tailSet(e2, z));
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, e2, z)) == null) ? Sets.m(this.delegate.tailSet(e2, z)) : (NavigableSet) invokeLZ.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.c0, d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // d.f.d.c.l0, d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
         public SortedSet<E> delegate() {
-            return this.unmodifiableDelegate;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.unmodifiableDelegate : (SortedSet) invokeV.objValue;
         }
     }
 }

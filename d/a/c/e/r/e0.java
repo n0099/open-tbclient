@@ -3,9 +3,18 @@ package d.a.c.e.r;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.webSocket.WebSocketException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.r.e;
 import java.io.UnsupportedEncodingException;
 import java.net.SocketException;
@@ -14,24 +23,26 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class e0 extends Thread {
+    public static /* synthetic */ Interceptable $ic;
     public static long t;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f42700e;
+    public final Handler f44509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.a f42701f;
+    public final e.a f44510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d0 f42702g;
+    public final d0 f44511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ByteBuffer f42703h;
+    public final ByteBuffer f44512h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d f42704i;
+    public final d f44513i;
     public boolean j;
     public int k;
     public boolean l;
@@ -43,177 +54,283 @@ public class e0 extends Thread {
     public long r;
     public long s;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
     public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42705a;
+        public int f44514a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f42706b;
+        public boolean f44515b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f42707c;
+        public int f44516c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f42708d;
+        public int f44517d;
 
         /* renamed from: e  reason: collision with root package name */
-        public byte[] f42709e;
+        public byte[] f44518e;
 
         public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2063865832, "Ld/a/c/e/r/e0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2063865832, "Ld/a/c/e/r/e0;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e0(Handler handler, e.a aVar, d0 d0Var, String str) {
         super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler, aVar, d0Var, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.j = false;
         this.l = false;
         this.p = new f();
         this.q = 0;
         this.r = 0L;
         this.s = 0L;
-        this.f42700e = handler;
-        this.f42701f = aVar;
-        this.f42702g = d0Var;
-        this.f42703h = ByteBuffer.allocateDirect(d0Var.b() + 14);
-        this.f42704i = new d(d0Var.c());
+        this.f44509e = handler;
+        this.f44510f = aVar;
+        this.f44511g = d0Var;
+        this.f44512h = ByteBuffer.allocateDirect(d0Var.b() + 14);
+        this.f44513i = new d(d0Var.c());
         this.n = null;
         this.k = 1;
     }
 
     public void a() {
-        synchronized (e0.class) {
-            t = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (e0.class) {
+                t = 0L;
+            }
         }
     }
 
     public final boolean b() throws Exception {
-        int i2 = this.k;
-        if (i2 == 3 || i2 == 2) {
-            return n();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i2 = this.k;
+            if (i2 == 3 || i2 == 2) {
+                return n();
+            }
+            if (i2 == 1) {
+                return o();
+            }
+            if (i2 == 0) {
+            }
+            return false;
         }
-        if (i2 == 1) {
-            return o();
-        }
-        if (i2 == 0) {
-        }
-        return false;
+        return invokeV.booleanValue;
     }
 
     public long c() {
+        InterceptResult invokeV;
         long j;
-        synchronized (e0.class) {
-            j = t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (e0.class) {
+                j = t;
+            }
+            return j;
         }
-        return j;
+        return invokeV.longValue;
     }
 
     public void d(Object obj) {
-        this.r = 0L;
-        this.s = 0L;
-        Message obtainMessage = this.f42700e.obtainMessage();
-        obtainMessage.obj = obj;
-        this.f42700e.sendMessage(obtainMessage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            this.r = 0L;
+            this.s = 0L;
+            Message obtainMessage = this.f44509e.obtainMessage();
+            obtainMessage.obj = obj;
+            this.f44509e.sendMessage(obtainMessage);
+        }
     }
 
     public void e(byte[] bArr) {
-        long currentTimeMillis = System.currentTimeMillis();
-        this.s = currentTimeMillis;
-        d(new k(bArr, this.r, currentTimeMillis));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.s = currentTimeMillis;
+            d(new k(bArr, this.r, currentTimeMillis));
+        }
     }
 
     public void f(int i2, String str) {
-        d(new m(i2, str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+            d(new m(i2, str));
+        }
     }
 
     public void g(boolean z, Map<String, String> map) {
-        d(new a0(z, map));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048582, this, z, map) == null) {
+            d(new a0(z, map));
+        }
     }
 
     public void h(byte[] bArr) {
-        d(new t(bArr));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            d(new t(bArr));
+        }
     }
 
     public void i(byte[] bArr) {
-        d(new u(bArr));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr) == null) {
+            d(new u(bArr));
+        }
     }
 
     public void j(byte[] bArr) {
-        d(new w(bArr));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bArr) == null) {
+            d(new w(bArr));
+        }
     }
 
     public void k(String str) {
-        d(new c0(str));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            d(new c0(str));
+        }
     }
 
     public final Map<String, String> l(byte[] bArr) throws UnsupportedEncodingException {
+        InterceptResult invokeL;
         String[] split;
-        String str = new String(bArr, "UTF-8");
-        HashMap hashMap = new HashMap();
-        for (String str2 : str.split(Part.CRLF)) {
-            if (str2.length() > 0) {
-                String[] split2 = str2.split(": ");
-                if (split2.length == 2) {
-                    hashMap.put(split2[0], split2[1]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bArr)) == null) {
+            String str = new String(bArr, "UTF-8");
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split(Part.CRLF)) {
+                if (str2.length() > 0) {
+                    String[] split2 = str2.split(": ");
+                    if (split2.length == 2) {
+                        hashMap.put(split2[0], split2[1]);
+                    }
                 }
             }
+            return hashMap;
         }
-        return hashMap;
+        return (Map) invokeL.objValue;
     }
 
     public final Pair<Integer, String> m() throws UnsupportedEncodingException {
-        int i2 = 4;
-        while (i2 < this.f42703h.position() && this.f42703h.get(i2) != 32) {
-            i2++;
-        }
-        int i3 = i2 + 1;
-        int i4 = i3;
-        while (i4 < this.f42703h.position() && this.f42703h.get(i4) != 32) {
-            i4++;
-        }
-        int i5 = 0;
-        int i6 = 0;
-        while (true) {
-            int i7 = i3 + i5;
-            if (i7 >= i4) {
-                break;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i2 = 4;
+            while (i2 < this.f44512h.position() && this.f44512h.get(i2) != 32) {
+                i2++;
             }
-            i6 = (i6 * 10) + (this.f42703h.get(i7) - 48);
-            i5++;
+            int i3 = i2 + 1;
+            int i4 = i3;
+            while (i4 < this.f44512h.position() && this.f44512h.get(i4) != 32) {
+                i4++;
+            }
+            int i5 = 0;
+            int i6 = 0;
+            while (true) {
+                int i7 = i3 + i5;
+                if (i7 >= i4) {
+                    break;
+                }
+                i6 = (i6 * 10) + (this.f44512h.get(i7) - 48);
+                i5++;
+            }
+            int i8 = i4 + 1;
+            int i9 = i8;
+            while (i9 < this.f44512h.position() && this.f44512h.get(i9) != 13) {
+                i9++;
+            }
+            int i10 = i9 - i8;
+            byte[] bArr = new byte[i10];
+            this.f44512h.position(i8);
+            this.f44512h.get(bArr, 0, i10);
+            return new Pair<>(Integer.valueOf(i6), new String(bArr, "UTF-8"));
         }
-        int i8 = i4 + 1;
-        int i9 = i8;
-        while (i9 < this.f42703h.position() && this.f42703h.get(i9) != 13) {
-            i9++;
-        }
-        int i10 = i9 - i8;
-        byte[] bArr = new byte[i10];
-        this.f42703h.position(i8);
-        this.f42703h.get(bArr, 0, i10);
-        return new Pair<>(Integer.valueOf(i6), new String(bArr, "UTF-8"));
+        return (Pair) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:186:0x035c A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:187:0x035e A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:188:0x0360 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:189:0x0362 A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final boolean n() throws Exception {
+        InterceptResult invokeV;
         int i2;
         int i3;
         String str;
         long j;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048589, this)) != null) {
+            return invokeV.booleanValue;
+        }
         b bVar = this.n;
         int i4 = 10;
         byte[] bArr = null;
         if (bVar == null) {
-            if (this.f42703h.position() >= 2) {
-                byte b2 = this.f42703h.get(0);
+            if (this.f44512h.position() >= 2) {
+                byte b2 = this.f44512h.get(0);
                 boolean z = (b2 & ByteCompanionObject.MIN_VALUE) != 0;
                 int i5 = (b2 & 112) >> 4;
                 int i6 = b2 & 15;
-                byte b3 = this.f42703h.get(1);
+                byte b3 = this.f44512h.get(1);
                 boolean z2 = (b3 & ByteCompanionObject.MIN_VALUE) != 0;
                 int i7 = b3 & ByteCompanionObject.MAX_VALUE;
                 if (i5 == 0) {
@@ -246,39 +363,39 @@ public class e0 extends Thread {
                         } else if (i7 != 127) {
                             throw new Exception("BdLogic error");
                         }
-                        if (this.f42703h.position() >= i4) {
+                        if (this.f44512h.position() >= i4) {
                             if (i7 == 126) {
-                                j = ((this.f42703h.get(2) & 255) << 8) | (this.f42703h.get(3) & 255);
+                                j = ((this.f44512h.get(2) & 255) << 8) | (this.f44512h.get(3) & 255);
                                 if (j < 126) {
                                     throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                                 }
                             } else if (i7 != 127) {
                                 j = i7;
-                            } else if ((this.f42703h.get(2) & ByteCompanionObject.MIN_VALUE) == 0) {
-                                j = (this.f42703h.get(9) & 255) | ((this.f42703h.get(2) & 255) << 56) | ((this.f42703h.get(3) & 255) << 48) | ((this.f42703h.get(4) & 255) << 40) | ((this.f42703h.get(5) & 255) << 32) | ((this.f42703h.get(6) & 255) << 24) | ((this.f42703h.get(7) & 255) << 16) | ((this.f42703h.get(8) & 255) << 8);
+                            } else if ((this.f44512h.get(2) & ByteCompanionObject.MIN_VALUE) == 0) {
+                                j = (this.f44512h.get(9) & 255) | ((this.f44512h.get(2) & 255) << 56) | ((this.f44512h.get(3) & 255) << 48) | ((this.f44512h.get(4) & 255) << 40) | ((this.f44512h.get(5) & 255) << 32) | ((this.f44512h.get(6) & 255) << 24) | ((this.f44512h.get(7) & 255) << 16) | ((this.f44512h.get(8) & 255) << 8);
                                 if (j < 65536) {
                                     throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                                 }
                             } else {
                                 throw new WebSocketException("invalid data frame length (> 2^63)");
                             }
-                            b bVar2 = new b();
+                            b bVar2 = new b(null);
                             this.n = bVar2;
-                            bVar2.f42705a = i6;
-                            bVar2.f42706b = z;
-                            bVar2.f42708d = (int) j;
-                            bVar2.f42707c = i4;
-                            int position = this.f42703h.position();
+                            bVar2.f44514a = i6;
+                            bVar2.f44515b = z;
+                            bVar2.f44517d = (int) j;
+                            bVar2.f44516c = i4;
+                            int position = this.f44512h.position();
                             b bVar3 = this.n;
-                            bVar3.f42709e = new byte[bVar3.f42707c];
-                            this.f42703h.position(0);
-                            ByteBuffer byteBuffer = this.f42703h;
+                            bVar3.f44518e = new byte[bVar3.f44516c];
+                            this.f44512h.position(0);
+                            ByteBuffer byteBuffer = this.f44512h;
                             b bVar4 = this.n;
-                            byteBuffer.get(bVar4.f42709e, 0, bVar4.f42707c);
-                            this.f42703h.position(this.n.f42707c);
-                            this.f42703h.limit(position);
-                            this.f42703h.compact();
-                            return this.n.f42708d == 0 || this.f42703h.position() >= this.n.f42708d;
+                            byteBuffer.get(bVar4.f44518e, 0, bVar4.f44516c);
+                            this.f44512h.position(this.n.f44516c);
+                            this.f44512h.limit(position);
+                            this.f44512h.compact();
+                            return this.n.f44517d == 0 || this.f44512h.position() >= this.n.f44517d;
                         }
                         return false;
                     }
@@ -289,9 +406,9 @@ public class e0 extends Thread {
             return false;
         }
         int i8 = this.o;
-        int i9 = bVar.f42708d;
+        int i9 = bVar.f44517d;
         if (i8 >= i9) {
-            int i10 = bVar.f42705a;
+            int i10 = bVar.f44514a;
             if (i10 <= 7) {
                 if (this.l) {
                     i2 = 1;
@@ -299,47 +416,47 @@ public class e0 extends Thread {
                     i2 = 1;
                     this.l = true;
                     this.m = i10;
-                    if (i10 == 1 && this.f42702g.h()) {
+                    if (i10 == 1 && this.f44511g.h()) {
                         this.p.b();
                     }
                 }
-                if (this.m == i2 && this.f42702g.h() && !this.p.c(this.f42704i.toByteArray())) {
+                if (this.m == i2 && this.f44511g.h() && !this.p.c(this.f44513i.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
-                if (this.n.f42706b) {
+                if (this.n.f44515b) {
                     int i11 = this.m;
                     if (i11 == 1) {
-                        if (this.f42702g.h() && !this.p.a()) {
+                        if (this.f44511g.h() && !this.p.a()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.f42702g.d()) {
-                            j(this.f42704i.toByteArray());
+                        if (this.f44511g.d()) {
+                            j(this.f44513i.toByteArray());
                         } else {
-                            k(new String(this.f42704i.toByteArray(), "UTF-8"));
+                            k(new String(this.f44513i.toByteArray(), "UTF-8"));
                         }
                     } else if (i11 == 2) {
-                        e(this.f42704i.toByteArray());
+                        e(this.f44513i.toByteArray());
                     } else {
                         throw new Exception("BdLogic error");
                     }
                     i3 = 0;
                     this.l = false;
-                    this.f42704i.reset();
+                    this.f44513i.reset();
                     this.n = null;
                     this.o = i3;
-                    return this.f42703h.position() <= 0;
+                    return this.f44512h.position() <= 0;
                 }
             } else if (i10 == 8) {
                 int i12 = 1005;
                 if (i9 >= 2) {
-                    byte[] bArr2 = bVar.f42709e;
+                    byte[] bArr2 = bVar.f44518e;
                     i12 = ((bArr2[0] & 255) * 256) + (bArr2[1] & 255);
                     if (i12 >= 1000 && ((i12 < 1000 || i12 > 2999 || i12 == 1000 || i12 == 1001 || i12 == 1002 || i12 == 1003 || i12 == 1007 || i12 == 1008 || i12 == 1009 || i12 == 1010 || i12 == 1011) && i12 < 5000)) {
                         b bVar5 = this.n;
-                        int i13 = bVar5.f42708d;
+                        int i13 = bVar5.f44517d;
                         if (i13 > 2) {
                             byte[] bArr3 = new byte[i13 - 2];
-                            System.arraycopy(bVar5.f42709e, 2, bArr3, 0, i13 - 2);
+                            System.arraycopy(bVar5.f44518e, 2, bArr3, 0, i13 - 2);
                             f fVar = new f();
                             fVar.c(bArr3);
                             if (fVar.a()) {
@@ -356,111 +473,120 @@ public class e0 extends Thread {
                 str = null;
                 f(i12, str);
             } else if (i10 == 9) {
-                h(this.f42704i.toByteArray());
+                h(this.f44513i.toByteArray());
             } else if (i10 == 10) {
-                i(this.f42704i.toByteArray());
+                i(this.f44513i.toByteArray());
             } else {
                 throw new Exception("BdLogic error");
             }
             i3 = 0;
             this.n = null;
             this.o = i3;
-            if (this.f42703h.position() <= 0) {
+            if (this.f44512h.position() <= 0) {
             }
         } else {
-            int position2 = this.f42703h.position();
-            int i14 = this.n.f42708d;
+            int position2 = this.f44512h.position();
+            int i14 = this.n.f44517d;
             int i15 = this.o;
             if (i14 - i15 < position2) {
                 position2 = i14 - i15;
             }
-            int position3 = this.f42703h.position();
-            if (this.n.f42708d > 0) {
+            int position3 = this.f44512h.position();
+            if (this.n.f44517d > 0) {
                 bArr = new byte[position2];
-                this.f42703h.position(0);
-                this.f42703h.get(bArr, 0, position2);
+                this.f44512h.position(0);
+                this.f44512h.get(bArr, 0, position2);
             }
-            this.f42703h.position(position2);
-            this.f42703h.limit(position3);
-            this.f42703h.compact();
+            this.f44512h.position(position2);
+            this.f44512h.limit(position3);
+            this.f44512h.compact();
             if (bArr != null) {
-                this.f42704i.write(bArr);
+                this.f44513i.write(bArr);
             }
             int i16 = this.o + position2;
             this.o = i16;
-            return i16 >= this.n.f42708d;
+            return i16 >= this.n.f44517d;
         }
     }
 
     public final boolean o() throws UnsupportedEncodingException {
+        InterceptResult invokeV;
         boolean z;
         boolean z2;
-        int position = this.f42703h.position() - 4;
-        while (true) {
-            if (position < 0) {
-                break;
-            } else if (this.f42703h.get(position + 0) == 13 && this.f42703h.get(position + 1) == 10 && this.f42703h.get(position + 2) == 13 && this.f42703h.get(position + 3) == 10) {
-                int position2 = this.f42703h.position();
-                Map<String, String> map = null;
-                if (this.f42703h.get(0) == 72 && this.f42703h.get(1) == 84 && this.f42703h.get(2) == 84 && this.f42703h.get(3) == 80) {
-                    Pair<Integer, String> m = m();
-                    if (((Integer) m.first).intValue() >= 300) {
-                        d(new z(((Integer) m.first).intValue(), (String) m.second));
-                        z2 = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            int position = this.f44512h.position() - 4;
+            while (true) {
+                if (position < 0) {
+                    break;
+                } else if (this.f44512h.get(position + 0) == 13 && this.f44512h.get(position + 1) == 10 && this.f44512h.get(position + 2) == 13 && this.f44512h.get(position + 3) == 10) {
+                    int position2 = this.f44512h.position();
+                    Map<String, String> map = null;
+                    if (this.f44512h.get(0) == 72 && this.f44512h.get(1) == 84 && this.f44512h.get(2) == 84 && this.f44512h.get(3) == 80) {
+                        Pair<Integer, String> m = m();
+                        if (((Integer) m.first).intValue() >= 300) {
+                            d(new z(((Integer) m.first).intValue(), (String) m.second));
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (position > 0) {
+                            this.f44512h.position(0);
+                            byte[] bArr = new byte[position];
+                            this.f44512h.get(bArr);
+                            map = l(bArr);
+                        }
                     } else {
                         z2 = false;
                     }
-                    if (position > 0) {
-                        this.f42703h.position(0);
-                        byte[] bArr = new byte[position];
-                        this.f42703h.get(bArr);
-                        map = l(bArr);
+                    this.f44512h.position(position + 4);
+                    this.f44512h.limit(position2);
+                    this.f44512h.compact();
+                    if (this.q < this.f44510f.a() && map.size() == 0) {
+                        this.q++;
+                        return true;
                     }
+                    this.q = 0;
+                    if (!z2) {
+                        z = this.f44512h.position() > 0;
+                        this.k = 3;
+                    } else {
+                        this.k = 0;
+                        this.j = true;
+                        z = true;
+                    }
+                    g(!z2, map);
                 } else {
-                    z2 = false;
+                    position--;
                 }
-                this.f42703h.position(position + 4);
-                this.f42703h.limit(position2);
-                this.f42703h.compact();
-                if (this.q < this.f42701f.a() && map.size() == 0) {
-                    this.q++;
-                    return true;
-                }
-                this.q = 0;
-                if (!z2) {
-                    z = this.f42703h.position() > 0;
-                    this.k = 3;
-                } else {
-                    this.k = 0;
-                    this.j = true;
-                    z = true;
-                }
-                g(!z2, map);
-            } else {
-                position--;
             }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     public void p() {
-        this.j = true;
-        try {
-            this.f42701f.close();
-        } catch (Throwable th) {
-            BdLog.e(th);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.j = true;
+            try {
+                this.f44510f.close();
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
         }
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             try {
                 try {
-                    this.f42703h.clear();
+                    this.f44512h.clear();
                     do {
                         try {
-                            int read = this.f42701f.read(this.f42703h);
+                            int read = this.f44510f.read(this.f44512h);
                             if (read > 0) {
                                 if (this.r <= 0) {
                                     this.r = System.currentTimeMillis();
@@ -484,16 +610,16 @@ public class e0 extends Thread {
                             }
                         }
                     } while (!this.j);
-                } finally {
-                    this.j = true;
+                } catch (WebSocketException e2) {
+                    d(new v(e2));
+                } catch (SocketException e3) {
+                    d(new n(e3));
+                } catch (Exception e4) {
+                    d(new p(e4));
                 }
-            } catch (SocketException e2) {
-                d(new n(e2));
+            } finally {
+                this.j = true;
             }
-        } catch (WebSocketException e3) {
-            d(new v(e3));
-        } catch (Exception e4) {
-            d(new p(e4));
         }
     }
 }

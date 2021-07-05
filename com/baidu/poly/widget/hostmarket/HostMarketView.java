@@ -11,153 +11,275 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
-import d.a.c0.f;
-import d.a.c0.g;
-import d.a.c0.h;
-import d.a.c0.k.j.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.g0.f;
+import d.a.g0.g;
+import d.a.g0.h;
+import d.a.g0.k.j.a;
 import java.text.DecimalFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HostMarketView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9404e;
+    public ImageView f9476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9405f;
+    public TextView f9477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9406g;
+    public TextView f9478g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f9407h;
+    public TextView f9479h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f9408i;
+    public SwitchButton f9480i;
     public o j;
     public a k;
     public boolean l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void a(boolean z, o oVar, d.a.c0.k.j.a aVar);
+        void a(boolean z, o oVar, d.a.g0.k.j.a aVar);
 
-        void b(a.C0570a c0570a);
+        void b(a.C0633a c0633a);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements CompoundButton.OnCheckedChangeListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HostMarketView f9481e;
+
+        public b(HostMarketView hostMarketView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hostMarketView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9481e = hostMarketView;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            HostMarketView.this.h(z);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
+                this.f9481e.h(z);
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c implements d.a.c0.k.j.a {
-        public c() {
-        }
+    /* loaded from: classes3.dex */
+    public class c implements d.a.g0.k.j.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // d.a.c0.k.j.a
-        public void a(a.C0570a c0570a) {
-            HostMarketView.this.k.b(c0570a);
-            if (c0570a == null) {
-                return;
-            }
-            if (c0570a.f43266a == 0) {
-                if (HostMarketView.this.f9408i.isChecked()) {
-                    HostMarketView.this.f9407h.setVisibility(0);
-                } else {
-                    HostMarketView.this.f9407h.setVisibility(4);
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ HostMarketView f9482a;
+
+        public c(HostMarketView hostMarketView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hostMarketView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } else {
-                HostMarketView.this.f9408i.j();
-                Toast.makeText(HostMarketView.this.getContext(), HostMarketView.this.getResources().getString(h.host_market_calculate_error), 0).show();
             }
-            HostMarketView.this.j.i(HostMarketView.this.f9408i.isChecked() ? 1 : 0);
+            this.f9482a = hostMarketView;
+        }
+
+        @Override // d.a.g0.k.j.a
+        public void a(a.C0633a c0633a) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c0633a) == null) {
+                this.f9482a.k.b(c0633a);
+                if (c0633a == null) {
+                    return;
+                }
+                if (c0633a.f45482a == 0) {
+                    if (this.f9482a.f9480i.isChecked()) {
+                        this.f9482a.f9479h.setVisibility(0);
+                    } else {
+                        this.f9482a.f9479h.setVisibility(4);
+                    }
+                } else {
+                    this.f9482a.f9480i.j();
+                    Toast.makeText(this.f9482a.getContext(), this.f9482a.getResources().getString(h.host_market_calculate_error), 0).show();
+                }
+                this.f9482a.j.i(this.f9482a.f9480i.isChecked() ? 1 : 0);
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HostMarketView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final String b(long j) {
-        return new DecimalFormat("0.00").format((j * 1.0d) / 100.0d);
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new DecimalFormat("0.00").format((j * 1.0d) / 100.0d) : (String) invokeJ.objValue;
     }
 
     public void d(o oVar) {
-        this.j = oVar;
-        if (oVar != null) {
-            this.l = oVar.P() == 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar) == null) {
+            this.j = oVar;
+            if (oVar != null) {
+                this.l = oVar.P() == 1;
+            }
+            j();
         }
-        j();
     }
 
     public final void g(Context context) {
-        LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-        this.f9404e = (ImageView) findViewById(f.icon);
-        this.f9405f = (TextView) findViewById(f.title);
-        this.f9406g = (TextView) findViewById(f.subtitle);
-        this.f9407h = (TextView) findViewById(f.cut_text);
-        SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
-        this.f9408i = switchButton;
-        switchButton.setOnCheckedChangeListener(new b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
+            this.f9476e = (ImageView) findViewById(f.icon);
+            this.f9477f = (TextView) findViewById(f.title);
+            this.f9478g = (TextView) findViewById(f.subtitle);
+            this.f9479h = (TextView) findViewById(f.cut_text);
+            SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
+            this.f9480i = switchButton;
+            switchButton.setOnCheckedChangeListener(new b(this));
+        }
     }
 
     public final void h(boolean z) {
-        if (this.k == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.k == null) {
             return;
         }
-        this.j.i(this.f9408i.isChecked() ? 1 : 0);
-        this.k.a(z, this.j, new c());
+        this.j.i(this.f9480i.isChecked() ? 1 : 0);
+        this.k.a(z, this.j, new c(this));
     }
 
     public final void j() {
-        if (this.j == null) {
-            setVisibility(8);
-            return;
-        }
-        setVisibility(0);
-        d.a.c0.k.d.b.c().b(this.f9404e, this.j.getIcon());
-        this.f9405f.setText(this.j.getDisplayName());
-        this.f9406g.setText(this.j.S());
-        if (!TextUtils.isEmpty(this.j.M())) {
-            try {
-                this.f9406g.setTextColor(Color.parseColor(this.j.M()));
-            } catch (Exception unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.j == null) {
+                setVisibility(8);
+                return;
             }
-        }
-        if (this.l) {
-            this.f9408i.setVisibility(4);
-            this.f9407h.setVisibility(0);
-            TextView textView = this.f9407h;
-            textView.setText("-" + b(this.j.L()) + "元");
-            return;
-        }
-        this.f9408i.setVisibility(0);
-        this.f9407h.setVisibility(4);
-        if (this.j.P() == 1) {
-            this.f9408i.setChecked(true);
-        } else {
-            this.f9408i.setChecked(false);
+            setVisibility(0);
+            d.a.g0.k.d.b.c().b(this.f9476e, this.j.getIcon());
+            this.f9477f.setText(this.j.getDisplayName());
+            this.f9478g.setText(this.j.S());
+            if (!TextUtils.isEmpty(this.j.M())) {
+                try {
+                    this.f9478g.setTextColor(Color.parseColor(this.j.M()));
+                } catch (Exception unused) {
+                }
+            }
+            if (this.l) {
+                this.f9480i.setVisibility(4);
+                this.f9479h.setVisibility(0);
+                TextView textView = this.f9479h;
+                textView.setText("-" + b(this.j.L()) + "元");
+                return;
+            }
+            this.f9480i.setVisibility(0);
+            this.f9479h.setVisibility(4);
+            if (this.j.P() == 1) {
+                this.f9480i.setChecked(true);
+            } else {
+                this.f9480i.setChecked(false);
+            }
         }
     }
 
     public void setListener(a aVar) {
-        this.k = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.k = aVar;
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HostMarketView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HostMarketView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.l = false;
         g(context);
     }

@@ -10,6 +10,7 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -21,6 +22,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.KuangFloatingWindowController;
 import com.baidu.tbadk.TbPageContext;
@@ -34,6 +36,13 @@ import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.switchs.FlutterAttachSwitch;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
@@ -42,366 +51,559 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import d.a.c.a.g;
 import d.a.c.a.h;
 import d.a.c.e.p.l;
-import d.a.n0.a.t;
-import d.a.n0.k0.a;
-import d.a.n0.k0.b;
-import d.a.n0.k0.d;
-import d.a.n0.k0.e;
-import d.a.n0.r.c;
+import d.a.r0.a.t;
+import d.a.r0.k0.a;
+import d.a.r0.k0.b;
+import d.a.r0.k0.d;
+import d.a.r0.k0.e;
+import d.a.r0.r.c;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPageContextSupport, a, g<T> {
+    public static /* synthetic */ Interceptable $ic = null;
     public static int flog = 1;
-    public static Class<? extends TbPageContext> mClazz4GetPageContext = FlutterActivityPageContext.class;
+    public static Class<? extends TbPageContext> mClazz4GetPageContext;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final String[] ADJUST_PAN_PAGES;
+    public int animationType;
+    public long creatTime;
+    public long flutterStartTime;
+    public boolean isAddSwipeBackLayout;
     public long lastResumeTime;
-    public d.a.n0.r.a mLayoutInflateFactory;
+    public BdUniqueId mId;
+    public d.a.r0.r.a mLayoutInflateFactory;
     public c mLayoutMode;
     public SwipeBackLayout mSwipeBackLayout;
+    public boolean mUseStyleImmersiveSticky;
     public TbPageContext<T> pageContext;
     public d pageStayDurationItem;
-    public BdUniqueId mId = null;
-    public int animationType = 1;
-    public boolean isAddSwipeBackLayout = true;
-    public boolean mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
-    public long creatTime = 0;
-    public long startTime = 0;
-    public long flutterStartTime = 0;
-    public final String[] ADJUST_PAN_PAGES = {"GameItemDetailsPage", "ItemRecommendList"};
-    public CustomMessageListener skinTypeChangeListener = new CustomMessageListener(2001304) { // from class: com.baidu.tieba.flutter.base.view.FlutterPageActivity.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FlutterActivityAndFragmentDelegate flutterDelegate;
-            FlutterSplashView boostFlutterView;
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || FlutterAttachSwitch.isOn() || (flutterDelegate = FlutterPageActivity.this.getFlutterDelegate()) == null || (boostFlutterView = flutterDelegate.getBoostFlutterView()) == null) {
+    public CustomMessageListener skinTypeChangeListener;
+    public long startTime;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1322148434, "Lcom/baidu/tieba/flutter/base/view/FlutterPageActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1322148434, "Lcom/baidu/tieba/flutter/base/view/FlutterPageActivity;");
                 return;
             }
-            boostFlutterView.showSplash(FlutterPageActivity.this.provideSplashScreen());
         }
-    };
-
-    public void closeAnimation() {
-        ActivityPendingTransitionFactory.closeAnimation(getPageContext(), this.animationType);
+        mClazz4GetPageContext = FlutterActivityPageContext.class;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Context createDisplayContext(Display display) {
-        return super.createDisplayContext(display);
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        t.a(motionEvent, getPageId(), 0L);
-        d.a.o0.j3.a.getInstance().behaviorRecordEvent(motionEvent, this);
-        try {
-            return super.dispatchTouchEvent(motionEvent);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
+    public FlutterPageActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
+        this.mId = null;
+        this.animationType = 1;
+        this.isAddSwipeBackLayout = true;
+        this.mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
+        this.creatTime = 0L;
+        this.startTime = 0L;
+        this.flutterStartTime = 0L;
+        this.ADJUST_PAN_PAGES = new String[]{"GameItemDetailsPage", "ItemRecommendList"};
+        this.skinTypeChangeListener = new CustomMessageListener(this, 2001304) { // from class: com.baidu.tieba.flutter.base.view.FlutterPageActivity.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ FlutterPageActivity this$0;
 
-    public void enterExitAnimation() {
-        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), this.animationType);
-    }
-
-    @Override // android.app.Activity
-    public void finish() {
-        l.x(getApplicationContext(), getWindow().getDecorView());
-        super.finish();
-        closeAnimation();
-    }
-
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public AssetManager getAssets() {
-        return getResources().getAssets();
-    }
-
-    @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
-    public Map getContainerUrlParams() {
-        Map<String, Object> hashMap = new HashMap<>();
-        if (getIntent().hasExtra("params")) {
-            hashMap = ((BoostFlutterActivity.SerializableMap) getIntent().getSerializableExtra("params")).getMap();
-        }
-        hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
-        hashMap.put("native_start_time", Long.valueOf(this.startTime));
-        hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
-        hashMap.put("sorce_key_list", d.a.n0.k0.c.a(getCurrentPageSourceKeyList()));
-        return hashMap;
-    }
-
-    @Override // d.a.n0.k0.a
-    public String getCurrentPageKey() {
-        return getContainerUrl();
-    }
-
-    @Override // d.a.n0.k0.a
-    public List<String> getCurrentPageSourceKeyList() {
-        Intent intent = getIntent();
-        if (intent != null) {
-            return intent.getStringArrayListExtra("obj_source");
-        }
-        return null;
-    }
-
-    public c getLayoutMode() {
-        return this.mLayoutMode;
-    }
-
-    @Override // d.a.n0.k0.a
-    public List<String> getNextPageSourceKeyList() {
-        ArrayList arrayList;
-        ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
-        String currentPageKey = getCurrentPageKey();
-        if (ListUtils.isEmpty(arrayList2)) {
-            arrayList = null;
-        } else {
-            arrayList = new ArrayList();
-            arrayList.addAll(arrayList2);
-        }
-        if (getPageStayFilter() == null || getPageStayFilter().isCurrentPageCanBeAddToSourceTrace()) {
-            if (!StringUtils.isNull(currentPageKey)) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
                 }
-                arrayList.add(currentPageKey);
-            }
-            return arrayList;
-        }
-        return arrayList;
-    }
-
-    public int getPageId() {
-        BdUniqueId uniqueId = getUniqueId();
-        if (uniqueId != null) {
-            return uniqueId.getId();
-        }
-        return 0;
-    }
-
-    public d getPageStayDurationItem() {
-        if (this.pageStayDurationItem == null) {
-            this.pageStayDurationItem = new d();
-        }
-        return this.pageStayDurationItem;
-    }
-
-    @Override // d.a.n0.k0.a
-    public b getPageStayFilter() {
-        return new b() { // from class: com.baidu.tieba.flutter.base.view.FlutterPageActivity.2
-            @Override // d.a.n0.k0.b
-            public boolean canStat(d dVar) {
-                return false;
+                this.this$0 = this;
             }
 
-            @Override // d.a.n0.k0.b
-            public int getMaxCost() {
-                return e.b().c();
-            }
-
-            @Override // d.a.n0.k0.b
-            public boolean isCurrentPageCanBeAddToSourceTrace() {
-                return true;
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                FlutterActivityAndFragmentDelegate flutterDelegate;
+                FlutterSplashView boostFlutterView;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || FlutterAttachSwitch.isOn() || (flutterDelegate = this.this$0.getFlutterDelegate()) == null || (boostFlutterView = flutterDelegate.getBoostFlutterView()) == null) {
+                    return;
+                }
+                boostFlutterView.showSplash(this.this$0.provideSplashScreen());
             }
         };
     }
 
+    public void closeAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), this.animationType);
+        }
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Context createDisplayContext(Display display) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, display)) == null) ? super.createDisplayContext(display) : (Context) invokeL.objValue;
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            t.a(motionEvent, getPageId(), 0L);
+            d.a.s0.m3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+            try {
+                return super.dispatchTouchEvent(motionEvent);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), this.animationType);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            l.x(getApplicationContext(), getWindow().getDecorView());
+            super.finish();
+            closeAnimation();
+        }
+    }
+
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public AssetManager getAssets() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getResources().getAssets() : (AssetManager) invokeV.objValue;
+    }
+
+    @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public Map getContainerUrlParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Map<String, Object> hashMap = new HashMap<>();
+            if (getIntent().hasExtra("params")) {
+                hashMap = ((BoostFlutterActivity.SerializableMap) getIntent().getSerializableExtra("params")).getMap();
+            }
+            hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
+            hashMap.put("native_start_time", Long.valueOf(this.startTime));
+            hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
+            hashMap.put("sorce_key_list", d.a.r0.k0.c.a(getCurrentPageSourceKeyList()));
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // d.a.r0.k0.a
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getContainerUrl() : (String) invokeV.objValue;
+    }
+
+    @Override // d.a.r0.k0.a
+    public List<String> getCurrentPageSourceKeyList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                return intent.getStringArrayListExtra("obj_source");
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public c getLayoutMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLayoutMode : (c) invokeV.objValue;
+    }
+
+    @Override // d.a.r0.k0.a
+    public List<String> getNextPageSourceKeyList() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
+            String currentPageKey = getCurrentPageKey();
+            if (ListUtils.isEmpty(arrayList2)) {
+                arrayList = null;
+            } else {
+                arrayList = new ArrayList();
+                arrayList.addAll(arrayList2);
+            }
+            if (getPageStayFilter() == null || getPageStayFilter().isCurrentPageCanBeAddToSourceTrace()) {
+                if (!StringUtils.isNull(currentPageKey)) {
+                    if (arrayList == null) {
+                        arrayList = new ArrayList();
+                    }
+                    arrayList.add(currentPageKey);
+                }
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getPageId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            BdUniqueId uniqueId = getUniqueId();
+            if (uniqueId != null) {
+                return uniqueId.getId();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public d getPageStayDurationItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.pageStayDurationItem == null) {
+                this.pageStayDurationItem = new d();
+            }
+            return this.pageStayDurationItem;
+        }
+        return (d) invokeV.objValue;
+    }
+
+    @Override // d.a.r0.k0.a
+    public b getPageStayFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new b(this) { // from class: com.baidu.tieba.flutter.base.view.FlutterPageActivity.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ FlutterPageActivity this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // d.a.r0.k0.b
+            public boolean canStat(d dVar) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, dVar)) == null) {
+                    return false;
+                }
+                return invokeL.booleanValue;
+            }
+
+            @Override // d.a.r0.k0.b
+            public int getMaxCost() {
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e.b().c() : invokeV2.intValue;
+            }
+
+            @Override // d.a.r0.k0.b
+            public boolean isCurrentPageCanBeAddToSourceTrace() {
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return true;
+                }
+                return invokeV2.booleanValue;
+            }
+        } : (b) invokeV.objValue;
+    }
+
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources b2 = h.a().b();
-        return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            Resources b2 = h.a().b();
+            return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
+        }
+        return (Resources) invokeV.objValue;
     }
 
     public BdUniqueId getUniqueId() {
-        return this.mId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mId : (BdUniqueId) invokeV.objValue;
     }
 
     public void hideFloatingWindow() {
-        KuangFloatingWindowController.getInstance().hideFloatingView();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            KuangFloatingWindowController.getInstance().hideFloatingView();
+        }
     }
 
     public boolean isUseStyleImmersiveSticky() {
-        return this.mUseStyleImmersiveSticky;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mUseStyleImmersiveSticky : invokeV.booleanValue;
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.startTime = System.currentTimeMillis();
-        boolean z = true;
-        if (!getIntent().getBooleanExtra("animated", true)) {
-            this.animationType = 0;
-        }
-        String stringExtra = getIntent().getStringExtra("url");
-        String[] strArr = this.ADJUST_PAN_PAGES;
-        int length = strArr.length;
-        int i2 = 0;
-        while (true) {
-            if (i2 < length) {
-                if (strArr[i2].equals(stringExtra) && Build.VERSION.SDK_INT >= 3) {
-                    getWindow().setSoftInputMode(32);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
+            this.startTime = System.currentTimeMillis();
+            boolean z = true;
+            if (!getIntent().getBooleanExtra("animated", true)) {
+                this.animationType = 0;
+            }
+            String stringExtra = getIntent().getStringExtra("url");
+            String[] strArr = this.ADJUST_PAN_PAGES;
+            int length = strArr.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 < length) {
+                    if (strArr[i2].equals(stringExtra) && Build.VERSION.SDK_INT >= 3) {
+                        getWindow().setSoftInputMode(32);
+                        break;
+                    }
+                    i2++;
+                } else {
                     break;
                 }
-                i2++;
-            } else {
-                break;
             }
-        }
-        boolean booleanExtra = getIntent().getBooleanExtra("swipeback", true);
-        this.isAddSwipeBackLayout = booleanExtra;
-        if (booleanExtra) {
-            SwipeBackLayout swipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
-            this.mSwipeBackLayout = swipeBackLayout;
-            swipeBackLayout.a(getPageContext().getPageActivity());
-            this.mSwipeBackLayout.l(TbadkCoreApplication.getInst().getSkinType());
-            if (!TbadkCoreApplication.IS_SUPPORT_SWIPEBACK) {
-                this.mSwipeBackLayout.setSwipeBackEnabled(false);
+            boolean booleanExtra = getIntent().getBooleanExtra("swipeback", true);
+            this.isAddSwipeBackLayout = booleanExtra;
+            if (booleanExtra) {
+                SwipeBackLayout swipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
+                this.mSwipeBackLayout = swipeBackLayout;
+                swipeBackLayout.a(getPageContext().getPageActivity());
+                this.mSwipeBackLayout.l(TbadkCoreApplication.getInst().getSkinType());
+                if (!TbadkCoreApplication.IS_SUPPORT_SWIPEBACK) {
+                    this.mSwipeBackLayout.setSwipeBackEnabled(false);
+                }
             }
+            super.onCreate(bundle);
+            this.mId = BdUniqueId.gen();
+            if (TbadkCoreApplication.getInst().isExitAppCloseWebSocket()) {
+                TbadkCoreApplication.getInst().setExitAppCloseWebSocket(false);
+                TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", false);
+                BdSocketLinkService.startService(false, "app start");
+            }
+            this.mLayoutMode = new c();
+            d.a.r0.r.a aVar = new d.a.r0.r.a();
+            this.mLayoutInflateFactory = aVar;
+            aVar.a(this.mLayoutMode);
+            TbadkCoreApplication.setIsAppRunning(true);
+            TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
+            TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
+            d.a.c.a.b.f().n(getPageContext().getPageActivity());
+            if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
+                z = false;
+            }
+            UtilHelper.changeStatusBarIconAndTextColor(z, this);
+            if (this.mUseStyleImmersiveSticky) {
+                this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
+            }
+            MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
+            enterExitAnimation();
+            this.creatTime = System.currentTimeMillis() - this.startTime;
         }
-        super.onCreate(bundle);
-        this.mId = BdUniqueId.gen();
-        if (TbadkCoreApplication.getInst().isExitAppCloseWebSocket()) {
-            TbadkCoreApplication.getInst().setExitAppCloseWebSocket(false);
-            TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", false);
-            BdSocketLinkService.startService(false, "app start");
-        }
-        this.mLayoutMode = new c();
-        d.a.n0.r.a aVar = new d.a.n0.r.a();
-        this.mLayoutInflateFactory = aVar;
-        aVar.a(this.mLayoutMode);
-        TbadkCoreApplication.setIsAppRunning(true);
-        TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
-        TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-        d.a.c.a.b.f().n(getPageContext().getPageActivity());
-        if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-            z = false;
-        }
-        UtilHelper.changeStatusBarIconAndTextColor(z, this);
-        if (this.mUseStyleImmersiveSticky) {
-            this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
-        }
-        MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
-        enterExitAnimation();
-        this.creatTime = System.currentTimeMillis() - this.startTime;
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onDestroy() {
-        c cVar = this.mLayoutMode;
-        if (cVar != null) {
-            cVar.c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            c cVar = this.mLayoutMode;
+            if (cVar != null) {
+                cVar.c();
+            }
+            MessageManager.getInstance().unRegisterListener(this.skinTypeChangeListener);
+            super.onDestroy();
+            d.a.c.a.b.f().l(getPageContext().getPageActivity());
         }
-        MessageManager.getInstance().unRegisterListener(this.skinTypeChangeListener);
-        super.onDestroy();
-        d.a.c.a.b.f().l(getPageContext().getPageActivity());
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onPause() {
-        d.a.o0.j3.a.getInstance().onPause(this);
-        super.onPause();
-        if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
-            hideFloatingWindow();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            d.a.s0.m3.a.getInstance().onPause(this);
+            super.onPause();
+            if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
+                hideFloatingWindow();
+            }
+            if (this.lastResumeTime != 0) {
+                long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
+                d pageStayDurationItem = getPageStayDurationItem();
+                pageStayDurationItem.v(currentTimeMillis);
+                e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            }
+            TbadkCoreApplication.getInst().DelResumeNum();
+            TbadkCoreApplication.getInst().setCurrentActivity(null);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, this));
         }
-        if (this.lastResumeTime != 0) {
-            long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-            d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.v(currentTimeMillis);
-            e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, null);
-        }
-        TbadkCoreApplication.getInst().DelResumeNum();
-        TbadkCoreApplication.getInst().setCurrentActivity(null);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, this));
     }
 
     @Override // android.app.Activity
     public void onRestart() {
-        super.onRestart();
-        flog = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            super.onRestart();
+            flog = 0;
+        }
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onResume() {
-        MenuKeyUtils.hideSoftMenuKey(getWindow());
-        this.flutterStartTime = System.currentTimeMillis();
-        TbadkCoreApplication.getInst().AddResumeNum();
-        super.onResume();
-        d.a.o0.j3.a.getInstance().onResume(this);
-        this.lastResumeTime = System.currentTimeMillis();
-        TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
-        TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-        TbadkCoreApplication.isLogin();
-        if (TbadkCoreApplication.getInst().canSendForegroundMessage()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, this));
-        }
-        TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
-        t.h(getPageId(), 0L);
-        TbSingleton.getInstance().getClass();
-        if (!"FlutterPageActivity".equals(TbSingleton.getInstance().isSwitchActivity)) {
-            TbSingleton tbSingleton = TbSingleton.getInstance();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            MenuKeyUtils.hideSoftMenuKey(getWindow());
+            this.flutterStartTime = System.currentTimeMillis();
+            TbadkCoreApplication.getInst().AddResumeNum();
+            super.onResume();
+            d.a.s0.m3.a.getInstance().onResume(this);
+            this.lastResumeTime = System.currentTimeMillis();
+            TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
+            TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
+            TbadkCoreApplication.isLogin();
+            if (TbadkCoreApplication.getInst().canSendForegroundMessage()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, this));
+            }
+            TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
+            t.h(getPageId(), 0L);
             TbSingleton.getInstance().getClass();
-            tbSingleton.isSwitchActivity = "FlutterPageActivity";
-            flog = 0;
-        }
-        if (this == TbadkCoreApplication.getInst().getCurrentActivity() && TbSingleton.getInstance().isShowBackLabel && KuangFloatingWindowController.getInstance().init() && flog == 0) {
-            showFloatingWindow();
+            if (!"FlutterPageActivity".equals(TbSingleton.getInstance().isSwitchActivity)) {
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                TbSingleton.getInstance().getClass();
+                tbSingleton.isSwitchActivity = "FlutterPageActivity";
+                flog = 0;
+            }
+            if (this == TbadkCoreApplication.getInst().getCurrentActivity() && TbSingleton.getInstance().isShowBackLabel && KuangFloatingWindowController.getInstance().init() && flog == 0) {
+                showFloatingWindow();
+            }
         }
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onStart() {
-        super.onStart();
-        flog = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            super.onStart();
+            flog = 0;
+        }
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onStop() {
-        super.onStop();
-        if (this == TbadkCoreApplication.getInst().getCurrentActivity()) {
-            flog = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            super.onStop();
+            if (this == TbadkCoreApplication.getInst().getCurrentActivity()) {
+                flog = 1;
+            }
         }
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
-        FrameLayout frameLayout = new FrameLayout(getActivity());
-        frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        Resources b2 = h.a().b();
-        if (getBackgroundMode() == BoostFlutterActivity.BackgroundMode.transparent) {
-            frameLayout.setBackgroundColor(0);
-        } else {
-            int identifier = b2.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
-            int i2 = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
-            if (identifier == 0) {
-                frameLayout.setBackgroundColor(i2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(getActivity());
+            frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            Resources b2 = h.a().b();
+            if (getBackgroundMode() == BoostFlutterActivity.BackgroundMode.transparent) {
+                frameLayout.setBackgroundColor(0);
             } else {
-                frameLayout.setBackgroundColor(SkinManager.getColor(identifier));
+                int identifier = b2.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
+                int i2 = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
+                if (identifier == 0) {
+                    frameLayout.setBackgroundColor(i2);
+                } else {
+                    frameLayout.setBackgroundColor(SkinManager.getColor(identifier));
+                }
             }
+            if (getIntent() == null || getIntent().getBooleanExtra("showloading", true)) {
+                ContinuousAnimationView continuousAnimationView = new ContinuousAnimationView(getActivity());
+                SkinManager.setLottieAnimation(continuousAnimationView, b2.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
+                continuousAnimationView.setSpeed(1.2f);
+                continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(b2.getDimensionPixelSize(b2.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), b2.getDimensionPixelSize(b2.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
+                frameLayout.addView(continuousAnimationView);
+                continuousAnimationView.playAnimation();
+            }
+            return new ViewSplashScreen(frameLayout);
         }
-        if (getIntent() == null || getIntent().getBooleanExtra("showloading", true)) {
-            ContinuousAnimationView continuousAnimationView = new ContinuousAnimationView(getActivity());
-            SkinManager.setLottieAnimation(continuousAnimationView, b2.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
-            continuousAnimationView.setSpeed(1.2f);
-            continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(b2.getDimensionPixelSize(b2.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), b2.getDimensionPixelSize(b2.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
-            frameLayout.addView(continuousAnimationView);
-            continuousAnimationView.playAnimation();
-        }
-        return new ViewSplashScreen(frameLayout);
+        return (SplashScreen) invokeV.objValue;
     }
 
     public void registerListener(d.a.c.c.g.a aVar) {
-        if (aVar != null && aVar.getTag() == null) {
-            aVar.setTag(this.mId);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, aVar) == null) {
+            if (aVar != null && aVar.getTag() == null) {
+                aVar.setTag(this.mId);
+            }
+            MessageManager.getInstance().registerListener(aVar);
         }
-        MessageManager.getInstance().registerListener(aVar);
     }
 
     public void sendMessage(Message<?> message) {
-        if (message == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048608, this, message) == null) || message == null) {
             return;
         }
         if (message.getTag() == null) {
@@ -411,53 +613,77 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     }
 
     public void setLayoutMode(c cVar) {
-        this.mLayoutMode = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, cVar) == null) {
+            this.mLayoutMode = cVar;
+        }
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public void setSwipeBackEnable(boolean z) {
-        this.mSwipeBackLayout.setSwipeBackEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+            this.mSwipeBackLayout.setSwipeBackEnabled(z);
+        }
     }
 
     public void setUseStyleImmersiveSticky(boolean z) {
-        this.mUseStyleImmersiveSticky = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            this.mUseStyleImmersiveSticky = z;
+        }
     }
 
     public void showFloatingWindow() {
-        TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-        if (KuangFloatingWindowController.getInstance().init()) {
-            TbSingleton.getInstance().isShowBackLabel = true;
-            KuangFloatingWindowController.getInstance().showFloatingView();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
+            if (KuangFloatingWindowController.getInstance().init()) {
+                TbSingleton.getInstance().isShowBackLabel = true;
+                KuangFloatingWindowController.getInstance().showFloatingView();
+            }
         }
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public void swipeBackControl(double d2) {
-        this.mSwipeBackLayout.r(d2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.mSwipeBackLayout.r(d2);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.TbPageContextSupport, d.a.c.a.g
     public TbPageContext<T> getPageContext() {
-        try {
-            if (this.pageContext == null && mClazz4GetPageContext != null) {
-                this.pageContext = mClazz4GetPageContext.getConstructor(FlutterPageActivity.class).newInstance(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                if (this.pageContext == null && mClazz4GetPageContext != null) {
+                    this.pageContext = mClazz4GetPageContext.getConstructor(FlutterPageActivity.class).newInstance(this);
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            return this.pageContext;
         }
-        return this.pageContext;
+        return (TbPageContext) invokeV.objValue;
     }
 
     public void registerListener(int i2, d.a.c.c.g.a aVar) {
-        if (aVar != null && aVar.getTag() == null) {
-            aVar.setTag(this.mId);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048605, this, i2, aVar) == null) {
+            if (aVar != null && aVar.getTag() == null) {
+                aVar.setTag(this.mId);
+            }
+            MessageManager.getInstance().registerListener(i2, aVar);
         }
-        MessageManager.getInstance().registerListener(i2, aVar);
     }
 
     public void sendMessage(NetMessage netMessage) {
-        if (netMessage == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048609, this, netMessage) == null) || netMessage == null) {
             return;
         }
         if (netMessage.getTag() == null) {
@@ -467,16 +693,22 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     }
 
     public void registerListener(MessageListener<?> messageListener) {
-        if (messageListener != null && messageListener.getTag() == null) {
-            messageListener.setTag(this.mId);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, messageListener) == null) {
+            if (messageListener != null && messageListener.getTag() == null) {
+                messageListener.setTag(this.mId);
+            }
+            MessageManager.getInstance().registerListener(messageListener);
         }
-        MessageManager.getInstance().registerListener(messageListener);
     }
 
     public void registerListener(int i2, MessageListener<?> messageListener) {
-        if (messageListener != null && messageListener.getTag() == null) {
-            messageListener.setTag(this.mId);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048604, this, i2, messageListener) == null) {
+            if (messageListener != null && messageListener.getTag() == null) {
+                messageListener.setTag(this.mId);
+            }
+            MessageManager.getInstance().registerListener(i2, messageListener);
         }
-        MessageManager.getInstance().registerListener(i2, messageListener);
     }
 }

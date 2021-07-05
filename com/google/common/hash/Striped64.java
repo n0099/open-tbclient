@@ -1,126 +1,223 @@
 package com.google.common.hash;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.util.Random;
 import sun.misc.Unsafe;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class Striped64 extends Number {
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final Unsafe f31554e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final long f31555f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final long f31556g;
+    public static /* synthetic */ Interceptable $ic;
+    public static final int NCPU;
+    public static final Unsafe UNSAFE;
+    public static final long baseOffset;
+    public static final long busyOffset;
+    public static final Random rng;
+    public static final ThreadLocal<int[]> threadHashCode;
+    public transient /* synthetic */ FieldHolder $fh;
     public volatile transient long base;
     public volatile transient int busy;
     public volatile transient b[] cells;
-    public static final ThreadLocal<int[]> threadHashCode = new ThreadLocal<>();
-    public static final Random rng = new Random();
-    public static final int NCPU = Runtime.getRuntime().availableProcessors();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.security.PrivilegedExceptionAction
         /* renamed from: a */
         public Unsafe run() throws Exception {
+            InterceptResult invokeV;
             Field[] declaredFields;
-            for (Field field : Unsafe.class.getDeclaredFields()) {
-                field.setAccessible(true);
-                Object obj = field.get(null);
-                if (Unsafe.class.isInstance(obj)) {
-                    return (Unsafe) Unsafe.class.cast(obj);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                for (Field field : Unsafe.class.getDeclaredFields()) {
+                    field.setAccessible(true);
+                    Object obj = field.get(null);
+                    if (Unsafe.class.isInstance(obj)) {
+                        return (Unsafe) Unsafe.class.cast(obj);
+                    }
                 }
+                throw new NoSuchFieldError("the Unsafe");
             }
-            throw new NoSuchFieldError("the Unsafe");
+            return (Unsafe) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f31557b;
+        public static final Unsafe f33415b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f31558c;
+        public static final long f33416c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile long f31559a;
+        public volatile long f33417a;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-309507199, "Lcom/google/common/hash/Striped64$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-309507199, "Lcom/google/common/hash/Striped64$b;");
+                    return;
+                }
+            }
             try {
-                Unsafe a2 = Striped64.a();
-                f31557b = a2;
-                f31558c = a2.objectFieldOffset(b.class.getDeclaredField("a"));
+                Unsafe unsafe = Striped64.getUnsafe();
+                f33415b = unsafe;
+                f33416c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
         }
 
         public b(long j) {
-            this.f31559a = j;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f33417a = j;
         }
 
         public final boolean a(long j, long j2) {
-            return f31557b.compareAndSwapLong(this, f31558c, j, j2);
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f33415b.compareAndSwapLong(this, f33416c, j, j2) : invokeCommon.booleanValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(522582399, "Lcom/google/common/hash/Striped64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(522582399, "Lcom/google/common/hash/Striped64;");
+                return;
+            }
+        }
+        threadHashCode = new ThreadLocal<>();
+        rng = new Random();
+        NCPU = Runtime.getRuntime().availableProcessors();
         try {
-            Unsafe a2 = a();
-            f31554e = a2;
-            f31555f = a2.objectFieldOffset(Striped64.class.getDeclaredField(SchemeCollecter.CLASSIFY_BASE));
-            f31556g = f31554e.objectFieldOffset(Striped64.class.getDeclaredField("busy"));
+            Unsafe unsafe = getUnsafe();
+            UNSAFE = unsafe;
+            baseOffset = unsafe.objectFieldOffset(Striped64.class.getDeclaredField(SchemeCollecter.CLASSIFY_BASE));
+            busyOffset = UNSAFE.objectFieldOffset(Striped64.class.getDeclaredField("busy"));
         } catch (Exception e2) {
             throw new Error(e2);
         }
     }
 
-    public static Unsafe a() {
-        try {
-            try {
-                return Unsafe.getUnsafe();
-            } catch (PrivilegedActionException e2) {
-                throw new RuntimeException("Could not initialize intrinsics", e2.getCause());
+    public Striped64() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        } catch (SecurityException unused) {
-            return (Unsafe) AccessController.doPrivileged(new a());
         }
     }
 
+    public static Unsafe getUnsafe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                try {
+                    return Unsafe.getUnsafe();
+                } catch (SecurityException unused) {
+                    return (Unsafe) AccessController.doPrivileged(new a());
+                }
+            } catch (PrivilegedActionException e2) {
+                throw new RuntimeException("Could not initialize intrinsics", e2.getCause());
+            }
+        }
+        return (Unsafe) invokeV.objValue;
+    }
+
     public final boolean casBase(long j, long j2) {
-        return f31554e.compareAndSwapLong(this, f31555f, j, j2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? UNSAFE.compareAndSwapLong(this, baseOffset, j, j2) : invokeCommon.booleanValue;
     }
 
     public final boolean casBusy() {
-        return f31554e.compareAndSwapInt(this, f31556g, 0, 1);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UNSAFE.compareAndSwapInt(this, busyOffset, 0, 1) : invokeV.booleanValue;
     }
 
     public abstract long fn(long j, long j2);
 
     public final void internalReset(long j) {
-        b[] bVarArr = this.cells;
-        this.base = j;
-        if (bVarArr != null) {
-            for (b bVar : bVarArr) {
-                if (bVar != null) {
-                    bVar.f31559a = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            b[] bVarArr = this.cells;
+            this.base = j;
+            if (bVarArr != null) {
+                for (b bVar : bVarArr) {
+                    if (bVar != null) {
+                        bVar.f33417a = j;
+                    }
                 }
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:117:0x0023 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:96:0x00ee A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x00f2 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0027 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -131,6 +228,10 @@ public abstract class Striped64 extends Number {
         int length;
         boolean z3;
         int length2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), iArr, Boolean.valueOf(z)}) != null) {
+            return;
+        }
         if (iArr == null) {
             iArr2 = new int[1];
             threadHashCode.set(iArr2);
@@ -175,7 +276,7 @@ public abstract class Striped64 extends Number {
                     }
                     z4 = false;
                 } else if (z5) {
-                    long j2 = bVar.f31559a;
+                    long j2 = bVar.f33417a;
                     if (bVar.a(j2, fn(j2, j))) {
                         return;
                     }

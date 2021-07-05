@@ -12,7 +12,9 @@ import android.webkit.URLUtil;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
@@ -21,226 +23,410 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.n0.r.s.a;
+import d.a.r0.r.s.a;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewActivity> implements BaseWebView.d, BaseWebView.f, BaseWebView.e {
-    public static final Pattern n = Pattern.compile("[?|&]order_id=(\\w+)&+");
+    public static /* synthetic */ Interceptable $ic;
+    public static final Pattern n;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseWebView f14806e;
+    public BaseWebView f14897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f14807f;
+    public NavigationBar f14898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14808g;
+    public String f14899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14809h;
+    public String f14900h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14810i;
+    public String f14901i;
     public int j;
-    public d.a.n0.r.s.a k;
-    public final Handler l = new Handler();
-    public final Runnable m = new a();
+    public d.a.r0.r.s.a k;
+    public final Handler l;
+    public final Runnable m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FaceBuyWebViewActivity f14902e;
+
+        public a(FaceBuyWebViewActivity faceBuyWebViewActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {faceBuyWebViewActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14902e = faceBuyWebViewActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String guessUrl = URLUtil.guessUrl(FaceBuyWebViewActivity.this.f14808g);
-            if (URLUtil.isNetworkUrl(guessUrl)) {
-                FaceBuyWebViewActivity.this.f14806e.loadUrl(guessUrl);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String guessUrl = URLUtil.guessUrl(this.f14902e.f14899g);
+                if (URLUtil.isNetworkUrl(guessUrl)) {
+                    this.f14902e.f14897e.loadUrl(guessUrl);
+                }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FaceBuyWebViewActivity f14903e;
+
+        public b(FaceBuyWebViewActivity faceBuyWebViewActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {faceBuyWebViewActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14903e = faceBuyWebViewActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FaceBuyWebViewActivity.this.m();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f14903e.m();
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FaceBuyWebViewActivity f14904e;
+
+        public c(FaceBuyWebViewActivity faceBuyWebViewActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {faceBuyWebViewActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14904e = faceBuyWebViewActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
-            FaceBuyWebViewActivity.this.closeActivity();
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                this.f14904e.closeActivity();
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.e {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FaceBuyWebViewActivity f14905e;
+
+        public d(FaceBuyWebViewActivity faceBuyWebViewActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {faceBuyWebViewActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14905e = faceBuyWebViewActivity;
         }
 
-        @Override // d.a.n0.r.s.a.e
-        public void onClick(d.a.n0.r.s.a aVar) {
-            aVar.dismiss();
+        @Override // d.a.r0.r.s.a.e
+        public void onClick(d.a.r0.r.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+            }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1645661586, "Lcom/baidu/tieba/faceshop/FaceBuyWebViewActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1645661586, "Lcom/baidu/tieba/faceshop/FaceBuyWebViewActivity;");
+                return;
+            }
+        }
+        n = Pattern.compile("[?|&]order_id=(\\w+)&+");
+    }
+
+    public FaceBuyWebViewActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.l = new Handler();
+        this.m = new a(this);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
     public void a(WebView webView, String str) {
-        showProgressBar();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            showProgressBar();
+        }
     }
 
     public void j() {
-        try {
-            d.a.n0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
-            CookieSyncManager.createInstance(getPageContext().getContext());
-            CookieManager.getInstance().setAcceptCookie(true);
-            CookieSyncManager.getInstance().sync();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                d.a.r0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
+                CookieSyncManager.createInstance(getPageContext().getContext());
+                CookieManager.getInstance().setAcceptCookie(true);
+                CookieSyncManager.getInstance().sync();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public final void k(Bundle bundle) {
-        if (bundle != null) {
-            this.f14808g = bundle.getString(WebViewActivityConfig.TAG_URL);
-            this.f14809h = bundle.getString("tag_hook_url");
-            this.f14810i = bundle.getString(WebViewActivityConfig.TAG_TITLE);
-            this.j = bundle.getInt("tag_position");
-        } else {
-            this.f14808g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
-            this.f14809h = getIntent().getStringExtra("tag_hook_url");
-            this.f14810i = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
-            this.j = getIntent().getIntExtra("tag_position", -1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            if (bundle != null) {
+                this.f14899g = bundle.getString(WebViewActivityConfig.TAG_URL);
+                this.f14900h = bundle.getString("tag_hook_url");
+                this.f14901i = bundle.getString(WebViewActivityConfig.TAG_TITLE);
+                this.j = bundle.getInt("tag_position");
+            } else {
+                this.f14899g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
+                this.f14900h = getIntent().getStringExtra("tag_hook_url");
+                this.f14901i = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
+                this.j = getIntent().getIntExtra("tag_position", -1);
+            }
+            this.f14898f.setTitleText(this.f14901i);
+            this.l.postDelayed(this.m, 150L);
         }
-        this.f14807f.setTitleText(this.f14810i);
-        this.l.postDelayed(this.m, 150L);
     }
 
     public final void l() {
-        setContentView(R.layout.face_buy_webview_activity);
-        ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds98);
-        this.f14806e = (BaseWebView) findViewById(R.id.webview);
-        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f14807f = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b());
-        this.f14807f.setTitleText("");
-        this.f14806e.setOnLoadUrlListener(this);
-        this.f14806e.setOnPageFinishedListener(this);
-        this.f14806e.setOnPageStartedListener(this);
-        this.f14806e.setHorizontalScrollBarEnabled(false);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setContentView(R.layout.face_buy_webview_activity);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds98);
+            this.f14897e = (BaseWebView) findViewById(R.id.webview);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            this.f14898f = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
+            this.f14898f.setTitleText("");
+            this.f14897e.setOnLoadUrlListener(this);
+            this.f14897e.setOnPageFinishedListener(this);
+            this.f14897e.setOnPageStartedListener(this);
+            this.f14897e.setHorizontalScrollBarEnabled(false);
+        }
     }
 
     public final void m() {
-        if (this.k == null) {
-            d.a.n0.r.s.a aVar = new d.a.n0.r.s.a(getPageContext().getPageActivity());
-            this.k = aVar;
-            aVar.setTitle(R.string.inform);
-            this.k.setCancelable(false);
-            this.k.setMessageId(R.string.quit_buy_confirm);
-            this.k.setPositiveButton(R.string.alert_yes_button, new c());
-            this.k.setNegativeButton(R.string.cancel, new d());
-            this.k.create(getPageContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.k == null) {
+                d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(getPageContext().getPageActivity());
+                this.k = aVar;
+                aVar.setTitle(R.string.inform);
+                this.k.setCancelable(false);
+                this.k.setMessageId(R.string.quit_buy_confirm);
+                this.k.setPositiveButton(R.string.alert_yes_button, new c(this));
+                this.k.setNegativeButton(R.string.cancel, new d(this));
+                this.k.create(getPageContext());
+            }
+            this.k.show();
         }
-        this.k.show();
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        NavigationBar navigationBar = this.f14807f;
-        if (navigationBar != null) {
-            navigationBar.onChangeSkinType(getPageContext(), i2);
-        }
-        BaseWebView baseWebView = this.f14806e;
-        if (baseWebView != null) {
-            SkinManager.setBgColor(baseWebView, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            NavigationBar navigationBar = this.f14898f;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(getPageContext(), i2);
+            }
+            BaseWebView baseWebView = this.f14897e;
+            if (baseWebView != null) {
+                SkinManager.setBgColor(baseWebView, i2);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        l();
-        k(bundle);
-        j();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            l();
+            k(bundle);
+            j();
+        }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
-        super.onDestroy();
-        this.l.removeCallbacks(this.m);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroy();
+            this.l.removeCallbacks(this.m);
+        }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        if (i2 == 4) {
-            m();
-            return true;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, keyEvent)) == null) {
+            if (i2 == 4) {
+                m();
+                return true;
+            }
+            return super.onKeyDown(i2, keyEvent);
         }
-        return super.onKeyDown(i2, keyEvent);
+        return invokeIL.booleanValue;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
     public void onPageFinished(WebView webView, String str) {
-        hideProgressBar();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) {
+            hideProgressBar();
+        }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
-        super.onPause();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onPause();
+        }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
-        super.onResume();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onResume();
+        }
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putString(WebViewActivityConfig.TAG_URL, this.f14808g);
-        bundle.putString("tag_hook_url", this.f14809h);
-        bundle.putString(WebViewActivityConfig.TAG_TITLE, this.f14810i);
-        bundle.putInt("tag_position", this.j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putString(WebViewActivityConfig.TAG_URL, this.f14899g);
+            bundle.putString("tag_hook_url", this.f14900h);
+            bundle.putString(WebViewActivityConfig.TAG_TITLE, this.f14901i);
+            bundle.putInt("tag_position", this.j);
+        }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f14809h)) {
-            String lowerCase = str.toLowerCase();
-            if (lowerCase.contains(this.f14809h.toLowerCase())) {
-                Matcher matcher = n.matcher(str);
-                if (matcher.find()) {
-                    try {
-                        String group = matcher.group(1);
-                        Intent intent = new Intent();
-                        intent.putExtra("tag_order_id", group);
-                        intent.putExtra("tag_position", this.j);
-                        setResult(-1, intent);
-                        closeActivity();
-                        return true;
-                    } catch (Exception e2) {
-                        BdLog.detailException(e2);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, str)) == null) {
+            if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f14900h)) {
+                String lowerCase = str.toLowerCase();
+                if (lowerCase.contains(this.f14900h.toLowerCase())) {
+                    Matcher matcher = n.matcher(str);
+                    if (matcher.find()) {
+                        try {
+                            String group = matcher.group(1);
+                            Intent intent = new Intent();
+                            intent.putExtra("tag_order_id", group);
+                            intent.putExtra("tag_position", this.j);
+                            setResult(-1, intent);
+                            closeActivity();
+                            return true;
+                        } catch (Exception e2) {
+                            BdLog.detailException(e2);
+                        }
                     }
+                } else if (lowerCase.startsWith("tel:")) {
+                    startActivity(new Intent("android.intent.action.DIAL", Uri.parse(lowerCase)));
+                    return true;
                 }
-            } else if (lowerCase.startsWith("tel:")) {
-                startActivity(new Intent("android.intent.action.DIAL", Uri.parse(lowerCase)));
-                return true;
             }
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 }

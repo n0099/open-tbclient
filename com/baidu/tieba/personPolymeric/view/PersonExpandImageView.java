@@ -9,28 +9,52 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class PersonExpandImageView extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f20069e;
+    public final Rect f20218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f20070f;
+    public final Rect f20219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f20071g;
+    public final Paint f20220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20072h;
+    public int f20221h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20069e = new Rect();
-        this.f20070f = new Rect();
-        this.f20072h = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f20218e = new Rect();
+        this.f20219f = new Rect();
+        this.f20221h = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
-        this.f20071g = new Paint();
+        this.f20220g = new Paint();
         getResources().getDisplayMetrics();
     }
 
@@ -40,7 +64,8 @@ public class PersonExpandImageView extends ImageView {
         Bitmap bitmap;
         float f2;
         float f3;
-        if (this.f20072h == 0 || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f20221h == 0 || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
             return;
         }
         int width = bitmap.getWidth();
@@ -51,8 +76,8 @@ public class PersonExpandImageView extends ImageView {
         float f4 = width;
         float f5 = height;
         float f6 = 0.0f;
-        if ((f4 * 1.0f) / f5 < (getWidth() * 1.0f) / this.f20072h) {
-            float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.f20072h) - getWidth()) * 0.2f) + getWidth();
+        if ((f4 * 1.0f) / f5 < (getWidth() * 1.0f) / this.f20221h) {
+            float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.f20221h) - getWidth()) * 0.2f) + getWidth();
             float f7 = ((1.0f * f5) / f4) * width2;
             if (width2 == 0.0f || f7 == 0.0f) {
                 return;
@@ -80,12 +105,15 @@ public class PersonExpandImageView extends ImageView {
             f2 = (f4 - width4) / 2.0f;
             f3 = width4 + f2;
         }
-        this.f20069e.set((int) f2, (int) f6, (int) f3, (int) f5);
-        this.f20070f.set(0, 0, getWidth(), getHeight());
-        canvas.drawBitmap(bitmap, this.f20069e, this.f20070f, this.f20071g);
+        this.f20218e.set((int) f2, (int) f6, (int) f3, (int) f5);
+        this.f20219f.set(0, 0, getWidth(), getHeight());
+        canvas.drawBitmap(bitmap, this.f20218e, this.f20219f, this.f20220g);
     }
 
     public void setInitHeight(int i2) {
-        this.f20072h = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f20221h = i2;
+        }
     }
 }

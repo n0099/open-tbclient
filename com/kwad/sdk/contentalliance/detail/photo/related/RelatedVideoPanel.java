@@ -10,8 +10,15 @@ import android.view.View;
 import android.view.ViewParent;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.contentalliance.widget.KSHalfPageLoadingView;
@@ -24,35 +31,37 @@ import com.kwad.sdk.lib.b.f;
 import com.kwad.sdk.lib.b.g;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RelatedVideoPanel extends LinearLayout implements View.OnClickListener, com.kwad.sdk.contentalliance.a.c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f33138a;
+    public Handler f34901a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f33139b;
+    public View f34902b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f33140c;
+    public View f34903c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KSHalfPageLoadingView f33141d;
+    public KSHalfPageLoadingView f34904d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.widget.d f33142e;
+    public com.kwad.sdk.contentalliance.widget.d f34905e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f33143f;
+    public RecyclerView f34906f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f33144g;
+    public b f34907g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.recycler.d f33145h;
+    public com.kwad.sdk.lib.widget.recycler.d f34908h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> f33146i;
+    public com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> f34909i;
     public a j;
     public AdTemplate k;
     public SceneImpl l;
@@ -61,233 +70,550 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
     public f o;
     public RecyclerView.OnScrollListener p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
         void b();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelatedVideoPanel(Context context) {
         super(context);
-        this.f33138a = new Handler();
-        this.n = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f34901a = new Handler();
+        this.n = new KSPageLoadingView.a(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34911a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34911a = this;
+            }
+
             @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
             public void a() {
-                if (RelatedVideoPanel.this.f33146i != null) {
-                    RelatedVideoPanel.this.f33146i.k();
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34911a.f34909i == null) {
+                    return;
                 }
+                this.f34911a.f34909i.k();
             }
         };
-        this.o = new g() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
-            @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
-            public void a(boolean z, int i2, String str) {
-                RelatedVideoPanel.this.f33141d.a();
-                if (z) {
-                    if (RelatedVideoPanel.this.f33144g.i()) {
-                        if (com.kwad.sdk.core.network.f.f34601g.k == i2) {
-                            RelatedVideoPanel.this.f33141d.e();
-                        } else if (com.kwad.sdk.core.network.f.f34595a.k == i2) {
-                            RelatedVideoPanel.this.f33141d.c();
-                        } else {
-                            RelatedVideoPanel.this.f33141d.d();
-                        }
+        this.o = new g(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34912a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
                     }
-                } else if (com.kwad.sdk.core.network.f.f34595a.k == i2) {
-                    p.a(RelatedVideoPanel.this.getContext());
-                } else if (com.kwad.sdk.core.network.f.f34601g.k != i2) {
-                    p.b(RelatedVideoPanel.this.getContext());
                 }
-                RelatedVideoPanel.this.f33142e.a(RelatedVideoPanel.this.f33146i.j());
+                this.f34912a = this;
+            }
+
+            @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
+            public void a(boolean z, int i4, String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i4), str}) == null) {
+                    this.f34912a.f34904d.a();
+                    if (z) {
+                        if (this.f34912a.f34907g.i()) {
+                            if (com.kwad.sdk.core.network.f.f36364g.k == i4) {
+                                this.f34912a.f34904d.e();
+                            } else if (com.kwad.sdk.core.network.f.f36358a.k == i4) {
+                                this.f34912a.f34904d.c();
+                            } else {
+                                this.f34912a.f34904d.d();
+                            }
+                        }
+                    } else if (com.kwad.sdk.core.network.f.f36358a.k == i4) {
+                        p.a(this.f34912a.getContext());
+                    } else if (com.kwad.sdk.core.network.f.f36364g.k != i4) {
+                        p.b(this.f34912a.getContext());
+                    }
+                    this.f34912a.f34905e.a(this.f34912a.f34909i.j());
+                }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, boolean z2) {
-                if (!z) {
-                    RelatedVideoPanel.this.f33142e.a();
-                } else if (RelatedVideoPanel.this.f33144g.i()) {
-                    RelatedVideoPanel.this.f33141d.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                    if (!z) {
+                        this.f34912a.f34905e.a();
+                    } else if (this.f34912a.f34907g.i()) {
+                        this.f34912a.f34904d.b();
+                    }
                 }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void b(boolean z, boolean z2) {
-                RelatedVideoPanel.this.i();
-                RelatedVideoPanel.this.f33141d.a();
-                if (z) {
-                    if (RelatedVideoPanel.this.f33144g.i()) {
-                        RelatedVideoPanel.this.f33141d.d();
-                    } else if (!RelatedVideoPanel.this.f33145h.d(RelatedVideoPanel.this.f33142e)) {
-                        RelatedVideoPanel.this.f33145h.c(RelatedVideoPanel.this.f33142e);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                    this.f34912a.i();
+                    this.f34912a.f34904d.a();
+                    if (z) {
+                        if (this.f34912a.f34907g.i()) {
+                            this.f34912a.f34904d.d();
+                        } else if (!this.f34912a.f34908h.d(this.f34912a.f34905e)) {
+                            this.f34912a.f34908h.c(this.f34912a.f34905e);
+                        }
                     }
+                    this.f34912a.f34905e.a(this.f34912a.f34909i.j());
                 }
-                RelatedVideoPanel.this.f33142e.a(RelatedVideoPanel.this.f33146i.j());
             }
         };
-        this.p = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
+        this.p = new RecyclerView.OnScrollListener(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34913a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34913a = this;
+            }
+
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-                super.onScrollStateChanged(recyclerView, i2);
-                if (i2 == 1) {
-                    RelatedVideoPanel.this.j();
+            public void onScrollStateChanged(RecyclerView recyclerView, int i4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i4) == null) {
+                    super.onScrollStateChanged(recyclerView, i4);
+                    if (i4 == 1) {
+                        this.f34913a.j();
+                    }
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
-                super.onScrolled(recyclerView, i2, i3);
-                if (i2 > 0 || i3 > 0) {
-                    RelatedVideoPanel.this.j();
+            public void onScrolled(RecyclerView recyclerView, int i4, int i5) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i4, i5) == null) {
+                    super.onScrolled(recyclerView, i4, i5);
+                    if (i4 > 0 || i5 > 0) {
+                        this.f34913a.j();
+                    }
                 }
             }
         };
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelatedVideoPanel(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f33138a = new Handler();
-        this.n = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f34901a = new Handler();
+        this.n = new KSPageLoadingView.a(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34911a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34911a = this;
+            }
+
             @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
             public void a() {
-                if (RelatedVideoPanel.this.f33146i != null) {
-                    RelatedVideoPanel.this.f33146i.k();
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34911a.f34909i == null) {
+                    return;
                 }
+                this.f34911a.f34909i.k();
             }
         };
-        this.o = new g() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
-            @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
-            public void a(boolean z, int i2, String str) {
-                RelatedVideoPanel.this.f33141d.a();
-                if (z) {
-                    if (RelatedVideoPanel.this.f33144g.i()) {
-                        if (com.kwad.sdk.core.network.f.f34601g.k == i2) {
-                            RelatedVideoPanel.this.f33141d.e();
-                        } else if (com.kwad.sdk.core.network.f.f34595a.k == i2) {
-                            RelatedVideoPanel.this.f33141d.c();
-                        } else {
-                            RelatedVideoPanel.this.f33141d.d();
-                        }
+        this.o = new g(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34912a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
                     }
-                } else if (com.kwad.sdk.core.network.f.f34595a.k == i2) {
-                    p.a(RelatedVideoPanel.this.getContext());
-                } else if (com.kwad.sdk.core.network.f.f34601g.k != i2) {
-                    p.b(RelatedVideoPanel.this.getContext());
                 }
-                RelatedVideoPanel.this.f33142e.a(RelatedVideoPanel.this.f33146i.j());
+                this.f34912a = this;
+            }
+
+            @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
+            public void a(boolean z, int i4, String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i4), str}) == null) {
+                    this.f34912a.f34904d.a();
+                    if (z) {
+                        if (this.f34912a.f34907g.i()) {
+                            if (com.kwad.sdk.core.network.f.f36364g.k == i4) {
+                                this.f34912a.f34904d.e();
+                            } else if (com.kwad.sdk.core.network.f.f36358a.k == i4) {
+                                this.f34912a.f34904d.c();
+                            } else {
+                                this.f34912a.f34904d.d();
+                            }
+                        }
+                    } else if (com.kwad.sdk.core.network.f.f36358a.k == i4) {
+                        p.a(this.f34912a.getContext());
+                    } else if (com.kwad.sdk.core.network.f.f36364g.k != i4) {
+                        p.b(this.f34912a.getContext());
+                    }
+                    this.f34912a.f34905e.a(this.f34912a.f34909i.j());
+                }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, boolean z2) {
-                if (!z) {
-                    RelatedVideoPanel.this.f33142e.a();
-                } else if (RelatedVideoPanel.this.f33144g.i()) {
-                    RelatedVideoPanel.this.f33141d.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                    if (!z) {
+                        this.f34912a.f34905e.a();
+                    } else if (this.f34912a.f34907g.i()) {
+                        this.f34912a.f34904d.b();
+                    }
                 }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void b(boolean z, boolean z2) {
-                RelatedVideoPanel.this.i();
-                RelatedVideoPanel.this.f33141d.a();
-                if (z) {
-                    if (RelatedVideoPanel.this.f33144g.i()) {
-                        RelatedVideoPanel.this.f33141d.d();
-                    } else if (!RelatedVideoPanel.this.f33145h.d(RelatedVideoPanel.this.f33142e)) {
-                        RelatedVideoPanel.this.f33145h.c(RelatedVideoPanel.this.f33142e);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                    this.f34912a.i();
+                    this.f34912a.f34904d.a();
+                    if (z) {
+                        if (this.f34912a.f34907g.i()) {
+                            this.f34912a.f34904d.d();
+                        } else if (!this.f34912a.f34908h.d(this.f34912a.f34905e)) {
+                            this.f34912a.f34908h.c(this.f34912a.f34905e);
+                        }
                     }
+                    this.f34912a.f34905e.a(this.f34912a.f34909i.j());
                 }
-                RelatedVideoPanel.this.f33142e.a(RelatedVideoPanel.this.f33146i.j());
             }
         };
-        this.p = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
+        this.p = new RecyclerView.OnScrollListener(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34913a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34913a = this;
+            }
+
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-                super.onScrollStateChanged(recyclerView, i2);
-                if (i2 == 1) {
-                    RelatedVideoPanel.this.j();
+            public void onScrollStateChanged(RecyclerView recyclerView, int i4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i4) == null) {
+                    super.onScrollStateChanged(recyclerView, i4);
+                    if (i4 == 1) {
+                        this.f34913a.j();
+                    }
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
-                super.onScrolled(recyclerView, i2, i3);
-                if (i2 > 0 || i3 > 0) {
-                    RelatedVideoPanel.this.j();
+            public void onScrolled(RecyclerView recyclerView, int i4, int i5) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i4, i5) == null) {
+                    super.onScrolled(recyclerView, i4, i5);
+                    if (i4 > 0 || i5 > 0) {
+                        this.f34913a.j();
+                    }
                 }
             }
         };
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelatedVideoPanel(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f33138a = new Handler();
-        this.n = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f34901a = new Handler();
+        this.n = new KSPageLoadingView.a(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34911a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr22;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34911a = this;
+            }
+
             @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
             public void a() {
-                if (RelatedVideoPanel.this.f33146i != null) {
-                    RelatedVideoPanel.this.f33146i.k();
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34911a.f34909i == null) {
+                    return;
                 }
+                this.f34911a.f34909i.k();
             }
         };
-        this.o = new g() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
-            @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
-            public void a(boolean z, int i22, String str) {
-                RelatedVideoPanel.this.f33141d.a();
-                if (z) {
-                    if (RelatedVideoPanel.this.f33144g.i()) {
-                        if (com.kwad.sdk.core.network.f.f34601g.k == i22) {
-                            RelatedVideoPanel.this.f33141d.e();
-                        } else if (com.kwad.sdk.core.network.f.f34595a.k == i22) {
-                            RelatedVideoPanel.this.f33141d.c();
-                        } else {
-                            RelatedVideoPanel.this.f33141d.d();
-                        }
+        this.o = new g(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34912a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr22;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
                     }
-                } else if (com.kwad.sdk.core.network.f.f34595a.k == i22) {
-                    p.a(RelatedVideoPanel.this.getContext());
-                } else if (com.kwad.sdk.core.network.f.f34601g.k != i22) {
-                    p.b(RelatedVideoPanel.this.getContext());
                 }
-                RelatedVideoPanel.this.f33142e.a(RelatedVideoPanel.this.f33146i.j());
+                this.f34912a = this;
+            }
+
+            @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
+            public void a(boolean z, int i42, String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i42), str}) == null) {
+                    this.f34912a.f34904d.a();
+                    if (z) {
+                        if (this.f34912a.f34907g.i()) {
+                            if (com.kwad.sdk.core.network.f.f36364g.k == i42) {
+                                this.f34912a.f34904d.e();
+                            } else if (com.kwad.sdk.core.network.f.f36358a.k == i42) {
+                                this.f34912a.f34904d.c();
+                            } else {
+                                this.f34912a.f34904d.d();
+                            }
+                        }
+                    } else if (com.kwad.sdk.core.network.f.f36358a.k == i42) {
+                        p.a(this.f34912a.getContext());
+                    } else if (com.kwad.sdk.core.network.f.f36364g.k != i42) {
+                        p.b(this.f34912a.getContext());
+                    }
+                    this.f34912a.f34905e.a(this.f34912a.f34909i.j());
+                }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, boolean z2) {
-                if (!z) {
-                    RelatedVideoPanel.this.f33142e.a();
-                } else if (RelatedVideoPanel.this.f33144g.i()) {
-                    RelatedVideoPanel.this.f33141d.b();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                    if (!z) {
+                        this.f34912a.f34905e.a();
+                    } else if (this.f34912a.f34907g.i()) {
+                        this.f34912a.f34904d.b();
+                    }
                 }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void b(boolean z, boolean z2) {
-                RelatedVideoPanel.this.i();
-                RelatedVideoPanel.this.f33141d.a();
-                if (z) {
-                    if (RelatedVideoPanel.this.f33144g.i()) {
-                        RelatedVideoPanel.this.f33141d.d();
-                    } else if (!RelatedVideoPanel.this.f33145h.d(RelatedVideoPanel.this.f33142e)) {
-                        RelatedVideoPanel.this.f33145h.c(RelatedVideoPanel.this.f33142e);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                    this.f34912a.i();
+                    this.f34912a.f34904d.a();
+                    if (z) {
+                        if (this.f34912a.f34907g.i()) {
+                            this.f34912a.f34904d.d();
+                        } else if (!this.f34912a.f34908h.d(this.f34912a.f34905e)) {
+                            this.f34912a.f34908h.c(this.f34912a.f34905e);
+                        }
                     }
+                    this.f34912a.f34905e.a(this.f34912a.f34909i.j());
                 }
-                RelatedVideoPanel.this.f33142e.a(RelatedVideoPanel.this.f33146i.j());
             }
         };
-        this.p = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
+        this.p = new RecyclerView.OnScrollListener(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ RelatedVideoPanel f34913a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr22;
+                    Object[] objArr22 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f34913a = this;
+            }
+
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i22) {
-                super.onScrollStateChanged(recyclerView, i22);
-                if (i22 == 1) {
-                    RelatedVideoPanel.this.j();
+            public void onScrollStateChanged(RecyclerView recyclerView, int i42) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i42) == null) {
+                    super.onScrollStateChanged(recyclerView, i42);
+                    if (i42 == 1) {
+                        this.f34913a.j();
+                    }
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i22, int i3) {
-                super.onScrolled(recyclerView, i22, i3);
-                if (i22 > 0 || i3 > 0) {
-                    RelatedVideoPanel.this.j();
+            public void onScrolled(RecyclerView recyclerView, int i42, int i5) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i42, i5) == null) {
+                    super.onScrolled(recyclerView, i42, i5);
+                    if (i42 > 0 || i5 > 0) {
+                        this.f34913a.j();
+                    }
                 }
             }
         };
@@ -295,27 +621,34 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        e.a(this.l, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+            e.a(this.l, i2);
+        }
     }
 
     private void h() {
-        View findViewById = findViewById(R.id.ksad_related_space);
-        this.f33139b = findViewById;
-        findViewById.setOnClickListener(this);
-        View findViewById2 = findViewById(R.id.ksad_related_close_button);
-        this.f33140c = findViewById2;
-        findViewById2.setOnClickListener(this);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.ksad_related_recycler_view);
-        this.f33143f = recyclerView;
-        recyclerView.setItemAnimator(null);
-        this.f33143f.addItemDecoration(new d(2, ao.a(getContext(), R.dimen.ksad_content_related_video_item_padding)));
-        this.f33141d = (KSHalfPageLoadingView) findViewById(R.id.ksad_page_loading);
-        this.f33142e = new com.kwad.sdk.contentalliance.widget.d(getContext());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            View findViewById = findViewById(R.id.ksad_related_space);
+            this.f34902b = findViewById;
+            findViewById.setOnClickListener(this);
+            View findViewById2 = findViewById(R.id.ksad_related_close_button);
+            this.f34903c = findViewById2;
+            findViewById2.setOnClickListener(this);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.ksad_related_recycler_view);
+            this.f34906f = recyclerView;
+            recyclerView.setItemAnimator(null);
+            this.f34906f.addItemDecoration(new d(2, ao.a(getContext(), R.dimen.ksad_content_related_video_item_padding)));
+            this.f34904d = (KSHalfPageLoadingView) findViewById(R.id.ksad_page_loading);
+            this.f34905e = new com.kwad.sdk.contentalliance.widget.d(getContext());
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i() {
-        if (this.m) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.m) {
             return;
         }
         this.m = true;
@@ -324,46 +657,89 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        RecyclerView.LayoutManager layoutManager = this.f33143f.getLayoutManager();
-        if (layoutManager.getChildCount() <= 0 || !k()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            RecyclerView.LayoutManager layoutManager = this.f34906f.getLayoutManager();
+            if (layoutManager.getChildCount() <= 0 || !k()) {
+                return;
+            }
+            if (((RecyclerView.LayoutParams) layoutManager.getChildAt(layoutManager.getChildCount() - 1).getLayoutParams()).getViewAdapterPosition() < this.f34907g.getItemCount() - 6 || this.f34907g.j()) {
+                return;
+            }
+            this.f34909i.m();
         }
-        if (((RecyclerView.LayoutParams) layoutManager.getChildAt(layoutManager.getChildCount() - 1).getLayoutParams()).getViewAdapterPosition() < this.f33144g.getItemCount() - 6 || this.f33144g.j()) {
-            return;
-        }
-        this.f33146i.m();
     }
 
     private boolean k() {
-        com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.f33146i;
-        return (cVar == null || cVar.f() == null || this.f33146i.f().isEmpty()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.f34909i;
+            return (cVar == null || cVar.f() == null || this.f34909i.f().isEmpty()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void a() {
-        setFocusableInTouchMode(false);
-        clearFocus();
-        setOnKeyListener(null);
-        setVisibility(8);
-        a aVar = this.j;
-        if (aVar != null) {
-            aVar.b();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setFocusableInTouchMode(false);
+            clearFocus();
+            setOnKeyListener(null);
+            setVisibility(8);
+            a aVar = this.j;
+            if (aVar != null) {
+                aVar.b();
+            }
+            this.f34904d.a();
+            this.f34904d.setRetryClickListener(null);
+            b();
         }
-        this.f33141d.a();
-        this.f33141d.setRetryClickListener(null);
-        b();
     }
 
     @Override // com.kwad.sdk.contentalliance.a.c
     public void a(int i2, int i3, Intent intent) {
-        if (i2 == 1000 && i3 == -1) {
-            final int intExtra = intent.getIntExtra("KEY_RELATED_VIDEO_DETAIL_POSITION", 0);
-            com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.f33146i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) && i2 == 1000 && i3 == -1) {
+            int intExtra = intent.getIntExtra("KEY_RELATED_VIDEO_DETAIL_POSITION", 0);
+            com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.f34909i;
             if (cVar != null) {
                 cVar.k();
-                this.f33138a.postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.5
+                this.f34901a.postDelayed(new Runnable(this, intExtra) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ int f34914a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ RelatedVideoPanel f34915b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, Integer.valueOf(intExtra)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f34915b = this;
+                        this.f34914a = intExtra;
+                    }
+
                     @Override // java.lang.Runnable
                     public void run() {
-                        RelatedVideoPanel.this.f33143f.scrollToPosition(intExtra);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.f34915b.f34906f.scrollToPosition(this.f34914a);
+                        }
                     }
                 }, 100L);
             }
@@ -371,119 +747,183 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
     }
 
     public void a(KsFragment ksFragment, AdTemplate adTemplate) {
-        this.k = adTemplate;
-        this.l = adTemplate.mAdScene;
-        this.f33146i = new c(adTemplate);
-        this.f33143f.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
-        b bVar = new b(ksFragment, this.f33143f, this.k);
-        this.f33144g = bVar;
-        bVar.a(this.f33146i.g());
-        this.f33144g.a(this.f33146i);
-        com.kwad.sdk.lib.widget.recycler.d dVar = new com.kwad.sdk.lib.widget.recycler.d(this.f33144g);
-        this.f33145h = dVar;
-        dVar.a(this.f33143f);
-        this.f33143f.setAdapter(this.f33145h);
-        this.f33143f.addOnScrollListener(this.p);
-        this.f33146i.a(this.o);
-        this.f33146i.k();
-        this.f33141d.setRetryClickListener(this.n);
-        setVisibility(0);
-        setFocusableInTouchMode(true);
-        requestFocus();
-        setOnKeyListener(new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.1
-            @Override // android.view.View.OnKeyListener
-            public boolean onKey(View view, int i2, KeyEvent keyEvent) {
-                if (keyEvent.getAction() == 1 && i2 == 4) {
-                    RelatedVideoPanel.this.a();
-                    RelatedVideoPanel.this.a(5);
-                    return true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksFragment, adTemplate) == null) {
+            this.k = adTemplate;
+            this.l = adTemplate.mAdScene;
+            this.f34909i = new c(adTemplate);
+            this.f34906f.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+            b bVar = new b(ksFragment, this.f34906f, this.k);
+            this.f34907g = bVar;
+            bVar.a(this.f34909i.g());
+            this.f34907g.a(this.f34909i);
+            com.kwad.sdk.lib.widget.recycler.d dVar = new com.kwad.sdk.lib.widget.recycler.d(this.f34907g);
+            this.f34908h = dVar;
+            dVar.a(this.f34906f);
+            this.f34906f.setAdapter(this.f34908h);
+            this.f34906f.addOnScrollListener(this.p);
+            this.f34909i.a(this.o);
+            this.f34909i.k();
+            this.f34904d.setRetryClickListener(this.n);
+            setVisibility(0);
+            setFocusableInTouchMode(true);
+            requestFocus();
+            setOnKeyListener(new View.OnKeyListener(this) { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ RelatedVideoPanel f34910a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f34910a = this;
                 }
-                return false;
+
+                @Override // android.view.View.OnKeyListener
+                public boolean onKey(View view, int i2, KeyEvent keyEvent) {
+                    InterceptResult invokeLIL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
+                        if (keyEvent.getAction() == 1 && i2 == 4) {
+                            this.f34910a.a();
+                            this.f34910a.a(5);
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeLIL.booleanValue;
+                }
+            });
+            a aVar = this.j;
+            if (aVar != null) {
+                aVar.a();
             }
-        });
-        a aVar = this.j;
-        if (aVar != null) {
-            aVar.a();
         }
     }
 
     public void b() {
-        this.m = false;
-        this.f33138a.removeCallbacksAndMessages(null);
-        this.f33143f.setLayoutManager(null);
-        this.f33143f.setAdapter(null);
-        b bVar = this.f33144g;
-        if (bVar != null) {
-            bVar.k();
-            this.f33144g = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.m = false;
+            this.f34901a.removeCallbacksAndMessages(null);
+            this.f34906f.setLayoutManager(null);
+            this.f34906f.setAdapter(null);
+            b bVar = this.f34907g;
+            if (bVar != null) {
+                bVar.k();
+                this.f34907g = null;
+            }
+            com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.f34909i;
+            if (cVar != null) {
+                cVar.h();
+            }
+            this.j = null;
+            com.kwad.sdk.contentalliance.detail.photo.related.a.a().e();
         }
-        com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.f33146i;
-        if (cVar != null) {
-            cVar.h();
-        }
-        this.j = null;
-        com.kwad.sdk.contentalliance.detail.photo.related.a.a().e();
     }
 
     @Override // com.kwad.sdk.contentalliance.a.c
     public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.c
     public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         ViewParent parent;
-        int action = motionEvent.getAction();
-        boolean z = true;
-        if (action != 0) {
-            if (action == 1 || action == 3) {
-                parent = getParent();
-                z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            boolean z = true;
+            if (action != 0) {
+                if (action == 1 || action == 3) {
+                    parent = getParent();
+                    z = false;
+                }
+                return super.dispatchTouchEvent(motionEvent);
             }
+            parent = getParent();
+            parent.requestDisallowInterceptTouchEvent(z);
             return super.dispatchTouchEvent(motionEvent);
         }
-        parent = getParent();
-        parent.requestDisallowInterceptTouchEvent(z);
-        return super.dispatchTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
     @Override // com.kwad.sdk.contentalliance.a.c
     public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.c
     public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.c
     public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i2;
-        if (view == this.f33139b) {
-            a();
-            i2 = 3;
-        } else if (view != this.f33140c) {
-            return;
-        } else {
-            a();
-            i2 = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
+            if (view == this.f34902b) {
+                a();
+                i2 = 3;
+            } else if (view != this.f34903c) {
+                return;
+            } else {
+                a();
+                i2 = 1;
+            }
+            a(i2);
         }
-        a(i2);
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
-        super.onFinishInflate();
-        h();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onFinishInflate();
+            h();
+        }
     }
 
     public void setRelatedPanelListener(a aVar) {
-        this.j = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.j = aVar;
+        }
     }
 }

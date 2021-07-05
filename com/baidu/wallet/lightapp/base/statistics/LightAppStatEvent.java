@@ -1,6 +1,12 @@
 package com.baidu.wallet.lightapp.base.statistics;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class LightAppStatEvent {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_NATIVE_VOICE_SUCCESS = "#call_native_voice_success";
     public static final String EVENT_TYPE = "type";
     public static final String H5_NOT_LOGGED_IN_SDKHAS_LOGGED = "#H5NotLoggedIn_SDKHasLogged";
@@ -54,4 +60,19 @@ public final class LightAppStatEvent {
     public static final String WEB_VIEW_ERROR = "WebViewError";
     public static final String WEB_VIEW_HTTP_ERROR = "WebViewHttpError";
     public static final String WEB_VIEW_SSL_ERROR = "WebViewSslError";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public LightAppStatEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

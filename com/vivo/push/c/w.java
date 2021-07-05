@@ -1,28 +1,51 @@
 package com.vivo.push.c;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.PushMessageCallback;
 /* loaded from: classes7.dex */
 public final class w implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ UPSNotificationMessage f40391a;
+    public final /* synthetic */ UPSNotificationMessage f42134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f40392b;
+    public final /* synthetic */ t f42135b;
 
     public w(t tVar, UPSNotificationMessage uPSNotificationMessage) {
-        this.f40392b = tVar;
-        this.f40391a = uPSNotificationMessage;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tVar, uPSNotificationMessage};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42135b = tVar;
+        this.f42134a = uPSNotificationMessage;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        t tVar = this.f40392b;
-        PushMessageCallback pushMessageCallback = ((ab) tVar).f40352b;
-        context = tVar.f40534a;
-        pushMessageCallback.onNotificationMessageClicked(context, this.f40391a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            t tVar = this.f42135b;
+            PushMessageCallback pushMessageCallback = ((ab) tVar).f42095b;
+            context = tVar.f42277a;
+            pushMessageCallback.onNotificationMessageClicked(context, this.f42134a);
+        }
     }
 }

@@ -5,6 +5,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.anr.collector.ThreadCollector;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,58 +21,79 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Utils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ANR_LOG = "Wrote stack traces to ";
     public static final int LOG_MONITOR_TIMEOUT = 5000;
     public static final int THRESHOLD_TIME = 5;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0035, code lost:
-        if (r2 == null) goto L25;
+    public Utils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0039, code lost:
+        if (r2 == null) goto L27;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String getCurrentProcessName() {
+        InterceptResult invokeV;
         FileInputStream fileInputStream;
-        try {
-            fileInputStream = new FileInputStream(ProcessUtils.CMD_LINE_NAME);
-        } catch (Throwable th) {
-            th = th;
-            fileInputStream = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (String) invokeV.objValue;
         }
         try {
-            byte[] bArr = new byte[256];
-            int i2 = 0;
-            while (true) {
-                int read = fileInputStream.read();
-                if (read <= 0 || i2 >= 256) {
-                    break;
-                }
-                bArr[i2] = (byte) read;
-                i2++;
-            }
-            if (i2 > 0) {
-                String str = new String(bArr, 0, i2, "UTF-8");
-                try {
-                    fileInputStream.close();
-                } catch (IOException unused) {
-                }
-                return str;
-            }
-        } catch (Throwable th2) {
-            th = th2;
+            fileInputStream = new FileInputStream(ProcessUtils.CMD_LINE_NAME);
             try {
-                th.printStackTrace();
-            } catch (Throwable th3) {
-                if (fileInputStream != null) {
+                byte[] bArr = new byte[256];
+                int i2 = 0;
+                while (true) {
+                    int read = fileInputStream.read();
+                    if (read <= 0 || i2 >= 256) {
+                        break;
+                    }
+                    bArr[i2] = (byte) read;
+                    i2++;
+                }
+                if (i2 > 0) {
+                    String str = new String(bArr, 0, i2, "UTF-8");
                     try {
                         fileInputStream.close();
-                    } catch (IOException unused2) {
+                    } catch (IOException unused) {
                     }
+                    return str;
                 }
-                throw th3;
+            } catch (Throwable th) {
+                th = th;
+                try {
+                    th.printStackTrace();
+                } catch (Throwable th2) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    throw th2;
+                }
             }
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
         }
         try {
             fileInputStream.close();
@@ -77,20 +103,26 @@ public class Utils {
     }
 
     public static boolean isRecentANR(String str, int i2) {
-        if (TextUtils.isEmpty(str) || i2 < 0) {
-            return false;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+            if (TextUtils.isEmpty(str) || i2 < 0) {
+                return false;
+            }
+            String format = new SimpleDateFormat("HH:mm").format(new Date());
+            String[] split = str.split(":");
+            String[] split2 = format.split(":");
+            if (split.length < 2 || split2.length < 2) {
+                return false;
+            }
+            return Integer.valueOf(split2[0]).intValue() - Integer.valueOf(split[0]).intValue() == 0 && Integer.valueOf(split2[1]).intValue() - Integer.valueOf(split[1]).intValue() < i2;
         }
-        String format = new SimpleDateFormat("HH:mm").format(new Date());
-        String[] split = str.split(":");
-        String[] split2 = format.split(":");
-        if (split.length < 2 || split2.length < 2) {
-            return false;
-        }
-        return Integer.valueOf(split2[0]).intValue() - Integer.valueOf(split[0]).intValue() == 0 && Integer.valueOf(split2[1]).intValue() - Integer.valueOf(split[1]).intValue() < i2;
+        return invokeLI.booleanValue;
     }
 
     public static void storeAllTraces2File(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         FileWriter fileWriter = null;
@@ -129,41 +161,46 @@ public class Utils {
                         }
                         throw th;
                     }
-                } catch (IOException unused2) {
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             } catch (IOException e3) {
                 e = e3;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (IOException unused2) {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x0148, code lost:
-        if (r15 != null) goto L73;
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x014c, code lost:
+        if (r15 != null) goto L75;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x0170, code lost:
-        if (r15 == null) goto L72;
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0174, code lost:
+        if (r15 == null) goto L74;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x0172, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0176, code lost:
         r15.destroy();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x0175, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x0179, code lost:
         return false;
      */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0179 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x016d A[Catch: IOException -> 0x0169, TRY_LEAVE, TryCatch #6 {IOException -> 0x0169, blocks: (B:77:0x0165, B:80:0x016d), top: B:95:0x0165 }] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0181 A[Catch: IOException -> 0x017d, TRY_LEAVE, TryCatch #11 {IOException -> 0x017d, blocks: (B:86:0x0179, B:89:0x0181), top: B:101:0x0179 }] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0186  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0165 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0169 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x017d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x0171 A[Catch: IOException -> 0x016d, TRY_LEAVE, TryCatch #4 {IOException -> 0x016d, blocks: (B:79:0x0169, B:82:0x0171), top: B:101:0x0169 }] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0185 A[Catch: IOException -> 0x0181, TRY_LEAVE, TryCatch #9 {IOException -> 0x0181, blocks: (B:88:0x017d, B:91:0x0185), top: B:105:0x017d }] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x018a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean storeIfRealANR(String str, int i2) {
+        InterceptResult invokeLI;
         Process process;
         BufferedReader bufferedReader;
         BufferedWriter bufferedWriter;
         String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65540, null, str, i2)) != null) {
+            return invokeLI.booleanValue;
+        }
         long currentTimeMillis = System.currentTimeMillis();
         BufferedWriter bufferedWriter2 = null;
         try {
@@ -200,6 +237,7 @@ public class Utils {
                                 bufferedWriter2.close();
                             } catch (IOException unused2) {
                                 if (process != null) {
+                                    process.destroy();
                                 }
                                 throw th;
                             }
@@ -208,7 +246,6 @@ public class Utils {
                             bufferedReader.close();
                         }
                         if (process != null) {
-                            process.destroy();
                         }
                         throw th;
                     }

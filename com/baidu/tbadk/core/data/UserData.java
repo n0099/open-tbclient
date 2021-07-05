@@ -1,16 +1,24 @@
 package com.baidu.tbadk.core.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ImageInfo;
 import com.baidu.tbadk.core.util.ImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBox.c, ImageProvider, PreLoadImageProvider {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_COMMON_ATTENTION = 1;
     public static final int TYPE_FOLLOW_TIP_TEXT = 3;
     public static final int TYPE_NORMAL_USER = 0;
@@ -19,100 +27,171 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
     public static final String TYPE_USER = "type_user";
     public static final String TYPE_USER_NICKNAME_LEFT_DAYS = "type_user_nickname_left_days";
     public static final long serialVersionUID = -2636990595209169859L;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean isLastNewFan;
     public boolean isNewFan;
     public int mAttentionType;
     public boolean mIsChecked;
 
     public UserData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mIsChecked = false;
         this.mAttentionType = 2;
     }
 
     @Override // com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getForumPhotoUrl() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
-        ArrayList<IconData> iconInfo = getIconInfo();
-        ArrayList<IconData> tShowInfoNew = getTShowInfoNew();
-        if (iconInfo == null || tShowInfoNew == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<IconData> iconInfo = getIconInfo();
+            ArrayList<IconData> tShowInfoNew = getTShowInfoNew();
+            if (iconInfo == null || tShowInfoNew == null) {
+                return null;
+            }
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 0; i2 < iconInfo.size(); i2++) {
+                arrayList.add(iconInfo.get(i2).getIcon());
+            }
+            for (int i3 = 0; i3 < iconInfo.size(); i3++) {
+                arrayList.add(tShowInfoNew.get(i3).getIcon());
+            }
+            return arrayList;
         }
-        ArrayList<String> arrayList = new ArrayList<>();
-        for (int i2 = 0; i2 < iconInfo.size(); i2++) {
-            arrayList.add(iconInfo.get(i2).getIcon());
-        }
-        for (int i3 = 0; i3 < iconInfo.size(); i3++) {
-            arrayList.add(tShowInfoNew.get(i3).getIcon());
-        }
-        return arrayList;
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
-        ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-        PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-        preLoadImageInfo.imgUrl = getPortrait();
-        preLoadImageInfo.procType = 12;
-        arrayList.add(preLoadImageInfo);
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.imgUrl = getPortrait();
+            preLoadImageInfo.procType = 12;
+            arrayList.add(preLoadImageInfo);
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<ImageInfo> getImagesWithEmotions() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getPhotoUrl() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(getPortrait());
-        return arrayList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add(getPortrait());
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
-        return this.mIsChecked;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsChecked : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.util.ImageProvider
     public boolean isSupportImageSize() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.data.UserData, com.baidu.tbadk.data.MetaData
     public void parserJson(JSONObject jSONObject) {
-        super.parserJson(jSONObject);
-        try {
-            boolean z = true;
-            if (jSONObject.optInt("is_new") != 1) {
-                z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            super.parserJson(jSONObject);
+            try {
+                boolean z = true;
+                if (jSONObject.optInt("is_new") != 1) {
+                    z = false;
+                }
+                this.isNewFan = z;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
-            this.isNewFan = z;
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
-        this.mIsChecked = z;
-    }
-
-    @Override // com.baidu.tbadk.data.MetaData, d.a.n0.r.f0.q.a
-    public void setIsLike(boolean z) {
-        super.setIsLike(z);
-        if (z) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.mIsChecked = z;
         }
-        setHave_attention(0);
     }
 
+    @Override // com.baidu.tbadk.data.MetaData, d.a.r0.r.f0.s.a
+    public void setIsLike(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            super.setIsLike(z);
+            if (z) {
+                return;
+            }
+            setHave_attention(0);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserData(long j, String str, String str2, int i2) {
         super(j, str, str2, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Long) objArr2[0]).longValue(), (String) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mIsChecked = false;
         this.mAttentionType = 2;
     }

@@ -2,11 +2,36 @@ package com.baidu.searchbox.v8engine.net;
 
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.v8engine.NotProguard;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetRequestSettings {
-    public int mTimeout = 60000;
-    public long mUploadDataLimit = Config.FULL_TRACE_LOG_LIMIT;
-    public boolean mLoadDoNotSendCookies = false;
-    public boolean mShouldNeverClearReferer = false;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean mLoadDoNotSendCookies;
+    public boolean mShouldNeverClearReferer;
+    public int mTimeout;
+    public long mUploadDataLimit;
+
+    public NetRequestSettings() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mTimeout = 60000;
+        this.mUploadDataLimit = Config.FULL_TRACE_LOG_LIMIT;
+        this.mLoadDoNotSendCookies = false;
+        this.mShouldNeverClearReferer = false;
+    }
 }

@@ -1,5 +1,14 @@
 package com.bytedance.sdk.openadsdk.preload.a.b.a;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.o;
 import com.bytedance.sdk.openadsdk.preload.a.q;
 import java.io.IOException;
@@ -8,191 +17,324 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Writer f29877a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
-        @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
-        public void close() throws IOException {
-            throw new AssertionError();
-        }
-
-        @Override // java.io.Writer, java.io.Flushable
-        public void flush() throws IOException {
-            throw new AssertionError();
-        }
-
-        @Override // java.io.Writer
-        public void write(char[] cArr, int i2, int i3) {
-            throw new AssertionError();
-        }
-    };
+    public static final Writer f31727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final q f29878b = new q("closed");
+    public static final q f31728b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f29879c;
+    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f31729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29880d;
+    public String f31730d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.a.l f29881e;
+    public com.bytedance.sdk.openadsdk.preload.a.l f31731e;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(523933401, "Lcom/bytedance/sdk/openadsdk/preload/a/b/a/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(523933401, "Lcom/bytedance/sdk/openadsdk/preload/a/b/a/f;");
+                return;
+            }
+        }
+        f31727a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+            public void close() throws IOException {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    throw new AssertionError();
+                }
+            }
+
+            @Override // java.io.Writer, java.io.Flushable
+            public void flush() throws IOException {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    throw new AssertionError();
+                }
+            }
+
+            @Override // java.io.Writer
+            public void write(char[] cArr, int i2, int i3) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i2, i3) == null) {
+                    throw new AssertionError();
+                }
+            }
+        };
+        f31728b = new q("closed");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f() {
-        super(f29877a);
-        this.f29879c = new ArrayList();
-        this.f29881e = com.bytedance.sdk.openadsdk.preload.a.n.f30102a;
+        super(f31727a);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Writer) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f31729c = new ArrayList();
+        this.f31731e = com.bytedance.sdk.openadsdk.preload.a.n.f31952a;
     }
 
     private com.bytedance.sdk.openadsdk.preload.a.l j() {
-        List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29879c;
-        return list.get(list.size() - 1);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f31729c;
+            return list.get(list.size() - 1);
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.l) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.preload.a.l a() {
-        if (this.f29879c.isEmpty()) {
-            return this.f29881e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.f31729c.isEmpty()) {
+                return this.f31731e;
+            }
+            throw new IllegalStateException("Expected one JSON element but was " + this.f31729c);
         }
-        throw new IllegalStateException("Expected one JSON element but was " + this.f29879c);
+        return (com.bytedance.sdk.openadsdk.preload.a.l) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c b() throws IOException {
-        com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
-        a(iVar);
-        this.f29879c.add(iVar);
-        return this;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
+            a(iVar);
+            this.f31729c.add(iVar);
+            return this;
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c c() throws IOException {
-        if (!this.f29879c.isEmpty() && this.f29880d == null) {
-            if (j() instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
-                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29879c;
-                list.remove(list.size() - 1);
-                return this;
-            }
-            throw new IllegalStateException();
-        }
-        throw new IllegalStateException();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        if (this.f29879c.isEmpty()) {
-            this.f29879c.add(f29878b);
-            return;
-        }
-        throw new IOException("Incomplete document");
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
-    public com.bytedance.sdk.openadsdk.preload.a.d.c d() throws IOException {
-        o oVar = new o();
-        a(oVar);
-        this.f29879c.add(oVar);
-        return this;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
-    public com.bytedance.sdk.openadsdk.preload.a.d.c e() throws IOException {
-        if (!this.f29879c.isEmpty() && this.f29880d == null) {
-            if (j() instanceof o) {
-                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29879c;
-                list.remove(list.size() - 1);
-                return this;
-            }
-            throw new IllegalStateException();
-        }
-        throw new IllegalStateException();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
-    public com.bytedance.sdk.openadsdk.preload.a.d.c f() throws IOException {
-        a(com.bytedance.sdk.openadsdk.preload.a.n.f30102a);
-        return this;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c, java.io.Flushable
-    public void flush() throws IOException {
-    }
-
-    private void a(com.bytedance.sdk.openadsdk.preload.a.l lVar) {
-        if (this.f29880d != null) {
-            if (!lVar.j() || i()) {
-                ((o) j()).a(this.f29880d, lVar);
-            }
-            this.f29880d = null;
-        } else if (this.f29879c.isEmpty()) {
-            this.f29881e = lVar;
-        } else {
-            com.bytedance.sdk.openadsdk.preload.a.l j = j();
-            if (j instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
-                ((com.bytedance.sdk.openadsdk.preload.a.i) j).a(lVar);
-                return;
-            }
-            throw new IllegalStateException();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
-    public com.bytedance.sdk.openadsdk.preload.a.d.c b(String str) throws IOException {
-        if (str == null) {
-            return f();
-        }
-        a(new q(str));
-        return this;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
-    public com.bytedance.sdk.openadsdk.preload.a.d.c a(String str) throws IOException {
-        if (str != null) {
-            if (!this.f29879c.isEmpty() && this.f29880d == null) {
-                if (j() instanceof o) {
-                    this.f29880d = str;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (!this.f31729c.isEmpty() && this.f31730d == null) {
+                if (j() instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
+                    List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f31729c;
+                    list.remove(list.size() - 1);
                     return this;
                 }
                 throw new IllegalStateException();
             }
             throw new IllegalStateException();
         }
-        throw new NullPointerException("name == null");
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.f31729c.isEmpty()) {
+                this.f31729c.add(f31728b);
+                return;
+            }
+            throw new IOException("Incomplete document");
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
+    public com.bytedance.sdk.openadsdk.preload.a.d.c d() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            o oVar = new o();
+            a(oVar);
+            this.f31729c.add(oVar);
+            return this;
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
+    public com.bytedance.sdk.openadsdk.preload.a.d.c e() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (!this.f31729c.isEmpty() && this.f31730d == null) {
+                if (j() instanceof o) {
+                    List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f31729c;
+                    list.remove(list.size() - 1);
+                    return this;
+                }
+                throw new IllegalStateException();
+            }
+            throw new IllegalStateException();
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
+    public com.bytedance.sdk.openadsdk.preload.a.d.c f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            a(com.bytedance.sdk.openadsdk.preload.a.n.f31952a);
+            return this;
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c, java.io.Flushable
+    public void flush() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
+
+    private void a(com.bytedance.sdk.openadsdk.preload.a.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, lVar) == null) {
+            if (this.f31730d != null) {
+                if (!lVar.j() || i()) {
+                    ((o) j()).a(this.f31730d, lVar);
+                }
+                this.f31730d = null;
+            } else if (this.f31729c.isEmpty()) {
+                this.f31731e = lVar;
+            } else {
+                com.bytedance.sdk.openadsdk.preload.a.l j = j();
+                if (j instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
+                    ((com.bytedance.sdk.openadsdk.preload.a.i) j).a(lVar);
+                    return;
+                }
+                throw new IllegalStateException();
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
+    public com.bytedance.sdk.openadsdk.preload.a.d.c b(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (str == null) {
+                return f();
+            }
+            a(new q(str));
+            return this;
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
+    public com.bytedance.sdk.openadsdk.preload.a.d.c a(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str != null) {
+                if (!this.f31729c.isEmpty() && this.f31730d == null) {
+                    if (j() instanceof o) {
+                        this.f31730d = str;
+                        return this;
+                    }
+                    throw new IllegalStateException();
+                }
+                throw new IllegalStateException();
+            }
+            throw new NullPointerException("name == null");
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(boolean z) throws IOException {
-        a(new q(Boolean.valueOf(z)));
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            a(new q(Boolean.valueOf(z)));
+            return this;
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeZ.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(Boolean bool) throws IOException {
-        if (bool == null) {
-            return f();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool)) == null) {
+            if (bool == null) {
+                return f();
+            }
+            a(new q(bool));
+            return this;
         }
-        a(new q(bool));
-        return this;
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(long j) throws IOException {
-        a(new q(Long.valueOf(j)));
-        return this;
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            a(new q(Long.valueOf(j)));
+            return this;
+        }
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeJ.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(Number number) throws IOException {
-        if (number == null) {
-            return f();
-        }
-        if (!g()) {
-            double doubleValue = number.doubleValue();
-            if (Double.isNaN(doubleValue) || Double.isInfinite(doubleValue)) {
-                throw new IllegalArgumentException("JSON forbids NaN and infinities: " + number);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, number)) == null) {
+            if (number == null) {
+                return f();
             }
+            if (!g()) {
+                double doubleValue = number.doubleValue();
+                if (Double.isNaN(doubleValue) || Double.isInfinite(doubleValue)) {
+                    throw new IllegalArgumentException("JSON forbids NaN and infinities: " + number);
+                }
+            }
+            a(new q(number));
+            return this;
         }
-        a(new q(number));
-        return this;
+        return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeL.objValue;
     }
 }

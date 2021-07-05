@@ -2,29 +2,76 @@ package com.baidu.tbadk;
 
 import android.app.Activity;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class ActivityPendingTransitionFactory {
+    public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;
+    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = 0;
+    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = 0;
     public static int RES_CUSTOM_FADE_IN = 0;
     public static int RES_CUSTOM_FADE_OUT = 0;
     public static int RES_CUSTOM_IN_FROM_RIGHT = 0;
     public static int RES_CUSTOM_OUT_TO_RIGHT = 0;
+    public static int RES_FADE_OUT = 0;
+    public static int RES_NFADE_IN = 0;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = 0;
+    public static int RES_NORMAL_IN_FROM_RIGHT = 0;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = 0;
+    public static int RES_NORMAL_OUT_TO_RIGHT = 0;
     public static final int TYPE_BIG_IMAGE = 2;
     public static final int TYPE_BOTTOM = 4;
     public static final int TYPE_CUSTOM_FROM_THIRD_PARTY = 3;
     public static final int TYPE_NORMAL = 1;
     public static final int TYPE_NO_ANIMATION = 0;
-    public static int RES_NFADE_IN = R.anim.fade_in;
-    public static int RES_FADE_OUT = R.anim.fade_out;
-    public static int RES_NORMAL_IN_FROM_RIGHT = R.anim.in_from_right;
-    public static int RES_NORMAL_IN_FROM_BOTTOM = R.anim.in_from_bottom;
-    public static int RES_NORMAL_OUT_TO_RIGHT = R.anim.out_to_right;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = R.anim.out_to_bottom;
-    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = R.anim.anim_alpha_0_to_1_duration_300;
-    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = R.anim.anim_alpha_1_to_0_duration_300;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(327323211, "Lcom/baidu/tbadk/ActivityPendingTransitionFactory;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(327323211, "Lcom/baidu/tbadk/ActivityPendingTransitionFactory;");
+                return;
+            }
+        }
+        RES_NFADE_IN = R.anim.fade_in;
+        RES_FADE_OUT = R.anim.fade_out;
+        RES_NORMAL_IN_FROM_RIGHT = R.anim.in_from_right;
+        RES_NORMAL_IN_FROM_BOTTOM = R.anim.in_from_bottom;
+        RES_NORMAL_OUT_TO_RIGHT = R.anim.out_to_right;
+        RES_NORMAL_OUT_TO_BOTTOM = R.anim.out_to_bottom;
+        RES_BIG_IMAGE_IN_FROM_RIGHT = R.anim.anim_alpha_0_to_1_duration_300;
+        RES_BIG_IMAGE_OUT_TO_RIGHT = R.anim.anim_alpha_1_to_0_duration_300;
+    }
+
+    public ActivityPendingTransitionFactory() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void closeAnimation(TbPageContext<?> tbPageContext, int i2) {
-        if (tbPageContext == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65538, null, tbPageContext, i2) == null) || tbPageContext == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();
@@ -47,7 +94,8 @@ public class ActivityPendingTransitionFactory {
     }
 
     public static void enterExitAnimation(TbPageContext<?> tbPageContext, int i2) {
-        if (tbPageContext == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, tbPageContext, i2) == null) || tbPageContext == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();

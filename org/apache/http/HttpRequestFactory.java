@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface HttpRequestFactory {
     HttpRequest newHttpRequest(String str, String str2) throws MethodNotSupportedException;
 

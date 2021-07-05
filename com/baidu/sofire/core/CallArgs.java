@@ -2,64 +2,140 @@ package com.baidu.sofire.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class CallArgs implements Parcelable {
-    public static final Parcelable.Creator<CallArgs> CREATOR = new Parcelable.Creator<CallArgs>() { // from class: com.baidu.sofire.core.CallArgs.1
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // android.os.Parcelable.Creator
-        public final /* synthetic */ CallArgs createFromParcel(Parcel parcel) {
-            return new CallArgs(parcel);
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-        @Override // android.os.Parcelable.Creator
-        public final /* bridge */ /* synthetic */ CallArgs[] newArray(int i2) {
-            return new CallArgs[i2];
-        }
-    };
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<CallArgs> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10218a;
+    public int f10290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10219b;
+    public int f10291b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10220c;
+    public String f10292c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f10221d;
+    public Object[] f10293d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f10222e;
+    public Object[] f10294e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f10223f;
+    public Object f10295f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1752405121, "Lcom/baidu/sofire/core/CallArgs;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1752405121, "Lcom/baidu/sofire/core/CallArgs;");
+                return;
+            }
+        }
+        CREATOR = new Parcelable.Creator<CallArgs>() { // from class: com.baidu.sofire.core.CallArgs.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // android.os.Parcelable.Creator
+            public final /* synthetic */ CallArgs createFromParcel(Parcel parcel) {
+                return new CallArgs(parcel);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+            @Override // android.os.Parcelable.Creator
+            public final /* bridge */ /* synthetic */ CallArgs[] newArray(int i2) {
+                return new CallArgs[i2];
+            }
+        };
+    }
 
     public CallArgs() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f10218a);
-        parcel.writeInt(this.f10219b);
-        parcel.writeString(this.f10220c);
-        parcel.writeArray(this.f10222e);
-        parcel.writeArray(this.f10221d);
-        parcel.writeValue(this.f10223f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+            parcel.writeInt(this.f10290a);
+            parcel.writeInt(this.f10291b);
+            parcel.writeString(this.f10292c);
+            parcel.writeArray(this.f10294e);
+            parcel.writeArray(this.f10293d);
+            parcel.writeValue(this.f10295f);
+        }
     }
 
     public CallArgs(Parcel parcel) {
-        this.f10218a = parcel.readInt();
-        this.f10219b = parcel.readInt();
-        this.f10220c = parcel.readString();
-        this.f10222e = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f10221d = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f10223f = parcel.readValue(CallArgs.class.getClassLoader());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f10290a = parcel.readInt();
+        this.f10291b = parcel.readInt();
+        this.f10292c = parcel.readString();
+        this.f10294e = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f10293d = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f10295f = parcel.readValue(CallArgs.class.getClassLoader());
     }
 }

@@ -11,218 +11,414 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import d.a.m0.a.k;
-import d.a.m0.a.v2.q;
-import d.a.m0.t.d;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.k;
+import d.a.q0.a.v2.q;
+import d.a.q0.t.d;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
-    public static final boolean l = k.f46983a;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean l;
     public static Camera m;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f10797e;
+    public Context f10869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaRecorder f10798f;
+    public MediaRecorder f10870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SurfaceHolder f10799g;
+    public SurfaceHolder f10871g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10800h;
+    public String f10872h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10801i;
+    public String f10873i;
     public String j;
-    public d.a.m0.a.z.e.a k;
+    public d.a.q0.a.z.e.a k;
 
-    /* loaded from: classes2.dex */
-    public enum Quality {
-        HIGH("high", 100),
-        NORMAL("normal", 70),
-        LOW(Config.EXCEPTION_MEMORY_LOW, 40);
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class Quality {
+        public static final /* synthetic */ Quality[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Quality HIGH;
+        public static final Quality LOW;
+        public static final Quality NORMAL;
+        public transient /* synthetic */ FieldHolder $fh;
         public int qualityInt;
         public String qualityName;
 
-        Quality(String str, int i2) {
-            this.qualityName = str;
-            this.qualityInt = i2;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1555531510, "Lcom/baidu/swan/apps/camera/view/CameraPreview$Quality;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1555531510, "Lcom/baidu/swan/apps/camera/view/CameraPreview$Quality;");
+                    return;
+                }
+            }
+            HIGH = new Quality("HIGH", 0, "high", 100);
+            NORMAL = new Quality("NORMAL", 1, "normal", 70);
+            Quality quality = new Quality("LOW", 2, Config.EXCEPTION_MEMORY_LOW, 40);
+            LOW = quality;
+            $VALUES = new Quality[]{HIGH, NORMAL, quality};
+        }
+
+        public Quality(String str, int i2, String str2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.qualityName = str2;
+            this.qualityInt = i3;
         }
 
         public static int getQuality(String str) {
+            InterceptResult invokeL;
             Quality[] values;
-            int qualityInt = NORMAL.getQualityInt();
-            for (Quality quality : values()) {
-                if (TextUtils.equals(quality.getQualityName(), str)) {
-                    return quality.qualityInt;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                int qualityInt = NORMAL.getQualityInt();
+                for (Quality quality : values()) {
+                    if (TextUtils.equals(quality.getQualityName(), str)) {
+                        return quality.qualityInt;
+                    }
                 }
+                return qualityInt;
             }
-            return qualityInt;
+            return invokeL.intValue;
+        }
+
+        public static Quality valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Quality) Enum.valueOf(Quality.class, str) : (Quality) invokeL.objValue;
+        }
+
+        public static Quality[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Quality[]) $VALUES.clone() : (Quality[]) invokeV.objValue;
         }
 
         public int getQualityInt() {
-            return this.qualityInt;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.qualityInt : invokeV.intValue;
         }
 
         public String getQualityName() {
-            return this.qualityName;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.qualityName : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class a implements Camera.PictureCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10802a;
+        public final /* synthetic */ String f10874a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.a.z.c.a f10803b;
+        public final /* synthetic */ d.a.q0.a.z.c.a f10875b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ CameraPreview f10876c;
 
         /* renamed from: com.baidu.swan.apps.camera.view.CameraPreview$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0155a implements Runnable {
+        /* loaded from: classes4.dex */
+        public class RunnableC0174a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f10805e;
+            public final /* synthetic */ byte[] f10877e;
 
-            public RunnableC0155a(byte[] bArr) {
-                this.f10805e = bArr;
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ a f10878f;
+
+            public RunnableC0174a(a aVar, byte[] bArr) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bArr};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f10878f = aVar;
+                this.f10877e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 int i2;
-                int quality = Quality.getQuality(CameraPreview.this.f10800h);
-                boolean z = CameraPreview.this.getResources().getConfiguration().orientation == 1;
-                boolean z2 = CameraPreview.this.getFrontOrBackCameraId() == 0;
-                if (z) {
-                    i2 = z2 ? 90 : -90;
-                } else {
-                    i2 = 0;
-                }
-                boolean h2 = d.a.m0.a.z.a.b().h(this.f10805e, a.this.f10802a, quality, i2, !z2);
-                a aVar = a.this;
-                d.a.m0.a.z.c.a aVar2 = aVar.f10803b;
-                if (aVar2 != null) {
-                    if (h2) {
-                        aVar2.onSuccess(aVar.f10802a);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    int quality = Quality.getQuality(this.f10878f.f10876c.f10872h);
+                    boolean z = this.f10878f.f10876c.getResources().getConfiguration().orientation == 1;
+                    boolean z2 = this.f10878f.f10876c.getFrontOrBackCameraId() == 0;
+                    if (z) {
+                        i2 = z2 ? 90 : -90;
                     } else {
-                        aVar2.onFailure();
+                        i2 = 0;
+                    }
+                    boolean h2 = d.a.q0.a.z.a.b().h(this.f10877e, this.f10878f.f10874a, quality, i2, !z2);
+                    a aVar = this.f10878f;
+                    d.a.q0.a.z.c.a aVar2 = aVar.f10875b;
+                    if (aVar2 != null) {
+                        if (h2) {
+                            aVar2.onSuccess(aVar.f10874a);
+                        } else {
+                            aVar2.onFailure();
+                        }
                     }
                 }
             }
         }
 
-        public a(String str, d.a.m0.a.z.c.a aVar) {
-            this.f10802a = str;
-            this.f10803b = aVar;
+        public a(CameraPreview cameraPreview, String str, d.a.q0.a.z.c.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cameraPreview, str, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10876c = cameraPreview;
+            this.f10874a = str;
+            this.f10875b = aVar;
         }
 
         @Override // android.hardware.Camera.PictureCallback
         public void onPictureTaken(byte[] bArr, Camera camera) {
-            try {
-                camera.startPreview();
-                CameraPreview.this.setCameraDisplayOrientation();
-            } catch (RuntimeException e2) {
-                if (CameraPreview.this.k != null) {
-                    d.a.m0.a.z.a.b().e(CameraPreview.this.k.f44630g, CameraPreview.this.k.f44629f, false);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) {
+                try {
+                    camera.startPreview();
+                    this.f10876c.setCameraDisplayOrientation();
+                } catch (RuntimeException e2) {
+                    if (this.f10876c.k != null) {
+                        d.a.q0.a.z.a.b().e(this.f10876c.k.f46780g, this.f10876c.k.f46779f, false);
+                    }
+                    this.f10876c.h();
+                    if (CameraPreview.l) {
+                        e2.printStackTrace();
+                    }
                 }
-                CameraPreview.this.h();
-                if (CameraPreview.l) {
-                    e2.printStackTrace();
-                }
+                q.j(new RunnableC0174a(this, bArr), CommonTbJsBridge.SAVE_IMAGE);
             }
-            q.j(new RunnableC0155a(bArr), CommonTbJsBridge.SAVE_IMAGE);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class b implements Camera.AutoFocusCallback {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CameraPreview f10879a;
+
+        public b(CameraPreview cameraPreview) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cameraPreview};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10879a = cameraPreview;
         }
 
         @Override // android.hardware.Camera.AutoFocusCallback
         public void onAutoFocus(boolean z, Camera camera) {
-            if (CameraPreview.l) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) && CameraPreview.l) {
                 Log.i("SwanAppCameraManager", "camera auto focus result : " + z);
             }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-836213787, "Lcom/baidu/swan/apps/camera/view/CameraPreview;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-836213787, "Lcom/baidu/swan/apps/camera/view/CameraPreview;");
+                return;
+            }
+        }
+        l = k.f49133a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CameraPreview(Context context) {
         super(context);
-        this.f10800h = Quality.NORMAL.getQualityName();
-        this.f10801i = "";
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f10872h = Quality.NORMAL.getQualityName();
+        this.f10873i = "";
         this.j = "";
     }
 
     private CamcorderProfile getCamcorderProfile() {
-        int i2 = 5;
-        if (!CamcorderProfile.hasProfile(5)) {
-            i2 = CamcorderProfile.hasProfile(4) ? 4 : 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            int i2 = 5;
+            if (!CamcorderProfile.hasProfile(5)) {
+                i2 = CamcorderProfile.hasProfile(4) ? 4 : 1;
+            }
+            return CamcorderProfile.get(i2);
         }
-        return CamcorderProfile.get(i2);
+        return (CamcorderProfile) invokeV.objValue;
     }
 
     private int getDegree() {
-        Context context = getContext();
-        int i2 = 0;
-        if (context instanceof Activity) {
-            int rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();
-            if (rotation != 0) {
-                if (rotation == 1) {
-                    i2 = 90;
-                } else if (rotation == 2) {
-                    i2 = 180;
-                } else if (rotation == 3) {
-                    i2 = 270;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            Context context = getContext();
+            int i2 = 0;
+            if (context instanceof Activity) {
+                int rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();
+                if (rotation != 0) {
+                    if (rotation == 1) {
+                        i2 = 90;
+                    } else if (rotation == 2) {
+                        i2 = 180;
+                    } else if (rotation == 3) {
+                        i2 = 270;
+                    }
                 }
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(getFrontOrBackCameraId(), cameraInfo);
+                if (cameraInfo.facing == 1) {
+                    return (360 - ((cameraInfo.orientation + i2) % 360)) % 360;
+                }
+                return ((cameraInfo.orientation - i2) + 360) % 360;
             }
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(getFrontOrBackCameraId(), cameraInfo);
-            if (cameraInfo.facing == 1) {
-                return (360 - ((cameraInfo.orientation + i2) % 360)) % 360;
-            }
-            return ((cameraInfo.orientation - i2) + 360) % 360;
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getFrontOrBackCameraId() {
-        d.a.m0.a.z.e.a aVar = this.k;
-        return (aVar == null || !aVar.k()) ? 0 : 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            d.a.q0.a.z.e.a aVar = this.k;
+            return (aVar == null || !aVar.m()) ? 0 : 1;
+        }
+        return invokeV.intValue;
     }
 
     public static void j() {
-        Camera camera = m;
-        if (camera != null) {
-            camera.setPreviewCallback(null);
-            m.stopPreview();
-            m.release();
-            m = null;
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65546, null) == null) || (camera = m) == null) {
+            return;
         }
+        camera.setPreviewCallback(null);
+        m.stopPreview();
+        m.release();
+        m = null;
     }
 
     private void setSaveMediaPath(String str) {
-        this.f10801i = str + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4";
-        this.j = str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
-        d.h(new File(this.f10801i));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
+            this.f10873i = str + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4";
+            this.j = str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
+            d.h(new File(this.f10873i));
+        }
     }
 
     public void e() {
-        this.f10801i = "";
-        this.j = "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f10873i = "";
+            this.j = "";
+        }
     }
 
     public final Camera.Size f(List<Camera.Size> list, int i2, int i3) {
+        InterceptResult invokeLII;
         float f2;
         float f3;
         int i4;
@@ -230,165 +426,197 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         int i5;
         float f5;
         int i6;
-        Camera.Size size = null;
-        if (list != null && !list.isEmpty() && i3 != 0) {
-            float f6 = i2 / i3;
-            float f7 = -1.0f;
-            boolean z = getDegree() % 180 == 0;
-            Camera.Size size2 = null;
-            for (Camera.Size size3 : list) {
-                if (size3 != null) {
-                    if (z) {
-                        f4 = size3.width;
-                        i5 = size3.height;
-                    } else {
-                        f4 = size3.height;
-                        i5 = size3.width;
-                    }
-                    float f8 = (f4 / i5) - f6;
-                    float abs = Math.abs(f8);
-                    if (f7 < 0.0f) {
-                        size = size3;
-                        f7 = abs;
-                    }
-                    if (abs < f7) {
-                        size = size3;
-                        f7 = abs;
-                    }
-                    if ((z ? size3.width : size3.height) == i2) {
-                        if (size2 != null) {
-                            if (z) {
-                                f5 = size2.width;
-                                i6 = size2.height;
-                            } else {
-                                f5 = size2.height;
-                                i6 = size2.width;
-                            }
-                            if (Math.abs(f8) < Math.abs((f5 / i6) - f6)) {
-                            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i2, i3)) == null) {
+            Camera.Size size = null;
+            if (list != null && !list.isEmpty() && i3 != 0) {
+                float f6 = i2 / i3;
+                float f7 = -1.0f;
+                boolean z = getDegree() % 180 == 0;
+                Camera.Size size2 = null;
+                for (Camera.Size size3 : list) {
+                    if (size3 != null) {
+                        if (z) {
+                            f4 = size3.width;
+                            i5 = size3.height;
+                        } else {
+                            f4 = size3.height;
+                            i5 = size3.width;
                         }
-                        size2 = size3;
+                        float f8 = (f4 / i5) - f6;
+                        float abs = Math.abs(f8);
+                        if (f7 < 0.0f) {
+                            size = size3;
+                            f7 = abs;
+                        }
+                        if (abs < f7) {
+                            size = size3;
+                            f7 = abs;
+                        }
+                        if ((z ? size3.width : size3.height) == i2) {
+                            if (size2 != null) {
+                                if (z) {
+                                    f5 = size2.width;
+                                    i6 = size2.height;
+                                } else {
+                                    f5 = size2.height;
+                                    i6 = size2.width;
+                                }
+                                if (Math.abs(f8) < Math.abs((f5 / i6) - f6)) {
+                                }
+                            }
+                            size2 = size3;
+                        }
+                    }
+                }
+                if (size != null && size2 != null) {
+                    if (z) {
+                        f2 = size2.width / size2.height;
+                        f3 = size.width;
+                        i4 = size.height;
+                    } else {
+                        f2 = size2.height / size2.width;
+                        f3 = size.height;
+                        i4 = size.width;
+                    }
+                    if (Math.abs(f2 - f6) < Math.abs((f3 / i4) - f6) + 0.2f) {
+                        return size2;
                     }
                 }
             }
-            if (size != null && size2 != null) {
-                if (z) {
-                    f2 = size2.width / size2.height;
-                    f3 = size.width;
-                    i4 = size.height;
-                } else {
-                    f2 = size2.height / size2.width;
-                    f3 = size.height;
-                    i4 = size.width;
-                }
-                if (Math.abs(f2 - f6) < Math.abs((f3 / i4) - f6) + 0.2f) {
-                    return size2;
-                }
-            }
+            return size;
         }
-        return size;
+        return (Camera.Size) invokeLII.objValue;
     }
 
     public String g(String str) {
-        return str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
+        }
+        return (String) invokeL.objValue;
     }
 
     public Camera getCameraInstance() {
-        try {
-            j();
-            Camera open = Camera.open(getFrontOrBackCameraId());
-            m = open;
-            if (this.k != null) {
-                Camera.Parameters parameters = open.getParameters();
-                l(m, parameters, this.k.h());
-                int j = this.k.j();
-                int i2 = this.k.i();
-                Camera.Size f2 = f(parameters.getSupportedPreviewSizes(), j, i2);
-                if (f2 != null) {
-                    parameters.setPreviewSize(f2.width, f2.height);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                j();
+                Camera open = Camera.open(getFrontOrBackCameraId());
+                m = open;
+                if (this.k != null) {
+                    Camera.Parameters parameters = open.getParameters();
+                    l(m, parameters, this.k.j());
+                    int l2 = this.k.l();
+                    int k = this.k.k();
+                    Camera.Size f2 = f(parameters.getSupportedPreviewSizes(), l2, k);
+                    if (f2 != null) {
+                        parameters.setPreviewSize(f2.width, f2.height);
+                    }
+                    Camera.Size f3 = f(parameters.getSupportedPictureSizes(), l2, k);
+                    if (f3 != null) {
+                        parameters.setPictureSize(f3.width, f3.height);
+                    }
+                    boolean z = true;
+                    if (getFrontOrBackCameraId() != 1) {
+                        z = false;
+                    }
+                    if (z) {
+                        parameters.set("video-flip", "flip-h");
+                    }
+                    m.setParameters(parameters);
                 }
-                Camera.Size f3 = f(parameters.getSupportedPictureSizes(), j, i2);
-                if (f3 != null) {
-                    parameters.setPictureSize(f3.width, f3.height);
+            } catch (Exception e2) {
+                if (l) {
+                    Log.d("SwanAppCameraManager", "camera is not available");
+                    e2.printStackTrace();
                 }
-                boolean z = true;
-                if (getFrontOrBackCameraId() != 1) {
-                    z = false;
-                }
-                if (z) {
-                    parameters.set("video-flip", "flip-h");
-                }
-                m.setParameters(parameters);
             }
-        } catch (Exception e2) {
-            if (l) {
-                Log.d("SwanAppCameraManager", "camera is not available");
-                e2.printStackTrace();
-            }
+            return m;
         }
-        return m;
+        return (Camera) invokeV.objValue;
     }
 
     public String getSlaveId() {
-        d.a.m0.a.z.e.a aVar = this.k;
-        return aVar == null ? "" : aVar.f44630g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            d.a.q0.a.z.e.a aVar = this.k;
+            return aVar == null ? "" : aVar.f46780g;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getThumbPath() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (String) invokeV.objValue;
     }
 
     public String getVideoPath() {
-        return this.f10801i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10873i : (String) invokeV.objValue;
     }
 
     public void h() {
-        k();
-        e();
-        SurfaceHolder surfaceHolder = this.f10799g;
-        if (surfaceHolder != null) {
-            surfaceHolder.removeCallback(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            k();
+            e();
+            SurfaceHolder surfaceHolder = this.f10871g;
+            if (surfaceHolder != null) {
+                surfaceHolder.removeCallback(this);
+            }
+            j();
         }
-        j();
     }
 
     public final boolean i() {
-        k();
-        this.f10798f = new MediaRecorder();
-        m = getCameraInstance();
-        setCameraDisplayOrientation();
-        if (getResources().getConfiguration().orientation == 1) {
-            this.f10798f.setOrientationHint(90);
-        }
-        m.unlock();
-        this.f10798f.setCamera(m);
-        this.f10798f.setAudioSource(1);
-        this.f10798f.setVideoSource(1);
-        this.f10798f.setProfile(getCamcorderProfile());
-        this.f10798f.setOutputFile(getVideoPath());
-        this.f10798f.setVideoEncodingBitRate(8388608);
-        this.f10798f.setPreviewDisplay(this.f10799g.getSurface());
-        try {
-            this.f10798f.prepare();
-            return true;
-        } catch (IOException e2) {
-            if (l) {
-                Log.d("SwanAppCameraManager", "IOException preparing MediaRecorder: " + e2.getMessage());
-                e2.printStackTrace();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            k();
+            this.f10870f = new MediaRecorder();
+            m = getCameraInstance();
+            setCameraDisplayOrientation();
+            if (getResources().getConfiguration().orientation == 1) {
+                this.f10870f.setOrientationHint(90);
             }
-            return false;
-        } catch (IllegalStateException e3) {
-            if (l) {
-                Log.d("SwanAppCameraManager", "IllegalStateException preparing MediaRecorder: " + e3.getMessage());
-                e3.printStackTrace();
+            m.unlock();
+            this.f10870f.setCamera(m);
+            this.f10870f.setAudioSource(1);
+            this.f10870f.setVideoSource(1);
+            this.f10870f.setProfile(getCamcorderProfile());
+            this.f10870f.setOutputFile(getVideoPath());
+            this.f10870f.setVideoEncodingBitRate(8388608);
+            this.f10870f.setPreviewDisplay(this.f10871g.getSurface());
+            try {
+                this.f10870f.prepare();
+                return true;
+            } catch (IOException e2) {
+                if (l) {
+                    Log.d("SwanAppCameraManager", "IOException preparing MediaRecorder: " + e2.getMessage());
+                    e2.printStackTrace();
+                }
+                return false;
+            } catch (IllegalStateException e3) {
+                if (l) {
+                    Log.d("SwanAppCameraManager", "IllegalStateException preparing MediaRecorder: " + e3.getMessage());
+                    e3.printStackTrace();
+                }
+                return false;
             }
-            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public final void k() {
-        MediaRecorder mediaRecorder = this.f10798f;
-        if (mediaRecorder == null) {
+        MediaRecorder mediaRecorder;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (mediaRecorder = this.f10870f) == null) {
             return;
         }
         try {
@@ -400,15 +628,16 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 }
             }
         } finally {
-            this.f10798f.reset();
-            this.f10798f.release();
-            this.f10798f = null;
+            this.f10870f.reset();
+            this.f10870f.release();
+            this.f10870f = null;
         }
     }
 
     public final void l(Camera camera, Camera.Parameters parameters, String str) {
         List<String> supportedFlashModes;
-        if (camera == null || parameters == null || (supportedFlashModes = parameters.getSupportedFlashModes()) == null || supportedFlashModes.isEmpty() || TextUtils.equals(str, parameters.getFlashMode()) || !supportedFlashModes.contains(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, camera, parameters, str) == null) || camera == null || parameters == null || (supportedFlashModes = parameters.getSupportedFlashModes()) == null || supportedFlashModes.isEmpty() || TextUtils.equals(str, parameters.getFlashMode()) || !supportedFlashModes.contains(str)) {
             return;
         }
         parameters.setFlashMode(str);
@@ -416,115 +645,165 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public boolean m(String str) {
-        setSaveMediaPath(str);
-        if (i()) {
-            this.f10798f.start();
-            return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            setSaveMediaPath(str);
+            if (i()) {
+                this.f10870f.start();
+                return true;
+            }
+            e();
+            return false;
         }
-        e();
-        return false;
+        return invokeL.booleanValue;
     }
 
     public boolean n() {
-        k();
-        Camera camera = m;
-        if (camera != null) {
-            camera.lock();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            k();
+            Camera camera = m;
+            if (camera != null) {
+                camera.lock();
+            }
+            ThumbnailUtils.createVideoThumbnail(getThumbPath(), 1);
+            return true;
         }
-        ThumbnailUtils.createVideoThumbnail(getThumbPath(), 1);
-        return true;
+        return invokeV.booleanValue;
     }
 
-    public void o(String str, d.a.m0.a.z.c.a aVar) {
-        m.takePicture(null, null, new a(str, aVar));
+    public void o(String str, d.a.q0.a.z.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, aVar) == null) {
+            m.takePicture(null, null, new a(this, str, aVar));
+        }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getPointerCount() == 1) {
-            try {
-                d.a.m0.a.z.d.a.d(motionEvent, m, getWidth(), getHeight());
-            } catch (Exception e2) {
-                if (l) {
-                    Log.d("SwanAppCameraManager", Log.getStackTraceString(e2));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
+            if (motionEvent.getPointerCount() == 1) {
+                try {
+                    d.a.q0.a.z.d.a.d(motionEvent, m, getWidth(), getHeight());
+                } catch (Exception e2) {
+                    if (l) {
+                        Log.d("SwanAppCameraManager", Log.getStackTraceString(e2));
+                    }
                 }
             }
+            return super.onTouchEvent(motionEvent);
         }
-        return super.onTouchEvent(motionEvent);
+        return invokeL.booleanValue;
     }
 
-    public void p(d.a.m0.a.z.e.a aVar) {
-        try {
-            this.k = aVar;
-            j();
-            getCameraInstance();
-            if (m != null) {
-                m.setPreviewDisplay(this.f10799g);
-                m.startPreview();
-                setCameraDisplayOrientation();
-                m.autoFocus(new b());
-            }
-        } catch (IOException | RuntimeException e2) {
-            d.a.m0.a.z.a.b().e(aVar.f44630g, aVar.f44629f, false);
-            if (l) {
-                e2.printStackTrace();
+    public void p(d.a.q0.a.z.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
+            try {
+                this.k = aVar;
+                j();
+                getCameraInstance();
+                if (m != null) {
+                    m.setPreviewDisplay(this.f10871g);
+                    m.startPreview();
+                    setCameraDisplayOrientation();
+                    m.autoFocus(new b(this));
+                }
+            } catch (IOException | RuntimeException e2) {
+                d.a.q0.a.z.a.b().e(aVar.f46780g, aVar.f46779f, false);
+                if (l) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
     public void setCameraDisplayOrientation() {
-        m.setDisplayOrientation(getDegree());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            m.setDisplayOrientation(getDegree());
+        }
     }
 
     public void setQuality(String str) {
-        this.f10800h = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.f10872h = str;
+        }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        if (l) {
-            Log.d("SwanAppCameraManager", "camera surfaceChanged");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048594, this, surfaceHolder, i2, i3, i4) == null) {
+            if (l) {
+                Log.d("SwanAppCameraManager", "camera surfaceChanged");
+            }
+            p(this.k);
         }
-        p(this.k);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        if (l) {
-            Log.d("SwanAppCameraManager", "camera surfaceCreated");
-        }
-        getCameraInstance();
-        try {
-            if (m == null) {
-                return;
-            }
-            m.setPreviewDisplay(surfaceHolder);
-            m.startPreview();
-            setCameraDisplayOrientation();
-        } catch (IOException | RuntimeException e2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, surfaceHolder) == null) {
             if (l) {
-                Log.d("SwanAppCameraManager", "Error setting camera preview: " + e2.getMessage());
-                e2.printStackTrace();
+                Log.d("SwanAppCameraManager", "camera surfaceCreated");
+            }
+            getCameraInstance();
+            try {
+                if (m == null) {
+                    return;
+                }
+                m.setPreviewDisplay(surfaceHolder);
+                m.startPreview();
+                setCameraDisplayOrientation();
+            } catch (IOException | RuntimeException e2) {
+                if (l) {
+                    Log.d("SwanAppCameraManager", "Error setting camera preview: " + e2.getMessage());
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        if (l) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, surfaceHolder) == null) && l) {
             Log.d("SwanAppCameraManager", "camera surfaceDestroyed");
         }
     }
 
-    public CameraPreview(Context context, d.a.m0.a.z.e.a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CameraPreview(Context context, d.a.q0.a.z.e.a aVar) {
         super(context);
-        this.f10800h = Quality.NORMAL.getQualityName();
-        this.f10801i = "";
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f10872h = Quality.NORMAL.getQualityName();
+        this.f10873i = "";
         this.j = "";
-        this.f10797e = context;
+        this.f10869e = context;
         this.k = aVar;
         SurfaceHolder holder = getHolder();
-        this.f10799g = holder;
+        this.f10871g = holder;
         holder.addCallback(this);
     }
 }

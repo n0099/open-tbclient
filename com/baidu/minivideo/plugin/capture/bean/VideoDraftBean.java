@@ -1,12 +1,21 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Serializable, Cloneable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int mBackUpType;
     public String mCoverPath;
     public String mDraftName;
@@ -18,9 +27,11 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
     public String mLocation;
     public String mMainTitle;
     public String mMusicData;
+    public float mOriginMusicVolume;
     public String mPreProcessVideoPath;
     public int mResumePage;
     public int mResumeRoute;
+    public boolean mSelected;
     public String mSubTitle;
     public long mTimeStamp;
     public String mTopicData;
@@ -28,10 +39,24 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
     public String mVideoPath;
     public String mVideoTempData;
     public int mVisibility;
-    public float mOriginMusicVolume = 1.0f;
-    public boolean mSelected = false;
 
     public VideoDraftBean(String str, String str2, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mOriginMusicVolume = 1.0f;
+        this.mSelected = false;
         this.mDraftName = str;
         this.mUserID = str2;
         this.mTimeStamp = j;
@@ -39,319 +64,480 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
     }
 
     public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj != null && VideoDraftBean.class == obj.getClass()) {
-            VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
-            if (this.mDraftName.equals(videoDraftBean.getDraftName()) && ((this.mVideoTempData != null && videoDraftBean.getVideoTempData() != null && this.mVideoTempData.equals(videoDraftBean.getVideoTempData())) || this.mResumeRoute == 1)) {
-                if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
-                    int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
-                    return this.mMusicData.substring(indexOf).equals(videoDraftBean.getMusicData().substring(indexOf));
-                } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
-                    return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj != null && VideoDraftBean.class == obj.getClass()) {
+                VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
+                if (this.mDraftName.equals(videoDraftBean.getDraftName()) && ((this.mVideoTempData != null && videoDraftBean.getVideoTempData() != null && this.mVideoTempData.equals(videoDraftBean.getVideoTempData())) || this.mResumeRoute == 1)) {
+                    if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
+                        int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
+                        return this.mMusicData.substring(indexOf).equals(videoDraftBean.getMusicData().substring(indexOf));
+                    } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
+                        return true;
+                    }
                 }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public boolean equalsMusic(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj != null && VideoDraftBean.class == obj.getClass()) {
-            VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
-            if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
-                if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
-                    int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
-                    if (indexOf == -1 || indexOf >= videoDraftBean.getMusicData().length()) {
-                        return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj != null && VideoDraftBean.class == obj.getClass()) {
+                VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
+                if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
+                    if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
+                        int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
+                        if (indexOf == -1 || indexOf >= videoDraftBean.getMusicData().length()) {
+                            return false;
+                        }
+                        String substring = this.mMusicData.substring(indexOf);
+                        if (indexOf >= videoDraftBean.getMusicData().length()) {
+                            return false;
+                        }
+                        return substring.equals(videoDraftBean.getMusicData().substring(indexOf));
+                    } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
+                        return true;
                     }
-                    String substring = this.mMusicData.substring(indexOf);
-                    if (indexOf >= videoDraftBean.getMusicData().length()) {
-                        return false;
-                    }
-                    return substring.equals(videoDraftBean.getMusicData().substring(indexOf));
-                } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
-                    return true;
                 }
             }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public int getBackupType() {
-        return this.mBackUpType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mBackUpType : invokeV.intValue;
     }
 
     public String getCoverPath() {
-        return this.mCoverPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCoverPath : (String) invokeV.objValue;
     }
 
     public String getDraftName() {
-        return this.mDraftName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDraftName : (String) invokeV.objValue;
     }
 
     public boolean getDraftSelectedStatus() {
-        return this.mSelected;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSelected : invokeV.booleanValue;
     }
 
     public String getEffectData() {
-        return this.mEffectData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mEffectData : (String) invokeV.objValue;
     }
 
     public String getFilterValue() {
-        return this.mFilterValue;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mFilterValue : (String) invokeV.objValue;
     }
 
     public String getFollowData() {
-        return this.mFollowData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mFollowData : (String) invokeV.objValue;
     }
 
     public String getLocalAlbumData() {
-        return this.mLocalAlbumData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mLocalAlbumData : (String) invokeV.objValue;
     }
 
     public String getLocalAlbumThemeData() {
-        return this.mLocalAlbumThemeData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mLocalAlbumThemeData : (String) invokeV.objValue;
     }
 
     public String getLocation() {
-        return this.mLocation;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mLocation : (String) invokeV.objValue;
     }
 
     public String getMainTitle() {
-        return this.mMainTitle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mMainTitle : (String) invokeV.objValue;
     }
 
     public String getMusicData() {
-        return this.mMusicData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mMusicData : (String) invokeV.objValue;
     }
 
     public float getOriginMusicVolume() {
-        return this.mOriginMusicVolume;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mOriginMusicVolume : invokeV.floatValue;
     }
 
     public String getPreProcessVideoPath() {
-        return this.mPreProcessVideoPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mPreProcessVideoPath : (String) invokeV.objValue;
     }
 
     public int getResumePage() {
-        return this.mResumePage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mResumePage : invokeV.intValue;
     }
 
     public int getResumeRoute() {
-        return this.mResumeRoute;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mResumeRoute : invokeV.intValue;
     }
 
     public String getSubTitle() {
-        return this.mSubTitle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mSubTitle : (String) invokeV.objValue;
     }
 
     public long getTimeStamp() {
-        return this.mTimeStamp;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mTimeStamp : invokeV.longValue;
     }
 
     public String getTopicData() {
-        return this.mTopicData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mTopicData : (String) invokeV.objValue;
     }
 
     public String getUserID() {
-        return this.mUserID;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mUserID : (String) invokeV.objValue;
     }
 
     public String getVideoPath() {
-        return this.mVideoPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mVideoPath : (String) invokeV.objValue;
     }
 
     public String getVideoTempData() {
-        return this.mVideoTempData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mVideoTempData : (String) invokeV.objValue;
     }
 
     public int getVisibility() {
-        return this.mVisibility;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mVisibility : invokeV.intValue;
     }
 
     public int hashCode() {
-        return this.mDraftName.hashCode() + (this.mMusicData.hashCode() * 31) + (this.mVideoTempData.hashCode() * 31);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mDraftName.hashCode() + (this.mMusicData.hashCode() * 31) + (this.mVideoTempData.hashCode() * 31) : invokeV.intValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
     public boolean parse(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.mDraftName = jSONObject.optString("mDraftName");
-            this.mUserID = jSONObject.optString("mUserID");
-            this.mVideoTempData = jSONObject.optString("mVideoTempData");
-            this.mVideoPath = jSONObject.optString("mVideoPath");
-            this.mMusicData = jSONObject.optString("mMusicData");
-            this.mMainTitle = jSONObject.optString("mMainTitle");
-            this.mSubTitle = jSONObject.optString("mSubTitle");
-            this.mTopicData = jSONObject.optString("mTopicData");
-            this.mVisibility = jSONObject.optInt("mVisibility");
-            this.mResumeRoute = jSONObject.optInt("mResumeRoute");
-            this.mTimeStamp = jSONObject.optLong("mTimeStamp");
-            this.mResumePage = jSONObject.optInt("mResumePage");
-            this.mBackUpType = jSONObject.optInt("mBackUpType");
-            this.mEffectData = jSONObject.optString("mEffectData");
-            this.mCoverPath = jSONObject.optString("mCoverPath");
-            this.mLocation = jSONObject.optString("mLocation");
-            this.mPreProcessVideoPath = jSONObject.optString("mPreProcessVideoPath");
-            this.mFollowData = jSONObject.optString("mFollowData");
-            this.mOriginMusicVolume = (float) jSONObject.optDouble("mOriginMusicVolume");
-            return true;
-        } catch (JSONException unused) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.mDraftName = jSONObject.optString("mDraftName");
+                this.mUserID = jSONObject.optString("mUserID");
+                this.mVideoTempData = jSONObject.optString("mVideoTempData");
+                this.mVideoPath = jSONObject.optString("mVideoPath");
+                this.mMusicData = jSONObject.optString("mMusicData");
+                this.mMainTitle = jSONObject.optString("mMainTitle");
+                this.mSubTitle = jSONObject.optString("mSubTitle");
+                this.mTopicData = jSONObject.optString("mTopicData");
+                this.mVisibility = jSONObject.optInt("mVisibility");
+                this.mResumeRoute = jSONObject.optInt("mResumeRoute");
+                this.mTimeStamp = jSONObject.optLong("mTimeStamp");
+                this.mResumePage = jSONObject.optInt("mResumePage");
+                this.mBackUpType = jSONObject.optInt("mBackUpType");
+                this.mEffectData = jSONObject.optString("mEffectData");
+                this.mCoverPath = jSONObject.optString("mCoverPath");
+                this.mLocation = jSONObject.optString("mLocation");
+                this.mPreProcessVideoPath = jSONObject.optString("mPreProcessVideoPath");
+                this.mFollowData = jSONObject.optString("mFollowData");
+                this.mOriginMusicVolume = (float) jSONObject.optDouble("mOriginMusicVolume");
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
     public void setBackUpType(int i2) {
-        this.mBackUpType = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+            this.mBackUpType = i2;
+        }
     }
 
     public void setCoverPath(String str) {
-        this.mCoverPath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            this.mCoverPath = str;
+        }
     }
 
     public void setDraftName(String str) {
-        this.mDraftName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+            this.mDraftName = str;
+        }
     }
 
     public void setDraftSelected(boolean z) {
-        this.mSelected = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+            this.mSelected = z;
+        }
     }
 
     public void setEffectData(String str) {
-        this.mEffectData = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.mEffectData = str;
+        }
     }
 
     public void setFilterValue(String str) {
-        this.mFilterValue = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+            this.mFilterValue = str;
+        }
     }
 
     public void setFollowData(String str) {
-        this.mFollowData = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+            this.mFollowData = str;
+        }
     }
 
     public void setLocalAlbumData(String str) {
-        this.mLocalAlbumData = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+            this.mLocalAlbumData = str;
+        }
     }
 
     public void setLocalAlbumThemeData(String str) {
-        this.mLocalAlbumThemeData = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+            this.mLocalAlbumThemeData = str;
+        }
     }
 
     public void setLocation(String str) {
-        this.mLocation = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+            this.mLocation = str;
+        }
     }
 
     public void setMainTitle(String str) {
-        this.mMainTitle = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+            this.mMainTitle = str;
+        }
     }
 
     public void setMusicData(String str) {
-        this.mMusicData = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+            this.mMusicData = str;
+        }
     }
 
     public void setOriginMusicVolume(float f2) {
-        this.mOriginMusicVolume = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
+            this.mOriginMusicVolume = f2;
+        }
     }
 
     public void setPreProcessVideoPath(String str) {
-        this.mPreProcessVideoPath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+            this.mPreProcessVideoPath = str;
+        }
     }
 
     public void setResumePage(int i2) {
-        this.mResumePage = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+            this.mResumePage = i2;
+        }
     }
 
     public void setResumeRoute(int i2) {
-        this.mResumeRoute = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            this.mResumeRoute = i2;
+        }
     }
 
     public void setSubTitle(String str) {
-        this.mSubTitle = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+            this.mSubTitle = str;
+        }
     }
 
     public void setTimeStamp(long j) {
-        this.mTimeStamp = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+            this.mTimeStamp = j;
+        }
     }
 
     public void setTopicData(String str) {
-        this.mTopicData = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
+            this.mTopicData = str;
+        }
     }
 
     public void setUserID(String str) {
-        this.mUserID = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
+            this.mUserID = str;
+        }
     }
 
     public void setVideoPath(String str) {
-        this.mVideoPath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+            this.mVideoPath = str;
+        }
     }
 
     public void setVideoTempData(String str) {
-        this.mVideoTempData = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+            this.mVideoTempData = str;
+        }
     }
 
     public void setVisibility(int i2) {
-        this.mVisibility = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+            this.mVisibility = i2;
+        }
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
     public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("mDraftName", this.mDraftName);
-            jSONObject.put("mUserID", this.mUserID);
-            jSONObject.put("mVideoTempData", this.mVideoTempData);
-            jSONObject.put("mVideoPath", this.mVideoPath);
-            jSONObject.put("mMusicData", this.mMusicData);
-            jSONObject.put("mMainTitle", this.mMainTitle);
-            jSONObject.put("mSubTitle", this.mSubTitle);
-            jSONObject.put("mTopicData", this.mTopicData);
-            jSONObject.put("mVisibility", this.mVisibility);
-            jSONObject.put("mResumeRoute", this.mResumeRoute);
-            jSONObject.put("mTimeStamp", this.mTimeStamp);
-            jSONObject.put("mResumePage", this.mResumePage);
-            jSONObject.put("mBackUpType", this.mBackUpType);
-            jSONObject.put("mEffectData", this.mEffectData);
-            jSONObject.put("mCoverPath", this.mCoverPath);
-            jSONObject.put("mLocation", this.mLocation);
-            jSONObject.put("mPreProcessVideoPath", this.mPreProcessVideoPath);
-            jSONObject.put("mFollowData", this.mFollowData);
-            jSONObject.put("mOriginMusicVolume", this.mOriginMusicVolume);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mDraftName", this.mDraftName);
+                jSONObject.put("mUserID", this.mUserID);
+                jSONObject.put("mVideoTempData", this.mVideoTempData);
+                jSONObject.put("mVideoPath", this.mVideoPath);
+                jSONObject.put("mMusicData", this.mMusicData);
+                jSONObject.put("mMainTitle", this.mMainTitle);
+                jSONObject.put("mSubTitle", this.mSubTitle);
+                jSONObject.put("mTopicData", this.mTopicData);
+                jSONObject.put("mVisibility", this.mVisibility);
+                jSONObject.put("mResumeRoute", this.mResumeRoute);
+                jSONObject.put("mTimeStamp", this.mTimeStamp);
+                jSONObject.put("mResumePage", this.mResumePage);
+                jSONObject.put("mBackUpType", this.mBackUpType);
+                jSONObject.put("mEffectData", this.mEffectData);
+                jSONObject.put("mCoverPath", this.mCoverPath);
+                jSONObject.put("mLocation", this.mLocation);
+                jSONObject.put("mPreProcessVideoPath", this.mPreProcessVideoPath);
+                jSONObject.put("mFollowData", this.mFollowData);
+                jSONObject.put("mOriginMusicVolume", this.mOriginMusicVolume);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject;
         }
-        return jSONObject;
+        return (JSONObject) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public VideoDraftBean m12clone() {
-        try {
-            return (VideoDraftBean) super.clone();
-        } catch (CloneNotSupportedException e2) {
-            e2.printStackTrace();
-            return null;
+    public VideoDraftBean m20clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (VideoDraftBean) super.clone();
+            } catch (CloneNotSupportedException e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (VideoDraftBean) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(@NonNull VideoDraftBean videoDraftBean) {
-        if (videoDraftBean == null) {
-            return -1;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoDraftBean)) == null) {
+            if (videoDraftBean == null) {
+                return -1;
+            }
+            long j = this.mTimeStamp;
+            long j2 = videoDraftBean.mTimeStamp;
+            if (j > j2) {
+                return 1;
+            }
+            return j < j2 ? -1 : 0;
         }
-        long j = this.mTimeStamp;
-        long j2 = videoDraftBean.mTimeStamp;
-        if (j > j2) {
-            return 1;
-        }
-        return j < j2 ? -1 : 0;
+        return invokeL.intValue;
     }
 
     public VideoDraftBean() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mOriginMusicVolume = 1.0f;
+        this.mSelected = false;
     }
 }

@@ -1,6 +1,12 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class HttpConfig {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final boolean HTTP_DNS_BACKUPIPENABLE_DEFAULT = true;
     public static final String HTTP_DNS_BACKUPIPENABLE_SWITCH = "httpdns_backupip_enable";
@@ -24,4 +30,19 @@ public class HttpConfig {
     public static final String UBC_HTTP_EXCEPTION_ID = "850";
     public static final String UBC_HTTP_EXCEPTION_MONITOR_ID = "1217";
     public static final String UBC_HTTP_ID = "94";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public HttpConfig() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

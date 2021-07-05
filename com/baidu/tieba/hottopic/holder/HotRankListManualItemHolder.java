@@ -6,49 +6,71 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class HotRankListManualItemHolder extends TypeAdapter.ViewHolder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16931a;
+    public int f17057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f16932b;
+    public TextView f17058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f16933c;
+    public TextView f17059c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f16934d;
+    public TextView f17060d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f16935e;
+    public View f17061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f16936f;
+    public View f17062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f16937g;
+    public TbImageView f17063g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f16938h;
+    public LinearLayout f17064h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotRankListManualItemHolder(View view) {
         super(view);
-        this.f16931a = 3;
-        this.f16932b = null;
-        this.f16933c = null;
-        this.f16934d = null;
-        this.f16935e = null;
-        this.f16936f = null;
-        this.f16937g = null;
-        this.f16938h = null;
-        this.f16932b = (TextView) view.findViewById(R.id.topic_module);
-        this.f16934d = (TextView) view.findViewById(R.id.topic_desc);
-        this.f16933c = (TextView) view.findViewById(R.id.topic_title);
-        this.f16937g = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.f16935e = view.findViewById(R.id.devide_line_top);
-        this.f16936f = view.findViewById(R.id.devide_line_bottom);
-        this.f16938h = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17057a = 3;
+        this.f17058b = null;
+        this.f17059c = null;
+        this.f17060d = null;
+        this.f17061e = null;
+        this.f17062f = null;
+        this.f17063g = null;
+        this.f17064h = null;
+        this.f17058b = (TextView) view.findViewById(R.id.topic_module);
+        this.f17060d = (TextView) view.findViewById(R.id.topic_desc);
+        this.f17059c = (TextView) view.findViewById(R.id.topic_title);
+        this.f17063g = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.f17061e = view.findViewById(R.id.devide_line_top);
+        this.f17062f = view.findViewById(R.id.devide_line_bottom);
+        this.f17064h = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

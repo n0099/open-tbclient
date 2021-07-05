@@ -1,6 +1,12 @@
 package com.sina.weibo.sdk.net;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.security.KeyManagementException;
@@ -21,14 +27,33 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 /* loaded from: classes7.dex */
 public final class HttpsHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public SSLSocketFactory mSSLSocketFactory;
 
     /* loaded from: classes7.dex */
     public static class CustomX509TrustManager implements X509TrustManager {
-        public List<X509TrustManager> mTrustManagers = new ArrayList();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<X509TrustManager> mTrustManagers;
 
         public CustomX509TrustManager(KeyStore... keyStoreArr) {
             TrustManager[] trustManagers;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {keyStoreArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mTrustManagers = new ArrayList();
             ArrayList<TrustManagerFactory> arrayList = new ArrayList();
             try {
                 TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -57,57 +82,92 @@ public final class HttpsHelper {
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.mTrustManagers.get(0).checkClientTrusted(x509CertificateArr, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
+                this.mTrustManagers.get(0).checkClientTrusted(x509CertificateArr, str);
+            }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            for (X509TrustManager x509TrustManager : this.mTrustManagers) {
-                x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
+                for (X509TrustManager x509TrustManager : this.mTrustManagers) {
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                }
             }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public X509Certificate[] getAcceptedIssuers() {
-            ArrayList arrayList = new ArrayList();
-            for (X509TrustManager x509TrustManager : this.mTrustManagers) {
-                arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                ArrayList arrayList = new ArrayList();
+                for (X509TrustManager x509TrustManager : this.mTrustManagers) {
+                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
+                }
+                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
             }
-            return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
+            return (X509Certificate[]) invokeV.objValue;
+        }
+    }
+
+    public HttpsHelper() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     private SSLSocketFactory getSSLSocketFactory(Context context) {
-        if (this.mSSLSocketFactory == null) {
-            try {
-                KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-                keyStore.load(null, null);
-                keyStore.setCertificateEntry("get_global_ca", loadCertificate(context));
-                SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, new TrustManager[]{new CustomX509TrustManager(keyStore)}, null);
-                this.mSSLSocketFactory = sSLContext.getSocketFactory();
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            } catch (KeyManagementException e3) {
-                e3.printStackTrace();
-            } catch (KeyStoreException e4) {
-                e4.printStackTrace();
-            } catch (NoSuchAlgorithmException e5) {
-                e5.printStackTrace();
-            } catch (CertificateException e6) {
-                e6.printStackTrace();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
+            if (this.mSSLSocketFactory == null) {
+                try {
+                    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+                    keyStore.load(null, null);
+                    keyStore.setCertificateEntry("get_global_ca", loadCertificate(context));
+                    SSLContext sSLContext = SSLContext.getInstance("TLS");
+                    sSLContext.init(null, new TrustManager[]{new CustomX509TrustManager(keyStore)}, null);
+                    this.mSSLSocketFactory = sSLContext.getSocketFactory();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                } catch (KeyManagementException e3) {
+                    e3.printStackTrace();
+                } catch (KeyStoreException e4) {
+                    e4.printStackTrace();
+                } catch (NoSuchAlgorithmException e5) {
+                    e5.printStackTrace();
+                } catch (CertificateException e6) {
+                    e6.printStackTrace();
+                }
             }
+            return this.mSSLSocketFactory;
         }
-        return this.mSSLSocketFactory;
+        return (SSLSocketFactory) invokeL.objValue;
     }
 
     private Certificate loadCertificate(Context context) throws CertificateException, IOException {
-        CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(context.getAssets().open("weibocn.cer"));
-        try {
-            return certificateFactory.generateCertificate(bufferedInputStream);
-        } finally {
-            bufferedInputStream.close();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
+            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(context.getAssets().open("weibocn.cer"));
+            try {
+                return certificateFactory.generateCertificate(bufferedInputStream);
+            } finally {
+                bufferedInputStream.close();
+            }
         }
+        return (Certificate) invokeL.objValue;
     }
 }

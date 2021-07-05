@@ -9,26 +9,33 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class FRSRefreshButton extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13124e;
+    public int f13208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13125f;
+    public int f13209f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f13126g;
+    public Paint f13210g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13127h;
+    public int f13211h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PorterDuffXfermode f13128i;
+    public PorterDuffXfermode f13212i;
     public PorterDuffXfermode j;
     public Drawable k;
     public int l;
@@ -36,18 +43,39 @@ public class FRSRefreshButton extends ImageView {
     public AlphaAnimation n;
     public AlphaAnimation o;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FRSRefreshButton(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void a(Canvas canvas) {
-        this.f13126g.setXfermode(this.f13128i);
-        canvas.drawPaint(this.f13126g);
-        this.f13126g.setXfermode(this.j);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            this.f13210g.setXfermode(this.f13212i);
+            canvas.drawPaint(this.f13210g);
+            this.f13210g.setXfermode(this.j);
+        }
     }
 
     public void b() {
-        if (this.m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.m) {
             AlphaAnimation alphaAnimation = this.n;
             if (alphaAnimation != null) {
                 alphaAnimation.cancel();
@@ -63,17 +91,21 @@ public class FRSRefreshButton extends ImageView {
     }
 
     public final void c() {
-        Paint paint = new Paint();
-        this.f13126g = paint;
-        paint.setAntiAlias(true);
-        this.f13126g.setStyle(Paint.Style.FILL);
-        this.f13126g.setAntiAlias(true);
-        this.k = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
-        setLayerType(1, null);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Paint paint = new Paint();
+            this.f13210g = paint;
+            paint.setAntiAlias(true);
+            this.f13210g.setStyle(Paint.Style.FILL);
+            this.f13210g.setAntiAlias(true);
+            this.k = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            setLayerType(1, null);
+        }
     }
 
     public void d(int i2) {
-        if (this.l == i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.l == i2) {
             return;
         }
         this.l = i2;
@@ -82,7 +114,8 @@ public class FRSRefreshButton extends ImageView {
     }
 
     public final void e(Canvas canvas) {
-        if (this.k == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.k == null) {
             return;
         }
         canvas.save();
@@ -96,7 +129,8 @@ public class FRSRefreshButton extends ImageView {
     }
 
     public void f() {
-        if (this.m) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.m) {
             return;
         }
         setVisibility(0);
@@ -115,17 +149,18 @@ public class FRSRefreshButton extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f13124e <= 0 || this.f13125f <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || this.f13208e <= 0 || this.f13209f <= 0) {
             return;
         }
         int saveCount = canvas.getSaveCount();
         canvas.save();
         a(canvas);
-        canvas.rotate(45.0f, this.f13124e / 2, this.f13125f / 2);
-        this.f13126g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
-        this.f13126g.setColor(SkinManager.getColor(this.f13127h));
-        int i2 = this.f13124e;
-        canvas.drawCircle(i2 / 2, this.f13125f / 2, (i2 / 2) - 20, this.f13126g);
+        canvas.rotate(45.0f, this.f13208e / 2, this.f13209f / 2);
+        this.f13210g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
+        this.f13210g.setColor(SkinManager.getColor(this.f13211h));
+        int i2 = this.f13208e;
+        canvas.drawCircle(i2 / 2, this.f13209f / 2, (i2 / 2) - 20, this.f13210g);
         e(canvas);
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
@@ -135,19 +170,56 @@ public class FRSRefreshButton extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        this.f13124e = getMeasuredWidth();
-        this.f13125f = getMeasuredHeight();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            this.f13208e = getMeasuredWidth();
+            this.f13209f = getMeasuredHeight();
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FRSRefreshButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FRSRefreshButton(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13127h = R.color.CAM_X0211;
-        this.f13128i = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f13211h = R.color.CAM_X0211;
+        this.f13212i = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         this.j = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.l = 3;
         this.m = false;

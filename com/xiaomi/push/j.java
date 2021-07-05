@@ -8,122 +8,205 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Looper;
 import android.os.Parcel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f41753a;
+        public final String f43496a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final boolean f809a;
+        public final boolean f812a;
 
         public a(String str, boolean z) {
-            this.f41753a = str;
-            this.f809a = z;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f43496a = str;
+            this.f812a = z;
         }
 
         public String a() {
-            return this.f41753a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43496a : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f41754a;
+        public final LinkedBlockingQueue<IBinder> f43497a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f810a;
+        public boolean f813a;
 
         public b() {
-            this.f810a = false;
-            this.f41754a = new LinkedBlockingQueue<>(1);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f813a = false;
+            this.f43497a = new LinkedBlockingQueue<>(1);
+        }
+
+        public /* synthetic */ b(k kVar) {
+            this();
         }
 
         public IBinder a() {
-            if (this.f810a) {
-                throw new IllegalStateException();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.f813a) {
+                    throw new IllegalStateException();
+                }
+                this.f813a = true;
+                return this.f43497a.poll(30000L, TimeUnit.MILLISECONDS);
             }
-            this.f810a = true;
-            return this.f41754a.poll(30000L, TimeUnit.MILLISECONDS);
+            return (IBinder) invokeV.objValue;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            try {
-                this.f41754a.put(iBinder);
-            } catch (InterruptedException unused) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
+                try {
+                    this.f43497a.put(iBinder);
+                } catch (InterruptedException unused) {
+                }
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class c implements IInterface {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f41755a;
+        public IBinder f43498a;
 
         public c(IBinder iBinder) {
-            this.f41755a = iBinder;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iBinder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f43498a = iBinder;
         }
 
         public String a() {
-            Parcel obtain = Parcel.obtain();
-            Parcel obtain2 = Parcel.obtain();
-            try {
-                obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                this.f41755a.transact(1, obtain, obtain2, 0);
-                obtain2.readException();
-                return obtain2.readString();
-            } finally {
-                obtain2.recycle();
-                obtain.recycle();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
+                    this.f43498a.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
             }
+            return (String) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f41755a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43498a : (IBinder) invokeV.objValue;
         }
     }
 
     public static a a(Context context) {
-        if (Looper.myLooper() != Looper.getMainLooper()) {
-            try {
-                context.getPackageManager().getPackageInfo("com.android.vending", 0);
-                b bVar = new b();
-                Intent intent = new Intent("com.google.android.gms.ads.identifier.service.START");
-                intent.setPackage("com.google.android.gms");
-                if (context.bindService(intent, bVar, 1)) {
-                    try {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                try {
+                    context.getPackageManager().getPackageInfo("com.android.vending", 0);
+                    b bVar = new b(null);
+                    Intent intent = new Intent("com.google.android.gms.ads.identifier.service.START");
+                    intent.setPackage("com.google.android.gms");
+                    if (context.bindService(intent, bVar, 1)) {
                         try {
-                            IBinder a2 = bVar.a();
-                            if (a2 != null) {
-                                return new a(new c(a2).a(), false);
+                            try {
+                                IBinder a2 = bVar.a();
+                                if (a2 != null) {
+                                    return new a(new c(a2).a(), false);
+                                }
+                            } catch (Exception e2) {
+                                throw e2;
                             }
-                        } catch (Exception e2) {
-                            throw e2;
+                        } finally {
+                            context.unbindService(bVar);
                         }
-                    } finally {
-                        context.unbindService(bVar);
                     }
+                    throw new IOException("Google Play connection failed");
+                } catch (Exception e3) {
+                    throw e3;
                 }
-                throw new IOException("Google Play connection failed");
-            } catch (Exception e3) {
-                throw e3;
             }
+            throw new IllegalStateException("Cannot be called from the main thread");
         }
-        throw new IllegalStateException("Cannot be called from the main thread");
+        return (a) invokeL.objValue;
     }
 }

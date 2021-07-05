@@ -1,30 +1,53 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public final class dx implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f41288a;
+    public final /* synthetic */ int f43031a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f305a;
+    public final /* synthetic */ Context f308a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f306a;
+    public final /* synthetic */ String f309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f41289b;
+    public final /* synthetic */ String f43032b;
 
     public dx(Context context, String str, int i2, String str2) {
-        this.f305a = context;
-        this.f306a = str;
-        this.f41288a = i2;
-        this.f41289b = str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f308a = context;
+        this.f309a = str;
+        this.f43031a = i2;
+        this.f43032b = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        dw.c(this.f305a, this.f306a, this.f41288a, this.f41289b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            dw.c(this.f308a, this.f309a, this.f43031a, this.f43032b);
+        }
     }
 }

@@ -1,6 +1,12 @@
 package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
@@ -8,53 +14,110 @@ import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1941263519515554943L;
-    public ShareUrlInfo data = new ShareUrlInfo();
+    public transient /* synthetic */ FieldHolder $fh;
+    public ShareUrlInfo data;
 
     /* loaded from: classes7.dex */
     public static class ShareUrlInfo implements com.kwad.sdk.core.b, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7887599282226106153L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String shareUrl;
 
+        public ShareUrlInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public void parseJson(@Nullable JSONObject jSONObject) {
-            this.shareUrl = jSONObject.optString("shareUrl");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.shareUrl = jSONObject.optString("shareUrl");
+            }
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "shareUrl", this.shareUrl);
-            return jSONObject;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                o.a(jSONObject, "shareUrl", this.shareUrl);
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
+    public PhotoShareInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.data = new ShareUrlInfo();
+    }
+
     public String getShareUrl() {
-        ShareUrlInfo shareUrlInfo = this.data;
-        return shareUrlInfo != null ? shareUrlInfo.shareUrl : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ShareUrlInfo shareUrlInfo = this.data;
+            return shareUrlInfo != null ? shareUrlInfo.shareUrl : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
-        return this.data == null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data == null : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public void parseJson(@Nullable JSONObject jSONObject) {
-        super.parseJson(jSONObject);
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.data.parseJson(new JSONObject(d.b(jSONObject.optString("data"))));
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            super.parseJson(jSONObject);
+            if (jSONObject == null) {
+                return;
+            }
+            try {
+                this.data.parseJson(new JSONObject(d.b(jSONObject.optString("data"))));
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+            }
         }
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public JSONObject toJson() {
-        JSONObject json = super.toJson();
-        o.a(json, "data", this.data);
-        return json;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject json = super.toJson();
+            o.a(json, "data", this.data);
+            return json;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

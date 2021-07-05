@@ -1,182 +1,226 @@
 package com.xiaomi.push;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.UnknownHostException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class gv {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ew f41475a;
+        public ew f43218a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f452a;
+        public String f455a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public static a a(Exception exc) {
-        m347a(exc);
-        boolean z = exc instanceof fw;
-        Exception exc2 = exc;
-        if (z) {
-            fw fwVar = (fw) exc;
-            exc2 = exc;
-            if (fwVar.a() != null) {
-                exc2 = fwVar.a();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
+            m361a(exc);
+            boolean z = exc instanceof fw;
+            Exception exc2 = exc;
+            if (z) {
+                fw fwVar = (fw) exc;
+                exc2 = exc;
+                if (fwVar.a() != null) {
+                    exc2 = fwVar.a();
+                }
             }
+            a aVar = new a();
+            String message = exc2.getMessage();
+            if (exc2.getCause() != null) {
+                message = exc2.getCause().getMessage();
+            }
+            String str = exc2.getClass().getSimpleName() + ":" + message;
+            int a2 = fn.a(exc2);
+            if (a2 != 0) {
+                aVar.f43218a = ew.a(ew.l.a() + a2);
+            }
+            if (aVar.f43218a == null) {
+                aVar.f43218a = ew.t;
+            }
+            if (aVar.f43218a == ew.t) {
+                aVar.f455a = str;
+            }
+            return aVar;
         }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        if (exc2.getCause() != null) {
-            message = exc2.getCause().getMessage();
-        }
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        int a2 = fn.a(exc2);
-        if (a2 != 0) {
-            aVar.f41475a = ew.a(ew.GSLB_REQUEST_SUCCESS.a() + a2);
-        }
-        if (aVar.f41475a == null) {
-            aVar.f41475a = ew.GSLB_TCP_ERR_OTHER;
-        }
-        if (aVar.f41475a == ew.GSLB_TCP_ERR_OTHER) {
-            aVar.f452a = str;
-        }
-        return aVar;
+        return (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m347a(Exception exc) {
-        if (exc == null) {
+    public static void m361a(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && exc == null) {
             throw null;
         }
     }
 
     public static a b(Exception exc) {
+        InterceptResult invokeL;
         ew ewVar;
         ew ewVar2;
         Throwable cause;
-        m347a(exc);
-        boolean z = exc instanceof fw;
-        Exception exc2 = exc;
-        if (z) {
-            fw fwVar = (fw) exc;
-            exc2 = exc;
-            if (fwVar.a() != null) {
-                exc2 = fwVar.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) {
+            m361a(exc);
+            boolean z = exc instanceof fw;
+            Exception exc2 = exc;
+            if (z) {
+                fw fwVar = (fw) exc;
+                exc2 = exc;
+                if (fwVar.a() != null) {
+                    exc2 = fwVar.a();
+                }
             }
-        }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        if (exc2.getCause() != null) {
-            message = exc2.getCause().getMessage();
-        }
-        int a2 = fn.a(exc2);
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        if (a2 != 0) {
-            ew a3 = ew.a(ew.CONN_SUCCESS.a() + a2);
-            aVar.f41475a = a3;
-            if (a3 == ew.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
-                ewVar = ew.CONN_BOSH_UNKNOWNHOST;
+            a aVar = new a();
+            String message = exc2.getMessage();
+            if (exc2.getCause() != null) {
+                message = exc2.getCause().getMessage();
             }
-            ewVar2 = aVar.f41475a;
-            if (ewVar2 != ew.CONN_TCP_ERR_OTHER || ewVar2 == ew.CONN_XMPP_ERR || ewVar2 == ew.CONN_BOSH_ERR) {
-                aVar.f452a = str;
+            int a2 = fn.a(exc2);
+            String str = exc2.getClass().getSimpleName() + ":" + message;
+            if (a2 != 0) {
+                ew a3 = ew.a(ew.v.a() + a2);
+                aVar.f43218a = a3;
+                if (a3 == ew.G && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
+                    ewVar = ew.F;
+                }
+                ewVar2 = aVar.f43218a;
+                if (ewVar2 != ew.D || ewVar2 == ew.E || ewVar2 == ew.G) {
+                    aVar.f455a = str;
+                }
+                return aVar;
             }
+            ewVar = ew.E;
+            aVar.f43218a = ewVar;
+            ewVar2 = aVar.f43218a;
+            if (ewVar2 != ew.D) {
+            }
+            aVar.f455a = str;
             return aVar;
         }
-        ewVar = ew.CONN_XMPP_ERR;
-        aVar.f41475a = ewVar;
-        ewVar2 = aVar.f41475a;
-        if (ewVar2 != ew.CONN_TCP_ERR_OTHER) {
-        }
-        aVar.f452a = str;
-        return aVar;
+        return (a) invokeL.objValue;
     }
 
     public static a c(Exception exc) {
+        InterceptResult invokeL;
         ew ewVar;
         ew ewVar2;
-        m347a(exc);
-        boolean z = exc instanceof fw;
-        Exception exc2 = exc;
-        if (z) {
-            fw fwVar = (fw) exc;
-            exc2 = exc;
-            if (fwVar.a() != null) {
-                exc2 = fwVar.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
+            m361a(exc);
+            boolean z = exc instanceof fw;
+            Exception exc2 = exc;
+            if (z) {
+                fw fwVar = (fw) exc;
+                exc2 = exc;
+                if (fwVar.a() != null) {
+                    exc2 = fwVar.a();
+                }
             }
-        }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        if (exc2.getCause() != null) {
-            message = exc2.getCause().getMessage();
-        }
-        int a2 = fn.a(exc2);
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        if (a2 == 105) {
-            ewVar = ew.BIND_TCP_READ_TIMEOUT;
-        } else if (a2 == 199) {
-            ewVar = ew.BIND_TCP_ERR;
-        } else if (a2 == 499) {
-            aVar.f41475a = ew.BIND_BOSH_ERR;
-            if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                ewVar = ew.BIND_BOSH_ITEM_NOT_FOUND;
+            a aVar = new a();
+            String message = exc2.getMessage();
+            if (exc2.getCause() != null) {
+                message = exc2.getCause().getMessage();
             }
-            ewVar2 = aVar.f41475a;
-            if (ewVar2 != ew.BIND_TCP_ERR || ewVar2 == ew.BIND_XMPP_ERR || ewVar2 == ew.BIND_BOSH_ERR) {
-                aVar.f452a = str;
+            int a2 = fn.a(exc2);
+            String str = exc2.getClass().getSimpleName() + ":" + message;
+            if (a2 == 105) {
+                ewVar = ew.L;
+            } else if (a2 == 199) {
+                ewVar = ew.O;
+            } else if (a2 == 499) {
+                aVar.f43218a = ew.R;
+                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
+                    ewVar = ew.Q;
+                }
+                ewVar2 = aVar.f43218a;
+                if (ewVar2 != ew.O || ewVar2 == ew.P || ewVar2 == ew.R) {
+                    aVar.f455a = str;
+                }
+                return aVar;
+            } else {
+                ewVar = a2 != 109 ? a2 != 110 ? ew.P : ew.N : ew.M;
             }
+            aVar.f43218a = ewVar;
+            ewVar2 = aVar.f43218a;
+            if (ewVar2 != ew.O) {
+            }
+            aVar.f455a = str;
             return aVar;
-        } else {
-            ewVar = a2 != 109 ? a2 != 110 ? ew.BIND_XMPP_ERR : ew.BIND_TCP_BROKEN_PIPE : ew.BIND_TCP_CONNRESET;
         }
-        aVar.f41475a = ewVar;
-        ewVar2 = aVar.f41475a;
-        if (ewVar2 != ew.BIND_TCP_ERR) {
-        }
-        aVar.f452a = str;
-        return aVar;
+        return (a) invokeL.objValue;
     }
 
     public static a d(Exception exc) {
+        InterceptResult invokeL;
         ew ewVar;
         ew ewVar2;
-        m347a(exc);
-        boolean z = exc instanceof fw;
-        Exception exc2 = exc;
-        if (z) {
-            fw fwVar = (fw) exc;
-            exc2 = exc;
-            if (fwVar.a() != null) {
-                exc2 = fwVar.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, exc)) == null) {
+            m361a(exc);
+            boolean z = exc instanceof fw;
+            Exception exc2 = exc;
+            if (z) {
+                fw fwVar = (fw) exc;
+                exc2 = exc;
+                if (fwVar.a() != null) {
+                    exc2 = fwVar.a();
+                }
             }
-        }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        int a2 = fn.a(exc2);
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        if (a2 == 105) {
-            ewVar = ew.CHANNEL_TCP_READTIMEOUT;
-        } else if (a2 == 199) {
-            ewVar = ew.CHANNEL_TCP_ERR;
-        } else if (a2 == 499) {
-            aVar.f41475a = ew.CHANNEL_BOSH_EXCEPTION;
-            if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                ewVar = ew.CHANNEL_BOSH_ITEMNOTFIND;
+            a aVar = new a();
+            String message = exc2.getMessage();
+            int a2 = fn.a(exc2);
+            String str = exc2.getClass().getSimpleName() + ":" + message;
+            if (a2 == 105) {
+                ewVar = ew.X;
+            } else if (a2 == 199) {
+                ewVar = ew.aa;
+            } else if (a2 == 499) {
+                aVar.f43218a = ew.ad;
+                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
+                    ewVar = ew.ac;
+                }
+                ewVar2 = aVar.f43218a;
+                if (ewVar2 != ew.aa || ewVar2 == ew.ab || ewVar2 == ew.ad) {
+                    aVar.f455a = str;
+                }
+                return aVar;
+            } else {
+                ewVar = a2 != 109 ? a2 != 110 ? ew.ab : ew.Z : ew.Y;
             }
-            ewVar2 = aVar.f41475a;
-            if (ewVar2 != ew.CHANNEL_TCP_ERR || ewVar2 == ew.CHANNEL_XMPPEXCEPTION || ewVar2 == ew.CHANNEL_BOSH_EXCEPTION) {
-                aVar.f452a = str;
+            aVar.f43218a = ewVar;
+            ewVar2 = aVar.f43218a;
+            if (ewVar2 != ew.aa) {
             }
+            aVar.f455a = str;
             return aVar;
-        } else {
-            ewVar = a2 != 109 ? a2 != 110 ? ew.CHANNEL_XMPPEXCEPTION : ew.CHANNEL_TCP_BROKEN_PIPE : ew.CHANNEL_TCP_CONNRESET;
         }
-        aVar.f41475a = ewVar;
-        ewVar2 = aVar.f41475a;
-        if (ewVar2 != ew.CHANNEL_TCP_ERR) {
-        }
-        aVar.f452a = str;
-        return aVar;
+        return (a) invokeL.objValue;
     }
 }

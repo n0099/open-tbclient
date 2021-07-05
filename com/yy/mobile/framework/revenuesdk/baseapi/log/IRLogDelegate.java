@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IRLogDelegate {
     void debug(Object obj, String str);
 

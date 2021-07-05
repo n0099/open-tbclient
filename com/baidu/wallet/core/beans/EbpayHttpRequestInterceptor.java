@@ -7,64 +7,90 @@ import com.baidu.apollon.restnet.rest.d;
 import com.baidu.apollon.utils.Base64Utils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.PayUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24033a = "EbpayClientHttpRequestInterceptor";
+    public static final String f24576a = "EbpayClientHttpRequestInterceptor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24034b = "wims";
+    public static final String f24577b = "wims";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f24035c = "wloc";
+    public static final String f24578c = "wloc";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f24036d = "wssn";
+    public static final String f24579d = "wssn";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f24037e = "cuid_1";
+    public static final String f24580e = "cuid_1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f24038f = "wmip";
+    public static final String f24581f = "wmip";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public EbpayHttpRequestInterceptor() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     private void a(StringBuffer stringBuffer) {
-        stringBuffer.append("BDUSS=");
-        stringBuffer.append(WalletLoginHelper.getInstance().getLoginToken());
-        stringBuffer.append(";");
-        stringBuffer.append("OPENBDUSS=");
-        stringBuffer.append(WalletLoginHelper.getInstance().getOpenLoginToken());
-        LogUtil.d("EbpayClientHttpRequestInterceptor", "setToken():" + ((Object) stringBuffer));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, stringBuffer) == null) {
+            stringBuffer.append("BDUSS=");
+            stringBuffer.append(WalletLoginHelper.getInstance().getLoginToken());
+            stringBuffer.append(";");
+            stringBuffer.append("OPENBDUSS=");
+            stringBuffer.append(WalletLoginHelper.getInstance().getOpenLoginToken());
+            LogUtil.d("EbpayClientHttpRequestInterceptor", "setToken():" + ((Object) stringBuffer));
+        }
     }
 
     @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
     public void intercept(Context context, d dVar) {
-        StringBuffer stringBuffer = new StringBuffer();
-        a(stringBuffer);
-        if (!TextUtils.isEmpty(AccountManager.getInstance(context).getBfbToken())) {
-            stringBuffer.append(";");
-            stringBuffer.append("token=");
-            stringBuffer.append(AccountManager.getInstance(context).getBfbToken());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            a(stringBuffer);
+            if (!TextUtils.isEmpty(AccountManager.getInstance(context).getBfbToken())) {
+                stringBuffer.append(";");
+                stringBuffer.append("token=");
+                stringBuffer.append(AccountManager.getInstance(context).getBfbToken());
+            }
+            dVar.a().a("Cookie", stringBuffer.toString());
+            LogUtil.i("EbpayClientHttpRequestInterceptor", "intercept. X_BAIDU_IE = " + dVar.e());
+            dVar.a().a("X_BAIDU_IE", dVar.e());
+            dVar.a().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("wims", "");
+                jSONObject.put("wmip", PayUtils.encrypt("phone_number", PhoneUtils.getIpInfo()));
+                jSONObject.put("wloc", PayUtils.encrypt("phone_number", PhoneUtils.getGPSLocation(context)));
+                jSONObject.put("wssn", "");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            dVar.a().a("wcp", new String(Base64Utils.encode(jSONObject.toString().getBytes())));
         }
-        dVar.a().a("Cookie", stringBuffer.toString());
-        LogUtil.i("EbpayClientHttpRequestInterceptor", "intercept. X_BAIDU_IE = " + dVar.e());
-        dVar.a().a("X_BAIDU_IE", dVar.e());
-        dVar.a().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("wims", "");
-            jSONObject.put("wmip", PayUtils.encrypt("phone_number", PhoneUtils.getIpInfo()));
-            jSONObject.put("wloc", PayUtils.encrypt("phone_number", PhoneUtils.getGPSLocation(context)));
-            jSONObject.put("wssn", "");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        dVar.a().a("wcp", new String(Base64Utils.encode(jSONObject.toString().getBytes())));
     }
 }

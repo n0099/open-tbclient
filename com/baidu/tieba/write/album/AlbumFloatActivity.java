@@ -5,105 +5,164 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import d.a.n0.t0.a;
-import d.a.o0.w3.k.e;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.t0.a;
+import d.a.s0.a4.k.e;
 /* loaded from: classes5.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public e albumView;
+
+    public AlbumFloatActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
-        if (this.albumView == null) {
-            e eVar = new e(this, null, linearLayout.getId(), R.id.root_stub);
-            this.albumView = eVar;
-            eVar.M(navigationBar);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
+            if (this.albumView == null) {
+                e eVar = new e(this, null, linearLayout.getId(), R.id.root_stub);
+                this.albumView = eVar;
+                eVar.R(navigationBar);
+            }
+            return this.albumView;
         }
-        return this.albumView;
+        return (a) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
-        if (i3 == -1) {
-            this.albumView.H(intent);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            if (i3 == -1) {
+                this.albumView.M(intent);
+            }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        e eVar = this.albumView;
-        if (eVar != null) {
-            eVar.onClick(view);
+        e eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (eVar = this.albumView) == null) {
+            return;
         }
+        eVar.onClick(view);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        e eVar = this.albumView;
-        if (eVar != null) {
-            eVar.w();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+            e eVar = this.albumView;
+            if (eVar != null) {
+                eVar.B();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        if (i2 == 4) {
-            this.albumView.v();
-            return true;
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, keyEvent)) == null) {
+            if (i2 == 4) {
+                this.albumView.A();
+                return true;
+            }
+            return super.onKeyDown(i2, keyEvent);
         }
-        return super.onKeyDown(i2, keyEvent);
+        return invokeIL.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        e eVar = this.albumView;
-        if (eVar != null) {
-            eVar.x();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            e eVar = this.albumView;
+            if (eVar != null) {
+                eVar.F();
+            }
+            super.onPause();
         }
-        super.onPause();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i2, strArr, iArr);
-        e eVar = this.albumView;
-        if (eVar != null) {
-            eVar.y(i2, strArr, iArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048582, this, i2, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i2, strArr, iArr);
+            e eVar = this.albumView;
+            if (eVar != null) {
+                eVar.G(i2, strArr, iArr);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        e eVar = this.albumView;
-        if (eVar != null) {
-            eVar.z();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            e eVar = this.albumView;
+            if (eVar != null) {
+                eVar.H();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
-        super.onStart();
-        e eVar = this.albumView;
-        if (eVar != null) {
-            eVar.B();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onStart();
+            e eVar = this.albumView;
+            if (eVar != null) {
+                eVar.J();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
-        super.onStop();
-        e eVar = this.albumView;
-        if (eVar != null) {
-            eVar.F();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onStop();
+            e eVar = this.albumView;
+            if (eVar != null) {
+                eVar.K();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void requestData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
     }
 }

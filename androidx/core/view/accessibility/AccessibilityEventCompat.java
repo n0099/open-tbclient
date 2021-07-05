@@ -3,8 +3,15 @@ package androidx.core.view.accessibility;
 import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityRecord;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class AccessibilityEventCompat {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION = 4;
     public static final int CONTENT_CHANGE_TYPE_PANE_APPEARED = 16;
     public static final int CONTENT_CHANGE_TYPE_PANE_DISAPPEARED = 32;
@@ -38,63 +45,108 @@ public final class AccessibilityEventCompat {
     public static final int TYPE_WINDOWS_CHANGED = 4194304;
     @Deprecated
     public static final int TYPE_WINDOW_CONTENT_CHANGED = 2048;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AccessibilityEventCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Deprecated
     public static void appendRecord(AccessibilityEvent accessibilityEvent, AccessibilityRecordCompat accessibilityRecordCompat) {
-        accessibilityEvent.appendRecord((AccessibilityRecord) accessibilityRecordCompat.getImpl());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, accessibilityEvent, accessibilityRecordCompat) == null) {
+            accessibilityEvent.appendRecord((AccessibilityRecord) accessibilityRecordCompat.getImpl());
+        }
     }
 
     @Deprecated
     public static AccessibilityRecordCompat asRecord(AccessibilityEvent accessibilityEvent) {
-        return new AccessibilityRecordCompat(accessibilityEvent);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, accessibilityEvent)) == null) ? new AccessibilityRecordCompat(accessibilityEvent) : (AccessibilityRecordCompat) invokeL.objValue;
     }
 
     public static int getAction(AccessibilityEvent accessibilityEvent) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            return accessibilityEvent.getAction();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, accessibilityEvent)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return accessibilityEvent.getAction();
+            }
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     public static int getContentChangeTypes(AccessibilityEvent accessibilityEvent) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            return accessibilityEvent.getContentChangeTypes();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, accessibilityEvent)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return accessibilityEvent.getContentChangeTypes();
+            }
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     public static int getMovementGranularity(AccessibilityEvent accessibilityEvent) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            return accessibilityEvent.getMovementGranularity();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, accessibilityEvent)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return accessibilityEvent.getMovementGranularity();
+            }
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     @Deprecated
     public static AccessibilityRecordCompat getRecord(AccessibilityEvent accessibilityEvent, int i2) {
-        return new AccessibilityRecordCompat(accessibilityEvent.getRecord(i2));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, accessibilityEvent, i2)) == null) ? new AccessibilityRecordCompat(accessibilityEvent.getRecord(i2)) : (AccessibilityRecordCompat) invokeLI.objValue;
     }
 
     @Deprecated
     public static int getRecordCount(AccessibilityEvent accessibilityEvent) {
-        return accessibilityEvent.getRecordCount();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, accessibilityEvent)) == null) ? accessibilityEvent.getRecordCount() : invokeL.intValue;
     }
 
     public static void setAction(AccessibilityEvent accessibilityEvent, int i2) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            accessibilityEvent.setAction(i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65544, null, accessibilityEvent, i2) == null) || Build.VERSION.SDK_INT < 16) {
+            return;
         }
+        accessibilityEvent.setAction(i2);
     }
 
     public static void setContentChangeTypes(AccessibilityEvent accessibilityEvent, int i2) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            accessibilityEvent.setContentChangeTypes(i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65545, null, accessibilityEvent, i2) == null) || Build.VERSION.SDK_INT < 19) {
+            return;
         }
+        accessibilityEvent.setContentChangeTypes(i2);
     }
 
     public static void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i2) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            accessibilityEvent.setMovementGranularity(i2);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65546, null, accessibilityEvent, i2) == null) || Build.VERSION.SDK_INT < 16) {
+            return;
         }
+        accessibilityEvent.setMovementGranularity(i2);
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.wallet.home.ui.widget;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface d {
     void a(boolean z);
 

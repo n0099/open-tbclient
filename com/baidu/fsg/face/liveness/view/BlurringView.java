@@ -12,151 +12,222 @@ import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class BlurringView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6031a;
+    public int f6061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6032b;
+    public int f6062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f6033c;
+    public View f6063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6034d;
+    public int f6064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6035e;
+    public int f6065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6036f;
+    public boolean f6066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f6037g;
+    public Bitmap f6067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f6038h;
+    public Bitmap f6068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Canvas f6039i;
+    public Canvas f6069i;
     public RenderScript j;
     public ScriptIntrinsicBlur k;
     public Allocation l;
     public Allocation m;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BlurringView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     private void a(Context context) {
-        RenderScript create = RenderScript.create(context);
-        this.j = create;
-        this.k = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
+            RenderScript create = RenderScript.create(context);
+            this.j = create;
+            this.k = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
+        }
     }
 
     public void blur() {
-        this.l.copyFrom(this.f6037g);
-        this.k.setInput(this.l);
-        this.k.forEach(this.m);
-        this.m.copyTo(this.f6038h);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.l.copyFrom(this.f6067g);
+            this.k.setInput(this.l);
+            this.k.forEach(this.m);
+            this.m.copyTo(this.f6068h);
+        }
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        RenderScript renderScript = this.j;
-        if (renderScript != null) {
-            renderScript.destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDetachedFromWindow();
+            RenderScript renderScript = this.j;
+            if (renderScript != null) {
+                renderScript.destroy();
+            }
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.f6033c != null) {
-            if (prepare()) {
-                if (this.f6033c.getBackground() != null && (this.f6033c.getBackground() instanceof ColorDrawable)) {
-                    this.f6037g.eraseColor(((ColorDrawable) this.f6033c.getBackground()).getColor());
-                } else {
-                    this.f6037g.eraseColor(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.f6063c != null) {
+                if (prepare()) {
+                    if (this.f6063c.getBackground() != null && (this.f6063c.getBackground() instanceof ColorDrawable)) {
+                        this.f6067g.eraseColor(((ColorDrawable) this.f6063c.getBackground()).getColor());
+                    } else {
+                        this.f6067g.eraseColor(0);
+                    }
+                    this.f6063c.draw(this.f6069i);
+                    blur();
+                    canvas.save();
+                    canvas.translate(this.f6063c.getX() - getX(), this.f6063c.getY() - getY());
+                    int i2 = this.f6061a;
+                    canvas.scale(i2, i2);
+                    canvas.drawBitmap(this.f6068h, 0.0f, 0.0f, (Paint) null);
+                    canvas.restore();
                 }
-                this.f6033c.draw(this.f6039i);
-                blur();
-                canvas.save();
-                canvas.translate(this.f6033c.getX() - getX(), this.f6033c.getY() - getY());
-                int i2 = this.f6031a;
-                canvas.scale(i2, i2);
-                canvas.drawBitmap(this.f6038h, 0.0f, 0.0f, (Paint) null);
-                canvas.restore();
+                canvas.drawColor(this.f6062b);
             }
-            canvas.drawColor(this.f6032b);
         }
     }
 
     public boolean prepare() {
-        int width = this.f6033c.getWidth();
-        int height = this.f6033c.getHeight();
-        if (this.f6039i == null || this.f6036f || this.f6034d != width || this.f6035e != height) {
-            this.f6036f = false;
-            this.f6034d = width;
-            this.f6035e = height;
-            int i2 = this.f6031a;
-            int i3 = width / i2;
-            int i4 = height / i2;
-            int i5 = (i3 - (i3 % 4)) + 4;
-            int i6 = (i4 - (i4 % 4)) + 4;
-            Bitmap bitmap = this.f6038h;
-            if (bitmap == null || bitmap.getWidth() != i5 || this.f6038h.getHeight() != i6) {
-                Bitmap createBitmap = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
-                this.f6037g = createBitmap;
-                if (createBitmap == null) {
-                    return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int width = this.f6063c.getWidth();
+            int height = this.f6063c.getHeight();
+            if (this.f6069i == null || this.f6066f || this.f6064d != width || this.f6065e != height) {
+                this.f6066f = false;
+                this.f6064d = width;
+                this.f6065e = height;
+                int i2 = this.f6061a;
+                int i3 = width / i2;
+                int i4 = height / i2;
+                int i5 = (i3 - (i3 % 4)) + 4;
+                int i6 = (i4 - (i4 % 4)) + 4;
+                Bitmap bitmap = this.f6068h;
+                if (bitmap == null || bitmap.getWidth() != i5 || this.f6068h.getHeight() != i6) {
+                    Bitmap createBitmap = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
+                    this.f6067g = createBitmap;
+                    if (createBitmap == null) {
+                        return false;
+                    }
+                    Bitmap createBitmap2 = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
+                    this.f6068h = createBitmap2;
+                    if (createBitmap2 == null) {
+                        return false;
+                    }
                 }
-                Bitmap createBitmap2 = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
-                this.f6038h = createBitmap2;
-                if (createBitmap2 == null) {
-                    return false;
-                }
+                Canvas canvas = new Canvas(this.f6067g);
+                this.f6069i = canvas;
+                int i7 = this.f6061a;
+                canvas.scale(1.0f / i7, 1.0f / i7);
+                Allocation createFromBitmap = Allocation.createFromBitmap(this.j, this.f6067g, Allocation.MipmapControl.MIPMAP_NONE, 1);
+                this.l = createFromBitmap;
+                this.m = Allocation.createTyped(this.j, createFromBitmap.getType());
             }
-            Canvas canvas = new Canvas(this.f6037g);
-            this.f6039i = canvas;
-            int i7 = this.f6031a;
-            canvas.scale(1.0f / i7, 1.0f / i7);
-            Allocation createFromBitmap = Allocation.createFromBitmap(this.j, this.f6037g, Allocation.MipmapControl.MIPMAP_NONE, 1);
-            this.l = createFromBitmap;
-            this.m = Allocation.createTyped(this.j, createFromBitmap.getType());
+            return true;
         }
-        return true;
+        return invokeV.booleanValue;
     }
 
     public void setBlurRadius(int i2) {
-        this.k.setRadius(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.k.setRadius(i2);
+        }
     }
 
     public void setBlurredView(View view) {
-        this.f6033c = view;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
+            this.f6063c = view;
+        }
     }
 
     public void setDownsampleFactor(int i2) {
-        if (i2 > 0) {
-            if (this.f6031a != i2) {
-                this.f6031a = i2;
-                this.f6036f = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            if (i2 > 0) {
+                if (this.f6061a != i2) {
+                    this.f6061a = i2;
+                    this.f6066f = true;
+                    return;
+                }
                 return;
             }
-            return;
+            throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
-        throw new IllegalArgumentException("Downsample factor must be greater than 0.");
     }
 
     public void setOverlayColor(int i2) {
-        this.f6032b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.f6062b = i2;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlurringView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         int parseColor = Color.parseColor("#96FFFFFF");
         a(context);
         setBlurRadius(11);

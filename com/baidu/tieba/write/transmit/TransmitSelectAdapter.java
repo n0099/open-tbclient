@@ -11,6 +11,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
 import com.baidu.tbadk.core.data.HotTopicBussinessData;
 import com.baidu.tbadk.core.data.TransmitForumData;
@@ -19,18 +20,25 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.k.e.n;
 import d.a.c.k.e.w;
-import d.a.o0.m1.a;
-import d.a.o0.w3.q.c;
+import d.a.s0.a4.q.c;
+import d.a.s0.p1.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes5.dex */
 public class TransmitSelectAdapter extends d.a.c.k.e.a<c, TransmitSelectViewHolder> {
-    public d.a.o0.m1.a m;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public d.a.s0.p1.a m;
     public ArrayList<HotTopicBussinessData> n;
     public List<TransmitForumData> o;
     public w p;
@@ -38,70 +46,153 @@ public class TransmitSelectAdapter extends d.a.c.k.e.a<c, TransmitSelectViewHold
 
     /* loaded from: classes5.dex */
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f22050a;
+        public TextView f22565a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f22051b;
+        public ImageView f22566b;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.f22050a = (TextView) view.findViewById(R.id.select_by_self);
-            this.f22051b = (ImageView) view.findViewById(R.id.add_icon);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22565a = (TextView) view.findViewById(R.id.select_by_self);
+            this.f22566b = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
     /* loaded from: classes5.dex */
     public class a implements w {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TransmitSelectAdapter f22567e;
+
+        public a(TransmitSelectAdapter transmitSelectAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {transmitSelectAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22567e = transmitSelectAdapter;
         }
 
         @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
-            if (!j.z()) {
-                l.L(TransmitSelectAdapter.this.f43012e, R.string.neterror);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                if (!j.z()) {
+                    l.L(this.f22567e.f44821e, R.string.neterror);
+                }
+                TiebaStatic.log(new StatisticItem("c12053"));
+                if (!ListUtils.isEmpty(this.f22567e.n)) {
+                    this.f22567e.v0();
+                    return;
+                }
+                TransmitSelectAdapter transmitSelectAdapter = this.f22567e;
+                transmitSelectAdapter.m = new d.a.s0.p1.a(transmitSelectAdapter.f44825i);
+                this.f22567e.m.g(this.f22567e.q);
+                this.f22567e.m.f();
             }
-            TiebaStatic.log(new StatisticItem("c12053"));
-            if (!ListUtils.isEmpty(TransmitSelectAdapter.this.n)) {
-                TransmitSelectAdapter.this.v0();
-                return;
-            }
-            TransmitSelectAdapter transmitSelectAdapter = TransmitSelectAdapter.this;
-            transmitSelectAdapter.m = new d.a.o0.m1.a(transmitSelectAdapter.f43016i);
-            TransmitSelectAdapter.this.m.g(TransmitSelectAdapter.this.q);
-            TransmitSelectAdapter.this.m.f();
         }
     }
 
     /* loaded from: classes5.dex */
     public class b implements a.b {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ TransmitSelectAdapter f22568a;
+
+        public b(TransmitSelectAdapter transmitSelectAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {transmitSelectAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22568a = transmitSelectAdapter;
         }
 
-        @Override // d.a.o0.m1.a.b
+        @Override // d.a.s0.p1.a.b
         public void a(boolean z, int i2, String str, List<ForumInfo> list) {
-            ArrayList arrayList = new ArrayList();
-            if (ListUtils.getCount(list) > 0) {
-                int size = list.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    ForumInfo forumInfo = list.get(i3);
-                    if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !TransmitSelectAdapter.this.t0(forumInfo.forum_id.longValue())) {
-                        arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, list}) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (ListUtils.getCount(list) > 0) {
+                    int size = list.size();
+                    for (int i3 = 0; i3 < size; i3++) {
+                        ForumInfo forumInfo = list.get(i3);
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f22568a.t0(forumInfo.forum_id.longValue())) {
+                            arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
+                        }
                     }
-                }
-                if (TransmitSelectAdapter.this.n == null) {
-                    TransmitSelectAdapter.this.n = arrayList;
-                    TransmitSelectAdapter.this.v0();
+                    if (this.f22568a.n == null) {
+                        this.f22568a.n = arrayList;
+                        this.f22568a.v0();
+                    }
                 }
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TransmitSelectAdapter(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.p = new a();
-        this.q = new b();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId, bdUniqueId2, list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.p = new a(this);
+        this.q = new b(this);
         a0(this.p);
         this.o = list;
     }
@@ -114,48 +205,70 @@ public class TransmitSelectAdapter extends d.a.c.k.e.a<c, TransmitSelectViewHold
     }
 
     public void q0() {
-        d.a.o0.m1.a aVar = this.m;
-        if (aVar != null) {
-            aVar.e();
+        d.a.s0.p1.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.m) == null) {
+            return;
         }
+        aVar.e();
     }
 
     public HotTopicBussinessData s0(int i2) {
-        if (ListUtils.isEmpty(this.n)) {
-            return null;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            if (ListUtils.isEmpty(this.n)) {
+                return null;
+            }
+            return this.n.remove(i2);
         }
-        return this.n.remove(i2);
+        return (HotTopicBussinessData) invokeI.objValue;
     }
 
     public final boolean t0(long j) {
-        List<TransmitForumData> list = this.o;
-        if (list == null) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            List<TransmitForumData> list = this.o;
+            if (list == null) {
+                return false;
+            }
+            for (TransmitForumData transmitForumData : list) {
+                if (transmitForumData != null && transmitForumData.forumId == j) {
+                    return true;
+                }
+            }
             return false;
         }
-        for (TransmitForumData transmitForumData : list) {
-            if (transmitForumData != null && transmitForumData.forumId == j) {
-                return true;
-            }
-        }
-        return false;
+        return invokeJ.booleanValue;
     }
 
     public final void v0() {
-        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f43012e, 25005, this.n);
-        hotTopicChangeActivityConfig.setUseOriginList(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f44821e, 25005, this.n);
+            hotTopicChangeActivityConfig.setUseOriginList(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
     /* renamed from: w0 */
     public TransmitSelectViewHolder Q(ViewGroup viewGroup) {
-        return new TransmitSelectViewHolder(LayoutInflater.from(this.f43012e).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new TransmitSelectViewHolder(LayoutInflater.from(this.f44821e).inflate(R.layout.transmit_select_layout, (ViewGroup) null)) : (TransmitSelectViewHolder) invokeL.objValue;
     }
 
     public View x0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        SkinManager.setViewTextColor(transmitSelectViewHolder.f22050a, R.color.CAM_X0302);
-        SkinManager.setImageResource(transmitSelectViewHolder.f22051b, R.drawable.icon_post_add_ba_n);
-        return view;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), view, viewGroup, cVar, transmitSelectViewHolder})) == null) {
+            SkinManager.setViewTextColor(transmitSelectViewHolder.f22565a, R.color.CAM_X0302);
+            SkinManager.setImageResource(transmitSelectViewHolder.f22566b, R.drawable.icon_post_add_ba_n);
+            return view;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

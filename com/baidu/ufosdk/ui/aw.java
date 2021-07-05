@@ -2,16 +2,36 @@ package com.baidu.ufosdk.ui;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class aw extends TimerTask {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av f22833a;
+    public final /* synthetic */ av f23349a;
 
     public aw(av avVar) {
-        this.f22833a = avVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {avVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23349a = avVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -20,16 +40,19 @@ public final class aw extends TimerTask {
         Timer timer;
         Timer timer2;
         Timer timer3;
-        Message message = new Message();
-        message.what = 3;
-        handler = this.f22833a.f22832a.v;
-        handler.sendMessage(message);
-        timer = this.f22833a.f22832a.p;
-        if (timer != null) {
-            timer2 = this.f22833a.f22832a.p;
-            timer2.cancel();
-            timer3 = this.f22833a.f22832a.p;
-            timer3.purge();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Message message = new Message();
+            message.what = 3;
+            handler = this.f23349a.f23348a.v;
+            handler.sendMessage(message);
+            timer = this.f23349a.f23348a.p;
+            if (timer != null) {
+                timer2 = this.f23349a.f23348a.p;
+                timer2.cancel();
+                timer3 = this.f23349a.f23348a.p;
+                timer3.purge();
+            }
         }
     }
 }

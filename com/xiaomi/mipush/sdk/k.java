@@ -1,27 +1,47 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes7.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public /* synthetic */ class k {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f41053a;
+    public static final /* synthetic */ int[] f42796a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(78186084, "Lcom/xiaomi/mipush/sdk/k;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(78186084, "Lcom/xiaomi/mipush/sdk/k;");
+                return;
+            }
+        }
         int[] iArr = new int[e.values().length];
-        f41053a = iArr;
+        f42796a = iArr;
         try {
-            iArr[e.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
+            iArr[e.f42787a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f41053a[e.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
+            f42796a[e.f42788b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f41053a[e.ASSEMBLE_PUSH_COS.ordinal()] = 3;
+            f42796a[e.f42789c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f41053a[e.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
+            f42796a[e.f42790d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
     }

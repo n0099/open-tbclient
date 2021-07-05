@@ -1,5 +1,12 @@
 package io.reactivex.internal.operators.mixed;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
@@ -21,202 +28,271 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 @Experimental
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ObservableConcatMapCompletable<T> extends Completable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
     public final Function<? super T, ? extends CompletableSource> mapper;
     public final int prefetch;
     public final Observable<T> source;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class ConcatMapCompletableObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3610901111000061034L;
+        public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean active;
         public volatile boolean disposed;
         public volatile boolean done;
         public final CompletableObserver downstream;
         public final ErrorMode errorMode;
-        public final AtomicThrowable errors = new AtomicThrowable();
-        public final ConcatMapInnerObserver inner = new ConcatMapInnerObserver(this);
+        public final AtomicThrowable errors;
+        public final ConcatMapInnerObserver inner;
         public final Function<? super T, ? extends CompletableSource> mapper;
         public final int prefetch;
         public SimpleQueue<T> queue;
         public Disposable upstream;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes10.dex */
         public static final class ConcatMapInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
+            public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 5638352172918776687L;
+            public transient /* synthetic */ FieldHolder $fh;
             public final ConcatMapCompletableObserver<?> parent;
 
             public ConcatMapInnerObserver(ConcatMapCompletableObserver<?> concatMapCompletableObserver) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {concatMapCompletableObserver};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
                 this.parent = concatMapCompletableObserver;
             }
 
             public void dispose() {
-                DisposableHelper.dispose(this);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
+                }
             }
 
             @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
             public void onComplete() {
-                this.parent.innerComplete();
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.parent.innerComplete();
+                }
             }
 
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
-                this.parent.innerError(th);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                    this.parent.innerError(th);
+                }
             }
 
             @Override // io.reactivex.CompletableObserver
             public void onSubscribe(Disposable disposable) {
-                DisposableHelper.replace(this, disposable);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                    DisposableHelper.replace(this, disposable);
+                }
             }
         }
 
         public ConcatMapCompletableObserver(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {completableObserver, function, errorMode, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.downstream = completableObserver;
             this.mapper = function;
             this.errorMode = errorMode;
             this.prefetch = i2;
+            this.errors = new AtomicThrowable();
+            this.inner = new ConcatMapInnerObserver(this);
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.disposed = true;
-            this.upstream.dispose();
-            this.inner.dispose();
-            if (getAndIncrement() == 0) {
-                this.queue.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.disposed = true;
+                this.upstream.dispose();
+                this.inner.dispose();
+                if (getAndIncrement() == 0) {
+                    this.queue.clear();
+                }
             }
         }
 
         public void drain() {
             boolean z;
-            if (getAndIncrement() != 0) {
-                return;
-            }
-            AtomicThrowable atomicThrowable = this.errors;
-            ErrorMode errorMode = this.errorMode;
-            while (!this.disposed) {
-                if (!this.active) {
-                    if (errorMode == ErrorMode.BOUNDARY && atomicThrowable.get() != null) {
-                        this.disposed = true;
-                        this.queue.clear();
-                        this.downstream.onError(atomicThrowable.terminate());
-                        return;
-                    }
-                    boolean z2 = this.done;
-                    CompletableSource completableSource = null;
-                    try {
-                        T poll = this.queue.poll();
-                        if (poll != null) {
-                            completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null CompletableSource");
-                            z = false;
-                        } else {
-                            z = true;
-                        }
-                        if (z2 && z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
+                AtomicThrowable atomicThrowable = this.errors;
+                ErrorMode errorMode = this.errorMode;
+                while (!this.disposed) {
+                    if (!this.active) {
+                        if (errorMode == ErrorMode.BOUNDARY && atomicThrowable.get() != null) {
                             this.disposed = true;
-                            Throwable terminate = atomicThrowable.terminate();
-                            if (terminate != null) {
-                                this.downstream.onError(terminate);
-                                return;
-                            } else {
-                                this.downstream.onComplete();
-                                return;
-                            }
-                        } else if (!z) {
-                            this.active = true;
-                            completableSource.subscribe(this.inner);
+                            this.queue.clear();
+                            this.downstream.onError(atomicThrowable.terminate());
+                            return;
                         }
-                    } catch (Throwable th) {
-                        Exceptions.throwIfFatal(th);
-                        this.disposed = true;
-                        this.queue.clear();
-                        this.upstream.dispose();
-                        atomicThrowable.addThrowable(th);
-                        this.downstream.onError(atomicThrowable.terminate());
+                        boolean z2 = this.done;
+                        CompletableSource completableSource = null;
+                        try {
+                            T poll = this.queue.poll();
+                            if (poll != null) {
+                                completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null CompletableSource");
+                                z = false;
+                            } else {
+                                z = true;
+                            }
+                            if (z2 && z) {
+                                this.disposed = true;
+                                Throwable terminate = atomicThrowable.terminate();
+                                if (terminate != null) {
+                                    this.downstream.onError(terminate);
+                                    return;
+                                } else {
+                                    this.downstream.onComplete();
+                                    return;
+                                }
+                            } else if (!z) {
+                                this.active = true;
+                                completableSource.subscribe(this.inner);
+                            }
+                        } catch (Throwable th) {
+                            Exceptions.throwIfFatal(th);
+                            this.disposed = true;
+                            this.queue.clear();
+                            this.upstream.dispose();
+                            atomicThrowable.addThrowable(th);
+                            this.downstream.onError(atomicThrowable.terminate());
+                            return;
+                        }
+                    }
+                    if (decrementAndGet() == 0) {
                         return;
                     }
                 }
-                if (decrementAndGet() == 0) {
-                    return;
-                }
+                this.queue.clear();
             }
-            this.queue.clear();
         }
 
         public void innerComplete() {
-            this.active = false;
-            drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.active = false;
+                drain();
+            }
         }
 
         public void innerError(Throwable th) {
-            if (this.errors.addThrowable(th)) {
-                if (this.errorMode == ErrorMode.IMMEDIATE) {
-                    this.disposed = true;
-                    this.upstream.dispose();
-                    Throwable terminate = this.errors.terminate();
-                    if (terminate != ExceptionHelper.TERMINATED) {
-                        this.downstream.onError(terminate);
-                    }
-                    if (getAndIncrement() == 0) {
-                        this.queue.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                if (this.errors.addThrowable(th)) {
+                    if (this.errorMode == ErrorMode.IMMEDIATE) {
+                        this.disposed = true;
+                        this.upstream.dispose();
+                        Throwable terminate = this.errors.terminate();
+                        if (terminate != ExceptionHelper.TERMINATED) {
+                            this.downstream.onError(terminate);
+                        }
+                        if (getAndIncrement() == 0) {
+                            this.queue.clear();
+                            return;
+                        }
                         return;
                     }
+                    this.active = false;
+                    drain();
                     return;
                 }
-                this.active = false;
-                drain();
-                return;
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.disposed;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.disposed : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            this.done = true;
-            drain();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.done = true;
+                drain();
+            }
         }
 
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
-            if (this.errors.addThrowable(th)) {
-                if (this.errorMode == ErrorMode.IMMEDIATE) {
-                    this.disposed = true;
-                    this.inner.dispose();
-                    Throwable terminate = this.errors.terminate();
-                    if (terminate != ExceptionHelper.TERMINATED) {
-                        this.downstream.onError(terminate);
-                    }
-                    if (getAndIncrement() == 0) {
-                        this.queue.clear();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
+                if (this.errors.addThrowable(th)) {
+                    if (this.errorMode == ErrorMode.IMMEDIATE) {
+                        this.disposed = true;
+                        this.inner.dispose();
+                        Throwable terminate = this.errors.terminate();
+                        if (terminate != ExceptionHelper.TERMINATED) {
+                            this.downstream.onError(terminate);
+                        }
+                        if (getAndIncrement() == 0) {
+                            this.queue.clear();
+                            return;
+                        }
                         return;
                     }
+                    this.done = true;
+                    drain();
                     return;
                 }
-                this.done = true;
-                drain();
-                return;
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // io.reactivex.Observer
         public void onNext(T t) {
-            if (t != null) {
-                this.queue.offer(t);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                if (t != null) {
+                    this.queue.offer(t);
+                }
+                drain();
             }
-            drain();
         }
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.upstream, disposable)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && DisposableHelper.validate(this.upstream, disposable)) {
                 this.upstream = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
@@ -240,6 +316,20 @@ public final class ObservableConcatMapCompletable<T> extends Completable {
     }
 
     public ObservableConcatMapCompletable(Observable<T> observable, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {observable, function, errorMode, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.source = observable;
         this.mapper = function;
         this.errorMode = errorMode;
@@ -248,7 +338,8 @@ public final class ObservableConcatMapCompletable<T> extends Completable {
 
     @Override // io.reactivex.Completable
     public void subscribeActual(CompletableObserver completableObserver) {
-        if (ScalarXMapZHelper.tryAsCompletable(this.source, this.mapper, completableObserver)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, completableObserver) == null) || ScalarXMapZHelper.tryAsCompletable(this.source, this.mapper, completableObserver)) {
             return;
         }
         this.source.subscribe(new ConcatMapCompletableObserver(completableObserver, this.mapper, this.errorMode, this.prefetch));

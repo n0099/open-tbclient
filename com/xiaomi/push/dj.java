@@ -1,30 +1,63 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class dj {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dj f41222a;
+    public static volatile dj f42965a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public di f235a;
+    public di f238a;
 
-    public static dj a() {
-        if (f41222a == null) {
-            synchronized (dj.class) {
-                if (f41222a == null) {
-                    f41222a = new dj();
-                }
+    public dj() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return f41222a;
+    }
+
+    public static dj a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f42965a == null) {
+                synchronized (dj.class) {
+                    if (f42965a == null) {
+                        f42965a = new dj();
+                    }
+                }
+            }
+            return f42965a;
+        }
+        return (dj) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public di m232a() {
-        return this.f235a;
+    public di m246a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f238a : (di) invokeV.objValue;
     }
 
     public void a(di diVar) {
-        this.f235a = diVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diVar) == null) {
+            this.f238a = diVar;
+        }
     }
 }

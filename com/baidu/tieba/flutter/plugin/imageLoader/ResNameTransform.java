@@ -1,12 +1,35 @@
 package com.baidu.tieba.flutter.plugin.imageLoader;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ResNameTransform {
-    public static HashMap<String, String> platformImageNameMap = new HashMap<>();
-    public static HashMap<String, String> svgColorMap = new HashMap<>();
+    public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> platformImageNameMap;
+    public static HashMap<String, String> svgColorMap;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1814281822, "Lcom/baidu/tieba/flutter/plugin/imageLoader/ResNameTransform;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1814281822, "Lcom/baidu/tieba/flutter/plugin/imageLoader/ResNameTransform;");
+                return;
+            }
+        }
+        platformImageNameMap = new HashMap<>();
+        svgColorMap = new HashMap<>();
         platformImageNameMap.put("btn_sign_vip_n", "btn_vip_all_sign");
         platformImageNameMap.put("btn_sign_check_d", "bg_all_sign_conduct");
         platformImageNameMap.put("btn_sign_vip_h", "bg_vip_sign_ok_d");
@@ -113,7 +136,23 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_pure_evaluation_star_collect12@3x", "icon_pure_evaluation_star24_n");
     }
 
+    public ResNameTransform() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static String getAndroidNameFromIos(String str) {
-        return platformImageNameMap.containsKey(str) ? platformImageNameMap.get(str) : str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? platformImageNameMap.containsKey(str) ? platformImageNameMap.get(str) : str : (String) invokeL.objValue;
     }
 }

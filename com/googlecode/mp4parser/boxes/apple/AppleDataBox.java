@@ -5,6 +5,13 @@ import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -13,26 +20,41 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import com.tencent.connect.common.Constants;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-import g.a.a.a;
-import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
 import kotlin.UShort;
-/* loaded from: classes6.dex */
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.runtime.internal.Conversions;
+import org.aspectj.runtime.reflect.Factory;
+/* loaded from: classes7.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_5 = null;
+    public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public static HashMap<String, String> language;
+    public transient /* synthetic */ FieldHolder $fh;
     public int dataCountry;
     public int dataLanguage;
     public int dataType;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(235879771, "Lcom/googlecode/mp4parser/boxes/apple/AppleDataBox;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(235879771, "Lcom/googlecode/mp4parser/boxes/apple/AppleDataBox;");
+                return;
+            }
+        }
         ajc$preClinit();
         HashMap<String, String> hashMap = new HashMap<>();
         language = hashMap;
@@ -145,111 +167,169 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("32767", "Unspecified");
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppleDataBox(String str, int i2) {
         super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.dataType = i2;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("AppleDataBox.java", AppleDataBox.class);
-        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getLanguageString", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "java.lang.String"), 25);
-        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "getDataType", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 43);
-        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "getDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 47);
-        ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataCountry", "", "void"), 51);
-        ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "getDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 55);
-        ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "setDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataLanguage", "", "void"), 59);
+        Factory factory = new Factory("AppleDataBox.java", AppleDataBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getLanguageString", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "java.lang.String"), 25);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataType", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 43);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 47);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataCountry", "", "void"), 51);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 55);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataLanguage", "", "void"), 59);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        parseData(parseDataLength4ccTypeCountryLanguageAndReturnRest(byteBuffer));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseData(parseDataLength4ccTypeCountryLanguageAndReturnRest(byteBuffer));
+        }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        writeDataLength4ccTypeCountryLanguage(byteBuffer);
-        byteBuffer.put(writeData());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+            writeDataLength4ccTypeCountryLanguage(byteBuffer);
+            byteBuffer.put(writeData());
+        }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        return getDataLength() + 16;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? getDataLength() + 16 : invokeV.longValue;
     }
 
     public int getDataCountry() {
-        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
-        return this.dataCountry;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.dataCountry;
+        }
+        return invokeV.intValue;
     }
 
     public int getDataLanguage() {
-        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_4, this, this));
-        return this.dataLanguage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.dataLanguage;
+        }
+        return invokeV.intValue;
     }
 
     public abstract int getDataLength();
 
     public int getDataType() {
-        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
-        return this.dataType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
+            return this.dataType;
+        }
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0014: IGET  (r2v0 int A[REMOVE]) = (r3v0 'this' com.googlecode.mp4parser.boxes.apple.AppleDataBox A[IMMUTABLE_TYPE, THIS]) com.googlecode.mp4parser.boxes.apple.AppleDataBox.dataLanguage int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0018: IGET  (r2v1 int A[REMOVE]) = (r4v0 'this' com.googlecode.mp4parser.boxes.apple.AppleDataBox A[IMMUTABLE_TYPE, THIS]) com.googlecode.mp4parser.boxes.apple.AppleDataBox.dataLanguage int)] */
     public String getLanguageString() {
-        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
-        HashMap<String, String> hashMap = language;
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.dataLanguage);
-        String str = hashMap.get(sb.toString());
-        if (str == null) {
-            ByteBuffer wrap = ByteBuffer.wrap(new byte[2]);
-            IsoTypeWriter.writeUInt16(wrap, this.dataLanguage);
-            wrap.reset();
-            return new Locale(IsoTypeReader.readIso639(wrap)).getDisplayLanguage();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            HashMap<String, String> hashMap = language;
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.dataLanguage);
+            String str = hashMap.get(sb.toString());
+            if (str == null) {
+                ByteBuffer wrap = ByteBuffer.wrap(new byte[2]);
+                IsoTypeWriter.writeUInt16(wrap, this.dataLanguage);
+                wrap.reset();
+                return new Locale(IsoTypeReader.readIso639(wrap)).getDisplayLanguage();
+            }
+            return str;
         }
-        return str;
+        return (String) invokeV.objValue;
     }
 
     public abstract void parseData(ByteBuffer byteBuffer);
 
     @DoNotParseDetail
     public ByteBuffer parseDataLength4ccTypeCountryLanguageAndReturnRest(ByteBuffer byteBuffer) {
-        int i2 = byteBuffer.getInt();
-        byteBuffer.getInt();
-        this.dataType = byteBuffer.getInt();
-        short s = byteBuffer.getShort();
-        this.dataCountry = s;
-        if (s < 0) {
-            this.dataCountry = s + UShort.MIN_VALUE;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, byteBuffer)) == null) {
+            int i2 = byteBuffer.getInt();
+            byteBuffer.getInt();
+            this.dataType = byteBuffer.getInt();
+            short s = byteBuffer.getShort();
+            this.dataCountry = s;
+            if (s < 0) {
+                this.dataCountry = s + UShort.MIN_VALUE;
+            }
+            short s2 = byteBuffer.getShort();
+            this.dataLanguage = s2;
+            if (s2 < 0) {
+                this.dataLanguage = s2 + UShort.MIN_VALUE;
+            }
+            int i3 = i2 - 16;
+            ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i3);
+            byteBuffer.position(i3 + byteBuffer.position());
+            return byteBuffer2;
         }
-        short s2 = byteBuffer.getShort();
-        this.dataLanguage = s2;
-        if (s2 < 0) {
-            this.dataLanguage = s2 + UShort.MIN_VALUE;
-        }
-        int i3 = i2 - 16;
-        ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i3);
-        byteBuffer.position(i3 + byteBuffer.position());
-        return byteBuffer2;
+        return (ByteBuffer) invokeL.objValue;
     }
 
     public void setDataCountry(int i2) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
-        this.dataCountry = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
+            this.dataCountry = i2;
+        }
     }
 
     public void setDataLanguage(int i2) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i2)));
-        this.dataLanguage = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i2)));
+            this.dataLanguage = i2;
+        }
     }
 
     public abstract byte[] writeData();
 
     @DoNotParseDetail
     public void writeDataLength4ccTypeCountryLanguage(ByteBuffer byteBuffer) {
-        byteBuffer.putInt(getDataLength() + 16);
-        byteBuffer.put("data".getBytes());
-        byteBuffer.putInt(this.dataType);
-        IsoTypeWriter.writeUInt16(byteBuffer, this.dataCountry);
-        IsoTypeWriter.writeUInt16(byteBuffer, this.dataLanguage);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, byteBuffer) == null) {
+            byteBuffer.putInt(getDataLength() + 16);
+            byteBuffer.put("data".getBytes());
+            byteBuffer.putInt(this.dataType);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.dataCountry);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.dataLanguage);
+        }
     }
 }

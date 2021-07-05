@@ -1,33 +1,60 @@
 package com.baidu.fsg.face.liveness.video;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class h implements c {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f6018f = 24;
+    public static final int f6048f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f6019g = 1;
+    public static final int f6049g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f6020h = 1048576;
+    public static final int f6050h = 1048576;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f6021i;
+    public volatile boolean f6051i;
     public b j;
+    public volatile boolean k;
+    public ExecutorService l;
     public long m;
     public long n;
-    public volatile boolean k = false;
-    public ExecutorService l = Executors.newSingleThreadExecutor();
-    public VideoInfo o = new VideoInfo();
-    public volatile boolean p = false;
-    public int q = 24;
-    public int r = 1;
-    public int s = 1048576;
+    public VideoInfo o;
+    public volatile boolean p;
+    public int q;
+    public int r;
+    public int s;
 
     public h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = false;
+        this.l = Executors.newSingleThreadExecutor();
+        this.o = new VideoInfo();
+        this.p = false;
+        this.q = 24;
+        this.r = 1;
+        this.s = 1048576;
         this.j = bVar;
     }
 
@@ -41,24 +68,28 @@ public abstract class h implements c {
 
     @Override // com.baidu.fsg.face.liveness.video.c
     public void g() {
-        if (!this.f6021i || this.p) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6051i && !this.p) {
+            b();
+            d();
         }
-        b();
-        d();
     }
 
     public void h() {
-        b bVar = this.j;
-        if (bVar != null) {
-            bVar.a(this);
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.j) == null) {
+            return;
         }
+        bVar.a(this);
     }
 
     public void i() {
-        b bVar = this.j;
-        if (bVar != null) {
-            bVar.b(this);
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.j) == null) {
+            return;
         }
+        bVar.b(this);
     }
 }

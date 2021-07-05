@@ -8,10 +8,10 @@ import java.util.Map;
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f38564a = b.class.getSimpleName();
+    public final String f40327a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Object> f38565b = new HashMap<>();
+    public final HashMap<String, Object> f40328b = new HashMap<>();
 
     public b(String str, Object obj) {
         a(str);
@@ -22,26 +22,26 @@ public class b implements a {
         if (obj == null) {
             return this;
         }
-        this.f38565b.put("dt", obj);
+        this.f40328b.put("dt", obj);
         return this;
     }
 
     public b a(String str) {
         d.a(str, "schema cannot be null");
         d.a(!str.isEmpty(), "schema cannot be empty.");
-        this.f38565b.put("sa", str);
+        this.f40328b.put("sa", str);
         return this;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public Map<String, Object> a() {
-        return this.f38565b;
+        return this.f40328b;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     @Deprecated
     public void a(String str, String str2) {
-        com.meizu.cloud.pushsdk.c.f.c.c(this.f38564a, "Payload: add(String, String) method called - Doing nothing.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(this.f40327a, "Payload: add(String, String) method called - Doing nothing.", new Object[0]);
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
@@ -51,6 +51,6 @@ public class b implements a {
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public String toString() {
-        return e.a((Map) this.f38565b).toString();
+        return e.a((Map) this.f40328b).toString();
     }
 }

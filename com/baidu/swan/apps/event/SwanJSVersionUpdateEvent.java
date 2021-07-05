@@ -2,20 +2,58 @@ package com.baidu.swan.apps.event;
 
 import android.util.Log;
 import androidx.annotation.Keep;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.a.m0.a.c1.a;
-import d.a.m0.a.k;
-import d.a.m0.a.m2.b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.c1.a;
+import d.a.q0.a.k;
+import d.a.q0.a.m2.b;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanJSVersionUpdateEvent {
-    public static final boolean DEBUG = k.f46983a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG;
     public static final String TAG = "SwanJSVersionUpdateEven";
+    public transient /* synthetic */ FieldHolder $fh;
     public final long mVersionCode;
     public final String mVersionName;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1520484730, "Lcom/baidu/swan/apps/event/SwanJSVersionUpdateEvent;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1520484730, "Lcom/baidu/swan/apps/event/SwanJSVersionUpdateEvent;");
+                return;
+            }
+        }
+        DEBUG = k.f49133a;
+    }
+
     public SwanJSVersionUpdateEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         SwanCoreVersion g2 = b.g(0);
         if (g2 != null) {
             this.mVersionCode = g2.swanCoreVersionCode;
@@ -27,21 +65,28 @@ public class SwanJSVersionUpdateEvent {
     }
 
     public static void sendEvent(long j) {
-        SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
-        if (swanJSVersionUpdateEvent.mVersionName == null) {
-            return;
-        }
-        a.I().a(swanJSVersionUpdateEvent);
-        if (DEBUG) {
-            Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
+            if (swanJSVersionUpdateEvent.mVersionName == null) {
+                return;
+            }
+            a.I().a(swanJSVersionUpdateEvent);
+            if (DEBUG) {
+                Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
+            }
         }
     }
 
     public long getVersionCode() {
-        return this.mVersionCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mVersionCode : invokeV.longValue;
     }
 
     public String getVersionName() {
-        return this.mVersionName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mVersionName : (String) invokeV.objValue;
     }
 }

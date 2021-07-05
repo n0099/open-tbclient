@@ -6,12 +6,22 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.yy.hiidostatis.defs.controller.SensorController;
-import d.a.m0.a.a2.n.c;
-import d.a.m0.a.v2.o0;
+import d.a.q0.a.a2.n.c;
+import d.a.q0.a.v2.o0;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.File;
 import java.util.ArrayList;
@@ -23,41 +33,43 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppConfigData {
-    public static final boolean r = d.a.m0.a.k.f46983a;
-    public static final d.a.m0.a.a2.n.f<SwanAppConfigData> s = new a();
-    public static final d.a.m0.a.a2.n.e<SwanAppConfigData> t = new b();
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean r;
+    public static final d.a.q0.a.a2.n.f<SwanAppConfigData> s;
+    public static final d.a.q0.a.a2.n.e<SwanAppConfigData> t;
     public static final HashMap<String, Integer> u;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11389a;
+    public boolean f11456a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f11390b;
+    public d f11457b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f11391c;
+    public j f11458c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f11392d;
+    public k f11459d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.m0.a.a2.n.g f11393e;
+    public d.a.q0.a.a2.n.g f11460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f11394f;
+    public l f11461f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f11395g;
+    public h f11462g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a f11396h;
+    public c.a f11463h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f11397i;
+    public f f11464i;
     public f j;
-    public List<d.a.m0.n.h.h> k;
+    public List<d.a.q0.n.h.h> k;
     public String l;
     public String m;
     public g n;
@@ -66,963 +78,2072 @@ public class SwanAppConfigData {
     public List<String> p;
     public c q;
 
-    /* loaded from: classes3.dex */
-    public enum RequiredBackgroundModeItem {
-        AUDIO("audio");
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class RequiredBackgroundModeItem {
+        public static final /* synthetic */ RequiredBackgroundModeItem[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final RequiredBackgroundModeItem AUDIO;
+        public transient /* synthetic */ FieldHolder $fh;
         public String mMode;
 
-        RequiredBackgroundModeItem(String str) {
-            this.mMode = str;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1702167577, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$RequiredBackgroundModeItem;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1702167577, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$RequiredBackgroundModeItem;");
+                    return;
+                }
+            }
+            RequiredBackgroundModeItem requiredBackgroundModeItem = new RequiredBackgroundModeItem("AUDIO", 0, "audio");
+            AUDIO = requiredBackgroundModeItem;
+            $VALUES = new RequiredBackgroundModeItem[]{requiredBackgroundModeItem};
+        }
+
+        public RequiredBackgroundModeItem(String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mMode = str2;
         }
 
         @Nullable
         public static RequiredBackgroundModeItem find(String str) {
+            InterceptResult invokeL;
             RequiredBackgroundModeItem[] values;
-            if (str != null) {
-                for (RequiredBackgroundModeItem requiredBackgroundModeItem : values()) {
-                    if (str.equals(requiredBackgroundModeItem.mMode)) {
-                        return requiredBackgroundModeItem;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (str != null) {
+                    for (RequiredBackgroundModeItem requiredBackgroundModeItem : values()) {
+                        if (str.equals(requiredBackgroundModeItem.mMode)) {
+                            return requiredBackgroundModeItem;
+                        }
                     }
+                    return null;
                 }
                 return null;
             }
-            return null;
+            return (RequiredBackgroundModeItem) invokeL.objValue;
+        }
+
+        public static RequiredBackgroundModeItem valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (RequiredBackgroundModeItem) Enum.valueOf(RequiredBackgroundModeItem.class, str) : (RequiredBackgroundModeItem) invokeL.objValue;
+        }
+
+        public static RequiredBackgroundModeItem[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (RequiredBackgroundModeItem[]) $VALUES.clone() : (RequiredBackgroundModeItem[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class a extends d.a.m0.a.a2.n.f<SwanAppConfigData> {
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.a.a2.n.f
-        /* renamed from: c */
-        public void b(@NonNull SwanAppConfigData swanAppConfigData, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-            dVar.writeBoolean(swanAppConfigData.f11389a);
-            dVar.e(swanAppConfigData.f11390b, d.f11402c);
-            dVar.e(swanAppConfigData.f11391c, j.f11423f);
-            dVar.e(swanAppConfigData.f11392d, k.f11428b);
-            dVar.e(swanAppConfigData.f11393e, d.a.m0.a.a2.n.g.s);
-            dVar.e(swanAppConfigData.f11394f, l.f11431f);
-            dVar.e(swanAppConfigData.f11395g, h.f11413b);
-            dVar.e(swanAppConfigData.f11396h, c.a.f44567e);
-            dVar.e(swanAppConfigData.f11397i, f.f11407b);
-            dVar.e(swanAppConfigData.j, f.f11407b);
-            dVar.n(swanAppConfigData.l);
-            dVar.e(swanAppConfigData.n, g.f11411c);
-            dVar.e(swanAppConfigData.o, e.f11404b);
-            dVar.o(swanAppConfigData.p);
-            dVar.e(swanAppConfigData.q, c.f11399c);
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static class a extends d.a.q0.a.a2.n.f<SwanAppConfigData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class b extends d.a.m0.a.a2.n.e<SwanAppConfigData> {
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.a.a2.n.e
-        /* renamed from: c */
-        public SwanAppConfigData b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-            SwanAppConfigData swanAppConfigData = new SwanAppConfigData(null);
-            swanAppConfigData.f11389a = cVar.readBoolean();
-            swanAppConfigData.f11390b = (d) cVar.p(d.f11401b);
-            j jVar = (j) cVar.p(j.f11422e);
-            swanAppConfigData.f11391c = jVar;
-            if (jVar == null) {
-                swanAppConfigData.f11391c = j.e();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            swanAppConfigData.f11392d = (k) cVar.p(k.f11429c);
-            swanAppConfigData.f11393e = (d.a.m0.a.a2.n.g) cVar.p(d.a.m0.a.a2.n.g.t);
-            swanAppConfigData.f11394f = (l) cVar.p(l.f11432g);
-            swanAppConfigData.f11395g = (h) cVar.p(h.f11414c);
-            swanAppConfigData.f11396h = (c.a) cVar.p(c.a.f44568f);
-            swanAppConfigData.f11397i = (f) cVar.p(f.f11408c);
-            swanAppConfigData.j = (f) cVar.p(f.f11408c);
-            String s = cVar.s();
-            swanAppConfigData.l = s;
-            if (!TextUtils.isEmpty(s)) {
-                swanAppConfigData.k = d.a.m0.a.t1.g.b.k(swanAppConfigData.l, false);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.q0.a.a2.n.f
+        /* renamed from: c */
+        public void b(@NonNull SwanAppConfigData swanAppConfigData, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppConfigData, dVar) == null) {
+                dVar.writeBoolean(swanAppConfigData.f11456a);
+                dVar.c(swanAppConfigData.f11457b, d.f11469c);
+                dVar.c(swanAppConfigData.f11458c, j.f11490f);
+                dVar.c(swanAppConfigData.f11459d, k.f11495b);
+                dVar.c(swanAppConfigData.f11460e, d.a.q0.a.a2.n.g.s);
+                dVar.c(swanAppConfigData.f11461f, l.f11498f);
+                dVar.c(swanAppConfigData.f11462g, h.f11480b);
+                dVar.c(swanAppConfigData.f11463h, c.a.f46717e);
+                dVar.c(swanAppConfigData.f11464i, f.f11474b);
+                dVar.c(swanAppConfigData.j, f.f11474b);
+                dVar.f(swanAppConfigData.l);
+                dVar.c(swanAppConfigData.n, g.f11478c);
+                dVar.c(swanAppConfigData.o, e.f11471b);
+                dVar.g(swanAppConfigData.p);
+                dVar.c(swanAppConfigData.q, c.f11466c);
             }
-            swanAppConfigData.n = (g) cVar.p(g.f11410b);
-            swanAppConfigData.o = (e) cVar.p(e.f11405c);
-            swanAppConfigData.p = cVar.u(Collections.emptyList());
-            swanAppConfigData.q = (c) cVar.p(c.f11398b);
-            return swanAppConfigData;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
+    public static class b extends d.a.q0.a.a2.n.e<SwanAppConfigData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.q0.a.a2.n.e
+        /* renamed from: c */
+        public SwanAppConfigData b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                SwanAppConfigData swanAppConfigData = new SwanAppConfigData(null);
+                swanAppConfigData.f11456a = cVar.readBoolean();
+                swanAppConfigData.f11457b = (d) cVar.o(d.f11468b);
+                j jVar = (j) cVar.o(j.f11489e);
+                swanAppConfigData.f11458c = jVar;
+                if (jVar == null) {
+                    swanAppConfigData.f11458c = j.e();
+                }
+                swanAppConfigData.f11459d = (k) cVar.o(k.f11496c);
+                swanAppConfigData.f11460e = (d.a.q0.a.a2.n.g) cVar.o(d.a.q0.a.a2.n.g.t);
+                swanAppConfigData.f11461f = (l) cVar.o(l.f11499g);
+                swanAppConfigData.f11462g = (h) cVar.o(h.f11481c);
+                swanAppConfigData.f11463h = (c.a) cVar.o(c.a.f46718f);
+                swanAppConfigData.f11464i = (f) cVar.o(f.f11475c);
+                swanAppConfigData.j = (f) cVar.o(f.f11475c);
+                String r = cVar.r();
+                swanAppConfigData.l = r;
+                if (!TextUtils.isEmpty(r)) {
+                    swanAppConfigData.k = d.a.q0.a.t1.g.b.k(swanAppConfigData.l, false);
+                }
+                swanAppConfigData.n = (g) cVar.o(g.f11477b);
+                swanAppConfigData.o = (e) cVar.o(e.f11472c);
+                swanAppConfigData.p = cVar.t(Collections.emptyList());
+                swanAppConfigData.q = (c) cVar.o(c.f11465b);
+                return swanAppConfigData;
+            }
+            return (SwanAppConfigData) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
     public static class c {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<c> f11398b = new a();
+        public static final d.a.q0.a.a2.n.e<c> f11465b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<c> f11399c = new b();
+        public static final d.a.q0.a.a2.n.f<c> f11466c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f11400a;
+        public boolean f11467a;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.e<c> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.e<c> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
+            @Override // d.a.q0.a.a2.n.e
             /* renamed from: c */
-            public c b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                c cVar2 = new c();
-                cVar2.f11400a = cVar.readBoolean();
-                return cVar2;
+            public c b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    c cVar2 = new c();
+                    cVar2.f11467a = cVar.readBoolean();
+                    return cVar2;
+                }
+                return (c) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.f<c> {
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.f<c> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull c cVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.writeBoolean(cVar.f11400a);
+            public void b(@NonNull c cVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, dVar) == null) {
+                    dVar.writeBoolean(cVar.f11467a);
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927671, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927671, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$c;");
+                    return;
+                }
+            }
+            f11465b = new a();
+            f11466c = new b();
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static c b(JSONObject jSONObject) {
+            InterceptResult invokeL;
             JSONObject optJSONObject;
-            c cVar = new c();
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("cookie")) == null) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+                c cVar = new c();
+                if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("cookie")) == null) {
+                    return cVar;
+                }
+                cVar.f11467a = optJSONObject.optBoolean("enableStore");
                 return cVar;
             }
-            cVar.f11400a = optJSONObject.optBoolean("enableStore");
-            return cVar;
+            return (c) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<d> f11401b = new a();
+        public static final d.a.q0.a.a2.n.e<d> f11468b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<d> f11402c = new b();
+        public static final d.a.q0.a.a2.n.f<d> f11469c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f11403a;
+        public List<String> f11470a;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.e<d> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.e<d> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
+            @Override // d.a.q0.a.a2.n.e
             /* renamed from: c */
-            public d b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                d dVar = new d();
-                dVar.f11403a = cVar.u(Collections.emptyList());
-                return dVar;
+            public d b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    d dVar = new d();
+                    dVar.f11470a = cVar.t(Collections.emptyList());
+                    return dVar;
+                }
+                return (d) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.f<d> {
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.f<d> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull d dVar, @NonNull d.a.m0.a.b1.d dVar2) throws Exception {
-                dVar2.o(dVar.f11403a);
+            public void b(@NonNull d dVar, @NonNull d.a.q0.a.b1.d dVar2) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, dVar2) == null) {
+                    dVar2.g(dVar.f11470a);
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927640, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927640, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$d;");
+                    return;
+                }
+            }
+            f11468b = new a();
+            f11469c = new b();
+        }
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static d b(JSONObject jSONObject) {
-            if (jSONObject == null) {
-                return d();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return d();
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
+                if (optJSONArray == null) {
+                    return d();
+                }
+                d dVar = new d();
+                dVar.f11470a = new ArrayList(optJSONArray.length());
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    dVar.f11470a.add(optJSONArray.optString(i2));
+                }
+                return dVar;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
-            if (optJSONArray == null) {
-                return d();
-            }
-            d dVar = new d();
-            dVar.f11403a = new ArrayList(optJSONArray.length());
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                dVar.f11403a.add(optJSONArray.optString(i2));
-            }
-            return dVar;
+            return (d) invokeL.objValue;
         }
 
         public static d d() {
-            if (SwanAppConfigData.r) {
-                Log.w("SwanAppConfigData", "PageConfig createNullObject()");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+                if (SwanAppConfigData.r) {
+                    Log.w("SwanAppConfigData", "PageConfig createNullObject()");
+                }
+                d dVar = new d();
+                dVar.f11470a = new ArrayList();
+                return dVar;
             }
-            d dVar = new d();
-            dVar.f11403a = new ArrayList();
-            return dVar;
+            return (d) invokeV.objValue;
         }
 
         public boolean c(String str) {
-            List<String> list = this.f11403a;
-            return list != null && list.contains(str);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                List<String> list = this.f11470a;
+                return list != null && list.contains(str);
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<e> f11404b = new a();
+        public static final d.a.q0.a.a2.n.f<e> f11471b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<e> f11405c = new b();
+        public static final d.a.q0.a.a2.n.e<e> f11472c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, Map<String, String>> f11406a;
+        public Map<String, Map<String, String>> f11473a;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.f<e> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.f<e> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: com.baidu.swan.apps.runtime.config.SwanAppConfigData$e$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class C0161a extends d.a.m0.a.a2.n.f<Map<String, String>> {
-                public C0161a(a aVar) {
+            /* loaded from: classes4.dex */
+            public class C0180a extends d.a.q0.a.a2.n.f<Map<String, String>> {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                public C0180a(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                        }
+                    }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.m0.a.a2.n.f
+                @Override // d.a.q0.a.a2.n.f
                 /* renamed from: c */
-                public void b(@NonNull Map<String, String> map, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                    dVar.p(map);
+                public void b(@NonNull Map<String, String> map, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, dVar) == null) {
+                        dVar.h(map);
+                    }
+                }
+            }
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull e eVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.m(eVar.f11406a, new C0161a(this));
+            public void b(@NonNull e eVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, dVar) == null) {
+                    dVar.e(eVar.f11473a, new C0180a(this));
+                }
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.e<e> {
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.e<e> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-            /* loaded from: classes3.dex */
-            public class a extends d.a.m0.a.a2.n.e<Map<String, String>> {
+            /* loaded from: classes4.dex */
+            public class a extends d.a.q0.a.a2.n.e<Map<String, String>> {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
                 public a(b bVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                        }
+                    }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.m0.a.a2.n.e
+                @Override // d.a.q0.a.a2.n.e
                 /* renamed from: c */
-                public Map<String, String> b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                    return cVar.v();
+                public Map<String, String> b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                    InterceptResult invokeL;
+                    Interceptable interceptable = $ic;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? cVar.v() : (Map) invokeL.objValue;
+                }
+            }
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
+            @Override // d.a.q0.a.a2.n.e
             /* renamed from: c */
-            public e b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                Map<String, Map<String, String>> r = cVar.r(new a(this));
-                if (r == null) {
-                    return e.d();
+            public e b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    Map<String, Map<String, String>> q = cVar.q(new a(this));
+                    if (q == null) {
+                        return e.d();
+                    }
+                    e eVar = new e();
+                    eVar.f11473a = q;
+                    return eVar;
                 }
-                e eVar = new e();
-                eVar.f11406a = r;
-                return eVar;
+                return (e) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927609, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927609, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$e;");
+                    return;
+                }
+            }
+            f11471b = new a();
+            f11472c = new b();
+        }
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static e c(JSONObject jSONObject) {
-            e d2 = d();
-            if (jSONObject == null) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONObject)) == null) {
+                e d2 = d();
+                if (jSONObject == null) {
+                    return d2;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("permission");
+                if (optJSONObject == null) {
+                    return null;
+                }
+                d2.f11473a = new HashMap();
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                    HashMap hashMap = new HashMap();
+                    if (optJSONObject2 != null) {
+                        Iterator<String> keys2 = optJSONObject2.keys();
+                        while (keys2.hasNext()) {
+                            String next2 = keys2.next();
+                            hashMap.put(next2, optJSONObject2.optString(next2));
+                        }
+                    }
+                    d2.f11473a.put(next, hashMap);
+                }
                 return d2;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("permission");
-            if (optJSONObject == null) {
-                return null;
-            }
-            d2.f11406a = new HashMap();
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                HashMap hashMap = new HashMap();
-                if (optJSONObject2 != null) {
-                    Iterator<String> keys2 = optJSONObject2.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        hashMap.put(next2, optJSONObject2.optString(next2));
-                    }
-                }
-                d2.f11406a.put(next, hashMap);
-            }
-            return d2;
+            return (e) invokeL.objValue;
         }
 
         public static e d() {
-            e eVar = new e();
-            eVar.f11406a = new HashMap();
-            return eVar;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+                e eVar = new e();
+                eVar.f11473a = new HashMap();
+                return eVar;
+            }
+            return (e) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class f {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<f> f11407b = new a();
+        public static final d.a.q0.a.a2.n.f<f> f11474b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<f> f11408c = new b();
+        public static final d.a.q0.a.a2.n.e<f> f11475c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d.a.m0.a.t1.f.a> f11409a;
+        public List<d.a.q0.a.t1.f.a> f11476a;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.f<f> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.f<f> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull f fVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.l(fVar.f11409a, d.a.m0.a.t1.f.a.m);
+            public void b(@NonNull f fVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, dVar) == null) {
+                    dVar.d(fVar.f11476a, d.a.q0.a.t1.f.a.m);
+                }
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.e<f> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
-            /* renamed from: c */
-            public f b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                List<d.a.m0.a.t1.f.a> q = cVar.q(d.a.m0.a.t1.f.a.l);
-                if (q == null) {
-                    return null;
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.e<f> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
-                f fVar = new f();
-                fVar.f11409a = q;
-                return fVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.e
+            /* renamed from: c */
+            public f b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    List<d.a.q0.a.t1.f.a> p = cVar.p(d.a.q0.a.t1.f.a.l);
+                    if (p == null) {
+                        return null;
+                    }
+                    f fVar = new f();
+                    fVar.f11476a = p;
+                    return fVar;
+                }
+                return (f) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927578, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$f;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927578, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$f;");
+                    return;
+                }
+            }
+            f11474b = new a();
+            f11475c = new b();
+        }
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static f c(JSONObject jSONObject, File file) {
-            return e(jSONObject, "dynamicLib", 3, file);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, jSONObject, file)) == null) ? e(jSONObject, "dynamicLib", 3, file) : (f) invokeLL.objValue;
         }
 
         public static f d(JSONObject jSONObject, File file) {
-            return e(jSONObject, "plugins", 4, file);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONObject, file)) == null) ? e(jSONObject, "plugins", 4, file) : (f) invokeLL.objValue;
         }
 
         public static f e(JSONObject jSONObject, String str, int i2, File file) {
-            f fVar = null;
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                JSONObject optJSONObject = jSONObject.optJSONObject(str);
-                if (optJSONObject == null) {
-                    return null;
-                }
-                Iterator<String> keys = optJSONObject.keys();
-                fVar = new f();
-                fVar.f11409a = new ArrayList();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    d.a.m0.a.t1.f.a aVar = new d.a.m0.a.t1.f.a(optJSONObject.optJSONObject(next), i2);
-                    aVar.f48573e = next;
-                    if (file != null && !TextUtils.isEmpty(aVar.j)) {
-                        aVar.j = new File(file, aVar.j).getAbsolutePath();
+            InterceptResult invokeLLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, str, i2, file)) == null) {
+                f fVar = null;
+                if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject(str);
+                    if (optJSONObject == null) {
+                        return null;
                     }
-                    fVar.f11409a.add(aVar);
+                    Iterator<String> keys = optJSONObject.keys();
+                    fVar = new f();
+                    fVar.f11476a = new ArrayList();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        d.a.q0.a.t1.f.a aVar = new d.a.q0.a.t1.f.a(optJSONObject.optJSONObject(next), i2);
+                        aVar.f50719e = next;
+                        if (file != null && !TextUtils.isEmpty(aVar.j)) {
+                            aVar.j = new File(file, aVar.j).getAbsolutePath();
+                        }
+                        fVar.f11476a.add(aVar);
+                    }
                 }
+                return fVar;
             }
-            return fVar;
+            return (f) invokeLLIL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class g {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<g> f11410b = new a();
+        public static final d.a.q0.a.a2.n.e<g> f11477b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<g> f11411c = new b();
+        public static final d.a.q0.a.a2.n.f<g> f11478c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f11412a;
+        public Map<String, String> f11479a;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.e<g> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
-            /* renamed from: c */
-            public g b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                Map<String, String> v = cVar.v();
-                if (v == null) {
-                    return g.d();
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.e<g> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
-                g gVar = new g();
-                gVar.f11412a = v;
-                return gVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.e
+            /* renamed from: c */
+            public g b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    Map<String, String> v = cVar.v();
+                    if (v == null) {
+                        return g.d();
+                    }
+                    g gVar = new g();
+                    gVar.f11479a = v;
+                    return gVar;
+                }
+                return (g) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.f<g> {
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.f<g> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull g gVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.p(gVar.f11412a);
+            public void b(@NonNull g gVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, dVar) == null) {
+                    dVar.h(gVar.f11479a);
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927547, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$g;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927547, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$g;");
+                    return;
+                }
+            }
+            f11477b = new a();
+            f11478c = new b();
+        }
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static g c(JSONObject jSONObject) {
+            InterceptResult invokeL;
             JSONArray optJSONArray;
             int length;
-            g d2 = d();
-            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("routes")) != null && (length = optJSONArray.length()) != 0) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("path");
-                        String optString2 = optJSONObject.optString("page");
-                        if (!d2.f11412a.containsKey(optString)) {
-                            d2.f11412a.put(optString, optString2);
-                        }
-                    }
-                }
-            }
-            return d2;
-        }
-
-        public static g d() {
-            g gVar = new g();
-            gVar.f11412a = new HashMap();
-            return gVar;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class h {
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<h> f11413b = new a();
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<h> f11414c = new b();
-
-        /* renamed from: a  reason: collision with root package name */
-        public boolean f11415a;
-
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.f<h> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
-            /* renamed from: c */
-            public void b(@NonNull h hVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.writeBoolean(hVar.f11415a);
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.e<h> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
-            /* renamed from: c */
-            public h b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                h hVar = new h();
-                hVar.f11415a = cVar.readBoolean();
-                return hVar;
-            }
-        }
-
-        public static h b(JSONObject jSONObject) {
-            if (jSONObject == null) {
-                return c();
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject(com.alipay.sdk.sys.a.j);
-            if (optJSONObject == null) {
-                return c();
-            }
-            d.a.m0.a.a2.e i2 = d.a.m0.a.a2.e.i();
-            String str = i2 != null ? i2.f44533f : "";
-            h hVar = new h();
-            hVar.f11415a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject("swan_conf");
-            if (optJSONObject2 != null) {
-                d.a.m0.a.b2.a.c.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("domains");
-                if (optJSONObject3 != null) {
-                    d.a.m0.a.b2.a.c.s(str, optJSONObject3);
-                }
-            }
-            return hVar;
-        }
-
-        public static h c() {
-            if (SwanAppConfigData.r) {
-                Log.w("SwanAppConfigData", "SettingConfig createNullObject()");
-            }
-            h hVar = new h();
-            hVar.f11415a = true;
-            return hVar;
-        }
-
-        public static boolean d() {
-            SwanAppConfigData s = d.a.m0.a.g1.f.V().s();
-            if (s == null) {
-                return true;
-            }
-            h hVar = s.f11395g;
-            d.a.m0.a.a2.e i2 = d.a.m0.a.a2.e.i();
-            boolean d2 = d.a.m0.a.v.a.d(i2 != null ? i2.N() : null);
-            boolean d3 = d.a.m0.a.e0.f.e.e.d();
-            boolean d4 = d.a.m0.a.h0.a.d();
-            boolean G = d.a.m0.a.u1.a.a.G();
-            boolean C = d.a.m0.a.u1.a.a.C();
-            if (SwanAppConfigData.r) {
-                Log.d("SwanAppConfigData", "isDevelop: " + d2 + " isRemoteDebug: " + d3 + " isMobileDebug: " + d4 + " urlCheck: " + hVar.f11415a);
-            }
-            return (d2 || d3 || d4 || G || C) && !hVar.f11415a;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class i {
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final String f11416d = File.separator;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<i> f11417e = new a();
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<i> f11418f = new b();
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f11419a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public List<String> f11420b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public boolean f11421c = false;
-
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.e<i> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
-            /* renamed from: c */
-            public i b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                i iVar = new i();
-                iVar.f11419a = cVar.s();
-                iVar.f11420b = cVar.u(Collections.emptyList());
-                iVar.f11421c = cVar.readBoolean();
-                return iVar;
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.f<i> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
-            /* renamed from: c */
-            public void b(@NonNull i iVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.n(iVar.f11419a);
-                dVar.o(iVar.f11420b);
-                dVar.writeBoolean(iVar.f11421c);
-            }
-        }
-
-        public static i c(JSONObject jSONObject, Map<String, String> map, Map<String, String> map2, File file) {
-            if (jSONObject != null && map != null) {
-                i iVar = new i();
-                iVar.f11419a = jSONObject.optString(PrefetchEvent.EVENT_DATA_ROOT_PATH);
-                iVar.f11421c = jSONObject.optBoolean("independent");
-                JSONArray optJSONArray = jSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    int length = optJSONArray.length();
-                    iVar.f11420b = new ArrayList();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONObject)) == null) {
+                g d2 = d();
+                if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("routes")) != null && (length = optJSONArray.length()) != 0) {
                     for (int i2 = 0; i2 < length; i2++) {
-                        String optString = optJSONArray.optString(i2);
-                        iVar.f11420b.add(optString);
-                        if (!TextUtils.isEmpty(iVar.f11419a) && !TextUtils.isEmpty(optString)) {
-                            String str = (!iVar.f11419a.endsWith(f11416d) && !optString.startsWith(f11416d)) ? iVar.f11419a + f11416d + optString : iVar.f11419a + optString;
-                            map.put(str, iVar.f11419a);
-                            if (iVar.f11421c) {
-                                map2.put(str, iVar.f11419a);
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                        if (optJSONObject != null) {
+                            String optString = optJSONObject.optString("path");
+                            String optString2 = optJSONObject.optString("page");
+                            if (!d2.f11479a.containsKey(optString)) {
+                                d2.f11479a.put(optString, optString2);
                             }
                         }
                     }
                 }
-                return iVar;
+                return d2;
             }
-            return d();
+            return (g) invokeL.objValue;
         }
 
-        public static i d() {
-            i iVar = new i();
-            iVar.f11420b = new ArrayList();
-            return iVar;
-        }
-
-        public final String e() {
-            List<String> list;
-            if (TextUtils.isEmpty(this.f11419a) || (list = this.f11420b) == null || list.size() <= 0) {
-                return null;
+        public static g d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+                g gVar = new g();
+                gVar.f11479a = new HashMap();
+                return gVar;
             }
-            String str = this.f11420b.get(0);
-            if (this.f11419a.endsWith(f11416d)) {
-                String str2 = this.f11419a;
-                this.f11419a = str2.substring(0, str2.length() - 1);
-            }
-            if (str.startsWith(f11416d)) {
-                str = str.substring(1);
-            }
-            return this.f11419a + f11416d + str;
+            return (g) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class j {
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<j> f11422e = new a();
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<j> f11423f = new b();
-
-        /* renamed from: a  reason: collision with root package name */
-        public List<i> f11424a;
+    /* loaded from: classes4.dex */
+    public static class h {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, Boolean> f11425b;
+        public static final d.a.q0.a.a2.n.f<h> f11480b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Map<String, String> f11426c;
+        public static final d.a.q0.a.a2.n.e<h> f11481c;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: d  reason: collision with root package name */
-        public Map<String, String> f11427d;
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f11482a;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.e<j> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.f<h> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public j b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                j jVar = new j();
-                List<i> q = cVar.q(i.f11417e);
-                jVar.f11424a = q;
-                if (q == null) {
-                    jVar.f11424a = new ArrayList();
+            public void b(@NonNull h hVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, dVar) == null) {
+                    dVar.writeBoolean(hVar.f11482a);
                 }
-                Map<String, Boolean> n = cVar.n();
-                jVar.f11425b = n;
-                if (n == null) {
-                    jVar.f11425b = new HashMap();
-                }
-                Map<String, String> v = cVar.v();
-                jVar.f11426c = v;
-                if (v == null) {
-                    jVar.f11426c = new HashMap();
-                }
-                Map<String, String> v2 = cVar.v();
-                jVar.f11427d = v2;
-                if (v2 == null) {
-                    jVar.f11427d = new HashMap();
-                }
-                return jVar;
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.f<j> {
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.e<h> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.e
             /* renamed from: c */
-            public void b(@NonNull j jVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.l(jVar.f11424a, i.f11418f);
-                dVar.c(jVar.f11425b);
-                dVar.p(jVar.f11426c);
-                dVar.p(jVar.f11427d);
+            public h b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    h hVar = new h();
+                    hVar.f11482a = cVar.readBoolean();
+                    return hVar;
+                }
+                return (h) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927516, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$h;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927516, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$h;");
+                    return;
+                }
+            }
+            f11480b = new a();
+            f11481c = new b();
+        }
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static h b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject(com.alipay.sdk.sys.a.j);
+                if (optJSONObject == null) {
+                    return c();
+                }
+                d.a.q0.a.a2.e i2 = d.a.q0.a.a2.e.i();
+                String str = i2 != null ? i2.f46683f : "";
+                h hVar = new h();
+                hVar.f11482a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject("swan_conf");
+                if (optJSONObject2 != null) {
+                    d.a.q0.a.b2.a.c.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("domains");
+                    if (optJSONObject3 != null) {
+                        d.a.q0.a.b2.a.c.s(str, optJSONObject3);
+                    }
+                }
+                return hVar;
+            }
+            return (h) invokeL.objValue;
+        }
+
+        public static h c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+                if (SwanAppConfigData.r) {
+                    Log.w("SwanAppConfigData", "SettingConfig createNullObject()");
+                }
+                h hVar = new h();
+                hVar.f11482a = true;
+                return hVar;
+            }
+            return (h) invokeV.objValue;
+        }
+
+        public static boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+                SwanAppConfigData s = d.a.q0.a.g1.f.V().s();
+                if (s == null) {
+                    return true;
+                }
+                h hVar = s.f11462g;
+                d.a.q0.a.a2.e i2 = d.a.q0.a.a2.e.i();
+                boolean d2 = d.a.q0.a.v.a.d(i2 != null ? i2.N() : null);
+                boolean d3 = d.a.q0.a.e0.f.e.e.d();
+                boolean d4 = d.a.q0.a.h0.a.d();
+                boolean G = d.a.q0.a.u1.a.a.G();
+                boolean C = d.a.q0.a.u1.a.a.C();
+                if (SwanAppConfigData.r) {
+                    Log.d("SwanAppConfigData", "isDevelop: " + d2 + " isRemoteDebug: " + d3 + " isMobileDebug: " + d4 + " urlCheck: " + hVar.f11482a);
+                }
+                return (d2 || d3 || d4 || G || C) && !hVar.f11482a;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class i {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final String f11483d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final d.a.q0.a.a2.n.e<i> f11484e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public static final d.a.q0.a.a2.n.f<i> f11485f;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f11486a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public List<String> f11487b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f11488c;
+
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.e<i> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.e
+            /* renamed from: c */
+            public i b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    i iVar = new i();
+                    iVar.f11486a = cVar.r();
+                    iVar.f11487b = cVar.t(Collections.emptyList());
+                    iVar.f11488c = cVar.readBoolean();
+                    return iVar;
+                }
+                return (i) invokeL.objValue;
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.f<i> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.f
+            /* renamed from: c */
+            public void b(@NonNull i iVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, dVar) == null) {
+                    dVar.f(iVar.f11486a);
+                    dVar.g(iVar.f11487b);
+                    dVar.writeBoolean(iVar.f11488c);
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927485, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$i;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927485, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$i;");
+                    return;
+                }
+            }
+            f11483d = File.separator;
+            f11484e = new a();
+            f11485f = new b();
+        }
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f11488c = false;
+        }
+
+        public static i c(JSONObject jSONObject, Map<String, String> map, Map<String, String> map2, File file) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, jSONObject, map, map2, file)) == null) {
+                if (jSONObject != null && map != null) {
+                    i iVar = new i();
+                    iVar.f11486a = jSONObject.optString(PrefetchEvent.EVENT_DATA_ROOT_PATH);
+                    iVar.f11488c = jSONObject.optBoolean("independent");
+                    JSONArray optJSONArray = jSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        int length = optJSONArray.length();
+                        iVar.f11487b = new ArrayList();
+                        for (int i2 = 0; i2 < length; i2++) {
+                            String optString = optJSONArray.optString(i2);
+                            iVar.f11487b.add(optString);
+                            if (!TextUtils.isEmpty(iVar.f11486a) && !TextUtils.isEmpty(optString)) {
+                                String str = (!iVar.f11486a.endsWith(f11483d) && !optString.startsWith(f11483d)) ? iVar.f11486a + f11483d + optString : iVar.f11486a + optString;
+                                map.put(str, iVar.f11486a);
+                                if (iVar.f11488c) {
+                                    map2.put(str, iVar.f11486a);
+                                }
+                            }
+                        }
+                    }
+                    return iVar;
+                }
+                return d();
+            }
+            return (i) invokeLLLL.objValue;
+        }
+
+        public static i d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+                i iVar = new i();
+                iVar.f11487b = new ArrayList();
+                return iVar;
+            }
+            return (i) invokeV.objValue;
+        }
+
+        public final String e() {
+            InterceptResult invokeV;
+            List<String> list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (TextUtils.isEmpty(this.f11486a) || (list = this.f11487b) == null || list.size() <= 0) {
+                    return null;
+                }
+                String str = this.f11487b.get(0);
+                if (this.f11486a.endsWith(f11483d)) {
+                    String str2 = this.f11486a;
+                    this.f11486a = str2.substring(0, str2.length() - 1);
+                }
+                if (str.startsWith(f11483d)) {
+                    str = str.substring(1);
+                }
+                return this.f11486a + f11483d + str;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class j {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final d.a.q0.a.a2.n.e<j> f11489e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public static final d.a.q0.a.a2.n.f<j> f11490f;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public List<i> f11491a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Map<String, Boolean> f11492b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Map<String, String> f11493c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public Map<String, String> f11494d;
+
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.e<j> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.e
+            /* renamed from: c */
+            public j b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    j jVar = new j();
+                    List<i> p = cVar.p(i.f11484e);
+                    jVar.f11491a = p;
+                    if (p == null) {
+                        jVar.f11491a = new ArrayList();
+                    }
+                    Map<String, Boolean> g2 = cVar.g();
+                    jVar.f11492b = g2;
+                    if (g2 == null) {
+                        jVar.f11492b = new HashMap();
+                    }
+                    Map<String, String> v = cVar.v();
+                    jVar.f11493c = v;
+                    if (v == null) {
+                        jVar.f11493c = new HashMap();
+                    }
+                    Map<String, String> v2 = cVar.v();
+                    jVar.f11494d = v2;
+                    if (v2 == null) {
+                        jVar.f11494d = new HashMap();
+                    }
+                    return jVar;
+                }
+                return (j) invokeL.objValue;
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.f<j> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.f
+            /* renamed from: c */
+            public void b(@NonNull j jVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar, dVar) == null) {
+                    dVar.d(jVar.f11491a, i.f11485f);
+                    dVar.a(jVar.f11492b);
+                    dVar.h(jVar.f11493c);
+                    dVar.h(jVar.f11494d);
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927454, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$j;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927454, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$j;");
+                    return;
+                }
+            }
+            f11489e = new a();
+            f11490f = new b();
+        }
+
+        public j() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static j c(JSONArray jSONArray, @Nullable File file) {
-            if (jSONArray != null && jSONArray.length() > 0) {
-                j jVar = new j();
-                jVar.f11424a = new ArrayList();
-                jVar.f11426c = new HashMap();
-                jVar.f11425b = new HashMap();
-                jVar.f11427d = new HashMap();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    if (optJSONObject != null) {
-                        jVar.f11424a.add(i.c(optJSONObject, jVar.f11426c, jVar.f11427d, file));
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, jSONArray, file)) == null) {
+                if (jSONArray != null && jSONArray.length() > 0) {
+                    j jVar = new j();
+                    jVar.f11491a = new ArrayList();
+                    jVar.f11493c = new HashMap();
+                    jVar.f11492b = new HashMap();
+                    jVar.f11494d = new HashMap();
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                        if (optJSONObject != null) {
+                            jVar.f11491a.add(i.c(optJSONObject, jVar.f11493c, jVar.f11494d, file));
+                        }
                     }
+                    return jVar;
                 }
-                return jVar;
+                return e();
             }
-            return e();
+            return (j) invokeLL.objValue;
         }
 
         public static j d(JSONObject jSONObject, @Nullable File file) {
-            if (jSONObject == null) {
-                return e();
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONObject, file)) == null) {
+                if (jSONObject == null) {
+                    return e();
+                }
+                return c(jSONObject.optJSONArray("subPackages"), file);
             }
-            return c(jSONObject.optJSONArray("subPackages"), file);
+            return (j) invokeLL.objValue;
         }
 
         public static j e() {
-            j jVar = new j();
-            jVar.f11424a = new ArrayList();
-            jVar.f11426c = new HashMap();
-            jVar.f11425b = new HashMap();
-            jVar.f11427d = new HashMap();
-            return jVar;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+                j jVar = new j();
+                jVar.f11491a = new ArrayList();
+                jVar.f11493c = new HashMap();
+                jVar.f11492b = new HashMap();
+                jVar.f11494d = new HashMap();
+                return jVar;
+            }
+            return (j) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class k {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<k> f11428b = new a();
+        public static final d.a.q0.a.a2.n.f<k> f11495b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<k> f11429c = new b();
+        public static final d.a.q0.a.a2.n.e<k> f11496c;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f11430a;
+        public Map<String, String> f11497a;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.f<k> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.f<k> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull k kVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.p(kVar.f11430a);
+            public void b(@NonNull k kVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar, dVar) == null) {
+                    dVar.h(kVar.f11497a);
+                }
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.e<k> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
-            /* renamed from: c */
-            public k b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                Map<String, String> v = cVar.v();
-                if (v == null) {
-                    return k.d();
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.e<k> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
-                k kVar = new k();
-                kVar.f11430a = v;
-                return kVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.e
+            /* renamed from: c */
+            public k b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    Map<String, String> v = cVar.v();
+                    if (v == null) {
+                        return k.d();
+                    }
+                    k kVar = new k();
+                    kVar.f11497a = v;
+                    return kVar;
+                }
+                return (k) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927423, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$k;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927423, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$k;");
+                    return;
+                }
+            }
+            f11495b = new a();
+            f11496c = new b();
+        }
+
+        public k() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static k c(JSONObject jSONObject, j jVar) {
+            InterceptResult invokeLL;
             List<i> list;
-            if (jSONObject != null && jVar != null && (list = jVar.f11424a) != null && list.size() > 0) {
-                JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
-                if (optJSONObject == null) {
-                    return d();
-                }
-                k kVar = new k();
-                kVar.f11430a = new HashMap();
-                for (i iVar : jVar.f11424a) {
-                    if (iVar != null && !TextUtils.isEmpty(iVar.f11419a)) {
-                        Map<String, String> map = kVar.f11430a;
-                        String str = iVar.f11419a;
-                        map.put(str, optJSONObject.optString(str));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, jSONObject, jVar)) == null) {
+                if (jSONObject != null && jVar != null && (list = jVar.f11491a) != null && list.size() > 0) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
+                    if (optJSONObject == null) {
+                        return d();
                     }
+                    k kVar = new k();
+                    kVar.f11497a = new HashMap();
+                    for (i iVar : jVar.f11491a) {
+                        if (iVar != null && !TextUtils.isEmpty(iVar.f11486a)) {
+                            Map<String, String> map = kVar.f11497a;
+                            String str = iVar.f11486a;
+                            map.put(str, optJSONObject.optString(str));
+                        }
+                    }
+                    return kVar;
                 }
-                return kVar;
+                return d();
             }
-            return d();
+            return (k) invokeLL.objValue;
         }
 
         public static k d() {
-            k kVar = new k();
-            kVar.f11430a = new HashMap();
-            return kVar;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+                k kVar = new k();
+                kVar.f11497a = new HashMap();
+                return kVar;
+            }
+            return (k) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class l {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<l> f11431f = new a();
+        public static final d.a.q0.a.a2.n.f<l> f11498f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<l> f11432g = new b();
+        public static final d.a.q0.a.a2.n.e<l> f11499g;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f11433a;
+        public int f11500a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11434b;
+        public int f11501b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11435c;
+        public int f11502c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11436d;
+        public int f11503d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<m> f11437e;
+        public List<m> f11504e;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.f<l> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.f<l> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull l lVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.writeInt(lVar.f11433a);
-                dVar.writeInt(lVar.f11434b);
-                dVar.writeInt(lVar.f11435c);
-                dVar.writeInt(lVar.f11436d);
-                dVar.l(lVar.f11437e, m.f11438e);
+            public void b(@NonNull l lVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, dVar) == null) {
+                    dVar.writeInt(lVar.f11500a);
+                    dVar.writeInt(lVar.f11501b);
+                    dVar.writeInt(lVar.f11502c);
+                    dVar.writeInt(lVar.f11503d);
+                    dVar.d(lVar.f11504e, m.f11505e);
+                }
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.e<l> {
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
-            /* renamed from: c */
-            public l b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                l lVar = new l();
-                lVar.f11433a = cVar.readInt();
-                lVar.f11434b = cVar.readInt();
-                lVar.f11435c = cVar.readInt();
-                lVar.f11436d = cVar.readInt();
-                List<m> q = cVar.q(m.f11439f);
-                lVar.f11437e = q;
-                if (q == null) {
-                    lVar.f11437e = new ArrayList();
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.e<l> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
-                return lVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.a.q0.a.a2.n.e
+            /* renamed from: c */
+            public l b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    l lVar = new l();
+                    lVar.f11500a = cVar.readInt();
+                    lVar.f11501b = cVar.readInt();
+                    lVar.f11502c = cVar.readInt();
+                    lVar.f11503d = cVar.readInt();
+                    List<m> p = cVar.p(m.f11506f);
+                    lVar.f11504e = p;
+                    if (p == null) {
+                        lVar.f11504e = new ArrayList();
+                    }
+                    return lVar;
+                }
+                return (l) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927392, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$l;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927392, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$l;");
+                    return;
+                }
+            }
+            f11498f = new a();
+            f11499g = new b();
+        }
+
+        public l() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static l b(JSONObject jSONObject) {
+            InterceptResult invokeL;
             int length;
-            if (jSONObject == null) {
-                return c();
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("tabBar");
-            if (optJSONObject == null) {
-                return c();
-            }
-            l lVar = new l();
-            lVar.f11433a = SwanAppConfigData.s(optJSONObject.optString("color", "#999999"));
-            lVar.f11434b = SwanAppConfigData.s(optJSONObject.optString("selectedColor", "black"));
-            lVar.f11435c = SwanAppConfigData.s(optJSONObject.optString("borderStyle", "black"));
-            lVar.f11436d = SwanAppConfigData.s(optJSONObject.optString("backgroundColor", "white"));
-            JSONArray optJSONArray = optJSONObject.optJSONArray("list");
-            if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
-                if (length > 5) {
-                    length = 5;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
                 }
-                lVar.f11437e = new ArrayList(length);
-                for (int i2 = 0; i2 < length; i2++) {
-                    lVar.f11437e.add(m.b(optJSONArray.optJSONObject(i2)));
+                JSONObject optJSONObject = jSONObject.optJSONObject("tabBar");
+                if (optJSONObject == null) {
+                    return c();
                 }
+                l lVar = new l();
+                lVar.f11500a = SwanAppConfigData.s(optJSONObject.optString("color", "#999999"));
+                lVar.f11501b = SwanAppConfigData.s(optJSONObject.optString("selectedColor", "black"));
+                lVar.f11502c = SwanAppConfigData.s(optJSONObject.optString("borderStyle", "black"));
+                lVar.f11503d = SwanAppConfigData.s(optJSONObject.optString("backgroundColor", "white"));
+                JSONArray optJSONArray = optJSONObject.optJSONArray("list");
+                if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
+                    if (length > 5) {
+                        length = 5;
+                    }
+                    lVar.f11504e = new ArrayList(length);
+                    for (int i2 = 0; i2 < length; i2++) {
+                        lVar.f11504e.add(m.b(optJSONArray.optJSONObject(i2)));
+                    }
+                }
+                return lVar;
             }
-            return lVar;
+            return (l) invokeL.objValue;
         }
 
         public static l c() {
-            if (SwanAppConfigData.r) {
-                Log.w("SwanAppConfigData", "TabBarConfig createNullObject() ");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+                if (SwanAppConfigData.r) {
+                    Log.w("SwanAppConfigData", "TabBarConfig createNullObject() ");
+                }
+                l lVar = new l();
+                lVar.f11504e = new ArrayList();
+                return lVar;
             }
-            l lVar = new l();
-            lVar.f11437e = new ArrayList();
-            return lVar;
+            return (l) invokeV.objValue;
         }
 
         public boolean d(String str) {
-            if (this.f11437e == null) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (this.f11504e == null) {
+                    return false;
+                }
+                for (int i2 = 0; i2 < this.f11504e.size(); i2++) {
+                    if (TextUtils.equals(this.f11504e.get(i2).f11507a, str)) {
+                        return true;
+                    }
+                }
                 return false;
             }
-            for (int i2 = 0; i2 < this.f11437e.size(); i2++) {
-                if (TextUtils.equals(this.f11437e.get(i2).f11440a, str)) {
-                    return true;
-                }
-            }
-            return false;
+            return invokeL.booleanValue;
         }
 
         public boolean e() {
-            List<m> list = this.f11437e;
-            return list != null && list.size() >= 2;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                List<m> list = this.f11504e;
+                return list != null && list.size() >= 2;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class m {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.f<m> f11438e = new a();
+        public static final d.a.q0.a.a2.n.f<m> f11505e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final d.a.m0.a.a2.n.e<m> f11439f = new b();
+        public static final d.a.q0.a.a2.n.e<m> f11506f;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11440a;
+        public String f11507a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11441b;
+        public String f11508b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11442c;
+        public String f11509c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f11443d;
+        public String f11510d;
 
-        /* loaded from: classes3.dex */
-        public static class a extends d.a.m0.a.a2.n.f<m> {
+        /* loaded from: classes4.dex */
+        public static class a extends d.a.q0.a.a2.n.f<m> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.f
+            @Override // d.a.q0.a.a2.n.f
             /* renamed from: c */
-            public void b(@NonNull m mVar, @NonNull d.a.m0.a.b1.d dVar) throws Exception {
-                dVar.n(mVar.f11440a);
-                dVar.n(mVar.f11441b);
-                dVar.n(mVar.f11442c);
-                dVar.n(mVar.f11443d);
+            public void b(@NonNull m mVar, @NonNull d.a.q0.a.b1.d dVar) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, dVar) == null) {
+                    dVar.f(mVar.f11507a);
+                    dVar.f(mVar.f11508b);
+                    dVar.f(mVar.f11509c);
+                    dVar.f(mVar.f11510d);
+                }
             }
         }
 
-        /* loaded from: classes3.dex */
-        public static class b extends d.a.m0.a.a2.n.e<m> {
+        /* loaded from: classes4.dex */
+        public static class b extends d.a.q0.a.a2.n.e<m> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.m0.a.a2.n.e
+            @Override // d.a.q0.a.a2.n.e
             /* renamed from: c */
-            public m b(@NonNull d.a.m0.a.b1.c cVar) throws Exception {
-                m mVar = new m();
-                mVar.f11440a = cVar.s();
-                mVar.f11441b = cVar.s();
-                mVar.f11442c = cVar.s();
-                mVar.f11443d = cVar.s();
-                return mVar;
+            public m b(@NonNull d.a.q0.a.b1.c cVar) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
+                    m mVar = new m();
+                    mVar.f11507a = cVar.r();
+                    mVar.f11508b = cVar.r();
+                    mVar.f11509c = cVar.r();
+                    mVar.f11510d = cVar.r();
+                    return mVar;
+                }
+                return (m) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92927361, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$m;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-92927361, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData$m;");
+                    return;
+                }
+            }
+            f11505e = new a();
+            f11506f = new b();
+        }
+
+        public m() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
         public static m b(JSONObject jSONObject) {
-            if (jSONObject == null) {
-                return c();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                m mVar = new m();
+                mVar.f11507a = jSONObject.optString("pagePath");
+                mVar.f11508b = jSONObject.optString("iconPath");
+                mVar.f11509c = jSONObject.optString("selectedIconPath");
+                mVar.f11510d = jSONObject.optString("text");
+                return mVar;
             }
-            m mVar = new m();
-            mVar.f11440a = jSONObject.optString("pagePath");
-            mVar.f11441b = jSONObject.optString("iconPath");
-            mVar.f11442c = jSONObject.optString("selectedIconPath");
-            mVar.f11443d = jSONObject.optString("text");
-            return mVar;
+            return (m) invokeL.objValue;
         }
 
         public static m c() {
-            if (SwanAppConfigData.r) {
-                Log.w("SwanAppConfigData", "TabItem createNullObject() ");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+                if (SwanAppConfigData.r) {
+                    Log.w("SwanAppConfigData", "TabItem createNullObject() ");
+                }
+                return new m();
             }
-            return new m();
+            return (m) invokeV.objValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1153168024, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1153168024, "Lcom/baidu/swan/apps/runtime/config/SwanAppConfigData;");
+                return;
+            }
+        }
+        r = d.a.q0.a.k.f49133a;
+        s = new a();
+        t = new b();
         HashMap<String, Integer> hashMap = new HashMap<>();
         u = hashMap;
         hashMap.put(SensorController.KEY_LIGHT, -1);
@@ -1035,211 +2156,295 @@ public class SwanAppConfigData {
 
     @Nullable
     public static SwanAppConfigData c(String str, File file) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        SwanAppConfigData swanAppConfigData = new SwanAppConfigData();
-        swanAppConfigData.m = str;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            swanAppConfigData.j = f.c(jSONObject, file);
-            swanAppConfigData.f11397i = f.d(jSONObject, file);
-            swanAppConfigData.l = jSONObject.optString("remote_debug_plugins");
-            JSONArray optJSONArray = jSONObject.optJSONArray("remote_debug_plugins");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                swanAppConfigData.k = d.a.m0.a.t1.g.b.k(optJSONArray.toString(), false);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, file)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            swanAppConfigData.f11389a = jSONObject.optBoolean("debug");
-            swanAppConfigData.f11390b = d.b(jSONObject);
-            j d2 = j.d(jSONObject, file);
-            swanAppConfigData.f11391c = d2;
-            swanAppConfigData.f11392d = k.c(jSONObject, d2);
-            swanAppConfigData.f11393e = d.a.m0.a.a2.n.g.a(jSONObject);
-            swanAppConfigData.f11394f = l.b(jSONObject);
-            swanAppConfigData.f11395g = h.b(jSONObject);
-            swanAppConfigData.f11396h = c.a.a(jSONObject);
-            swanAppConfigData.n = g.c(jSONObject);
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("requiredBackgroundModes");
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    String optString = optJSONArray2.optString(i2);
-                    if (!TextUtils.isEmpty(optString)) {
-                        swanAppConfigData.p.add(optString);
+            SwanAppConfigData swanAppConfigData = new SwanAppConfigData();
+            swanAppConfigData.m = str;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                swanAppConfigData.j = f.c(jSONObject, file);
+                swanAppConfigData.f11464i = f.d(jSONObject, file);
+                swanAppConfigData.l = jSONObject.optString("remote_debug_plugins");
+                JSONArray optJSONArray = jSONObject.optJSONArray("remote_debug_plugins");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    swanAppConfigData.k = d.a.q0.a.t1.g.b.k(optJSONArray.toString(), false);
+                }
+                swanAppConfigData.f11456a = jSONObject.optBoolean("debug");
+                swanAppConfigData.f11457b = d.b(jSONObject);
+                j d2 = j.d(jSONObject, file);
+                swanAppConfigData.f11458c = d2;
+                swanAppConfigData.f11459d = k.c(jSONObject, d2);
+                swanAppConfigData.f11460e = d.a.q0.a.a2.n.g.a(jSONObject);
+                swanAppConfigData.f11461f = l.b(jSONObject);
+                swanAppConfigData.f11462g = h.b(jSONObject);
+                swanAppConfigData.f11463h = c.a.a(jSONObject);
+                swanAppConfigData.n = g.c(jSONObject);
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("requiredBackgroundModes");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        String optString = optJSONArray2.optString(i2);
+                        if (!TextUtils.isEmpty(optString)) {
+                            swanAppConfigData.p.add(optString);
+                        }
                     }
                 }
+                swanAppConfigData.o = e.c(jSONObject);
+                swanAppConfigData.q = c.b(jSONObject);
+                r(swanAppConfigData, jSONObject, file);
+                return swanAppConfigData;
+            } catch (JSONException e2) {
+                if (r) {
+                    Log.e("SwanAppConfigData", "buildConfigData json error: ", e2);
+                }
+                return null;
             }
-            swanAppConfigData.o = e.c(jSONObject);
-            swanAppConfigData.q = c.b(jSONObject);
-            r(swanAppConfigData, jSONObject, file);
-            return swanAppConfigData;
-        } catch (JSONException e2) {
-            if (r) {
-                Log.e("SwanAppConfigData", "buildConfigData json error: ", e2);
-            }
-            return null;
         }
+        return (SwanAppConfigData) invokeLL.objValue;
     }
 
     public static String d(String str) {
-        if (!TextUtils.isEmpty(str) && str.length() == 4 && str.charAt(0) == '#') {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str.charAt(0));
-            for (int i2 = 1; i2 < 4; i2++) {
-                char charAt = str.charAt(i2);
-                sb.append(charAt);
-                sb.append(charAt);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() == 4 && str.charAt(0) == '#') {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.charAt(0));
+                for (int i2 = 1; i2 < 4; i2++) {
+                    char charAt = str.charAt(i2);
+                    sb.append(charAt);
+                    sb.append(charAt);
+                }
+                return sb.toString();
             }
-            return sb.toString();
+            return str;
         }
-        return str;
+        return (String) invokeL.objValue;
     }
 
     public static void r(@NonNull SwanAppConfigData swanAppConfigData, @NonNull JSONObject jSONObject, @NonNull File file) {
-        File file2 = new File(file, d.a.m0.a.c1.a.m().a() + "_app.json");
-        if (file2.exists()) {
-            String D = d.a.m0.t.d.D(file2);
-            if (TextUtils.isEmpty(D)) {
-                return;
-            }
-            try {
-                JSONObject jSONObject2 = new JSONObject(D);
-                JSONObject optJSONObject = jSONObject2.optJSONObject("window");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    swanAppConfigData.f11393e = d.a.m0.a.a2.n.g.a(jSONObject2);
-                    jSONObject.put("window", optJSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, swanAppConfigData, jSONObject, file) == null) {
+            File file2 = new File(file, d.a.q0.a.c1.a.m().a() + "_app.json");
+            if (file2.exists()) {
+                String D = d.a.q0.t.d.D(file2);
+                if (TextUtils.isEmpty(D)) {
+                    return;
                 }
-                JSONObject optJSONObject2 = jSONObject2.optJSONObject("tabBar");
-                if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                    swanAppConfigData.f11394f = l.b(jSONObject2);
-                    jSONObject.put("tabBar", optJSONObject2);
-                }
-                swanAppConfigData.m = jSONObject.toString();
-            } catch (JSONException e2) {
-                if (r) {
-                    e2.printStackTrace();
+                try {
+                    JSONObject jSONObject2 = new JSONObject(D);
+                    JSONObject optJSONObject = jSONObject2.optJSONObject("window");
+                    if (optJSONObject != null && optJSONObject.length() > 0) {
+                        swanAppConfigData.f11460e = d.a.q0.a.a2.n.g.a(jSONObject2);
+                        jSONObject.put("window", optJSONObject);
+                    }
+                    JSONObject optJSONObject2 = jSONObject2.optJSONObject("tabBar");
+                    if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                        swanAppConfigData.f11461f = l.b(jSONObject2);
+                        jSONObject.put("tabBar", optJSONObject2);
+                    }
+                    swanAppConfigData.m = jSONObject.toString();
+                } catch (JSONException e2) {
+                    if (r) {
+                        e2.printStackTrace();
+                    }
                 }
             }
         }
     }
 
     public static int s(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        try {
-            return Color.parseColor(d(str));
-        } catch (Exception unused) {
-            if (r) {
-                Log.e("SwanAppConfigData", "parseColor failed: Unknown color " + str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
             }
-            if (u.containsKey(str)) {
-                return u.get(str).intValue();
+            try {
+                return Color.parseColor(d(str));
+            } catch (Exception unused) {
+                if (r) {
+                    Log.e("SwanAppConfigData", "parseColor failed: Unknown color " + str);
+                }
+                if (u.containsKey(str)) {
+                    return u.get(str).intValue();
+                }
+                return -1;
             }
-            return -1;
         }
+        return invokeL.intValue;
     }
 
-    public final void b(f fVar, List<d.a.m0.a.t1.f.a> list) {
-        List<d.a.m0.a.t1.f.a> list2;
-        if (fVar == null || list == null || (list2 = fVar.f11409a) == null || list2.size() <= 0) {
+    public final void b(f fVar, List<d.a.q0.a.t1.f.a> list) {
+        List<d.a.q0.a.t1.f.a> list2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fVar, list) == null) || fVar == null || list == null || (list2 = fVar.f11476a) == null || list2.size() <= 0) {
             return;
         }
         list.addAll(list2);
     }
 
     public String e() {
-        return k() ? this.f11390b.f11403a.get(0) : "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? k() ? this.f11457b.f11470a.get(0) : "" : (String) invokeV.objValue;
     }
 
     public String f(String str) {
+        InterceptResult invokeL;
         List<i> list;
-        j jVar = this.f11391c;
-        if (jVar != null && (list = jVar.f11424a) != null) {
-            for (i iVar : list) {
-                if (TextUtils.equals(iVar.f11419a, str)) {
-                    return iVar.e();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            j jVar = this.f11458c;
+            if (jVar != null && (list = jVar.f11491a) != null) {
+                for (i iVar : list) {
+                    if (TextUtils.equals(iVar.f11486a, str)) {
+                        return iVar.e();
+                    }
                 }
             }
+            return null;
         }
-        return null;
+        return (String) invokeL.objValue;
     }
 
     public String g(String str) {
-        String b2 = d.a.m0.a.c2.f.p0.j.b(o0.f(str));
-        if (!TextUtils.isEmpty(b2)) {
-            if (d.a.m0.a.t1.b.a.e(b2)) {
-                return "dynamicLib";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            String b2 = d.a.q0.a.c2.f.p0.j.b(o0.f(str));
+            if (!TextUtils.isEmpty(b2)) {
+                if (d.a.q0.a.t1.b.a.e(b2)) {
+                    return "dynamicLib";
+                }
+                if (p(b2)) {
+                    return n(b2) ? "independent" : "subNormal";
+                }
             }
-            if (p(b2)) {
-                return n(b2) ? "independent" : "subNormal";
-            }
+            return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
         }
-        return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+        return (String) invokeL.objValue;
     }
 
-    public List<d.a.m0.a.t1.f.a> h(int i2) {
-        if (i2 == 3) {
-            ArrayList arrayList = new ArrayList();
-            b(this.j, arrayList);
-            return arrayList;
-        } else if (i2 == 4) {
-            ArrayList arrayList2 = new ArrayList();
-            b(this.f11397i, arrayList2);
-            return arrayList2;
-        } else {
-            return null;
+    public List<d.a.q0.a.t1.f.a> h(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            if (i2 == 3) {
+                ArrayList arrayList = new ArrayList();
+                b(this.j, arrayList);
+                return arrayList;
+            } else if (i2 == 4) {
+                ArrayList arrayList2 = new ArrayList();
+                b(this.f11464i, arrayList2);
+                return arrayList2;
+            } else {
+                return null;
+            }
         }
+        return (List) invokeI.objValue;
     }
 
     public String i(String str) {
-        g gVar = this.n;
-        if (gVar == null || gVar.f11412a == null) {
-            return str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            g gVar = this.n;
+            if (gVar == null || gVar.f11479a == null) {
+                return str;
+            }
+            String f2 = o0.f(str);
+            String str2 = this.n.f11479a.get(f2);
+            return TextUtils.isEmpty(str2) ? str : str.replaceFirst(f2, str2);
         }
-        String f2 = o0.f(str);
-        String str2 = this.n.f11412a.get(f2);
-        return TextUtils.isEmpty(str2) ? str : str.replaceFirst(f2, str2);
+        return (String) invokeL.objValue;
     }
 
     public final boolean j() {
-        j jVar = this.f11391c;
-        return (jVar == null || jVar.f11424a == null || jVar.f11427d == null) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            j jVar = this.f11458c;
+            return (jVar == null || jVar.f11491a == null || jVar.f11494d == null) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean k() {
+        InterceptResult invokeV;
         List<String> list;
-        d dVar = this.f11390b;
-        return (dVar == null || (list = dVar.f11403a) == null || list.isEmpty()) ? false : true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            d dVar = this.f11457b;
+            return (dVar == null || (list = dVar.f11470a) == null || list.isEmpty()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean l() {
-        j jVar = this.f11391c;
-        return (jVar == null || jVar.f11424a == null || jVar.f11426c == null) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            j jVar = this.f11458c;
+            return (jVar == null || jVar.f11491a == null || jVar.f11493c == null) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean m() {
-        l lVar = this.f11394f;
-        return lVar != null && lVar.e();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            l lVar = this.f11461f;
+            return lVar != null && lVar.e();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean n(String str) {
-        return j() && this.f11391c.f11427d.containsKey(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? j() && this.f11458c.f11494d.containsKey(str) : invokeL.booleanValue;
     }
 
     public boolean o(String str) {
-        return (k() && this.f11390b.c(str)) || (l() && this.f11391c.f11426c.containsKey(str));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? (k() && this.f11457b.c(str)) || (l() && this.f11458c.f11493c.containsKey(str)) : invokeL.booleanValue;
     }
 
     public boolean p(String str) {
-        return l() && this.f11391c.f11426c.containsKey(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? l() && this.f11458c.f11493c.containsKey(str) : invokeL.booleanValue;
     }
 
     public boolean q(String str) {
-        l lVar = this.f11394f;
-        return lVar != null && lVar.d(str);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            l lVar = this.f11461f;
+            return lVar != null && lVar.d(str);
+        }
+        return invokeL.booleanValue;
     }
 
     public SwanAppConfigData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.p = new ArrayList(1);
     }
 }

@@ -2,28 +2,41 @@ package com.kwad.sdk.core.b;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static String a() {
-        Context context = KsAdSDKImpl.get().getContext();
-        return context == null ? "" : ae.e(context);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context context = KsAdSDKImpl.get().getContext();
+            return context == null ? "" : ae.e(context);
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void a(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
         ae.e(context, str);
     }
 
     public static void a(String str) {
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null) {
+        Context context;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
             return;
         }
-        if (com.kwad.sdk.d.f35260a == 1) {
+        if (com.kwad.sdk.d.f37023a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
             if (aVar != null) {
                 aVar.a(context, str);
@@ -38,7 +51,12 @@ public final class e {
     }
 
     public static String b() {
-        Context context = KsAdSDKImpl.get().getContext();
-        return context == null ? "" : ae.f(context);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Context context = KsAdSDKImpl.get().getContext();
+            return context == null ? "" : ae.f(context);
+        }
+        return (String) invokeV.objValue;
     }
 }

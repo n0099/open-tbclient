@@ -1,49 +1,80 @@
 package com.baidu.tieba.forbidden.fans;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.n0.r.q.z0;
-import d.a.o0.o0.a.a;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.a1;
+import d.a.s0.r0.a.a;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<a> fansList;
-    public z0 pageData;
+    public a1 pageData;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetForbiddenFansResponse(int i2) {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i2, jSONObject);
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode == 200 && error == 0 && jSONObject != null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("block_user_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                int length = optJSONArray.length();
-                this.fansList = new ArrayList<>();
-                for (int i3 = 0; i3 < length; i3++) {
-                    a aVar = new a();
-                    aVar.a(optJSONArray.getJSONObject(i3));
-                    if (aVar.f61573a != 0) {
-                        this.fansList.add(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+            super.decodeLogicInBackGround(i2, jSONObject);
+            int statusCode = getStatusCode();
+            int error = getError();
+            if (statusCode == 200 && error == 0 && jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("block_user_list");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
+                    this.fansList = new ArrayList<>();
+                    for (int i3 = 0; i3 < length; i3++) {
+                        a aVar = new a();
+                        aVar.a(optJSONArray.getJSONObject(i3));
+                        if (aVar.f64998a != 0) {
+                            this.fansList.add(aVar);
+                        }
                     }
                 }
+                a1 a1Var = new a1();
+                this.pageData = a1Var;
+                a1Var.i(jSONObject.optJSONObject("page"));
             }
-            z0 z0Var = new z0();
-            this.pageData = z0Var;
-            z0Var.i(jSONObject.optJSONObject("page"));
         }
     }
 
     public ArrayList<a> getFansList() {
-        return this.fansList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fansList : (ArrayList) invokeV.objValue;
     }
 
-    public z0 getPageData() {
-        return this.pageData;
+    public a1 getPageData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (a1) invokeV.objValue;
     }
 }

@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,242 +19,355 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.n0.m.f;
+import d.a.r0.m.f;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f16654a;
+    public Context f16790a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SpecialColumnItemData> f16655b;
+    public List<SpecialColumnItemData> f16791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f<SpecialColumnItemData> f16656c = null;
+    public f<SpecialColumnItemData> f16792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16657d;
+    public int f16793d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SpecialColumnItemData f16658e;
+        public final /* synthetic */ SpecialColumnItemData f16794e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f16659f;
+        public final /* synthetic */ int f16795f;
 
-        public a(SpecialColumnItemData specialColumnItemData, int i2) {
-            this.f16658e = specialColumnItemData;
-            this.f16659f = i2;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ HomePageTabFeedCollegeSecondListAdapter f16796g;
+
+        public a(HomePageTabFeedCollegeSecondListAdapter homePageTabFeedCollegeSecondListAdapter, SpecialColumnItemData specialColumnItemData, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {homePageTabFeedCollegeSecondListAdapter, specialColumnItemData, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16796g = homePageTabFeedCollegeSecondListAdapter;
+            this.f16794e = specialColumnItemData;
+            this.f16795f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (HomePageTabFeedCollegeSecondListAdapter.this.f16656c != null) {
-                f fVar = HomePageTabFeedCollegeSecondListAdapter.this.f16656c;
-                SpecialColumnItemData specialColumnItemData = this.f16658e;
-                int i2 = this.f16659f;
-                fVar.a(view, specialColumnItemData, i2, i2);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends RecyclerView.ViewHolder {
-
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f16661a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f16662b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public TbImageView f16663c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public ImageView f16664d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f16665e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public LinearLayout f16666f;
-
-        public b(View view) {
-            super(view);
-            this.f16663c = (TbImageView) view.findViewById(R.id.iv_imageView);
-            this.f16664d = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.f16661a = (TextView) view.findViewById(R.id.text_tv);
-            this.f16662b = (TextView) view.findViewById(R.id.tv_content);
-            this.f16665e = view.findViewById(R.id.gradient_cover);
-            this.f16666f = (LinearLayout) view.findViewById(R.id.ll_live_main);
-        }
-
-        public void a(SpecialColumnItemData specialColumnItemData) {
-            if (specialColumnItemData == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16796g.f16792c == null) {
                 return;
             }
-            this.f16662b.setText(specialColumnItemData.title);
-            this.f16663c.setConrers(15);
-            this.f16663c.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.f16663c.setDrawCorner(true);
-            this.f16663c.setPlaceHolder(2);
-            this.f16663c.U(specialColumnItemData.image, 10, false);
-            this.f16661a.setText(specialColumnItemData.text);
-            this.f16664d.setVisibility(0);
-            HomePageTabFeedCollegeSecondListAdapter.this.f16657d = R.drawable.ic_icon_pure_common_live12_svg;
-            this.f16665e.setAlpha(0.5f);
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(HomePageTabFeedCollegeSecondListAdapter.this.f16654a, R.dimen.tbds10)).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).into(this.f16665e);
+            f fVar = this.f16796g.f16792c;
+            SpecialColumnItemData specialColumnItemData = this.f16794e;
+            int i2 = this.f16795f;
+            fVar.a(view, specialColumnItemData, i2, i2);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends RecyclerView.ViewHolder {
+    /* loaded from: classes5.dex */
+    public class b extends RecyclerView.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f16668a;
+        public TextView f16797a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f16669b;
+        public TextView f16798b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16670c;
+        public TbImageView f16799c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f16671d;
+        public ImageView f16800d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TbImageView f16672e;
+        public View f16801e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f16673f;
+        public LinearLayout f16802f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f16674g;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondListAdapter f16803g;
 
-        /* renamed from: h  reason: collision with root package name */
-        public RelativeLayout f16675h;
-
-        public c(View view) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(HomePageTabFeedCollegeSecondListAdapter homePageTabFeedCollegeSecondListAdapter, View view) {
             super(view);
-            this.f16668a = (TextView) view.findViewById(R.id.tv_title);
-            this.f16672e = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
-            this.f16669b = (TextView) view.findViewById(R.id.tv_left_watch);
-            this.f16670c = (TextView) view.findViewById(R.id.tv_left_agree);
-            this.f16673f = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.f16671d = (TextView) view.findViewById(R.id.text_tv);
-            this.f16674g = view.findViewById(R.id.gradient_cover);
-            this.f16675h = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {homePageTabFeedCollegeSecondListAdapter, view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16803g = homePageTabFeedCollegeSecondListAdapter;
+            this.f16799c = (TbImageView) view.findViewById(R.id.iv_imageView);
+            this.f16800d = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.f16797a = (TextView) view.findViewById(R.id.text_tv);
+            this.f16798b = (TextView) view.findViewById(R.id.tv_content);
+            this.f16801e = view.findViewById(R.id.gradient_cover);
+            this.f16802f = (LinearLayout) view.findViewById(R.id.ll_live_main);
         }
 
         public void a(SpecialColumnItemData specialColumnItemData) {
-            if (specialColumnItemData == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, specialColumnItemData) == null) || specialColumnItemData == null) {
                 return;
             }
-            this.f16668a.setText(specialColumnItemData.title);
-            this.f16672e.setConrers(15);
-            this.f16672e.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.f16672e.setDrawCorner(true);
-            this.f16672e.setPlaceHolder(2);
-            this.f16672e.U(specialColumnItemData.image, 10, false);
-            this.f16672e.setGifIconSupport(false);
-            this.f16670c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.agree_num)));
-            this.f16671d.setText(specialColumnItemData.text);
+            this.f16798b.setText(specialColumnItemData.title);
+            this.f16799c.setConrers(15);
+            this.f16799c.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.f16799c.setDrawCorner(true);
+            this.f16799c.setPlaceHolder(2);
+            this.f16799c.M(specialColumnItemData.image, 10, false);
+            this.f16797a.setText(specialColumnItemData.text);
+            this.f16800d.setVisibility(0);
+            this.f16803g.f16793d = R.drawable.ic_icon_pure_common_live12_svg;
+            this.f16801e.setAlpha(0.5f);
+            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f16803g.f16790a, R.dimen.tbds10)).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).into(this.f16801e);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends RecyclerView.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public TextView f16804a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f16805b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public TextView f16806c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public TextView f16807d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public TbImageView f16808e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public ImageView f16809f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public View f16810g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public RelativeLayout f16811h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ HomePageTabFeedCollegeSecondListAdapter f16812i;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(HomePageTabFeedCollegeSecondListAdapter homePageTabFeedCollegeSecondListAdapter, View view) {
+            super(view);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {homePageTabFeedCollegeSecondListAdapter, view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16812i = homePageTabFeedCollegeSecondListAdapter;
+            this.f16804a = (TextView) view.findViewById(R.id.tv_title);
+            this.f16808e = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
+            this.f16805b = (TextView) view.findViewById(R.id.tv_left_watch);
+            this.f16806c = (TextView) view.findViewById(R.id.tv_left_agree);
+            this.f16809f = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.f16807d = (TextView) view.findViewById(R.id.text_tv);
+            this.f16810g = view.findViewById(R.id.gradient_cover);
+            this.f16811h = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
+        }
+
+        public void a(SpecialColumnItemData specialColumnItemData) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, specialColumnItemData) == null) || specialColumnItemData == null) {
+                return;
+            }
+            this.f16804a.setText(specialColumnItemData.title);
+            this.f16808e.setConrers(15);
+            this.f16808e.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.f16808e.setDrawCorner(true);
+            this.f16808e.setPlaceHolder(2);
+            this.f16808e.M(specialColumnItemData.image, 10, false);
+            this.f16808e.setGifIconSupport(false);
+            this.f16806c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.agree_num)));
+            this.f16807d.setText(specialColumnItemData.text);
             if (specialColumnItemData.specialType == 2) {
-                this.f16673f.setVisibility(0);
-                this.f16674g.setVisibility(0);
-                this.f16674g.setAlpha(0.5f);
-                this.f16671d.setVisibility(0);
-                HomePageTabFeedCollegeSecondListAdapter.this.f16657d = R.drawable.ic_icon_pure_video_play12_svg;
-                this.f16669b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).cornerRadius(l.g(HomePageTabFeedCollegeSecondListAdapter.this.f16654a, R.dimen.tbds10)).into(this.f16674g);
+                this.f16809f.setVisibility(0);
+                this.f16810g.setVisibility(0);
+                this.f16810g.setAlpha(0.5f);
+                this.f16807d.setVisibility(0);
+                this.f16812i.f16793d = R.drawable.ic_icon_pure_video_play12_svg;
+                this.f16805b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).cornerRadius(l.g(this.f16812i.f16790a, R.dimen.tbds10)).into(this.f16810g);
                 return;
             }
-            this.f16674g.setVisibility(8);
-            this.f16673f.setVisibility(8);
-            this.f16671d.setVisibility(8);
-            HomePageTabFeedCollegeSecondListAdapter.this.f16657d = 0;
-            this.f16669b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+            this.f16810g.setVisibility(8);
+            this.f16809f.setVisibility(8);
+            this.f16807d.setVisibility(8);
+            this.f16812i.f16793d = 0;
+            this.f16805b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
         }
     }
 
     public HomePageTabFeedCollegeSecondListAdapter(Context context, List<SpecialColumnItemData> list) {
-        this.f16654a = context;
-        this.f16655b = list;
-    }
-
-    public final void f(RecyclerView.ViewHolder viewHolder) {
-        if (viewHolder instanceof c) {
-            c cVar = (c) viewHolder;
-            SkinManager.setViewTextColor(cVar.f16668a, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(cVar.f16669b, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(cVar.f16670c, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(cVar.f16671d, R.color.CAM_X0101);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(cVar.f16673f, this.f16657d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.setViewBackgroundColorWithPressedState(cVar.f16675h, R.color.CAM_X0205, R.color.CAM_X0204);
-        } else if (viewHolder instanceof b) {
-            b bVar = (b) viewHolder;
-            SkinManager.setViewTextColor(bVar.f16662b, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(bVar.f16661a, R.color.CAM_X0101);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(bVar.f16664d, this.f16657d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.setViewBackgroundColorWithPressedState(bVar.f16666f, R.color.CAM_X0205, R.color.CAM_X0204);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.f16792c = null;
+        this.f16790a = context;
+        this.f16791b = list;
     }
 
-    public final SpecialColumnItemData g(int i2) {
-        return (SpecialColumnItemData) ListUtils.getItem(this.f16655b, i2);
+    public final void g(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) {
+            if (viewHolder instanceof c) {
+                c cVar = (c) viewHolder;
+                SkinManager.setViewTextColor(cVar.f16804a, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(cVar.f16805b, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(cVar.f16806c, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(cVar.f16807d, R.color.CAM_X0101);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(cVar.f16809f, this.f16793d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                TBSelector.setViewBackgroundColorWithPressedState(cVar.f16811h, R.color.CAM_X0205, R.color.CAM_X0204);
+            } else if (viewHolder instanceof b) {
+                b bVar = (b) viewHolder;
+                SkinManager.setViewTextColor(bVar.f16798b, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(bVar.f16797a, R.color.CAM_X0101);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(bVar.f16800d, this.f16793d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                TBSelector.setViewBackgroundColorWithPressedState(bVar.f16802f, R.color.CAM_X0205, R.color.CAM_X0204);
+            }
+        }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f16655b);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f16791b) : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i2) {
-        int i3 = this.f16655b.get(i2).specialType;
-        if (i3 == 1) {
-            return 1;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            int i3 = this.f16791b.get(i2).specialType;
+            if (i3 == 1) {
+                return 1;
+            }
+            if (i3 == 2) {
+                return 2;
+            }
+            if (i3 == 3) {
+                return 3;
+            }
+            if (i3 == 4) {
+                return 4;
+            }
+            return super.getItemViewType(i2);
         }
-        if (i3 == 2) {
-            return 2;
-        }
-        if (i3 == 3) {
-            return 3;
-        }
-        if (i3 == 4) {
-            return 4;
-        }
-        return super.getItemViewType(i2);
+        return invokeI.intValue;
     }
 
-    public void h(f<SpecialColumnItemData> fVar) {
-        this.f16656c = fVar;
+    public final SpecialColumnItemData h(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (SpecialColumnItemData) ListUtils.getItem(this.f16791b, i2) : (SpecialColumnItemData) invokeI.objValue;
+    }
+
+    public void i(f<SpecialColumnItemData> fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            this.f16792c = fVar;
+        }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
-        SpecialColumnItemData g2 = g(i2);
-        if (viewHolder instanceof c) {
-            ((c) viewHolder).a(g2);
-        } else if (viewHolder instanceof b) {
-            ((b) viewHolder).a(g2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) {
+            SpecialColumnItemData h2 = h(i2);
+            if (viewHolder instanceof c) {
+                ((c) viewHolder).a(h2);
+            } else if (viewHolder instanceof b) {
+                ((b) viewHolder).a(h2);
+            }
+            viewHolder.itemView.setOnClickListener(new a(this, h2, i2));
+            g(viewHolder);
         }
-        viewHolder.itemView.setOnClickListener(new a(g2, i2));
-        f(viewHolder);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        if (i2 == 1 || i2 == 2) {
-            return new c(LayoutInflater.from(this.f16654a).inflate(R.layout.layout_item_colleage_second_photo, (ViewGroup) null));
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) {
+            if (i2 == 1 || i2 == 2) {
+                return new c(this, LayoutInflater.from(this.f16790a).inflate(R.layout.layout_item_colleage_second_photo, (ViewGroup) null));
+            }
+            if (i2 == 3 || i2 == 4) {
+                return new b(this, LayoutInflater.from(this.f16790a).inflate(R.layout.layout_item_colleage_second_live, (ViewGroup) null));
+            }
+            return null;
         }
-        if (i2 == 3 || i2 == 4) {
-            return new b(LayoutInflater.from(this.f16654a).inflate(R.layout.layout_item_colleage_second_live, (ViewGroup) null));
-        }
-        return null;
+        return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 }

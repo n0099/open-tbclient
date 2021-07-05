@@ -1,28 +1,77 @@
 package com.alipay.apmobilesecuritysdk.f;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public final class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f1720a = new b();
+    public static b f1723a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread f1721b = null;
+    public Thread f1724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<Runnable> f1722c = new LinkedList<>();
+    public LinkedList<Runnable> f1725c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1454216781, "Lcom/alipay/apmobilesecuritysdk/f/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1454216781, "Lcom/alipay/apmobilesecuritysdk/f/b;");
+                return;
+            }
+        }
+        f1723a = new b();
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f1724b = null;
+        this.f1725c = new LinkedList<>();
+    }
 
     public static b a() {
-        return f1720a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1723a : (b) invokeV.objValue;
     }
 
     public final synchronized void a(Runnable runnable) {
-        this.f1722c.add(runnable);
-        if (this.f1721b == null) {
-            Thread thread = new Thread(new c(this));
-            this.f1721b = thread;
-            thread.start();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            synchronized (this) {
+                this.f1725c.add(runnable);
+                if (this.f1724b == null) {
+                    Thread thread = new Thread(new c(this));
+                    this.f1724b = thread;
+                    thread.start();
+                }
+            }
         }
     }
 }

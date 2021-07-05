@@ -16,14 +16,23 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.app.Person;
 import androidx.core.graphics.drawable.IconCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class ShortcutInfoCompat {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_LONG_LIVED = "extraLongLived";
     public static final String EXTRA_PERSON_ = "extraPerson_";
     public static final String EXTRA_PERSON_COUNT = "extraPersonCount";
+    public transient /* synthetic */ FieldHolder $fh;
     public ComponentName mActivity;
     public Set<String> mCategories;
     public Context mContext;
@@ -40,9 +49,25 @@ public class ShortcutInfoCompat {
 
     /* loaded from: classes.dex */
     public static class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final ShortcutInfoCompat mInfo;
 
         public Builder(@NonNull Context context, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             ShortcutInfoCompat shortcutInfoCompat = new ShortcutInfoCompat();
             this.mInfo = shortcutInfoCompat;
             shortcutInfoCompat.mContext = context;
@@ -51,102 +76,185 @@ public class ShortcutInfoCompat {
 
         @NonNull
         public ShortcutInfoCompat build() {
-            if (!TextUtils.isEmpty(this.mInfo.mLabel)) {
-                ShortcutInfoCompat shortcutInfoCompat = this.mInfo;
-                Intent[] intentArr = shortcutInfoCompat.mIntents;
-                if (intentArr == null || intentArr.length == 0) {
-                    throw new IllegalArgumentException("Shortcut must have an intent");
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!TextUtils.isEmpty(this.mInfo.mLabel)) {
+                    ShortcutInfoCompat shortcutInfoCompat = this.mInfo;
+                    Intent[] intentArr = shortcutInfoCompat.mIntents;
+                    if (intentArr == null || intentArr.length == 0) {
+                        throw new IllegalArgumentException("Shortcut must have an intent");
+                    }
+                    return shortcutInfoCompat;
                 }
-                return shortcutInfoCompat;
+                throw new IllegalArgumentException("Shortcut must have a non-empty label");
             }
-            throw new IllegalArgumentException("Shortcut must have a non-empty label");
+            return (ShortcutInfoCompat) invokeV.objValue;
         }
 
         @NonNull
         public Builder setActivity(@NonNull ComponentName componentName) {
-            this.mInfo.mActivity = componentName;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName)) == null) {
+                this.mInfo.mActivity = componentName;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setAlwaysBadged() {
-            this.mInfo.mIsAlwaysBadged = true;
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                this.mInfo.mIsAlwaysBadged = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
         }
 
         @NonNull
         public Builder setCategories(@NonNull Set<String> set) {
-            this.mInfo.mCategories = set;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, set)) == null) {
+                this.mInfo.mCategories = set;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setDisabledMessage(@NonNull CharSequence charSequence) {
-            this.mInfo.mDisabledMessage = charSequence;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, charSequence)) == null) {
+                this.mInfo.mDisabledMessage = charSequence;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setIcon(IconCompat iconCompat) {
-            this.mInfo.mIcon = iconCompat;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iconCompat)) == null) {
+                this.mInfo.mIcon = iconCompat;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setIntent(@NonNull Intent intent) {
-            return setIntents(new Intent[]{intent});
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intent)) == null) ? setIntents(new Intent[]{intent}) : (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setIntents(@NonNull Intent[] intentArr) {
-            this.mInfo.mIntents = intentArr;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, intentArr)) == null) {
+                this.mInfo.mIntents = intentArr;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setLongLabel(@NonNull CharSequence charSequence) {
-            this.mInfo.mLongLabel = charSequence;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence)) == null) {
+                this.mInfo.mLongLabel = charSequence;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         @Deprecated
         public Builder setLongLived() {
-            this.mInfo.mIsLongLived = true;
-            return this;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                this.mInfo.mIsLongLived = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
         }
 
         @NonNull
         public Builder setPerson(@NonNull Person person) {
-            return setPersons(new Person[]{person});
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, person)) == null) ? setPersons(new Person[]{person}) : (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setPersons(@NonNull Person[] personArr) {
-            this.mInfo.mPersons = personArr;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, personArr)) == null) {
+                this.mInfo.mPersons = personArr;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setRank(int i2) {
-            this.mInfo.mRank = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+                this.mInfo.mRank = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         @NonNull
         public Builder setShortLabel(@NonNull CharSequence charSequence) {
-            this.mInfo.mLabel = charSequence;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
+                this.mInfo.mLabel = charSequence;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         @NonNull
         public Builder setLongLived(boolean z) {
-            this.mInfo.mIsLongLived = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+                this.mInfo.mIsLongLived = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public Builder(@NonNull ShortcutInfoCompat shortcutInfoCompat) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shortcutInfoCompat};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
             ShortcutInfoCompat shortcutInfoCompat2 = new ShortcutInfoCompat();
             this.mInfo = shortcutInfoCompat2;
             shortcutInfoCompat2.mContext = shortcutInfoCompat.mContext;
@@ -174,6 +282,20 @@ public class ShortcutInfoCompat {
         @RequiresApi(25)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public Builder(@NonNull Context context, @NonNull ShortcutInfo shortcutInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, shortcutInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             ShortcutInfoCompat shortcutInfoCompat = new ShortcutInfoCompat();
             this.mInfo = shortcutInfoCompat;
             shortcutInfoCompat.mContext = context;
@@ -190,35 +312,59 @@ public class ShortcutInfoCompat {
         }
     }
 
+    public ShortcutInfoCompat() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @RequiresApi(22)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     private PersistableBundle buildLegacyExtrasBundle() {
-        PersistableBundle persistableBundle = new PersistableBundle();
-        Person[] personArr = this.mPersons;
-        if (personArr != null && personArr.length > 0) {
-            persistableBundle.putInt(EXTRA_PERSON_COUNT, personArr.length);
-            int i2 = 0;
-            while (i2 < this.mPersons.length) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(EXTRA_PERSON_);
-                int i3 = i2 + 1;
-                sb.append(i3);
-                persistableBundle.putPersistableBundle(sb.toString(), this.mPersons[i2].toPersistableBundle());
-                i2 = i3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            PersistableBundle persistableBundle = new PersistableBundle();
+            Person[] personArr = this.mPersons;
+            if (personArr != null && personArr.length > 0) {
+                persistableBundle.putInt(EXTRA_PERSON_COUNT, personArr.length);
+                int i2 = 0;
+                while (i2 < this.mPersons.length) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(EXTRA_PERSON_);
+                    int i3 = i2 + 1;
+                    sb.append(i3);
+                    persistableBundle.putPersistableBundle(sb.toString(), this.mPersons[i2].toPersistableBundle());
+                    i2 = i3;
+                }
             }
+            persistableBundle.putBoolean(EXTRA_LONG_LIVED, this.mIsLongLived);
+            return persistableBundle;
         }
-        persistableBundle.putBoolean(EXTRA_LONG_LIVED, this.mIsLongLived);
-        return persistableBundle;
+        return (PersistableBundle) invokeV.objValue;
     }
 
     @RequiresApi(25)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     @VisibleForTesting
     public static boolean getLongLivedFromExtra(@NonNull PersistableBundle persistableBundle) {
-        if (persistableBundle == null || !persistableBundle.containsKey(EXTRA_LONG_LIVED)) {
-            return false;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, persistableBundle)) == null) {
+            if (persistableBundle == null || !persistableBundle.containsKey(EXTRA_LONG_LIVED)) {
+                return false;
+            }
+            return persistableBundle.getBoolean(EXTRA_LONG_LIVED);
         }
-        return persistableBundle.getBoolean(EXTRA_LONG_LIVED);
+        return invokeL.booleanValue;
     }
 
     @VisibleForTesting
@@ -226,133 +372,174 @@ public class ShortcutInfoCompat {
     @RequiresApi(25)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static Person[] getPersonsFromExtra(@NonNull PersistableBundle persistableBundle) {
-        if (persistableBundle == null || !persistableBundle.containsKey(EXTRA_PERSON_COUNT)) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, persistableBundle)) == null) {
+            if (persistableBundle == null || !persistableBundle.containsKey(EXTRA_PERSON_COUNT)) {
+                return null;
+            }
+            int i2 = persistableBundle.getInt(EXTRA_PERSON_COUNT);
+            Person[] personArr = new Person[i2];
+            int i3 = 0;
+            while (i3 < i2) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(EXTRA_PERSON_);
+                int i4 = i3 + 1;
+                sb.append(i4);
+                personArr[i3] = Person.fromPersistableBundle(persistableBundle.getPersistableBundle(sb.toString()));
+                i3 = i4;
+            }
+            return personArr;
         }
-        int i2 = persistableBundle.getInt(EXTRA_PERSON_COUNT);
-        Person[] personArr = new Person[i2];
-        int i3 = 0;
-        while (i3 < i2) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(EXTRA_PERSON_);
-            int i4 = i3 + 1;
-            sb.append(i4);
-            personArr[i3] = Person.fromPersistableBundle(persistableBundle.getPersistableBundle(sb.toString()));
-            i3 = i4;
-        }
-        return personArr;
+        return (Person[]) invokeL.objValue;
     }
 
     public Intent addToIntent(Intent intent) {
-        Intent[] intentArr = this.mIntents;
-        intent.putExtra("android.intent.extra.shortcut.INTENT", intentArr[intentArr.length - 1]).putExtra("android.intent.extra.shortcut.NAME", this.mLabel.toString());
-        if (this.mIcon != null) {
-            Drawable drawable = null;
-            if (this.mIsAlwaysBadged) {
-                PackageManager packageManager = this.mContext.getPackageManager();
-                ComponentName componentName = this.mActivity;
-                if (componentName != null) {
-                    try {
-                        drawable = packageManager.getActivityIcon(componentName);
-                    } catch (PackageManager.NameNotFoundException unused) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            Intent[] intentArr = this.mIntents;
+            intent.putExtra("android.intent.extra.shortcut.INTENT", intentArr[intentArr.length - 1]).putExtra("android.intent.extra.shortcut.NAME", this.mLabel.toString());
+            if (this.mIcon != null) {
+                Drawable drawable = null;
+                if (this.mIsAlwaysBadged) {
+                    PackageManager packageManager = this.mContext.getPackageManager();
+                    ComponentName componentName = this.mActivity;
+                    if (componentName != null) {
+                        try {
+                            drawable = packageManager.getActivityIcon(componentName);
+                        } catch (PackageManager.NameNotFoundException unused) {
+                        }
+                    }
+                    if (drawable == null) {
+                        drawable = this.mContext.getApplicationInfo().loadIcon(packageManager);
                     }
                 }
-                if (drawable == null) {
-                    drawable = this.mContext.getApplicationInfo().loadIcon(packageManager);
-                }
+                this.mIcon.addToShortcutIntent(intent, drawable, this.mContext);
             }
-            this.mIcon.addToShortcutIntent(intent, drawable, this.mContext);
+            return intent;
         }
-        return intent;
+        return (Intent) invokeL.objValue;
     }
 
     @Nullable
     public ComponentName getActivity() {
-        return this.mActivity;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActivity : (ComponentName) invokeV.objValue;
     }
 
     @Nullable
     public Set<String> getCategories() {
-        return this.mCategories;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCategories : (Set) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getDisabledMessage() {
-        return this.mDisabledMessage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDisabledMessage : (CharSequence) invokeV.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public IconCompat getIcon() {
-        return this.mIcon;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIcon : (IconCompat) invokeV.objValue;
     }
 
     @NonNull
     public String getId() {
-        return this.mId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mId : (String) invokeV.objValue;
     }
 
     @NonNull
     public Intent getIntent() {
-        Intent[] intentArr = this.mIntents;
-        return intentArr[intentArr.length - 1];
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Intent[] intentArr = this.mIntents;
+            return intentArr[intentArr.length - 1];
+        }
+        return (Intent) invokeV.objValue;
     }
 
     @NonNull
     public Intent[] getIntents() {
-        Intent[] intentArr = this.mIntents;
-        return (Intent[]) Arrays.copyOf(intentArr, intentArr.length);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Intent[] intentArr = this.mIntents;
+            return (Intent[]) Arrays.copyOf(intentArr, intentArr.length);
+        }
+        return (Intent[]) invokeV.objValue;
     }
 
     @Nullable
     public CharSequence getLongLabel() {
-        return this.mLongLabel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mLongLabel : (CharSequence) invokeV.objValue;
     }
 
     public int getRank() {
-        return this.mRank;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mRank : invokeV.intValue;
     }
 
     @NonNull
     public CharSequence getShortLabel() {
-        return this.mLabel;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mLabel : (CharSequence) invokeV.objValue;
     }
 
     @RequiresApi(25)
     public ShortcutInfo toShortcutInfo() {
-        ShortcutInfo.Builder intents = new ShortcutInfo.Builder(this.mContext, this.mId).setShortLabel(this.mLabel).setIntents(this.mIntents);
-        IconCompat iconCompat = this.mIcon;
-        if (iconCompat != null) {
-            intents.setIcon(iconCompat.toIcon(this.mContext));
-        }
-        if (!TextUtils.isEmpty(this.mLongLabel)) {
-            intents.setLongLabel(this.mLongLabel);
-        }
-        if (!TextUtils.isEmpty(this.mDisabledMessage)) {
-            intents.setDisabledMessage(this.mDisabledMessage);
-        }
-        ComponentName componentName = this.mActivity;
-        if (componentName != null) {
-            intents.setActivity(componentName);
-        }
-        Set<String> set = this.mCategories;
-        if (set != null) {
-            intents.setCategories(set);
-        }
-        intents.setRank(this.mRank);
-        if (Build.VERSION.SDK_INT >= 29) {
-            Person[] personArr = this.mPersons;
-            if (personArr != null && personArr.length > 0) {
-                int length = personArr.length;
-                android.app.Person[] personArr2 = new android.app.Person[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    personArr2[i2] = this.mPersons[i2].toAndroidPerson();
-                }
-                intents.setPersons(personArr2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ShortcutInfo.Builder intents = new ShortcutInfo.Builder(this.mContext, this.mId).setShortLabel(this.mLabel).setIntents(this.mIntents);
+            IconCompat iconCompat = this.mIcon;
+            if (iconCompat != null) {
+                intents.setIcon(iconCompat.toIcon(this.mContext));
             }
-            intents.setLongLived(this.mIsLongLived);
-        } else {
-            intents.setExtras(buildLegacyExtrasBundle());
+            if (!TextUtils.isEmpty(this.mLongLabel)) {
+                intents.setLongLabel(this.mLongLabel);
+            }
+            if (!TextUtils.isEmpty(this.mDisabledMessage)) {
+                intents.setDisabledMessage(this.mDisabledMessage);
+            }
+            ComponentName componentName = this.mActivity;
+            if (componentName != null) {
+                intents.setActivity(componentName);
+            }
+            Set<String> set = this.mCategories;
+            if (set != null) {
+                intents.setCategories(set);
+            }
+            intents.setRank(this.mRank);
+            if (Build.VERSION.SDK_INT >= 29) {
+                Person[] personArr = this.mPersons;
+                if (personArr != null && personArr.length > 0) {
+                    int length = personArr.length;
+                    android.app.Person[] personArr2 = new android.app.Person[length];
+                    for (int i2 = 0; i2 < length; i2++) {
+                        personArr2[i2] = this.mPersons[i2].toAndroidPerson();
+                    }
+                    intents.setPersons(personArr2);
+                }
+                intents.setLongLived(this.mIsLongLived);
+            } else {
+                intents.setExtras(buildLegacyExtrasBundle());
+            }
+            return intents.build();
         }
-        return intents.build();
+        return (ShortcutInfo) invokeV.objValue;
     }
 }

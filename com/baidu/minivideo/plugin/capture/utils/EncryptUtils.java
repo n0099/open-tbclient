@@ -1,36 +1,62 @@
 package com.baidu.minivideo.plugin.capture.utils;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EncryptUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCRYPT_MD5 = "MD5";
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x003b, code lost:
-        if (r1 == null) goto L21;
+    public EncryptUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x003f, code lost:
+        if (r1 == null) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x003d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0041, code lost:
         r1.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0042, code lost:
-        if (r1 == null) goto L21;
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0046, code lost:
+        if (r1 == null) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0046, code lost:
-        if (r1 == null) goto L21;
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x004a, code lost:
+        if (r1 == null) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0049, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x004d, code lost:
         return null;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String encrypt(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
         FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65537, null, str, file, z)) != null) {
+            return (String) invokeLLZ.objValue;
+        }
         FileInputStream fileInputStream2 = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(str);
@@ -77,18 +103,23 @@ public class EncryptUtils {
     }
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString);
-            sb.append(str);
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeLLZ.objValue;
     }
 }

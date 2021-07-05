@@ -330,7 +330,7 @@ public class PatchInstallInfo {
 
     public boolean shareLock() {
         try {
-            FileLock tryLock = new RandomAccessFile(getLockFile(), r.f7715a).getChannel().tryLock(0L, 0L, true);
+            FileLock tryLock = new RandomAccessFile(getLockFile(), r.f7745a).getChannel().tryLock(0L, 0L, true);
             this.mShareFileLock = tryLock;
             return tryLock != null;
         } catch (IOException unused) {

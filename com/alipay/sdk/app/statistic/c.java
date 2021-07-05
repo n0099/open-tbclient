@@ -4,14 +4,21 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "ClientBindException";
     public static final String B = "SaveTradeTokenError";
     public static final String C = "ClientBindServiceFailed";
@@ -40,35 +47,35 @@ public class c {
     public static final String Z = "ParseSchemeQueryError";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1819a = "net";
+    public static final String f1822a = "net";
     public static final String aa = "tid_context_null";
     public static final String ab = "partner";
     public static final String ac = "out_trade_no";
     public static final String ad = "trade_no";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1820b = "biz";
+    public static final String f1823b = "biz";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1821c = "cp";
+    public static final String f1824c = "cp";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1822d = "auth";
+    public static final String f1825d = "auth";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1823e = "third";
+    public static final String f1826e = "third";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1824f = "tid";
+    public static final String f1827f = "tid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1825g = "FormatResultEx";
+    public static final String f1828g = "FormatResultEx";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1826h = "GetApdidEx";
+    public static final String f1829h = "GetApdidEx";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1827i = "GetApdidNull";
+    public static final String f1830i = "GetApdidNull";
     public static final String j = "GetApdidTimeout";
     public static final String k = "GetUtdidEx";
     public static final String l = "GetPackageInfoEx";
@@ -86,6 +93,7 @@ public class c {
     public static final String x = "ClientBindFailed";
     public static final String y = "TriDesEncryptError";
     public static final String z = "TriDesDecryptError";
+    public transient /* synthetic */ FieldHolder $fh;
     public String ae;
     public String af;
     public String ag;
@@ -94,10 +102,25 @@ public class c {
     public String aj;
     public String ak;
     public String al;
-    public String am = "";
+    public String am;
     public String an;
 
     public c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.am = "";
         context = context != null ? context.getApplicationContext() : context;
         this.ae = b();
         this.ag = a(context);
@@ -110,128 +133,172 @@ public class c {
     }
 
     private String b(String str) {
-        return TextUtils.isEmpty(str) ? "" : str.replace(PreferencesUtil.LEFT_MOUNT, "【").replace(PreferencesUtil.RIGHT_MOUNT, "】").replace("(", "（").replace(SmallTailInfo.EMOTION_SUFFIX, "）").replace(",", "，").replace("-", "=").replace(PayTypeItemView.PayTypeItemViewData.MASK_FLAG, Constants.WAVE_SEPARATOR);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : str.replace(PreferencesUtil.LEFT_MOUNT, "【").replace(PreferencesUtil.RIGHT_MOUNT, "】").replace("(", "（").replace(SmallTailInfo.EMOTION_SUFFIX, "）").replace(",", "，").replace("-", "=").replace(PayTypeItemView.PayTypeItemViewData.MASK_FLAG, Constants.WAVE_SEPARATOR) : (String) invokeL.objValue;
     }
 
     private String c(String str) {
+        InterceptResult invokeL;
         String str2;
-        String[] split = str.split("&");
-        String str3 = null;
-        if (split != null) {
-            String str4 = null;
-            for (String str5 : split) {
-                String[] split2 = str5.split("=");
-                if (split2 != null && split2.length == 2) {
-                    if (split2[0].equalsIgnoreCase(ab)) {
-                        split2[1].replace("\"", "");
-                    } else if (split2[0].equalsIgnoreCase(ac)) {
-                        str3 = split2[1].replace("\"", "");
-                    } else if (split2[0].equalsIgnoreCase(ad)) {
-                        str4 = split2[1].replace("\"", "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
+            String[] split = str.split("&");
+            String str3 = null;
+            if (split != null) {
+                String str4 = null;
+                for (String str5 : split) {
+                    String[] split2 = str5.split("=");
+                    if (split2 != null && split2.length == 2) {
+                        if (split2[0].equalsIgnoreCase(ab)) {
+                            split2[1].replace("\"", "");
+                        } else if (split2[0].equalsIgnoreCase(ac)) {
+                            str3 = split2[1].replace("\"", "");
+                        } else if (split2[0].equalsIgnoreCase(ad)) {
+                            str4 = split2[1].replace("\"", "");
+                        }
                     }
                 }
+                str2 = str3;
+                str3 = str4;
+            } else {
+                str2 = null;
             }
-            str2 = str3;
-            str3 = str4;
-        } else {
-            str2 = null;
+            String b2 = b(str3);
+            String b3 = b(str2);
+            return String.format("%s,%s,-,%s,-,-,-", b2, b3, b(b3));
         }
-        String b2 = b(str3);
-        String b3 = b(str2);
-        return String.format("%s,%s,-,%s,-,-,-", b2, b3, b(b3));
+        return (String) invokeL.objValue;
     }
 
     private String d() {
-        return String.format("%s,%s,-,-,-", b(com.alipay.sdk.tid.b.a(com.alipay.sdk.sys.b.a().b()).a()), b(com.alipay.sdk.sys.b.a().e()));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? String.format("%s,%s,-,-,-", b(com.alipay.sdk.tid.b.a(com.alipay.sdk.sys.b.a().b()).a()), b(com.alipay.sdk.sys.b.a().e())) : (String) invokeV.objValue;
     }
 
     public boolean a() {
-        return TextUtils.isEmpty(this.am);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.am) : invokeV.booleanValue;
     }
 
     public void a(String str, String str2, Throwable th) {
-        a(str, str2, a(th));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, th) == null) {
+            a(str, str2, a(th));
+        }
     }
 
     @SuppressLint({"SimpleDateFormat"})
     private String b() {
-        return String.format("123456789,%s", new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss").format(new Date()));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? String.format("123456789,%s", new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss").format(new Date())) : (String) invokeV.objValue;
     }
 
     public void a(String str, String str2, Throwable th, String str3) {
-        a(str, str2, a(th), str3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, th, str3) == null) {
+            a(str, str2, a(th), str3);
+        }
     }
 
     public void a(String str, String str2, String str3, String str4) {
-        String str5 = "";
-        if (!TextUtils.isEmpty(this.am)) {
-            str5 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
+            String str5 = "";
+            if (!TextUtils.isEmpty(this.am)) {
+                str5 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
+            }
+            this.am += (str5 + String.format("%s,%s,%s,%s", str, str2, b(str3), str4));
         }
-        this.am += (str5 + String.format("%s,%s,%s,%s", str, str2, b(str3), str4));
     }
 
     private String b(Context context) {
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,-", b(com.alipay.sdk.util.a.d(context)), "android", b(Build.VERSION.RELEASE), b(Build.MODEL), "-", b(com.alipay.sdk.util.a.a(context).a()), b(com.alipay.sdk.util.a.b(context).b()), "gw", b(com.alipay.sdk.util.a.a(context).b()));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) ? String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,-", b(com.alipay.sdk.util.a.d(context)), "android", b(Build.VERSION.RELEASE), b(Build.MODEL), "-", b(com.alipay.sdk.util.a.a(context).a()), b(com.alipay.sdk.util.a.b(context).b()), "gw", b(com.alipay.sdk.util.a.a(context).b())) : (String) invokeL.objValue;
     }
 
     public void a(String str, String str2, String str3) {
-        a(str, str2, str3, "-");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
+            a(str, str2, str3, "-");
+        }
     }
 
     private String a(Throwable th) {
-        if (th == null) {
-            return "";
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        try {
-            stringBuffer.append(th.getClass().getName());
-            stringBuffer.append(":");
-            stringBuffer.append(th.getMessage());
-            stringBuffer.append(" 》 ");
-            StackTraceElement[] stackTrace = th.getStackTrace();
-            if (stackTrace != null) {
-                for (int i2 = 0; i2 < stackTrace.length; i2++) {
-                    stringBuffer.append(stackTrace[i2].toString() + " 》 ");
-                }
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, th)) == null) {
+            if (th == null) {
+                return "";
             }
-        } catch (Throwable unused) {
+            StringBuffer stringBuffer = new StringBuffer();
+            try {
+                stringBuffer.append(th.getClass().getName());
+                stringBuffer.append(":");
+                stringBuffer.append(th.getMessage());
+                stringBuffer.append(" 》 ");
+                StackTraceElement[] stackTrace = th.getStackTrace();
+                if (stackTrace != null) {
+                    for (int i2 = 0; i2 < stackTrace.length; i2++) {
+                        stringBuffer.append(stackTrace[i2].toString() + " 》 ");
+                    }
+                }
+            } catch (Throwable unused) {
+            }
+            return stringBuffer.toString();
         }
-        return stringBuffer.toString();
+        return (String) invokeL.objValue;
     }
 
     private String c() {
-        return String.format("android,3,%s,%s,com.alipay.mcpay,5.0,-,-,-", b("15.6.5"), b("h.a.3.6.5"));
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? String.format("android,3,%s,%s,com.alipay.mcpay,5.0,-,-,-", b("15.6.5"), b("h.a.3.6.5")) : (String) invokeV.objValue;
     }
 
     public String a(String str) {
-        if (a()) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (a()) {
+                return "";
+            }
+            String c2 = c(str);
+            this.af = c2;
+            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.ae, c2, this.ag, this.ah, this.ai, this.aj, this.ak, this.al, this.am, this.an);
         }
-        String c2 = c(str);
-        this.af = c2;
-        return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.ae, c2, this.ag, this.ah, this.ai, this.aj, this.ak, this.al, this.am, this.an);
+        return (String) invokeL.objValue;
     }
 
     private String a(Context context) {
+        InterceptResult invokeL;
         String str;
         String str2;
-        String str3 = "-";
-        if (context != null) {
-            try {
-                Context applicationContext = context.getApplicationContext();
-                str = applicationContext.getPackageName();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
+            String str3 = "-";
+            if (context != null) {
                 try {
-                    str3 = applicationContext.getPackageManager().getPackageInfo(str, 0).versionName;
-                } catch (Throwable unused) {
+                    Context applicationContext = context.getApplicationContext();
+                    str = applicationContext.getPackageName();
+                    try {
+                        str3 = applicationContext.getPackageManager().getPackageInfo(str, 0).versionName;
+                    } catch (Throwable unused) {
+                    }
+                } catch (Throwable unused2) {
+                    str = "-";
                 }
-            } catch (Throwable unused2) {
-                str = "-";
+                str2 = str3;
+                str3 = str;
+            } else {
+                str2 = "-";
             }
-            str2 = str3;
-            str3 = str;
-        } else {
-            str2 = "-";
+            return String.format("%s,%s,-,-,-", str3, str2);
         }
-        return String.format("%s,%s,-,-,-", str3, str2);
+        return (String) invokeL.objValue;
     }
 }

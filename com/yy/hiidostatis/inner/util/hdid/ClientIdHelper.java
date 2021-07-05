@@ -4,10 +4,20 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClientIdHelper {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String BI_CLIENT_ID_FILE_NAME = "hdcltid.ini";
     public static final String BI_CLIENT_ID_FILE_SUFFIX = ".ini";
     public static final String BI_CLIENT_ID_PREF_FILE_NAME = "hdcltid";
@@ -19,16 +29,53 @@ public class ClientIdHelper {
     public static final String TAG = "ClientIdHelper";
     public static String mClientID = "";
     public static volatile ClientIdHelper mInstance;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int boardDigit;
+    public final int brandDigit;
+    public final int cpuAbiDigit;
+    public final int deviceDigit;
     public IClientIdConfig mConfig;
-    public final int boardDigit = boardDigit();
-    public final int brandDigit = brandDigit();
-    public final int cpuAbiDigit = cpuAbiDigit();
-    public final int deviceDigit = deviceDigit();
-    public final int manufacturerDigit = manufacturerDigit();
-    public final int modelDigit = modelDigit();
-    public final int productDigit = productDigit();
+    public final int manufacturerDigit;
+    public final int modelDigit;
+    public final int productDigit;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1168511728, "Lcom/yy/hiidostatis/inner/util/hdid/ClientIdHelper;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1168511728, "Lcom/yy/hiidostatis/inner/util/hdid/ClientIdHelper;");
+        }
+    }
 
     public ClientIdHelper(IClientIdConfig iClientIdConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iClientIdConfig};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.boardDigit = boardDigit();
+        this.brandDigit = brandDigit();
+        this.cpuAbiDigit = cpuAbiDigit();
+        this.deviceDigit = deviceDigit();
+        this.manufacturerDigit = manufacturerDigit();
+        this.modelDigit = modelDigit();
+        this.productDigit = productDigit();
         this.mConfig = iClientIdConfig;
         checkConfig();
         initClientId();
@@ -44,132 +91,168 @@ public class ClientIdHelper {
     }
 
     private int boardDigit() {
-        if (TextUtils.isEmpty(Build.BOARD)) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            if (TextUtils.isEmpty(Build.BOARD)) {
+                return 0;
+            }
+            return Build.BOARD.length() % 10;
         }
-        return Build.BOARD.length() % 10;
+        return invokeV.intValue;
     }
 
     private int brandDigit() {
-        if (TextUtils.isEmpty(Build.BRAND)) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (TextUtils.isEmpty(Build.BRAND)) {
+                return 0;
+            }
+            return Build.BRAND.length() % 10;
         }
-        return Build.BRAND.length() % 10;
+        return invokeV.intValue;
     }
 
     private boolean checkBuild() {
-        return (((((this.boardDigit + this.brandDigit) + this.cpuAbiDigit) + this.deviceDigit) + this.manufacturerDigit) + this.modelDigit) + this.productDigit != 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? (((((this.boardDigit + this.brandDigit) + this.cpuAbiDigit) + this.deviceDigit) + this.manufacturerDigit) + this.modelDigit) + this.productDigit != 0 : invokeV.booleanValue;
     }
 
     private void checkConfig() {
-        if (this.mConfig == null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.mConfig == null) {
             throw new RuntimeException("IConfig must be initialized !!");
         }
     }
 
     private int cpuAbiDigit() {
-        if (TextUtils.isEmpty(Build.CPU_ABI)) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (TextUtils.isEmpty(Build.CPU_ABI)) {
+                return 0;
+            }
+            return Build.CPU_ABI.length() % 10;
         }
-        return Build.CPU_ABI.length() % 10;
+        return invokeV.intValue;
     }
 
     private String createPsuedoID() {
-        return UUID.randomUUID().toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        if (r3.isEmpty() != false) goto L8;
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0027, code lost:
+        if (r3.isEmpty() != false) goto L10;
      */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x008e  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00ef  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0114  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x015a  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0056  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0092  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00f3  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0118  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x015e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String createUniquePsuedoID() {
+        InterceptResult invokeV;
         String str;
         String str2;
         String str3;
-        boolean checkBuild = checkBuild();
-        boolean z = false;
-        try {
-            str2 = Build.VERSION.SDK_INT >= 26 ? Build.getSerial() : "";
-            if (str2 != null) {
-                try {
-                } catch (Throwable th) {
-                    str = str2;
-                    th = th;
-                    if (this.mConfig.logEnable()) {
-                        th.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            boolean checkBuild = checkBuild();
+            boolean z = false;
+            try {
+                str2 = Build.VERSION.SDK_INT >= 26 ? Build.getSerial() : "";
+                if (str2 != null) {
+                    try {
+                    } catch (Throwable th) {
+                        str = str2;
+                        th = th;
+                        if (this.mConfig.logEnable()) {
+                            th.printStackTrace();
+                        }
+                        str2 = str;
+                        if (this.mConfig.logEnable()) {
+                        }
+                        if (!TextUtils.isEmpty(str2)) {
+                            z = true;
+                        }
+                        if (!z) {
+                        }
+                        String str4 = EventType.GiftEventID.LOAD_ALL_GIFT_FAIL + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
+                        if (!checkBuild) {
+                        }
+                        if (!checkBuild) {
+                        }
+                        if (TextUtils.isEmpty(str3)) {
+                        }
+                        return str3.replaceAll("_", "").replaceAll("-", "");
                     }
-                    str2 = str;
-                    if (this.mConfig.logEnable()) {
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        z = true;
-                    }
-                    if (!z) {
-                    }
-                    String str4 = EventType.GiftEventID.LOAD_ALL_GIFT_FAIL + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
-                    if (!checkBuild) {
-                    }
-                    if (!checkBuild) {
-                    }
-                    if (TextUtils.isEmpty(str3)) {
-                    }
-                    return str3.replaceAll("_", "").replaceAll("-", "");
                 }
+                str2 = Build.class.getField("SERIAL").get(null).toString();
+            } catch (Throwable th2) {
+                th = th2;
+                str = "";
             }
-            str2 = Build.class.getField("SERIAL").get(null).toString();
-        } catch (Throwable th2) {
-            th = th2;
-            str = "";
+            if (this.mConfig.logEnable()) {
+                Log.e(TAG, "serial = " + str2);
+                Log.e(TAG, "buildParamOk = " + checkBuild);
+            }
+            if (!TextUtils.isEmpty(str2) && !str2.equalsIgnoreCase("unKnown")) {
+                z = true;
+            }
+            if (!z) {
+                str2 = "";
+            }
+            String str42 = EventType.GiftEventID.LOAD_ALL_GIFT_FAIL + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
+            if (!checkBuild && !TextUtils.isEmpty(str2)) {
+                str3 = PREFIX_NORMAL + new UUID(str42.hashCode(), str2.hashCode()).toString();
+            } else if (!checkBuild) {
+                str3 = PREFIX_BUILD + new UUID(str42.hashCode(), str2.hashCode()).toString();
+            } else if (!TextUtils.isEmpty(str2)) {
+                str3 = PREFIX_SERIAL + new UUID(str42.hashCode(), str2.hashCode()).toString();
+            } else {
+                str3 = PREFIX_CUSTOM + createPsuedoID();
+            }
+            if (TextUtils.isEmpty(str3)) {
+                str3 = createPsuedoID();
+            }
+            return str3.replaceAll("_", "").replaceAll("-", "");
         }
-        if (this.mConfig.logEnable()) {
-            Log.e(TAG, "serial = " + str2);
-            Log.e(TAG, "buildParamOk = " + checkBuild);
-        }
-        if (!TextUtils.isEmpty(str2) && !str2.equalsIgnoreCase("unKnown")) {
-            z = true;
-        }
-        if (!z) {
-            str2 = "";
-        }
-        String str42 = EventType.GiftEventID.LOAD_ALL_GIFT_FAIL + this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit;
-        if (!checkBuild && !TextUtils.isEmpty(str2)) {
-            str3 = PREFIX_NORMAL + new UUID(str42.hashCode(), str2.hashCode()).toString();
-        } else if (!checkBuild) {
-            str3 = PREFIX_BUILD + new UUID(str42.hashCode(), str2.hashCode()).toString();
-        } else if (!TextUtils.isEmpty(str2)) {
-            str3 = PREFIX_SERIAL + new UUID(str42.hashCode(), str2.hashCode()).toString();
-        } else {
-            str3 = PREFIX_CUSTOM + createPsuedoID();
-        }
-        if (TextUtils.isEmpty(str3)) {
-            str3 = createPsuedoID();
-        }
-        return str3.replaceAll("_", "").replaceAll("-", "");
+        return (String) invokeV.objValue;
     }
 
     private int deviceDigit() {
-        if (TextUtils.isEmpty(Build.DEVICE)) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            if (TextUtils.isEmpty(Build.DEVICE)) {
+                return 0;
+            }
+            return Build.DEVICE.length() % 10;
         }
-        return Build.DEVICE.length() % 10;
+        return invokeV.intValue;
     }
 
     public static ClientIdHelper getInstance() {
-        if (mInstance != null) {
-            return mInstance;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (mInstance != null) {
+                return mInstance;
+            }
+            throw new RuntimeException("ClientIdHelper must be initialized ! init should be called Firstly !");
         }
-        throw new RuntimeException("ClientIdHelper must be initialized ! init should be called Firstly !");
+        return (ClientIdHelper) invokeV.objValue;
     }
 
     public static void init(IClientIdConfig iClientIdConfig) {
-        if (mInstance == null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, iClientIdConfig) == null) && mInstance == null) {
             synchronized (ClientIdHelper.class) {
                 if (mInstance == null) {
                     mInstance = new ClientIdHelper(iClientIdConfig);
@@ -179,76 +262,121 @@ public class ClientIdHelper {
     }
 
     private boolean initClientId() {
-        String readFromSp = readFromSp();
-        if (!TextUtils.isEmpty(readFromSp)) {
-            setMemoryClientId(readFromSp);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            String readFromSp = readFromSp();
+            if (!TextUtils.isEmpty(readFromSp)) {
+                setMemoryClientId(readFromSp);
+                return true;
+            }
+            String createUniquePsuedoID = createUniquePsuedoID();
+            if (TextUtils.isEmpty(createUniquePsuedoID)) {
+                return false;
+            }
+            setClientId(createUniquePsuedoID);
             return true;
         }
-        String createUniquePsuedoID = createUniquePsuedoID();
-        if (TextUtils.isEmpty(createUniquePsuedoID)) {
-            return false;
-        }
-        setClientId(createUniquePsuedoID);
-        return true;
+        return invokeV.booleanValue;
     }
 
     private int manufacturerDigit() {
-        if (TextUtils.isEmpty(Build.MANUFACTURER)) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            if (TextUtils.isEmpty(Build.MANUFACTURER)) {
+                return 0;
+            }
+            return Build.MANUFACTURER.length() % 10;
         }
-        return Build.MANUFACTURER.length() % 10;
+        return invokeV.intValue;
     }
 
     private int modelDigit() {
-        if (TextUtils.isEmpty(Build.MODEL)) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            if (TextUtils.isEmpty(Build.MODEL)) {
+                return 0;
+            }
+            return Build.MODEL.length() % 10;
         }
-        return Build.MODEL.length() % 10;
+        return invokeV.intValue;
     }
 
     private int productDigit() {
-        if (TextUtils.isEmpty(Build.PRODUCT)) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            if (TextUtils.isEmpty(Build.PRODUCT)) {
+                return 0;
+            }
+            return Build.PRODUCT.length() % 10;
         }
-        return Build.PRODUCT.length() % 10;
+        return invokeV.intValue;
     }
 
     private String readFromSp() {
-        if (this.mConfig.logEnable()) {
-            Log.d(TAG, "readFromSp");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            if (this.mConfig.logEnable()) {
+                Log.d(TAG, "readFromSp");
+            }
+            return sharedPref().getString("hdcltid", null);
         }
-        return sharedPref().getString("hdcltid", null);
+        return (String) invokeV.objValue;
     }
 
     private void setClientId(String str) {
-        setMemoryClientId(str);
-        writeIntoSp();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, this, str) == null) {
+            setMemoryClientId(str);
+            writeIntoSp();
+        }
     }
 
     private void setMemoryClientId(String str) {
-        mClientID = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, this, str) == null) {
+            mClientID = str;
+        }
     }
 
     private SharedPreferences sharedPref() {
-        return this.mConfig.getAppContext().getSharedPreferences("hdcltid", 0);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? this.mConfig.getAppContext().getSharedPreferences("hdcltid", 0) : (SharedPreferences) invokeV.objValue;
     }
 
     private boolean writeIntoSp() {
-        if (this.mConfig.logEnable()) {
-            Log.d(TAG, "writeIntoSp" + mClientID);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
+            if (this.mConfig.logEnable()) {
+                Log.d(TAG, "writeIntoSp" + mClientID);
+            }
+            return sharedPref().edit().putString("hdcltid", mClientID).commit();
         }
-        return sharedPref().edit().putString("hdcltid", mClientID).commit();
+        return invokeV.booleanValue;
     }
 
     public byte[] getByteClientId() {
-        String str = mClientID;
-        if (str != null) {
-            return str.getBytes();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = mClientID;
+            if (str != null) {
+                return str.getBytes();
+            }
+            return null;
         }
-        return null;
+        return (byte[]) invokeV.objValue;
     }
 
     public String getClientId() {
-        return mClientID;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? mClientID : (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,10 @@
 package i.a.a.e;
-/* loaded from: classes8.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes10.dex */
 public final class f {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int abc_action_bar_home_description = 2131689533;
     public static final int abc_action_bar_up_description = 2131689534;
     public static final int abc_action_menu_overflow_description = 2131689535;
@@ -18,27 +22,28 @@ public final class f {
     public static final int abc_shareactionprovider_share_with = 2131689557;
     public static final int abc_shareactionprovider_share_with_application = 2131689558;
     public static final int abc_toolbar_collapse_description = 2131689559;
-    public static final int app_name = 2131690176;
-    public static final int pay_ui_dialog_pay_title = 2131693006;
-    public static final int pay_ui_dialog_title = 2131693007;
-    public static final int pay_ui_my_wallet = 2131693008;
-    public static final int pay_ui_recharge = 2131693009;
-    public static final int pay_ui_str_wallet_amount = 2131693010;
-    public static final int pay_ui_str_wallet_amount_not_enough = 2131693011;
-    public static final int pay_ui_str_wallet_amount_not_enough_other = 2131693012;
-    public static final int pay_ui_str_wallet_amount_other = 2131693013;
-    public static final int pay_ui_str_wallet_balance = 2131693014;
-    public static final int pay_ui_string_choose_recharge_amount = 2131693015;
-    public static final int pay_ui_string_choose_recharge_way = 2131693016;
-    public static final int pay_ui_string_confirm_recharge = 2131693017;
-    public static final int pay_ui_string_custom_amount = 2131693018;
-    public static final int pay_ui_string_pay_error_oversize = 2131693019;
-    public static final int pay_ui_string_pls_input_correct_recharge_amount = 2131693020;
-    public static final int pay_ui_string_query = 2131693021;
-    public static final int pay_ui_string_recharge_max_amount_hint = 2131693022;
-    public static final int pay_ui_string_want_recharge = 2131693023;
-    public static final int pay_ui_y_coin_pay_agreement = 2131693024;
-    public static final int pay_ui_y_coin_use_item = 2131693025;
-    public static final int search_menu_title = 2131694012;
-    public static final int status_bar_notification_info_overflow = 2131694294;
+    public static final int app_name = 2131690142;
+    public static final int pay_ui_dialog_pay_title = 2131693058;
+    public static final int pay_ui_dialog_title = 2131693059;
+    public static final int pay_ui_my_wallet = 2131693060;
+    public static final int pay_ui_recharge = 2131693061;
+    public static final int pay_ui_str_wallet_amount = 2131693062;
+    public static final int pay_ui_str_wallet_amount_not_enough = 2131693063;
+    public static final int pay_ui_str_wallet_amount_not_enough_other = 2131693064;
+    public static final int pay_ui_str_wallet_amount_other = 2131693065;
+    public static final int pay_ui_str_wallet_balance = 2131693066;
+    public static final int pay_ui_string_choose_recharge_amount = 2131693067;
+    public static final int pay_ui_string_choose_recharge_way = 2131693068;
+    public static final int pay_ui_string_confirm_recharge = 2131693069;
+    public static final int pay_ui_string_custom_amount = 2131693070;
+    public static final int pay_ui_string_pay_error_oversize = 2131693071;
+    public static final int pay_ui_string_pls_input_correct_recharge_amount = 2131693072;
+    public static final int pay_ui_string_query = 2131693073;
+    public static final int pay_ui_string_recharge_max_amount_hint = 2131693074;
+    public static final int pay_ui_string_want_recharge = 2131693075;
+    public static final int pay_ui_y_coin_pay_agreement = 2131693076;
+    public static final int pay_ui_y_coin_use_item = 2131693077;
+    public static final int search_menu_title = 2131694069;
+    public static final int status_bar_notification_info_overflow = 2131694357;
+    public transient /* synthetic */ FieldHolder $fh;
 }

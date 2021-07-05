@@ -1,41 +1,113 @@
 package com.baidu.mobads.container.adrequest;
 
+import com.baidu.mobads.container.adrequest.AdParamInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IXAdInstanceInfo {
 
-    /* loaded from: classes2.dex */
-    public enum CreativeType {
-        NONE("none"),
-        TEXT("text"),
-        STATIC_IMAGE("static_image"),
-        GIF("gif"),
-        RM("rich_media"),
-        HTML("html"),
-        HYBRID("hybrid"),
-        VIDEO("video");
-        
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
+    public static final class CreativeType {
+        public static final /* synthetic */ CreativeType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final CreativeType GIF;
+        public static final CreativeType HTML;
+        public static final CreativeType HYBRID;
+        public static final CreativeType NONE;
+        public static final CreativeType RM;
+        public static final CreativeType STATIC_IMAGE;
+        public static final CreativeType TEXT;
+        public static final CreativeType VIDEO;
+        public transient /* synthetic */ FieldHolder $fh;
         public final String value;
 
-        CreativeType(String str) {
-            this.value = str;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-441816155, "Lcom/baidu/mobads/container/adrequest/IXAdInstanceInfo$CreativeType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-441816155, "Lcom/baidu/mobads/container/adrequest/IXAdInstanceInfo$CreativeType;");
+                    return;
+                }
+            }
+            NONE = new CreativeType("NONE", 0, "none");
+            TEXT = new CreativeType("TEXT", 1, "text");
+            STATIC_IMAGE = new CreativeType("STATIC_IMAGE", 2, "static_image");
+            GIF = new CreativeType("GIF", 3, "gif");
+            RM = new CreativeType("RM", 4, "rich_media");
+            HTML = new CreativeType("HTML", 5, "html");
+            HYBRID = new CreativeType("HYBRID", 6, "hybrid");
+            CreativeType creativeType = new CreativeType(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_VIDEO, 7, "video");
+            VIDEO = creativeType;
+            $VALUES = new CreativeType[]{NONE, TEXT, STATIC_IMAGE, GIF, RM, HTML, HYBRID, creativeType};
+        }
+
+        public CreativeType(String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.value = str2;
         }
 
         public static CreativeType parse(String str) {
+            InterceptResult invokeL;
             CreativeType[] values;
-            for (CreativeType creativeType : values()) {
-                if (creativeType.value.equalsIgnoreCase(str)) {
-                    return creativeType;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                for (CreativeType creativeType : values()) {
+                    if (creativeType.value.equalsIgnoreCase(str)) {
+                        return creativeType;
+                    }
                 }
+                return null;
             }
-            return null;
+            return (CreativeType) invokeL.objValue;
+        }
+
+        public static CreativeType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (CreativeType) Enum.valueOf(CreativeType.class, str) : (CreativeType) invokeL.objValue;
+        }
+
+        public static CreativeType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (CreativeType[]) $VALUES.clone() : (CreativeType[]) invokeV.objValue;
         }
 
         public String getValue() {
-            return this.value;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
         }
     }
 

@@ -4,45 +4,107 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class InterpolateOnScrollPositionChangeHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int[] containerLocation;
     public ScrollView containingScrollView;
     public MaterialShapeDrawable materialShapeDrawable;
+    public final ViewTreeObserver.OnScrollChangedListener scrollChangedListener;
+    public final int[] scrollLocation;
     public View shapedView;
-    public final int[] scrollLocation = new int[2];
-    public final int[] containerLocation = new int[2];
-    public final ViewTreeObserver.OnScrollChangedListener scrollChangedListener = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.1
-        @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-        public void onScrollChanged() {
-            InterpolateOnScrollPositionChangeHelper.this.updateInterpolationForScreenPosition();
-        }
-    };
 
     public InterpolateOnScrollPositionChangeHelper(View view, MaterialShapeDrawable materialShapeDrawable, ScrollView scrollView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view, materialShapeDrawable, scrollView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.scrollLocation = new int[2];
+        this.containerLocation = new int[2];
+        this.scrollChangedListener = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ InterpolateOnScrollPositionChangeHelper this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.view.ViewTreeObserver.OnScrollChangedListener
+            public void onScrollChanged() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.updateInterpolationForScreenPosition();
+                }
+            }
+        };
         this.shapedView = view;
         this.materialShapeDrawable = materialShapeDrawable;
         this.containingScrollView = scrollView;
     }
 
     public void setContainingScrollView(ScrollView scrollView) {
-        this.containingScrollView = scrollView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, scrollView) == null) {
+            this.containingScrollView = scrollView;
+        }
     }
 
     public void setMaterialShapeDrawable(MaterialShapeDrawable materialShapeDrawable) {
-        this.materialShapeDrawable = materialShapeDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, materialShapeDrawable) == null) {
+            this.materialShapeDrawable = materialShapeDrawable;
+        }
     }
 
     public void startListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
-        viewTreeObserver.addOnScrollChangedListener(this.scrollChangedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewTreeObserver) == null) {
+            viewTreeObserver.addOnScrollChangedListener(this.scrollChangedListener);
+        }
     }
 
     public void stopListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
-        viewTreeObserver.removeOnScrollChangedListener(this.scrollChangedListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewTreeObserver) == null) {
+            viewTreeObserver.removeOnScrollChangedListener(this.scrollChangedListener);
+        }
     }
 
     public void updateInterpolationForScreenPosition() {
-        ScrollView scrollView = this.containingScrollView;
-        if (scrollView == null) {
+        ScrollView scrollView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (scrollView = this.containingScrollView) == null) {
             return;
         }
         if (scrollView.getChildCount() != 0) {

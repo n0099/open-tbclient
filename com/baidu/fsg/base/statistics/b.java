@@ -1,33 +1,39 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5235a = "wallet_stastics";
+    public static final String f5265a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5236b = 204800;
+    public static final int f5266b = 204800;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5237c = 51200;
+    public static final int f5267c = 51200;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5238d = 200;
+    public static final int f5268d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f5239e = 604800000;
+    public static final long f5269e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f5240f = 86400000;
+    public static final long f5270f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5241g = "publish_data";
+    public static final String f5271g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5242h = "sign";
+    public static final String f5272h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5243i = "mk";
+    public static final String f5273i = "mk";
     public static final String j = "array";
     public static final String k = "exception";
     public static final String l = "https://www.baifubao.com/chanpin_stat";
@@ -35,4 +41,19 @@ public class b {
     public static final String n = "QmFpZHVfRlNHX1JJTV9TREtfQ3Jhc2hfbG9nX1BhdGg=.json";
     public static final String o = "crash_log";
     public static final String p = "normal_log";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

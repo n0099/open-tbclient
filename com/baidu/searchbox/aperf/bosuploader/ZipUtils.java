@@ -3,6 +3,10 @@ package com.baidu.searchbox.aperf.bosuploader;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,14 +15,32 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZipUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ZipUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v1, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r4v2, types: [java.io.FileInputStream, java.io.InputStream] */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
         byte[] bArr;
         ZipOutputStream zipOutputStream;
-        if (file == null || !file.exists() || list == null || list.size() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, file, list) == null) || file == null || !file.exists() || list == null || list.size() == 0) {
             return;
         }
         ZipOutputStream zipOutputStream2 = null;
@@ -59,13 +81,13 @@ public class ZipUtils {
                                 throw th;
                             }
                         }
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
                     }
-                } catch (FileNotFoundException e3) {
-                    e = e3;
+                    Closeables.closeSafely(zipOutputStream2);
+                } catch (Throwable th3) {
+                    th = th3;
                 }
-                Closeables.closeSafely(zipOutputStream2);
             }
             zipOutputStream.flush();
             Closeables.closeSafely(zipOutputStream);
@@ -80,14 +102,30 @@ public class ZipUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipSrc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public File mFile;
         @NonNull
         public String mOutName;
 
         public ZipSrc(@NonNull File file, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.mFile = file;
             if (TextUtils.isEmpty(str)) {
                 this.mOutName = this.mFile.getName();
@@ -97,6 +135,20 @@ public class ZipUtils {
         }
 
         public ZipSrc(@NonNull File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mFile = file;
             this.mOutName = file.getName();
         }

@@ -6,11 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.apollon.utils.ResUtils;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static void a(View view, boolean z, boolean z2) {
         View view2;
-        if (view == null || (view2 = (View) view.getTag()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{view, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || view == null || (view2 = (View) view.getTag()) == null) {
             return;
         }
         String str = (z2 || z) ? "wallet_base_height_separator_line_focus" : "wallet_base_height_separator_line";
@@ -21,7 +27,8 @@ public class a {
     }
 
     public static void a(ViewGroup viewGroup, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3) {
-        if (viewGroup instanceof ViewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, viewGroup, charSequence, charSequence2, charSequence3) == null) && (viewGroup instanceof ViewGroup)) {
             if (charSequence == null) {
                 viewGroup.setVisibility(8);
                 return;

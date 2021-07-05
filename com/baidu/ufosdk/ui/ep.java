@@ -3,35 +3,63 @@ package com.baidu.ufosdk.ui;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class ep extends ClickableSpan {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f22992a = -11821318;
+    public int f23508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22993b;
+    public String f23509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public eq f22994c;
+    public eq f23510c;
 
     public ep(String str, eq eqVar) {
-        this.f22993b = str;
-        this.f22994c = eqVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, eqVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23508a = -11821318;
+        this.f23509b = str;
+        this.f23510c = eqVar;
     }
 
     @Override // android.text.style.ClickableSpan
     public final void onClick(View view) {
-        com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f22993b);
-        eq eqVar = this.f22994c;
-        if (eqVar != null) {
-            eqVar.a(this.f22993b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f23509b);
+            eq eqVar = this.f23510c;
+            if (eqVar != null) {
+                eqVar.a(this.f23509b);
+            }
         }
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public final void updateDrawState(TextPaint textPaint) {
-        super.updateDrawState(textPaint);
-        textPaint.setColor(this.f22992a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+            super.updateDrawState(textPaint);
+            textPaint.setColor(this.f23508a);
+        }
     }
 }

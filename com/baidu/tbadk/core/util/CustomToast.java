@@ -4,45 +4,116 @@ import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CustomToast {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int TOAST_DURATION = 2000;
+    public static Handler mHandler;
     public static Toast mToast;
+    public static Runnable r;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean dontShowToast;
-    public static Handler mHandler = new Handler();
-    public static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.CustomToast.1
-        @Override // java.lang.Runnable
-        public void run() {
-            if (CustomToast.mToast != null) {
-                CustomToast.mToast.cancel();
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1855450971, "Lcom/baidu/tbadk/core/util/CustomToast;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1855450971, "Lcom/baidu/tbadk/core/util/CustomToast;");
+                return;
             }
         }
-    };
+        mHandler = new Handler();
+        r = new Runnable() { // from class: com.baidu.tbadk.core.util.CustomToast.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || CustomToast.mToast == null) {
+                    return;
+                }
+                CustomToast.mToast.cancel();
+            }
+        };
+    }
+
+    public CustomToast() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static void cancel() {
-        if (mToast != null) {
-            mHandler.removeCallbacks(r);
-            mToast.cancel();
-            mToast = null;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || mToast == null) {
+            return;
         }
+        mHandler.removeCallbacks(r);
+        mToast.cancel();
+        mToast = null;
     }
 
     public static CustomToast newInstance() {
-        return new CustomToast();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new CustomToast() : (CustomToast) invokeV.objValue;
     }
 
     public void onPause() {
-        this.dontShowToast = true;
-        cancel();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.dontShowToast = true;
+            cancel();
+        }
     }
 
     public void onResume() {
-        this.dontShowToast = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.dontShowToast = false;
+        }
     }
 
     public void showToast(String str, int i2, int i3) {
-        if (this.dontShowToast || str == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(1048583, this, str, i2, i3) == null) || this.dontShowToast || str == null) {
             return;
         }
         String trim = str.trim();
@@ -72,22 +143,37 @@ public class CustomToast {
     }
 
     public void showToast(String str) {
-        showToast(str, 2000);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            showToast(str, 2000);
+        }
     }
 
     public void showToast(int i2) {
-        showToast(i2, 2000);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            showToast(i2, 2000);
+        }
     }
 
     public void showToast(String str, int i2) {
-        showToast(str, i2, l.e(BdBaseApplication.getInst().getApp(), 100.0f));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
+            showToast(str, i2, l.e(BdBaseApplication.getInst().getApp(), 100.0f));
+        }
     }
 
     public void showToast(int i2, int i3) {
-        showToast(BdBaseApplication.getInst().getApp().getResources().getString(i2), i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            showToast(BdBaseApplication.getInst().getApp().getResources().getString(i2), i3);
+        }
     }
 
     public void showToast(int i2, int i3, int i4) {
-        showToast(BdBaseApplication.getInst().getApp().getResources().getString(i2), i3, i4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048580, this, i2, i3, i4) == null) {
+            showToast(BdBaseApplication.getInst().getApp().getResources().getString(i2), i3, i4);
+        }
     }
 }

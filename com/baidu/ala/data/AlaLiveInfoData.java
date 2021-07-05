@@ -2,17 +2,24 @@ package com.baidu.ala.data;
 
 import alaim.LiveInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.ResultTB;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AlaLiveInfoData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
     public static final int LIVE_SCREEN_DIRECTION_PORTRAIT = 1;
     public static final int LIVE_SESSION_DEFAULT_BACK = 2;
@@ -24,9 +31,11 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
     public static final int LIVE_TYPE_CAMERA = 1;
     public static final int LIVE_TYPE_SCREEN_RECORD = 2;
     public static final long serialVersionUID = 5768965545624138312L;
+    public transient /* synthetic */ FieldHolder $fh;
     public String appId;
     public int audience_count;
     public int backstage_type;
+    public long broadGiftMsgId;
     public String call_path_android;
     public long challengeId;
     public long channel_id;
@@ -48,6 +57,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
     public long group_id;
     public int isAudioOnPrivate;
     public int isOnPrivate;
+    public boolean isPullMode;
     public int join_count;
     public long last_msg_id;
     public long live_duration;
@@ -55,11 +65,14 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
     public int live_status;
     public int live_type;
     public String location;
+    public int mCurrentSessionLine;
     public String media_pic;
+    public long noticeBroadcastMsgId;
     public int openType;
     public long pkId;
     public int play_count;
     public int screen_direction;
+    public int session_default;
     public String session_id;
     public String share_url;
     public long start_time;
@@ -68,49 +81,83 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
     public String user_name;
     public String user_nickname;
     public int zan_count;
-    public int session_default = 0;
-    public int mCurrentSessionLine = 0;
-    public long broadGiftMsgId = 0;
-    public long noticeBroadcastMsgId = 0;
-    public boolean isPullMode = false;
+
+    public AlaLiveInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.session_default = 0;
+        this.mCurrentSessionLine = 0;
+        this.broadGiftMsgId = 0L;
+        this.noticeBroadcastMsgId = 0L;
+        this.isPullMode = false;
+    }
 
     public int getAudienceCount() {
-        return this.audience_count;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.audience_count : invokeV.intValue;
     }
 
     public String getLocation() {
-        return this.location;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.location : (String) invokeV.objValue;
     }
 
     public String getMedia_pic() {
-        return this.media_pic;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.media_pic : (String) invokeV.objValue;
     }
 
     public String getNameShow() {
-        if (TextUtils.isEmpty(this.user_nickname)) {
-            return this.user_name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.user_nickname)) {
+                return this.user_name;
+            }
+            return this.user_nickname;
         }
-        return this.user_nickname;
+        return (String) invokeV.objValue;
     }
 
     public int getPlay_count() {
-        return this.play_count;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.play_count : invokeV.intValue;
     }
 
     public String getUserName() {
-        return this.user_name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.user_name : (String) invokeV.objValue;
     }
 
     public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
         }
     }
 
     public void parserProtoBuf(LiveInfo liveInfo) {
-        if (liveInfo == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, liveInfo) == null) || liveInfo == null) {
             return;
         }
         this.live_id = liveInfo.live_id.longValue();
@@ -159,7 +206,8 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.live_id = jSONObject.optLong("live_id");
@@ -168,7 +216,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.user_nickname = jSONObject.optString("user_nickname");
         this.group_id = jSONObject.optLong("group_id");
         this.last_msg_id = jSONObject.optLong("last_msg_id");
-        this.session_id = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
+        this.session_id = jSONObject.optString("session_id");
         this.description = jSONObject.optString("description");
         this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
         this.join_count = jSONObject.optInt("join_count");

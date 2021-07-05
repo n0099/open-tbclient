@@ -1,22 +1,43 @@
 package d.a.c.e.d;
-/* loaded from: classes.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class h {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42286a;
+    public String f44095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42287b;
+    public String f44096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42288c;
+    public int f44097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42289d;
+    public String f44098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42290e;
+    public int f44099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42291f;
+    public long f44100f;
+
+    public h() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

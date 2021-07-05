@@ -7,6 +7,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.b.c;
@@ -14,63 +19,150 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes7.dex */
 public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f37329a;
+    public TextView f39092a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f37330b;
+    public TextView f39093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f37331c;
+    public AdTemplate f39094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f37332d;
+    public a f39095d;
 
     /* loaded from: classes7.dex */
     public interface a {
         void a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActionBarH5(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActionBarH5(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActionBarH5(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         a(context);
     }
 
     private void a(Context context) {
-        FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
-        this.f37329a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-        this.f37330b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+            FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
+            this.f39092a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
+            this.f39093b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+        }
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        this.f37331c = adTemplate;
-        this.f37332d = aVar;
-        AdInfo j = c.j(adTemplate);
-        this.f37329a.setText(com.kwad.sdk.core.response.b.a.n(j));
-        this.f37330b.setText(com.kwad.sdk.core.response.b.a.w(j));
-        setOnClickListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
+            this.f39094c = adTemplate;
+            this.f39095d = aVar;
+            AdInfo j = c.j(adTemplate);
+            this.f39092a.setText(com.kwad.sdk.core.response.b.a.n(j));
+            this.f39093b.setText(com.kwad.sdk.core.response.b.a.w(j));
+            setOnClickListener(this);
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f37331c, new a.InterfaceC0382a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0382a
-            public void a() {
-                if (ActionBarH5.this.f37332d != null) {
-                    ActionBarH5.this.f37332d.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f39094c, new a.InterfaceC0426a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ ActionBarH5 f39096a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f39096a = this;
                 }
-            }
-        }, null);
+
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0426a
+                public void a() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f39096a.f39095d == null) {
+                        return;
+                    }
+                    this.f39096a.f39095d.a();
+                }
+            }, null);
+        }
     }
 }

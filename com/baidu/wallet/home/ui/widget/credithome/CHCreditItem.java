@@ -4,45 +4,77 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CHCreditItem extends BaseItemView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f24457a;
+    public MaskTextView f25000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24458b;
+    public MaskTextView f25001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24459c;
+    public MaskTextView f25002c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24460d;
+    public MaskTextView f25003d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f24461e;
+    public MaskTextView f25004e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHCreditItem(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public boolean handlePoint() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void initView() {
-        LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_item"), this);
-        this.f24457a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines"));
-        this.f24458b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
-        this.f24459c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
-        this.f24461e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
-        this.f24460d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_item"), this);
+            this.f25000a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines"));
+            this.f25001b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
+            this.f25002c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
+            this.f25004e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
+            this.f25003d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
+        }
     }
 
     public void refresh() {
@@ -51,27 +83,28 @@ public class CHCreditItem extends BaseItemView {
         MaskTextView maskTextView3;
         MaskTextView maskTextView4;
         MaskTextView maskTextView5;
-        if (getData() == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(getData().value1) && (maskTextView5 = this.f24457a) != null) {
+        if (!TextUtils.isEmpty(getData().value1) && (maskTextView5 = this.f25000a) != null) {
             maskTextView5.setMaskText(getData().value1);
         }
-        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f24458b) != null) {
+        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f25001b) != null) {
             maskTextView4.setMaskText(getData().value2);
         }
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f24459c) != null) {
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25002c) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f24461e) != null) {
+        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f25004e) != null) {
             maskTextView2.setMaskText(getData().label);
         } else {
-            MaskTextView maskTextView6 = this.f24461e;
+            MaskTextView maskTextView6 = this.f25004e;
             if (maskTextView6 != null) {
                 maskTextView6.setVisibility(8);
             }
         }
-        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f24460d) == null) {
+        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f25003d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value3);
@@ -79,12 +112,32 @@ public class CHCreditItem extends BaseItemView {
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void setData(HomeCfgResponse.DataItem dataItem, b bVar) {
-        super.setData(dataItem, bVar);
-        initView();
-        refresh();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, dataItem, bVar) == null) {
+            super.setData(dataItem, bVar);
+            initView();
+            refresh();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHCreditItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

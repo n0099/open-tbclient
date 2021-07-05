@@ -1,0 +1,7 @@
+package d.a.s0.z3.m.c.d;
+
+import android.graphics.Bitmap;
+/* loaded from: classes9.dex */
+public interface f {
+    void a(int i2, Bitmap bitmap);
+}

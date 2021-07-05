@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,9 +16,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import d.a.n0.m.g;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.m.g;
 /* loaded from: classes5.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public Activity l;
     public View m;
     public String n;
@@ -27,118 +35,224 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ DefaultNavigationBarCoverTip f21980e;
+
+        public a(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {defaultNavigationBarCoverTip};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21980e = defaultNavigationBarCoverTip;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext<?> tbPageContext;
-            DefaultNavigationBarCoverTip.this.e();
-            if (DefaultNavigationBarCoverTip.this.l == null || TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.n) || (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.l)) == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f21980e.e();
+                if (this.f21980e.l == null || TextUtils.isEmpty(this.f21980e.n) || (tbPageContext = UtilHelper.getTbPageContext(this.f21980e.l)) == null) {
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f21980e.n});
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.n});
         }
     }
 
     /* loaded from: classes5.dex */
     public class b extends g {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ DefaultNavigationBarCoverTip f21981e;
+
+        public b(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {defaultNavigationBarCoverTip};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21981e = defaultNavigationBarCoverTip;
         }
 
-        @Override // d.a.n0.m.g, android.app.Application.ActivityLifecycleCallbacks
+        @Override // d.a.r0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            if (activity == DefaultNavigationBarCoverTip.this.l) {
-                DefaultNavigationBarCoverTip.this.setCoverTipListener(null);
-                DefaultNavigationBarCoverTip.this.r();
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f21981e.l) {
+                this.f21981e.setCoverTipListener(null);
+                this.f21981e.r();
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public class c implements NavigationBarCoverTip.e {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ DefaultNavigationBarCoverTip f21982a;
+
+        public c(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {defaultNavigationBarCoverTip};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21982a = defaultNavigationBarCoverTip;
         }
 
         @Override // com.baidu.tieba.view.NavigationBarCoverTip.e
         public void a() {
-            DefaultNavigationBarCoverTip.this.r();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f21982a.r();
+            }
         }
 
         @Override // com.baidu.tieba.view.NavigationBarCoverTip.e
         public void onShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.o = new a();
-        this.p = new b();
-        this.q = new c();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.o = new a(this);
+        this.p = new b(this);
+        this.q = new c(this);
         this.l = activity;
         t();
         setCoverTipListener(this.q);
     }
 
     public static DefaultNavigationBarCoverTip s(Activity activity, String str, String str2) {
-        if (activity == null) {
-            activity = TbadkCoreApplication.getInst().getCurrentActivity();
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, activity, str, str2)) == null) {
+            if (activity == null) {
+                activity = TbadkCoreApplication.getInst().getCurrentActivity();
+            }
+            DefaultNavigationBarCoverTip defaultNavigationBarCoverTip = new DefaultNavigationBarCoverTip(activity);
+            defaultNavigationBarCoverTip.q(str, str2);
+            return defaultNavigationBarCoverTip;
         }
-        DefaultNavigationBarCoverTip defaultNavigationBarCoverTip = new DefaultNavigationBarCoverTip(activity);
-        defaultNavigationBarCoverTip.q(str, str2);
-        return defaultNavigationBarCoverTip;
+        return (DefaultNavigationBarCoverTip) invokeLLL.objValue;
     }
 
     public final DefaultNavigationBarCoverTip q(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this;
+            }
+            Context context = getContext();
+            this.n = str2;
+            View inflate = View.inflate(context, R.layout.write_thread_share_guide, null);
+            this.m = inflate;
+            TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.m.findViewById(R.id.share_icon);
+            tBSpecificationBtn.setTextSize(R.dimen.tbds34);
+            d.a.r0.r.f0.m.c cVar = new d.a.r0.r.f0.m.c();
+            cVar.r();
+            tBSpecificationBtn.setConfig(cVar);
+            textView.setSingleLine();
+            textView.setEllipsize(TextUtils.TruncateAt.END);
+            textView.setText(str);
+            tBSpecificationBtn.setOnClickListener(this.o);
+            if (TextUtils.isEmpty(str2)) {
+                tBSpecificationBtn.setVisibility(8);
+            } else {
+                tBSpecificationBtn.setVisibility(0);
+                tBSpecificationBtn.setText(context.getString(R.string.jump_link));
+            }
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
+            tBSpecificationBtn.k();
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0302);
             return this;
         }
-        Context context = getContext();
-        this.n = str2;
-        View inflate = View.inflate(context, R.layout.write_thread_share_guide, null);
-        this.m = inflate;
-        TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.m.findViewById(R.id.share_icon);
-        tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-        d.a.n0.r.f0.m.c cVar = new d.a.n0.r.f0.m.c();
-        cVar.r();
-        tBSpecificationBtn.setConfig(cVar);
-        textView.setSingleLine();
-        textView.setEllipsize(TextUtils.TruncateAt.END);
-        textView.setText(str);
-        tBSpecificationBtn.setOnClickListener(this.o);
-        if (TextUtils.isEmpty(str2)) {
-            tBSpecificationBtn.setVisibility(8);
-        } else {
-            tBSpecificationBtn.setVisibility(0);
-            tBSpecificationBtn.setText(context.getString(R.string.jump_link));
-        }
-        SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
-        tBSpecificationBtn.k();
-        SkinManager.setBackgroundColor(this, R.color.CAM_X0302);
-        return this;
+        return (DefaultNavigationBarCoverTip) invokeLL.objValue;
     }
 
     public final void r() {
-        i();
-        ViewParent parent = getParent();
-        if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            i();
+            ViewParent parent = getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this);
+            }
         }
     }
 
     public final void t() {
-        try {
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.p);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.p);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public void u() {
+        Activity activity;
         ViewGroup viewGroup;
-        Activity activity = this.l;
-        if (activity == null || this.m == null || (viewGroup = (ViewGroup) activity.findViewById(16908290)) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (activity = this.l) == null || this.m == null || (viewGroup = (ViewGroup) activity.findViewById(16908290)) == null) {
             return;
         }
         viewGroup.addView(this, new ViewGroup.LayoutParams(-1, -2));

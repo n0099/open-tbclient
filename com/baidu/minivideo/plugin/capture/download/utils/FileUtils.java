@@ -3,31 +3,66 @@ package com.baidu.minivideo.plugin.capture.download.utils;
 import android.content.Context;
 import android.os.Environment;
 import androidx.annotation.NonNull;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String DOWNLOAD_DIR = "UgcDownload";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public FileUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static final File getDefaultDownloadDir(Context context) {
-        if (isSDMounted()) {
-            return new File(context.getExternalCacheDir(), DOWNLOAD_DIR);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (isSDMounted()) {
+                return new File(context.getExternalCacheDir(), DOWNLOAD_DIR);
+            }
+            return new File(context.getCacheDir(), DOWNLOAD_DIR);
         }
-        return new File(context.getCacheDir(), DOWNLOAD_DIR);
+        return (File) invokeL.objValue;
     }
 
     public static final String getFileFullName(String str) {
-        return str.substring(str.lastIndexOf("/") + 1, str.length());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.substring(str.lastIndexOf("/") + 1, str.length()) : (String) invokeL.objValue;
     }
 
     public static final String getPrefix(@NonNull String str) {
-        return str.substring(0, str.lastIndexOf("."));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.substring(0, str.lastIndexOf(".")) : (String) invokeL.objValue;
     }
 
     public static final String getSuffix(@NonNull String str) {
-        return str.substring(str.lastIndexOf(".") + 1);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? str.substring(str.lastIndexOf(".") + 1) : (String) invokeL.objValue;
     }
 
     public static boolean isSDMounted() {
-        return Environment.getExternalStorageState().equals("mounted");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
     }
 }

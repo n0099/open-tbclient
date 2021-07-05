@@ -1,8 +1,13 @@
 package com.baidu.sapi2.result;
 
 import com.baidu.sapi2.SapiAccount;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class FillUsernameResult extends SapiResult {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MSG_UNKNOWN = "用户名设置失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 160103;
     public static final int RESULT_CODE_USERNAME_ALREADY_EXIST = 160111;
@@ -17,9 +22,22 @@ public class FillUsernameResult extends SapiResult {
     public static final String RESULT_MSG_USERNAME_LENGTH_ERROR = "请输入6-14位字符的用户名";
     public static final String RESULT_MSG_USERNAME_UNAVAILABLE = "该用户名已被注册,请更换其他用户名";
     public static final String RESULT_MSG_USER_HAVE_USERNAME = "该用户已有用户名";
+    public transient /* synthetic */ FieldHolder $fh;
     public SapiAccount session;
 
     public FillUsernameResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.msgMap.put(0, RESULT_MSG_SUCCESS);
         this.msgMap.put(110000, RESULT_MSG_SUCCESS);
         this.msgMap.put(160103, "用户登录状态失效，请重新登录");

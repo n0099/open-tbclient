@@ -5,51 +5,89 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TipsConfigItem extends a<TipConfigData> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class TipConfigData implements com.kwad.sdk.core.b, Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String BOTTOM = "bottom";
         public static final String TOAST = "toast";
         public static final long serialVersionUID = 268961350883157950L;
+        public transient /* synthetic */ FieldHolder $fh;
         public String tipInfo;
-        public transient Map<String, String> tipMap = new HashMap();
+        public transient Map<String, String> tipMap;
         public int tipShowSwitch;
 
+        public TipConfigData() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.tipMap = new HashMap();
+        }
+
         private void genTipMap(JSONObject jSONObject) {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                this.tipMap.put(next, jSONObject.optString(next, ""));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    this.tipMap.put(next, jSONObject.optString(next, ""));
+                }
             }
         }
 
         @Nullable
         public String getTipInfoData() {
-            return this.tipInfo;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.tipInfo : (String) invokeV.objValue;
         }
 
         public int getTipShowSwitch() {
-            return this.tipShowSwitch;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.tipShowSwitch : invokeV.intValue;
         }
 
         public String getTips(String str) {
-            return this.tipMap.get(str);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.tipMap.get(str) : (String) invokeL.objValue;
         }
 
         public boolean isShowTips() {
-            return this.tipShowSwitch == 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tipShowSwitch == 0 : invokeV.booleanValue;
         }
 
         public void parseJson(@Nullable JSONObject jSONObject) {
-            if (jSONObject == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
             setTipInfoData(jSONObject.optString("tipInfo"));
@@ -57,60 +95,95 @@ public class TipsConfigItem extends a<TipConfigData> {
         }
 
         public void setTipInfoData(String str) {
-            this.tipInfo = str;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str)) {
-                return;
-            }
-            try {
-                genTipMap(new JSONObject(str));
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.b(e2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.tipInfo = str;
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str)) {
+                    return;
+                }
+                try {
+                    genTipMap(new JSONObject(str));
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.b(e2);
+                }
             }
         }
 
         public void setTipShowSwitch(int i2) {
-            this.tipShowSwitch = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+                this.tipShowSwitch = i2;
+            }
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "tipShowSwitch", this.tipShowSwitch);
-            o.a(jSONObject, "tipInfo", this.tipInfo);
-            return jSONObject;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                o.a(jSONObject, "tipShowSwitch", this.tipShowSwitch);
+                o.a(jSONObject, "tipInfo", this.tipInfo);
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TipsConfigItem() {
         super("tipConfig", new TipConfigData());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences.Editor editor) {
-        editor.putInt("tipsSwitch", b().getTipShowSwitch());
-        editor.putString("tipsInfo", b().getTipInfoData() != null ? b().getTipInfoData() : "");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
+            editor.putInt("tipsSwitch", b().getTipShowSwitch());
+            editor.putString("tipsInfo", b().getTipInfoData() != null ? b().getTipInfoData() : "");
+        }
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences sharedPreferences) {
-        TipConfigData b2 = b();
-        if (b2 == null) {
-            b2 = new TipConfigData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
+            TipConfigData b2 = b();
+            if (b2 == null) {
+                b2 = new TipConfigData();
+            }
+            b2.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
+            b2.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
+            a((TipsConfigItem) b2);
         }
-        b2.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
-        b2.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
-        a((TipsConfigItem) b2);
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) {
-            a((TipsConfigItem) c());
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) {
+                a((TipsConfigItem) c());
+                return;
+            }
+            TipConfigData tipConfigData = new TipConfigData();
+            tipConfigData.parseJson(optJSONObject);
+            a((TipsConfigItem) tipConfigData);
         }
-        TipConfigData tipConfigData = new TipConfigData();
-        tipConfigData.parseJson(optJSONObject);
-        a((TipsConfigItem) tipConfigData);
     }
 }

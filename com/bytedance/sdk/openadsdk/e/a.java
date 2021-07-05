@@ -2,354 +2,162 @@ package com.bytedance.sdk.openadsdk.e;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.downloadnew.core.a;
-import com.bytedance.sdk.openadsdk.downloadnew.core.b;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import com.bytedance.sdk.openadsdk.utils.u;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
+import androidx.core.app.NotificationCompatJellybean;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a implements c {
+public class a implements i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f29212a;
+    public final String f31071a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f29213b;
+    public final JSONObject f31072b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.b> f29214c = new HashMap();
-
-    public a(b bVar, l lVar) {
-        this.f29213b = bVar;
-        this.f29212a = lVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.e.c
-    public void b() {
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f29214c.values()) {
-            if (bVar != null) {
-                bVar.c();
+    public a(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f31071a = str;
+        this.f31072b = jSONObject;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.e.c
-    public void c() {
-        b();
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f29214c.values()) {
-            if (bVar != null) {
-                bVar.d();
+    public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, str3, jSONObject)) == null) ? new a(UUID.randomUUID().toString(), b(context, str, str2, str3, jSONObject)) : (a) invokeLLLLL.objValue;
+    }
+
+    public static JSONObject b(Context context, String str, String str2, String str3, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, null, context, str, str2, str3, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("event_ts", System.currentTimeMillis());
+                jSONObject2.putOpt("tag", str);
+                jSONObject2.putOpt(NotificationCompatJellybean.KEY_LABEL, str2);
+                jSONObject2.putOpt("category", "app_union");
+                try {
+                    jSONObject2.putOpt("value", Long.valueOf(Long.parseLong(str3)));
+                } catch (NumberFormatException unused) {
+                    jSONObject2.putOpt("value", 0L);
+                }
+                jSONObject2.putOpt("is_ad_event", "1");
+                jSONObject2.putOpt("nt", Integer.valueOf(com.bytedance.sdk.component.utils.m.c(context)));
+                jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.h.d().w());
+                if (jSONObject != null) {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        jSONObject2.putOpt(next, jSONObject.opt(next));
+                    }
+                }
+            } catch (Exception unused2) {
             }
+            return jSONObject2;
         }
-        this.f29214c.clear();
+        return (JSONObject) invokeLLLLL.objValue;
     }
 
-    public static a a(b bVar, l lVar) {
-        return new a(bVar, lVar);
+    public static a a(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject})) == null) ? new a(UUID.randomUUID().toString(), b(str, str2, str3, j, j2, jSONObject)) : (a) invokeCommon.objValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.e.c
-    public void a() {
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f29214c.values()) {
-            if (bVar != null) {
-                bVar.b();
+    public static a a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.e.c
-    public void b(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject == null || this.f29213b == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
-        }
-        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f29214c.get(a(optJSONObject, (String) null).an().b());
-        if (bVar != null) {
-            bVar.f();
-        }
-    }
-
-    private l a(JSONObject jSONObject, String str) {
-        if (jSONObject == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("localId", null);
+                JSONObject optJSONObject = jSONObject.optJSONObject("event");
+                if (!TextUtils.isEmpty(optString) && optJSONObject != null) {
+                    return new a(optString, optJSONObject);
+                }
+            } catch (Throwable unused) {
+            }
             return null;
         }
-        l lVar = new l();
-        lVar.c(jSONObject);
-        if (!TextUtils.isEmpty(str)) {
-            lVar.m(str);
-        }
-        if (this.f29212a == null) {
-            return lVar;
-        }
-        String b2 = lVar.an() != null ? lVar.an().b() : null;
-        if (TextUtils.isEmpty(b2)) {
-            return this.f29212a;
-        }
-        return (this.f29212a.an() == null || !b2.equals(this.f29212a.an().b())) ? lVar : this.f29212a;
+        return (a) invokeL.objValue;
     }
 
-    /* renamed from: com.bytedance.sdk.openadsdk.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0309a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static ConcurrentHashMap<String, JSONObject> f29225a = new ConcurrentHashMap<>();
-
-        public static synchronized JSONObject a(String str) {
-            synchronized (C0309a.class) {
-                if (TextUtils.isEmpty(str)) {
-                    return new JSONObject();
-                } else if (f29225a == null) {
-                    return new JSONObject();
-                } else {
-                    JSONObject jSONObject = f29225a.get(str);
-                    if (jSONObject == null) {
-                        return new JSONObject();
-                    }
-                    return jSONObject;
-                }
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.f31071a) || this.f31072b == null) {
+                return null;
             }
-        }
-
-        public static synchronized void a(String str, int i2, int i3) {
-            synchronized (C0309a.class) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (f29225a == null) {
-                    f29225a = new ConcurrentHashMap<>();
-                }
-                JSONObject jSONObject = f29225a.get(str);
-                if (jSONObject == null) {
-                    jSONObject = new JSONObject();
-                    f29225a.put(str, jSONObject);
-                }
-                try {
-                    jSONObject.put("downloadStatus", i2);
-                    jSONObject.put("downloadProcessRate", i3);
-                    jSONObject.put("code", 0);
-                    jSONObject.put("codeMsg", "get ad_down_load_id success");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.e.c
-    public void a(Context context, JSONObject jSONObject, String str, int i2, boolean z) {
-        JSONObject optJSONObject;
-        if (context == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
-        }
-        a(context, a(optJSONObject, str), optJSONObject, i2, z);
-    }
-
-    private void a(Context context, l lVar, JSONObject jSONObject, int i2, boolean z) {
-        if (context == null || lVar == null || lVar.an() == null || jSONObject == null || this.f29213b == null || this.f29214c.get(lVar.an().b()) != null) {
-            return;
-        }
-        String a2 = ak.a(i2);
-        if (TextUtils.isEmpty(a2)) {
-            return;
-        }
-        this.f29214c.put(lVar.an().b(), a(context, lVar, jSONObject, a2, z));
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.e.c
-    public void a(Context context, JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (context == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
-        }
-        a(context, a(optJSONObject, (String) null));
-    }
-
-    private void a(Context context, l lVar) {
-        if (context == null || lVar == null || lVar.an() == null) {
-            return;
-        }
-        final String am = lVar.am();
-        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f29214c.get(lVar.an().b());
-        if (bVar != null) {
-            bVar.g();
-            bVar.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.e.a.1
-                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                public void onDownloadActive(long j, long j2, String str, String str2) {
-                    if (j > 0) {
-                        C0309a.a(am, 3, (int) ((j2 * 100) / j));
-                    }
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                public void onDownloadFailed(long j, long j2, String str, String str2) {
-                    if (j > 0) {
-                        C0309a.a(am, 4, (int) ((j2 * 100) / j));
-                    }
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                public void onDownloadFinished(long j, String str, String str2) {
-                    C0309a.a(am, 5, 100);
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                public void onDownloadPaused(long j, long j2, String str, String str2) {
-                    if (j > 0) {
-                        C0309a.a(am, 2, (int) ((j2 * 100) / j));
-                    }
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                public void onIdle() {
-                    C0309a.a(am, 1, 0);
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                public void onInstalled(String str, String str2) {
-                    C0309a.a(am, 6, 100);
-                }
-            });
-        }
-        if (context instanceof com.bytedance.sdk.openadsdk.core.video.c.b) {
-            ((com.bytedance.sdk.openadsdk.core.video.c.b) context).W();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.e.c
-    public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
-        }
-        a(a(optJSONObject, (String) null), optJSONObject);
-    }
-
-    private void a(l lVar, JSONObject jSONObject) {
-        if (this.f29213b == null || lVar == null || lVar.an() == null) {
-            return;
-        }
-        String b2 = lVar.an().b();
-        if (this.f29214c.containsKey(b2)) {
-            this.f29214c.remove(b2);
+            JSONObject jSONObject = new JSONObject();
             try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("message", "success");
-                jSONObject2.put("status", "unsubscribed");
-                jSONObject2.put("appad", jSONObject);
-                this.f29213b.a("app_ad_event", jSONObject2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                jSONObject.put("localId", this.f31071a);
+                jSONObject.put("event", this.f31072b);
+            } catch (Throwable unused) {
             }
+            return jSONObject.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    private com.bytedance.sdk.openadsdk.downloadnew.core.b a(@NonNull final Context context, @NonNull final l lVar, @NonNull final JSONObject jSONObject, @NonNull String str, final boolean z) {
-        com.bytedance.sdk.openadsdk.downloadnew.core.b b2 = com.bytedance.sdk.openadsdk.downloadnew.a.b(context, lVar, str);
-        b2.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.e.a.2
-            private void a(String... strArr) {
-                if (strArr == null || strArr.length % 2 != 0) {
-                    return;
-                }
-                try {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("message", "success");
-                    jSONObject2.put("appad", jSONObject);
-                    for (int i2 = 0; i2 < strArr.length; i2 += 2) {
-                        jSONObject2.put(strArr[i2], strArr[i2 + 1]);
-                    }
-                    a.this.f29213b.a("app_ad_event", jSONObject2);
-                } catch (JSONException unused) {
-                    u.b("JsAppAdDownloadManager", "JSONException");
-                }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadActive(long j, long j2, String str2, String str3) {
-                a("status", "download_active", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFailed(long j, long j2, String str2, String str3) {
-                a("status", "download_failed", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFinished(long j, String str2, String str3) {
-                a("status", "download_finished", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadPaused(long j, long j2, String str2, String str3) {
-                a("status", "download_paused", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onIdle() {
-                a("status", "idle");
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onInstalled(String str2, String str3) {
-                a("status", "installed");
-            }
-        });
-        b2.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.e.a.3
-        });
-        b2.a(3, new a.InterfaceC0308a() { // from class: com.bytedance.sdk.openadsdk.e.a.4
-            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC0308a
-            public boolean a(int i2, l lVar2, String str2, String str3, Object obj) {
-                if (i2 == 3 && lVar2 != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    if (!z) {
-                        char c2 = 65535;
-                        switch (str3.hashCode()) {
-                            case -1297985154:
-                                if (str3.equals("click_continue")) {
-                                    c2 = 3;
-                                    break;
-                                }
-                                break;
-                            case -777040223:
-                                if (str3.equals("click_open")) {
-                                    c2 = 4;
-                                    break;
-                                }
-                                break;
-                            case 565370917:
-                                if (str3.equals("click_start_detail")) {
-                                    c2 = 0;
-                                    break;
-                                }
-                                break;
-                            case 1682049151:
-                                if (str3.equals("click_pause")) {
-                                    c2 = 2;
-                                    break;
-                                }
-                                break;
-                            case 1685366507:
-                                if (str3.equals("click_start")) {
-                                    c2 = 1;
-                                    break;
-                                }
-                                break;
-                        }
-                        return (c2 == 0 || c2 == 1 || c2 == 2 || c2 == 3 || c2 == 4) ? false : true;
-                    } else if (str3.equals("click_start")) {
-                        com.bytedance.sdk.openadsdk.c.d.a(context, lVar, str2, "click_start_detail", (JSONObject) null);
+    public static JSONObject b(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject})) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("event_ts", System.currentTimeMillis());
+                jSONObject2.putOpt("tag", str2);
+                jSONObject2.putOpt(NotificationCompatJellybean.KEY_LABEL, str3);
+                jSONObject2.putOpt("category", str);
+                jSONObject2.putOpt("value", Long.valueOf(j));
+                jSONObject2.putOpt("is_ad_event", "1");
+                jSONObject2.putOpt("ext_value", Long.valueOf(j2));
+                jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.h.d().w());
+                if (jSONObject != null) {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        jSONObject2.putOpt(next, jSONObject.opt(next));
                     }
                 }
-                return true;
+            } catch (Exception unused) {
             }
-        });
-        return b2;
+            return jSONObject2;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.e.i
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31071a : (String) invokeV.objValue;
     }
 }

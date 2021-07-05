@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,6 +18,13 @@ import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.d.m.a;
 import java.util.Map;
@@ -25,10 +33,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VideoPasterRequestData extends HttpMessage {
+    public static /* synthetic */ Interceptable $ic = null;
     public static String _ANDROID_ID = "";
     public static final TbHttpMessageTask task;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(332024170, "Lcom/baidu/afd/videopaster/data/VideoPasterRequestData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(332024170, "Lcom/baidu/afd/videopaster/data/VideoPasterRequestData;");
+                return;
+            }
+        }
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/ads");
         task = tbHttpMessageTask;
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -40,8 +62,24 @@ public class VideoPasterRequestData extends HttpMessage {
         MessageManager.getInstance().registerTask(task);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPasterRequestData(a aVar) {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         addCommonParams();
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
         addParam("pid", aVar.g());
@@ -61,48 +99,66 @@ public class VideoPasterRequestData extends HttpMessage {
     }
 
     private void addCommonParams() {
-        addParam("_client_version", TbConfig.getVersion());
-        addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-        addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-        addParam("model", Build.MODEL);
-        addParam(HttpRequest.CLIENT_TYPE, "2");
-        addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-        addParam("net_type", String.valueOf(j.I()));
-        addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-        addParam(IAdRequestParam.ANDROID_ID, androidId());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            addParam("_client_version", TbConfig.getVersion());
+            addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
+            addParam("model", Build.MODEL);
+            addParam(HttpRequest.CLIENT_TYPE, "2");
+            addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+            addParam("net_type", String.valueOf(j.I()));
+            addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+            addParam(IAdRequestParam.ANDROID_ID, androidId());
+        }
     }
 
     public static String androidId() {
-        if (TextUtils.isEmpty(_ANDROID_ID)) {
-            try {
-                _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), IAdRequestParam.ANDROID_ID);
-            } catch (Exception unused) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TextUtils.isEmpty(_ANDROID_ID)) {
+                try {
+                    _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), IAdRequestParam.ANDROID_ID);
+                } catch (Exception unused) {
+                }
             }
+            return _ANDROID_ID;
         }
-        return _ANDROID_ID;
+        return (String) invokeV.objValue;
     }
 
     public static JSONObject create(String str, String str2) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(Config.APP_KEY, str);
-            jSONObject.put("v", str2);
-            return jSONObject;
-        } catch (JSONException unused) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(Config.APP_KEY, str);
+                jSONObject.put("v", str2);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
     public static String getExt(a aVar) {
-        if (aVar == null || aVar.d() == null || aVar.d().isEmpty()) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aVar)) == null) {
+            if (aVar == null || aVar.d() == null || aVar.d().isEmpty()) {
+                return null;
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (Map.Entry<String, String> entry : aVar.d().entrySet()) {
+                jSONArray.put(create(entry.getKey(), entry.getValue()));
+            }
+            return jSONArray.toString();
         }
-        JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : aVar.d().entrySet()) {
-            jSONArray.put(create(entry.getKey(), entry.getValue()));
-        }
-        return jSONArray.toString();
+        return (String) invokeL.objValue;
     }
 }

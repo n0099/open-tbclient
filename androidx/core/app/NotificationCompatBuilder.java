@@ -9,23 +9,47 @@ import android.widget.RemoteViews;
 import androidx.annotation.RestrictTo;
 import androidx.core.app.NotificationCompat;
 import androidx.core.graphics.drawable.IconCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class NotificationCompatBuilder implements NotificationBuilderWithBuilderAccessor {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final List<Bundle> mActionExtrasList;
     public RemoteViews mBigContentView;
     public final Notification.Builder mBuilder;
     public final NotificationCompat.Builder mBuilderCompat;
     public RemoteViews mContentView;
+    public final Bundle mExtras;
     public int mGroupAlertBehavior;
     public RemoteViews mHeadsUpContentView;
-    public final List<Bundle> mActionExtrasList = new ArrayList();
-    public final Bundle mExtras = new Bundle();
 
     public NotificationCompatBuilder(NotificationCompat.Builder builder) {
         ArrayList<String> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mActionExtrasList = new ArrayList();
+        this.mExtras = new Bundle();
         this.mBuilderCompat = builder;
         if (Build.VERSION.SDK_INT >= 26) {
             this.mBuilder = new Notification.Builder(builder.mContext, builder.mChannelId);
@@ -91,8 +115,8 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
                 Bundle bundle3 = builder.getExtras().getBundle(NotificationCompat.CarExtender.EXTRA_CAR_EXTENDER);
                 bundle3 = bundle3 == null ? new Bundle() : bundle3;
                 Bundle bundle4 = new Bundle();
-                for (int i2 = 0; i2 < builder.mInvisibleActions.size(); i2++) {
-                    bundle4.putBundle(Integer.toString(i2), NotificationCompatJellybean.getBundleForAction(builder.mInvisibleActions.get(i2)));
+                for (int i4 = 0; i4 < builder.mInvisibleActions.size(); i4++) {
+                    bundle4.putBundle(Integer.toString(i4), NotificationCompatJellybean.getBundleForAction(builder.mInvisibleActions.get(i4)));
                 }
                 bundle3.putBundle(NotificationCompat.CarExtender.EXTRA_INVISIBLE_ACTIONS, bundle4);
                 builder.getExtras().putBundle(NotificationCompat.CarExtender.EXTRA_CAR_EXTENDER, bundle3);
@@ -135,11 +159,11 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
             }
             this.mBuilder.setVibrate(null);
             this.mBuilder.setSound(null);
-            int i3 = notification.defaults & (-2);
-            notification.defaults = i3;
-            int i4 = i3 & (-3);
-            notification.defaults = i4;
-            this.mBuilder.setDefaults(i4);
+            int i5 = notification.defaults & (-2);
+            notification.defaults = i5;
+            int i6 = i5 & (-3);
+            notification.defaults = i6;
+            this.mBuilder.setDefaults(i6);
             if (Build.VERSION.SDK_INT >= 26) {
                 if (TextUtils.isEmpty(this.mBuilderCompat.mGroupKey)) {
                     this.mBuilder.setGroup(NotificationCompat.GROUP_KEY_SILENT);
@@ -152,190 +176,208 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
     private void addAction(NotificationCompat.Action action) {
         Notification.Action.Builder builder;
         Bundle bundle;
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 < 20) {
-            if (i2 >= 16) {
-                this.mActionExtrasList.add(NotificationCompatJellybean.writeActionAndGetExtras(this.mBuilder, action));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, action) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 < 20) {
+                if (i2 >= 16) {
+                    this.mActionExtrasList.add(NotificationCompatJellybean.writeActionAndGetExtras(this.mBuilder, action));
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        IconCompat iconCompat = action.getIconCompat();
-        if (Build.VERSION.SDK_INT >= 23) {
-            builder = new Notification.Action.Builder(iconCompat != null ? iconCompat.toIcon() : null, action.getTitle(), action.getActionIntent());
-        } else {
-            builder = new Notification.Action.Builder(iconCompat != null ? iconCompat.getResId() : 0, action.getTitle(), action.getActionIntent());
-        }
-        if (action.getRemoteInputs() != null) {
-            for (android.app.RemoteInput remoteInput : RemoteInput.fromCompat(action.getRemoteInputs())) {
-                builder.addRemoteInput(remoteInput);
+            IconCompat iconCompat = action.getIconCompat();
+            if (Build.VERSION.SDK_INT >= 23) {
+                builder = new Notification.Action.Builder(iconCompat != null ? iconCompat.toIcon() : null, action.getTitle(), action.getActionIntent());
+            } else {
+                builder = new Notification.Action.Builder(iconCompat != null ? iconCompat.getResId() : 0, action.getTitle(), action.getActionIntent());
             }
+            if (action.getRemoteInputs() != null) {
+                for (android.app.RemoteInput remoteInput : RemoteInput.fromCompat(action.getRemoteInputs())) {
+                    builder.addRemoteInput(remoteInput);
+                }
+            }
+            if (action.getExtras() != null) {
+                bundle = new Bundle(action.getExtras());
+            } else {
+                bundle = new Bundle();
+            }
+            bundle.putBoolean(NotificationCompatJellybean.EXTRA_ALLOW_GENERATED_REPLIES, action.getAllowGeneratedReplies());
+            if (Build.VERSION.SDK_INT >= 24) {
+                builder.setAllowGeneratedReplies(action.getAllowGeneratedReplies());
+            }
+            bundle.putInt(NotificationCompat.Action.EXTRA_SEMANTIC_ACTION, action.getSemanticAction());
+            if (Build.VERSION.SDK_INT >= 28) {
+                builder.setSemanticAction(action.getSemanticAction());
+            }
+            if (Build.VERSION.SDK_INT >= 29) {
+                builder.setContextual(action.isContextual());
+            }
+            bundle.putBoolean(NotificationCompat.Action.EXTRA_SHOWS_USER_INTERFACE, action.getShowsUserInterface());
+            builder.addExtras(bundle);
+            this.mBuilder.addAction(builder.build());
         }
-        if (action.getExtras() != null) {
-            bundle = new Bundle(action.getExtras());
-        } else {
-            bundle = new Bundle();
-        }
-        bundle.putBoolean(NotificationCompatJellybean.EXTRA_ALLOW_GENERATED_REPLIES, action.getAllowGeneratedReplies());
-        if (Build.VERSION.SDK_INT >= 24) {
-            builder.setAllowGeneratedReplies(action.getAllowGeneratedReplies());
-        }
-        bundle.putInt(NotificationCompat.Action.EXTRA_SEMANTIC_ACTION, action.getSemanticAction());
-        if (Build.VERSION.SDK_INT >= 28) {
-            builder.setSemanticAction(action.getSemanticAction());
-        }
-        if (Build.VERSION.SDK_INT >= 29) {
-            builder.setContextual(action.isContextual());
-        }
-        bundle.putBoolean(NotificationCompat.Action.EXTRA_SHOWS_USER_INTERFACE, action.getShowsUserInterface());
-        builder.addExtras(bundle);
-        this.mBuilder.addAction(builder.build());
     }
 
     private void removeSoundAndVibration(Notification notification) {
-        notification.sound = null;
-        notification.vibrate = null;
-        int i2 = notification.defaults & (-2);
-        notification.defaults = i2;
-        notification.defaults = i2 & (-3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, notification) == null) {
+            notification.sound = null;
+            notification.vibrate = null;
+            int i2 = notification.defaults & (-2);
+            notification.defaults = i2;
+            notification.defaults = i2 & (-3);
+        }
     }
 
     public Notification build() {
+        InterceptResult invokeV;
         Bundle extras;
         RemoteViews makeHeadsUpContentView;
         RemoteViews makeBigContentView;
-        NotificationCompat.Style style = this.mBuilderCompat.mStyle;
-        if (style != null) {
-            style.apply(this);
-        }
-        RemoteViews makeContentView = style != null ? style.makeContentView(this) : null;
-        Notification buildInternal = buildInternal();
-        if (makeContentView != null) {
-            buildInternal.contentView = makeContentView;
-        } else {
-            RemoteViews remoteViews = this.mBuilderCompat.mContentView;
-            if (remoteViews != null) {
-                buildInternal.contentView = remoteViews;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            NotificationCompat.Style style = this.mBuilderCompat.mStyle;
+            if (style != null) {
+                style.apply(this);
             }
+            RemoteViews makeContentView = style != null ? style.makeContentView(this) : null;
+            Notification buildInternal = buildInternal();
+            if (makeContentView != null) {
+                buildInternal.contentView = makeContentView;
+            } else {
+                RemoteViews remoteViews = this.mBuilderCompat.mContentView;
+                if (remoteViews != null) {
+                    buildInternal.contentView = remoteViews;
+                }
+            }
+            if (Build.VERSION.SDK_INT >= 16 && style != null && (makeBigContentView = style.makeBigContentView(this)) != null) {
+                buildInternal.bigContentView = makeBigContentView;
+            }
+            if (Build.VERSION.SDK_INT >= 21 && style != null && (makeHeadsUpContentView = this.mBuilderCompat.mStyle.makeHeadsUpContentView(this)) != null) {
+                buildInternal.headsUpContentView = makeHeadsUpContentView;
+            }
+            if (Build.VERSION.SDK_INT >= 16 && style != null && (extras = NotificationCompat.getExtras(buildInternal)) != null) {
+                style.addCompatExtras(extras);
+            }
+            return buildInternal;
         }
-        if (Build.VERSION.SDK_INT >= 16 && style != null && (makeBigContentView = style.makeBigContentView(this)) != null) {
-            buildInternal.bigContentView = makeBigContentView;
-        }
-        if (Build.VERSION.SDK_INT >= 21 && style != null && (makeHeadsUpContentView = this.mBuilderCompat.mStyle.makeHeadsUpContentView(this)) != null) {
-            buildInternal.headsUpContentView = makeHeadsUpContentView;
-        }
-        if (Build.VERSION.SDK_INT >= 16 && style != null && (extras = NotificationCompat.getExtras(buildInternal)) != null) {
-            style.addCompatExtras(extras);
-        }
-        return buildInternal;
+        return (Notification) invokeV.objValue;
     }
 
     public Notification buildInternal() {
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 26) {
-            return this.mBuilder.build();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 26) {
+                return this.mBuilder.build();
+            }
+            if (i2 >= 24) {
+                Notification build = this.mBuilder.build();
+                if (this.mGroupAlertBehavior != 0) {
+                    if (build.getGroup() != null && (build.flags & 512) != 0 && this.mGroupAlertBehavior == 2) {
+                        removeSoundAndVibration(build);
+                    }
+                    if (build.getGroup() != null && (build.flags & 512) == 0 && this.mGroupAlertBehavior == 1) {
+                        removeSoundAndVibration(build);
+                    }
+                }
+                return build;
+            } else if (i2 >= 21) {
+                this.mBuilder.setExtras(this.mExtras);
+                Notification build2 = this.mBuilder.build();
+                RemoteViews remoteViews = this.mContentView;
+                if (remoteViews != null) {
+                    build2.contentView = remoteViews;
+                }
+                RemoteViews remoteViews2 = this.mBigContentView;
+                if (remoteViews2 != null) {
+                    build2.bigContentView = remoteViews2;
+                }
+                RemoteViews remoteViews3 = this.mHeadsUpContentView;
+                if (remoteViews3 != null) {
+                    build2.headsUpContentView = remoteViews3;
+                }
+                if (this.mGroupAlertBehavior != 0) {
+                    if (build2.getGroup() != null && (build2.flags & 512) != 0 && this.mGroupAlertBehavior == 2) {
+                        removeSoundAndVibration(build2);
+                    }
+                    if (build2.getGroup() != null && (build2.flags & 512) == 0 && this.mGroupAlertBehavior == 1) {
+                        removeSoundAndVibration(build2);
+                    }
+                }
+                return build2;
+            } else if (i2 >= 20) {
+                this.mBuilder.setExtras(this.mExtras);
+                Notification build3 = this.mBuilder.build();
+                RemoteViews remoteViews4 = this.mContentView;
+                if (remoteViews4 != null) {
+                    build3.contentView = remoteViews4;
+                }
+                RemoteViews remoteViews5 = this.mBigContentView;
+                if (remoteViews5 != null) {
+                    build3.bigContentView = remoteViews5;
+                }
+                if (this.mGroupAlertBehavior != 0) {
+                    if (build3.getGroup() != null && (build3.flags & 512) != 0 && this.mGroupAlertBehavior == 2) {
+                        removeSoundAndVibration(build3);
+                    }
+                    if (build3.getGroup() != null && (build3.flags & 512) == 0 && this.mGroupAlertBehavior == 1) {
+                        removeSoundAndVibration(build3);
+                    }
+                }
+                return build3;
+            } else if (i2 >= 19) {
+                SparseArray<Bundle> buildActionExtrasMap = NotificationCompatJellybean.buildActionExtrasMap(this.mActionExtrasList);
+                if (buildActionExtrasMap != null) {
+                    this.mExtras.putSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS, buildActionExtrasMap);
+                }
+                this.mBuilder.setExtras(this.mExtras);
+                Notification build4 = this.mBuilder.build();
+                RemoteViews remoteViews6 = this.mContentView;
+                if (remoteViews6 != null) {
+                    build4.contentView = remoteViews6;
+                }
+                RemoteViews remoteViews7 = this.mBigContentView;
+                if (remoteViews7 != null) {
+                    build4.bigContentView = remoteViews7;
+                }
+                return build4;
+            } else if (i2 >= 16) {
+                Notification build5 = this.mBuilder.build();
+                Bundle extras = NotificationCompat.getExtras(build5);
+                Bundle bundle = new Bundle(this.mExtras);
+                for (String str : this.mExtras.keySet()) {
+                    if (extras.containsKey(str)) {
+                        bundle.remove(str);
+                    }
+                }
+                extras.putAll(bundle);
+                SparseArray<Bundle> buildActionExtrasMap2 = NotificationCompatJellybean.buildActionExtrasMap(this.mActionExtrasList);
+                if (buildActionExtrasMap2 != null) {
+                    NotificationCompat.getExtras(build5).putSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS, buildActionExtrasMap2);
+                }
+                RemoteViews remoteViews8 = this.mContentView;
+                if (remoteViews8 != null) {
+                    build5.contentView = remoteViews8;
+                }
+                RemoteViews remoteViews9 = this.mBigContentView;
+                if (remoteViews9 != null) {
+                    build5.bigContentView = remoteViews9;
+                }
+                return build5;
+            } else {
+                return this.mBuilder.getNotification();
+            }
         }
-        if (i2 >= 24) {
-            Notification build = this.mBuilder.build();
-            if (this.mGroupAlertBehavior != 0) {
-                if (build.getGroup() != null && (build.flags & 512) != 0 && this.mGroupAlertBehavior == 2) {
-                    removeSoundAndVibration(build);
-                }
-                if (build.getGroup() != null && (build.flags & 512) == 0 && this.mGroupAlertBehavior == 1) {
-                    removeSoundAndVibration(build);
-                }
-            }
-            return build;
-        } else if (i2 >= 21) {
-            this.mBuilder.setExtras(this.mExtras);
-            Notification build2 = this.mBuilder.build();
-            RemoteViews remoteViews = this.mContentView;
-            if (remoteViews != null) {
-                build2.contentView = remoteViews;
-            }
-            RemoteViews remoteViews2 = this.mBigContentView;
-            if (remoteViews2 != null) {
-                build2.bigContentView = remoteViews2;
-            }
-            RemoteViews remoteViews3 = this.mHeadsUpContentView;
-            if (remoteViews3 != null) {
-                build2.headsUpContentView = remoteViews3;
-            }
-            if (this.mGroupAlertBehavior != 0) {
-                if (build2.getGroup() != null && (build2.flags & 512) != 0 && this.mGroupAlertBehavior == 2) {
-                    removeSoundAndVibration(build2);
-                }
-                if (build2.getGroup() != null && (build2.flags & 512) == 0 && this.mGroupAlertBehavior == 1) {
-                    removeSoundAndVibration(build2);
-                }
-            }
-            return build2;
-        } else if (i2 >= 20) {
-            this.mBuilder.setExtras(this.mExtras);
-            Notification build3 = this.mBuilder.build();
-            RemoteViews remoteViews4 = this.mContentView;
-            if (remoteViews4 != null) {
-                build3.contentView = remoteViews4;
-            }
-            RemoteViews remoteViews5 = this.mBigContentView;
-            if (remoteViews5 != null) {
-                build3.bigContentView = remoteViews5;
-            }
-            if (this.mGroupAlertBehavior != 0) {
-                if (build3.getGroup() != null && (build3.flags & 512) != 0 && this.mGroupAlertBehavior == 2) {
-                    removeSoundAndVibration(build3);
-                }
-                if (build3.getGroup() != null && (build3.flags & 512) == 0 && this.mGroupAlertBehavior == 1) {
-                    removeSoundAndVibration(build3);
-                }
-            }
-            return build3;
-        } else if (i2 >= 19) {
-            SparseArray<Bundle> buildActionExtrasMap = NotificationCompatJellybean.buildActionExtrasMap(this.mActionExtrasList);
-            if (buildActionExtrasMap != null) {
-                this.mExtras.putSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS, buildActionExtrasMap);
-            }
-            this.mBuilder.setExtras(this.mExtras);
-            Notification build4 = this.mBuilder.build();
-            RemoteViews remoteViews6 = this.mContentView;
-            if (remoteViews6 != null) {
-                build4.contentView = remoteViews6;
-            }
-            RemoteViews remoteViews7 = this.mBigContentView;
-            if (remoteViews7 != null) {
-                build4.bigContentView = remoteViews7;
-            }
-            return build4;
-        } else if (i2 >= 16) {
-            Notification build5 = this.mBuilder.build();
-            Bundle extras = NotificationCompat.getExtras(build5);
-            Bundle bundle = new Bundle(this.mExtras);
-            for (String str : this.mExtras.keySet()) {
-                if (extras.containsKey(str)) {
-                    bundle.remove(str);
-                }
-            }
-            extras.putAll(bundle);
-            SparseArray<Bundle> buildActionExtrasMap2 = NotificationCompatJellybean.buildActionExtrasMap(this.mActionExtrasList);
-            if (buildActionExtrasMap2 != null) {
-                NotificationCompat.getExtras(build5).putSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS, buildActionExtrasMap2);
-            }
-            RemoteViews remoteViews8 = this.mContentView;
-            if (remoteViews8 != null) {
-                build5.contentView = remoteViews8;
-            }
-            RemoteViews remoteViews9 = this.mBigContentView;
-            if (remoteViews9 != null) {
-                build5.bigContentView = remoteViews9;
-            }
-            return build5;
-        } else {
-            return this.mBuilder.getNotification();
-        }
+        return (Notification) invokeV.objValue;
     }
 
     @Override // androidx.core.app.NotificationBuilderWithBuilderAccessor
     public Notification.Builder getBuilder() {
-        return this.mBuilder;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBuilder : (Notification.Builder) invokeV.objValue;
     }
 }

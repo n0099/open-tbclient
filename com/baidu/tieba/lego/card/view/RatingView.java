@@ -7,134 +7,211 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RatingView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18114e;
+    public Context f18240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f18115f;
+    public a f18241f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18116a;
+        public String f18242a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18117b;
+        public String f18243b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Double f18118c;
+        public Double f18244c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RatingView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void a() {
-        removeAllViews();
-        a aVar = this.f18115f;
-        if (aVar == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(aVar.f18116a)) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            TextView textView = new TextView(this.f18114e);
-            textView.setText(this.f18115f.f18116a);
-            textView.setTextSize(0, l.g(this.f18114e, R.dimen.fontsize24));
-            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            textView.setPadding(0, 0, l.g(this.f18114e, R.dimen.ds30), 0);
-            textView.setLayoutParams(layoutParams);
-            textView.setIncludeFontPadding(false);
-            addView(textView);
-        }
-        if (!TextUtils.isEmpty(this.f18115f.f18117b)) {
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            TextView textView2 = new TextView(this.f18114e);
-            textView2.setText(this.f18115f.f18117b);
-            textView2.setTextSize(0, l.g(this.f18114e, R.dimen.fontsize24));
-            textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            textView2.setPadding(0, 0, l.g(this.f18114e, R.dimen.ds6), 0);
-            textView2.setLayoutParams(layoutParams2);
-            textView2.setIncludeFontPadding(false);
-            addView(textView2);
-        }
-        Double d2 = this.f18115f.f18118c;
-        if (d2 == null || Double.isNaN(d2.doubleValue())) {
-            return;
-        }
-        Integer valueOf = Integer.valueOf(this.f18115f.f18118c.intValue());
-        if (valueOf.intValue() > 10) {
-            valueOf = 10;
-        }
-        if (valueOf.intValue() < 0) {
-            valueOf = 0;
-        }
-        int intValue = valueOf.intValue() >> 1;
-        for (int i2 = 0; i2 < intValue; i2++) {
-            addView(b(SkinManager.getDrawable(R.drawable.icon_star_full)));
-        }
-        int i3 = 5 - intValue;
-        if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
-            addView(b(SkinManager.getDrawable(R.drawable.icon_star_half)));
-            i3--;
-        }
-        for (int i4 = 0; i4 < i3; i4++) {
-            addView(b(SkinManager.getDrawable(R.drawable.icon_star_empty)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            removeAllViews();
+            a aVar = this.f18241f;
+            if (aVar == null) {
+                return;
+            }
+            if (!TextUtils.isEmpty(aVar.f18242a)) {
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                TextView textView = new TextView(this.f18240e);
+                textView.setText(this.f18241f.f18242a);
+                textView.setTextSize(0, l.g(this.f18240e, R.dimen.fontsize24));
+                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+                textView.setPadding(0, 0, l.g(this.f18240e, R.dimen.ds30), 0);
+                textView.setLayoutParams(layoutParams);
+                textView.setIncludeFontPadding(false);
+                addView(textView);
+            }
+            if (!TextUtils.isEmpty(this.f18241f.f18243b)) {
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                TextView textView2 = new TextView(this.f18240e);
+                textView2.setText(this.f18241f.f18243b);
+                textView2.setTextSize(0, l.g(this.f18240e, R.dimen.fontsize24));
+                textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+                textView2.setPadding(0, 0, l.g(this.f18240e, R.dimen.ds6), 0);
+                textView2.setLayoutParams(layoutParams2);
+                textView2.setIncludeFontPadding(false);
+                addView(textView2);
+            }
+            Double d2 = this.f18241f.f18244c;
+            if (d2 == null || Double.isNaN(d2.doubleValue())) {
+                return;
+            }
+            Integer valueOf = Integer.valueOf(this.f18241f.f18244c.intValue());
+            if (valueOf.intValue() > 10) {
+                valueOf = 10;
+            }
+            if (valueOf.intValue() < 0) {
+                valueOf = 0;
+            }
+            int intValue = valueOf.intValue() >> 1;
+            for (int i2 = 0; i2 < intValue; i2++) {
+                addView(b(SkinManager.getDrawable(R.drawable.icon_star_full)));
+            }
+            int i3 = 5 - intValue;
+            if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
+                addView(b(SkinManager.getDrawable(R.drawable.icon_star_half)));
+                i3--;
+            }
+            for (int i4 = 0; i4 < i3; i4++) {
+                addView(b(SkinManager.getDrawable(R.drawable.icon_star_empty)));
+            }
         }
     }
 
     public final ImageView b(Drawable drawable) {
-        ImageView imageView = new ImageView(this.f18114e);
-        imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        imageView.setPadding(0, 0, l.g(this.f18114e, R.dimen.ds4), 0);
-        imageView.setImageDrawable(drawable);
-        return imageView;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
+            ImageView imageView = new ImageView(this.f18240e);
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            imageView.setPadding(0, 0, l.g(this.f18240e, R.dimen.ds4), 0);
+            imageView.setImageDrawable(drawable);
+            return imageView;
+        }
+        return (ImageView) invokeL.objValue;
     }
 
     public final void c() {
-        setOrientation(0);
-        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setOrientation(0);
+            setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        }
     }
 
     public final a d(String str) {
-        a aVar = new a();
-        aVar.f18117b = "";
-        if (!TextUtils.isEmpty(str)) {
-            Matcher matcher = Pattern.compile("(.*)\\{(.+)\\}").matcher(str);
-            if (matcher.find()) {
-                try {
-                    if (!TextUtils.isEmpty(matcher.group(1))) {
-                        aVar.f18117b = matcher.group(1);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            a aVar = new a();
+            aVar.f18243b = "";
+            if (!TextUtils.isEmpty(str)) {
+                Matcher matcher = Pattern.compile("(.*)\\{(.+)\\}").matcher(str);
+                if (matcher.find()) {
+                    try {
+                        if (!TextUtils.isEmpty(matcher.group(1))) {
+                            aVar.f18243b = matcher.group(1);
+                        }
+                        aVar.f18244c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    } catch (NumberFormatException unused) {
+                        aVar.f18243b = str;
                     }
-                    aVar.f18118c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
-                } catch (NumberFormatException unused) {
-                    aVar.f18117b = str;
+                } else {
+                    aVar.f18243b = str;
                 }
-            } else {
-                aVar.f18117b = str;
             }
+            return aVar;
         }
-        return aVar;
+        return (a) invokeL.objValue;
     }
 
     public void setRating(String str, String str2) {
-        a d2 = d(str2);
-        this.f18115f = d2;
-        d2.f18116a = str;
-        a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            a d2 = d(str2);
+            this.f18241f = d2;
+            d2.f18242a = str;
+            a();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RatingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18114e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f18240e = context;
         c();
     }
 }

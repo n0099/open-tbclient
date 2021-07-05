@@ -1,6 +1,12 @@
 package com.baidu.mapapi;
-/* loaded from: classes2.dex */
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class UIMsg {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String UI_TIP_AR_ENTERING = "正在进入实景模式...";
     public static final String UI_TIP_FAVORITE_OFF = "收藏的地点已关闭";
     public static final String UI_TIP_FAVORITE_ON = "收藏的地点已打开";
@@ -51,9 +57,11 @@ public class UIMsg {
     public static final String UI_TIP_YOUR_SEARCH_GOALS_IN_CITY = "您要找的终点在如下城市:";
     public static final String UI_TIP_YOUR_SEARCH_START = "您要找的起点是:";
     public static final String UI_TIP_YOUR_SEARCH_START_IN_CITY = "您要找的起点在如下城市:";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NetDetectedType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int NETYPE_2G = 2;
         public static final int NETYPE_3G = 3;
         public static final int NETYPE_4G = 4;
@@ -65,22 +73,58 @@ public class UIMsg {
         public static final int NETYPE_UNICOM_3G = 9;
         public static final int NETYPE_UNKNOWN = 0;
         public static final int NETYPE_WIFI = 1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public NetDetectedType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class UIGPSStatus {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int GPS_DEVICE_DISABLED = 0;
         public static final int GPS_DEVICE_ENABLED = 1;
         public static final int GPS_SIGNAL_CONNECTED = 2;
         public static final int GPS_SIGNAL_NOT_CONNECTED = 3;
         public static final int GPS_SIGNAL_SATELLITE_NUM = 4;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public UIGPSStatus() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6808a;
+
+        public UIGPSStatus(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6808a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class UIHttpType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int ADD_FLS = 10;
         public static final int APP_SEARCH_REQ = 0;
         public static final int HIDE_TO_FRI_REQ = 19;
@@ -91,13 +135,33 @@ public class UIMsg {
         public static final int VERSION_UPDATE = 6;
         public static final int VERSION_UPDATE_NAV_MODULE = 17;
         public static final int VOICE_SEARCH_REQ = 11;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public UIHttpType() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6809a;
+
+        public UIHttpType(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6809a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class UIOffType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_DATARUN_EXCEPTION = -1;
         public static final int MSG_OFFLINE_ADD = 9;
         public static final int MSG_OFFLINE_DELETE = 11;
@@ -113,13 +177,33 @@ public class UIMsg {
         public static final int MSG_OFFLINE_VERUPDATE = 4;
         public static final int MSG_OFFLINE_WIFICONNECT = -2;
         public static final int MSG_TEMPORY_UPDATE = 7;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public UIOffType() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6810a;
+
+        public UIOffType(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6810a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class WalkNaviMsg {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_APP_PB_DATA_OK = 2008;
         public static final int NL_UI_MESSAGE_TYPE_COMPASS_GUIDEINFO_UPDATE = 4106;
         public static final int NL_UI_MESSAGE_TYPE_GPS_STATE_CHANGE = 4103;
@@ -138,10 +222,26 @@ public class UIMsg {
         public static final int NL_UI_MESSAGE_TYPE_VIA_POI_PANO_IMAGE_UPDATE = 4108;
         public static final int NL_UI_MESSAGE_TYPE_ZOOM_UPDATE = 4097;
         public static final int VM_USER_ID = 4096;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public WalkNaviMsg() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d_ResultType {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int ADDR_LIST = 23;
         public static final int AREA_SEARCH_LIST = 21;
         public static final int BUS_DETAIL = 18;
@@ -176,13 +276,33 @@ public class UIMsg {
         public static final int VERSION_CHECK = 501;
         public static final int VERSION_CHECK_NAV_MODULE = 514;
         public static final int VOICE_REQ = 512;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public d_ResultType() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6811a;
+
+        public d_ResultType(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6811a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f_FUN {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int FUN_ID_GBS = 13;
         public static final int FUN_ID_GBS_OPTION = 1301;
         public static final int FUN_ID_GBS_OPTION_CELL = 13010200;
@@ -337,13 +457,33 @@ public class UIMsg {
         public static final int FUN_ID_VOICE_SCH_OPTION = 200102;
         public static final int FUN_ID_VOICE_SCH_OPTION_GLOBAL_KEY = 20010202;
         public static final int FUN_ID_VOICE_SCH_OPTION_IDENTITY = 20010201;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public f_FUN() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6812a;
+
+        public f_FUN(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6812a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class k_event {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int MV_MAP_ADDLOGOBJ = 4108;
         public static final int MV_MAP_CACHEMANAGE = 12289;
         public static final int MV_MAP_CALDISTANCE = 4106;
@@ -396,13 +536,33 @@ public class UIMsg {
         public static final int V_WM_STREET_JUMP = 49;
         public static final int V_WM_TRACKBALLMOVE = 38;
         public static final int V_WM_VDATAENGINE = 65289;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public k_event() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6813a;
+
+        public k_event(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6813a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class l_ErrorNo {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int CORE_MEMORY_ALLOCATE_ERROR = 101;
         public static final int CORE_TRANS_CODE_ERROR = 102;
         public static final int NETWORK_CONNECT_ERROR = 2;
@@ -418,13 +578,33 @@ public class UIMsg {
         public static final int RP_NOT_SUPPORT_BUS_2CITY = 13;
         public static final int RP_ST_EN_TOO_NEAR = 14;
         public static final int USER_CANCEL = 1;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public l_ErrorNo() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6814a;
+
+        public l_ErrorNo(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6814a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class m_AppUI {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int CELLDATA_UPLOAD_REQ = 507;
         public static final int MSG_APP_DATA_OK = 2000;
         public static final int MSG_APP_GPS = 5000;
@@ -481,8 +661,41 @@ public class UIMsg {
         public static final int V_WM_SCALEFINISHED = 37;
         public static final int V_WM_VDATAENGINE = 65289;
         public static final int V_WM_WIFISTATECHANGE = 65025;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public m_AppUI() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ UIMsg f6815a;
+
+        public m_AppUI(UIMsg uIMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uIMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f6815a = uIMsg;
+        }
+    }
+
+    public UIMsg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

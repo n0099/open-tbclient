@@ -1,43 +1,53 @@
 package com.bytedance.sdk.openadsdk.m;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class e {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29750a;
+    public static a f31395a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f29751b;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, String str2);
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f29752c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f29753d;
-
-    public e(String str, String str2, boolean z, int i2) {
-        this.f29750a = str;
-        this.f29751b = str2;
-        this.f29752c = z;
-        this.f29753d = i2;
+        void a(String str, String str2, Throwable th);
     }
 
-    public String a() {
-        return this.f29750a;
+    public static void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, aVar) == null) {
+            f31395a = aVar;
+        }
     }
 
-    public String b() {
-        return this.f29751b;
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f31395a != null : invokeV.booleanValue;
     }
 
-    public boolean c() {
-        return this.f29752c;
+    public static void a(String str, String str2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || (aVar = f31395a) == null) {
+            return;
+        }
+        aVar.a(str, str2);
     }
 
-    public int d() {
-        return this.f29753d;
-    }
-
-    public void a(int i2) {
-        this.f29753d = i2;
+    public static void a(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || f31395a == null) {
+            return;
+        }
+        if (th == null) {
+            th = new Throwable();
+        }
+        f31395a.a(str, str2, th);
     }
 }

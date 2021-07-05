@@ -2,7 +2,9 @@ package com.baidu.fsg.face.liveness.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.UploadBean;
@@ -11,138 +13,203 @@ import com.baidu.fsg.base.utils.Md5Utils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
 import com.baidu.fsg.face.liveness.datamodel.UploadVideoModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.NetworkBean;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m extends UploadBean {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5916a;
+    public String f5946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5917b;
+    public String f5947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5918c;
+    public String f5948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5919d;
+    public String f5949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5920e;
+    public String f5950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5921f;
+    public String f5951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LivenessRecogDTO f5922g;
+    public LivenessRecogDTO f5952g;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         String zid2 = RimGlobalUtils.getZid2();
-        this.f5920e = zid2;
+        this.f5950e = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f5919d = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f5949d = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(String str) {
-        this.f5921f = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f5951f = str;
+        }
     }
 
     public void b(String str) {
-        this.f5917b = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f5947b = str;
+        }
     }
 
     public void c(String str) {
-        this.f5918c = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f5948c = str;
+        }
     }
 
     public void d(String str) {
-        this.f5916a = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f5946a = str;
+        }
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public void execBean() {
-        execBean(UploadVideoModel.class);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            execBean(UploadVideoModel.class);
+        }
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
+        InterceptResult invokeV;
         List<UploadBean.UploadFileModel> list;
-        ArrayList arrayList = new ArrayList();
-        LivenessRecogDTO livenessRecogDTO = (LivenessRecogDTO) c.a().a("request_data");
-        this.f5922g = livenessRecogDTO;
-        if (livenessRecogDTO != null && (list = this.files) != null && list.get(0) != null && this.files.get(0).filedata != null) {
-            setSpParameter(this.f5922g.spParams);
-            if (!TextUtils.isEmpty(this.f5922g.processid)) {
-                arrayList.add(new RestNameValuePair("processid", this.f5922g.processid));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            LivenessRecogDTO livenessRecogDTO = (LivenessRecogDTO) c.a().a("request_data");
+            this.f5952g = livenessRecogDTO;
+            if (livenessRecogDTO != null && (list = this.files) != null && list.get(0) != null && this.files.get(0).filedata != null) {
+                setSpParameter(this.f5952g.spParams);
+                if (!TextUtils.isEmpty(this.f5952g.processid)) {
+                    arrayList.add(new RestNameValuePair("processid", this.f5952g.processid));
+                }
+                if (!TextUtils.isEmpty(a())) {
+                    arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
+                }
+                if (!TextUtils.isEmpty(this.f5946a)) {
+                    arrayList.add(new RestNameValuePair("video_type", this.f5946a));
+                }
+                if (!TextUtils.isEmpty(this.f5947b)) {
+                    arrayList.add(new RestNameValuePair("callbackkey", this.f5947b));
+                }
+                if (!TextUtils.isEmpty(this.f5948c)) {
+                    arrayList.add(new RestNameValuePair("image_callbackkey", this.f5948c));
+                }
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.files.get(0).filedata);
+                arrayList.add(new RestNameValuePair("videomd5", Md5Utils.getMd5FromInputStream(byteArrayInputStream)));
+                try {
+                    byteArrayInputStream.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                if (!TextUtils.isEmpty(this.f5952g.serviceType)) {
+                    arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5952g.serviceType));
+                }
+                arrayList.add(new RestNameValuePair("type", "video"));
             }
-            if (!TextUtils.isEmpty(a())) {
-                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
+            arrayList.add(new RestNameValuePair("client", "android"));
+            if (!TextUtils.isEmpty(this.f5950e)) {
+                arrayList.add(new RestNameValuePair("zid2", this.f5950e));
+            } else if (!TextUtils.isEmpty(this.f5949d)) {
+                arrayList.add(new RestNameValuePair("zid", this.f5949d));
             }
-            if (!TextUtils.isEmpty(this.f5916a)) {
-                arrayList.add(new RestNameValuePair("video_type", this.f5916a));
+            if (!TextUtils.isEmpty(this.f5951f)) {
+                arrayList.add(new RestNameValuePair("need_confirm", this.f5951f));
             }
-            if (!TextUtils.isEmpty(this.f5917b)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.f5917b));
-            }
-            if (!TextUtils.isEmpty(this.f5918c)) {
-                arrayList.add(new RestNameValuePair("image_callbackkey", this.f5918c));
-            }
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.files.get(0).filedata);
-            arrayList.add(new RestNameValuePair("videomd5", Md5Utils.getMd5FromInputStream(byteArrayInputStream)));
-            try {
-                byteArrayInputStream.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
-            if (!TextUtils.isEmpty(this.f5922g.serviceType)) {
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5922g.serviceType));
-            }
-            arrayList.add(new RestNameValuePair("type", "video"));
+            return arrayList;
         }
-        arrayList.add(new RestNameValuePair("client", "android"));
-        if (!TextUtils.isEmpty(this.f5920e)) {
-            arrayList.add(new RestNameValuePair("zid2", this.f5920e));
-        } else if (!TextUtils.isEmpty(this.f5919d)) {
-            arrayList.add(new RestNameValuePair("zid", this.f5919d));
-        }
-        if (!TextUtils.isEmpty(this.f5921f)) {
-            arrayList.add(new RestNameValuePair("need_confirm", this.f5921f));
-        }
-        return arrayList;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public int getBeanId() {
-        return 7;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 7;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.o;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.o;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.UploadBean
     public boolean needCheckClientSign() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public Class<?> responseClass() {
-        return UploadVideoModel.class;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? UploadVideoModel.class : (Class) invokeV.objValue;
     }
 
     private String a() {
-        StringBuilder sb = new StringBuilder();
-        if (this.f5922g != null) {
-            sb.append("bduss=" + this.f5922g.bduss);
-            sb.append(";stoken=" + this.f5922g.stoken);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (this.f5952g != null) {
+                sb.append("bduss=" + this.f5952g.bduss);
+                sb.append(";stoken=" + this.f5952g.stoken);
+            }
+            return PayUtils.encrypt("phone_number", sb.toString());
         }
-        return PayUtils.encrypt("phone_number", sb.toString());
+        return (String) invokeV.objValue;
     }
 }

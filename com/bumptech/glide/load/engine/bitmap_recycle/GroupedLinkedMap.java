@@ -1,6 +1,12 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.bitmap_recycle.Poolable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,132 +14,224 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class GroupedLinkedMap<K extends Poolable, V> {
-    public final LinkedEntry<K, V> head = new LinkedEntry<>();
-    public final Map<K, LinkedEntry<K, V>> keyToEntry = new HashMap();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final LinkedEntry<K, V> head;
+    public final Map<K, LinkedEntry<K, V>> keyToEntry;
 
     /* loaded from: classes6.dex */
     public static class LinkedEntry<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final K key;
         public LinkedEntry<K, V> next;
         public LinkedEntry<K, V> prev;
         public List<V> values;
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public LinkedEntry() {
             this(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    this(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
         public void add(V v) {
-            if (this.values == null) {
-                this.values = new ArrayList();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
+                if (this.values == null) {
+                    this.values = new ArrayList();
+                }
+                this.values.add(v);
             }
-            this.values.add(v);
         }
 
         @Nullable
         public V removeLast() {
-            int size = size();
-            if (size > 0) {
-                return this.values.remove(size - 1);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int size = size();
+                if (size > 0) {
+                    return this.values.remove(size - 1);
+                }
+                return null;
             }
-            return null;
+            return (V) invokeV.objValue;
         }
 
         public int size() {
-            List<V> list = this.values;
-            if (list != null) {
-                return list.size();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                List<V> list = this.values;
+                if (list != null) {
+                    return list.size();
+                }
+                return 0;
             }
-            return 0;
+            return invokeV.intValue;
         }
 
         public LinkedEntry(K k) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.prev = this;
             this.next = this;
             this.key = k;
         }
     }
 
+    public GroupedLinkedMap() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.head = new LinkedEntry<>();
+        this.keyToEntry = new HashMap();
+    }
+
     private void makeHead(LinkedEntry<K, V> linkedEntry) {
-        removeEntry(linkedEntry);
-        LinkedEntry<K, V> linkedEntry2 = this.head;
-        linkedEntry.prev = linkedEntry2;
-        linkedEntry.next = linkedEntry2.next;
-        updateEntry(linkedEntry);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, linkedEntry) == null) {
+            removeEntry(linkedEntry);
+            LinkedEntry<K, V> linkedEntry2 = this.head;
+            linkedEntry.prev = linkedEntry2;
+            linkedEntry.next = linkedEntry2.next;
+            updateEntry(linkedEntry);
+        }
     }
 
     private void makeTail(LinkedEntry<K, V> linkedEntry) {
-        removeEntry(linkedEntry);
-        LinkedEntry<K, V> linkedEntry2 = this.head;
-        linkedEntry.prev = linkedEntry2.prev;
-        linkedEntry.next = linkedEntry2;
-        updateEntry(linkedEntry);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, linkedEntry) == null) {
+            removeEntry(linkedEntry);
+            LinkedEntry<K, V> linkedEntry2 = this.head;
+            linkedEntry.prev = linkedEntry2.prev;
+            linkedEntry.next = linkedEntry2;
+            updateEntry(linkedEntry);
+        }
     }
 
     public static <K, V> void removeEntry(LinkedEntry<K, V> linkedEntry) {
-        LinkedEntry<K, V> linkedEntry2 = linkedEntry.prev;
-        linkedEntry2.next = linkedEntry.next;
-        linkedEntry.next.prev = linkedEntry2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, linkedEntry) == null) {
+            LinkedEntry<K, V> linkedEntry2 = linkedEntry.prev;
+            linkedEntry2.next = linkedEntry.next;
+            linkedEntry.next.prev = linkedEntry2;
+        }
     }
 
     public static <K, V> void updateEntry(LinkedEntry<K, V> linkedEntry) {
-        linkedEntry.next.prev = linkedEntry;
-        linkedEntry.prev.next = linkedEntry;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, null, linkedEntry) == null) {
+            linkedEntry.next.prev = linkedEntry;
+            linkedEntry.prev.next = linkedEntry;
+        }
     }
 
     @Nullable
     public V get(K k) {
-        LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
-        if (linkedEntry == null) {
-            linkedEntry = new LinkedEntry<>(k);
-            this.keyToEntry.put(k, linkedEntry);
-        } else {
-            k.offer();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
+            if (linkedEntry == null) {
+                linkedEntry = new LinkedEntry<>(k);
+                this.keyToEntry.put(k, linkedEntry);
+            } else {
+                k.offer();
+            }
+            makeHead(linkedEntry);
+            return linkedEntry.removeLast();
         }
-        makeHead(linkedEntry);
-        return linkedEntry.removeLast();
+        return (V) invokeL.objValue;
     }
 
     public void put(K k, V v) {
-        LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
-        if (linkedEntry == null) {
-            linkedEntry = new LinkedEntry<>(k);
-            makeTail(linkedEntry);
-            this.keyToEntry.put(k, linkedEntry);
-        } else {
-            k.offer();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, v) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
+            if (linkedEntry == null) {
+                linkedEntry = new LinkedEntry<>(k);
+                makeTail(linkedEntry);
+                this.keyToEntry.put(k, linkedEntry);
+            } else {
+                k.offer();
+            }
+            linkedEntry.add(v);
         }
-        linkedEntry.add(v);
     }
 
     @Nullable
     public V removeLast() {
-        for (LinkedEntry linkedEntry = this.head.prev; !linkedEntry.equals(this.head); linkedEntry = linkedEntry.prev) {
-            V v = (V) linkedEntry.removeLast();
-            if (v != null) {
-                return v;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            for (LinkedEntry linkedEntry = this.head.prev; !linkedEntry.equals(this.head); linkedEntry = linkedEntry.prev) {
+                V v = (V) linkedEntry.removeLast();
+                if (v != null) {
+                    return v;
+                }
+                removeEntry(linkedEntry);
+                this.keyToEntry.remove(linkedEntry.key);
+                ((Poolable) linkedEntry.key).offer();
             }
-            removeEntry(linkedEntry);
-            this.keyToEntry.remove(linkedEntry.key);
-            ((Poolable) linkedEntry.key).offer();
+            return null;
         }
-        return null;
+        return (V) invokeV.objValue;
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder("GroupedLinkedMap( ");
-        boolean z = false;
-        for (LinkedEntry linkedEntry = this.head.next; !linkedEntry.equals(this.head); linkedEntry = linkedEntry.next) {
-            z = true;
-            sb.append('{');
-            sb.append(linkedEntry.key);
-            sb.append(':');
-            sb.append(linkedEntry.size());
-            sb.append("}, ");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder("GroupedLinkedMap( ");
+            boolean z = false;
+            for (LinkedEntry linkedEntry = this.head.next; !linkedEntry.equals(this.head); linkedEntry = linkedEntry.next) {
+                z = true;
+                sb.append('{');
+                sb.append(linkedEntry.key);
+                sb.append(':');
+                sb.append(linkedEntry.size());
+                sb.append("}, ");
+            }
+            if (z) {
+                sb.delete(sb.length() - 2, sb.length());
+            }
+            sb.append(" )");
+            return sb.toString();
         }
-        if (z) {
-            sb.delete(sb.length() - 2, sb.length());
-        }
-        sb.append(" )");
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 }

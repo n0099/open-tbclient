@@ -1,15 +1,41 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public class dm {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f41223a = new Object();
+    public static final Object f42966a;
     @Deprecated
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f236a = String.valueOf(hh.BroadcastActionRestarted.a());
+    public static final String f239a;
     @Deprecated
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f41224b = String.valueOf(hh.BroadcastActionChanged.a());
+    public static final String f42967b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56376617, "Lcom/xiaomi/push/dm;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56376617, "Lcom/xiaomi/push/dm;");
+                return;
+            }
+        }
+        f42966a = new Object();
+        f239a = String.valueOf(hh.o.a());
+        f42967b = String.valueOf(hh.p.a());
+    }
 }

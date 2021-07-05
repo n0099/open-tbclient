@@ -10,17 +10,39 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.Timer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class bc extends WebViewClient {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f22841a;
+    public final /* synthetic */ FeedbackHotActivity f23357a;
 
     public bc(FeedbackHotActivity feedbackHotActivity) {
-        this.f22841a = feedbackHotActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackHotActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23357a = feedbackHotActivity;
     }
 
     public /* synthetic */ bc(FeedbackHotActivity feedbackHotActivity, byte b2) {
@@ -29,7 +51,10 @@ public final class bc extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public final void onLoadResource(WebView webView, String str) {
-        super.onLoadResource(webView, str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            super.onLoadResource(webView, str);
+        }
     }
 
     @Override // android.webkit.WebViewClient
@@ -38,16 +63,19 @@ public final class bc extends WebViewClient {
         Timer timer;
         Timer timer2;
         Timer timer3;
-        super.onPageFinished(webView, str);
-        view = this.f22841a.l;
-        view.setVisibility(8);
-        webView.requestFocus();
-        timer = this.f22841a.q;
-        if (timer != null) {
-            timer2 = this.f22841a.q;
-            timer2.cancel();
-            timer3 = this.f22841a.q;
-            timer3.purge();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
+            view = this.f23357a.l;
+            view.setVisibility(8);
+            webView.requestFocus();
+            timer = this.f23357a.q;
+            if (timer != null) {
+                timer2 = this.f23357a.q;
+                timer2.cancel();
+                timer3 = this.f23357a.q;
+                timer3.purge();
+            }
         }
     }
 
@@ -55,14 +83,17 @@ public final class bc extends WebViewClient {
     public final void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         View view;
         Timer timer;
-        super.onPageStarted(webView, str, bitmap);
-        webView.clearView();
-        view = this.f22841a.l;
-        view.setVisibility(0);
-        this.f22841a.q = new Timer();
-        bd bdVar = new bd(this);
-        timer = this.f22841a.q;
-        timer.schedule(bdVar, 20000L);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            webView.clearView();
+            view = this.f23357a.l;
+            view.setVisibility(0);
+            this.f23357a.q = new Timer();
+            bd bdVar = new bd(this);
+            timer = this.f23357a.q;
+            timer.schedule(bdVar, 20000L);
+        }
     }
 
     @Override // android.webkit.WebViewClient
@@ -70,62 +101,70 @@ public final class bc extends WebViewClient {
         TextView textView;
         LinearLayout linearLayout;
         WebView webView2;
-        super.onReceivedError(webView, i2, str, str2);
-        Context applicationContext = this.f22841a.getApplicationContext();
-        textView = this.f22841a.m;
-        com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout = this.f22841a.f22770h;
-        linearLayout.setVisibility(0);
-        webView2 = this.f22841a.j;
-        webView2.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
+            super.onReceivedError(webView, i2, str, str2);
+            Context applicationContext = this.f23357a.getApplicationContext();
+            textView = this.f23357a.m;
+            com.baidu.ufosdk.f.i.a(applicationContext, textView);
+            linearLayout = this.f23357a.f23286h;
+            linearLayout.setVisibility(0);
+            webView2 = this.f23357a.j;
+            webView2.setVisibility(8);
+        }
     }
 
     @Override // android.webkit.WebViewClient
     public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
         boolean z;
-        com.baidu.ufosdk.f.c.a("webClick ==> click:url-->" + str);
-        com.baidu.ufosdk.f.c.a("PluginInvoker.appid=" + UfoSDK.appid);
-        if (str.startsWith("feedback://")) {
-            FeedbackHotActivity.a(this.f22841a, str);
-            return true;
-        }
-        if (str.startsWith("solve://")) {
-            z = this.f22841a.s;
-            if (z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+            com.baidu.ufosdk.f.c.a("webClick ==> click:url-->" + str);
+            com.baidu.ufosdk.f.c.a("PluginInvoker.appid=" + UfoSDK.appid);
+            if (str.startsWith("feedback://")) {
+                FeedbackHotActivity.a(this.f23357a, str);
                 return true;
             }
-            Toast.makeText(this.f22841a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
-        } else if (str.startsWith("backtoufo://")) {
-            this.f22841a.finish();
-            return true;
-        } else if (!str.startsWith("unsolved://")) {
-            if (str.startsWith("https://") || str.startsWith("http://")) {
-                try {
-                    com.baidu.ufosdk.f.c.a(">>跳转链接：" + str);
-                    this.f22841a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+            if (str.startsWith("solve://")) {
+                z = this.f23357a.s;
+                if (z) {
                     return true;
                 }
-            } else if (str.startsWith("baidumap://")) {
-                try {
-                    com.baidu.ufosdk.f.c.a("跳转链接：" + str);
-                    Intent intent = new Intent();
-                    intent.setAction("android.intent.action.VIEW");
-                    intent.setData(Uri.parse(str));
-                    this.f22841a.startActivity(intent);
-                    return true;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                    Toast.makeText(this.f22841a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
-                    return true;
-                }
-            } else {
+                Toast.makeText(this.f23357a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
+            } else if (str.startsWith("backtoufo://")) {
+                this.f23357a.finish();
                 return true;
+            } else if (!str.startsWith("unsolved://")) {
+                if (str.startsWith("https://") || str.startsWith("http://")) {
+                    try {
+                        com.baidu.ufosdk.f.c.a(">>跳转链接：" + str);
+                        this.f23357a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        return true;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        return true;
+                    }
+                } else if (str.startsWith("baidumap://")) {
+                    try {
+                        com.baidu.ufosdk.f.c.a("跳转链接：" + str);
+                        Intent intent = new Intent();
+                        intent.setAction("android.intent.action.VIEW");
+                        intent.setData(Uri.parse(str));
+                        this.f23357a.startActivity(intent);
+                        return true;
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                        Toast.makeText(this.f23357a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                        return true;
+                    }
+                } else {
+                    return true;
+                }
             }
+            this.f23357a.s = true;
+            return true;
         }
-        this.f22841a.s = true;
-        return true;
+        return invokeLL.booleanValue;
     }
 }

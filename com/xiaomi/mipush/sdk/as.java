@@ -1,35 +1,55 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes7.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public /* synthetic */ class as {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f41027a;
+    public static final /* synthetic */ int[] f42770a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1871206507, "Lcom/xiaomi/mipush/sdk/as;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1871206507, "Lcom/xiaomi/mipush/sdk/as;");
+                return;
+            }
+        }
         int[] iArr = new int[at.values().length];
-        f41027a = iArr;
+        f42770a = iArr;
         try {
-            iArr[at.DISABLE_PUSH.ordinal()] = 1;
+            iArr[at.f42771a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f41027a[at.ENABLE_PUSH.ordinal()] = 2;
+            f42770a[at.f42772b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f41027a[at.UPLOAD_HUAWEI_TOKEN.ordinal()] = 3;
+            f42770a[at.f42773c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f41027a[at.UPLOAD_FCM_TOKEN.ordinal()] = 4;
+            f42770a[at.f42774d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f41027a[at.UPLOAD_COS_TOKEN.ordinal()] = 5;
+            f42770a[at.f42775e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f41027a[at.UPLOAD_FTOS_TOKEN.ordinal()] = 6;
+            f42770a[at.f42776f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
     }

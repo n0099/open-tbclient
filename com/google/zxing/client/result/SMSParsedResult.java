@@ -1,16 +1,40 @@
 package com.google.zxing.client.result;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.text.Typography;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SMSParsedResult extends ParsedResult {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final String body;
     public final String[] numbers;
     public final String subject;
     public final String[] vias;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SMSParsedResult(String str, String str2, String str3, String str4) {
         super(ParsedResultType.SMS);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((ParsedResultType) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.numbers = new String[]{str};
         this.vias = new String[]{str2};
         this.subject = str3;
@@ -18,68 +42,102 @@ public final class SMSParsedResult extends ParsedResult {
     }
 
     public String getBody() {
-        return this.body;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.body : (String) invokeV.objValue;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
     public String getDisplayResult() {
-        StringBuilder sb = new StringBuilder(100);
-        ParsedResult.maybeAppend(this.numbers, sb);
-        ParsedResult.maybeAppend(this.subject, sb);
-        ParsedResult.maybeAppend(this.body, sb);
-        return sb.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder(100);
+            ParsedResult.maybeAppend(this.numbers, sb);
+            ParsedResult.maybeAppend(this.subject, sb);
+            ParsedResult.maybeAppend(this.body, sb);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String[] getNumbers() {
-        return this.numbers;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.numbers : (String[]) invokeV.objValue;
     }
 
     public String getSMSURI() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(UrlSchemaHelper.SCHEMA_TYPE_SMS);
-        boolean z = true;
-        for (int i2 = 0; i2 < this.numbers.length; i2++) {
-            if (z) {
-                z = false;
-            } else {
-                sb.append(',');
-            }
-            sb.append(this.numbers[i2]);
-            String[] strArr = this.vias;
-            if (strArr != null && strArr[i2] != null) {
-                sb.append(";via=");
-                sb.append(this.vias[i2]);
-            }
-        }
-        boolean z2 = this.body != null;
-        boolean z3 = this.subject != null;
-        if (z2 || z3) {
-            sb.append('?');
-            if (z2) {
-                sb.append("body=");
-                sb.append(this.body);
-            }
-            if (z3) {
-                if (z2) {
-                    sb.append(Typography.amp);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(UrlSchemaHelper.SCHEMA_TYPE_SMS);
+            boolean z = true;
+            for (int i2 = 0; i2 < this.numbers.length; i2++) {
+                if (z) {
+                    z = false;
+                } else {
+                    sb.append(',');
                 }
-                sb.append("subject=");
-                sb.append(this.subject);
+                sb.append(this.numbers[i2]);
+                String[] strArr = this.vias;
+                if (strArr != null && strArr[i2] != null) {
+                    sb.append(";via=");
+                    sb.append(this.vias[i2]);
+                }
             }
+            boolean z2 = this.body != null;
+            boolean z3 = this.subject != null;
+            if (z2 || z3) {
+                sb.append('?');
+                if (z2) {
+                    sb.append("body=");
+                    sb.append(this.body);
+                }
+                if (z3) {
+                    if (z2) {
+                        sb.append(Typography.amp);
+                    }
+                    sb.append("subject=");
+                    sb.append(this.subject);
+                }
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     public String getSubject() {
-        return this.subject;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.subject : (String) invokeV.objValue;
     }
 
     public String[] getVias() {
-        return this.vias;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.vias : (String[]) invokeV.objValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SMSParsedResult(String[] strArr, String[] strArr2, String str, String str2) {
         super(ParsedResultType.SMS);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {strArr, strArr2, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((ParsedResultType) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.numbers = strArr;
         this.vias = strArr2;
         this.subject = str;

@@ -1,151 +1,45 @@
 package com.bytedance.sdk.openadsdk.i;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.widget.ImageView;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.j;
-import com.bytedance.sdk.openadsdk.utils.u;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.WeakHashMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.a.y;
+import com.bytedance.sdk.openadsdk.core.widget.webview.d;
 /* loaded from: classes6.dex */
-public class a extends d.b.c.b.b.a {
+public class a extends y {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static String f29382b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public WeakHashMap<String, String> f29383c = new WeakHashMap<>();
-
-    /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.b.a f29384d = new com.bytedance.sdk.openadsdk.b.d();
-
-    public static a a() {
-        return new a();
-    }
-
-    @Override // d.b.c.b.b.a, d.b.c.b.b.d.h
-    public Bitmap b(String str) {
-        FileInputStream fileInputStream;
-        Bitmap b2 = super.b(str);
-        if (b2 == null) {
-            File file = new File(b(), str);
-            if (file.exists()) {
-                FileInputStream fileInputStream2 = null;
-                try {
-                    try {
-                        fileInputStream = new FileInputStream(file);
-                    } catch (IOException unused) {
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    b2 = BitmapFactory.decodeFileDescriptor(fileInputStream.getFD(), null, null);
-                    if (b2 != null) {
-                        super.a(str, b2, new byte[0]);
-                    }
-                    fileInputStream.close();
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream2 = fileInputStream;
-                    try {
-                        u.c("DiskImageCache", "diskImageCache getBitmap error ", th);
-                        if (fileInputStream2 != null) {
-                            fileInputStream2.close();
-                        }
-                        return b2;
-                    } catch (Throwable th3) {
-                        if (fileInputStream2 != null) {
-                            try {
-                                fileInputStream2.close();
-                            } catch (IOException unused2) {
-                            }
-                        }
-                        throw th3;
-                    }
-                }
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return b2;
     }
 
-    @Override // d.b.c.b.b.a, d.b.c.b.b.d.h
-    public void a(String str, Bitmap bitmap, byte[] bArr) {
-        if (bitmap == null) {
+    @Override // com.bytedance.sdk.component.a.y
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27712i == null) {
             return;
         }
-        super.a(str, bitmap, bArr);
-        File file = new File(b(), str);
-        if (file.exists() && file.isFile() && file.length() > 0) {
-            return;
-        }
-        File file2 = new File(file + ".tmp");
-        file2.delete();
-        FileOutputStream fileOutputStream = null;
-        try {
-            try {
-                file2.createNewFile();
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream2);
-                    fileOutputStream2.flush();
-                    if (file2.exists() && file2.length() > 0) {
-                        file2.renameTo(file);
-                    }
-                    this.f29384d.a(file);
-                    fileOutputStream2.close();
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    try {
-                        u.c("DiskImageCache", "diskImageCache putBitmap error ", th);
-                        file2.delete();
-                        file.delete();
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    } catch (Throwable th2) {
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (IOException unused) {
-                            }
-                        }
-                        throw th2;
-                    }
-                }
-            } catch (IOException unused2) {
-            }
-        } catch (Throwable th3) {
-            th = th3;
-        }
+        d.a().a(this.f27712i, this, ((y) this).f27711h);
     }
 
-    public static String b() {
-        if (TextUtils.isEmpty(f29382b)) {
-            File file = new File(d.b.c.b.a.h(p.a()), "diskImage");
-            file.mkdirs();
-            f29382b = file.getAbsolutePath();
+    @Override // com.bytedance.sdk.component.a.y
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d.a().a(this.f27712i, ((y) this).f27711h);
         }
-        return f29382b;
-    }
-
-    @Override // d.b.c.b.b.a, d.b.c.b.b.d.h
-    public String a(String str, int i2, int i3, ImageView.ScaleType scaleType) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        String str2 = this.f29383c.get(str);
-        if (TextUtils.isEmpty(str2)) {
-            String a2 = j.a(str);
-            this.f29383c.put(str, a2);
-            return a2;
-        }
-        return str2;
     }
 }

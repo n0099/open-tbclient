@@ -3,12 +3,21 @@ package com.baidu.down.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DownPrefUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static String HOST_TYPE_IP = "1";
     public static String HOST_TYPE_NAME = "0";
@@ -40,89 +49,133 @@ public final class DownPrefUtils {
     public static long mSpeedOffsetMin = -1;
     public static long mTestSpeedDataSize = -1;
     public static long mTestSpeedDuration = -1;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(902521132, "Lcom/baidu/down/utils/DownPrefUtils;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(902521132, "Lcom/baidu/down/utils/DownPrefUtils;");
+        }
+    }
+
+    public DownPrefUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static boolean getBoolean(Context context, String str, boolean z) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getBoolean(str, z);
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getBoolean(str, z) : invokeLLZ.booleanValue;
     }
 
     public static float getFloat(Context context, String str, float f2) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Float.valueOf(f2)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f2) : invokeCommon.floatValue;
     }
 
     public static int getInt(Context context, String str, int i2) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i2);
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, null, context, str, i2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i2) : invokeLLI.intValue;
     }
 
     public static long getLong(Context context, String str, long j) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
     }
 
     public static String getString(Context context, String str, String str2) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2);
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2) : (String) invokeLLL.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x00d1 -> B:46:0x00d4). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:44:0x00d5 -> B:51:0x00d8). Please submit an issue!!! */
     public static void loadProperties(Context context) {
         FileInputStream fileInputStream;
-        System.currentTimeMillis();
-        File file = new File(Environment.getExternalStorageDirectory(), "appsearch.cfg");
-        if (!file.exists() && context != null) {
-            file = new File(context.getFilesDir() + "/appsearch.cfg");
-        }
-        if (file.exists()) {
-            Properties properties = new Properties();
-            FileInputStream fileInputStream2 = null;
-            try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+            System.currentTimeMillis();
+            File file = new File(Environment.getExternalStorageDirectory(), "appsearch.cfg");
+            if (!file.exists() && context != null) {
+                file = new File(context.getFilesDir() + "/appsearch.cfg");
+            }
+            if (file.exists()) {
+                Properties properties = new Properties();
+                FileInputStream fileInputStream2 = null;
                 try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                try {
-                    properties.load(fileInputStream);
-                    if (properties.getProperty("onSpeedOffsetMin") != null) {
-                        mSpeedOffsetMin = Long.valueOf(properties.getProperty("onSpeedOffsetMin")).longValue();
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
-                    if (properties.getProperty("onSpeedOffsetMax") != null) {
-                        mSpeedOffsetMax = Long.valueOf(properties.getProperty("onSpeedOffsetMax")).longValue();
-                    }
-                    if (properties.getProperty("cdnUrlTimeout") != null) {
-                        mCDNUrlTimeout = Long.valueOf(properties.getProperty("cdnUrlTimeout")).longValue();
-                    }
-                    if (properties.getProperty("testSpeedDuration") != null) {
-                        mTestSpeedDuration = Long.valueOf(properties.getProperty("testSpeedDuration")).longValue();
-                    }
-                    if (properties.getProperty("testSpeedDataSize") != null) {
-                        mTestSpeedDataSize = Long.valueOf(properties.getProperty("testSpeedDataSize")).longValue();
-                    }
-                    fileInputStream.close();
-                } catch (Exception unused) {
-                    fileInputStream2 = fileInputStream;
-                    if (fileInputStream2 != null) {
-                        fileInputStream2.close();
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                    try {
+                        properties.load(fileInputStream);
+                        if (properties.getProperty("onSpeedOffsetMin") != null) {
+                            mSpeedOffsetMin = Long.valueOf(properties.getProperty("onSpeedOffsetMin")).longValue();
                         }
+                        if (properties.getProperty("onSpeedOffsetMax") != null) {
+                            mSpeedOffsetMax = Long.valueOf(properties.getProperty("onSpeedOffsetMax")).longValue();
+                        }
+                        if (properties.getProperty("cdnUrlTimeout") != null) {
+                            mCDNUrlTimeout = Long.valueOf(properties.getProperty("cdnUrlTimeout")).longValue();
+                        }
+                        if (properties.getProperty("testSpeedDuration") != null) {
+                            mTestSpeedDuration = Long.valueOf(properties.getProperty("testSpeedDuration")).longValue();
+                        }
+                        if (properties.getProperty("testSpeedDataSize") != null) {
+                            mTestSpeedDataSize = Long.valueOf(properties.getProperty("testSpeedDataSize")).longValue();
+                        }
+                        fileInputStream.close();
+                    } catch (Exception unused) {
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            fileInputStream2.close();
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        throw th;
                     }
-                    throw th;
+                } catch (Exception unused2) {
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Exception unused2) {
-            } catch (Throwable th2) {
-                th = th2;
             }
         }
     }
 
     public static void setBoolean(Context context, String str, boolean z) {
         SharedPreferences sharedPreferences;
-        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65544, null, context, str, z) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -132,7 +185,8 @@ public final class DownPrefUtils {
 
     public static void setFloat(Context context, String str, float f2) {
         SharedPreferences sharedPreferences;
-        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Float.valueOf(f2)}) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -143,7 +197,8 @@ public final class DownPrefUtils {
     public static void setInt(Context context, String str, int i2) {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
-        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65546, null, context, str, i2) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
         edit.putInt(str, i2);
@@ -153,7 +208,8 @@ public final class DownPrefUtils {
     public static void setLong(Context context, String str, long j) {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
-        if (context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Long.valueOf(j)}) == null) || context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
         edit.putLong(str, j);
@@ -163,7 +219,8 @@ public final class DownPrefUtils {
     public static void setString(Context context, String str, String str2) {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
-        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65548, null, context, str, str2) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
         edit.putString(str, str2);
@@ -171,6 +228,8 @@ public final class DownPrefUtils {
     }
 
     public static long testConfigurationGetLong(Context context, String str, long j) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
     }
 }

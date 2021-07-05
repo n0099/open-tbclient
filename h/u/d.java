@@ -1,28 +1,60 @@
 package h.u;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.k;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class d implements k {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f72122e = new SequentialSubscription();
+    public final SequentialSubscription f75714e;
+
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f75714e = new SequentialSubscription();
+    }
 
     public void a(k kVar) {
-        if (kVar != null) {
-            this.f72122e.update(kVar);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
+            if (kVar != null) {
+                this.f75714e.update(kVar);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
         }
-        throw new IllegalArgumentException("Subscription can not be null");
     }
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f72122e.isUnsubscribed();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75714e.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // h.k
     public void unsubscribe() {
-        this.f72122e.unsubscribe();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f75714e.unsubscribe();
+        }
     }
 }

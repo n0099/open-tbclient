@@ -1,88 +1,120 @@
 package com.baidu.tieba.ala.alasquare.special_forum.model;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment;
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendResponse;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.k.e.n;
-import d.a.n0.r.q.a2;
-import d.a.o0.v.d.f.c.c;
+import d.a.r0.r.q.b2;
+import d.a.s0.v.d.f.c.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SpecialRecommendTabModel extends BdBaseModel {
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f13972f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public b f13973g;
-    public long j;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13971e = 1;
-    public int k = 60;
-    public HttpMessageListener l = new a(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
+    public int f14058e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbPageContext f14059f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public b f14060g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<n> f13974h = new LinkedList();
+    public List<n> f14061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<a2> f13975i = new ArrayList();
+    public List<b2> f14062i;
+    public long j;
+    public int k;
+    public HttpMessageListener l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ SpecialRecommendTabModel f14063a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(SpecialRecommendTabModel specialRecommendTabModel, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {specialRecommendTabModel, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14063a = specialRecommendTabModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             c cVar;
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021095 && (httpResponsedMessage instanceof AlaSpecialRecommendResponse)) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021095 && (httpResponsedMessage instanceof AlaSpecialRecommendResponse)) {
                 AlaSpecialRecommendResponse alaSpecialRecommendResponse = (AlaSpecialRecommendResponse) httpResponsedMessage;
                 if (alaSpecialRecommendResponse.isSuccess()) {
-                    if (SpecialRecommendTabModel.this.f13971e == 0) {
+                    if (this.f14063a.f14058e == 0) {
                         SpecialLiveFragment.Y++;
-                        SpecialRecommendTabModel.this.f13974h.clear();
-                        SpecialRecommendTabModel.this.f13975i.clear();
+                        this.f14063a.f14061h.clear();
+                        this.f14063a.f14062i.clear();
                     }
                     boolean z = alaSpecialRecommendResponse.hasMore;
                     if (ListUtils.getCount(alaSpecialRecommendResponse.livesList) > 0) {
-                        SpecialRecommendTabModel.this.G(alaSpecialRecommendResponse.livesList);
+                        this.f14063a.G(alaSpecialRecommendResponse.livesList);
                     }
-                    SpecialRecommendTabModel specialRecommendTabModel = SpecialRecommendTabModel.this;
-                    specialRecommendTabModel.D(specialRecommendTabModel.f13975i);
-                    if (SpecialRecommendTabModel.this.f13971e == 0 && (cVar = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
-                        SpecialRecommendTabModel.this.E(cVar);
+                    SpecialRecommendTabModel specialRecommendTabModel = this.f14063a;
+                    specialRecommendTabModel.D(specialRecommendTabModel.f14062i);
+                    if (this.f14063a.f14058e == 0 && (cVar = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
+                        this.f14063a.E(cVar);
                     }
-                    SpecialRecommendTabModel.x(SpecialRecommendTabModel.this);
-                    if (SpecialRecommendTabModel.this.f13973g != null) {
-                        SpecialRecommendTabModel.this.f13973g.b(SpecialRecommendTabModel.this.f13974h, z);
+                    SpecialRecommendTabModel.x(this.f14063a);
+                    if (this.f14063a.f14060g != null) {
+                        this.f14063a.f14060g.b(this.f14063a.f14061h, z);
                     }
-                } else if (SpecialRecommendTabModel.this.f13973g != null) {
-                    SpecialRecommendTabModel.this.f13973g.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.f14063a.f14060g != null) {
+                    this.f14063a.f14060g.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(int i2, String str);
 
@@ -90,124 +122,173 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     }
 
     public SpecialRecommendTabModel(TbPageContext tbPageContext) {
-        this.f13972f = tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f14058e = 1;
+        this.k = 60;
+        this.l = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
+        this.f14059f = tbPageContext;
+        this.f14061h = new LinkedList();
+        this.f14062i = new ArrayList();
         MessageManager.getInstance().registerListener(this.l);
     }
 
     public static /* synthetic */ int x(SpecialRecommendTabModel specialRecommendTabModel) {
-        int i2 = specialRecommendTabModel.f13971e;
-        specialRecommendTabModel.f13971e = i2 + 1;
+        int i2 = specialRecommendTabModel.f14058e;
+        specialRecommendTabModel.f14058e = i2 + 1;
         return i2;
     }
 
-    public void D(List<a2> list) {
-        if (ListUtils.isEmpty(list)) {
+    public void D(List<b2> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f13974h = new LinkedList();
+        this.f14061h = new LinkedList();
         int size = list.size();
         for (int i2 = 0; i2 < size; i2 += 2) {
-            d.a.o0.v.d.g.b.b bVar = new d.a.o0.v.d.g.b.b();
-            d.a.o0.v.d.a.c cVar = new d.a.o0.v.d.a.c();
-            cVar.f65255h = list.get(i2);
-            bVar.f65627e = cVar;
+            d.a.s0.v.d.g.b.b bVar = new d.a.s0.v.d.g.b.b();
+            d.a.s0.v.d.a.c cVar = new d.a.s0.v.d.a.c();
+            cVar.f67436h = list.get(i2);
+            bVar.f67805e = cVar;
             int i3 = i2 + 1;
             if (i3 < size) {
-                d.a.o0.v.d.a.c cVar2 = new d.a.o0.v.d.a.c();
-                cVar2.f65255h = list.get(i3);
-                bVar.f65628f = cVar2;
+                d.a.s0.v.d.a.c cVar2 = new d.a.s0.v.d.a.c();
+                cVar2.f67436h = list.get(i3);
+                bVar.f67806f = cVar2;
             }
-            this.f13974h.add(bVar);
+            this.f14061h.add(bVar);
         }
     }
 
     public final void E(c cVar) {
-        if (cVar == null || ListUtils.isEmpty(cVar.f65559e)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || ListUtils.isEmpty(cVar.f67737e)) {
             return;
         }
-        if (ListUtils.getCount(this.f13974h) > 2) {
-            this.f13974h.add(2, cVar);
+        if (ListUtils.getCount(this.f14061h) > 2) {
+            this.f14061h.add(2, cVar);
         } else {
-            this.f13974h.add(cVar);
+            this.f14061h.add(cVar);
         }
     }
 
     public final void F(int i2, int i3, int i4) {
-        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
-        httpMessage.addParam(Config.PACKAGE_NAME, i2);
-        httpMessage.addParam("tab_id", 1);
-        String str = "N";
-        if (j.z()) {
-            if (j.H()) {
-                str = "1_0";
-            } else if (j.v()) {
-                str = "0_13";
-            } else if (j.u()) {
-                str = "0_3";
-            } else if (j.t()) {
-                str = "0_2";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
+            httpMessage.addParam(Config.PACKAGE_NAME, i2);
+            httpMessage.addParam("tab_id", 1);
+            String str = "N";
+            if (j.z()) {
+                if (j.H()) {
+                    str = "1_0";
+                } else if (j.v()) {
+                    str = "0_13";
+                } else if (j.u()) {
+                    str = "0_3";
+                } else if (j.t()) {
+                    str = "0_2";
+                }
             }
+            httpMessage.addParam("network", str);
+            httpMessage.addParam("ua_str", l.k(this.f14059f.getPageActivity()) + "_" + l.i(this.f14059f.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("refresh_type", i3);
+            httpMessage.addParam("session_id", this.j);
+            httpMessage.addParam("big_refresh_count", i4);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        httpMessage.addParam("network", str);
-        httpMessage.addParam("ua_str", l.k(this.f13972f.getPageActivity()) + "_" + l.i(this.f13972f.getPageActivity()) + "_android_" + TbConfig.getVersion());
-        httpMessage.addParam("refresh_type", i3);
-        httpMessage.addParam(ETAG.KEY_STATISTICS_SEESIONID, this.j);
-        httpMessage.addParam("big_refresh_count", i4);
-        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public final void G(List<a2> list) {
-        for (a2 a2Var : list) {
-            String z1 = a2Var.z1();
-            if (!TextUtils.isEmpty(z1)) {
-                boolean z = false;
-                Iterator<a2> it = this.f13975i.iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        if (z1.equals(it.next().z1())) {
-                            z = true;
+    public final void G(List<b2> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            for (b2 b2Var : list) {
+                String n1 = b2Var.n1();
+                if (!TextUtils.isEmpty(n1)) {
+                    boolean z = false;
+                    Iterator<b2> it = this.f14062i.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (n1.equals(it.next().n1())) {
+                                z = true;
+                                break;
+                            }
+                        } else {
                             break;
                         }
-                    } else {
-                        break;
                     }
-                }
-                if (!z) {
-                    this.f13975i.add(a2Var);
+                    if (!z) {
+                        this.f14062i.add(b2Var);
+                    }
                 }
             }
         }
     }
 
     public void H() {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.j >= this.k * 30 * 1000) {
-            this.j = currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.j >= this.k * 30 * 1000) {
+                this.j = currentTimeMillis;
+            }
+            F(this.f14058e, 1, SpecialLiveFragment.Y - 1);
         }
-        F(this.f13971e, 1, SpecialLiveFragment.Y - 1);
     }
 
     public void I() {
-        this.f13971e = 0;
-        this.j = System.currentTimeMillis();
-        F(0, 0, SpecialLiveFragment.Y);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f14058e = 0;
+            this.j = System.currentTimeMillis();
+            F(0, 0, SpecialLiveFragment.Y);
+        }
     }
 
     public void J(b bVar) {
-        this.f13973g = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.f14060g = bVar;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.l);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.l);
+        }
     }
 }

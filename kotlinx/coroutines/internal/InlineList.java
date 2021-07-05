@@ -11,7 +11,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.DebugKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0007\b\u0080@\u0018\u0000*\u0004\b\u0000\u0010\u0001B\u0016\u0012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u0002ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001aJ\u001a\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002HÖ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J$\u0010\f\u001a\u00020\b2\u0012\u0010\t\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\b0\u0007H\u0086\b¢\u0006\u0004\b\n\u0010\u000bJ\u0010\u0010\u000e\u001a\u00020\rHÖ\u0001¢\u0006\u0004\b\u000e\u0010\u000fJ!\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00000\u00002\u0006\u0010\u0010\u001a\u00028\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0015\u001a\u00020\u0014HÖ\u0001¢\u0006\u0004\b\u0015\u0010\u0016R\u0018\u0010\u0017\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0017\u0010\u0018ø\u0001\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001b"}, d2 = {"Lkotlinx/coroutines/internal/InlineList;", "E", "", "other", "", "equals", "(Ljava/lang/Object;)Z", "Lkotlin/Function1;", "", "action", "forEachReversed-impl", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V", "forEachReversed", "", "hashCode", "()I", "element", "plus-impl", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "plus", "", "toString", "()Ljava/lang/String;", "holder", "Ljava/lang/Object;", "constructor-impl", "(Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class InlineList<E> {
     public final Object holder;
 
@@ -22,35 +22,35 @@ public final class InlineList<E> {
     }
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ InlineList m1976boximpl(Object obj) {
+    public static final /* synthetic */ InlineList m1990boximpl(Object obj) {
         return new InlineList(obj);
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static Object m1977constructorimpl(Object obj) {
+    public static Object m1991constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: constructor-impl$default  reason: not valid java name */
-    public static /* synthetic */ Object m1978constructorimpl$default(Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+    public static /* synthetic */ Object m1992constructorimpl$default(Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         if ((i2 & 1) != 0) {
             obj = null;
         }
-        return m1977constructorimpl(obj);
+        return m1991constructorimpl(obj);
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m1979equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof InlineList) && Intrinsics.areEqual(obj, ((InlineList) obj2).m1985unboximpl());
+    public static boolean m1993equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof InlineList) && Intrinsics.areEqual(obj, ((InlineList) obj2).m1999unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m1980equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m1994equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
     /* renamed from: forEachReversed-impl  reason: not valid java name */
-    public static final void m1981forEachReversedimpl(Object obj, Function1<? super E, Unit> function1) {
+    public static final void m1995forEachReversedimpl(Object obj, Function1<? super E, Unit> function1) {
         if (obj == null) {
             return;
         }
@@ -67,7 +67,7 @@ public final class InlineList<E> {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m1982hashCodeimpl(Object obj) {
+    public static int m1996hashCodeimpl(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -75,45 +75,45 @@ public final class InlineList<E> {
     }
 
     /* renamed from: plus-impl  reason: not valid java name */
-    public static final Object m1983plusimpl(Object obj, E e2) {
+    public static final Object m1997plusimpl(Object obj, E e2) {
         if (!DebugKt.getASSERTIONS_ENABLED() || (!(e2 instanceof List))) {
             if (obj == null) {
-                return m1977constructorimpl(e2);
+                return m1991constructorimpl(e2);
             }
             if (obj instanceof ArrayList) {
                 if (obj != null) {
                     ((ArrayList) obj).add(e2);
-                    return m1977constructorimpl(obj);
+                    return m1991constructorimpl(obj);
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<E> /* = java.util.ArrayList<E> */");
             }
             ArrayList arrayList = new ArrayList(4);
             arrayList.add(obj);
             arrayList.add(e2);
-            return m1977constructorimpl(arrayList);
+            return m1991constructorimpl(arrayList);
         }
         throw new AssertionError();
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m1984toStringimpl(Object obj) {
+    public static String m1998toStringimpl(Object obj) {
         return "InlineList(holder=" + obj + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public boolean equals(Object obj) {
-        return m1979equalsimpl(this.holder, obj);
+        return m1993equalsimpl(this.holder, obj);
     }
 
     public int hashCode() {
-        return m1982hashCodeimpl(this.holder);
+        return m1996hashCodeimpl(this.holder);
     }
 
     public String toString() {
-        return m1984toStringimpl(this.holder);
+        return m1998toStringimpl(this.holder);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m1985unboximpl() {
+    public final /* synthetic */ Object m1999unboximpl() {
         return this.holder;
     }
 }

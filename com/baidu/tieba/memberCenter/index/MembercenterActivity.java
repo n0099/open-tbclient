@@ -3,68 +3,115 @@ package com.baidu.tieba.memberCenter.index;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import d.a.n0.k0.d;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.k0.d;
+/* loaded from: classes5.dex */
 public class MembercenterActivity extends BaseFragmentActivity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public MemberCenterFragment mFragment;
     public FragmentManager mFragmentManager;
     public FragmentTransaction mFragmentTransaction;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.n0.k0.a
+    public MembercenterActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.r0.k0.a
     public String getCurrentPageKey() {
-        return "b016";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "b016" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public d getPageStayDurationItem() {
-        d pageStayDurationItem = super.getPageStayDurationItem();
-        if (pageStayDurationItem != null) {
-            pageStayDurationItem.f53217a = true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            d pageStayDurationItem = super.getPageStayDurationItem();
+            if (pageStayDurationItem != null) {
+                pageStayDurationItem.f55353a = true;
+            }
+            return pageStayDurationItem;
         }
-        return pageStayDurationItem;
+        return (d) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        String stringExtra = getIntent().getStringExtra("key_url");
-        MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
-        this.mFragment = memberCenterFragment;
-        memberCenterFragment.L0(stringExtra);
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.mFragmentManager = supportFragmentManager;
-        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        this.mFragmentTransaction = beginTransaction;
-        beginTransaction.add(16908290, this.mFragment);
-        this.mFragmentTransaction.commit();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            String stringExtra = getIntent().getStringExtra("key_url");
+            MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
+            this.mFragment = memberCenterFragment;
+            memberCenterFragment.L0(stringExtra);
+            FragmentManager supportFragmentManager = getSupportFragmentManager();
+            this.mFragmentManager = supportFragmentManager;
+            FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
+            this.mFragmentTransaction = beginTransaction;
+            beginTransaction.add(16908290, this.mFragment);
+            this.mFragmentTransaction.commit();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        super.onResume();
-        MemberCenterFragment memberCenterFragment = this.mFragment;
-        if (memberCenterFragment != null) {
-            memberCenterFragment.loadData();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onResume();
+            MemberCenterFragment memberCenterFragment = this.mFragment;
+            if (memberCenterFragment != null) {
+                memberCenterFragment.loadData();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
-        super.onStart();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onStart();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
-        super.onStop();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onStop();
+        }
     }
 }

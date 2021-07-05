@@ -9,105 +9,190 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes2.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class CustomAlertDialog extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewSwitcher f6054a;
+    public ViewSwitcher f6084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f6055b;
+    public TextView f6085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f6056c;
+    public TextView f6086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f6057d;
+    public Button f6087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f6058e;
+    public Button f6088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f6059f;
+    public TextView f6089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f6060g;
+    public LinearLayout f6090g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Spinner f6061h;
+    public Spinner f6091h;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context) {
         super(context, R.style.BeautyDialog);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a();
     }
 
     private void a() {
-        setContentView(R.layout.layout_sapi_liveness_dialog_alert);
-        setCanceledOnTouchOutside(false);
-        this.f6054a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f6055b = (TextView) findViewById(R.id.dialog_title);
-        this.f6056c = (TextView) findViewById(R.id.msg_text);
-        this.f6057d = (Button) findViewById(R.id.positive_btn);
-        this.f6058e = (Button) findViewById(R.id.negative_btn);
-        this.f6059f = (TextView) findViewById(R.id.neutral_btn);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            setContentView(R.layout.layout_sapi_liveness_dialog_alert);
+            setCanceledOnTouchOutside(false);
+            this.f6084a = (ViewSwitcher) findViewById(R.id.view_switcher);
+            this.f6085b = (TextView) findViewById(R.id.dialog_title);
+            this.f6086c = (TextView) findViewById(R.id.msg_text);
+            this.f6087d = (Button) findViewById(R.id.positive_btn);
+            this.f6088e = (Button) findViewById(R.id.negative_btn);
+            this.f6089f = (TextView) findViewById(R.id.neutral_btn);
+        }
     }
 
     public void setBtnCount(int i2) {
-        if (i2 < 1) {
-            i2 = 1;
-        } else if (i2 > 2) {
-            i2 = 2;
-        }
-        if (i2 == 2) {
-            this.f6054a.setDisplayedChild(0);
-        } else {
-            this.f6054a.setDisplayedChild(1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (i2 < 1) {
+                i2 = 1;
+            } else if (i2 > 2) {
+                i2 = 2;
+            }
+            if (i2 == 2) {
+                this.f6084a.setDisplayedChild(0);
+            } else {
+                this.f6084a.setDisplayedChild(1);
+            }
         }
     }
 
     public void setMessageIcon(int i2) {
-        this.f6056c.setText(i2);
-    }
-
-    public void setMessageText(String str) {
-        this.f6056c.setText(str);
-    }
-
-    public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        this.f6058e.setText(str);
-        this.f6058e.setOnClickListener(onClickListener);
-    }
-
-    public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
-        this.f6059f.setText(str);
-        this.f6059f.setOnClickListener(onClickListener);
-    }
-
-    public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        this.f6057d.setText(str);
-        this.f6057d.setOnClickListener(onClickListener);
-    }
-
-    public void setTitleMsg(String str) {
-        this.f6055b.setText(str);
-    }
-
-    public void setTitleVisible(boolean z) {
-        if (z) {
-            this.f6055b.setVisibility(0);
-        } else {
-            this.f6055b.setVisibility(8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f6086c.setText(i2);
         }
     }
 
+    public void setMessageText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f6086c.setText(str);
+        }
+    }
+
+    public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, onClickListener) == null) {
+            this.f6088e.setText(str);
+            this.f6088e.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, onClickListener) == null) {
+            this.f6089f.setText(str);
+            this.f6089f.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, onClickListener) == null) {
+            this.f6087d.setText(str);
+            this.f6087d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setTitleMsg(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f6085b.setText(str);
+        }
+    }
+
+    public void setTitleVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (z) {
+                this.f6085b.setVisibility(0);
+            } else {
+                this.f6085b.setVisibility(8);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context, int i2) {
         super(context, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
         super(context, z, onCancelListener);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), onCancelListener};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (DialogInterface.OnCancelListener) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         a();
     }
 }

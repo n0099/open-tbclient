@@ -2,24 +2,54 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.d.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PortraitBlurLoaderProc extends PortraitLoaderProc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PortraitBlurLoaderProc(boolean z, boolean z2, int i2) {
         super(z, z2, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public a decodeToResource(byte[] bArr, Object... objArr) {
-        Bitmap p = super.m15decodeToResource(bArr, objArr).p();
-        if (p == null) {
-            return null;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
+            Bitmap p = super.m23decodeToResource(bArr, objArr).p();
+            if (p == null) {
+                return null;
+            }
+            Bitmap fastblur = BitmapHelper.fastblur(p, 10, 0.25f);
+            if (fastblur != p) {
+                p.recycle();
+            }
+            return new a(fastblur);
         }
-        Bitmap fastblur = BitmapHelper.fastblur(p, 10, 0.25f);
-        if (fastblur != p) {
-            p.recycle();
-        }
-        return new a(fastblur);
+        return (a) invokeLL.objValue;
     }
 }

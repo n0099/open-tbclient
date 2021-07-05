@@ -1,6 +1,15 @@
 package com.baidu.android.lbspay.statistics;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class LbsStatistics {
+    public static /* synthetic */ Interceptable $ic = null;
     public static String LBS_ALIPAY = "lbsAliPayRet";
     public static String LBS_API_GET_CASHIER = "lbsApiGetCashier";
     public static String LBS_API_GET_PAY = "lbsApiGetPay";
@@ -25,4 +34,34 @@ public class LbsStatistics {
     public static String WALLET_LBS_BANNER_HIDE = "lbsBannerHide";
     public static String WALLET_LBS_BANNER_SHOW = "lbsBannerShow";
     public static String WALLET_LBS_FRONT_CASHIER_ALI_AUTHORIZE_PAY_CANCEL = "lbsFrontCashierAliAuthorizePayCancel";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(936959345, "Lcom/baidu/android/lbspay/statistics/LbsStatistics;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(936959345, "Lcom/baidu/android/lbspay/statistics/LbsStatistics;");
+        }
+    }
+
+    public LbsStatistics() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

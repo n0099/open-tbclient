@@ -1,7 +1,16 @@
 package com.bytedance.sdk.openadsdk.preload.a.b.a;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.o;
 import com.bytedance.sdk.openadsdk.preload.a.q;
 import com.bytedance.sdk.openadsdk.preload.a.t;
@@ -34,6 +43,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 /* loaded from: classes6.dex */
 public final class n {
+    public static /* synthetic */ Interceptable $ic;
     public static final v<String> A;
     public static final v<BigDecimal> B;
     public static final v<BigInteger> C;
@@ -62,31 +72,31 @@ public final class n {
     public static final w Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final v<Class> f29927a;
+    public static final v<Class> f31777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final w f29928b;
+    public static final w f31778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final v<BitSet> f29929c;
+    public static final v<BitSet> f31779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final w f29930d;
+    public static final w f31780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final v<Boolean> f29931e;
+    public static final v<Boolean> f31781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final v<Boolean> f29932f;
+    public static final v<Boolean> f31782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final w f29933g;
+    public static final w f31783g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final v<Number> f29934h;
+    public static final v<Number> f31784h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final w f29935i;
+    public static final w f31785i;
     public static final v<Number> j;
     public static final w k;
     public static final v<Number> l;
@@ -104,55 +114,70 @@ public final class n {
     public static final w x;
     public static final v<Character> y;
     public static final w z;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.a.n$30  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass30 {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29952a;
+        public static final /* synthetic */ int[] f31802a;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(595549060, "Lcom/bytedance/sdk/openadsdk/preload/a/b/a/n$30;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(595549060, "Lcom/bytedance/sdk/openadsdk/preload/a/b/a/n$30;");
+                    return;
+                }
+            }
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f29952a = iArr;
+            f31802a = iArr;
             try {
-                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 1;
+                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 2;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31917h.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.STRING.ordinal()] = 3;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 4;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_ARRAY.ordinal()] = 5;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31910a.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_OBJECT.ordinal()] = 6;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31912c.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_DOCUMENT.ordinal()] = 7;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.j.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.NAME.ordinal()] = 8;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31914e.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_OBJECT.ordinal()] = 9;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31913d.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f29952a[com.bytedance.sdk.openadsdk.preload.a.d.b.END_ARRAY.ordinal()] = 10;
+                f31802a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31911b.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
         }
@@ -160,15 +185,33 @@ public final class n {
 
     /* loaded from: classes6.dex */
     public static final class a<T extends Enum<T>> extends v<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, T> f29953a = new HashMap();
+        public final Map<String, T> f31803a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<T, String> f29954b = new HashMap();
+        public final Map<T, String> f31804b;
 
         public a(Class<T> cls) {
             T[] enumConstants;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f31803a = new HashMap();
+            this.f31804b = new HashMap();
             try {
                 for (T t : cls.getEnumConstants()) {
                     String name = t.name();
@@ -176,11 +219,11 @@ public final class n {
                     if (cVar != null) {
                         name = cVar.a();
                         for (String str : cVar.b()) {
-                            this.f29953a.put(str, t);
+                            this.f31803a.put(str, t);
                         }
                     }
-                    this.f29953a.put(name, t);
-                    this.f29954b.put(t, name);
+                    this.f31803a.put(name, t);
+                    this.f31804b.put(t, name);
                 }
             } catch (NoSuchFieldException e2) {
                 throw new AssertionError(e2);
@@ -198,45 +241,107 @@ public final class n {
         @Override // com.bytedance.sdk.openadsdk.preload.a.v
         /* renamed from: a */
         public T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                aVar.j();
-                return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                    aVar.j();
+                    return null;
+                }
+                return this.f31803a.get(aVar.h());
             }
-            return this.f29953a.get(aVar.h());
+            return (T) invokeL.objValue;
         }
 
         public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
-            cVar.b(t == null ? null : this.f29954b.get(t));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, t) == null) {
+                cVar.b(t == null ? null : this.f31804b.get(t));
+            }
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(523933649, "Lcom/bytedance/sdk/openadsdk/preload/a/b/a/n;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(523933649, "Lcom/bytedance/sdk/openadsdk/preload/a/b/a/n;");
+                return;
+            }
+        }
         v<Class> a2 = new v<Class>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Class cls) throws IOException {
-                throw new UnsupportedOperationException("Attempted to serialize java.lang.Class: " + cls.getName() + ". Forgot to register a type adapter?");
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cls) == null) {
+                    throw new UnsupportedOperationException("Attempted to serialize java.lang.Class: " + cls.getName() + ". Forgot to register a type adapter?");
+                }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Class b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                throw new UnsupportedOperationException("Attempted to deserialize a java.lang.Class. Forgot to register a type adapter?");
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    throw new UnsupportedOperationException("Attempted to deserialize a java.lang.Class. Forgot to register a type adapter?");
+                }
+                return (Class) invokeL.objValue;
             }
         }.a();
-        f29927a = a2;
-        f29928b = a(Class.class, a2);
+        f31777a = a2;
+        f31778b = a(Class.class, a2);
         v<BitSet> a3 = new v<BitSet>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.12
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
-                if (java.lang.Integer.parseInt(r1) != 0) goto L15;
+            /* JADX WARN: Code restructure failed: missing block: B:15:0x002f, code lost:
+                if (java.lang.Integer.parseInt(r1) != 0) goto L17;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:15:0x002e, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:17:0x0032, code lost:
                 r5 = false;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:22:0x0067, code lost:
-                if (r8.m() != 0) goto L15;
+            /* JADX WARN: Code restructure failed: missing block: B:24:0x006b, code lost:
+                if (r8.m() != 0) goto L17;
              */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
@@ -244,856 +349,1827 @@ public final class n {
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public BitSet b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                BitSet bitSet = new BitSet();
-                aVar.a();
-                com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-                int i2 = 0;
-                while (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.END_ARRAY) {
-                    int i3 = AnonymousClass30.f29952a[f2.ordinal()];
-                    boolean z2 = true;
-                    if (i3 != 1) {
-                        if (i3 == 2) {
-                            z2 = aVar.i();
-                        } else if (i3 == 3) {
-                            String h2 = aVar.h();
-                            try {
-                            } catch (NumberFormatException unused) {
-                                throw new t("Error: Expecting: bitset number value (1, 0), Found: " + h2);
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    BitSet bitSet = new BitSet();
+                    aVar.a();
+                    com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
+                    int i2 = 0;
+                    while (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31911b) {
+                        int i3 = AnonymousClass30.f31802a[f2.ordinal()];
+                        boolean z2 = true;
+                        if (i3 != 1) {
+                            if (i3 == 2) {
+                                z2 = aVar.i();
+                            } else if (i3 == 3) {
+                                String h2 = aVar.h();
+                                try {
+                                } catch (NumberFormatException unused) {
+                                    throw new t("Error: Expecting: bitset number value (1, 0), Found: " + h2);
+                                }
+                            } else {
+                                throw new t("Invalid bitset value type: " + f2);
                             }
-                        } else {
-                            throw new t("Invalid bitset value type: " + f2);
+                            if (z2) {
+                                bitSet.set(i2);
+                            }
+                            i2++;
+                            f2 = aVar.f();
                         }
-                        if (z2) {
-                            bitSet.set(i2);
-                        }
-                        i2++;
-                        f2 = aVar.f();
                     }
+                    aVar.b();
+                    return bitSet;
                 }
-                aVar.b();
-                return bitSet;
+                return (BitSet) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, BitSet bitSet) throws IOException {
-                cVar.b();
-                int length = bitSet.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    cVar.a(bitSet.get(i2) ? 1L : 0L);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bitSet) == null) {
+                    cVar.b();
+                    int length = bitSet.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        cVar.a(bitSet.get(i2) ? 1L : 0L);
+                    }
+                    cVar.c();
                 }
-                cVar.c();
             }
         }.a();
-        f29929c = a3;
-        f29930d = a(BitSet.class, a3);
-        f29931e = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.23
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            /* renamed from: a */
-            public Boolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-                if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                } else if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.STRING) {
-                    return Boolean.valueOf(Boolean.parseBoolean(aVar.h()));
-                } else {
-                    return Boolean.valueOf(aVar.i());
+        f31779c = a3;
+        f31780d = a(BitSet.class, a3);
+        f31781e = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.23
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Boolean bool) throws IOException {
-                cVar.a(bool);
-            }
-        };
-        f29932f = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.31
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Boolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
+                    if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    } else if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f) {
+                        return Boolean.valueOf(Boolean.parseBoolean(aVar.h()));
+                    } else {
+                        return Boolean.valueOf(aVar.i());
+                    }
                 }
-                return Boolean.valueOf(aVar.h());
+                return (Boolean) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Boolean bool) throws IOException {
-                cVar.b(bool == null ? StringUtil.NULL_STRING : bool.toString());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, bool) == null) {
+                    cVar.a(bool);
+                }
             }
         };
-        f29933g = a(Boolean.TYPE, Boolean.class, f29931e);
-        f29934h = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.32
+        f31782f = new v<Boolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.31
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            /* renamed from: a */
+            public Boolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    return Boolean.valueOf(aVar.h());
+                }
+                return (Boolean) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Boolean bool) throws IOException {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, bool) == null) {
+                    cVar.b(bool == null ? StringUtil.NULL_STRING : bool.toString());
+                }
+            }
+        };
+        f31783g = a(Boolean.TYPE, Boolean.class, f31781e);
+        f31784h = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.32
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    try {
+                        return Byte.valueOf((byte) aVar.m());
+                    } catch (NumberFormatException e2) {
+                        throw new t(e2);
+                    }
                 }
-                try {
-                    return Byte.valueOf((byte) aVar.m());
-                } catch (NumberFormatException e2) {
-                    throw new t(e2);
-                }
+                return (Number) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                cVar.a(number);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, number) == null) {
+                    cVar.a(number);
+                }
             }
         };
-        f29935i = a(Byte.TYPE, Byte.class, f29934h);
+        f31785i = a(Byte.TYPE, Byte.class, f31784h);
         j = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.33
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            /* renamed from: a */
-            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                }
-                try {
-                    return Short.valueOf((short) aVar.m());
-                } catch (NumberFormatException e2) {
-                    throw new t(e2);
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            /* renamed from: a */
+            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    try {
+                        return Short.valueOf((short) aVar.m());
+                    } catch (NumberFormatException e2) {
+                        throw new t(e2);
+                    }
+                }
+                return (Number) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                cVar.a(number);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, number) == null) {
+                    cVar.a(number);
+                }
             }
         };
         k = a(Short.TYPE, Short.class, j);
         l = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.34
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            /* renamed from: a */
-            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                }
-                try {
-                    return Integer.valueOf(aVar.m());
-                } catch (NumberFormatException e2) {
-                    throw new t(e2);
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            /* renamed from: a */
+            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    try {
+                        return Integer.valueOf(aVar.m());
+                    } catch (NumberFormatException e2) {
+                        throw new t(e2);
+                    }
+                }
+                return (Number) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                cVar.a(number);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, number) == null) {
+                    cVar.a(number);
+                }
             }
         };
         m = a(Integer.TYPE, Integer.class, l);
         v<AtomicInteger> a4 = new v<AtomicInteger>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.35
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public AtomicInteger b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                try {
-                    return new AtomicInteger(aVar.m());
-                } catch (NumberFormatException e2) {
-                    throw new t(e2);
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    try {
+                        return new AtomicInteger(aVar.m());
+                    } catch (NumberFormatException e2) {
+                        throw new t(e2);
+                    }
                 }
+                return (AtomicInteger) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, AtomicInteger atomicInteger) throws IOException {
-                cVar.a(atomicInteger.get());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, atomicInteger) == null) {
+                    cVar.a(atomicInteger.get());
+                }
             }
         }.a();
         n = a4;
         o = a(AtomicInteger.class, a4);
         v<AtomicBoolean> a5 = new v<AtomicBoolean>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.36
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public AtomicBoolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                return new AtomicBoolean(aVar.i());
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) ? new AtomicBoolean(aVar.i()) : (AtomicBoolean) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, AtomicBoolean atomicBoolean) throws IOException {
-                cVar.a(atomicBoolean.get());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, atomicBoolean) == null) {
+                    cVar.a(atomicBoolean.get());
+                }
             }
         }.a();
         p = a5;
         q = a(AtomicBoolean.class, a5);
         v<AtomicIntegerArray> a6 = new v<AtomicIntegerArray>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public AtomicIntegerArray b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                ArrayList arrayList = new ArrayList();
-                aVar.a();
-                while (aVar.e()) {
-                    try {
-                        arrayList.add(Integer.valueOf(aVar.m()));
-                    } catch (NumberFormatException e2) {
-                        throw new t(e2);
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    ArrayList arrayList = new ArrayList();
+                    aVar.a();
+                    while (aVar.e()) {
+                        try {
+                            arrayList.add(Integer.valueOf(aVar.m()));
+                        } catch (NumberFormatException e2) {
+                            throw new t(e2);
+                        }
                     }
+                    aVar.b();
+                    int size = arrayList.size();
+                    AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(size);
+                    for (int i2 = 0; i2 < size; i2++) {
+                        atomicIntegerArray.set(i2, ((Integer) arrayList.get(i2)).intValue());
+                    }
+                    return atomicIntegerArray;
                 }
-                aVar.b();
-                int size = arrayList.size();
-                AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(size);
-                for (int i2 = 0; i2 < size; i2++) {
-                    atomicIntegerArray.set(i2, ((Integer) arrayList.get(i2)).intValue());
-                }
-                return atomicIntegerArray;
+                return (AtomicIntegerArray) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, AtomicIntegerArray atomicIntegerArray) throws IOException {
-                cVar.b();
-                int length = atomicIntegerArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    cVar.a(atomicIntegerArray.get(i2));
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, atomicIntegerArray) == null) {
+                    cVar.b();
+                    int length = atomicIntegerArray.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        cVar.a(atomicIntegerArray.get(i2));
+                    }
+                    cVar.c();
                 }
-                cVar.c();
             }
         }.a();
         r = a6;
         s = a(AtomicIntegerArray.class, a6);
         t = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            /* renamed from: a */
-            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                }
-                try {
-                    return Long.valueOf(aVar.l());
-                } catch (NumberFormatException e2) {
-                    throw new t(e2);
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            /* renamed from: a */
+            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    try {
+                        return Long.valueOf(aVar.l());
+                    } catch (NumberFormatException e2) {
+                        throw new t(e2);
+                    }
+                }
+                return (Number) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                cVar.a(number);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, number) == null) {
+                    cVar.a(number);
+                }
             }
         };
         u = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    return Float.valueOf((float) aVar.k());
                 }
-                return Float.valueOf((float) aVar.k());
+                return (Number) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                cVar.a(number);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, number) == null) {
+                    cVar.a(number);
+                }
             }
         };
         v = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    return Double.valueOf(aVar.k());
                 }
-                return Double.valueOf(aVar.k());
+                return (Number) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                cVar.a(number);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, number) == null) {
+                    cVar.a(number);
+                }
             }
         };
         v<Number> vVar = new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-                int i2 = AnonymousClass30.f29952a[f2.ordinal()];
-                if (i2 == 1 || i2 == 3) {
-                    return new com.bytedance.sdk.openadsdk.preload.a.b.g(aVar.h());
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
+                    int i2 = AnonymousClass30.f31802a[f2.ordinal()];
+                    if (i2 == 1 || i2 == 3) {
+                        return new com.bytedance.sdk.openadsdk.preload.a.b.g(aVar.h());
+                    }
+                    if (i2 == 4) {
+                        aVar.j();
+                        return null;
+                    }
+                    throw new t("Expecting number, got: " + f2);
                 }
-                if (i2 == 4) {
-                    aVar.j();
-                    return null;
-                }
-                throw new t("Expecting number, got: " + f2);
+                return (Number) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                cVar.a(number);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, number) == null) {
+                    cVar.a(number);
+                }
             }
         };
         w = vVar;
         x = a(Number.class, vVar);
         y = new v<Character>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.7
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Character b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    String h2 = aVar.h();
+                    if (h2.length() == 1) {
+                        return Character.valueOf(h2.charAt(0));
+                    }
+                    throw new t("Expecting character, got: " + h2);
                 }
-                String h2 = aVar.h();
-                if (h2.length() == 1) {
-                    return Character.valueOf(h2.charAt(0));
-                }
-                throw new t("Expecting character, got: " + h2);
+                return (Character) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Character ch) throws IOException {
-                cVar.b(ch == null ? null : String.valueOf(ch));
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, ch) == null) {
+                    cVar.b(ch == null ? null : String.valueOf(ch));
+                }
             }
         };
         z = a(Character.TYPE, Character.class, y);
         A = new v<String>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public String b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-                if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                } else if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN) {
-                    return Boolean.toString(aVar.i());
-                } else {
-                    return aVar.h();
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
+                    if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    } else if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f31917h) {
+                        return Boolean.toString(aVar.i());
+                    } else {
+                        return aVar.h();
+                    }
                 }
+                return (String) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, String str) throws IOException {
-                cVar.b(str);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) == null) {
+                    cVar.b(str);
+                }
             }
         };
         B = new v<BigDecimal>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public BigDecimal b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    try {
+                        return new BigDecimal(aVar.h());
+                    } catch (NumberFormatException e2) {
+                        throw new t(e2);
+                    }
                 }
-                try {
-                    return new BigDecimal(aVar.h());
-                } catch (NumberFormatException e2) {
-                    throw new t(e2);
-                }
+                return (BigDecimal) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, BigDecimal bigDecimal) throws IOException {
-                cVar.a(bigDecimal);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bigDecimal) == null) {
+                    cVar.a(bigDecimal);
+                }
             }
         };
         C = new v<BigInteger>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.10
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public BigInteger b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    try {
+                        return new BigInteger(aVar.h());
+                    } catch (NumberFormatException e2) {
+                        throw new t(e2);
+                    }
                 }
-                try {
-                    return new BigInteger(aVar.h());
-                } catch (NumberFormatException e2) {
-                    throw new t(e2);
-                }
+                return (BigInteger) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, BigInteger bigInteger) throws IOException {
-                cVar.a(bigInteger);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bigInteger) == null) {
+                    cVar.a(bigInteger);
+                }
             }
         };
         D = a(String.class, A);
         v<StringBuilder> vVar2 = new v<StringBuilder>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.11
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public StringBuilder b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    return new StringBuilder(aVar.h());
                 }
-                return new StringBuilder(aVar.h());
+                return (StringBuilder) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, StringBuilder sb) throws IOException {
-                cVar.b(sb == null ? null : sb.toString());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, sb) == null) {
+                    cVar.b(sb == null ? null : sb.toString());
+                }
             }
         };
         E = vVar2;
         F = a(StringBuilder.class, vVar2);
         v<StringBuffer> vVar3 = new v<StringBuffer>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.13
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public StringBuffer b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    return new StringBuffer(aVar.h());
                 }
-                return new StringBuffer(aVar.h());
+                return (StringBuffer) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, StringBuffer stringBuffer) throws IOException {
-                cVar.b(stringBuffer == null ? null : stringBuffer.toString());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, stringBuffer) == null) {
+                    cVar.b(stringBuffer == null ? null : stringBuffer.toString());
+                }
             }
         };
         G = vVar3;
         H = a(StringBuffer.class, vVar3);
         v<URL> vVar4 = new v<URL>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.14
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public URL b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    String h2 = aVar.h();
+                    if (StringUtil.NULL_STRING.equals(h2)) {
+                        return null;
+                    }
+                    return new URL(h2);
                 }
-                String h2 = aVar.h();
-                if (StringUtil.NULL_STRING.equals(h2)) {
-                    return null;
-                }
-                return new URL(h2);
+                return (URL) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, URL url) throws IOException {
-                cVar.b(url == null ? null : url.toExternalForm());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, url) == null) {
+                    cVar.b(url == null ? null : url.toExternalForm());
+                }
             }
         };
         I = vVar4;
         J = a(URL.class, vVar4);
         v<URI> vVar5 = new v<URI>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.15
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public URI b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                }
-                try {
-                    String h2 = aVar.h();
-                    if (StringUtil.NULL_STRING.equals(h2)) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
                         return null;
                     }
-                    return new URI(h2);
-                } catch (URISyntaxException e2) {
-                    throw new com.bytedance.sdk.openadsdk.preload.a.m(e2);
+                    try {
+                        String h2 = aVar.h();
+                        if (StringUtil.NULL_STRING.equals(h2)) {
+                            return null;
+                        }
+                        return new URI(h2);
+                    } catch (URISyntaxException e2) {
+                        throw new com.bytedance.sdk.openadsdk.preload.a.m(e2);
+                    }
                 }
+                return (URI) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, URI uri) throws IOException {
-                cVar.b(uri == null ? null : uri.toASCIIString());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, uri) == null) {
+                    cVar.b(uri == null ? null : uri.toASCIIString());
+                }
             }
         };
         K = vVar5;
         L = a(URI.class, vVar5);
         v<InetAddress> vVar6 = new v<InetAddress>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.16
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public InetAddress b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    return InetAddress.getByName(aVar.h());
                 }
-                return InetAddress.getByName(aVar.h());
+                return (InetAddress) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, InetAddress inetAddress) throws IOException {
-                cVar.b(inetAddress == null ? null : inetAddress.getHostAddress());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, inetAddress) == null) {
+                    cVar.b(inetAddress == null ? null : inetAddress.getHostAddress());
+                }
             }
         };
         M = vVar6;
         N = b(InetAddress.class, vVar6);
         v<UUID> vVar7 = new v<UUID>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.17
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public UUID b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    return UUID.fromString(aVar.h());
                 }
-                return UUID.fromString(aVar.h());
+                return (UUID) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, UUID uuid) throws IOException {
-                cVar.b(uuid == null ? null : uuid.toString());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, uuid) == null) {
+                    cVar.b(uuid == null ? null : uuid.toString());
+                }
             }
         };
         O = vVar7;
         P = a(UUID.class, vVar7);
         v<Currency> a7 = new v<Currency>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.18
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Currency b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                return Currency.getInstance(aVar.h());
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) ? Currency.getInstance(aVar.h()) : (Currency) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Currency currency) throws IOException {
-                cVar.b(currency.getCurrencyCode());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, currency) == null) {
+                    cVar.b(currency.getCurrencyCode());
+                }
             }
         }.a();
         Q = a7;
         R = a(Currency.class, a7);
         S = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.19
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.w
             public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-                if (aVar.a() != Timestamp.class) {
-                    return null;
-                }
-                final v<T> a8 = fVar.a((Class) Date.class);
-                return (v<T>) new v<Timestamp>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.19.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.preload.a.v
-                    /* renamed from: a */
-                    public Timestamp b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar2) throws IOException {
-                        Date date = (Date) a8.b(aVar2);
-                        if (date != null) {
-                            return new Timestamp(date.getTime());
-                        }
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, fVar, aVar)) == null) {
+                    if (aVar.a() != Timestamp.class) {
                         return null;
                     }
+                    return (v<T>) new v<Timestamp>(this, fVar.a((Class) Date.class)) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.19.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
 
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.preload.a.v
-                    public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Timestamp timestamp) throws IOException {
-                        a8.a(cVar, timestamp);
-                    }
-                };
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ v f31786a;
+
+                        /* renamed from: b  reason: collision with root package name */
+                        public final /* synthetic */ AnonymousClass19 f31787b;
+
+                        {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, r7};
+                                interceptable3.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f31787b = this;
+                            this.f31786a = r7;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.bytedance.sdk.openadsdk.preload.a.v
+                        /* renamed from: a */
+                        public Timestamp b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar2) throws IOException {
+                            InterceptResult invokeL;
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 == null || (invokeL = interceptable3.invokeL(1048576, this, aVar2)) == null) {
+                                Date date = (Date) this.f31786a.b(aVar2);
+                                if (date != null) {
+                                    return new Timestamp(date.getTime());
+                                }
+                                return null;
+                            }
+                            return (Timestamp) invokeL.objValue;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.bytedance.sdk.openadsdk.preload.a.v
+                        public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Timestamp timestamp) throws IOException {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 == null || interceptable3.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, timestamp) == null) {
+                                this.f31786a.a(cVar, timestamp);
+                            }
+                        }
+                    };
+                }
+                return (v) invokeLL.objValue;
             }
         };
         v<Calendar> vVar8 = new v<Calendar>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.20
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Calendar b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                }
-                aVar.c();
-                int i2 = 0;
-                int i3 = 0;
-                int i4 = 0;
-                int i5 = 0;
-                int i6 = 0;
-                int i7 = 0;
-                while (aVar.f() != com.bytedance.sdk.openadsdk.preload.a.d.b.END_OBJECT) {
-                    String g2 = aVar.g();
-                    int m2 = aVar.m();
-                    if (TypeAdapters.AnonymousClass27.YEAR.equals(g2)) {
-                        i2 = m2;
-                    } else if (TypeAdapters.AnonymousClass27.MONTH.equals(g2)) {
-                        i3 = m2;
-                    } else if (TypeAdapters.AnonymousClass27.DAY_OF_MONTH.equals(g2)) {
-                        i4 = m2;
-                    } else if (TypeAdapters.AnonymousClass27.HOUR_OF_DAY.equals(g2)) {
-                        i5 = m2;
-                    } else if (TypeAdapters.AnonymousClass27.MINUTE.equals(g2)) {
-                        i6 = m2;
-                    } else if (TypeAdapters.AnonymousClass27.SECOND.equals(g2)) {
-                        i7 = m2;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
                     }
+                    aVar.c();
+                    int i2 = 0;
+                    int i3 = 0;
+                    int i4 = 0;
+                    int i5 = 0;
+                    int i6 = 0;
+                    int i7 = 0;
+                    while (aVar.f() != com.bytedance.sdk.openadsdk.preload.a.d.b.f31913d) {
+                        String g2 = aVar.g();
+                        int m2 = aVar.m();
+                        if (TypeAdapters.AnonymousClass27.YEAR.equals(g2)) {
+                            i2 = m2;
+                        } else if (TypeAdapters.AnonymousClass27.MONTH.equals(g2)) {
+                            i3 = m2;
+                        } else if (TypeAdapters.AnonymousClass27.DAY_OF_MONTH.equals(g2)) {
+                            i4 = m2;
+                        } else if (TypeAdapters.AnonymousClass27.HOUR_OF_DAY.equals(g2)) {
+                            i5 = m2;
+                        } else if (TypeAdapters.AnonymousClass27.MINUTE.equals(g2)) {
+                            i6 = m2;
+                        } else if (TypeAdapters.AnonymousClass27.SECOND.equals(g2)) {
+                            i7 = m2;
+                        }
+                    }
+                    aVar.d();
+                    return new GregorianCalendar(i2, i3, i4, i5, i6, i7);
                 }
-                aVar.d();
-                return new GregorianCalendar(i2, i3, i4, i5, i6, i7);
+                return (Calendar) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Calendar calendar) throws IOException {
-                if (calendar == null) {
-                    cVar.f();
-                    return;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, calendar) == null) {
+                    if (calendar == null) {
+                        cVar.f();
+                        return;
+                    }
+                    cVar.d();
+                    cVar.a(TypeAdapters.AnonymousClass27.YEAR);
+                    cVar.a(calendar.get(1));
+                    cVar.a(TypeAdapters.AnonymousClass27.MONTH);
+                    cVar.a(calendar.get(2));
+                    cVar.a(TypeAdapters.AnonymousClass27.DAY_OF_MONTH);
+                    cVar.a(calendar.get(5));
+                    cVar.a(TypeAdapters.AnonymousClass27.HOUR_OF_DAY);
+                    cVar.a(calendar.get(11));
+                    cVar.a(TypeAdapters.AnonymousClass27.MINUTE);
+                    cVar.a(calendar.get(12));
+                    cVar.a(TypeAdapters.AnonymousClass27.SECOND);
+                    cVar.a(calendar.get(13));
+                    cVar.e();
                 }
-                cVar.d();
-                cVar.a(TypeAdapters.AnonymousClass27.YEAR);
-                cVar.a(calendar.get(1));
-                cVar.a(TypeAdapters.AnonymousClass27.MONTH);
-                cVar.a(calendar.get(2));
-                cVar.a(TypeAdapters.AnonymousClass27.DAY_OF_MONTH);
-                cVar.a(calendar.get(5));
-                cVar.a(TypeAdapters.AnonymousClass27.HOUR_OF_DAY);
-                cVar.a(calendar.get(11));
-                cVar.a(TypeAdapters.AnonymousClass27.MINUTE);
-                cVar.a(calendar.get(12));
-                cVar.a(TypeAdapters.AnonymousClass27.SECOND);
-                cVar.a(calendar.get(13));
-                cVar.e();
             }
         };
         T = vVar8;
         U = b(Calendar.class, GregorianCalendar.class, vVar8);
         v<Locale> vVar9 = new v<Locale>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.21
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public Locale b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                        aVar.j();
+                        return null;
+                    }
+                    StringTokenizer stringTokenizer = new StringTokenizer(aVar.h(), "_");
+                    String nextToken = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
+                    String nextToken2 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
+                    String nextToken3 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
+                    if (nextToken2 == null && nextToken3 == null) {
+                        return new Locale(nextToken);
+                    }
+                    if (nextToken3 == null) {
+                        return new Locale(nextToken, nextToken2);
+                    }
+                    return new Locale(nextToken, nextToken2, nextToken3);
                 }
-                StringTokenizer stringTokenizer = new StringTokenizer(aVar.h(), "_");
-                String nextToken = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
-                String nextToken2 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
-                String nextToken3 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
-                if (nextToken2 == null && nextToken3 == null) {
-                    return new Locale(nextToken);
-                }
-                if (nextToken3 == null) {
-                    return new Locale(nextToken, nextToken2);
-                }
-                return new Locale(nextToken, nextToken2, nextToken3);
+                return (Locale) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Locale locale) throws IOException {
-                cVar.b(locale == null ? null : locale.toString());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, locale) == null) {
+                    cVar.b(locale == null ? null : locale.toString());
+                }
             }
         };
         V = vVar9;
         W = a(Locale.class, vVar9);
         v<com.bytedance.sdk.openadsdk.preload.a.l> vVar10 = new v<com.bytedance.sdk.openadsdk.preload.a.l>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.22
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
             public com.bytedance.sdk.openadsdk.preload.a.l b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                switch (AnonymousClass30.f29952a[aVar.f().ordinal()]) {
-                    case 1:
-                        return new q(new com.bytedance.sdk.openadsdk.preload.a.b.g(aVar.h()));
-                    case 2:
-                        return new q(Boolean.valueOf(aVar.i()));
-                    case 3:
-                        return new q(aVar.h());
-                    case 4:
-                        aVar.j();
-                        return com.bytedance.sdk.openadsdk.preload.a.n.f30102a;
-                    case 5:
-                        com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
-                        aVar.a();
-                        while (aVar.e()) {
-                            iVar.a(b(aVar));
-                        }
-                        aVar.b();
-                        return iVar;
-                    case 6:
-                        o oVar = new o();
-                        aVar.c();
-                        while (aVar.e()) {
-                            oVar.a(aVar.g(), b(aVar));
-                        }
-                        aVar.d();
-                        return oVar;
-                    default:
-                        throw new IllegalArgumentException();
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                    switch (AnonymousClass30.f31802a[aVar.f().ordinal()]) {
+                        case 1:
+                            return new q(new com.bytedance.sdk.openadsdk.preload.a.b.g(aVar.h()));
+                        case 2:
+                            return new q(Boolean.valueOf(aVar.i()));
+                        case 3:
+                            return new q(aVar.h());
+                        case 4:
+                            aVar.j();
+                            return com.bytedance.sdk.openadsdk.preload.a.n.f31952a;
+                        case 5:
+                            com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
+                            aVar.a();
+                            while (aVar.e()) {
+                                iVar.a(b(aVar));
+                            }
+                            aVar.b();
+                            return iVar;
+                        case 6:
+                            o oVar = new o();
+                            aVar.c();
+                            while (aVar.e()) {
+                                oVar.a(aVar.g(), b(aVar));
+                            }
+                            aVar.d();
+                            return oVar;
+                        default:
+                            throw new IllegalArgumentException();
+                    }
                 }
+                return (com.bytedance.sdk.openadsdk.preload.a.l) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, com.bytedance.sdk.openadsdk.preload.a.l lVar) throws IOException {
-                if (lVar != null && !lVar.j()) {
-                    if (lVar.i()) {
-                        q m2 = lVar.m();
-                        if (m2.o()) {
-                            cVar.a(m2.a());
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, lVar) == null) {
+                    if (lVar != null && !lVar.j()) {
+                        if (lVar.i()) {
+                            q m2 = lVar.m();
+                            if (m2.o()) {
+                                cVar.a(m2.a());
+                                return;
+                            } else if (m2.n()) {
+                                cVar.a(m2.f());
+                                return;
+                            } else {
+                                cVar.b(m2.b());
+                                return;
+                            }
+                        } else if (lVar.g()) {
+                            cVar.b();
+                            Iterator<com.bytedance.sdk.openadsdk.preload.a.l> it = lVar.l().iterator();
+                            while (it.hasNext()) {
+                                a(cVar, it.next());
+                            }
+                            cVar.c();
                             return;
-                        } else if (m2.n()) {
-                            cVar.a(m2.f());
+                        } else if (lVar.h()) {
+                            cVar.d();
+                            for (Map.Entry<String, com.bytedance.sdk.openadsdk.preload.a.l> entry : lVar.k().n()) {
+                                cVar.a(entry.getKey());
+                                a(cVar, entry.getValue());
+                            }
+                            cVar.e();
                             return;
                         } else {
-                            cVar.b(m2.b());
-                            return;
+                            throw new IllegalArgumentException("Couldn't write " + lVar.getClass());
                         }
-                    } else if (lVar.g()) {
-                        cVar.b();
-                        Iterator<com.bytedance.sdk.openadsdk.preload.a.l> it = lVar.l().iterator();
-                        while (it.hasNext()) {
-                            a(cVar, it.next());
-                        }
-                        cVar.c();
-                        return;
-                    } else if (lVar.h()) {
-                        cVar.d();
-                        for (Map.Entry<String, com.bytedance.sdk.openadsdk.preload.a.l> entry : lVar.k().n()) {
-                            cVar.a(entry.getKey());
-                            a(cVar, entry.getValue());
-                        }
-                        cVar.e();
-                        return;
-                    } else {
-                        throw new IllegalArgumentException("Couldn't write " + lVar.getClass());
                     }
+                    cVar.f();
                 }
-                cVar.f();
             }
         };
         X = vVar10;
         Y = b(com.bytedance.sdk.openadsdk.preload.a.l.class, vVar10);
         Z = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.24
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.w
             public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-                Class a8 = aVar.a();
-                if (!Enum.class.isAssignableFrom(a8) || a8 == Enum.class) {
-                    return null;
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, fVar, aVar)) == null) {
+                    Class a8 = aVar.a();
+                    if (!Enum.class.isAssignableFrom(a8) || a8 == Enum.class) {
+                        return null;
+                    }
+                    if (!a8.isEnum()) {
+                        a8 = (Class<? super Object>) a8.getSuperclass();
+                    }
+                    return new a(a8);
                 }
-                if (!a8.isEnum()) {
-                    a8 = (Class<? super Object>) a8.getSuperclass();
-                }
-                return new a(a8);
+                return (v) invokeLL.objValue;
             }
         };
     }
 
-    public static <TT> w a(final com.bytedance.sdk.openadsdk.preload.a.c.a<TT> aVar, final v<TT> vVar) {
-        return new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.25
+    public static <TT> w a(com.bytedance.sdk.openadsdk.preload.a.c.a<TT> aVar, v<TT> vVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, vVar)) == null) ? new w(aVar, vVar) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.25
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.c.a f31788a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ v f31789b;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, vVar};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f31788a = aVar;
+                this.f31789b = vVar;
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.w
             public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar2) {
-                if (aVar2.equals(com.bytedance.sdk.openadsdk.preload.a.c.a.this)) {
-                    return vVar;
+                InterceptResult invokeLL2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, fVar, aVar2)) == null) {
+                    if (aVar2.equals(this.f31788a)) {
+                        return this.f31789b;
+                    }
+                    return null;
                 }
-                return null;
+                return (v) invokeLL2.objValue;
             }
-        };
+        } : (w) invokeLL.objValue;
     }
 
-    public static <TT> w b(final Class<TT> cls, final Class<? extends TT> cls2, final v<? super TT> vVar) {
-        return new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.28
+    public static <TT> w b(Class<TT> cls, Class<? extends TT> cls2, v<? super TT> vVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, cls, cls2, vVar)) == null) ? new w(cls, cls2, vVar) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.28
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Class f31795a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ Class f31796b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ v f31797c;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cls, cls2, vVar};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f31795a = cls;
+                this.f31796b = cls2;
+                this.f31797c = vVar;
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.w
             public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-                Class<? super T> a2 = aVar.a();
-                if (a2 == cls || a2 == cls2) {
-                    return vVar;
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, fVar, aVar)) == null) {
+                    Class<? super T> a2 = aVar.a();
+                    if (a2 == this.f31795a || a2 == this.f31796b) {
+                        return this.f31797c;
+                    }
+                    return null;
                 }
-                return null;
+                return (v) invokeLL.objValue;
             }
 
             public String toString() {
-                return "Factory[type=" + cls.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + cls2.getName() + ",adapter=" + vVar + PreferencesUtil.RIGHT_MOUNT;
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return "Factory[type=" + this.f31795a.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + this.f31796b.getName() + ",adapter=" + this.f31797c + PreferencesUtil.RIGHT_MOUNT;
+                }
+                return (String) invokeV.objValue;
             }
-        };
+        } : (w) invokeLLL.objValue;
     }
 
-    public static <TT> w a(final Class<TT> cls, final v<TT> vVar) {
-        return new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.26
+    public static <TT> w a(Class<TT> cls, v<TT> vVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, vVar)) == null) ? new w(cls, vVar) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.26
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Class f31790a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ v f31791b;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cls, vVar};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f31790a = cls;
+                this.f31791b = vVar;
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.w
             public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-                if (aVar.a() == cls) {
-                    return vVar;
+                InterceptResult invokeLL2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, fVar, aVar)) == null) {
+                    if (aVar.a() == this.f31790a) {
+                        return this.f31791b;
+                    }
+                    return null;
                 }
-                return null;
+                return (v) invokeLL2.objValue;
             }
 
             public String toString() {
-                return "Factory[type=" + cls.getName() + ",adapter=" + vVar + PreferencesUtil.RIGHT_MOUNT;
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return "Factory[type=" + this.f31790a.getName() + ",adapter=" + this.f31791b + PreferencesUtil.RIGHT_MOUNT;
+                }
+                return (String) invokeV.objValue;
             }
-        };
+        } : (w) invokeLL.objValue;
     }
 
-    public static <T1> w b(final Class<T1> cls, final v<T1> vVar) {
-        return new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.29
+    public static <T1> w b(Class<T1> cls, v<T1> vVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, vVar)) == null) ? new w(cls, vVar) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.29
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Class f31798a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ v f31799b;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cls, vVar};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f31798a = cls;
+                this.f31799b = vVar;
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.w
             public <T2> v<T2> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T2> aVar) {
-                final Class<? super T2> a2 = aVar.a();
-                if (cls.isAssignableFrom(a2)) {
-                    return (v<T2>) new v<T1>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.29.1
-                        @Override // com.bytedance.sdk.openadsdk.preload.a.v
-                        public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T1 t1) throws IOException {
-                            vVar.a(cVar, t1);
-                        }
+                InterceptResult invokeLL2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, fVar, aVar)) == null) {
+                    Class<? super T2> a2 = aVar.a();
+                    if (this.f31798a.isAssignableFrom(a2)) {
+                        return (v<T2>) new v<T1>(this, a2) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.29.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
 
-                        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.lang.Class */
-                        /* JADX WARN: Multi-variable type inference failed */
-                        /* JADX WARN: Type inference failed for: r4v1, types: [java.lang.Object, T1] */
-                        @Override // com.bytedance.sdk.openadsdk.preload.a.v
-                        public T1 b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar2) throws IOException {
-                            ?? b2 = vVar.b(aVar2);
-                            if (b2 == 0 || a2.isInstance(b2)) {
-                                return b2;
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ Class f31800a;
+
+                            /* renamed from: b  reason: collision with root package name */
+                            public final /* synthetic */ AnonymousClass29 f31801b;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, a2};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f31801b = this;
+                                this.f31800a = a2;
                             }
-                            throw new t("Expected a " + a2.getName() + " but was " + b2.getClass().getName());
-                        }
-                    };
+
+                            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+                            public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T1 t1) throws IOException {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeLL(1048576, this, cVar, t1) == null) {
+                                    this.f31801b.f31799b.a(cVar, t1);
+                                }
+                            }
+
+                            /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.Class */
+                            /* JADX WARN: Multi-variable type inference failed */
+                            /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, T1] */
+                            /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Object, T1] */
+                            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+                            public T1 b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar2) throws IOException {
+                                InterceptResult invokeL;
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || (invokeL = interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2)) == null) {
+                                    ?? b2 = this.f31801b.f31799b.b(aVar2);
+                                    if (b2 == 0 || this.f31800a.isInstance(b2)) {
+                                        return b2;
+                                    }
+                                    throw new t("Expected a " + this.f31800a.getName() + " but was " + b2.getClass().getName());
+                                }
+                                return invokeL.objValue;
+                            }
+                        };
+                    }
+                    return null;
                 }
-                return null;
+                return (v) invokeLL2.objValue;
             }
 
             public String toString() {
-                return "Factory[typeHierarchy=" + cls.getName() + ",adapter=" + vVar + PreferencesUtil.RIGHT_MOUNT;
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return "Factory[typeHierarchy=" + this.f31798a.getName() + ",adapter=" + this.f31799b + PreferencesUtil.RIGHT_MOUNT;
+                }
+                return (String) invokeV.objValue;
             }
-        };
+        } : (w) invokeLL.objValue;
     }
 
-    public static <TT> w a(final Class<TT> cls, final Class<TT> cls2, final v<? super TT> vVar) {
-        return new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.27
+    public static <TT> w a(Class<TT> cls, Class<TT> cls2, v<? super TT> vVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, cls2, vVar)) == null) ? new w(cls, cls2, vVar) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.n.27
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Class f31792a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ Class f31793b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ v f31794c;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cls, cls2, vVar};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f31792a = cls;
+                this.f31793b = cls2;
+                this.f31794c = vVar;
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.a.w
             public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-                Class<? super T> a2 = aVar.a();
-                if (a2 == cls || a2 == cls2) {
-                    return vVar;
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, fVar, aVar)) == null) {
+                    Class<? super T> a2 = aVar.a();
+                    if (a2 == this.f31792a || a2 == this.f31793b) {
+                        return this.f31794c;
+                    }
+                    return null;
                 }
-                return null;
+                return (v) invokeLL.objValue;
             }
 
             public String toString() {
-                return "Factory[type=" + cls2.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + cls.getName() + ",adapter=" + vVar + PreferencesUtil.RIGHT_MOUNT;
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return "Factory[type=" + this.f31793b.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + this.f31792a.getName() + ",adapter=" + this.f31794c + PreferencesUtil.RIGHT_MOUNT;
+                }
+                return (String) invokeV.objValue;
             }
-        };
+        } : (w) invokeLLL.objValue;
     }
 }

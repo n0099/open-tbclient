@@ -1,22 +1,45 @@
 package com.win.opensdk;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.image.gif2.GifImageView;
 /* loaded from: classes7.dex */
 public class X implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f40755a;
+    public final /* synthetic */ GifImageView f42498a;
 
     public X(GifImageView gifImageView) {
-        this.f40755a = gifImageView;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gifImageView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42498a = gifImageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        GifImageView gifImageView = this.f40755a;
-        gifImageView.f40846b = null;
-        gifImageView.f40845a = null;
-        gifImageView.f40851g = null;
-        gifImageView.f40850f = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GifImageView gifImageView = this.f42498a;
+            gifImageView.f42589b = null;
+            gifImageView.f42588a = null;
+            gifImageView.f42594g = null;
+            gifImageView.f42593f = false;
+        }
     }
 }

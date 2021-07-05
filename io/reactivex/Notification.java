@@ -1,90 +1,176 @@
 package io.reactivex;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.NotificationLite;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class Notification<T> {
-    public static final Notification<Object> COMPLETE = new Notification<>(null);
+    public static /* synthetic */ Interceptable $ic;
+    public static final Notification<Object> COMPLETE;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Object value;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-507708797, "Lio/reactivex/Notification;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-507708797, "Lio/reactivex/Notification;");
+                return;
+            }
+        }
+        COMPLETE = new Notification<>(null);
+    }
+
     public Notification(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.value = obj;
     }
 
     @NonNull
     public static <T> Notification<T> createOnComplete() {
-        return (Notification<T>) COMPLETE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (Notification<T>) COMPLETE : (Notification) invokeV.objValue;
     }
 
     @NonNull
     public static <T> Notification<T> createOnError(@NonNull Throwable th) {
-        ObjectHelper.requireNonNull(th, "error is null");
-        return new Notification<>(NotificationLite.error(th));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            ObjectHelper.requireNonNull(th, "error is null");
+            return new Notification<>(NotificationLite.error(th));
+        }
+        return (Notification) invokeL.objValue;
     }
 
     @NonNull
     public static <T> Notification<T> createOnNext(@NonNull T t) {
-        ObjectHelper.requireNonNull(t, "value is null");
-        return new Notification<>(t);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, t)) == null) {
+            ObjectHelper.requireNonNull(t, "value is null");
+            return new Notification<>(t);
+        }
+        return (Notification) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
-        if (obj instanceof Notification) {
-            return ObjectHelper.equals(this.value, ((Notification) obj).value);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj instanceof Notification) {
+                return ObjectHelper.equals(this.value, ((Notification) obj).value);
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     @Nullable
     public Throwable getError() {
-        Object obj = this.value;
-        if (NotificationLite.isError(obj)) {
-            return NotificationLite.getError(obj);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Object obj = this.value;
+            if (NotificationLite.isError(obj)) {
+                return NotificationLite.getError(obj);
+            }
+            return null;
         }
-        return null;
+        return (Throwable) invokeV.objValue;
     }
 
     @Nullable
     public T getValue() {
-        Object obj = this.value;
-        if (obj == null || NotificationLite.isError(obj)) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object obj = this.value;
+            if (obj == null || NotificationLite.isError(obj)) {
+                return null;
+            }
+            return (T) this.value;
         }
-        return (T) this.value;
+        return (T) invokeV.objValue;
     }
 
     public int hashCode() {
-        Object obj = this.value;
-        if (obj != null) {
-            return obj.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object obj = this.value;
+            if (obj != null) {
+                return obj.hashCode();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public boolean isOnComplete() {
-        return this.value == null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.value == null : invokeV.booleanValue;
     }
 
     public boolean isOnError() {
-        return NotificationLite.isError(this.value);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? NotificationLite.isError(this.value) : invokeV.booleanValue;
     }
 
     public boolean isOnNext() {
-        Object obj = this.value;
-        return (obj == null || NotificationLite.isError(obj)) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Object obj = this.value;
+            return (obj == null || NotificationLite.isError(obj)) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {
-        Object obj = this.value;
-        if (obj == null) {
-            return "OnCompleteNotification";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Object obj = this.value;
+            if (obj == null) {
+                return "OnCompleteNotification";
+            }
+            if (NotificationLite.isError(obj)) {
+                return "OnErrorNotification[" + NotificationLite.getError(obj) + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return "OnNextNotification[" + this.value + PreferencesUtil.RIGHT_MOUNT;
         }
-        if (NotificationLite.isError(obj)) {
-            return "OnErrorNotification[" + NotificationLite.getError(obj) + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return "OnNextNotification[" + this.value + PreferencesUtil.RIGHT_MOUNT;
+        return (String) invokeV.objValue;
     }
 }

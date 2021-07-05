@@ -5,108 +5,183 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class EditHeadsImageTopLayerView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f19870e;
+    public Paint f20020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f19871f;
+    public Paint f20021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19872g;
+    public int f20022g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19873h;
+    public int f20023h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f19874i;
+    public float f20024i;
     public float j;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.f19870e = null;
-        this.f19871f = null;
-        this.f19872g = 0;
-        this.f19873h = 0;
-        this.f19874i = 0.42857143f;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f20020e = null;
+        this.f20021f = null;
+        this.f20022g = 0;
+        this.f20023h = 0;
+        this.f20024i = 0.42857143f;
         this.j = 1.0f;
         a();
     }
 
     public final void a() {
-        Paint paint = new Paint();
-        this.f19870e = paint;
-        paint.setColor(-16777216);
-        this.f19870e.setAlpha(153);
-        Paint paint2 = new Paint();
-        this.f19871f = paint2;
-        paint2.setStyle(Paint.Style.STROKE);
-        this.f19871f.setColor(-1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Paint paint = new Paint();
+            this.f20020e = paint;
+            paint.setColor(-16777216);
+            this.f20020e.setAlpha(153);
+            Paint paint2 = new Paint();
+            this.f20021f = paint2;
+            paint2.setStyle(Paint.Style.STROKE);
+            this.f20021f.setColor(-1);
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.save();
-        super.onDraw(canvas);
-        canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.f19872g, this.f19870e);
-        canvas.drawRect(0.0f, getHeight() - this.f19873h, getWidth(), getHeight(), this.f19870e);
-        canvas.drawRect(1.0f, this.f19872g, getWidth() - 1, getHeight() - this.f19873h, this.f19871f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            canvas.save();
+            super.onDraw(canvas);
+            canvas.restore();
+            canvas.drawRect(0.0f, 0.0f, getWidth(), this.f20022g, this.f20020e);
+            canvas.drawRect(0.0f, getHeight() - this.f20023h, getWidth(), getHeight(), this.f20020e);
+            canvas.drawRect(1.0f, this.f20022g, getWidth() - 1, getHeight() - this.f20023h, this.f20021f);
+        }
     }
 
     @Override // android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
-        float width = this.j * getWidth();
-        if (width > getHeight()) {
-            width = getHeight();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            float width = this.j * getWidth();
+            if (width > getHeight()) {
+                width = getHeight();
+            }
+            float f2 = (i5 - i3) - width;
+            float f3 = this.f20024i;
+            this.f20022g = (int) (f2 * f3);
+            this.f20023h = (int) (f2 * (1.0f - f3));
         }
-        float f2 = (i5 - i3) - width;
-        float f3 = this.f19874i;
-        this.f19872g = (int) (f2 * f3);
-        this.f19873h = (int) (f2 * (1.0f - f3));
     }
 
     public void setLinePaintColor(int i2) {
-        Paint paint = this.f19871f;
-        if (paint != null) {
-            paint.setColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            Paint paint = this.f20021f;
+            if (paint != null) {
+                paint.setColor(i2);
+            }
+            invalidate();
         }
-        invalidate();
     }
 
     public void setLineWidth(int i2) {
-        Paint paint = this.f19871f;
-        if (paint != null) {
-            paint.setStrokeWidth(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            Paint paint = this.f20021f;
+            if (paint != null) {
+                paint.setStrokeWidth(i2);
+            }
+            invalidate();
         }
-        invalidate();
     }
 
     public void setmCutHeightScale(float f2) {
-        this.j = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
+            this.j = f2;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19870e = null;
-        this.f19871f = null;
-        this.f19872g = 0;
-        this.f19873h = 0;
-        this.f19874i = 0.42857143f;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f20020e = null;
+        this.f20021f = null;
+        this.f20022g = 0;
+        this.f20023h = 0;
+        this.f20024i = 0.42857143f;
         this.j = 1.0f;
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19870e = null;
-        this.f19871f = null;
-        this.f19872g = 0;
-        this.f19873h = 0;
-        this.f19874i = 0.42857143f;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f20020e = null;
+        this.f20021f = null;
+        this.f20022g = 0;
+        this.f20023h = 0;
+        this.f20024i = 0.42857143f;
         this.j = 1.0f;
         a();
     }

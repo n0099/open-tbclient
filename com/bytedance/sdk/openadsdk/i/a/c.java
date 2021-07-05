@@ -1,276 +1,107 @@
 package com.bytedance.sdk.openadsdk.i.a;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.widget.ImageView;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
-import com.bytedance.sdk.adnet.core.Request;
-import com.bytedance.sdk.adnet.err.VAdError;
-import com.bytedance.sdk.adnet.err.e;
-import com.bytedance.sdk.openadsdk.core.d.r;
-import com.bytedance.sdk.openadsdk.utils.f;
-import com.bytedance.sdk.openadsdk.utils.u;
-import d.b.c.b.d.g;
-import d.b.c.b.d.k;
-import d.b.c.b.d.o;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.a.d;
+import com.bytedance.sdk.component.a.q;
+import com.bytedance.sdk.openadsdk.core.w;
+import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class c extends Request<d> {
-    public static final Object k = new Object();
+public class c extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final Object f29427c;
-    @Nullable
-    @GuardedBy("mLock")
+    /* renamed from: a  reason: collision with root package name */
+    public WeakReference<w> f31230a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public a f29428d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Bitmap.Config f29429e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final int f29430f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final int f29431g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final ImageView.ScaleType f29432h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public r f29433i;
-    public long j;
-
-    /* loaded from: classes6.dex */
-    public interface a extends o.a<d> {
-        void a();
-
-        @Override // d.b.c.b.d.o.a
-        /* synthetic */ void a(o<T> oVar);
-
-        void a(String str, d dVar);
-
-        @Override // d.b.c.b.d.o.a
-        /* synthetic */ void b(o<T> oVar);
-    }
-
-    public c(String str, a aVar, int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
-        super(0, str, aVar);
-        this.f29427c = new Object();
-        setRetryPolicy(new g(1000, 2, 2.0f));
-        this.f29428d = aVar;
-        this.f29429e = config;
-        this.f29430f = i2;
-        this.f29431g = i3;
-        this.f29432h = scaleType;
-        setShouldCache(false);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00ba  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00c4  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private o<d> b(final k kVar) {
-        Bitmap decodeByteArray;
-        final Bitmap bitmap;
-        final byte[] bArr = kVar.f69628b;
-        f();
-        String a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(getUrl(), this.f29430f, this.f29431g, this.f29432h);
-        if (bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70) {
-            try {
-                com.bytedance.sdk.openadsdk.i.a.a.a().a(a2, bArr);
-                if (this.f29428d != null) {
-                    this.f27082b.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (c.this.f29428d != null) {
-                                d dVar = new d(bArr);
-                                dVar.a(kVar.f69630d);
-                                dVar.a(kVar.f69629c);
-                                c.this.f29428d.a(c.this.getUrl(), dVar);
-                            }
-                        }
-                    });
-                }
-                d dVar = new d(bArr);
-                dVar.a(kVar.f69630d);
-                dVar.a(kVar.f69629c);
-                return o.c(dVar, d.b.c.b.e.c.b(kVar));
-            } catch (Exception unused) {
+    public c(w wVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        if (this.f29430f == 0 && this.f29431g == 0) {
-            options.inPreferredConfig = this.f29429e;
-            decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-        } else {
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            int a3 = a(this.f29430f, this.f29431g, i2, i3, this.f29432h);
-            int a4 = a(this.f29431g, this.f29430f, i3, i2, this.f29432h);
-            options.inJustDecodeBounds = false;
-            options.inSampleSize = a(i2, i3, a3, a4);
-            decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            if (decodeByteArray != null && (decodeByteArray.getWidth() > a3 || decodeByteArray.getHeight() > a4)) {
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(decodeByteArray, a3, a4, true);
-                decodeByteArray.recycle();
-                bitmap = createScaledBitmap;
-                if (bitmap != null) {
-                    return o.b(new e(kVar));
-                }
-                if (this.f29428d != null) {
-                    this.f27082b.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.2
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (c.this.f29428d != null) {
-                                d dVar2 = new d(bitmap);
-                                dVar2.a(kVar.f69630d);
-                                dVar2.a(kVar.f69629c);
-                                c.this.f29428d.a(c.this.getUrl(), dVar2);
-                            }
-                        }
-                    });
-                }
-                byte[] b2 = f.b(bitmap);
-                com.bytedance.sdk.openadsdk.i.a.a.a().a(a2, b2);
-                if (this.f29428d != null) {
-                    a(this.j, b2, bitmap, kVar.f69629c);
-                    this.f29428d.a();
-                }
-                d dVar2 = new d(b2);
-                dVar2.a(kVar.f69630d);
-                dVar2.a(kVar.f69629c);
-                return o.c(dVar2, d.b.c.b.e.c.b(kVar));
-            }
-        }
-        bitmap = decodeByteArray;
-        if (bitmap != null) {
+        this.f31230a = new WeakReference<>(wVar);
+    }
+
+    @Override // com.bytedance.sdk.component.a.d
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    private void f() {
-        r rVar = this.f29433i;
-        if (rVar != null && rVar.z()) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.j = currentTimeMillis;
-            this.f29433i.p(currentTimeMillis);
-            r rVar2 = this.f29433i;
-            rVar2.i(this.j - rVar2.v());
-        }
-    }
+    public static void a(q qVar, w wVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, qVar, wVar) == null) {
+            qVar.a("interstitial_webview_close", new d.b(wVar) { // from class: com.bytedance.sdk.openadsdk.i.a.c.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public void cancel() {
-        super.cancel();
-        synchronized (this.f29427c) {
-            this.f29428d = null;
-        }
-    }
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ w f31231a;
 
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public Request.b getPriority() {
-        return Request.b.LOW;
-    }
-
-    public static int a(int i2, int i3, int i4, int i5, ImageView.ScaleType scaleType) {
-        if (i2 == 0 && i3 == 0) {
-            return i4;
-        }
-        if (scaleType == ImageView.ScaleType.FIT_XY) {
-            return i2 == 0 ? i4 : i2;
-        } else if (i2 == 0) {
-            return (int) (i4 * (i3 / i5));
-        } else if (i3 == 0) {
-            return i2;
-        } else {
-            double d2 = i5 / i4;
-            if (scaleType == ImageView.ScaleType.CENTER_CROP) {
-                double d3 = i3;
-                return ((double) i2) * d2 < d3 ? (int) (d3 / d2) : i2;
-            }
-            double d4 = i3;
-            return ((double) i2) * d2 > d4 ? (int) (d4 / d2) : i2;
-        }
-    }
-
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public o<d> a(k kVar) {
-        o<d> b2;
-        synchronized (k) {
-            try {
-                try {
-                    b2 = b(kVar);
-                } catch (OutOfMemoryError e2) {
-                    u.c("GifRequest", "Caught OOM for byte image", e2);
-                    return o.b(new e(e2, VAdError.IMAGE_OOM_FAIL_CODE));
-                }
-            } catch (Throwable th) {
-                throw th;
-            }
-        }
-        return b2;
-    }
-
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public void a(o<d> oVar) {
-        a aVar;
-        synchronized (this.f29427c) {
-            aVar = this.f29428d;
-        }
-        if (aVar != null) {
-            aVar.a(oVar);
-        }
-    }
-
-    public void a(r rVar) {
-        this.f29433i = rVar;
-    }
-
-    private void a(long j, byte[] bArr, Bitmap bitmap, Map<String, String> map) {
-        r rVar = this.f29433i;
-        if (rVar != null && rVar.z()) {
-            if (bArr != null && this.f29433i.i() == 0.0d) {
-                this.f29433i.a(bArr.length / 1024.0f);
-            }
-            if (bitmap != null && TextUtils.isEmpty(this.f29433i.j())) {
-                this.f29433i.b(bitmap.getWidth() + "X" + bitmap.getHeight());
-            }
-            if (map != null && map.size() > 0 && this.f29433i.k() == null) {
-                JSONObject jSONObject = new JSONObject();
-                for (String str : map.keySet()) {
-                    if (!TextUtils.isEmpty(str)) {
-                        try {
-                            jSONObject.put(str, map.get(str));
-                        } catch (Exception e2) {
-                            u.f("GifRequest", e2.getMessage());
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {wVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
+                    this.f31231a = wVar;
                 }
-                this.f29433i.a(jSONObject);
-            }
-            this.f29433i.j(System.currentTimeMillis() - j);
-            this.f29433i.b(System.currentTimeMillis() - this.f29433i.t());
+
+                @Override // com.bytedance.sdk.component.a.d.b
+                public com.bytedance.sdk.component.a.d a() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new c(this.f31231a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
+                }
+            });
         }
     }
 
-    @VisibleForTesting
-    public static int a(int i2, int i3, int i4, int i5) {
-        double min = Math.min(i2 / i4, i3 / i5);
-        float f2 = 1.0f;
-        while (true) {
-            float f3 = 2.0f * f2;
-            if (f3 > min) {
-                return (int) f2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bytedance.sdk.component.a.d
+    public void a(@NonNull JSONObject jSONObject, @NonNull com.bytedance.sdk.component.a.f fVar) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar) == null) {
+            if (com.bytedance.sdk.openadsdk.core.h.d().x()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("[JSB-REQ] version: 3 data=");
+                sb.append(jSONObject != null ? jSONObject.toString() : "");
+                d.l.a.e.b.c.a.g("DoInterstitialWebViewCloseMethod", sb.toString());
             }
-            f2 = f3;
+            d.l.a.e.b.c.a.k("DoInterstitialWebViewCloseMethod", "DoInterstitialWebViewCloseMethod invoke ");
+            w wVar = this.f31230a.get();
+            if (wVar == null) {
+                d.l.a.e.b.c.a.k("DoInterstitialWebViewCloseMethod", "invoke error");
+                c();
+                return;
+            }
+            wVar.g();
         }
     }
 }

@@ -6,65 +6,162 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.util.CustomToast;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
-import d.a.n0.s.c.v;
-import d.a.o0.l0.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.net.tnc.TNCManager;
+import d.a.r0.s.c.v;
+import d.a.s0.o0.b;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public class a implements b.f {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFullScreenEditorInputView f19334a;
+
+        public a(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFullScreenEditorInputView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19334a = pbFullScreenEditorInputView;
         }
 
-        @Override // d.a.o0.l0.b.f
+        @Override // d.a.s0.o0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
-            PbFullScreenEditorInputView.this.setText(spannableStringBuilder);
-            PbFullScreenEditorInputView pbFullScreenEditorInputView = PbFullScreenEditorInputView.this;
-            pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
+                this.f19334a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f19334a;
+                pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class b implements b.f {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFullScreenEditorInputView f19335a;
+
+        public b(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFullScreenEditorInputView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19335a = pbFullScreenEditorInputView;
         }
 
-        @Override // d.a.o0.l0.b.f
+        @Override // d.a.s0.o0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
-            PbFullScreenEditorInputView.this.setHint(spannableStringBuilder);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
+                this.f19335a.setHint(spannableStringBuilder);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class c implements b.f {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PbFullScreenEditorInputView f19336a;
+
+        public c(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFullScreenEditorInputView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f19336a = pbFullScreenEditorInputView;
         }
 
-        @Override // d.a.o0.l0.b.f
+        @Override // d.a.s0.o0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
-            PbFullScreenEditorInputView.this.setText(spannableStringBuilder);
-            PbFullScreenEditorInputView pbFullScreenEditorInputView = PbFullScreenEditorInputView.this;
-            pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
+                this.f19336a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f19336a;
+                pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFullScreenEditorInputView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         i();
     }
 
     public void g(ArrayList<String> arrayList) {
-        if (arrayList == null || arrayList.size() == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || arrayList == null || arrayList.size() == 0) {
             return;
         }
         StringBuilder sb = new StringBuilder();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            sb.append("@");
+            sb.append(TNCManager.TNC_PROBE_HEADER_SECEPTOR);
             sb.append(arrayList.get(i2));
             sb.append(" ");
         }
@@ -73,48 +170,93 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     public void h(String str) {
-        if (StringUtils.isNull(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
     public final void i() {
-        setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        }
     }
 
     public void j(String str) {
-        if (TextUtils.isEmpty(str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        d.a.o0.l0.b.d(getContext(), str, new a());
+        d.a.s0.o0.b.d(getContext(), str, new a(this));
     }
 
     public void k(String str, String str2) {
-        if (!TextUtils.isEmpty(str)) {
-            d.a.o0.l0.b.d(getContext(), str, new b());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                d.a.s0.o0.b.d(getContext(), str, new b(this));
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            d.a.s0.o0.b.d(getContext(), str2, new c(this));
         }
-        if (TextUtils.isEmpty(str2)) {
-            return;
-        }
-        d.a.o0.l0.b.d(getContext(), str2, new c());
     }
 
     public void l(v vVar) {
-        if (d.a.o0.l0.a.a(getText().toString()) >= 10) {
-            CustomToast.newInstance().showToast(R.string.too_many_face);
-        } else {
-            d.a.o0.l0.b.b(getContext(), vVar, this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vVar) == null) {
+            if (d.a.s0.o0.a.a(getText().toString()) >= 10) {
+                CustomToast.newInstance().showToast(R.string.too_many_face);
+            } else {
+                d.a.s0.o0.b.b(getContext(), vVar, this);
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFullScreenEditorInputView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         i();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFullScreenEditorInputView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         i();
     }
 }

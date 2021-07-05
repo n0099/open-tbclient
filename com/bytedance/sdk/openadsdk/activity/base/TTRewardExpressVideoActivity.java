@@ -1,650 +1,179 @@
 package com.bytedance.sdk.openadsdk.activity.base;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.bytedance.sdk.openadsdk.c.d;
-import com.bytedance.sdk.openadsdk.component.reward.top.TopProxyLayout;
-import com.bytedance.sdk.openadsdk.component.reward.view.FullRewardExpressView;
-import com.bytedance.sdk.openadsdk.core.EmptyView;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.e;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.g;
-import com.bytedance.sdk.openadsdk.core.p;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
-import com.bytedance.sdk.openadsdk.downloadnew.core.a;
-import com.bytedance.sdk.openadsdk.e.a;
-import com.bytedance.sdk.openadsdk.multipro.b;
-import com.bytedance.sdk.openadsdk.utils.ak;
-import com.bytedance.sdk.openadsdk.utils.al;
-import com.bytedance.sdk.openadsdk.utils.am;
-import com.bytedance.sdk.openadsdk.utils.u;
-import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class TTRewardExpressVideoActivity extends TTRewardVideoActivity implements TTNativeExpressAd.ExpressAdInteractionListener, g {
-    public FullRewardExpressView aU;
-    public FrameLayout aV;
-    public long aW;
-    public a aX;
-    public Handler aZ;
-    public String aY = "rewarded_video";
-    public boolean ba = false;
-    public boolean bb = false;
-    public boolean bg = false;
+public class TTRewardExpressVideoActivity extends TTRewardVideoActivity {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    private void Z() {
-        if (this.bg) {
-            return;
-        }
-        this.bg = true;
-        final View decorView = getWindow().getDecorView();
-        decorView.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.1
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean z = TTRewardExpressVideoActivity.this.s.aq() == 15;
-                float[] fArr = {al.b(TTRewardExpressVideoActivity.this.getApplicationContext(), decorView.getWidth()), al.b(TTRewardExpressVideoActivity.this.getApplicationContext(), decorView.getHeight())};
-                float max = Math.max(fArr[0], fArr[1]);
-                float min = Math.min(fArr[0], fArr[1]);
-                fArr[0] = z ? min : max;
-                if (!z) {
-                    max = min;
-                }
-                fArr[1] = max;
-                if (fArr[0] < 10.0f || fArr[1] < 10.0f) {
-                    u.b("TTRewardExpressVideoActivity", "get root view size error, so run backup");
-                    TTRewardExpressVideoActivity tTRewardExpressVideoActivity = TTRewardExpressVideoActivity.this;
-                    fArr = TTBaseVideoActivity.a(z, tTRewardExpressVideoActivity, tTRewardExpressVideoActivity.aK);
-                }
-                TTRewardExpressVideoActivity.this.a(fArr);
-            }
-        });
-    }
-
-    private void g(boolean z) {
-        if (this.f27201c != null) {
-            if (this.s.D()) {
-                if (!this.U.get()) {
-                    this.f27201c.setShowSound(z);
-                    if (this.s.aJ()) {
-                        this.f27201c.setShowDislike(z);
-                    } else {
-                        this.f27201c.setShowDislike(false);
-                    }
-                }
-            } else if (!this.U.get()) {
-                this.f27201c.setShowSkip(z);
-                this.f27201c.setShowSound(z);
-                if (this.s.aJ()) {
-                    this.f27201c.setShowDislike(z);
-                } else {
-                    this.f27201c.setShowDislike(false);
-                }
-            }
-        }
-        if (z) {
-            al.a((View) this.f27202d, 0);
-            al.a((View) this.aw, 0);
-            return;
-        }
-        al.a((View) this.f27202d, 4);
-        al.a((View) this.aw, 8);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity
-    public void P() {
-        if (this.s == null) {
-            finish();
-            return;
-        }
-        this.aG = false;
-        super.P();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public void Q() {
-        TopProxyLayout topProxyLayout = this.f27201c;
-        if (topProxyLayout != null) {
-            topProxyLayout.a();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public long R() {
-        u.f("TTRewardExpressVideoActivity", "onGetCurrentPlayTime mVideoCurrent:" + this.aW);
-        return this.aW;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public int S() {
-        if (this.ba) {
-            return 4;
-        }
-        if (this.bb) {
-            return 5;
-        }
-        if (x()) {
-            return 1;
-        }
-        if (v()) {
-            return 2;
-        }
-        if (w()) {
-        }
-        return 3;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public void T() {
-        M();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity, com.bytedance.sdk.openadsdk.core.video.c.b
-    public void U() {
-        super.U();
-        FullRewardExpressView fullRewardExpressView = this.aU;
-        if (fullRewardExpressView != null) {
-            fullRewardExpressView.g();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity
-    public void b(String str) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public void d(int i2) {
-        if (i2 == 1) {
-            if (v() || w()) {
-                return;
-            }
-            a(0L, false);
-        } else if (i2 == 2) {
-            try {
-                if (v()) {
-                    this.aN = true;
-                    this.D.h();
-                }
-            } catch (Throwable th) {
-                u.f("TTRewardExpressVideoActivity", "onPause throw Exception :" + th.getMessage());
-            }
-        } else if (i2 != 3) {
-            if (i2 != 4) {
-                if (i2 != 5 || v() || w()) {
-                    return;
-                }
-                a(0L, false);
-                return;
-            }
-            c cVar = this.D;
-            if (cVar != null) {
-                cVar.l();
-                this.D = null;
-            }
-        } else {
-            try {
-                this.aN = false;
-                if (this.aO) {
-                    O();
-                }
-                if (w()) {
-                    this.D.k();
-                }
-            } catch (Throwable th2) {
-                u.f("TTRewardExpressVideoActivity", "onContinue throw Exception :" + th2.getMessage());
+    public TTRewardExpressVideoActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity
-    public void f() {
-        super.f();
-        if (this.aZ == null) {
-            this.aZ = new Handler(Looper.getMainLooper());
-        }
-        n();
-        a(this.P);
-        m();
-        t();
-        l();
-        a("reward_endcard");
-        q();
-        if (l.d(this.s)) {
-            this.aG = true;
-            this.T = ak.d(this.s.ap());
-            i();
-            u();
-            return;
-        }
-        d(true);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view, int i2) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view, int i2) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity, com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity, android.app.Activity
-    public void onDestroy() {
-        FullRewardExpressView fullRewardExpressView = this.aU;
-        if (fullRewardExpressView != null) {
-            fullRewardExpressView.k();
-        }
-        super.onDestroy();
-        Handler handler = this.aZ;
-        if (handler != null) {
-            handler.removeCallbacksAndMessages(null);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view, String str, int i2) {
-        this.aG = true;
-        i();
-        if (this.aZ == null) {
-            this.aZ = new Handler(Looper.getMainLooper());
-        }
-        this.aZ.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.3
-            @Override // java.lang.Runnable
-            public void run() {
-                TTRewardExpressVideoActivity.this.u();
-            }
-        });
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view, float f2, float f3) {
-        if (this.s.i() == 1 && this.s.C()) {
-            return;
-        }
-        if (this.aU.m()) {
-            g(true);
-        }
-        d(false);
-        this.aG = true;
-        i();
-        if (a(this.w, false)) {
-            return;
-        }
-        u();
-        HashMap hashMap = new HashMap();
-        hashMap.put("vbtt_skip_type", 1);
-        a(this.aY, hashMap);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity, com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        Z();
-        FullRewardExpressView fullRewardExpressView = this.aU;
-        if (fullRewardExpressView != null) {
-            fullRewardExpressView.i();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(float[] fArr) {
-        FullRewardExpressView fullRewardExpressView = new FullRewardExpressView(this, this.s, new AdSlot.Builder().setCodeId(String.valueOf(ak.d(this.s.ap()))).setExpressViewAcceptedSize(fArr[0], fArr[1]).build(), this.aY);
-        this.aU = fullRewardExpressView;
-        fullRewardExpressView.setExpressVideoListenerProxy(this);
-        this.aU.setExpressInteractionListener(this);
-        a(this.aU, this.s);
-        this.aV = this.aU.getVideoFrameLayout();
-        this.o.addView(this.aU, new FrameLayout.LayoutParams(-1, -1));
-        this.aU.h();
-        if (!this.aU.m()) {
-            g(false);
-        }
-        this.aU.i();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity, com.bytedance.sdk.openadsdk.core.video.c.b
+    @Override // com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity, com.bytedance.sdk.openadsdk.core.video.b.b
     public boolean a(long j, boolean z) {
-        FrameLayout videoFrameLayout = this.aU.getVideoFrameLayout();
-        this.aV = videoFrameLayout;
-        if (this.D == null) {
-            this.D = new com.bytedance.sdk.openadsdk.component.reward.g(this.f27203e, videoFrameLayout, this.s);
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("dynamic_show_type", Integer.valueOf(this.aU.m() ? 1 : 0));
-        if (!TextUtils.isEmpty(this.af)) {
-            hashMap.put("rit_scene", this.af);
-        }
-        this.D.a(hashMap);
-        this.D.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.2
-            @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void a(long j2, int i2) {
-                am amVar = TTRewardExpressVideoActivity.this.I;
-                if (amVar != null) {
-                    amVar.removeMessages(300);
-                    TTRewardExpressVideoActivity.this.N();
-                }
-                TTRewardExpressVideoActivity tTRewardExpressVideoActivity = TTRewardExpressVideoActivity.this;
-                tTRewardExpressVideoActivity.bb = true;
-                tTRewardExpressVideoActivity.Y();
-                TTRewardExpressVideoActivity.this.u();
-                ((TTRewardVideoActivity) TTRewardExpressVideoActivity.this).bd = (int) (System.currentTimeMillis() / 1000);
-                TTRewardExpressVideoActivity.this.V();
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void b(long j2, int i2) {
-                am amVar = TTRewardExpressVideoActivity.this.I;
-                if (amVar != null) {
-                    amVar.removeMessages(300);
-                }
-                if (b.b()) {
-                    TTRewardExpressVideoActivity.this.e("onVideoError");
-                } else {
-                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener = ((TTRewardVideoActivity) TTRewardExpressVideoActivity.this).be;
-                    if (rewardAdInteractionListener != null) {
-                        rewardAdInteractionListener.onVideoError();
-                    }
-                }
-                TTRewardExpressVideoActivity.this.e(true);
-                if (TTRewardExpressVideoActivity.this.v()) {
-                    return;
-                }
-                TTRewardExpressVideoActivity.this.N();
-                c cVar = TTRewardExpressVideoActivity.this.D;
-                if (cVar != null) {
-                    cVar.m();
-                }
-                TTRewardExpressVideoActivity.this.V();
-                TTRewardExpressVideoActivity.this.u();
-                TTRewardExpressVideoActivity.this.ba = true;
-                HashMap hashMap2 = new HashMap();
-                hashMap2.put("vbtt_skip_type", 1);
-                TTRewardExpressVideoActivity.this.a("rewarded_video", hashMap2);
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void a() {
-                am amVar = TTRewardExpressVideoActivity.this.I;
-                if (amVar != null) {
-                    amVar.removeMessages(300);
-                    TTRewardExpressVideoActivity.this.N();
-                }
-                TTRewardExpressVideoActivity.this.u();
-                HashMap hashMap2 = new HashMap();
-                hashMap2.put("vbtt_skip_type", 0);
-                TTRewardExpressVideoActivity.this.a("rewarded_video", hashMap2);
-                c cVar = TTRewardExpressVideoActivity.this.D;
-                if (cVar != null) {
-                    cVar.m();
-                }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void a(long j2, long j3) {
-                c cVar;
-                TopProxyLayout topProxyLayout;
-                TopProxyLayout topProxyLayout2;
-                am amVar = TTRewardExpressVideoActivity.this.I;
-                if (amVar != null) {
-                    amVar.removeMessages(300);
-                    TTRewardExpressVideoActivity tTRewardExpressVideoActivity = TTRewardExpressVideoActivity.this;
-                    if (j2 != tTRewardExpressVideoActivity.aW) {
-                        tTRewardExpressVideoActivity.N();
-                    }
-                }
-                TTRewardExpressVideoActivity tTRewardExpressVideoActivity2 = TTRewardExpressVideoActivity.this;
-                tTRewardExpressVideoActivity2.aW = j2;
-                tTRewardExpressVideoActivity2.a(j2, j3);
-                TTRewardExpressVideoActivity tTRewardExpressVideoActivity3 = TTRewardExpressVideoActivity.this;
-                long j4 = j2 / 1000;
-                tTRewardExpressVideoActivity3.Q = (int) (tTRewardExpressVideoActivity3.L() - j4);
-                TTRewardExpressVideoActivity tTRewardExpressVideoActivity4 = TTRewardExpressVideoActivity.this;
-                int i2 = tTRewardExpressVideoActivity4.Q;
-                if (i2 >= 0 && (topProxyLayout2 = tTRewardExpressVideoActivity4.f27201c) != null) {
-                    topProxyLayout2.a(String.valueOf(i2), (CharSequence) null);
-                }
-                int i3 = (int) j4;
-                TTRewardExpressVideoActivity tTRewardExpressVideoActivity5 = TTRewardExpressVideoActivity.this;
-                int i4 = tTRewardExpressVideoActivity5.S;
-                boolean z2 = false;
-                if (i4 != -1 && i3 == i4 && !((TTRewardVideoActivity) tTRewardExpressVideoActivity5).bf.get()) {
-                    TTRewardExpressVideoActivity.this.f27202d.setVisibility(0);
-                    ((TTRewardVideoActivity) TTRewardExpressVideoActivity.this).bf.set(true);
-                    TTRewardExpressVideoActivity.this.r();
-                }
-                int g2 = p.h().g(String.valueOf(TTRewardExpressVideoActivity.this.T));
-                if (TTRewardExpressVideoActivity.this.aU.m() && g2 != -1 && g2 >= 0) {
-                    z2 = true;
-                }
-                if (z2 && i3 >= g2) {
-                    if (!TTRewardExpressVideoActivity.this.W.getAndSet(true) && (topProxyLayout = TTRewardExpressVideoActivity.this.f27201c) != null) {
-                        topProxyLayout.setShowSkip(true);
-                    }
-                    TopProxyLayout topProxyLayout3 = TTRewardExpressVideoActivity.this.f27201c;
-                    if (topProxyLayout3 != null) {
-                        topProxyLayout3.a((CharSequence) null, "跳过");
-                        TTRewardExpressVideoActivity.this.f27201c.setSkipEnable(true);
-                    }
-                }
-                TTRewardExpressVideoActivity tTRewardExpressVideoActivity6 = TTRewardExpressVideoActivity.this;
-                if (tTRewardExpressVideoActivity6.Q <= 0) {
-                    tTRewardExpressVideoActivity6.u();
-                }
-                if (!TTRewardExpressVideoActivity.this.aa.get() || (cVar = TTRewardExpressVideoActivity.this.D) == null || cVar.u() == null || !TTRewardExpressVideoActivity.this.D.u().g()) {
-                    return;
-                }
-                TTRewardExpressVideoActivity.this.D.h();
-            }
-        });
-        String i2 = this.s.X() != null ? this.s.X().i() : null;
-        if (this.x != null) {
-            File file = new File(this.x);
-            if (file.exists() && file.length() > 0) {
-                i2 = this.x;
-                this.z = true;
-            }
-        }
-        String str = i2;
-        u.f("wzj", "videoUrl:" + str);
-        if (this.D == null) {
-            return false;
-        }
-        Message message = new Message();
-        message.what = 300;
-        message.arg1 = 1;
-        this.I.sendMessageDelayed(message, 5000L);
-        boolean a2 = this.D.a(str, this.s.am(), this.aV.getWidth(), this.aV.getHeight(), null, this.s.ap(), j, this.P);
-        if (a2 && !z) {
-            u.e("AdEvent", "pangolin ad show " + ak.a(this.s, (View) null));
-            d.a(this.f27203e, this.s, "rewarded_video", hashMap);
-            U();
-            ((TTRewardVideoActivity) this).bc = (int) (System.currentTimeMillis() / 1000);
-        }
-        return a2;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public void f(boolean z) {
-        TopProxyLayout topProxyLayout;
-        if (this.P == z || (topProxyLayout = this.f27201c) == null) {
-            return;
-        }
-        topProxyLayout.b();
-    }
-
-    public void a(@NonNull NativeExpressView nativeExpressView, @NonNull l lVar) {
-        if (nativeExpressView == null || this.s == null) {
-            return;
-        }
-        a a2 = a(lVar);
-        this.aX = a2;
-        if (a2 != null) {
-            a2.b();
-            if (nativeExpressView.getContext() != null && (nativeExpressView.getContext() instanceof Activity)) {
-                this.aX.a((Activity) nativeExpressView.getContext());
-            }
-        }
-        d.a(lVar);
-        EmptyView a3 = a((ViewGroup) nativeExpressView);
-        if (a3 == null) {
-            a3 = new EmptyView(this.f27203e, nativeExpressView);
-            nativeExpressView.addView(a3);
-        }
-        a aVar = this.aX;
-        if (aVar != null) {
-            aVar.a(a3);
-        }
-        a3.setCallback(new EmptyView.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.4
-            @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
-            public void a(View view) {
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
-            public void a(boolean z) {
-                a aVar2 = TTRewardExpressVideoActivity.this.aX;
-                if (aVar2 != null) {
-                    if (z) {
-                        if (aVar2 != null) {
-                            aVar2.b();
-                        }
-                    } else if (aVar2 != null) {
-                        aVar2.c();
-                    }
-                }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
-            public void b() {
-                a aVar2 = TTRewardExpressVideoActivity.this.aX;
-                if (aVar2 != null) {
-                    aVar2.d();
-                }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
-            public void a() {
-                a aVar2 = TTRewardExpressVideoActivity.this.aX;
-                if (aVar2 != null) {
-                    aVar2.a();
-                }
-            }
-        });
-        Context context = this.f27203e;
-        String str = this.aY;
-        e eVar = new e(context, lVar, str, ak.a(str)) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.5
-            @Override // com.bytedance.sdk.openadsdk.core.a.b, com.bytedance.sdk.openadsdk.core.a.c
-            public void a(View view, int i2, int i3, int i4, int i5) {
-                super.a(view, i2, i3, i4, i5);
-                TTRewardExpressVideoActivity.this.a(view, i2, i3, i4, i5);
-            }
-        };
-        eVar.a(nativeExpressView);
-        eVar.a(this.aX);
-        if (!TextUtils.isEmpty(this.af)) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            j.b("TTRewardExpressVideoActivity", "bindVideoAd execute");
+            this.n.a(this.p.b(), this.f28974c, this.f28972a, x());
             HashMap hashMap = new HashMap();
-            hashMap.put("rit_scene", this.af);
-            eVar.a(hashMap);
-        }
-        this.aU.setClickListener(eVar);
-        Context context2 = this.f27203e;
-        String str2 = this.aY;
-        com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(context2, lVar, str2, ak.a(str2)) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.6
-            @Override // com.bytedance.sdk.openadsdk.core.a.a, com.bytedance.sdk.openadsdk.core.a.b, com.bytedance.sdk.openadsdk.core.a.c
-            public void a(View view, int i2, int i3, int i4, int i5) {
-                super.a(view, i2, i3, i4, i5);
-                TTRewardExpressVideoActivity.this.a(view, i2, i3, i4, i5);
+            hashMap.put("dynamic_show_type", Integer.valueOf(this.p.h() ? 1 : 0));
+            if (!TextUtils.isEmpty(this.f28977f)) {
+                hashMap.put("rit_scene", this.f28977f);
             }
-        };
-        dVar.a(nativeExpressView);
-        if (!TextUtils.isEmpty(this.af)) {
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("rit_scene", this.af);
-            dVar.a(hashMap2);
+            this.n.a(hashMap);
+            this.n.a(new c.a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ TTRewardExpressVideoActivity f29075a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f29075a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
+                public void a(long j2, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+                        this.f29075a.w.removeMessages(300);
+                        this.f29075a.s();
+                        this.f29075a.p.b(true);
+                        this.f29075a.n();
+                        this.f29075a.c(false);
+                        ((TTRewardVideoActivity) this.f29075a).E = (int) (System.currentTimeMillis() / 1000);
+                        this.f29075a.C();
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
+                public void b(long j2, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+                        this.f29075a.w.removeMessages(300);
+                        this.f29075a.b("onVideoError");
+                        this.f29075a.r();
+                        if (this.f29075a.n.a()) {
+                            return;
+                        }
+                        this.f29075a.s();
+                        this.f29075a.n.j();
+                        this.f29075a.C();
+                        if (this.f29075a.t()) {
+                            this.f29075a.n.a(1);
+                        }
+                        this.f29075a.p.a(true);
+                        this.f29075a.c(false);
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
+                public void a() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f29075a.w.removeMessages(300);
+                        this.f29075a.s();
+                        this.f29075a.c(false);
+                        this.f29075a.n.a(0);
+                        this.f29075a.n.j();
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
+                public void a(long j2, long j3) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f29075a.q.get()) {
+                        return;
+                    }
+                    this.f29075a.w.removeMessages(300);
+                    if (j2 != this.f29075a.n.A()) {
+                        this.f29075a.s();
+                    }
+                    if (this.f29075a.n.a()) {
+                        this.f29075a.n.b(j2);
+                        int g2 = o.h().g(String.valueOf(this.f29075a.f28975d));
+                        boolean z2 = this.f29075a.p.h() && g2 >= 0;
+                        TTRewardExpressVideoActivity tTRewardExpressVideoActivity = this.f29075a;
+                        long j4 = j2 / 1000;
+                        tTRewardExpressVideoActivity.v = (int) (tTRewardExpressVideoActivity.n.z() - j4);
+                        int i2 = (int) j4;
+                        if (this.f29075a.s.get() || this.f29075a.u()) {
+                            this.f29075a.n.r();
+                        }
+                        this.f29075a.f28980i.c(i2);
+                        this.f29075a.a(j2, j3);
+                        TTRewardExpressVideoActivity tTRewardExpressVideoActivity2 = this.f29075a;
+                        if (tTRewardExpressVideoActivity2.v <= 0) {
+                            tTRewardExpressVideoActivity2.c(false);
+                        } else if (z2 && i2 >= g2) {
+                            tTRewardExpressVideoActivity2.r.getAndSet(true);
+                            this.f29075a.k.d(true);
+                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity3 = this.f29075a;
+                            com.bytedance.sdk.openadsdk.component.reward.b.c cVar = tTRewardExpressVideoActivity3.k;
+                            String valueOf = String.valueOf(tTRewardExpressVideoActivity3.v);
+                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity4 = this.f29075a;
+                            cVar.a(valueOf, tTRewardExpressVideoActivity4.getString(r.b(tTRewardExpressVideoActivity4.f28973b, "tt_reward_screen_skip_tx")));
+                            this.f29075a.k.f(true);
+                        } else {
+                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity5 = this.f29075a;
+                            tTRewardExpressVideoActivity5.k.a(String.valueOf(tTRewardExpressVideoActivity5.v), null);
+                        }
+                    }
+                }
+            });
+            boolean a2 = a(j, z, hashMap);
+            if (a2 && !z) {
+                ((TTRewardVideoActivity) this).D = (int) (System.currentTimeMillis() / 1000);
+            }
+            return a2;
         }
-        dVar.a(this.aX);
-        this.aU.setClickCreativeListener(dVar);
-        a3.setNeedCheckingShow(false);
-        a(this.aX, this.aU);
+        return invokeCommon.booleanValue;
     }
 
-    private a a(l lVar) {
-        if (lVar.Z() == 4) {
-            return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27203e, lVar, this.aY);
+    @Override // com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity, com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return null;
-    }
-
-    private void a(a aVar, NativeExpressView nativeExpressView) {
-        if (aVar == null || nativeExpressView == null) {
-            return;
-        }
-        l lVar = this.s;
-        final String am = lVar != null ? lVar.am() : "";
-        aVar.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.7
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadActive(long j, long j2, String str, String str2) {
-                if (j > 0) {
-                    int i2 = (int) ((j2 * 100) / j);
-                    a.C0309a.a(am, 3, i2);
-                    TTRewardExpressVideoActivity tTRewardExpressVideoActivity = TTRewardExpressVideoActivity.this;
-                    tTRewardExpressVideoActivity.c("已下载" + i2 + "%");
-                }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFailed(long j, long j2, String str, String str2) {
-                TTRewardExpressVideoActivity.this.c("下载失败");
-                if (j > 0) {
-                    a.C0309a.a(am, 4, (int) ((j2 * 100) / j));
-                }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFinished(long j, String str, String str2) {
-                TTRewardExpressVideoActivity.this.c("点击安装");
-                a.C0309a.a(am, 5, 100);
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadPaused(long j, long j2, String str, String str2) {
-                TTRewardExpressVideoActivity.this.c("下载暂停");
-                if (j > 0) {
-                    a.C0309a.a(am, 2, (int) ((j2 * 100) / j));
-                }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onIdle() {
-                a.C0309a.a(am, 1, 0);
-                TTRewardExpressVideoActivity.this.c("点击开始下载");
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onInstalled(String str, String str2) {
-                TTRewardExpressVideoActivity.this.c("点击打开");
-                a.C0309a.a(am, 6, 100);
-            }
-        });
-    }
-
-    private EmptyView a(ViewGroup viewGroup) {
-        for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-            View childAt = viewGroup.getChildAt(i2);
-            if (childAt instanceof EmptyView) {
-                return (EmptyView) childAt;
-            }
-        }
-        return null;
+        return invokeV.booleanValue;
     }
 }

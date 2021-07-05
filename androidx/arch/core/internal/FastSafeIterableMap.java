@@ -3,43 +3,86 @@ package androidx.arch.core.internal;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.arch.core.internal.SafeIterableMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
-    public HashMap<K, SafeIterableMap.Entry<K, V>> mHashMap = new HashMap<>();
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<K, SafeIterableMap.Entry<K, V>> mHashMap;
+
+    public FastSafeIterableMap() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mHashMap = new HashMap<>();
+    }
 
     public Map.Entry<K, V> ceil(K k) {
-        if (contains(k)) {
-            return this.mHashMap.get(k).mPrevious;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            if (contains(k)) {
+                return this.mHashMap.get(k).mPrevious;
+            }
+            return null;
         }
-        return null;
+        return (Map.Entry) invokeL.objValue;
     }
 
     public boolean contains(K k) {
-        return this.mHashMap.containsKey(k);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.mHashMap.containsKey(k) : invokeL.booleanValue;
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
     public SafeIterableMap.Entry<K, V> get(K k) {
-        return this.mHashMap.get(k);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) ? this.mHashMap.get(k) : (SafeIterableMap.Entry) invokeL.objValue;
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
     public V putIfAbsent(@NonNull K k, @NonNull V v) {
-        SafeIterableMap.Entry<K, V> entry = get(k);
-        if (entry != null) {
-            return entry.mValue;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
+            SafeIterableMap.Entry<K, V> entry = get(k);
+            if (entry != null) {
+                return entry.mValue;
+            }
+            this.mHashMap.put(k, put(k, v));
+            return null;
         }
-        this.mHashMap.put(k, put(k, v));
-        return null;
+        return (V) invokeLL.objValue;
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
     public V remove(@NonNull K k) {
-        V v = (V) super.remove(k);
-        this.mHashMap.remove(k);
-        return v;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
+            V v = (V) super.remove(k);
+            this.mHashMap.remove(k);
+            return v;
+        }
+        return (V) invokeL.objValue;
     }
 }

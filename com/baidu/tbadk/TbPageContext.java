@@ -12,8 +12,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import d.a.c.a.f;
 import d.a.c.c.g.a;
-import d.a.n0.r.c;
-/* loaded from: classes3.dex */
+import d.a.r0.r.c;
+/* loaded from: classes4.dex */
 public interface TbPageContext<T> extends f<T> {
     @Override // d.a.c.a.f
     /* synthetic */ Context getContext();

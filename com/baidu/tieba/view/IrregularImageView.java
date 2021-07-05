@@ -11,109 +11,186 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.l.c;
 import d.a.c.e.l.d;
 /* loaded from: classes5.dex */
 public class IrregularImageView extends AppCompatImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21832e;
+    public int f22062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21833f;
+    public int f22063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c<d.a.c.k.d.a> f21834g;
+    public final c<d.a.c.k.d.a> f22064g;
 
     /* loaded from: classes5.dex */
     public class a extends c<d.a.c.k.d.a> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IrregularImageView f22065a;
+
+        public a(IrregularImageView irregularImageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {irregularImageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22065a = irregularImageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
         public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
-            if (aVar == null) {
-                if (IrregularImageView.this.f21833f != 0) {
-                    Bitmap bitmap = null;
-                    try {
-                        bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.f21833f);
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                    if (bitmap != null) {
-                        IrregularImageView irregularImageView = IrregularImageView.this;
-                        irregularImageView.setImage(bitmap, irregularImageView.f21832e);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
+                if (aVar == null) {
+                    if (this.f22065a.f22063f != 0) {
+                        Bitmap bitmap = null;
+                        try {
+                            bitmap = BitmapFactory.decodeResource(this.f22065a.getResources(), this.f22065a.f22063f);
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                        if (bitmap != null) {
+                            IrregularImageView irregularImageView = this.f22065a;
+                            irregularImageView.setImage(bitmap, irregularImageView.f22062e);
+                            return;
+                        }
                         return;
                     }
                     return;
                 }
-                return;
+                this.f22065a.setImage(aVar.p(), this.f22065a.f22062e);
             }
-            IrregularImageView.this.setImage(aVar.p(), IrregularImageView.this.f21832e);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IrregularImageView(Context context) {
         super(context);
-        this.f21834g = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f22064g = new a(this);
     }
 
     public final Bitmap g(Bitmap bitmap, int i2, int i3) {
+        InterceptResult invokeLII;
         int i4;
         float f2;
         int i5;
         int i6;
         int i7;
-        if (bitmap == null || bitmap.getWidth() == 0 || bitmap.getHeight() == 0 || i2 == 0 || i3 == 0) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bitmap, i2, i3)) == null) {
+            if (bitmap == null || bitmap.getWidth() == 0 || bitmap.getHeight() == 0 || i2 == 0 || i3 == 0) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            float f3 = i2 * 1.0f;
+            float f4 = i3;
+            float f5 = width;
+            float f6 = height;
+            if (f3 / f4 > (f5 * 1.0f) / f6) {
+                f2 = f3 / f5;
+                int i8 = (int) ((f4 * 1.0f) / f2);
+                i5 = i8;
+                i4 = width;
+                i6 = (height - i8) / 2;
+                i7 = 0;
+            } else {
+                float f7 = (f4 * 1.0f) / f6;
+                int i9 = (int) (f3 / f7);
+                i4 = i9;
+                f2 = f7;
+                i5 = height;
+                i6 = 0;
+                i7 = (width - i9) / 2;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(f2, f2);
+            return Bitmap.createBitmap(bitmap, i7, i6, i4, i5, matrix, false);
         }
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        float f3 = i2 * 1.0f;
-        float f4 = i3;
-        float f5 = width;
-        float f6 = height;
-        if (f3 / f4 > (f5 * 1.0f) / f6) {
-            f2 = f3 / f5;
-            int i8 = (int) ((f4 * 1.0f) / f2);
-            i5 = i8;
-            i4 = width;
-            i6 = (height - i8) / 2;
-            i7 = 0;
-        } else {
-            float f7 = (f4 * 1.0f) / f6;
-            int i9 = (int) (f3 / f7);
-            i4 = i9;
-            f2 = f7;
-            i5 = height;
-            i6 = 0;
-            i7 = (width - i9) / 2;
-        }
-        Matrix matrix = new Matrix();
-        matrix.postScale(f2, f2);
-        return Bitmap.createBitmap(bitmap, i7, i6, i4, i5, matrix, false);
+        return (Bitmap) invokeLII.objValue;
     }
 
     public void setErrorRes(int i2) {
-        this.f21833f = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f22063f = i2;
+        }
     }
 
     public void setImage(String str, BdUniqueId bdUniqueId, int i2) {
-        this.f21832e = i2;
-        d.h().k(str, 10, this.f21834g, 0, 0, bdUniqueId, new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i2) == null) {
+            this.f22062e = i2;
+            d.h().k(str, 10, this.f22064g, 0, 0, bdUniqueId, new Object[0]);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IrregularImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21834g = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f22064g = new a(this);
     }
 
     public void setImage(Bitmap bitmap, int i2) {
         Bitmap bitmap2;
         Bitmap bitmap3;
         Bitmap bitmap4;
-        if (bitmap == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bitmap, i2) == null) || bitmap == null) {
             return;
         }
         try {
@@ -152,8 +229,25 @@ public class IrregularImageView extends AppCompatImageView {
         setImageBitmap(bitmap3);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IrregularImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21834g = new a();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f22064g = new a(this);
     }
 }

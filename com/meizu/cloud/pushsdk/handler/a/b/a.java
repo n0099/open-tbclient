@@ -23,21 +23,21 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38694a;
+    public int f40457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38695b;
+    public int f40458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38696c;
+    public int f40459c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
-        this.f38694a = parcel.readInt();
-        this.f38695b = parcel.readInt();
-        this.f38696c = parcel.readInt();
+        this.f40457a = parcel.readInt();
+        this.f40458b = parcel.readInt();
+        this.f40459c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -60,24 +60,24 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no control message can parse ";
-        d.j.a.a.a.b("ctl", str);
+        d.h.a.a.a.b("ctl", str);
         return aVar;
     }
 
     public int a() {
-        return this.f38694a;
+        return this.f40457a;
     }
 
     public void a(int i2) {
-        this.f38694a = i2;
+        this.f40457a = i2;
     }
 
     public void b(int i2) {
-        this.f38695b = i2;
+        this.f40458b = i2;
     }
 
     public void c(int i2) {
-        this.f38696c = i2;
+        this.f40459c = i2;
     }
 
     @Override // android.os.Parcelable
@@ -86,13 +86,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.f38694a + ", cached=" + this.f38695b + ", cacheNum=" + this.f38696c + '}';
+        return "Control{pushType=" + this.f40457a + ", cached=" + this.f40458b + ", cacheNum=" + this.f40459c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f38694a);
-        parcel.writeInt(this.f38695b);
-        parcel.writeInt(this.f38696c);
+        parcel.writeInt(this.f40457a);
+        parcel.writeInt(this.f40458b);
+        parcel.writeInt(this.f40459c);
     }
 }

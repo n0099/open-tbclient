@@ -1,18 +1,38 @@
 package com.alipay.apmobilesecuritysdk.f;
 
 import android.os.Process;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public final class c implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f1723a;
+    public final /* synthetic */ b f1726a;
 
     public c(b bVar) {
-        this.f1723a = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f1726a = bVar;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:5:0x000e */
+    /* JADX WARN: Incorrect condition in loop: B:7:0x0012 */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -21,22 +41,25 @@ public final class c implements Runnable {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
-        try {
-            Process.setThreadPriority(0);
-            while (!linkedList.isEmpty()) {
-                linkedList2 = this.f1723a.f1722c;
-                Runnable runnable = (Runnable) linkedList2.get(0);
-                linkedList3 = this.f1723a.f1722c;
-                linkedList3.remove(0);
-                if (runnable != null) {
-                    runnable.run();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                Process.setThreadPriority(0);
+                while (!linkedList.isEmpty()) {
+                    linkedList2 = this.f1726a.f1725c;
+                    Runnable runnable = (Runnable) linkedList2.get(0);
+                    linkedList3 = this.f1726a.f1725c;
+                    linkedList3.remove(0);
+                    if (runnable != null) {
+                        runnable.run();
+                    }
                 }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                this.f1726a.f1724b = null;
+                throw th;
             }
-        } catch (Exception unused) {
-        } catch (Throwable th) {
-            this.f1723a.f1721b = null;
-            throw th;
+            this.f1726a.f1724b = null;
         }
-        this.f1723a.f1721b = null;
     }
 }

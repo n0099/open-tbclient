@@ -2,6 +2,14 @@ package com.facebook.common.util;
 
 import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -9,74 +17,144 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class SecureHashUtil {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;
-    public static final byte[] HEX_CHAR_TABLE = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
+    public static final byte[] HEX_CHAR_TABLE;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1547952156, "Lcom/facebook/common/util/SecureHashUtil;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1547952156, "Lcom/facebook/common/util/SecureHashUtil;");
+                return;
+            }
+        }
+        HEX_CHAR_TABLE = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
+    }
+
+    public SecureHashUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static String convertToHex(byte[] bArr) throws UnsupportedEncodingException {
-        StringBuilder sb = new StringBuilder(bArr.length);
-        for (byte b2 : bArr) {
-            int i2 = b2 & 255;
-            sb.append((char) HEX_CHAR_TABLE[i2 >>> 4]);
-            sb.append((char) HEX_CHAR_TABLE[i2 & 15]);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder(bArr.length);
+            for (byte b2 : bArr) {
+                int i2 = b2 & 255;
+                sb.append((char) HEX_CHAR_TABLE[i2 >>> 4]);
+                sb.append((char) HEX_CHAR_TABLE[i2 & 15]);
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public static String makeHash(byte[] bArr, String str) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.update(bArr, 0, bArr.length);
-            return convertToHex(messageDigest.digest());
-        } catch (UnsupportedEncodingException e2) {
-            throw new RuntimeException(e2);
-        } catch (NoSuchAlgorithmException e3) {
-            throw new RuntimeException(e3);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, str)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                messageDigest.update(bArr, 0, bArr.length);
+                return convertToHex(messageDigest.digest());
+            } catch (UnsupportedEncodingException e2) {
+                throw new RuntimeException(e2);
+            } catch (NoSuchAlgorithmException e3) {
+                throw new RuntimeException(e3);
+            }
         }
+        return (String) invokeLL.objValue;
     }
 
     public static String makeMD5Hash(String str) {
-        try {
-            return makeMD5Hash(str.getBytes("utf-8"));
-        } catch (UnsupportedEncodingException e2) {
-            throw new RuntimeException(e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            try {
+                return makeMD5Hash(str.getBytes("utf-8"));
+            } catch (UnsupportedEncodingException e2) {
+                throw new RuntimeException(e2);
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static String makeSHA1Hash(String str) {
-        try {
-            return makeSHA1Hash(str.getBytes("utf-8"));
-        } catch (UnsupportedEncodingException e2) {
-            throw new RuntimeException(e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            try {
+                return makeSHA1Hash(str.getBytes("utf-8"));
+            } catch (UnsupportedEncodingException e2) {
+                throw new RuntimeException(e2);
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static String makeSHA1HashBase64(byte[] bArr) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            messageDigest.update(bArr, 0, bArr.length);
-            return Base64.encodeToString(messageDigest.digest(), 11);
-        } catch (NoSuchAlgorithmException e2) {
-            throw new RuntimeException(e2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+                messageDigest.update(bArr, 0, bArr.length);
+                return Base64.encodeToString(messageDigest.digest(), 11);
+            } catch (NoSuchAlgorithmException e2) {
+                throw new RuntimeException(e2);
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static String makeSHA256Hash(byte[] bArr) {
-        return makeHash(bArr, "SHA-256");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) ? makeHash(bArr, "SHA-256") : (String) invokeL.objValue;
     }
 
     public static String makeMD5Hash(byte[] bArr) {
-        return makeHash(bArr, "MD5");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? makeHash(bArr, "MD5") : (String) invokeL.objValue;
     }
 
     public static String makeSHA1Hash(byte[] bArr) {
-        return makeHash(bArr, "SHA-1");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? makeHash(bArr, "SHA-1") : (String) invokeL.objValue;
     }
 
     public static String makeMD5Hash(InputStream inputStream) throws IOException {
-        return makeHash(inputStream, "MD5");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, inputStream)) == null) ? makeHash(inputStream, "MD5") : (String) invokeL.objValue;
     }
 
     public static String makeHash(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) != null) {
+            return (String) invokeLL.objValue;
+        }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(str);
             byte[] bArr = new byte[4096];

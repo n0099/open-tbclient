@@ -1,8 +1,17 @@
 package com.baidu.down.manage;
 
 import android.provider.BaseColumns;
-/* loaded from: classes2.dex */
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public final class DownloadConstants {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long CTRL_FLAG_AUTO_PAUSED = 2;
     public static final long CTRL_FLAG_CHECK_CONTENT_TYPE = 8;
     public static final long CTRL_FLAG_SUPPORT_RANGE = 1;
@@ -30,20 +39,78 @@ public final class DownloadConstants {
     public static final int STATUS_WAITING_TO_RETRY = 194;
     public static final String TAG = "DownloadManager";
     public static final int VISIBILITY_VISIBLE = 0;
-    public static boolean mDebug = false;
+    public static boolean mDebug;
     public static String sDestinationDir;
     public static DestinationMode sDestinationMode;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
-    public enum DestinationMode {
-        AUTO,
-        INTERNAL_ONLY,
-        EXTERNAL_ONLY,
-        CUSTOM
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
+    public static final class DestinationMode {
+        public static final /* synthetic */ DestinationMode[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final DestinationMode AUTO;
+        public static final DestinationMode CUSTOM;
+        public static final DestinationMode EXTERNAL_ONLY;
+        public static final DestinationMode INTERNAL_ONLY;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-345488526, "Lcom/baidu/down/manage/DownloadConstants$DestinationMode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-345488526, "Lcom/baidu/down/manage/DownloadConstants$DestinationMode;");
+                    return;
+                }
+            }
+            AUTO = new DestinationMode("AUTO", 0);
+            INTERNAL_ONLY = new DestinationMode("INTERNAL_ONLY", 1);
+            EXTERNAL_ONLY = new DestinationMode("EXTERNAL_ONLY", 2);
+            DestinationMode destinationMode = new DestinationMode("CUSTOM", 3);
+            CUSTOM = destinationMode;
+            $VALUES = new DestinationMode[]{AUTO, INTERNAL_ONLY, EXTERNAL_ONLY, destinationMode};
+        }
+
+        public DestinationMode(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static DestinationMode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DestinationMode) Enum.valueOf(DestinationMode.class, str) : (DestinationMode) invokeL.objValue;
+        }
+
+        public static DestinationMode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DestinationMode[]) $VALUES.clone() : (DestinationMode[]) invokeV.objValue;
+        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DownloadColumns implements BaseColumns {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_AUTO_PAUSE = "AUTO_PAUSE";
         public static final String COLUMN_CONTROL_FLAG = "CONTROL_FLAG";
         public static final String COLUMN_CURRENT_BYTES = "CURRENT_BYTES";
@@ -64,26 +131,85 @@ public final class DownloadConstants {
         public static final String COLUMN_URI_HOST = "URI_HOST";
         public static final String FAILED_REASON = "FAILEDREASON";
         public static final String FAILED_TYPE = "FAILED_TYPE";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public DownloadColumns() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(819163103, "Lcom/baidu/down/manage/DownloadConstants;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(819163103, "Lcom/baidu/down/manage/DownloadConstants;");
+        }
+    }
+
+    public DownloadConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     public static String getDestinationDir() {
-        return sDestinationDir;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sDestinationDir : (String) invokeV.objValue;
     }
 
     public static DestinationMode getDestinationMode() {
-        DestinationMode destinationMode = sDestinationMode;
-        return destinationMode != null ? destinationMode : DestinationMode.AUTO;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            DestinationMode destinationMode = sDestinationMode;
+            return destinationMode != null ? destinationMode : DestinationMode.AUTO;
+        }
+        return (DestinationMode) invokeV.objValue;
     }
 
     public static boolean isStatusError(int i2) {
-        return i2 >= 400 && i2 < 600;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 >= 400 && i2 < 600 : invokeI.booleanValue;
     }
 
     public static void setDestinationDir(String str) {
-        sDestinationDir = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+            sDestinationDir = str;
+        }
     }
 
     public static void setDestinationMode(DestinationMode destinationMode) {
-        sDestinationMode = destinationMode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, destinationMode) == null) {
+            sDestinationMode = destinationMode;
+        }
     }
 }

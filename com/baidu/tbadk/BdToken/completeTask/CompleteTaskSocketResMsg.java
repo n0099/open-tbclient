@@ -1,62 +1,88 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.n0.a.e0.a;
+import d.a.r0.a.e0.a;
 import tbclient.CompleteTask.CompleteTaskResIdl;
 import tbclient.CompleteTask.DataRes;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public a mData;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompleteTaskSocketResMsg() {
         super(309627);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public a getData() {
-        return this.mData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
-        CompleteTaskResIdl completeTaskResIdl = (CompleteTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, CompleteTaskResIdl.class);
-        if (completeTaskResIdl != null) {
-            Error error = completeTaskResIdl.error;
-            if (error != null) {
-                setError(error.errorno.intValue());
-                setErrorString(completeTaskResIdl.error.usermsg);
-            }
-            if (completeTaskResIdl.data != null) {
-                a aVar = new a();
-                this.mData = aVar;
-                aVar.f52466c = completeTaskResIdl.data.show_type.intValue();
-                this.mData.f52467d = completeTaskResIdl.data.ahead_type.intValue();
-                a aVar2 = this.mData;
-                DataRes dataRes = completeTaskResIdl.data;
-                aVar2.f52468e = dataRes.message;
-                aVar2.f52469f = dataRes.btn_text;
-                aVar2.f52470g = dataRes.btn_confirm;
-                aVar2.f52471h = dataRes.btn_cancel;
-                aVar2.f52472i = dataRes.toast_duration.intValue();
-                a aVar3 = this.mData;
-                DataRes dataRes2 = completeTaskResIdl.data;
-                aVar3.j = dataRes2.img_url;
-                aVar3.k = dataRes2.url;
-                aVar3.l = dataRes2.schema;
-                aVar3.m = dataRes2.token;
-                aVar3.f52464a = dataRes2.activity_id.intValue();
-                this.mData.f52465b = completeTaskResIdl.data.mission_id.intValue();
-                a aVar4 = this.mData;
-                DataRes dataRes3 = completeTaskResIdl.data;
-                aVar4.o = dataRes3.btn_color;
-                aVar4.p = dataRes3.message_color;
-                aVar4.q = dataRes3.btn_text_color;
-                aVar4.r = dataRes3.interface_type.intValue();
-                this.mData.n = completeTaskResIdl.data.opacity.doubleValue();
-                this.mData.x = completeTaskResIdl.data.is_not_complete.intValue();
-            }
+        CompleteTaskResIdl completeTaskResIdl;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (completeTaskResIdl = (CompleteTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, CompleteTaskResIdl.class)) == null) {
+            return;
+        }
+        Error error = completeTaskResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(completeTaskResIdl.error.usermsg);
+        }
+        if (completeTaskResIdl.data != null) {
+            a aVar = new a();
+            this.mData = aVar;
+            aVar.f54606c = completeTaskResIdl.data.show_type.intValue();
+            this.mData.f54607d = completeTaskResIdl.data.ahead_type.intValue();
+            a aVar2 = this.mData;
+            DataRes dataRes = completeTaskResIdl.data;
+            aVar2.f54608e = dataRes.message;
+            aVar2.f54609f = dataRes.btn_text;
+            aVar2.f54610g = dataRes.btn_confirm;
+            aVar2.f54611h = dataRes.btn_cancel;
+            aVar2.f54612i = dataRes.toast_duration.intValue();
+            a aVar3 = this.mData;
+            DataRes dataRes2 = completeTaskResIdl.data;
+            aVar3.j = dataRes2.img_url;
+            aVar3.k = dataRes2.url;
+            aVar3.l = dataRes2.schema;
+            aVar3.m = dataRes2.token;
+            aVar3.f54604a = dataRes2.activity_id.intValue();
+            this.mData.f54605b = completeTaskResIdl.data.mission_id.intValue();
+            a aVar4 = this.mData;
+            DataRes dataRes3 = completeTaskResIdl.data;
+            aVar4.o = dataRes3.btn_color;
+            aVar4.p = dataRes3.message_color;
+            aVar4.q = dataRes3.btn_text_color;
+            aVar4.r = dataRes3.interface_type.intValue();
+            this.mData.n = completeTaskResIdl.data.opacity.doubleValue();
+            this.mData.x = completeTaskResIdl.data.is_not_complete.intValue();
         }
     }
 }

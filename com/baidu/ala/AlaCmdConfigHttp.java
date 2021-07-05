@@ -1,6 +1,12 @@
 package com.baidu.ala;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class AlaCmdConfigHttp {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CMD_ALA_ENTER_EFFECT_BUY_PROP = 1021145;
     public static final int CMD_ALA_FRS_STORY_LIVE_GATHER = 1021075;
     public static final int CMD_ALA_GET_ENTER_EFFECT = 1021133;
@@ -27,4 +33,19 @@ public class AlaCmdConfigHttp {
     public static final int CMD_ALA_USER_CENTER = 1021001;
     public static final int CMD_SQUARE_LIVE = 1021054;
     public static final int FRS_ALA_LIVE_TAB_CMD = 1021038;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AlaCmdConfigHttp() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

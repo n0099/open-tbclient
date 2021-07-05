@@ -2,7 +2,16 @@ package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,12 +21,9 @@ import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class Call {
-    public static final Formatter METHOD_ID_FORMATTER = new Formatter() { // from class: com.baidu.android.ddmlib.tools.perflib.vmtrace.Call.1
-        @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.Call.Formatter
-        public String format(Call call) {
-            return Long.toString(call.getMethodId());
-        }
-    };
+    public static /* synthetic */ Interceptable $ic;
+    public static final Formatter METHOD_ID_FORMATTER;
+    public transient /* synthetic */ FieldHolder $fh;
     public final List<Call> mCallees;
     public final int mDepth;
     public final int mEntryGlobalTime;
@@ -31,7 +37,9 @@ public class Call {
 
     /* loaded from: classes.dex */
     public static class Builder {
-        public List<Builder> mCallees = null;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<Builder> mCallees;
         public int mEntryGlobalTime;
         public int mEntryThreadTime;
         public int mExitGlobalTime;
@@ -39,62 +47,116 @@ public class Call {
         public final long mMethodId;
 
         public Builder(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mCallees = null;
             this.mMethodId = j;
         }
 
         public void addCallee(Builder builder) {
-            if (this.mCallees == null) {
-                this.mCallees = new ArrayList();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
+                if (this.mCallees == null) {
+                    this.mCallees = new ArrayList();
+                }
+                this.mCallees.add(builder);
             }
-            this.mCallees.add(builder);
         }
 
         @NonNull
         public Call build(@NonNull Stack<Long> stack) {
-            return new Call(this, stack);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stack)) == null) ? new Call(this, stack) : (Call) invokeL.objValue;
         }
 
         @Nullable
         public List<Builder> getCallees() {
-            return this.mCallees;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCallees : (List) invokeV.objValue;
         }
 
         public int getMethodEntryGlobalTime() {
-            return this.mEntryGlobalTime;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mEntryGlobalTime : invokeV.intValue;
         }
 
         public int getMethodEntryThreadTime() {
-            return this.mEntryThreadTime;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mEntryThreadTime : invokeV.intValue;
         }
 
         public int getMethodExitGlobalTime() {
-            return this.mExitGlobalTime;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mExitGlobalTime : invokeV.intValue;
         }
 
         public int getMethodExitThreadTime() {
-            return this.mExitThreadTime;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mExitThreadTime : invokeV.intValue;
         }
 
         public long getMethodId() {
-            return this.mMethodId;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mMethodId : invokeV.longValue;
         }
 
         public void setMethodEntryTime(int i2, int i3) {
-            this.mEntryThreadTime = i2;
-            this.mEntryGlobalTime = i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
+                this.mEntryThreadTime = i2;
+                this.mEntryGlobalTime = i3;
+            }
         }
 
         public void setMethodExitTime(int i2, int i3) {
-            this.mExitThreadTime = i2;
-            this.mExitGlobalTime = i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
+                this.mExitThreadTime = i2;
+                this.mExitGlobalTime = i3;
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public static class CallHierarchyIterator implements Iterator<Call> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final Stack<Call> mCallStack;
 
         public CallHierarchyIterator(@NonNull Call call) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {call};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             Stack<Call> stack = new Stack<>();
             this.mCallStack = stack;
             stack.push(call);
@@ -102,26 +164,36 @@ public class Call {
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return !this.mCallStack.isEmpty();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.mCallStack.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            throw new UnsupportedOperationException();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                throw new UnsupportedOperationException();
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public Call next() {
-            if (this.mCallStack.isEmpty()) {
-                return null;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.mCallStack.isEmpty()) {
+                    return null;
+                }
+                Call pop = this.mCallStack.pop();
+                for (int size = pop.getCallees().size() - 1; size >= 0; size--) {
+                    this.mCallStack.push(pop.getCallees().get(size));
+                }
+                return pop;
             }
-            Call pop = this.mCallStack.pop();
-            for (int size = pop.getCallees().size() - 1; size >= 0; size--) {
-                this.mCallStack.push(pop.getCallees().get(size));
-            }
-            return pop;
+            return (Call) invokeV.objValue;
         }
     }
 
@@ -130,86 +202,185 @@ public class Call {
         String format(Call call);
     }
 
-    private void printCallHierarchy(@NonNull StringBuilder sb, Formatter formatter) {
-        sb.append(LoadErrorCode.TOKEN_NEXT);
-        sb.append(formatter.format(this));
-        List<Call> callees = getCallees();
-        int length = sb.length() - (sb.lastIndexOf("\n") + 1);
-        for (int i2 = 0; i2 < callees.size(); i2++) {
-            if (i2 != 0) {
-                sb.append("\n");
-                sb.append(Strings.repeat(" ", length));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(722241836, "Lcom/baidu/android/ddmlib/tools/perflib/vmtrace/Call;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            callees.get(i2).printCallHierarchy(sb, formatter);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(722241836, "Lcom/baidu/android/ddmlib/tools/perflib/vmtrace/Call;");
+                return;
+            }
+        }
+        METHOD_ID_FORMATTER = new Formatter() { // from class: com.baidu.android.ddmlib.tools.perflib.vmtrace.Call.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.Call.Formatter
+            public String format(Call call) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, call)) == null) ? Long.toString(call.getMethodId()) : (String) invokeL.objValue;
+            }
+        };
+    }
+
+    private void printCallHierarchy(@NonNull StringBuilder sb, Formatter formatter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, sb, formatter) == null) {
+            sb.append(LoadErrorCode.TOKEN_NEXT);
+            sb.append(formatter.format(this));
+            List<Call> callees = getCallees();
+            int length = sb.length() - (sb.lastIndexOf("\n") + 1);
+            for (int i2 = 0; i2 < callees.size(); i2++) {
+                if (i2 != 0) {
+                    sb.append("\n");
+                    sb.append(Strings.repeat(" ", length));
+                }
+                callees.get(i2).printCallHierarchy(sb, formatter);
+            }
         }
     }
 
     private long sumInclusiveTimes(@NonNull List<Call> list, ClockType clockType) {
-        long j = 0;
-        for (Call call : list) {
-            j += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, list, clockType)) == null) {
+            long j = 0;
+            for (Call call : list) {
+                j += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
+            }
+            return j;
         }
-        return j;
+        return invokeLL.longValue;
     }
 
     public String format(Formatter formatter) {
-        StringBuilder sb = new StringBuilder(100);
-        printCallHierarchy(sb, formatter);
-        return sb.toString();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, formatter)) == null) {
+            StringBuilder sb = new StringBuilder(100);
+            printCallHierarchy(sb, formatter);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     @NonNull
     public Iterator<Call> getCallHierarchyIterator() {
-        return new CallHierarchyIterator(this);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new CallHierarchyIterator(this) : (Iterator) invokeV.objValue;
     }
 
     @NonNull
     public List<Call> getCallees() {
-        return this.mCallees;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCallees : (List) invokeV.objValue;
     }
 
     public int getDepth() {
-        return this.mDepth;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDepth : invokeV.intValue;
     }
 
     public long getEntryTime(ClockType clockType, TimeUnit timeUnit) {
-        return timeUnit.convert((clockType == ClockType.THREAD ? this.mEntryThreadTime : this.mEntryGlobalTime) & 4294967295L, VmTraceData.getDefaultTimeUnits());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, clockType, timeUnit)) == null) {
+            return timeUnit.convert((clockType == ClockType.THREAD ? this.mEntryThreadTime : this.mEntryGlobalTime) & 4294967295L, VmTraceData.getDefaultTimeUnits());
+        }
+        return invokeLL.longValue;
     }
 
     public long getExclusiveTime(ClockType clockType, TimeUnit timeUnit) {
-        return timeUnit.convert(getInclusiveTime(clockType, VmTraceData.getDefaultTimeUnits()) - (clockType == ClockType.THREAD ? this.mInclusiveThreadTimeInCallees : this.mInclusiveGlobalTimeInCallees), VmTraceData.getDefaultTimeUnits());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, clockType, timeUnit)) == null) {
+            return timeUnit.convert(getInclusiveTime(clockType, VmTraceData.getDefaultTimeUnits()) - (clockType == ClockType.THREAD ? this.mInclusiveThreadTimeInCallees : this.mInclusiveGlobalTimeInCallees), VmTraceData.getDefaultTimeUnits());
+        }
+        return invokeLL.longValue;
     }
 
     public long getExitTime(ClockType clockType, TimeUnit timeUnit) {
-        return timeUnit.convert((clockType == ClockType.THREAD ? this.mExitThreadTime : this.mExitGlobalTime) & 4294967295L, VmTraceData.getDefaultTimeUnits());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, clockType, timeUnit)) == null) {
+            return timeUnit.convert((clockType == ClockType.THREAD ? this.mExitThreadTime : this.mExitGlobalTime) & 4294967295L, VmTraceData.getDefaultTimeUnits());
+        }
+        return invokeLL.longValue;
     }
 
     public long getInclusiveTime(ClockType clockType, TimeUnit timeUnit) {
+        InterceptResult invokeLL;
         int i2;
         int i3;
-        if (clockType == ClockType.THREAD) {
-            i2 = this.mExitThreadTime;
-            i3 = this.mEntryThreadTime;
-        } else {
-            i2 = this.mExitGlobalTime;
-            i3 = this.mEntryGlobalTime;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, clockType, timeUnit)) == null) {
+            if (clockType == ClockType.THREAD) {
+                i2 = this.mExitThreadTime;
+                i3 = this.mEntryThreadTime;
+            } else {
+                i2 = this.mExitGlobalTime;
+                i3 = this.mEntryGlobalTime;
+            }
+            return timeUnit.convert((i2 - i3) & 4294967295L, VmTraceData.getDefaultTimeUnits());
         }
-        return timeUnit.convert((i2 - i3) & 4294967295L, VmTraceData.getDefaultTimeUnits());
+        return invokeLL.longValue;
     }
 
     public long getMethodId() {
-        return this.mMethodId;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mMethodId : invokeV.longValue;
     }
 
     public boolean isRecursive() {
-        return this.mIsRecursive;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mIsRecursive : invokeV.booleanValue;
     }
 
     public String toString() {
-        return format(METHOD_ID_FORMATTER);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? format(METHOD_ID_FORMATTER) : (String) invokeV.objValue;
     }
 
     public Call(@NonNull Builder builder, @NonNull Stack<Long> stack) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder, stack};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mMethodId = builder.mMethodId;
         this.mEntryThreadTime = builder.mEntryThreadTime;
         this.mEntryGlobalTime = builder.mEntryGlobalTime;

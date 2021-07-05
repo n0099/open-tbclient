@@ -1,11 +1,31 @@
 package com.baidu.webkit.logsdk.d;
-/* loaded from: classes5.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f26873a;
+    public static final int f27416a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        f26873a = com.baidu.webkit.logsdk.a.f26816a ? 3 : 20;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1207509375, "Lcom/baidu/webkit/logsdk/d/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1207509375, "Lcom/baidu/webkit/logsdk/d/a;");
+                return;
+            }
+        }
+        f27416a = com.baidu.webkit.logsdk.a.f27359a ? 3 : 20;
     }
 }

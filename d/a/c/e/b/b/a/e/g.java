@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcelable;
 import android.util.SparseArray;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.squareup.wire.Message;
 import d.a.c.e.b.b.a.d.h;
 import d.a.c.e.b.b.a.d.i;
@@ -29,16 +32,29 @@ import java.util.Queue;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class g {
-    /* JADX WARN: Removed duplicated region for block: B:140:0x0171 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0150 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.io.ObjectOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.ObjectOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.ObjectOutputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x0175 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static final h a(Object obj) {
+        InterceptResult invokeL;
         ObjectOutputStream objectOutputStream;
         Exception e2;
-        ObjectOutputStream objectOutputStream2 = null;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, obj)) != null) {
+            return (h) invokeL.objValue;
+        }
+        ObjectOutputStream objectOutputStream2 = 0;
         if (obj == null) {
             return null;
         }
@@ -105,8 +121,8 @@ public class g {
         if (obj instanceof Serializable) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 try {
+                    objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                     try {
                         objectOutputStream.writeObject(obj);
                         objectOutputStream.flush();
@@ -142,8 +158,8 @@ public class g {
                     }
                 } catch (Throwable th) {
                     th = th;
-                    objectOutputStream2 = objectOutputStream;
-                    if (objectOutputStream2 != null) {
+                    objectOutputStream2 = interceptable;
+                    if (objectOutputStream2 != 0) {
                         try {
                             objectOutputStream2.close();
                         } catch (IOException e8) {
@@ -162,7 +178,7 @@ public class g {
                 e2 = e10;
             } catch (Throwable th2) {
                 th = th2;
-                if (objectOutputStream2 != null) {
+                if (objectOutputStream2 != 0) {
                 }
                 byteArrayOutputStream.close();
                 throw th;

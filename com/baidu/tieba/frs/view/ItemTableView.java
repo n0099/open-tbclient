@@ -5,100 +5,194 @@ import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.util.List;
 import tbclient.ItemPlot;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ItemTableView extends LinearLayout {
-    public static final int k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+    public static /* synthetic */ Interceptable $ic;
+    public static final int k;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemTableRowView f16050e;
+    public ItemTableRowView f16189e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ItemTableRowView f16051f;
+    public ItemTableRowView f16190f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemTableRowView f16052g;
+    public ItemTableRowView f16191g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemTableRowView f16053h;
+    public ItemTableRowView f16192h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemTableRowView f16054i;
+    public ItemTableRowView f16193i;
     public SparseArray<ItemTableRowView> j;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-114015025, "Lcom/baidu/tieba/frs/view/ItemTableView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-114015025, "Lcom/baidu/tieba/frs/view/ItemTableView;");
+                return;
+            }
+        }
+        k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ItemTableView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public void a() {
-        this.f16050e.a();
-        this.f16051f.a();
-        this.f16052g.a();
-        this.f16053h.a();
-        this.f16054i.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f16189e.a();
+            this.f16190f.a();
+            this.f16191g.a();
+            this.f16192h.a();
+            this.f16193i.a();
+        }
     }
 
     public final void b(Context context) {
-        setOrientation(1);
-        this.f16054i = c(context, 0, 0);
-        this.f16053h = c(context, 1, k);
-        this.f16052g = c(context, 2, k);
-        this.f16051f = c(context, 3, k);
-        this.f16050e = c(context, 4, k);
-        SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
-        this.j = sparseArray;
-        sparseArray.put(5, this.f16054i);
-        this.j.put(4, this.f16053h);
-        this.j.put(3, this.f16052g);
-        this.j.put(2, this.f16051f);
-        this.j.put(1, this.f16050e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            setOrientation(1);
+            this.f16193i = c(context, 0, 0);
+            this.f16192h = c(context, 1, k);
+            this.f16191g = c(context, 2, k);
+            this.f16190f = c(context, 3, k);
+            this.f16189e = c(context, 4, k);
+            SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
+            this.j = sparseArray;
+            sparseArray.put(5, this.f16193i);
+            this.j.put(4, this.f16192h);
+            this.j.put(3, this.f16191g);
+            this.j.put(2, this.f16190f);
+            this.j.put(1, this.f16189e);
+        }
     }
 
     public final ItemTableRowView c(Context context, int i2, int i3) {
-        ItemTableRowView itemTableRowView = new ItemTableRowView(context);
-        itemTableRowView.setEmptyStartCount(i2);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = i3;
-        addView(itemTableRowView, layoutParams);
-        return itemTableRowView;
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i2, i3)) == null) {
+            ItemTableRowView itemTableRowView = new ItemTableRowView(context);
+            itemTableRowView.setEmptyStartCount(i2);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams.topMargin = i3;
+            addView(itemTableRowView, layoutParams);
+            return itemTableRowView;
+        }
+        return (ItemTableRowView) invokeLII.objValue;
     }
 
     public void d() {
-        this.f16050e.c();
-        this.f16051f.c();
-        this.f16052g.c();
-        this.f16053h.c();
-        this.f16054i.c();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f16189e.c();
+            this.f16190f.c();
+            this.f16191g.c();
+            this.f16192h.c();
+            this.f16193i.c();
+        }
     }
 
     public void setData(List<ItemPlot> list, int i2) {
-        a();
-        if (list == null) {
-            return;
-        }
-        for (ItemPlot itemPlot : list) {
-            if (itemPlot != null) {
-                int intValue = itemPlot.level.intValue();
-                float intValue2 = (itemPlot.num.intValue() * 1.0f) / i2;
-                ItemTableRowView itemTableRowView = this.j.get(intValue);
-                if (itemTableRowView != null) {
-                    itemTableRowView.setData(intValue2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, list, i2) == null) {
+            a();
+            if (list == null) {
+                return;
+            }
+            for (ItemPlot itemPlot : list) {
+                if (itemPlot != null) {
+                    int intValue = itemPlot.level.intValue();
+                    float intValue2 = (itemPlot.num.intValue() * 1.0f) / i2;
+                    ItemTableRowView itemTableRowView = this.j.get(intValue);
+                    if (itemTableRowView != null) {
+                        itemTableRowView.setData(intValue2);
+                    }
                 }
             }
+            invalidate();
         }
-        invalidate();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ItemTableView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemTableView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
         b(context);
     }
 }

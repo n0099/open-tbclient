@@ -12,10 +12,19 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPopupHelper;
 import androidx.appcompat.view.menu.SubMenuBuilder;
 import androidx.appcompat.widget.ActionBarContextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class StandaloneActionMode extends ActionMode implements MenuBuilder.Callback {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ActionMode.Callback mCallback;
     public Context mContext;
     public ActionBarContextView mContextView;
@@ -25,6 +34,20 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     public MenuBuilder mMenu;
 
     public StandaloneActionMode(Context context, ActionBarContextView actionBarContextView, ActionMode.Callback callback, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, actionBarContextView, callback, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
         this.mContextView = actionBarContextView;
         this.mCallback = callback;
@@ -36,7 +59,8 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
 
     @Override // androidx.appcompat.view.ActionMode
     public void finish() {
-        if (this.mFinished) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mFinished) {
             return;
         }
         this.mFinished = true;
@@ -46,102 +70,156 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
 
     @Override // androidx.appcompat.view.ActionMode
     public View getCustomView() {
-        WeakReference<View> weakReference = this.mCustomView;
-        if (weakReference != null) {
-            return weakReference.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<View> weakReference = this.mCustomView;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
         }
-        return null;
+        return (View) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public Menu getMenu() {
-        return this.mMenu;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMenu : (Menu) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public MenuInflater getMenuInflater() {
-        return new SupportMenuInflater(this.mContextView.getContext());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new SupportMenuInflater(this.mContextView.getContext()) : (MenuInflater) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public CharSequence getSubtitle() {
-        return this.mContextView.getSubtitle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContextView.getSubtitle() : (CharSequence) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public CharSequence getTitle() {
-        return this.mContextView.getTitle();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContextView.getTitle() : (CharSequence) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public void invalidate() {
-        this.mCallback.onPrepareActionMode(this, this.mMenu);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.mCallback.onPrepareActionMode(this, this.mMenu);
+        }
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public boolean isTitleOptional() {
-        return this.mContextView.isTitleOptional();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mContextView.isTitleOptional() : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public boolean isUiFocusable() {
-        return this.mFocusable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mFocusable : invokeV.booleanValue;
     }
 
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, menuBuilder, z) == null) {
+        }
     }
 
     public void onCloseSubMenu(SubMenuBuilder subMenuBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, subMenuBuilder) == null) {
+        }
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
     public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
-        return this.mCallback.onActionItemClicked(this, menuItem);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, menuBuilder, menuItem)) == null) ? this.mCallback.onActionItemClicked(this, menuItem) : invokeLL.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
     public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
-        invalidate();
-        this.mContextView.showOverflowMenu();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, menuBuilder) == null) {
+            invalidate();
+            this.mContextView.showOverflowMenu();
+        }
     }
 
     public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
-        if (subMenuBuilder.hasVisibleItems()) {
-            new MenuPopupHelper(this.mContextView.getContext(), subMenuBuilder).show();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, subMenuBuilder)) == null) {
+            if (subMenuBuilder.hasVisibleItems()) {
+                new MenuPopupHelper(this.mContextView.getContext(), subMenuBuilder).show();
+                return true;
+            }
             return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public void setCustomView(View view) {
-        this.mContextView.setCustomView(view);
-        this.mCustomView = view != null ? new WeakReference<>(view) : null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
+            this.mContextView.setCustomView(view);
+            this.mCustomView = view != null ? new WeakReference<>(view) : null;
+        }
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public void setSubtitle(CharSequence charSequence) {
-        this.mContextView.setSubtitle(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, charSequence) == null) {
+            this.mContextView.setSubtitle(charSequence);
+        }
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public void setTitle(CharSequence charSequence) {
-        this.mContextView.setTitle(charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, charSequence) == null) {
+            this.mContextView.setTitle(charSequence);
+        }
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public void setTitleOptionalHint(boolean z) {
-        super.setTitleOptionalHint(z);
-        this.mContextView.setTitleOptional(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            super.setTitleOptionalHint(z);
+            this.mContextView.setTitleOptional(z);
+        }
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public void setSubtitle(int i2) {
-        setSubtitle(this.mContext.getString(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            setSubtitle(this.mContext.getString(i2));
+        }
     }
 
     @Override // androidx.appcompat.view.ActionMode
     public void setTitle(int i2) {
-        setTitle(this.mContext.getString(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            setTitle(this.mContext.getString(i2));
+        }
     }
 }

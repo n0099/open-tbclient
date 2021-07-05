@@ -2,104 +2,182 @@ package com.bun.miitmdid.supplier.b;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
 import com.huawei.android.hms.pps.AdvertisingIdClient;
 /* loaded from: classes6.dex */
 public class a implements InnerIdSupplier {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26952a;
-
-    /* renamed from: g  reason: collision with root package name */
-    public SupplierListener f26958g;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f26957f = false;
+    public Context f27495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26953b = "";
+    public String f27496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26954c = "";
+    public String f27497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26955d = "";
+    public String f27498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26956e = "";
+    public String f27499e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f27500f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public SupplierListener f27501g;
 
     public a(Context context) {
-        this.f26952a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f27500f = false;
+        this.f27496b = "";
+        this.f27497c = "";
+        this.f27498d = "";
+        this.f27499e = "";
+        this.f27495a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        try {
-            boolean z = !TextUtils.isEmpty(this.f26954c);
-            this.f26957f = z;
-            if (z) {
-                if (this.f26958g != null) {
-                    this.f26958g.OnSupport(z, this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            try {
+                boolean z = !TextUtils.isEmpty(this.f27497c);
+                this.f27500f = z;
+                if (z) {
+                    if (this.f27501g != null) {
+                        this.f27501g.OnSupport(z, this);
+                    }
+                } else if (this.f27501g != null) {
+                    this.f27501g.OnSupport(z, new com.bun.miitmdid.supplier.a());
                 }
-            } else if (this.f26958g != null) {
-                this.f26958g.OnSupport(z, new com.bun.miitmdid.supplier.a());
+            } catch (Exception e2) {
+                com.bun.miitmdid.utils.a.a(a.class.getSimpleName(), "CallBack", e2);
             }
-        } catch (Exception e2) {
-            com.bun.miitmdid.utils.a.a(a.class.getSimpleName(), "CallBack", e2);
         }
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.f26958g = supplierListener;
-        new Thread(new Runnable() { // from class: com.bun.miitmdid.supplier.b.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                try {
-                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f26952a);
-                    a.this.f26954c = advertisingIdInfo.getId();
-                    advertisingIdInfo.isLimitAdTrackingEnabled();
-                } catch (Exception e2) {
-                    com.bun.miitmdid.utils.a.a(a.class.getSimpleName(), "thread", e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, supplierListener) == null) {
+            this.f27501g = supplierListener;
+            new Thread(new Runnable(this) { // from class: com.bun.miitmdid.supplier.b.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ a f27511a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f27511a = this;
                 }
-                a.this.a();
-            }
-        }).start();
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(this.f27511a.f27495a);
+                            this.f27511a.f27497c = advertisingIdInfo.getId();
+                            advertisingIdInfo.isLimitAdTrackingEnabled();
+                        } catch (Exception e2) {
+                            com.bun.miitmdid.utils.a.a(a.class.getSimpleName(), "thread", e2);
+                        }
+                        this.f27511a.a();
+                    }
+                }
+            }).start();
+        }
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public boolean b() {
-        return false;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        return TextUtils.isEmpty(this.f26956e) ? sysParamters.f() : this.f26956e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.f27499e) ? sysParamters.f() : this.f27499e : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        return this.f26954c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27497c : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
-        return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        return this.f26955d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27498d : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        return this.f26957f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27500f : invokeV.booleanValue;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
     }
 }

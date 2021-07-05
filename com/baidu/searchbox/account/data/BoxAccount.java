@@ -1,11 +1,20 @@
 package com.baidu.searchbox.account.data;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BoxAccount {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public boolean addressSwitch;
     public int age;
     public boolean baijiahao;
@@ -18,7 +27,7 @@ public class BoxAccount {
     public long deadline;
     @Deprecated
     public String displayname;
-    public ErrorBean errorBean = new ErrorBean();
+    public ErrorBean errorBean;
     @Deprecated
     public int expiryTime;
     public HashMap<String, String> extFields;
@@ -49,337 +58,564 @@ public class BoxAccount {
     public String uk;
     public int vip;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ErrorBean {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int errorCode;
         public String errorMsg;
         public String renickname;
+        public final /* synthetic */ BoxAccount this$0;
 
-        public ErrorBean() {
+        public ErrorBean(BoxAccount boxAccount) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {boxAccount};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = boxAccount;
         }
 
         public int getErrorCode() {
-            return this.errorCode;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errorCode : invokeV.intValue;
         }
 
         public String getErrorMsg() {
-            return this.errorMsg;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorMsg : (String) invokeV.objValue;
         }
 
         public String getRenickname() {
-            return this.renickname;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.renickname : (String) invokeV.objValue;
         }
 
         public void setErrorCode(int i2) {
-            this.errorCode = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+                this.errorCode = i2;
+            }
         }
 
         public void setErrorMsg(String str) {
-            this.errorMsg = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.errorMsg = str;
+            }
         }
 
         public void setRenickname(String str) {
-            this.renickname = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.renickname = str;
+            }
         }
+    }
+
+    public BoxAccount() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.errorBean = new ErrorBean(this);
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || BoxAccount.class != obj.getClass()) {
-            return false;
-        }
-        String str = this.uid;
-        String str2 = ((BoxAccount) obj).uid;
-        if (str != null) {
-            if (str.equals(str2)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
                 return true;
             }
-        } else if (str2 == null) {
-            return true;
+            if (obj == null || BoxAccount.class != obj.getClass()) {
+                return false;
+            }
+            String str = this.uid;
+            String str2 = ((BoxAccount) obj).uid;
+            if (str != null) {
+                if (str.equals(str2)) {
+                    return true;
+                }
+            } else if (str2 == null) {
+                return true;
+            }
+            return false;
         }
-        return false;
+        return invokeL.booleanValue;
     }
 
     public boolean getAddressSwitch() {
-        return this.addressSwitch;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addressSwitch : invokeV.booleanValue;
     }
 
     public int getAge() {
-        return this.age;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.age : invokeV.intValue;
     }
 
     public boolean getBaijiahao() {
-        return this.baijiahao;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.baijiahao : invokeV.booleanValue;
     }
 
     public String getBduss() {
-        return this.bduss;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bduss : (String) invokeV.objValue;
     }
 
     public String getBirthday() {
-        return this.birthday;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.birthday : (String) invokeV.objValue;
     }
 
     public String getCity() {
-        return this.city;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.city : (String) invokeV.objValue;
     }
 
     public String getCityCode() {
-        return this.cityCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.cityCode : (String) invokeV.objValue;
     }
 
     public long getDeadline() {
-        return this.deadline;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.deadline : invokeV.longValue;
     }
 
     public String getDisplayname() {
-        return this.displayname;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.displayname : (String) invokeV.objValue;
     }
 
     public ErrorBean getErrorBean() {
-        return this.errorBean;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.errorBean : (ErrorBean) invokeV.objValue;
     }
 
     public int getExpiryTime() {
-        return this.expiryTime;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.expiryTime : invokeV.intValue;
     }
 
     public HashMap<String, String> getExtFields() {
-        if (this.extFields == null) {
-            this.extFields = new HashMap<>();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.extFields == null) {
+                this.extFields = new HashMap<>();
+            }
+            return this.extFields;
         }
-        return this.extFields;
+        return (HashMap) invokeV.objValue;
     }
 
     public int getGender() {
-        return this.gender;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.gender : invokeV.intValue;
     }
 
     public String getGenderText() {
-        int i2 = this.gender;
-        if (i2 == 1) {
-            return AccountConstants.MALE_TEXT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            int i2 = this.gender;
+            if (i2 == 1) {
+                return AccountConstants.MALE_TEXT;
+            }
+            if (i2 == 0) {
+                return AccountConstants.FEMALE_TEXT;
+            }
+            return null;
         }
-        if (i2 == 0) {
-            return AccountConstants.FEMALE_TEXT;
-        }
-        return null;
+        return (String) invokeV.objValue;
     }
 
     public String getHoroscope() {
-        return this.horoscope;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.horoscope : (String) invokeV.objValue;
     }
 
     public String getIsLay() {
-        return this.isLay;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.isLay : (String) invokeV.objValue;
     }
 
     public int getLevel() {
-        return this.level;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.level : invokeV.intValue;
     }
 
     public String getNickname() {
-        return this.nickname;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.nickname : (String) invokeV.objValue;
     }
 
     public String getPortrait() {
-        return this.portrait;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
     public String getPortraitSign() {
-        return this.portraitSign;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.portraitSign : (String) invokeV.objValue;
     }
 
     public String getProvince() {
-        return this.province;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.province : (String) invokeV.objValue;
     }
 
     public String getProvinceCode() {
-        return this.provinceCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.provinceCode : (String) invokeV.objValue;
     }
 
     public String getPtoken() {
-        return this.ptoken;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.ptoken : (String) invokeV.objValue;
     }
 
     public boolean getSearchByInterestSwitch() {
-        return this.searchByInterestSwitch;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.searchByInterestSwitch : invokeV.booleanValue;
     }
 
     public boolean getSearchByTelSwitch() {
-        return this.searchByTelSwitch;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.searchByTelSwitch : invokeV.booleanValue;
     }
 
     public String getSignature() {
-        return this.signature;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.signature : (String) invokeV.objValue;
     }
 
     public String getUid() {
-        return this.uid;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.uid : (String) invokeV.objValue;
     }
 
     public String getUk() {
-        return this.uk;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.uk : (String) invokeV.objValue;
     }
 
     public int getVip() {
-        return this.vip;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.vip : invokeV.intValue;
     }
 
     public int hashCode() {
-        String str = this.uid;
-        if (str != null) {
-            return str.hashCode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            String str = this.uid;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
         }
-        return 0;
+        return invokeV.intValue;
     }
 
     public boolean isIncompleteUser() {
-        return this.incompleteUser;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.incompleteUser : invokeV.booleanValue;
     }
 
     public boolean isInitialPortrait() {
-        return this.isInitialPortrait;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.isInitialPortrait : invokeV.booleanValue;
     }
 
     public void setAddressSwitch(boolean z) {
-        this.addressSwitch = z;
-    }
-
-    public void setAge(int i2) {
-        this.age = i2;
-    }
-
-    public void setBaijiahao(boolean z) {
-        this.baijiahao = z;
-    }
-
-    public void setBduss(String str) {
-        this.bduss = str;
-    }
-
-    public void setBirthday(String str) {
-        this.birthday = str;
-    }
-
-    public void setCity(String str) {
-        this.city = str;
-    }
-
-    public void setCityCode(String str) {
-        this.cityCode = str;
-    }
-
-    public void setDeadline(long j) {
-        this.deadline = j;
-    }
-
-    public void setDisplayname(String str) {
-        this.displayname = str;
-    }
-
-    public void setErrorBean(ErrorBean errorBean) {
-        this.errorBean = errorBean;
-    }
-
-    public void setExpiryTime(int i2) {
-        this.expiryTime = i2;
-    }
-
-    public void setExtFields(HashMap<String, String> hashMap) {
-        this.extFields = hashMap;
-    }
-
-    public void setGender(int i2) {
-        this.gender = i2;
-    }
-
-    public void setHoroscope(String str) {
-        this.horoscope = str;
-    }
-
-    public void setIncompleteUser(boolean z) {
-        this.incompleteUser = z;
-    }
-
-    public void setInitialPortrait(boolean z) {
-        this.isInitialPortrait = z;
-    }
-
-    public void setIsLay(String str) {
-        this.isLay = str;
-    }
-
-    public void setLevel(int i2) {
-        this.level = i2;
-    }
-
-    public void setNickname(String str) {
-        this.nickname = str;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
-    }
-
-    public void setPortraitSign(String str) {
-        this.portraitSign = str;
-    }
-
-    public void setProvince(String str) {
-        this.province = str;
-    }
-
-    public void setProvinceCode(String str) {
-        this.provinceCode = str;
-    }
-
-    public void setPtoken(String str) {
-        this.ptoken = str;
-    }
-
-    public void setSearchByInterestSwitch(boolean z) {
-        this.searchByInterestSwitch = z;
-    }
-
-    public void setSearchByTelSwitch(boolean z) {
-        this.searchByTelSwitch = z;
-    }
-
-    public void setSignature(String str) {
-        this.signature = str;
-    }
-
-    public void setUid(String str) {
-        this.uid = str;
-    }
-
-    public void setUk(String str) {
-        this.uk = str;
-    }
-
-    public void setVip(int i2) {
-        this.vip = i2;
-    }
-
-    public JSONObject toJson() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("uid", this.uid);
-            jSONObject.put("displayname", this.displayname);
-            jSONObject.put("bduss", this.bduss);
-            jSONObject.put("portrait", this.portrait);
-            jSONObject.put("nickname", this.nickname);
-            return jSONObject;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            this.addressSwitch = z;
         }
     }
 
+    public void setAge(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+            this.age = i2;
+        }
+    }
+
+    public void setBaijiahao(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+            this.baijiahao = z;
+        }
+    }
+
+    public void setBduss(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+            this.bduss = str;
+        }
+    }
+
+    public void setBirthday(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+            this.birthday = str;
+        }
+    }
+
+    public void setCity(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+            this.city = str;
+        }
+    }
+
+    public void setCityCode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+            this.cityCode = str;
+        }
+    }
+
+    public void setDeadline(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.deadline = j;
+        }
+    }
+
+    public void setDisplayname(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+            this.displayname = str;
+        }
+    }
+
+    public void setErrorBean(ErrorBean errorBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, errorBean) == null) {
+            this.errorBean = errorBean;
+        }
+    }
+
+    public void setExpiryTime(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
+            this.expiryTime = i2;
+        }
+    }
+
+    public void setExtFields(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, hashMap) == null) {
+            this.extFields = hashMap;
+        }
+    }
+
+    public void setGender(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+            this.gender = i2;
+        }
+    }
+
+    public void setHoroscope(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+            this.horoscope = str;
+        }
+    }
+
+    public void setIncompleteUser(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+            this.incompleteUser = z;
+        }
+    }
+
+    public void setInitialPortrait(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            this.isInitialPortrait = z;
+        }
+    }
+
+    public void setIsLay(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
+            this.isLay = str;
+        }
+    }
+
+    public void setLevel(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
+            this.level = i2;
+        }
+    }
+
+    public void setNickname(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+            this.nickname = str;
+        }
+    }
+
+    public void setPortrait(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+            this.portrait = str;
+        }
+    }
+
+    public void setPortraitSign(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
+            this.portraitSign = str;
+        }
+    }
+
+    public void setProvince(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
+            this.province = str;
+        }
+    }
+
+    public void setProvinceCode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
+            this.provinceCode = str;
+        }
+    }
+
+    public void setPtoken(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
+            this.ptoken = str;
+        }
+    }
+
+    public void setSearchByInterestSwitch(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
+            this.searchByInterestSwitch = z;
+        }
+    }
+
+    public void setSearchByTelSwitch(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
+            this.searchByTelSwitch = z;
+        }
+    }
+
+    public void setSignature(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+            this.signature = str;
+        }
+    }
+
+    public void setUid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
+            this.uid = str;
+        }
+    }
+
+    public void setUk(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
+            this.uk = str;
+        }
+    }
+
+    public void setVip(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
+            this.vip = i2;
+        }
+    }
+
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("uid", this.uid);
+                jSONObject.put("displayname", this.displayname);
+                jSONObject.put("bduss", this.bduss);
+                jSONObject.put("portrait", this.portrait);
+                jSONObject.put("nickname", this.nickname);
+                return jSONObject;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
     public String toString() {
-        return "BoxAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', portrait='" + this.portrait + "', nickname='" + this.nickname + "'}";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            return "BoxAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', portrait='" + this.portrait + "', nickname='" + this.nickname + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

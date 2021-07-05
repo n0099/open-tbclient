@@ -1,39 +1,83 @@
 package h.l.b;
 
 import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicReference<a> f71794b = new AtomicReference<>();
+    public static final AtomicReference<a> f75386b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f71795a;
+    public final g f75387a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1457583011, "Lh/l/b/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1457583011, "Lh/l/b/a;");
+                return;
+            }
+        }
+        f75386b = new AtomicReference<>();
+    }
 
     public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         g b2 = h.l.a.a.a().b().b();
         if (b2 != null) {
-            this.f71795a = b2;
+            this.f75387a = b2;
         } else {
-            this.f71795a = new b(Looper.getMainLooper());
+            this.f75387a = new b(Looper.getMainLooper());
         }
     }
 
     public static a a() {
         a aVar;
-        do {
-            a aVar2 = f71794b.get();
-            if (aVar2 != null) {
-                return aVar2;
-            }
-            aVar = new a();
-        } while (!f71794b.compareAndSet(null, aVar));
-        return aVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                a aVar2 = f75386b.get();
+                if (aVar2 != null) {
+                    return aVar2;
+                }
+                aVar = new a();
+            } while (!f75386b.compareAndSet(null, aVar));
+            return aVar;
+        }
+        return (a) invokeV.objValue;
     }
 
     public static g b() {
-        return a().f71795a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().f75387a : (g) invokeV.objValue;
     }
 }

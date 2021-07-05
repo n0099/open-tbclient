@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -14,54 +15,100 @@ import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollVi
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.CardFrsGameRecommendGameItemView;
 import com.baidu.tieba.card.CardFrsGameRecommendGameLayout;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.k.b;
 import d.a.c.e.k.c;
 import d.a.c.e.p.l;
-import d.a.o0.e0.f;
-import d.a.o0.r0.k;
-/* loaded from: classes4.dex */
+import d.a.s0.g0.f;
+import d.a.s0.u0.k;
+/* loaded from: classes5.dex */
 public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolder> {
-    public String w;
-    public b<CardFrsGameRecommendGameItemView> x;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String x;
+    public b<CardFrsGameRecommendGameItemView> y;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class CardFrsGameRecommendGameHolder extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f15621a;
+        public LinearLayout f15709a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f15622b;
+        public TextView f15710b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FlexibleHorizontalScrollView f15623c;
+        public FlexibleHorizontalScrollView f15711c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CardFrsGameRecommendGameLayout f15624d;
+        public CardFrsGameRecommendGameLayout f15712d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f15625e;
+        public View f15713e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f15626f;
+        public View f15714f;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CardFrsGameRecommendGameHolder(GameRecommendGameAdapter gameRecommendGameAdapter, View view) {
             super(view);
-            this.f15621a = (LinearLayout) view.findViewById(R.id.card_game_recommend_content);
-            this.f15622b = (TextView) view.findViewById(R.id.game_recommend_title);
-            this.f15623c = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_recommend_scroll_container);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameRecommendGameAdapter, view};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15709a = (LinearLayout) view.findViewById(R.id.card_game_recommend_content);
+            this.f15710b = (TextView) view.findViewById(R.id.game_recommend_title);
+            this.f15711c = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_recommend_scroll_container);
             CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view.findViewById(R.id.game_recommend_container);
-            this.f15624d = cardFrsGameRecommendGameLayout;
+            this.f15712d = cardFrsGameRecommendGameLayout;
             cardFrsGameRecommendGameLayout.setItemSpace(l.g(view.getContext(), R.dimen.tbds27));
-            this.f15624d.setItemWidth(l.g(view.getContext(), R.dimen.tbds192));
-            this.f15625e = view.findViewById(R.id.divider_line_1);
-            this.f15626f = view.findViewById(R.id.divider_line_2);
+            this.f15712d.setItemWidth(l.g(view.getContext(), R.dimen.tbds192));
+            this.f15713e = view.findViewById(R.id.divider_line_1);
+            this.f15714f = view.findViewById(R.id.divider_line_2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements c<CardFrsGameRecommendGameItemView> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ GameRecommendGameAdapter f15715a;
+
+        public a(GameRecommendGameAdapter gameRecommendGameAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameRecommendGameAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15715a = gameRecommendGameAdapter;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -83,59 +130,98 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
         }
 
         public CardFrsGameRecommendGameItemView e(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
-            return cardFrsGameRecommendGameItemView;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cardFrsGameRecommendGameItemView)) == null) ? cardFrsGameRecommendGameItemView : (CardFrsGameRecommendGameItemView) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.k.c
         /* renamed from: f */
         public void b(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, cardFrsGameRecommendGameItemView) == null) {
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public CardFrsGameRecommendGameItemView d() {
-            CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = new CardFrsGameRecommendGameItemView(GameRecommendGameAdapter.this.f43012e);
-            cardFrsGameRecommendGameItemView.setForumId(GameRecommendGameAdapter.this.w);
-            return cardFrsGameRecommendGameItemView;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = new CardFrsGameRecommendGameItemView(this.f15715a.f44821e);
+                cardFrsGameRecommendGameItemView.setForumId(this.f15715a.x);
+                return cardFrsGameRecommendGameItemView;
+            }
+            return (CardFrsGameRecommendGameItemView) invokeV.objValue;
         }
 
         public CardFrsGameRecommendGameItemView h(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
-            return cardFrsGameRecommendGameItemView;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cardFrsGameRecommendGameItemView)) == null) ? cardFrsGameRecommendGameItemView : (CardFrsGameRecommendGameItemView) invokeL.objValue;
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRecommendGameAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.x = new b<>(new a(), 10, 0);
-        this.w = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.y = new b<>(new a(this), 10, 0);
+        this.x = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.k.e.a
-    /* renamed from: v0 */
+    /* renamed from: x0 */
     public CardFrsGameRecommendGameHolder Q(ViewGroup viewGroup) {
-        CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.f43012e).inflate(R.layout.card_frs_game_recommend_game_layout, viewGroup, false));
-        cardFrsGameRecommendGameHolder.f15624d.setViewPool(this.x);
-        return cardFrsGameRecommendGameHolder;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.f44821e).inflate(R.layout.card_frs_game_recommend_game_layout, viewGroup, false));
+            cardFrsGameRecommendGameHolder.f15712d.setViewPool(this.y);
+            return cardFrsGameRecommendGameHolder;
+        }
+        return (CardFrsGameRecommendGameHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.o0.r0.k, d.a.c.k.e.a
-    /* renamed from: w0 */
+    @Override // d.a.s0.u0.k, d.a.c.k.e.a
+    /* renamed from: y0 */
     public View X(int i2, View view, ViewGroup viewGroup, f fVar, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
-        if (fVar != null && fVar.b() != null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            cardFrsGameRecommendGameHolder.f15622b.setText(fVar.b().title);
-            cardFrsGameRecommendGameHolder.f15622b.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0105));
-            cardFrsGameRecommendGameHolder.f15624d.setPageContext(this.o);
-            cardFrsGameRecommendGameHolder.f15624d.setData(fVar.b().sub_nodes);
-            cardFrsGameRecommendGameHolder.f15623c.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.f15624d.getChildItemWidth());
-            cardFrsGameRecommendGameHolder.f15621a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0201));
-            SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15625e, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15626f, R.color.CAM_X0205);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, fVar, cardFrsGameRecommendGameHolder})) == null) {
+            if (fVar != null && fVar.b() != null) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                cardFrsGameRecommendGameHolder.f15710b.setText(fVar.b().title);
+                cardFrsGameRecommendGameHolder.f15710b.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0105));
+                cardFrsGameRecommendGameHolder.f15712d.setPageContext(this.o);
+                cardFrsGameRecommendGameHolder.f15712d.setData(fVar.b().sub_nodes);
+                cardFrsGameRecommendGameHolder.f15711c.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.f15712d.getChildItemWidth());
+                cardFrsGameRecommendGameHolder.f15709a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0201));
+                SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15713e, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15714f, R.color.CAM_X0205);
+            }
+            return cardFrsGameRecommendGameHolder.a();
         }
-        return cardFrsGameRecommendGameHolder.a();
+        return (View) invokeCommon.objValue;
     }
 }

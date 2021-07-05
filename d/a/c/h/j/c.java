@@ -4,48 +4,79 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.f;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public class c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f42892c;
+    public static volatile c f44701c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f42893a = new ArrayList<>();
+    public ArrayList<String> f44702a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f42894b;
+    public a f44703b;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42895a;
+        public String f44704a;
 
-        public a(String str) {
-            this.f42895a = str;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ c f44705b;
+
+        public a(c cVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44705b = cVar;
+            this.f44704a = str;
         }
 
         public final void b(String str) {
             File[] listFiles;
-            File m = Util.m();
-            String k = Util.k(str);
-            if (m == null || !m.exists() || (listFiles = m.listFiles()) == null) {
-                return;
-            }
-            int length = listFiles.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                if (listFiles[i2] != null && listFiles[i2].isFile() && listFiles[i2].getName().startsWith(k)) {
-                    try {
-                        f.p(listFiles[i2]);
-                        d.a.c.h.h.a.b().o("plugin_del_temp", "deltmp_suc", str, listFiles[i2].getName());
-                    } catch (Throwable th) {
-                        d.a.c.h.h.a b2 = d.a.c.h.h.a.b();
-                        b2.r("plugin_del_temp", "deltmp_fail", str, listFiles[i2].getName() + "-" + th.getMessage());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                File m = Util.m();
+                String k = Util.k(str);
+                if (m == null || !m.exists() || (listFiles = m.listFiles()) == null) {
+                    return;
+                }
+                int length = listFiles.length;
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (listFiles[i2] != null && listFiles[i2].isFile() && listFiles[i2].getName().startsWith(k)) {
+                        try {
+                            f.p(listFiles[i2]);
+                            d.a.c.h.h.a.b().o("plugin_del_temp", "deltmp_suc", str, listFiles[i2].getName());
+                        } catch (Throwable th) {
+                            d.a.c.h.h.a b2 = d.a.c.h.h.a.b();
+                            b2.r("plugin_del_temp", "deltmp_fail", str, listFiles[i2].getName() + "-" + th.getMessage());
+                        }
                     }
                 }
             }
@@ -54,52 +85,82 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            String str = this.f42895a;
-            if (str != null) {
-                b(str);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                String str = this.f44704a;
+                if (str != null) {
+                    b(str);
+                }
+                return Boolean.TRUE;
             }
-            return Boolean.TRUE;
+            return (Boolean) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            super.onPostExecute((a) bool);
-            c.this.f42894b = null;
-            if (c.this.f42893a.size() > 0) {
-                Iterator it = c.this.f42893a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    String str = (String) it.next();
-                    if (str != null && str.equals(this.f42895a)) {
-                        c.this.f42893a.remove(str);
-                        break;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                super.onPostExecute((a) bool);
+                this.f44705b.f44703b = null;
+                if (this.f44705b.f44702a.size() > 0) {
+                    Iterator it = this.f44705b.f44702a.iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        String str = (String) it.next();
+                        if (str != null && str.equals(this.f44704a)) {
+                            this.f44705b.f44702a.remove(str);
+                            break;
+                        }
                     }
                 }
+                this.f44705b.f();
             }
-            c.this.f();
         }
+    }
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f44702a = new ArrayList<>();
     }
 
     public static c e() {
-        if (f42892c == null) {
-            synchronized (c.class) {
-                if (f42892c == null) {
-                    f42892c = new c();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (f44701c == null) {
+                synchronized (c.class) {
+                    if (f44701c == null) {
+                        f44701c = new c();
+                    }
                 }
             }
+            return f44701c;
         }
-        return f42892c;
+        return (c) invokeV.objValue;
     }
 
     public void d(PluginSetting pluginSetting) {
-        if (pluginSetting == null || TextUtils.isEmpty(pluginSetting.packageName)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pluginSetting) == null) || pluginSetting == null || TextUtils.isEmpty(pluginSetting.packageName)) {
             return;
         }
         boolean z = false;
-        Iterator<String> it = this.f42893a.iterator();
+        Iterator<String> it = this.f44702a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -111,17 +172,17 @@ public class c {
             }
         }
         if (!z) {
-            this.f42893a.add(pluginSetting.packageName);
+            this.f44702a.add(pluginSetting.packageName);
         }
         f();
     }
 
     public final void f() {
-        if (this.f42893a.size() <= 0 || this.f42894b != null) {
-            return;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f44702a.size() > 0 && this.f44703b == null) {
+            a aVar = new a(this, this.f44702a.get(0));
+            this.f44703b = aVar;
+            aVar.execute(new String[0]);
         }
-        a aVar = new a(this.f42893a.get(0));
-        this.f42894b = aVar;
-        aVar.execute(new String[0]);
     }
 }

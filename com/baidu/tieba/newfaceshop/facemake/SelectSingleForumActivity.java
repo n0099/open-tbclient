@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectSingleForumActivityConfig;
@@ -17,133 +19,218 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.o0.z1.g.i;
+import d.a.s0.c2.g.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public i mAdapter;
     public View mBackView;
+    public List<BazhuInfoData.BaInfo> mDataList;
     public View mDivider;
     public View mLayoutConfirm;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
+    public View.OnClickListener mOnClickListener;
+    public AdapterView.OnItemClickListener mOnItemClickListener;
     public View mRootView;
     public TextView mTitleView;
     public TextView mTransmitConfirmButton;
-    public List<BazhuInfoData.BaInfo> mDataList = new ArrayList();
-    public View.OnClickListener mOnClickListener = new a();
-    public AdapterView.OnItemClickListener mOnItemClickListener = new b();
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SelectSingleForumActivity f18879e;
+
+        public a(SelectSingleForumActivity selectSingleForumActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {selectSingleForumActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18879e = selectSingleForumActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view.getId() == SelectSingleForumActivity.this.mTransmitConfirmButton.getId()) {
-                if (SelectSingleForumActivity.this.getSelectedData() == null) {
+            if (view.getId() == this.f18879e.mTransmitConfirmButton.getId()) {
+                if (this.f18879e.getSelectedData() == null) {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, SelectSingleForumActivity.this.getSelectedData());
-                SelectSingleForumActivity.this.setResult(-1, intent);
-                SelectSingleForumActivity.this.finish();
-            } else if (view.getId() == SelectSingleForumActivity.this.mBackView.getId()) {
-                SelectSingleForumActivity.this.setResult(0);
-                SelectSingleForumActivity.this.finish();
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.f18879e.getSelectedData());
+                this.f18879e.setResult(-1, intent);
+                this.f18879e.finish();
+            } else if (view.getId() == this.f18879e.mBackView.getId()) {
+                this.f18879e.setResult(0);
+                this.f18879e.finish();
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public class b implements AdapterView.OnItemClickListener {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ SelectSingleForumActivity f18880e;
+
+        public b(SelectSingleForumActivity selectSingleForumActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {selectSingleForumActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f18880e = selectSingleForumActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) SelectSingleForumActivity.this.mDataList.get(i2);
-            CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            if (checkBox.isChecked()) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.f18880e.mDataList.get(i2);
+                CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
+                if (checkBox.isChecked()) {
+                    return;
+                }
+                if (this.f18880e.getSelectedData() != null && this.f18880e.getSelectedData().isChecked) {
+                    this.f18880e.getSelectedData().isChecked = false;
+                }
+                baInfo.isChecked = true;
+                checkBox.setChecked(!checkBox.isChecked());
+                this.f18880e.mAdapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public SelectSingleForumActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (SelectSingleForumActivity.this.getSelectedData() != null && SelectSingleForumActivity.this.getSelectedData().isChecked) {
-                SelectSingleForumActivity.this.getSelectedData().isChecked = false;
-            }
-            baInfo.isChecked = true;
-            checkBox.setChecked(!checkBox.isChecked());
-            SelectSingleForumActivity.this.mAdapter.notifyDataSetChanged();
         }
+        this.mDataList = new ArrayList();
+        this.mOnClickListener = new a(this);
+        this.mOnItemClickListener = new b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public BazhuInfoData.BaInfo getSelectedData() {
-        for (BazhuInfoData.BaInfo baInfo : this.mDataList) {
-            if (baInfo.isChecked) {
-                return baInfo;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            for (BazhuInfoData.BaInfo baInfo : this.mDataList) {
+                if (baInfo.isChecked) {
+                    return baInfo;
+                }
             }
+            return null;
         }
-        return null;
+        return (BazhuInfoData.BaInfo) invokeV.objValue;
     }
 
     private void setTransmitConfirmButtonText() {
-        this.mTransmitConfirmButton.setText(R.string.select_single_forum_confirm);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            this.mTransmitConfirmButton.setText(R.string.select_single_forum_confirm);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-        SkinManager.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        SkinManager.setBackgroundResource(this.mTransmitConfirmButton, R.drawable.btn_all_blue);
-        SkinManager.setViewTextColor(this.mTransmitConfirmButton, R.color.CAM_X0111, 1);
-        SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
-        this.mAdapter.c(i2);
-        this.mListView.setSelector(SkinManager.getDrawable(R.drawable.selector_select_forum_item));
-        SkinManager.setBackgroundColor(this.mLayoutConfirm, R.color.cp_bg_line_d_alpha95);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+            SkinManager.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.mTransmitConfirmButton, R.drawable.btn_all_blue);
+            SkinManager.setViewTextColor(this.mTransmitConfirmButton, R.color.CAM_X0111, 1);
+            SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
+            this.mAdapter.c(i2);
+            this.mListView.setSelector(SkinManager.getDrawable(R.drawable.selector_select_forum_item));
+            SkinManager.setBackgroundColor(this.mLayoutConfirm, R.color.cp_bg_line_d_alpha95);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.select_single_forum_activity);
-        this.mRootView = findViewById(R.id.root_view);
-        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar = navigationBar;
-        View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mBackView = addSystemImageButton;
-        if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBackView.getLayoutParams();
-            layoutParams.leftMargin = l.g(getActivity(), R.dimen.ds10);
-            this.mBackView.setLayoutParams(layoutParams);
-        }
-        this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.emotion_make_select_bar));
-        this.mBackView.setOnClickListener(this.mOnClickListener);
-        this.mDivider = findViewById(R.id.view_divider);
-        TextView textView = (TextView) findViewById(R.id.transmit_confirm);
-        this.mTransmitConfirmButton = textView;
-        textView.setOnClickListener(this.mOnClickListener);
-        this.mLayoutConfirm = findViewById(R.id.layout_confirm);
-        this.mListView = (BdListView) findViewById(R.id.trasmit_grid_view);
-        if (getIntent() != null) {
-            ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
-            if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
-                this.mDataList.addAll(parcelableArrayListExtra);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.select_single_forum_activity);
+            this.mRootView = findViewById(R.id.root_view);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            this.mNavigationBar = navigationBar;
+            View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.mBackView = addSystemImageButton;
+            if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBackView.getLayoutParams();
+                layoutParams.leftMargin = l.g(getActivity(), R.dimen.ds10);
+                this.mBackView.setLayoutParams(layoutParams);
             }
+            this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.emotion_make_select_bar));
+            this.mBackView.setOnClickListener(this.mOnClickListener);
+            this.mDivider = findViewById(R.id.view_divider);
+            TextView textView = (TextView) findViewById(R.id.transmit_confirm);
+            this.mTransmitConfirmButton = textView;
+            textView.setOnClickListener(this.mOnClickListener);
+            this.mLayoutConfirm = findViewById(R.id.layout_confirm);
+            this.mListView = (BdListView) findViewById(R.id.trasmit_grid_view);
+            if (getIntent() != null) {
+                ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
+                if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
+                    this.mDataList.addAll(parcelableArrayListExtra);
+                }
+            }
+            this.mListView.setOnItemClickListener(this.mOnItemClickListener);
+            i iVar = new i(getActivity());
+            this.mAdapter = iVar;
+            this.mListView.setAdapter((ListAdapter) iVar);
+            this.mAdapter.b(this.mDataList);
+            setTransmitConfirmButtonText();
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
-        this.mListView.setOnItemClickListener(this.mOnItemClickListener);
-        i iVar = new i(getActivity());
-        this.mAdapter = iVar;
-        this.mListView.setAdapter((ListAdapter) iVar);
-        this.mAdapter.b(this.mDataList);
-        setTransmitConfirmButtonText();
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 }

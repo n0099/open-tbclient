@@ -15,6 +15,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
@@ -27,131 +28,237 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CandidateSearchActivity extends BaseActivity {
-    public List<d.a.o0.x.b.a> dataList;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<d.a.s0.x.b.a> dataList;
     public CandidateSearchAdapter mAdapter;
     public TextView mButtonCancelSearch;
     public ImageView mButtonDel;
+    public d.a.c.c.g.a mDataResListener;
     public String mForumId;
-    public d.a.o0.x.d.a mModel;
+    public d.a.s0.x.d.a mModel;
     public NavigationBar mNavigationBar;
     public View mNavigationCustomView;
     public View mNoDataView;
+    public View.OnClickListener mOnClickListener;
+    public TextView.OnEditorActionListener mOnEditorActionListener;
     public BdRecyclerView mRecyclerView;
     public ImageView mSearchIcon;
     public EditText mSearchbox;
-    public View.OnClickListener mOnClickListener = new a();
-    public d.a.c.c.g.a mDataResListener = new b(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
-    public TextView.OnEditorActionListener mOnEditorActionListener = new c();
-    public HttpMessageListener mVoteListener = new d(CmdConfigHttp.CMD_BAR_VOTE);
-    public TextWatcher mTextWatcher = new e();
-    public Runnable mShowKeyboardRunnable = new f();
+    public Runnable mShowKeyboardRunnable;
+    public TextWatcher mTextWatcher;
+    public HttpMessageListener mVoteListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CandidateSearchActivity f14319e;
+
+        public a(CandidateSearchActivity candidateSearchActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {candidateSearchActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14319e = candidateSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() != CandidateSearchActivity.this.mButtonCancelSearch.getId()) {
-                if (view.getId() == CandidateSearchActivity.this.mButtonDel.getId()) {
-                    CandidateSearchActivity.this.mSearchbox.setText("");
-                    CandidateSearchActivity.this.mRecyclerView.setVisibility(0);
-                    CandidateSearchActivity.this.mNoDataView.setVisibility(8);
-                    CandidateSearchActivity.this.mAdapter.setData(new ArrayList());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (view.getId() != this.f14319e.mButtonCancelSearch.getId()) {
+                    if (view.getId() == this.f14319e.mButtonDel.getId()) {
+                        this.f14319e.mSearchbox.setText("");
+                        this.f14319e.mRecyclerView.setVisibility(0);
+                        this.f14319e.mNoDataView.setVisibility(8);
+                        this.f14319e.mAdapter.setData(new ArrayList());
+                        return;
+                    }
                     return;
                 }
-                return;
+                this.f14319e.finish();
             }
-            CandidateSearchActivity.this.finish();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends d.a.c.c.g.a {
-        public b(int i2, int i3) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CandidateSearchActivity f14320a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(CandidateSearchActivity candidateSearchActivity, int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {candidateSearchActivity, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14320a = candidateSearchActivity;
         }
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            d.a.o0.x.b.a aVar = null;
+            d.a.s0.x.b.a aVar = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
                 aVar = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
                 aVar = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
             if (responsedMessage.getError() != 0 || aVar == null) {
-                CandidateSearchActivity.this.mRecyclerView.setVisibility(8);
-                CandidateSearchActivity.this.mNoDataView.setVisibility(0);
+                this.f14320a.mRecyclerView.setVisibility(8);
+                this.f14320a.mNoDataView.setVisibility(0);
                 return;
             }
-            CandidateSearchActivity.this.mRecyclerView.setVisibility(0);
-            CandidateSearchActivity.this.mNoDataView.setVisibility(8);
-            if (CandidateSearchActivity.this.mSearchbox.getText() != null) {
-                aVar.j = CandidateSearchActivity.this.mSearchbox.getText().toString();
+            this.f14320a.mRecyclerView.setVisibility(0);
+            this.f14320a.mNoDataView.setVisibility(8);
+            if (this.f14320a.mSearchbox.getText() != null) {
+                aVar.j = this.f14320a.mSearchbox.getText().toString();
             }
-            if (CandidateSearchActivity.this.dataList != null) {
-                CandidateSearchActivity.this.dataList.clear();
+            if (this.f14320a.dataList != null) {
+                this.f14320a.dataList.clear();
             } else {
-                CandidateSearchActivity.this.dataList = new ArrayList();
+                this.f14320a.dataList = new ArrayList();
             }
-            CandidateSearchActivity.this.dataList.add(aVar);
-            CandidateSearchActivity.this.mAdapter.setData(CandidateSearchActivity.this.dataList);
+            this.f14320a.dataList.add(aVar);
+            this.f14320a.mAdapter.setData(this.f14320a.dataList);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements TextView.OnEditorActionListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CandidateSearchActivity f14321a;
+
+        public c(CandidateSearchActivity candidateSearchActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {candidateSearchActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14321a = candidateSearchActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
-            if (i2 == 3) {
-                if (CandidateSearchActivity.this.mSearchbox.getText() != null && !TextUtils.isEmpty(CandidateSearchActivity.this.mSearchbox.getText().toString()) && !TextUtils.isEmpty(CandidateSearchActivity.this.mForumId)) {
-                    CandidateSearchActivity.this.mModel.a(d.a.c.e.m.b.d(CandidateSearchActivity.this.mSearchbox.getText().toString(), 0), d.a.c.e.m.b.f(CandidateSearchActivity.this.mForumId, 0L));
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
+                if (i2 == 3) {
+                    if (this.f14321a.mSearchbox.getText() != null && !TextUtils.isEmpty(this.f14321a.mSearchbox.getText().toString()) && !TextUtils.isEmpty(this.f14321a.mForumId)) {
+                        this.f14321a.mModel.a(d.a.c.e.m.b.d(this.f14321a.mSearchbox.getText().toString(), 0), d.a.c.e.m.b.f(this.f14321a.mForumId, 0L));
+                    }
+                    return true;
                 }
-                return true;
+                return false;
             }
-            return false;
+            return invokeLIL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends HttpMessageListener {
-        public d(int i2) {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CandidateSearchActivity f14322a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(CandidateSearchActivity candidateSearchActivity, int i2) {
             super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {candidateSearchActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14322a = candidateSearchActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
             int error = httpResponsedMessage.getError();
             if (error == 0) {
                 l.L(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
-                if (CandidateSearchActivity.this.dataList != null) {
-                    for (d.a.o0.x.b.a aVar : CandidateSearchActivity.this.dataList) {
+                if (this.f14322a.dataList != null) {
+                    for (d.a.s0.x.b.a aVar : this.f14322a.dataList) {
                         aVar.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                d.a.o0.e3.n0.f.b(error, "", null);
+                d.a.s0.h3.n0.f.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    d.a.o0.e3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    d.a.s0.h3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 l.M(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -161,105 +268,193 @@ public class CandidateSearchActivity extends BaseActivity {
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
                 blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.know);
                 blockPopInfoData.ahead_url = "http://tieba.baidu.com/mo/q/userappeal";
-                AntiHelper.s(CandidateSearchActivity.this, blockPopInfoData);
+                AntiHelper.s(this.f14322a, blockPopInfoData);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements TextWatcher {
-        public e() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CandidateSearchActivity f14323e;
+
+        public e(CandidateSearchActivity candidateSearchActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {candidateSearchActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14323e = candidateSearchActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            CandidateSearchActivity.this.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+                this.f14323e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+            }
         }
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            }
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements Runnable {
-        public f() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CandidateSearchActivity f14324e;
+
+        public f(CandidateSearchActivity candidateSearchActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {candidateSearchActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14324e = candidateSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (CandidateSearchActivity.this.mSearchbox == null) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f14324e.mSearchbox == null) {
                 return;
             }
-            CandidateSearchActivity.this.mSearchbox.requestFocus();
-            CandidateSearchActivity candidateSearchActivity = CandidateSearchActivity.this;
+            this.f14324e.mSearchbox.requestFocus();
+            CandidateSearchActivity candidateSearchActivity = this.f14324e;
             l.K(candidateSearchActivity, candidateSearchActivity.mSearchbox);
         }
     }
 
+    public CandidateSearchActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mOnClickListener = new a(this);
+        this.mDataResListener = new b(this, CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
+        this.mOnEditorActionListener = new c(this);
+        this.mVoteListener = new d(this, CmdConfigHttp.CMD_BAR_VOTE);
+        this.mTextWatcher = new e(this);
+        this.mShowKeyboardRunnable = new f(this);
+    }
+
     private void initNavigationBar() {
-        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.mNavigationBar = navigationBar;
-        navigationBar.showBottomLine();
-        View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.candidate_search_navigation_view, (View.OnClickListener) null);
-        this.mNavigationCustomView = addCustomView;
-        this.mSearchIcon = (ImageView) addCustomView.findViewById(R.id.search_bar_icon);
-        this.mSearchbox = (EditText) this.mNavigationCustomView.findViewById(R.id.home_et_search);
-        ImageView imageView = (ImageView) this.mNavigationCustomView.findViewById(R.id.home_bt_search_del);
-        this.mButtonDel = imageView;
-        imageView.setOnClickListener(this.mOnClickListener);
-        this.mButtonCancelSearch = (TextView) this.mNavigationCustomView.findViewById(R.id.home_bt_search_cancel_s);
-        setDelButtonVisible(false);
-        this.mButtonCancelSearch.setText(getString(R.string.cancel));
-        this.mButtonCancelSearch.setOnClickListener(this.mOnClickListener);
-        this.mSearchbox.setOnEditorActionListener(this.mOnEditorActionListener);
-        this.mSearchbox.addTextChangedListener(this.mTextWatcher);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            this.mNavigationBar = navigationBar;
+            navigationBar.showBottomLine();
+            View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.candidate_search_navigation_view, (View.OnClickListener) null);
+            this.mNavigationCustomView = addCustomView;
+            this.mSearchIcon = (ImageView) addCustomView.findViewById(R.id.search_bar_icon);
+            this.mSearchbox = (EditText) this.mNavigationCustomView.findViewById(R.id.home_et_search);
+            ImageView imageView = (ImageView) this.mNavigationCustomView.findViewById(R.id.home_bt_search_del);
+            this.mButtonDel = imageView;
+            imageView.setOnClickListener(this.mOnClickListener);
+            this.mButtonCancelSearch = (TextView) this.mNavigationCustomView.findViewById(R.id.home_bt_search_cancel_s);
+            setDelButtonVisible(false);
+            this.mButtonCancelSearch.setText(getString(R.string.cancel));
+            this.mButtonCancelSearch.setOnClickListener(this.mOnClickListener);
+            this.mSearchbox.setOnEditorActionListener(this.mOnEditorActionListener);
+            this.mSearchbox.addTextChangedListener(this.mTextWatcher);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-        SkinManager.setViewTextColor(this.mNoDataView, R.color.CAM_X0109);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchIcon, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, null);
-        this.mSearchbox.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        SkinManager.setNavbarTitleColor(this.mSearchbox, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mButtonDel, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SkinManager.setViewTextColor(this.mButtonCancelSearch, R.color.CAM_X0302, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+            SkinManager.setViewTextColor(this.mNoDataView, R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchIcon, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, null);
+            this.mSearchbox.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            SkinManager.setNavbarTitleColor(this.mSearchbox, R.color.CAM_X0105, R.color.s_navbar_title_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mButtonDel, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.mButtonCancelSearch, R.color.CAM_X0302, 1);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.activity_candidate_search);
-        if (getIntent() != null) {
-            this.mForumId = getIntent().getStringExtra("forum_id");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.activity_candidate_search);
+            if (getIntent() != null) {
+                this.mForumId = getIntent().getStringExtra("forum_id");
+            }
+            initNavigationBar();
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.recycler_view);
+            this.mRecyclerView = bdRecyclerView;
+            bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            this.mNoDataView = findViewById(R.id.text_no_data);
+            CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
+            this.mAdapter = candidateSearchAdapter;
+            this.mRecyclerView.setAdapter(candidateSearchAdapter);
+            registerListener(this.mDataResListener);
+            registerListener(this.mVoteListener);
+            this.mModel = new d.a.s0.x.d.a(getPageContext());
+            d.a.c.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
         }
-        initNavigationBar();
-        BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.recycler_view);
-        this.mRecyclerView = bdRecyclerView;
-        bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.mNoDataView = findViewById(R.id.text_no_data);
-        CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
-        this.mAdapter = candidateSearchAdapter;
-        this.mRecyclerView.setAdapter(candidateSearchAdapter);
-        registerListener(this.mDataResListener);
-        registerListener(this.mVoteListener);
-        this.mModel = new d.a.o0.x.d.a(getPageContext());
-        d.a.c.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        d.a.c.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            d.a.c.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
+        }
     }
 
     public void setDelButtonVisible(boolean z) {
-        this.mButtonDel.setVisibility(z ? 0 : 8);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.mButtonDel.setVisibility(z ? 0 : 8);
+        }
     }
 }

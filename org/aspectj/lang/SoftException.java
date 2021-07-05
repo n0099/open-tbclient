@@ -1,14 +1,36 @@
 package org.aspectj.lang;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SoftException extends RuntimeException {
+    public static /* synthetic */ Interceptable $ic;
     public static final boolean HAVE_JAVA_14;
+    public transient /* synthetic */ FieldHolder $fh;
     public Throwable inner;
 
     static {
         boolean z;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1397774083, "Lorg/aspectj/lang/SoftException;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1397774083, "Lorg/aspectj/lang/SoftException;");
+                return;
+            }
+        }
         try {
             Class.forName("java.nio.Buffer");
             z = true;
@@ -19,42 +41,69 @@ public class SoftException extends RuntimeException {
     }
 
     public SoftException(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {th};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.inner = th;
     }
 
     @Override // java.lang.Throwable
     public Throwable getCause() {
-        return this.inner;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.inner : (Throwable) invokeV.objValue;
     }
 
     public Throwable getWrappedThrowable() {
-        return this.inner;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.inner : (Throwable) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
-        printStackTrace(System.err);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            printStackTrace(System.err);
+        }
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
-        super.printStackTrace(printStream);
-        Throwable th = this.inner;
-        if (HAVE_JAVA_14 || th == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, printStream) == null) {
+            super.printStackTrace(printStream);
+            Throwable th = this.inner;
+            if (HAVE_JAVA_14 || th == null) {
+                return;
+            }
+            printStream.print("Caused by: ");
+            th.printStackTrace(printStream);
         }
-        printStream.print("Caused by: ");
-        th.printStackTrace(printStream);
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
-        super.printStackTrace(printWriter);
-        Throwable th = this.inner;
-        if (HAVE_JAVA_14 || th == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, printWriter) == null) {
+            super.printStackTrace(printWriter);
+            Throwable th = this.inner;
+            if (HAVE_JAVA_14 || th == null) {
+                return;
+            }
+            printWriter.print("Caused by: ");
+            th.printStackTrace(printWriter);
         }
-        printWriter.print("Caused by: ");
-        th.printStackTrace(printWriter);
     }
 }

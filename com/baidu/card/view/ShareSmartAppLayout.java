@@ -6,60 +6,116 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
-import d.a.i.p;
-import d.a.n0.r.q.a;
-import d.a.n0.r.q.a2;
-import d.a.o0.z.b0;
-/* loaded from: classes.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.j.p;
+import d.a.r0.r.q.a;
+import d.a.r0.r.q.b2;
+import d.a.s0.a0.b0;
+/* loaded from: classes3.dex */
 public class ShareSmartAppLayout extends LinearLayout implements p<a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AppletsCellView f4531e;
+    public AppletsCellView f4561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b0<a> f4532f;
+    public b0<a> f4562f;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShareSmartAppLayout(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void b() {
-        LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
-        setOrientation(1);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4531e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
+            setOrientation(1);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.f4561e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.i.p
+    @Override // d.a.j.p
     /* renamed from: c */
     public void a(a aVar) {
-        if (aVar != null && aVar.i() != null && aVar.i().l1() != null) {
-            setVisibility(0);
-            a2 i2 = aVar.i();
-            this.f4531e.setData(i2.l1());
-            this.f4531e.setForumId(String.valueOf(i2.c0()));
-            this.f4531e.setFrom("frs_card");
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().Z0() != null) {
+                setVisibility(0);
+                b2 threadData = aVar.getThreadData();
+                this.f4561e.setData(threadData.Z0());
+                this.f4561e.setForumId(String.valueOf(threadData.Q()));
+                this.f4561e.setFrom("frs_card");
+                return;
+            }
+            setVisibility(8);
         }
-        setVisibility(8);
     }
 
     public b0<a> getSubClickListener() {
-        return this.f4532f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4562f : (b0) invokeV.objValue;
     }
 
     public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
     }
 
     public void setSubClickListener(b0<a> b0Var) {
-        this.f4532f = b0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, b0Var) == null) {
+            this.f4562f = b0Var;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         b();
     }
 }

@@ -1,73 +1,134 @@
 package com.kwad.sdk.feed.a.c;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.internal.api.SceneImpl;
 /* loaded from: classes7.dex */
 public class c extends com.kwad.sdk.feed.a.b.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35634c;
+    public boolean f37397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f35635d;
+    public long f37398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35636e;
+    public String f37399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SceneImpl f35637f;
+    public SceneImpl f37400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f35638g;
+    public com.kwad.sdk.core.i.a f37401g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.i.c f35639h = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.feed.a.c.c.1
-        @Override // com.kwad.sdk.core.i.c
-        public void b() {
-            if (c.this.f35635d > 0) {
-                e.a(c.this.f35637f, System.currentTimeMillis() - c.this.f35635d);
-                c.this.f35635d = 0L;
-            }
-        }
+    public com.kwad.sdk.core.i.c f37402h;
 
-        @Override // com.kwad.sdk.core.i.c
-        public void c_() {
-            if (c.this.f35634c) {
-                e.c(c.this.f35637f);
-            } else {
-                c.this.f35634c = true;
-                e.b(c.this.f35637f);
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            c.this.f35635d = System.currentTimeMillis();
         }
-    };
+        this.f37402h = new com.kwad.sdk.core.i.c(this) { // from class: com.kwad.sdk.feed.a.c.c.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ c f37403a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f37403a = this;
+            }
+
+            @Override // com.kwad.sdk.core.i.c
+            public void b() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f37403a.f37398d <= 0) {
+                    return;
+                }
+                e.a(this.f37403a.f37400f, System.currentTimeMillis() - this.f37403a.f37398d);
+                this.f37403a.f37398d = 0L;
+            }
+
+            @Override // com.kwad.sdk.core.i.c
+            public void c_() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    if (this.f37403a.f37397c) {
+                        e.c(this.f37403a.f37400f);
+                    } else {
+                        this.f37403a.f37397c = true;
+                        e.b(this.f37403a.f37400f);
+                    }
+                    this.f37403a.f37398d = System.currentTimeMillis();
+                }
+            }
+        };
+    }
 
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
-        super.a();
-        com.kwad.sdk.core.i.a aVar = ((com.kwad.sdk.feed.a.b.a) this).f35614a.f35616b;
-        this.f35638g = aVar;
-        if (aVar == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
+            com.kwad.sdk.core.i.a aVar = ((com.kwad.sdk.feed.a.b.a) this).f37377a.f37379b;
+            this.f37401g = aVar;
+            if (aVar == null) {
+                return;
+            }
+            aVar.a(this.f37402h);
+            com.kwad.sdk.feed.a.b.b bVar = ((com.kwad.sdk.feed.a.b.a) this).f37377a;
+            this.f37400f = bVar.f37378a;
+            this.f37399e = String.valueOf(bVar.f38467e.hashCode());
         }
-        aVar.a(this.f35639h);
-        com.kwad.sdk.feed.a.b.b bVar = ((com.kwad.sdk.feed.a.b.a) this).f35614a;
-        this.f35637f = bVar.f35615a;
-        this.f35636e = String.valueOf(bVar.f36704e.hashCode());
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
-        super.b_();
-        com.kwad.sdk.core.i.a aVar = this.f35638g;
-        if (aVar != null) {
-            aVar.b(this.f35639h);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.b_();
+            com.kwad.sdk.core.i.a aVar = this.f37401g;
+            if (aVar != null) {
+                aVar.b(this.f37402h);
+            }
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
-        super.d();
-        com.kwad.sdk.core.scene.a.a().c(this.f35636e);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.d();
+            com.kwad.sdk.core.scene.a.a().c(this.f37399e);
+        }
     }
 }

@@ -1,106 +1,223 @@
 package com.kwad.sdk;
 
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f35260a;
+    public static final int f37023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35261b;
+    public static String f37024b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        f35260a = a.f32281a.booleanValue() ? 1 : 2;
-        f35261b = "kwrules.csv";
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1450433422, "Lcom/kwad/sdk/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1450433422, "Lcom/kwad/sdk/d;");
+                return;
+            }
+        }
+        f37023a = a.f34044a.booleanValue() ? 1 : 2;
+        f37024b = "kwrules.csv";
     }
 
     public static String a() {
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) g.a(DevelopMangerPlugin.class)).a("KEY_HOST_API");
-        if (a2 != null) {
-            String obj = a2.getValue().toString();
-            if (!TextUtils.isEmpty(obj)) {
-                return obj;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) g.a(DevelopMangerPlugin.class)).a("KEY_HOST_API");
+            if (a2 != null) {
+                String obj = a2.getValue().toString();
+                if (!TextUtils.isEmpty(obj)) {
+                    return obj;
+                }
             }
+            return "https://open.e.kuaishou.com";
         }
-        return "https://open.e.kuaishou.com";
+        return (String) invokeV.objValue;
     }
 
     public static String b() {
-        return a() + "/rest/e/v3/open/univ";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a() + "/rest/e/v3/open/univ";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String c() {
-        return a() + "/rest/e/v3/open/feed";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a() + "/rest/e/v3/open/feed";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String d() {
-        return a() + "/rest/e/v3/open/logBatch";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            return a() + "/rest/e/v3/open/logBatch";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String e() {
-        return a() + "/rest/e/v3/open/config";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            return a() + "/rest/e/v3/open/config";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String f() {
-        return a() + "/rest/e/v3/open/share";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            return a() + "/rest/e/v3/open/share";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String g() {
-        return a() + "/rest/e/v3/open/comment";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return a() + "/rest/e/v3/open/comment";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String h() {
-        return a() + "/rest/e/v3/open/trend/list";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return a() + "/rest/e/v3/open/trend/list";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String i() {
-        return a() + "/rest/e/v3/open/trend/feed";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return a() + "/rest/e/v3/open/trend/feed";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String j() {
-        return a() + "/rest/e/v3/open/mediaPlayerLog";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return a() + "/rest/e/v3/open/mediaPlayerLog";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String k() {
-        return a() + "/rest/e/v3/open/user/profile";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return a() + "/rest/e/v3/open/user/profile";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String l() {
-        return a() + "/rest/e/v3/open/user/feed";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return a() + "/rest/e/v3/open/user/feed";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String m() {
-        return a() + "/rest/e/v3/open/live/status";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return a() + "/rest/e/v3/open/live/status";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String n() {
-        return a() + "/rest/e/v3/open/live/share";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return a() + "/rest/e/v3/open/live/share";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String o() {
-        return a() + "/rest/e/v3/open/tube/profile";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return a() + "/rest/e/v3/open/tube/profile";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String p() {
-        return a() + "/rest/e/v3/open/tube/feed";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            return a() + "/rest/e/v3/open/tube/feed";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String q() {
-        return a() + "/rest/e/v3/open/crashLog";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return a() + "/rest/e/v3/open/crashLog";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String r() {
-        return a() + "/rest/e/v3/open/suggest/feed";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return a() + "/rest/e/v3/open/suggest/feed";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String s() {
-        return "https://zt.gifshow.com/rest/zt/emoticon/package/list";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? "https://zt.gifshow.com/rest/zt/emoticon/package/list" : (String) invokeV.objValue;
     }
 
     public static String t() {
-        return a() + "/rest/e/v3/open/appCheck";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return a() + "/rest/e/v3/open/appCheck";
+        }
+        return (String) invokeV.objValue;
     }
 }

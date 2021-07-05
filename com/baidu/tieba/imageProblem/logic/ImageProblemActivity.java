@@ -4,78 +4,150 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public ImageProblemAssistant mImageProblemAssistant;
     public CheckTask mTask;
     public ImageProblemView mView;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: com.baidu.tieba.imageProblem.logic.ImageProblemActivity$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
     public class CheckTask extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
-        public CheckTask() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ImageProblemActivity f17983a;
+
+        public CheckTask(ImageProblemActivity imageProblemActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageProblemActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17983a = imageProblemActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public BdStatSwitchData doInBackground(Object... objArr) {
-            publishProgress(0);
-            ImageProblemActivity.this.mImageProblemAssistant.networkCheck();
-            publishProgress(1);
-            ImageProblemActivity.this.mImageProblemAssistant.checkDNSIP();
-            publishProgress(2);
-            ImageProblemActivity.this.mImageProblemAssistant.checkProxyIP();
-            publishProgress(3);
-            ImageProblemActivity.this.mImageProblemAssistant.networkTest();
-            publishProgress(4);
-            ImageProblemActivity.this.mImageProblemAssistant.checkSetting();
-            publishProgress(5);
-            ImageProblemActivity.this.mImageProblemAssistant.checkLoadImg();
-            publishProgress(6);
-            ImageProblemActivity.this.mImageProblemAssistant.fix();
-            publishProgress(7);
-            return null;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                publishProgress(0);
+                this.f17983a.mImageProblemAssistant.networkCheck();
+                publishProgress(1);
+                this.f17983a.mImageProblemAssistant.checkDNSIP();
+                publishProgress(2);
+                this.f17983a.mImageProblemAssistant.checkProxyIP();
+                publishProgress(3);
+                this.f17983a.mImageProblemAssistant.networkTest();
+                publishProgress(4);
+                this.f17983a.mImageProblemAssistant.checkSetting();
+                publishProgress(5);
+                this.f17983a.mImageProblemAssistant.checkLoadImg();
+                publishProgress(6);
+                this.f17983a.mImageProblemAssistant.fix();
+                publishProgress(7);
+                return null;
+            }
+            return (BdStatSwitchData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
-            super.onPostExecute(bdStatSwitchData);
-            ImageProblemActivity.this.mView.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(R.string.diagnose));
-            ImageProblemActivity.this.mView.complete();
-            ImageProblemActivity.this.mTask = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdStatSwitchData) == null) {
+                super.onPostExecute(bdStatSwitchData);
+                this.f17983a.mView.getCheckButton().setText(this.f17983a.getResources().getText(R.string.diagnose));
+                this.f17983a.mView.complete();
+                this.f17983a.mTask = null;
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onProgressUpdate(Integer... numArr) {
-            super.onProgressUpdate(numArr);
-            int intValue = numArr[0].intValue();
-            ImageProblemActivity imageProblemActivity = ImageProblemActivity.this;
-            imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f17861d);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
+                super.onProgressUpdate(numArr);
+                int intValue = numArr[0].intValue();
+                ImageProblemActivity imageProblemActivity = this.f17983a;
+                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f17987d);
+            }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ImageProblemActivity.this.mView.start();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.f17983a.mView.start();
+            }
+        }
+
+        public /* synthetic */ CheckTask(ImageProblemActivity imageProblemActivity, AnonymousClass1 anonymousClass1) {
+            this(imageProblemActivity);
+        }
+    }
+
+    public ImageProblemActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        this.mView.onChangeSkinType(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.mView.onChangeSkinType(i2);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mView.getCheckButton()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && view == this.mView.getCheckButton()) {
             if (this.mTask == null) {
                 this.mView.getCheckButton().setText(getResources().getText(R.string.stop));
-                CheckTask checkTask = new CheckTask();
+                CheckTask checkTask = new CheckTask(this, null);
                 this.mTask = checkTask;
                 checkTask.execute(new Object[0]);
                 return;
@@ -91,19 +163,25 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        ImageProblemAssistant imageProblemAssistant = new ImageProblemAssistant(getPageContext().getPageActivity());
-        this.mImageProblemAssistant = imageProblemAssistant;
-        this.mView = new ImageProblemView(this, imageProblemAssistant);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            ImageProblemAssistant imageProblemAssistant = new ImageProblemAssistant(getPageContext().getPageActivity());
+            this.mImageProblemAssistant = imageProblemAssistant;
+            this.mView = new ImageProblemView(this, imageProblemAssistant);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        CheckTask checkTask = this.mTask;
-        if (checkTask != null) {
-            checkTask.cancel();
-            this.mTask = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+            CheckTask checkTask = this.mTask;
+            if (checkTask != null) {
+                checkTask.cancel();
+                this.mTask = null;
+            }
         }
     }
 }

@@ -10,179 +10,318 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.AnyThread;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.facade.picture.widget.PictureCropView;
 import com.baidu.swan.facade.picture.widget.PictureView;
-import d.a.m0.a.v2.n0;
-import d.a.m0.a.v2.q;
-import d.a.m0.a.v2.q0;
-import d.a.m0.a.z1.b.f.e;
-import d.a.m0.e.d;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.a.v2.n0;
+import d.a.q0.a.v2.q;
+import d.a.q0.a.v2.q0;
+import d.a.q0.a.z1.b.f.e;
+import d.a.q0.e.d;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PictureWallpaperActivity extends SwanAppBaseActivity implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PIC_REFERER = "extra_picture_referer";
     public static final String EXTRA_PIC_URL = "extra_picture_url";
+    public transient /* synthetic */ FieldHolder $fh;
     public PictureCropView mCropView;
     public LoadingView mLoadingView;
-    public String mPicUrl = null;
-    public String mPicUrlReferer = null;
+    public String mPicUrl;
+    public String mPicUrlReferer;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ PictureWallpaperActivity f11678e;
 
         /* renamed from: com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0162a implements PictureView.c {
-            public C0162a() {
+        /* loaded from: classes4.dex */
+        public class C0181a implements PictureView.c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f11679a;
+
+            public C0181a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f11679a = aVar;
             }
 
             @Override // com.baidu.swan.facade.picture.widget.PictureView.c
             public void a() {
-                PictureWallpaperActivity.this.onLoadImage(false);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f11679a.f11678e.onLoadImage(false);
+                }
             }
 
             @Override // com.baidu.swan.facade.picture.widget.PictureView.c
             public void b() {
-                PictureWallpaperActivity.this.onLoadImage(true);
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.f11679a.f11678e.onLoadImage(true);
+                }
             }
         }
 
-        public a() {
+        public a(PictureWallpaperActivity pictureWallpaperActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pictureWallpaperActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11678e = pictureWallpaperActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            PictureWallpaperActivity.this.mCropView.setData(PictureWallpaperActivity.this.mPicUrl, PictureWallpaperActivity.this.mPicUrlReferer, new C0162a());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f11678e.mCropView.setData(this.f11678e.mPicUrl, this.f11678e.mPicUrlReferer, new C0181a(this));
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f11613e;
+        public final /* synthetic */ PictureCropView f11680e;
 
-        public b(PictureCropView pictureCropView) {
-            this.f11613e = pictureCropView;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ PictureWallpaperActivity f11681f;
+
+        public b(PictureWallpaperActivity pictureWallpaperActivity, PictureCropView pictureCropView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pictureWallpaperActivity, pictureCropView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11681f = pictureWallpaperActivity;
+            this.f11680e = pictureCropView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean z;
-            Bitmap croppedImage = this.f11613e.getCroppedImage();
-            if (croppedImage != null) {
-                try {
-                    WallpaperManager.getInstance(PictureWallpaperActivity.this.getApplicationContext()).setBitmap(croppedImage);
-                    z = true;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bitmap croppedImage = this.f11680e.getCroppedImage();
+                if (croppedImage != null) {
+                    try {
+                        WallpaperManager.getInstance(this.f11681f.getApplicationContext()).setBitmap(croppedImage);
+                        z = true;
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                    this.f11681f.onSetWallpaperResult(z);
                 }
-                PictureWallpaperActivity.this.onSetWallpaperResult(z);
+                z = false;
+                this.f11681f.onSetWallpaperResult(z);
             }
-            z = false;
-            PictureWallpaperActivity.this.onSetWallpaperResult(z);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11615e;
+        public final /* synthetic */ boolean f11682e;
 
-        public c(boolean z) {
-            this.f11615e = z;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ PictureWallpaperActivity f11683f;
+
+        public c(PictureWallpaperActivity pictureWallpaperActivity, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pictureWallpaperActivity, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f11683f = pictureWallpaperActivity;
+            this.f11682e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            PictureWallpaperActivity.this.mLoadingView.setVisibility(8);
-            if (this.f11615e) {
-                e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.m0.e.e.swan_app_picture_set_wallpaper_succeed).u();
-            } else {
-                e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.m0.e.e.swan_app_picture_set_wallpaper_fail).u();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f11683f.mLoadingView.setVisibility(8);
+                if (this.f11682e) {
+                    e.f(this.f11683f.getApplicationContext(), d.a.q0.e.e.swan_app_picture_set_wallpaper_succeed).u();
+                } else {
+                    e.f(this.f11683f.getApplicationContext(), d.a.q0.e.e.swan_app_picture_set_wallpaper_fail).u();
+                }
+                this.f11683f.finish();
             }
-            PictureWallpaperActivity.this.finish();
         }
     }
 
-    private void initData(Intent intent) {
-        if (intent != null) {
-            this.mPicUrl = intent.getStringExtra(EXTRA_PIC_URL);
-            this.mPicUrlReferer = intent.getStringExtra(EXTRA_PIC_REFERER);
+    public PictureWallpaperActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if (TextUtils.isEmpty(this.mPicUrl)) {
-            finish();
+        this.mPicUrl = null;
+        this.mPicUrlReferer = null;
+    }
+
+    private void initData(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, intent) == null) {
+            if (intent != null) {
+                this.mPicUrl = intent.getStringExtra(EXTRA_PIC_URL);
+                this.mPicUrlReferer = intent.getStringExtra(EXTRA_PIC_REFERER);
+            }
+            if (TextUtils.isEmpty(this.mPicUrl)) {
+                finish();
+            }
         }
     }
 
     private void initView() {
-        this.mCropView = (PictureCropView) findViewById(d.a.m0.e.c.picture_wallpaper_browseview);
-        LoadingView loadingView = (LoadingView) findViewById(d.a.m0.e.c.picture_set_wallpaper_loading_view);
-        this.mLoadingView = loadingView;
-        loadingView.setMsg(d.a.m0.e.e.swan_app_picture_set_wallpaper_doing);
-        findViewById(d.a.m0.e.c.picture_wallpaper_cancel).setOnClickListener(this);
-        findViewById(d.a.m0.e.c.picture_wallpaper_pick).setOnClickListener(this);
-        this.mCropView.post(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            this.mCropView = (PictureCropView) findViewById(d.a.q0.e.c.picture_wallpaper_browseview);
+            LoadingView loadingView = (LoadingView) findViewById(d.a.q0.e.c.picture_set_wallpaper_loading_view);
+            this.mLoadingView = loadingView;
+            loadingView.setMsg(d.a.q0.e.e.swan_app_picture_set_wallpaper_doing);
+            findViewById(d.a.q0.e.c.picture_wallpaper_cancel).setOnClickListener(this);
+            findViewById(d.a.q0.e.c.picture_wallpaper_pick).setOnClickListener(this);
+            this.mCropView.post(new a(this));
+        }
     }
 
     public static void launchWallpaperActivity(Context context, String str, String str2) {
-        Intent intent = new Intent(context, PictureWallpaperActivity.class);
-        intent.putExtra(EXTRA_PIC_URL, str);
-        intent.putExtra(EXTRA_PIC_REFERER, str2);
-        boolean z = context instanceof Activity;
-        if (!z) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        context.startActivity(intent);
-        if (z) {
-            ((Activity) context).overridePendingTransition(d.a.m0.e.a.aiapps_slide_in_from_right, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, context, str, str2) == null) {
+            Intent intent = new Intent(context, PictureWallpaperActivity.class);
+            intent.putExtra(EXTRA_PIC_URL, str);
+            intent.putExtra(EXTRA_PIC_REFERER, str2);
+            boolean z = context instanceof Activity;
+            if (!z) {
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            context.startActivity(intent);
+            if (z) {
+                ((Activity) context).overridePendingTransition(d.a.q0.e.a.aiapps_slide_in_from_right, 0);
+            }
         }
     }
 
     private void onSetWallpaper() {
-        PictureCropView pictureCropView = this.mCropView;
-        if (pictureCropView == null || !pictureCropView.f()) {
-            return;
+        PictureCropView pictureCropView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && (pictureCropView = this.mCropView) != null && pictureCropView.f()) {
+            this.mLoadingView.setVisibility(0);
+            q.j(new b(this, pictureCropView), "set-wallpaper");
         }
-        this.mLoadingView.setVisibility(0);
-        q.j(new b(pictureCropView), "set-wallpaper");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void onSetWallpaperResult(boolean z) {
-        q0.b0(new c(z));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
+            q0.b0(new c(this, z));
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        int id = view.getId();
-        if (id == d.a.m0.e.c.picture_wallpaper_cancel) {
-            onBackPressed();
-        } else if (id == d.a.m0.e.c.picture_wallpaper_pick) {
-            onSetWallpaper();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            int id = view.getId();
+            if (id == d.a.q0.e.c.picture_wallpaper_cancel) {
+                onBackPressed();
+            } else if (id == d.a.q0.e.c.picture_wallpaper_pick) {
+                onSetWallpaper();
+            }
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.m0.o.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.q0.o.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int Z = q0.Z(this);
-        super.onCreate(bundle);
-        q0.g(this, Z);
-        setContentView(d.swan_app_pictrue_wallpager_layout);
-        n0.a(this);
-        initData(getIntent());
-        initView();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            int Z = q0.Z(this);
+            super.onCreate(bundle);
+            q0.g(this, Z);
+            setContentView(d.swan_app_pictrue_wallpager_layout);
+            n0.a(this);
+            initData(getIntent());
+            initView();
+        }
     }
 
     public void onLoadImage(boolean z) {
-        PictureCropView pictureCropView = this.mCropView;
-        if (pictureCropView == null || !z) {
-            return;
+        PictureCropView pictureCropView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (pictureCropView = this.mCropView) != null && z) {
+            findViewById(d.a.q0.e.c.picture_wallpaper_pick).setEnabled(pictureCropView.f());
         }
-        findViewById(d.a.m0.e.c.picture_wallpaper_pick).setEnabled(pictureCropView.f());
     }
 }

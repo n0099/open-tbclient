@@ -5,119 +5,173 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-/* loaded from: classes2.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
 public class n implements SensorEventListener {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static n f6594d;
+    public static n f6624d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f6595a;
+    public float[] f6625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float[] f6596b;
+    public float[] f6626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SensorManager f6597c;
+    public SensorManager f6627c;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f6598e;
+    public float f6628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6599f = false;
+    public boolean f6629f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6600g = false;
+    public boolean f6630g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6601h = false;
+    public boolean f6631h;
+
+    public n() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f6629f = false;
+        this.f6630g = false;
+        this.f6631h = false;
+    }
 
     public static synchronized n a() {
+        InterceptResult invokeV;
         n nVar;
-        synchronized (n.class) {
-            if (f6594d == null) {
-                f6594d = new n();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (n.class) {
+                if (f6624d == null) {
+                    f6624d = new n();
+                }
+                nVar = f6624d;
             }
-            nVar = f6594d;
+            return nVar;
         }
-        return nVar;
+        return (n) invokeV.objValue;
     }
 
     public void a(boolean z) {
-        this.f6599f = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.f6629f = z;
+        }
     }
 
     public synchronized void b() {
-        if (this.f6601h) {
-            return;
-        }
-        if (this.f6599f) {
-            if (this.f6597c == null) {
-                this.f6597c = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
-            }
-            if (this.f6597c != null) {
-                Sensor defaultSensor = this.f6597c.getDefaultSensor(11);
-                if (defaultSensor != null && this.f6599f) {
-                    this.f6597c.registerListener(this, defaultSensor, 3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.f6631h) {
+                    return;
                 }
-                Sensor defaultSensor2 = this.f6597c.getDefaultSensor(2);
-                if (defaultSensor2 != null && this.f6599f) {
-                    this.f6597c.registerListener(this, defaultSensor2, 3);
+                if (this.f6629f) {
+                    if (this.f6627c == null) {
+                        this.f6627c = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+                    }
+                    if (this.f6627c != null) {
+                        Sensor defaultSensor = this.f6627c.getDefaultSensor(11);
+                        if (defaultSensor != null && this.f6629f) {
+                            this.f6627c.registerListener(this, defaultSensor, 3);
+                        }
+                        Sensor defaultSensor2 = this.f6627c.getDefaultSensor(2);
+                        if (defaultSensor2 != null && this.f6629f) {
+                            this.f6627c.registerListener(this, defaultSensor2, 3);
+                        }
+                    }
+                    this.f6631h = true;
                 }
             }
-            this.f6601h = true;
         }
     }
 
     public synchronized void c() {
-        if (this.f6601h) {
-            if (this.f6597c != null) {
-                this.f6597c.unregisterListener(this);
-                this.f6597c = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.f6631h) {
+                    if (this.f6627c != null) {
+                        this.f6627c.unregisterListener(this);
+                        this.f6627c = null;
+                    }
+                    this.f6631h = false;
+                }
             }
-            this.f6601h = false;
         }
     }
 
     public boolean d() {
-        return this.f6599f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6629f : invokeV.booleanValue;
     }
 
     public float e() {
-        return this.f6598e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6628e : invokeV.floatValue;
     }
 
     @Override // android.hardware.SensorEventListener
     public void onAccuracyChanged(Sensor sensor, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
+        }
     }
 
     @Override // android.hardware.SensorEventListener
     @SuppressLint({"NewApi"})
     public void onSensorChanged(SensorEvent sensorEvent) {
-        int type = sensorEvent.sensor.getType();
-        if (type == 2) {
-            float[] fArr = (float[]) sensorEvent.values.clone();
-            this.f6596b = fArr;
-            Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
-            float[] fArr2 = this.f6596b;
-        } else if (type != 11) {
-        } else {
-            float[] fArr3 = (float[]) sensorEvent.values.clone();
-            this.f6595a = fArr3;
-            if (fArr3 != null) {
-                float[] fArr4 = new float[9];
-                try {
-                    SensorManager.getRotationMatrixFromVector(fArr4, fArr3);
-                    float[] fArr5 = new float[3];
-                    SensorManager.getOrientation(fArr4, fArr5);
-                    float degrees = (float) Math.toDegrees(fArr5[0]);
-                    this.f6598e = degrees;
-                    if (degrees < 0.0f) {
-                        degrees += 360.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) {
+            int type = sensorEvent.sensor.getType();
+            if (type == 2) {
+                float[] fArr = (float[]) sensorEvent.values.clone();
+                this.f6626b = fArr;
+                Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
+                float[] fArr2 = this.f6626b;
+            } else if (type != 11) {
+            } else {
+                float[] fArr3 = (float[]) sensorEvent.values.clone();
+                this.f6625a = fArr3;
+                if (fArr3 != null) {
+                    float[] fArr4 = new float[9];
+                    try {
+                        SensorManager.getRotationMatrixFromVector(fArr4, fArr3);
+                        float[] fArr5 = new float[3];
+                        SensorManager.getOrientation(fArr4, fArr5);
+                        float degrees = (float) Math.toDegrees(fArr5[0]);
+                        this.f6628e = degrees;
+                        if (degrees < 0.0f) {
+                            degrees += 360.0f;
+                        }
+                        this.f6628e = (float) Math.floor(degrees);
+                    } catch (Exception unused) {
+                        this.f6628e = 0.0f;
                     }
-                    this.f6598e = (float) Math.floor(degrees);
-                } catch (Exception unused) {
-                    this.f6598e = 0.0f;
                 }
             }
         }

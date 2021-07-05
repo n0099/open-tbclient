@@ -9,81 +9,136 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class SettingTextNormalImageView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20624e;
+    public Context f20773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f20625f;
+    public LinearLayout f20774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20626g;
+    public TextView f20775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f20627h;
+    public TbImageView f20776h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f20628i;
+    public ImageView f20777i;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20624e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f20773e = context;
         b();
         a(attributeSet);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f20624e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
-        String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
-        int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
-        obtainStyledAttributes.recycle();
-        if (string != null) {
-            this.f20626g.setText(string);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = this.f20773e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+            String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
+            int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
+            obtainStyledAttributes.recycle();
+            if (string != null) {
+                this.f20775g.setText(string);
+            }
+            if (color > -1) {
+                this.f20775g.setTextColor(color);
+            }
+            this.f20774f.setClickable(false);
+            this.f20774f.setFocusable(false);
         }
-        if (color > -1) {
-            this.f20626g.setTextColor(color);
-        }
-        this.f20625f.setClickable(false);
-        this.f20625f.setFocusable(false);
     }
 
     public final void b() {
-        LayoutInflater.from(this.f20624e).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.f20625f = (LinearLayout) findViewById(R.id.container);
-        this.f20626g = (TextView) findViewById(R.id.text);
-        this.f20627h = (TbImageView) findViewById(R.id.icon);
-        this.f20628i = (ImageView) findViewById(R.id.arrow);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(this.f20773e).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
+            this.f20774f = (LinearLayout) findViewById(R.id.container);
+            this.f20775g = (TextView) findViewById(R.id.text);
+            this.f20776h = (TbImageView) findViewById(R.id.icon);
+            this.f20777i = (ImageView) findViewById(R.id.arrow);
+        }
     }
 
     public void c(int i2) {
-        SkinManager.setViewTextColor(this.f20626g, R.color.CAM_X0105, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20628i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-        this.f20627h.invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            SkinManager.setViewTextColor(this.f20775g, R.color.CAM_X0105, 1);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20777i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+            this.f20776h.invalidate();
+        }
     }
 
     public void setLocalIcon(int i2) {
-        this.f20627h.A();
-        this.f20627h.setConrers(0);
-        this.f20627h.setImageResource(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f20776h.s();
+            this.f20776h.setConrers(0);
+            this.f20776h.setImageResource(i2);
+        }
     }
 
     public void setText(String str) {
-        this.f20626g.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f20775g.setText(str);
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SettingTextNormalImageView(Context context) {
         super(context);
-        this.f20624e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f20773e = context;
         b();
         c(TbadkCoreApplication.getInst().getSkinType());
     }

@@ -6,6 +6,7 @@ import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.DownDetail;
 import com.baidu.down.common.FileMsg;
 import com.baidu.down.common.TaskMsg;
@@ -21,69 +22,105 @@ import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.retry.HttpRetryStrategyHandler;
 import com.baidu.down.statistic.TaskSpeedStat;
-import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.video.player.KsMediaMeta;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BinaryReqTask extends AbstractTask {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "BinaryReqTask";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
-        public BinaryTaskHandler() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BinaryReqTask this$0;
+
+        public BinaryTaskHandler(BinaryReqTask binaryReqTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {binaryReqTask};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = binaryReqTask;
         }
 
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
         public void handleRedirectUrl(String str) {
-            BinaryReqTask.this.mRealUrl = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.this$0.mRealUrl = str;
+            }
         }
 
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
         public void onDownload(ByteArrayInfo byteArrayInfo) {
-            BinaryReqTask binaryReqTask = BinaryReqTask.this;
-            int i2 = binaryReqTask.mStatus;
-            if (i2 != 1006 && i2 != 1004 && i2 != 1009) {
-                byteArrayInfo.mkey = binaryReqTask.getTaskKey();
-                TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().loadBalanceToWrite(byteArrayInfo);
-                return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteArrayInfo) == null) {
+                BinaryReqTask binaryReqTask = this.this$0;
+                int i2 = binaryReqTask.mStatus;
+                if (i2 != 1006 && i2 != 1004 && i2 != 1009) {
+                    byteArrayInfo.mkey = binaryReqTask.getTaskKey();
+                    TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().loadBalanceToWrite(byteArrayInfo);
+                    return;
+                }
+                TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().recycle(byteArrayInfo);
             }
-            TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().recycle(byteArrayInfo);
         }
 
         @Override // com.baidu.down.loopj.android.http.AsyncHttpResponseHandler
         public synchronized void onFailure(Throwable th, int i2) {
-            if (BinaryReqTask.this.mStatus != 1006 && BinaryReqTask.this.mStatus != 1004 && BinaryReqTask.this.mStatus != 1005) {
-                BinaryReqTask.this.mStatus = 1005;
-                TaskMsg taskMsg = new TaskMsg();
-                taskMsg._id = BinaryReqTask.this.mDownloadId;
-                taskMsg.uKey = BinaryReqTask.this.getTaskKey();
-                taskMsg.filePath = BinaryReqTask.this.mFilePath;
-                taskMsg.fileSize = getFileLength();
-                taskMsg.transferedSize = BinaryReqTask.this.mProgressInfo.getCurrentLength();
-                taskMsg.errorStr = th.toString();
-                taskMsg.status = 1005;
-                taskMsg.failType = i2;
-                DownDetail downDetail = new DownDetail();
-                downDetail.domainNameAndIpInfo = BinaryReqTask.this.mTaskHandler.getDomainNameAndIpInfo();
-                downDetail.retryStrategyInfo = HttpRetryStatistic.buidTaskRetryStatistic(BinaryReqTask.this.mHttpRetryStrategyHandler.getDownDetail(), BinaryReqTask.this.mHttpRetryStrategyHandler.getDownFlowMode(), BinaryReqTask.this.mHttpRetryStrategyHandler.getDownFlowCostTime(), BinaryReqTask.this.mHttpRetryStrategyHandler.getRetryExceptionName(), BinaryReqTask.this.mHttpRetryStrategyHandler.getRequestId());
-                downDetail.retryType = BinaryReqTask.this.mHttpRetryStrategyHandler.getRetryType();
-                downDetail.retryException = BinaryReqTask.this.mHttpRetryStrategyHandler.getRetryExceptionName();
-                taskMsg.downDetail = downDetail;
-                TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().cancelRequests(BinaryReqTask.this.myContext, true, BinaryReqTask.this.mTaskHandler);
-                TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(taskMsg.uKey);
-                TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
-                TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(BinaryReqTask.this.mUri, BinaryReqTask.this.mDownloadId);
-                if (BinaryReqTask.this.needWriteDb) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("status", Integer.valueOf(BinaryReqTask.this.mStatus));
-                    contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(BinaryReqTask.this.mProgressInfo.getCurrentLength()));
-                    TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(BinaryReqTask.this.mDownloadId)});
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, th, i2) == null) {
+                synchronized (this) {
+                    if (this.this$0.mStatus != 1006 && this.this$0.mStatus != 1004 && this.this$0.mStatus != 1005) {
+                        this.this$0.mStatus = 1005;
+                        TaskMsg taskMsg = new TaskMsg();
+                        taskMsg._id = this.this$0.mDownloadId;
+                        taskMsg.uKey = this.this$0.getTaskKey();
+                        taskMsg.filePath = this.this$0.mFilePath;
+                        taskMsg.fileSize = getFileLength();
+                        taskMsg.transferedSize = this.this$0.mProgressInfo.getCurrentLength();
+                        taskMsg.errorStr = th.toString();
+                        taskMsg.status = 1005;
+                        taskMsg.failType = i2;
+                        DownDetail downDetail = new DownDetail();
+                        downDetail.domainNameAndIpInfo = this.this$0.mTaskHandler.getDomainNameAndIpInfo();
+                        downDetail.retryStrategyInfo = HttpRetryStatistic.buidTaskRetryStatistic(this.this$0.mHttpRetryStrategyHandler.getDownDetail(), this.this$0.mHttpRetryStrategyHandler.getDownFlowMode(), this.this$0.mHttpRetryStrategyHandler.getDownFlowCostTime(), this.this$0.mHttpRetryStrategyHandler.getRetryExceptionName(), this.this$0.mHttpRetryStrategyHandler.getRequestId());
+                        downDetail.retryType = this.this$0.mHttpRetryStrategyHandler.getRetryType();
+                        downDetail.retryException = this.this$0.mHttpRetryStrategyHandler.getRetryExceptionName();
+                        taskMsg.downDetail = downDetail;
+                        TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().cancelRequests(this.this$0.myContext, true, this.this$0.mTaskHandler);
+                        TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(taskMsg.uKey);
+                        TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
+                        TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(this.this$0.mUri, this.this$0.mDownloadId);
+                        if (this.this$0.needWriteDb) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("status", Integer.valueOf(this.this$0.mStatus));
+                            contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(this.this$0.mProgressInfo.getCurrentLength()));
+                            TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(this.this$0.mDownloadId)});
+                        }
+                    }
                 }
             }
         }
@@ -91,162 +128,188 @@ public class BinaryReqTask extends AbstractTask {
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
         public void onFileLengthRec(long j, String str) {
             long j2;
-            BinaryReqTask binaryReqTask = BinaryReqTask.this;
-            if (binaryReqTask.mLengthRec) {
-                return;
-            }
-            binaryReqTask.mLengthRec = true;
-            binaryReqTask.mBNotifyStart = true;
-            binaryReqTask.mTotalLength = j;
-            binaryReqTask.mETag = str;
-            binaryReqTask.mStatus = 1001;
-            if (!this.mSupportRange) {
-                binaryReqTask.mProgressInfo = new ProgressInfo();
-            }
-            if (BinaryReqTask.this.mProgressInfo.getSegmentCount() > 0) {
-                return;
-            }
-            BinaryReqTask binaryReqTask2 = BinaryReqTask.this;
-            if (binaryReqTask2.mNeedMuti && this.mSupportRange) {
-                if (binaryReqTask2.mTotalLength > AbstractTask.minSegLen && !this.mTrunked) {
-                    BinaryReqTask binaryReqTask3 = BinaryReqTask.this;
-                    if (binaryReqTask3.mTotalLength < DownPrefUtils.getLong(binaryReqTask2.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, Constants.TEST_SPEED_THRESHOLD_DEFAULT) * 1024) {
-                        BinaryHttpResponseHandler binaryHttpResponseHandler = binaryReqTask3.mTaskHandler;
-                        if (binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) {
-                            ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).setNeedMultiSrc(false);
-                            ((MultiSrcBinaryTaskHandler) BinaryReqTask.this.mTaskHandler).mMultiSrcStatData.dbtype = 1;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
+                BinaryReqTask binaryReqTask = this.this$0;
+                if (binaryReqTask.mLengthRec) {
+                    return;
+                }
+                binaryReqTask.mLengthRec = true;
+                binaryReqTask.mBNotifyStart = true;
+                binaryReqTask.mTotalLength = j;
+                binaryReqTask.mETag = str;
+                binaryReqTask.mStatus = 1001;
+                if (!this.mSupportRange) {
+                    binaryReqTask.mProgressInfo = new ProgressInfo();
+                }
+                if (this.this$0.mProgressInfo.getSegmentCount() > 0) {
+                    return;
+                }
+                BinaryReqTask binaryReqTask2 = this.this$0;
+                if (binaryReqTask2.mNeedMuti && this.mSupportRange) {
+                    if (binaryReqTask2.mTotalLength > AbstractTask.minSegLen && !this.mTrunked) {
+                        BinaryReqTask binaryReqTask3 = this.this$0;
+                        if (binaryReqTask3.mTotalLength < DownPrefUtils.getLong(binaryReqTask2.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, com.baidu.down.utils.Constants.TEST_SPEED_THRESHOLD_DEFAULT) * 1024) {
+                            BinaryHttpResponseHandler binaryHttpResponseHandler = binaryReqTask3.mTaskHandler;
+                            if (binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) {
+                                ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).setNeedMultiSrc(false);
+                                ((MultiSrcBinaryTaskHandler) this.this$0.mTaskHandler).mMultiSrcStatData.dbtype = 1;
+                            }
                         }
-                    }
-                    BinaryHttpResponseHandler binaryHttpResponseHandler2 = BinaryReqTask.this.mTaskHandler;
-                    if ((binaryHttpResponseHandler2 instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler2).isNeedMultiSrc() && ((MultiSrcBinaryTaskHandler) BinaryReqTask.this.mTaskHandler).isNeedTestSpeed()) {
-                        BinaryReqTask.this.mTaskHandler.setTestSpeedStage(1);
-                    }
-                    BinaryReqTask.this.mProgressInfo.addSegment(0L, AbstractTask.minSegLen);
-                    BinaryReqTask binaryReqTask4 = BinaryReqTask.this;
-                    long j3 = binaryReqTask4.mTotalLength;
-                    long j4 = AbstractTask.minSegLen;
-                    long j5 = (j3 - j4) / binaryReqTask4.mMaxThread;
-                    if (j5 >= j4) {
-                        j4 = j5;
-                    }
-                    int i2 = AbstractTask.bufferSize;
-                    long j6 = (((j4 + i2) - 1) / i2) * i2;
-                    ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
-                    long j7 = AbstractTask.minSegLen;
-                    while (true) {
-                        long j8 = BinaryReqTask.this.mTotalLength;
-                        if (j7 >= j8) {
-                            break;
+                        BinaryHttpResponseHandler binaryHttpResponseHandler2 = this.this$0.mTaskHandler;
+                        if ((binaryHttpResponseHandler2 instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler2).isNeedMultiSrc() && ((MultiSrcBinaryTaskHandler) this.this$0.mTaskHandler).isNeedTestSpeed()) {
+                            this.this$0.mTaskHandler.setTestSpeedStage(1);
                         }
-                        long j9 = j7 + j6;
-                        if (j9 <= j8) {
-                            j8 = j9;
+                        this.this$0.mProgressInfo.addSegment(0L, AbstractTask.minSegLen);
+                        BinaryReqTask binaryReqTask4 = this.this$0;
+                        long j3 = binaryReqTask4.mTotalLength;
+                        long j4 = AbstractTask.minSegLen;
+                        long j5 = (j3 - j4) / binaryReqTask4.mMaxThread;
+                        if (j5 >= j4) {
+                            j4 = j5;
                         }
-                        BinaryReqTask.this.mProgressInfo.addSegment(j7, j8);
-                        if (netWorkType != ConnectManager.NetWorkType.TYPE_2G) {
-                            BinaryHttpResponseHandler binaryHttpResponseHandler3 = BinaryReqTask.this.mTaskHandler;
-                            if ((binaryHttpResponseHandler3 instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler3).isNeedMultiSrc()) {
-                                if (((MultiSrcBinaryTaskHandler) BinaryReqTask.this.mTaskHandler).isNeedTestSpeed()) {
-                                    j2 = j8;
-                                    BinaryReqTask.this.startSegment(j7, j2, 1);
+                        int i2 = AbstractTask.bufferSize;
+                        long j6 = (((j4 + i2) - 1) / i2) * i2;
+                        ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
+                        long j7 = AbstractTask.minSegLen;
+                        while (true) {
+                            long j8 = this.this$0.mTotalLength;
+                            if (j7 >= j8) {
+                                break;
+                            }
+                            long j9 = j7 + j6;
+                            if (j9 <= j8) {
+                                j8 = j9;
+                            }
+                            this.this$0.mProgressInfo.addSegment(j7, j8);
+                            if (netWorkType != ConnectManager.NetWorkType.TYPE_2G) {
+                                BinaryHttpResponseHandler binaryHttpResponseHandler3 = this.this$0.mTaskHandler;
+                                if ((binaryHttpResponseHandler3 instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler3).isNeedMultiSrc()) {
+                                    if (((MultiSrcBinaryTaskHandler) this.this$0.mTaskHandler).isNeedTestSpeed()) {
+                                        j2 = j8;
+                                        this.this$0.startSegment(j7, j2, 1);
+                                    } else {
+                                        j2 = j8;
+                                        this.this$0.startSegment(j7, j2, 2);
+                                    }
                                 } else {
                                     j2 = j8;
-                                    BinaryReqTask.this.startSegment(j7, j2, 2);
+                                    this.this$0.startSegment(j7, j2, 0);
                                 }
                             } else {
                                 j2 = j8;
-                                BinaryReqTask.this.startSegment(j7, j2, 0);
                             }
-                        } else {
-                            j2 = j8;
+                            j7 = j2;
                         }
-                        j7 = j2;
+                    } else {
+                        BinaryReqTask binaryReqTask5 = this.this$0;
+                        binaryReqTask5.mProgressInfo.addSegment(0L, binaryReqTask5.mTotalLength);
+                        BinaryHttpResponseHandler binaryHttpResponseHandler4 = this.this$0.mTaskHandler;
+                        if ((binaryHttpResponseHandler4 instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler4).isNeedMultiSrc()) {
+                            ((MultiSrcBinaryTaskHandler) this.this$0.mTaskHandler).updateStatCstatus(5);
+                        }
                     }
                 } else {
-                    BinaryReqTask binaryReqTask5 = BinaryReqTask.this;
-                    binaryReqTask5.mProgressInfo.addSegment(0L, binaryReqTask5.mTotalLength);
-                    BinaryHttpResponseHandler binaryHttpResponseHandler4 = BinaryReqTask.this.mTaskHandler;
-                    if ((binaryHttpResponseHandler4 instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler4).isNeedMultiSrc()) {
-                        ((MultiSrcBinaryTaskHandler) BinaryReqTask.this.mTaskHandler).updateStatCstatus(5);
+                    BinaryReqTask binaryReqTask6 = this.this$0;
+                    binaryReqTask6.mProgressInfo.addSegment(0L, binaryReqTask6.mTotalLength);
+                }
+                if (this.this$0.needWriteDb) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("status", Integer.valueOf(this.this$0.mStatus));
+                    if (this.this$0.mTotalLength <= 0) {
+                        contentValues.put("total_bytes", Long.valueOf(j));
                     }
+                    TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(this.this$0.mDownloadId)});
                 }
-            } else {
-                BinaryReqTask binaryReqTask6 = BinaryReqTask.this;
-                binaryReqTask6.mProgressInfo.addSegment(0L, binaryReqTask6.mTotalLength);
-            }
-            if (BinaryReqTask.this.needWriteDb) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("status", Integer.valueOf(BinaryReqTask.this.mStatus));
-                if (BinaryReqTask.this.mTotalLength <= 0) {
-                    contentValues.put("total_bytes", Long.valueOf(j));
-                }
-                TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(BinaryReqTask.this.mDownloadId)});
             }
         }
 
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
         public void onPaused(int i2) {
-            int i3 = BinaryReqTask.this.mStatus;
-            if (i3 == 1003 || i3 == 1008) {
+            int i3;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (i3 = this.this$0.mStatus) == 1003 || i3 == 1008) {
                 return;
             }
             if (i3 == 1006) {
-                TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(BinaryReqTask.this.getTaskKey());
+                TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(this.this$0.getTaskKey());
             }
-            if (BinaryReqTask.this.needWriteDb) {
+            if (this.this$0.needWriteDb) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("status", Integer.valueOf(BinaryReqTask.this.mStatus));
-                contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(BinaryReqTask.this.mProgressInfo.getCurrentLength()));
-                TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(BinaryReqTask.this.mDownloadId)});
+                contentValues.put("status", Integer.valueOf(this.this$0.mStatus));
+                contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(this.this$0.mProgressInfo.getCurrentLength()));
+                TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(this.this$0.mDownloadId)});
             }
         }
 
         @Override // com.baidu.down.loopj.android.http.AsyncHttpResponseHandler
         public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
         }
 
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
         public void onSuccess(byte[] bArr, long j) {
-            BinaryReqTask binaryReqTask = BinaryReqTask.this;
-            if (!binaryReqTask.mNeedMuti || binaryReqTask.mThreadCount <= 1) {
-                BinaryReqTask binaryReqTask2 = BinaryReqTask.this;
-                if (binaryReqTask2.mThreadCount == 1 && j > 0) {
-                    binaryReqTask2.mThreadCount = 0;
-                    for (ProgressInfo.Segment segment : binaryReqTask2.mProgressInfo.getSegments()) {
-                        long j2 = segment.current;
-                        long j3 = segment.end;
-                        if (j2 != j3 && (segment.begin >= j || j3 < j)) {
-                            BinaryReqTask.this.startSegment(segment.current, segment.end, 0);
-                            return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048582, this, bArr, j) == null) {
+                BinaryReqTask binaryReqTask = this.this$0;
+                if (!binaryReqTask.mNeedMuti || binaryReqTask.mThreadCount <= 1) {
+                    BinaryReqTask binaryReqTask2 = this.this$0;
+                    if (binaryReqTask2.mThreadCount == 1 && j > 0) {
+                        binaryReqTask2.mThreadCount = 0;
+                        for (ProgressInfo.Segment segment : binaryReqTask2.mProgressInfo.getSegments()) {
+                            long j2 = segment.current;
+                            long j3 = segment.end;
+                            if (j2 != j3 && (segment.begin >= j || j3 < j)) {
+                                this.this$0.startSegment(segment.current, segment.end, 0);
+                                return;
+                            }
                         }
+                        return;
                     }
-                    return;
+                    this.this$0.mStatus = 1003;
+                    TaskMsg taskMsg = new TaskMsg();
+                    BinaryReqTask binaryReqTask3 = this.this$0;
+                    taskMsg._id = binaryReqTask3.mDownloadId;
+                    taskMsg.uKey = binaryReqTask3.getTaskKey();
+                    BinaryReqTask binaryReqTask4 = this.this$0;
+                    taskMsg.filePath = binaryReqTask4.mFilePath;
+                    long j4 = binaryReqTask4.mTotalLength;
+                    taskMsg.fileSize = j4;
+                    taskMsg.transferedSize = j4;
+                    TaskMsg taskMsg2 = binaryReqTask4.mTaskmsg;
+                    if (taskMsg2 != null) {
+                        taskMsg.transferedSpeed = (taskMsg2.transferedSize * 1000) / (System.currentTimeMillis() - this.this$0.mStartTime);
+                    }
+                    taskMsg.status = 1003;
+                    TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
+                    BinaryTaskMng binaryTaskMng = TaskFacade.getInstance(null).getBinaryTaskMng();
+                    BinaryReqTask binaryReqTask5 = this.this$0;
+                    binaryTaskMng.notifyMngTaskStatus(binaryReqTask5.mUri, binaryReqTask5.mDownloadId);
                 }
-                BinaryReqTask.this.mStatus = 1003;
-                TaskMsg taskMsg = new TaskMsg();
-                BinaryReqTask binaryReqTask3 = BinaryReqTask.this;
-                taskMsg._id = binaryReqTask3.mDownloadId;
-                taskMsg.uKey = binaryReqTask3.getTaskKey();
-                BinaryReqTask binaryReqTask4 = BinaryReqTask.this;
-                taskMsg.filePath = binaryReqTask4.mFilePath;
-                long j4 = binaryReqTask4.mTotalLength;
-                taskMsg.fileSize = j4;
-                taskMsg.transferedSize = j4;
-                TaskMsg taskMsg2 = binaryReqTask4.mTaskmsg;
-                if (taskMsg2 != null) {
-                    taskMsg.transferedSpeed = (taskMsg2.transferedSize * 1000) / (System.currentTimeMillis() - BinaryReqTask.this.mStartTime);
-                }
-                taskMsg.status = 1003;
-                TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
-                BinaryTaskMng binaryTaskMng = TaskFacade.getInstance(null).getBinaryTaskMng();
-                BinaryReqTask binaryReqTask5 = BinaryReqTask.this;
-                binaryTaskMng.notifyMngTaskStatus(binaryReqTask5.mUri, binaryReqTask5.mDownloadId);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BinaryReqTask(Context context, FileMsg fileMsg) {
         super(1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, fileMsg};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mContext = context;
         this.myContext = new ContextWrapper(context);
         this.mUri = fileMsg.mUrl;
@@ -259,9 +322,9 @@ public class BinaryReqTask extends AbstractTask {
         this.mNeedMuti = booleanValue;
         this.mKeepNameAndPath = fileMsg.mKeepNameAndPath;
         this.mRealUrl = fileMsg.mRealUrl;
-        int i2 = fileMsg.mMaxThread;
-        this.mMaxThread = i2;
-        if (booleanValue && i2 < 2) {
+        int i4 = fileMsg.mMaxThread;
+        this.mMaxThread = i4;
+        if (booleanValue && i4 < 2) {
             this.mNeedMuti = false;
         }
         int max = Math.max(Math.min(DownPrefUtils.getInt(context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_IP_NUM, 2), this.mMaxThread), 1);
@@ -312,7 +375,7 @@ public class BinaryReqTask extends AbstractTask {
         if (this.needWriteDb) {
             updateFromDatabase();
         }
-        BinaryTaskHandler binaryTaskHandler = new BinaryTaskHandler();
+        BinaryTaskHandler binaryTaskHandler = new BinaryTaskHandler(this);
         this.mTaskHandler = binaryTaskHandler;
         binaryTaskHandler.setCurTask(this);
         this.mHttpRetryStrategyHandler = new HttpRetryStrategyHandler(this.mContext, this);
@@ -326,32 +389,38 @@ public class BinaryReqTask extends AbstractTask {
     }
 
     private long sizeSToL(String str) {
-        long j = 0;
-        if (TextUtils.isEmpty(str)) {
-            return 0L;
-        }
-        String lowerCase = str.toLowerCase();
-        if (lowerCase.contains("m")) {
-            String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            if (split != null && split.length > 0) {
-                j = Long.parseLong(split[0]) * 1024 * 1024;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
+            long j = 0;
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
             }
-            if (split == null || split.length <= 1 || TextUtils.isEmpty(split[1].substring(0, 1))) {
-                return j;
+            String lowerCase = str.toLowerCase();
+            if (lowerCase.contains("m")) {
+                String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                if (split != null && split.length > 0) {
+                    j = Long.parseLong(split[0]) * 1024 * 1024;
+                }
+                if (split == null || split.length <= 1 || TextUtils.isEmpty(split[1].substring(0, 1))) {
+                    return j;
+                }
+                long parseLong = Long.parseLong(split[1].substring(0, 1));
+                Long.signum(parseLong);
+                return j + (parseLong * 1024);
+            } else if (lowerCase.contains("g")) {
+                return KsMediaMeta.AV_CH_STEREO_RIGHT;
+            } else {
+                return 0L;
             }
-            long parseLong = Long.parseLong(split[1].substring(0, 1));
-            Long.signum(parseLong);
-            return j + (parseLong * 1024);
-        } else if (lowerCase.contains("g")) {
-            return KsMediaMeta.AV_CH_STEREO_RIGHT;
-        } else {
-            return 0L;
         }
+        return invokeL.longValue;
     }
 
     private void updateFromDatabase() {
-        Cursor query = TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().query(null, "_id=?", new String[]{String.valueOf(this.mDownloadId)}, null, null, null);
-        if (query == null) {
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (query = TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().query(null, "_id=?", new String[]{String.valueOf(this.mDownloadId)}, null, null, null)) == null) {
             return;
         }
         query.moveToFirst();
@@ -379,25 +448,35 @@ public class BinaryReqTask extends AbstractTask {
 
     @Override // com.baidu.down.request.task.AbstractTask
     public String getDefaultUrl() {
-        if (!TextUtils.isEmpty(this.mRealUrl)) {
-            return this.mRealUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.mRealUrl)) {
+                return this.mRealUrl;
+            }
+            return this.mUri;
         }
-        return this.mUri;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.down.request.task.AbstractTask
     public String getFastestUrl() {
-        return getDefaultUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getDefaultUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.down.request.task.AbstractTask
     public String getNoMeasuredUrl(boolean z) {
-        return getDefaultUrl();
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? getDefaultUrl() : (String) invokeZ.objValue;
     }
 
     @Override // com.baidu.down.request.task.AbstractTask
     public void pause() {
-        if (this.mStatus == 1006) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.mStatus == 1006) {
             return;
         }
         this.mStatus = 1006;
@@ -415,117 +494,123 @@ public class BinaryReqTask extends AbstractTask {
 
     @Override // com.baidu.down.request.task.AbstractTask
     public void pend() {
-        this.mStatus = 1009;
-        TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().cancelRequests(this.myContext, true, this.mTaskHandler);
-        TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(this.mUri, this.mDownloadId);
-        TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(getTaskKey());
-        TaskMsg taskMsg = new TaskMsg();
-        taskMsg._id = this.mDownloadId;
-        taskMsg.uKey = getTaskKey();
-        taskMsg.status = 1009;
-        TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mStatus = 1009;
+            TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().cancelRequests(this.myContext, true, this.mTaskHandler);
+            TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(this.mUri, this.mDownloadId);
+            TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(getTaskKey());
+            TaskMsg taskMsg = new TaskMsg();
+            taskMsg._id = this.mDownloadId;
+            taskMsg.uKey = getTaskKey();
+            taskMsg.status = 1009;
+            TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
+        }
     }
 
     @Override // com.baidu.down.request.task.AbstractTask
     public void start() {
-        this.mStartTime = SystemClock.elapsedRealtime();
-        if (this.mStatus == 1001) {
-            return;
-        }
-        this.mLengthRec = false;
-        long j = this.mTotalLength;
-        if (j != 0 && j == this.mProgressInfo.getCurrentLength() && !TextUtils.isEmpty(this.mFilePath) && new File(this.mFilePath).exists()) {
-            this.mStatus = 1008;
-            TaskMsg taskMsg = new TaskMsg();
-            taskMsg._id = this.mDownloadId;
-            taskMsg.uKey = this.mUri + this.mDownloadId;
-            taskMsg.status = 1008;
-            TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
-            TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(this.mUri, this.mDownloadId);
-            return;
-        }
-        if (this.mProgressInfo.getCurrentLength() > 0 && !TextUtils.isEmpty(this.mFilePath) && !new File(this.mFilePath).exists()) {
-            this.mProgressInfo = new ProgressInfo();
-            this.mStrRedownload = "file deleted and redownload";
-        }
-        this.mLastNotifyTime = SystemClock.elapsedRealtime();
-        this.mLastNotifyBytes = this.mProgressInfo.getCurrentLength();
-        this.mLastNotifySpeed = 0L;
-        this.mStatus = 1001;
-        this.mTaskHandler.cleanDomainNameAndIpInfo();
-        this.mTaskSpeedStat.initThreadSpeedStat(TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().speedStatEnable() && URLRegUtils.matchRetryHostReg(this.mUri));
-        if (this.mNeedMuti) {
-            long j2 = DownPrefUtils.getLong(this.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, Constants.TEST_SPEED_THRESHOLD_DEFAULT) * 1024;
-            this.mThreadCount = 0;
-            ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
-            if (this.mProgressInfo.getSegmentCount() > 0) {
-                if (this.mTotalLength - this.mProgressInfo.getCurrentLength() < j2) {
-                    BinaryHttpResponseHandler binaryHttpResponseHandler = this.mTaskHandler;
-                    if (binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) {
-                        ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).setNeedMultiSrc(false);
-                        ((MultiSrcBinaryTaskHandler) this.mTaskHandler).mMultiSrcStatData.dbtype = 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mStartTime = SystemClock.elapsedRealtime();
+            if (this.mStatus == 1001) {
+                return;
+            }
+            this.mLengthRec = false;
+            long j = this.mTotalLength;
+            if (j != 0 && j == this.mProgressInfo.getCurrentLength() && !TextUtils.isEmpty(this.mFilePath) && new File(this.mFilePath).exists()) {
+                this.mStatus = 1008;
+                TaskMsg taskMsg = new TaskMsg();
+                taskMsg._id = this.mDownloadId;
+                taskMsg.uKey = this.mUri + this.mDownloadId;
+                taskMsg.status = 1008;
+                TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
+                TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(this.mUri, this.mDownloadId);
+                return;
+            }
+            if (this.mProgressInfo.getCurrentLength() > 0 && !TextUtils.isEmpty(this.mFilePath) && !new File(this.mFilePath).exists()) {
+                this.mProgressInfo = new ProgressInfo();
+                this.mStrRedownload = "file deleted and redownload";
+            }
+            this.mLastNotifyTime = SystemClock.elapsedRealtime();
+            this.mLastNotifyBytes = this.mProgressInfo.getCurrentLength();
+            this.mLastNotifySpeed = 0L;
+            this.mStatus = 1001;
+            this.mTaskHandler.cleanDomainNameAndIpInfo();
+            this.mTaskSpeedStat.initThreadSpeedStat(TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().speedStatEnable() && URLRegUtils.matchRetryHostReg(this.mUri));
+            if (this.mNeedMuti) {
+                long j2 = DownPrefUtils.getLong(this.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, com.baidu.down.utils.Constants.TEST_SPEED_THRESHOLD_DEFAULT) * 1024;
+                this.mThreadCount = 0;
+                ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
+                if (this.mProgressInfo.getSegmentCount() > 0) {
+                    if (this.mTotalLength - this.mProgressInfo.getCurrentLength() < j2) {
+                        BinaryHttpResponseHandler binaryHttpResponseHandler = this.mTaskHandler;
+                        if (binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) {
+                            ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).setNeedMultiSrc(false);
+                            ((MultiSrcBinaryTaskHandler) this.mTaskHandler).mMultiSrcStatData.dbtype = 1;
+                        }
                     }
-                }
-                BinaryHttpResponseHandler binaryHttpResponseHandler2 = this.mTaskHandler;
-                if ((binaryHttpResponseHandler2 instanceof MultiSrcBinaryTaskHandler) && netWorkType != ConnectManager.NetWorkType.TYPE_2G && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler2).isNeedMultiSrc() && this.mProgressInfo.leftSegmentIsNeedMultiSrc(this.mMaxThread, AbstractTask.minSegLen)) {
-                    MultiSrcBinaryTaskHandler multiSrcBinaryTaskHandler = (MultiSrcBinaryTaskHandler) this.mTaskHandler;
-                    if (multiSrcBinaryTaskHandler.isNeedTestSpeed()) {
-                        multiSrcBinaryTaskHandler.setTestSpeedStage(1);
-                    }
-                    for (ProgressInfo.Segment segment : this.mProgressInfo.getSegments()) {
-                        if (segment.current < segment.end) {
-                            if (multiSrcBinaryTaskHandler.isNeedTestSpeed()) {
-                                startSegment(segment.current, segment.end, 1);
-                            } else {
-                                startSegment(segment.current, segment.end, 2);
+                    BinaryHttpResponseHandler binaryHttpResponseHandler2 = this.mTaskHandler;
+                    if ((binaryHttpResponseHandler2 instanceof MultiSrcBinaryTaskHandler) && netWorkType != ConnectManager.NetWorkType.TYPE_2G && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler2).isNeedMultiSrc() && this.mProgressInfo.leftSegmentIsNeedMultiSrc(this.mMaxThread, AbstractTask.minSegLen)) {
+                        MultiSrcBinaryTaskHandler multiSrcBinaryTaskHandler = (MultiSrcBinaryTaskHandler) this.mTaskHandler;
+                        if (multiSrcBinaryTaskHandler.isNeedTestSpeed()) {
+                            multiSrcBinaryTaskHandler.setTestSpeedStage(1);
+                        }
+                        for (ProgressInfo.Segment segment : this.mProgressInfo.getSegments()) {
+                            if (segment.current < segment.end) {
+                                if (multiSrcBinaryTaskHandler.isNeedTestSpeed()) {
+                                    startSegment(segment.current, segment.end, 1);
+                                } else {
+                                    startSegment(segment.current, segment.end, 2);
+                                }
+                            }
+                        }
+                    } else {
+                        for (ProgressInfo.Segment segment2 : this.mProgressInfo.getSegments()) {
+                            long j3 = segment2.current;
+                            long j4 = segment2.end;
+                            if (j3 < j4) {
+                                startSegment(j3, j4, 0);
+                                if (netWorkType == ConnectManager.NetWorkType.TYPE_2G) {
+                                    break;
+                                }
                             }
                         }
                     }
                 } else {
-                    for (ProgressInfo.Segment segment2 : this.mProgressInfo.getSegments()) {
-                        long j3 = segment2.current;
-                        long j4 = segment2.end;
-                        if (j3 < j4) {
-                            startSegment(j3, j4, 0);
-                            if (netWorkType == ConnectManager.NetWorkType.TYPE_2G) {
-                                break;
-                            }
+                    if (this.mSizeB < j2) {
+                        BinaryHttpResponseHandler binaryHttpResponseHandler3 = this.mTaskHandler;
+                        if (binaryHttpResponseHandler3 instanceof MultiSrcBinaryTaskHandler) {
+                            ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler3).setNeedMultiSrc(false);
+                            ((MultiSrcBinaryTaskHandler) this.mTaskHandler).mMultiSrcStatData.dbtype = 1;
                         }
+                    }
+                    BinaryHttpResponseHandler binaryHttpResponseHandler4 = this.mTaskHandler;
+                    if ((binaryHttpResponseHandler4 instanceof MultiSrcBinaryTaskHandler) && netWorkType != ConnectManager.NetWorkType.TYPE_2G && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler4).isNeedMultiSrc()) {
+                        if (((MultiSrcBinaryTaskHandler) this.mTaskHandler).isNeedTestSpeed()) {
+                            startSegment(0L, AbstractTask.minSegLen, 1);
+                        } else {
+                            startSegment(0L, AbstractTask.minSegLen, 2);
+                        }
+                    } else {
+                        startSegment(0L, AbstractTask.minSegLen, 0);
                     }
                 }
             } else {
-                if (this.mSizeB < j2) {
-                    BinaryHttpResponseHandler binaryHttpResponseHandler3 = this.mTaskHandler;
-                    if (binaryHttpResponseHandler3 instanceof MultiSrcBinaryTaskHandler) {
-                        ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler3).setNeedMultiSrc(false);
-                        ((MultiSrcBinaryTaskHandler) this.mTaskHandler).mMultiSrcStatData.dbtype = 1;
-                    }
-                }
-                BinaryHttpResponseHandler binaryHttpResponseHandler4 = this.mTaskHandler;
-                if ((binaryHttpResponseHandler4 instanceof MultiSrcBinaryTaskHandler) && netWorkType != ConnectManager.NetWorkType.TYPE_2G && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler4).isNeedMultiSrc()) {
-                    if (((MultiSrcBinaryTaskHandler) this.mTaskHandler).isNeedTestSpeed()) {
-                        startSegment(0L, AbstractTask.minSegLen, 1);
-                    } else {
-                        startSegment(0L, AbstractTask.minSegLen, 2);
-                    }
-                } else {
-                    startSegment(0L, AbstractTask.minSegLen, 0);
-                }
+                startSegment(this.mProgressInfo.getCurrentLength(), -1L, 0);
             }
-        } else {
-            startSegment(this.mProgressInfo.getCurrentLength(), -1L, 0);
+            TaskMsg taskMsg2 = new TaskMsg();
+            taskMsg2._id = this.mDownloadId;
+            taskMsg2.uKey = getTaskKey();
+            taskMsg2.transferedSize = this.mProgressInfo.getCurrentLength();
+            taskMsg2.fileSize = this.mTaskHandler.getFileLength();
+            taskMsg2.status = 1000;
+            TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg2);
         }
-        TaskMsg taskMsg2 = new TaskMsg();
-        taskMsg2._id = this.mDownloadId;
-        taskMsg2.uKey = getTaskKey();
-        taskMsg2.transferedSize = this.mProgressInfo.getCurrentLength();
-        taskMsg2.fileSize = this.mTaskHandler.getFileLength();
-        taskMsg2.status = 1000;
-        TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg2);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0048, code lost:
-        if (r19 <= r5) goto L34;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x004c, code lost:
+        if (r19 <= r5) goto L36;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -533,54 +618,58 @@ public class BinaryReqTask extends AbstractTask {
     public void startSegment(long j, long j2, int i2) {
         long j3;
         String noMeasuredUrl;
-        HashMap hashMap = new HashMap();
-        hashMap.putAll(this.mHeaders);
-        if (!TextUtils.isEmpty(this.mETag)) {
-            hashMap.put(Util.IF_MATCH, this.mETag);
-        }
-        if (j2 > 0) {
-            if (TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
-                j3 = (j + 307200) - 1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(this.mHeaders);
+            if (!TextUtils.isEmpty(this.mETag)) {
+                hashMap.put(Util.IF_MATCH, this.mETag);
             }
-            j3 = j2;
-            hashMap.put("Range", "bytes=" + j + "-" + (j3 - 1));
-        } else {
-            if (TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
-                hashMap.put("Range", "bytes=" + j + "-" + ((j + 307200) - 1));
+            if (j2 > 0) {
+                if (TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
+                    j3 = (j + 307200) - 1;
+                }
+                j3 = j2;
+                hashMap.put("Range", "bytes=" + j + "-" + (j3 - 1));
             } else {
-                hashMap.put("Range", "bytes=" + j + "-");
+                if (TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
+                    hashMap.put("Range", "bytes=" + j + "-" + ((j + 307200) - 1));
+                } else {
+                    hashMap.put("Range", "bytes=" + j + "-");
+                }
+                j3 = j2;
             }
-            j3 = j2;
-        }
-        this.mTaskHandler.setRunning();
-        BinaryHttpResponseHandler binaryHttpResponseHandler = this.mTaskHandler;
-        if ((binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).isNeedMultiSrc() && i2 != 0 && !TextUtils.isEmpty(this.mHost)) {
-            hashMap.put("Host", this.mHost);
-        }
-        MultiSrcRequestParams multiSrcRequestParams = new MultiSrcRequestParams();
-        multiSrcRequestParams.mSegBeginPos = j;
-        multiSrcRequestParams.mSegEndPos = j3;
-        if (i2 == 2) {
-            TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().get(this.myContext, getFastestUrl(), hashMap, null, this.mTaskHandler, multiSrcRequestParams);
-        } else if (i2 == 1) {
-            if (this.mTaskHandler.getTestSpeedStage() == 0) {
-                noMeasuredUrl = getNoMeasuredUrl(false);
+            this.mTaskHandler.setRunning();
+            BinaryHttpResponseHandler binaryHttpResponseHandler = this.mTaskHandler;
+            if ((binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).isNeedMultiSrc() && i2 != 0 && !TextUtils.isEmpty(this.mHost)) {
+                hashMap.put("Host", this.mHost);
+            }
+            MultiSrcRequestParams multiSrcRequestParams = new MultiSrcRequestParams();
+            multiSrcRequestParams.mSegBeginPos = j;
+            multiSrcRequestParams.mSegEndPos = j3;
+            if (i2 == 2) {
+                TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().get(this.myContext, getFastestUrl(), hashMap, null, this.mTaskHandler, multiSrcRequestParams);
+            } else if (i2 == 1) {
+                if (this.mTaskHandler.getTestSpeedStage() == 0) {
+                    noMeasuredUrl = getNoMeasuredUrl(false);
+                } else {
+                    noMeasuredUrl = getNoMeasuredUrl(true);
+                }
+                String str = noMeasuredUrl;
+                if (str != null) {
+                    TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().get(this.myContext, str, hashMap, null, this.mTaskHandler, multiSrcRequestParams);
+                }
             } else {
-                noMeasuredUrl = getNoMeasuredUrl(true);
+                TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().get(this.myContext, getDefaultUrl(), hashMap, null, this.mTaskHandler, multiSrcRequestParams);
             }
-            String str = noMeasuredUrl;
-            if (str != null) {
-                TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().get(this.myContext, str, hashMap, null, this.mTaskHandler, multiSrcRequestParams);
-            }
-        } else {
-            TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().get(this.myContext, getDefaultUrl(), hashMap, null, this.mTaskHandler, multiSrcRequestParams);
+            this.mThreadCount++;
         }
-        this.mThreadCount++;
     }
 
     @Override // com.baidu.down.request.task.AbstractTask
     public void stop(boolean z) {
-        if (this.mStatus == 1004) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.mStatus == 1004) {
             return;
         }
         this.mStatus = 1004;

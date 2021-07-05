@@ -4,16 +4,28 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialOperation;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BundleInfo implements IBundleInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int abi;
     public String apkPath;
+    public boolean broken;
     public String dependence;
     public String description;
     public String downloadUrl;
@@ -24,7 +36,9 @@ public class BundleInfo implements IBundleInfo {
     public String md5;
     public int minVersion;
     public String name;
+    public boolean needRemove;
     public String packageName;
+    public boolean removable;
     public String signature;
     public int silence;
     public int silenceUpdate;
@@ -32,47 +46,66 @@ public class BundleInfo implements IBundleInfo {
     public int type;
     public long updateV;
     public int versionCode;
+    public boolean visible;
     public int wifiOnly;
-    public boolean broken = false;
-    public boolean visible = true;
-    public boolean removable = false;
-    public boolean needRemove = false;
-    public int abi = -1;
 
     public BundleInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.broken = false;
+        this.visible = true;
+        this.removable = false;
+        this.needRemove = false;
+        this.abi = -1;
     }
 
     public static BundleInfo toBundleInfo(IBundleInfo iBundleInfo) {
-        BundleInfo bundleInfo = new BundleInfo();
-        bundleInfo.setPackageName(iBundleInfo.getPackageName());
-        bundleInfo.setVersionCode(iBundleInfo.getVersionCode());
-        bundleInfo.setApkPath(iBundleInfo.getApkPath());
-        bundleInfo.setUpdateV(iBundleInfo.getUpdateV());
-        bundleInfo.setMinVersion(iBundleInfo.getMinVersion());
-        bundleInfo.setType(iBundleInfo.getType());
-        bundleInfo.setBroken(iBundleInfo.isBroken());
-        bundleInfo.setForceUpdate(iBundleInfo.needForceUpdate());
-        bundleInfo.setForbidden(iBundleInfo.isForbidden());
-        bundleInfo.setMd5(iBundleInfo.getMd5());
-        bundleInfo.setSignature(iBundleInfo.getSignature());
-        bundleInfo.setName(iBundleInfo.getName());
-        bundleInfo.setDescription(iBundleInfo.getDescription());
-        bundleInfo.setDownloadUrl(iBundleInfo.getDownloadUrl());
-        bundleInfo.setIconUrl(iBundleInfo.getIconUrl());
-        bundleInfo.setDependence(iBundleInfo.getDependence());
-        bundleInfo.setVisible(iBundleInfo.isVisible());
-        bundleInfo.setRemovable(iBundleInfo.isRemovable());
-        bundleInfo.setSize(iBundleInfo.getSize());
-        bundleInfo.setNeedRemove(iBundleInfo.isNeedRemove());
-        bundleInfo.setAbi(iBundleInfo.getAbi());
-        bundleInfo.setExt(iBundleInfo.getExt());
-        bundleInfo.setSilence(iBundleInfo.getSilence());
-        bundleInfo.setSilenceUpdate(iBundleInfo.getSilenceUpdate());
-        bundleInfo.setWifiOnly(iBundleInfo.getWifiOnly());
-        return bundleInfo;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iBundleInfo)) == null) {
+            BundleInfo bundleInfo = new BundleInfo();
+            bundleInfo.setPackageName(iBundleInfo.getPackageName());
+            bundleInfo.setVersionCode(iBundleInfo.getVersionCode());
+            bundleInfo.setApkPath(iBundleInfo.getApkPath());
+            bundleInfo.setUpdateV(iBundleInfo.getUpdateV());
+            bundleInfo.setMinVersion(iBundleInfo.getMinVersion());
+            bundleInfo.setType(iBundleInfo.getType());
+            bundleInfo.setBroken(iBundleInfo.isBroken());
+            bundleInfo.setForceUpdate(iBundleInfo.needForceUpdate());
+            bundleInfo.setForbidden(iBundleInfo.isForbidden());
+            bundleInfo.setMd5(iBundleInfo.getMd5());
+            bundleInfo.setSignature(iBundleInfo.getSignature());
+            bundleInfo.setName(iBundleInfo.getName());
+            bundleInfo.setDescription(iBundleInfo.getDescription());
+            bundleInfo.setDownloadUrl(iBundleInfo.getDownloadUrl());
+            bundleInfo.setIconUrl(iBundleInfo.getIconUrl());
+            bundleInfo.setDependence(iBundleInfo.getDependence());
+            bundleInfo.setVisible(iBundleInfo.isVisible());
+            bundleInfo.setRemovable(iBundleInfo.isRemovable());
+            bundleInfo.setSize(iBundleInfo.getSize());
+            bundleInfo.setNeedRemove(iBundleInfo.isNeedRemove());
+            bundleInfo.setAbi(iBundleInfo.getAbi());
+            bundleInfo.setExt(iBundleInfo.getExt());
+            bundleInfo.setSilence(iBundleInfo.getSilence());
+            bundleInfo.setSilenceUpdate(iBundleInfo.getSilenceUpdate());
+            bundleInfo.setWifiOnly(iBundleInfo.getWifiOnly());
+            return bundleInfo;
+        }
+        return (BundleInfo) invokeL.objValue;
     }
 
     public static List<BundleInfo> toBundleInfoList(Cursor cursor) {
+        InterceptResult invokeL;
         int i2;
         int i3;
         int i4;
@@ -85,171 +118,181 @@ public class BundleInfo implements IBundleInfo {
         int i11;
         int i12;
         ArrayList arrayList;
-        ArrayList arrayList2 = new ArrayList();
-        if (cursor == null) {
-            return arrayList2;
-        }
-        cursor.getColumnIndex("_id");
-        int columnIndex = cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-        int columnIndex2 = cursor.getColumnIndex("version_code");
-        int columnIndex3 = cursor.getColumnIndex("path");
-        int columnIndex4 = cursor.getColumnIndex("update_v");
-        int columnIndex5 = cursor.getColumnIndex("min_version");
-        int columnIndex6 = cursor.getColumnIndex("type");
-        int columnIndex7 = cursor.getColumnIndex("broken");
-        int columnIndex8 = cursor.getColumnIndex("force_update");
-        int columnIndex9 = cursor.getColumnIndex("forbidden");
-        int columnIndex10 = cursor.getColumnIndex(PackageTable.MD5);
-        int columnIndex11 = cursor.getColumnIndex(SocialOperation.GAME_SIGNATURE);
-        int columnIndex12 = cursor.getColumnIndex("name");
-        int columnIndex13 = cursor.getColumnIndex("description");
-        int columnIndex14 = cursor.getColumnIndex("download_url");
-        ArrayList arrayList3 = arrayList2;
-        int columnIndex15 = cursor.getColumnIndex("icon_url");
-        int columnIndex16 = cursor.getColumnIndex("dependence");
-        int columnIndex17 = cursor.getColumnIndex("visible");
-        int columnIndex18 = cursor.getColumnIndex("removalbe");
-        int columnIndex19 = cursor.getColumnIndex("size");
-        int columnIndex20 = cursor.getColumnIndex("need_remove");
-        int columnIndex21 = cursor.getColumnIndex("abi");
-        int columnIndex22 = cursor.getColumnIndex("ext");
-        int columnIndex23 = cursor.getColumnIndex("silence");
-        int columnIndex24 = cursor.getColumnIndex("silence_update");
-        int columnIndex25 = cursor.getColumnIndex("wifionly");
-        try {
-            if (cursor.moveToFirst()) {
-                int i13 = columnIndex25;
-                while (true) {
-                    String string = cursor.getString(columnIndex);
-                    if (TextUtils.isEmpty(string)) {
-                        i2 = columnIndex;
-                        i3 = columnIndex3;
-                        i6 = columnIndex17;
-                        i10 = columnIndex22;
-                        i12 = i13;
-                        i5 = columnIndex15;
-                        i11 = columnIndex20;
-                        i9 = columnIndex19;
-                        i8 = columnIndex18;
-                        i7 = columnIndex16;
-                        i4 = columnIndex2;
-                        arrayList = arrayList3;
-                    } else {
-                        i2 = columnIndex;
-                        BundleInfo bundleInfo = new BundleInfo();
-                        bundleInfo.setPackageName(string);
-                        bundleInfo.setVersionCode(cursor.getInt(columnIndex2));
-                        bundleInfo.setApkPath(cursor.getString(columnIndex3));
-                        int i14 = columnIndex2;
-                        i3 = columnIndex3;
-                        bundleInfo.setUpdateV(cursor.getLong(columnIndex4));
-                        bundleInfo.setMinVersion(cursor.getInt(columnIndex5));
-                        bundleInfo.setType(cursor.getInt(columnIndex6));
-                        bundleInfo.setBroken(cursor.getInt(columnIndex7) == 1);
-                        bundleInfo.setForceUpdate(cursor.getInt(columnIndex8) == 1);
-                        bundleInfo.setForbidden(cursor.getInt(columnIndex9) == 1);
-                        bundleInfo.setMd5(cursor.getString(columnIndex10));
-                        bundleInfo.setSignature(cursor.getString(columnIndex11));
-                        bundleInfo.setName(cursor.getString(columnIndex12));
-                        bundleInfo.setDescription(cursor.getString(columnIndex13));
-                        bundleInfo.setDownloadUrl(cursor.getString(columnIndex14));
-                        int i15 = columnIndex15;
-                        bundleInfo.setIconUrl(cursor.getString(i15));
-                        int i16 = columnIndex16;
-                        i4 = i14;
-                        bundleInfo.setDependence(cursor.getString(i16));
-                        int i17 = columnIndex17;
-                        i5 = i15;
-                        i6 = i17;
-                        bundleInfo.setVisible(cursor.getInt(i17) == 1);
-                        int i18 = columnIndex18;
-                        i7 = i16;
-                        bundleInfo.setRemovable(cursor.getInt(i18) == 1);
-                        int i19 = columnIndex19;
-                        i8 = i18;
-                        bundleInfo.setSize(cursor.getLong(i19));
-                        int i20 = columnIndex20;
-                        i9 = i19;
-                        bundleInfo.setNeedRemove(cursor.getInt(i20) == 1);
-                        int i21 = columnIndex21;
-                        bundleInfo.setAbi(cursor.getInt(i21));
-                        columnIndex21 = i21;
-                        i10 = columnIndex22;
-                        bundleInfo.setExt(cursor.getString(i10));
-                        i11 = i20;
-                        int i22 = columnIndex23;
-                        bundleInfo.setSilence(cursor.getInt(i22));
-                        columnIndex23 = i22;
-                        int i23 = columnIndex24;
-                        bundleInfo.setSilenceUpdate(cursor.getInt(i23));
-                        columnIndex24 = i23;
-                        i12 = i13;
-                        bundleInfo.setWifiOnly(cursor.getInt(i12));
-                        arrayList = arrayList3;
-                        try {
-                            arrayList.add(bundleInfo);
-                        } catch (SQLiteDatabaseCorruptException unused) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, cursor)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            if (cursor == null) {
+                return arrayList2;
+            }
+            cursor.getColumnIndex("_id");
+            int columnIndex = cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+            int columnIndex2 = cursor.getColumnIndex("version_code");
+            int columnIndex3 = cursor.getColumnIndex("path");
+            int columnIndex4 = cursor.getColumnIndex("update_v");
+            int columnIndex5 = cursor.getColumnIndex("min_version");
+            int columnIndex6 = cursor.getColumnIndex("type");
+            int columnIndex7 = cursor.getColumnIndex("broken");
+            int columnIndex8 = cursor.getColumnIndex("force_update");
+            int columnIndex9 = cursor.getColumnIndex("forbidden");
+            int columnIndex10 = cursor.getColumnIndex(PackageTable.MD5);
+            int columnIndex11 = cursor.getColumnIndex(SocialOperation.GAME_SIGNATURE);
+            int columnIndex12 = cursor.getColumnIndex("name");
+            int columnIndex13 = cursor.getColumnIndex("description");
+            int columnIndex14 = cursor.getColumnIndex("download_url");
+            ArrayList arrayList3 = arrayList2;
+            int columnIndex15 = cursor.getColumnIndex("icon_url");
+            int columnIndex16 = cursor.getColumnIndex("dependence");
+            int columnIndex17 = cursor.getColumnIndex("visible");
+            int columnIndex18 = cursor.getColumnIndex("removalbe");
+            int columnIndex19 = cursor.getColumnIndex("size");
+            int columnIndex20 = cursor.getColumnIndex("need_remove");
+            int columnIndex21 = cursor.getColumnIndex("abi");
+            int columnIndex22 = cursor.getColumnIndex("ext");
+            int columnIndex23 = cursor.getColumnIndex("silence");
+            int columnIndex24 = cursor.getColumnIndex("silence_update");
+            int columnIndex25 = cursor.getColumnIndex("wifionly");
+            try {
+                if (cursor.moveToFirst()) {
+                    int i13 = columnIndex25;
+                    while (true) {
+                        String string = cursor.getString(columnIndex);
+                        if (TextUtils.isEmpty(string)) {
+                            i2 = columnIndex;
+                            i3 = columnIndex3;
+                            i6 = columnIndex17;
+                            i10 = columnIndex22;
+                            i12 = i13;
+                            i5 = columnIndex15;
+                            i11 = columnIndex20;
+                            i9 = columnIndex19;
+                            i8 = columnIndex18;
+                            i7 = columnIndex16;
+                            i4 = columnIndex2;
+                            arrayList = arrayList3;
+                        } else {
+                            i2 = columnIndex;
+                            BundleInfo bundleInfo = new BundleInfo();
+                            bundleInfo.setPackageName(string);
+                            bundleInfo.setVersionCode(cursor.getInt(columnIndex2));
+                            bundleInfo.setApkPath(cursor.getString(columnIndex3));
+                            int i14 = columnIndex2;
+                            i3 = columnIndex3;
+                            bundleInfo.setUpdateV(cursor.getLong(columnIndex4));
+                            bundleInfo.setMinVersion(cursor.getInt(columnIndex5));
+                            bundleInfo.setType(cursor.getInt(columnIndex6));
+                            bundleInfo.setBroken(cursor.getInt(columnIndex7) == 1);
+                            bundleInfo.setForceUpdate(cursor.getInt(columnIndex8) == 1);
+                            bundleInfo.setForbidden(cursor.getInt(columnIndex9) == 1);
+                            bundleInfo.setMd5(cursor.getString(columnIndex10));
+                            bundleInfo.setSignature(cursor.getString(columnIndex11));
+                            bundleInfo.setName(cursor.getString(columnIndex12));
+                            bundleInfo.setDescription(cursor.getString(columnIndex13));
+                            bundleInfo.setDownloadUrl(cursor.getString(columnIndex14));
+                            int i15 = columnIndex15;
+                            bundleInfo.setIconUrl(cursor.getString(i15));
+                            int i16 = columnIndex16;
+                            i4 = i14;
+                            bundleInfo.setDependence(cursor.getString(i16));
+                            int i17 = columnIndex17;
+                            i5 = i15;
+                            i6 = i17;
+                            bundleInfo.setVisible(cursor.getInt(i17) == 1);
+                            int i18 = columnIndex18;
+                            i7 = i16;
+                            bundleInfo.setRemovable(cursor.getInt(i18) == 1);
+                            int i19 = columnIndex19;
+                            i8 = i18;
+                            bundleInfo.setSize(cursor.getLong(i19));
+                            int i20 = columnIndex20;
+                            i9 = i19;
+                            bundleInfo.setNeedRemove(cursor.getInt(i20) == 1);
+                            int i21 = columnIndex21;
+                            bundleInfo.setAbi(cursor.getInt(i21));
+                            columnIndex21 = i21;
+                            i10 = columnIndex22;
+                            bundleInfo.setExt(cursor.getString(i10));
+                            i11 = i20;
+                            int i22 = columnIndex23;
+                            bundleInfo.setSilence(cursor.getInt(i22));
+                            columnIndex23 = i22;
+                            int i23 = columnIndex24;
+                            bundleInfo.setSilenceUpdate(cursor.getInt(i23));
+                            columnIndex24 = i23;
+                            i12 = i13;
+                            bundleInfo.setWifiOnly(cursor.getInt(i12));
+                            arrayList = arrayList3;
+                            try {
+                                arrayList.add(bundleInfo);
+                            } catch (SQLiteDatabaseCorruptException unused) {
+                                return arrayList;
+                            }
+                        }
+                        if (!cursor.moveToNext()) {
                             return arrayList;
                         }
+                        i13 = i12;
+                        arrayList3 = arrayList;
+                        columnIndex22 = i10;
+                        columnIndex2 = i4;
+                        columnIndex16 = i7;
+                        columnIndex18 = i8;
+                        columnIndex19 = i9;
+                        columnIndex = i2;
+                        columnIndex3 = i3;
+                        columnIndex20 = i11;
+                        columnIndex15 = i5;
+                        columnIndex17 = i6;
                     }
-                    if (!cursor.moveToNext()) {
-                        return arrayList;
-                    }
-                    i13 = i12;
-                    arrayList3 = arrayList;
-                    columnIndex22 = i10;
-                    columnIndex2 = i4;
-                    columnIndex16 = i7;
-                    columnIndex18 = i8;
-                    columnIndex19 = i9;
-                    columnIndex = i2;
-                    columnIndex3 = i3;
-                    columnIndex20 = i11;
-                    columnIndex15 = i5;
-                    columnIndex17 = i6;
                 }
+            } catch (SQLiteDatabaseCorruptException unused2) {
             }
-        } catch (SQLiteDatabaseCorruptException unused2) {
+            return arrayList3;
         }
-        return arrayList3;
+        return (List) invokeL.objValue;
     }
 
     public static ContentValues toContentValues(BundleInfo bundleInfo) {
-        ContentValues contentValues = new ContentValues();
-        String packageName = bundleInfo.getPackageName();
-        if (TextUtils.isEmpty(packageName)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bundleInfo)) == null) {
+            ContentValues contentValues = new ContentValues();
+            String packageName = bundleInfo.getPackageName();
+            if (TextUtils.isEmpty(packageName)) {
+                return contentValues;
+            }
+            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
+            contentValues.put("version_code", Integer.valueOf(bundleInfo.getVersionCode()));
+            contentValues.put("path", bundleInfo.getApkPath());
+            contentValues.put("min_version", Integer.valueOf(bundleInfo.getMinVersion()));
+            contentValues.put("update_v", Long.valueOf(bundleInfo.getUpdateV()));
+            contentValues.put("type", Integer.valueOf(bundleInfo.getType()));
+            contentValues.put("broken", Boolean.valueOf(bundleInfo.isBroken()));
+            contentValues.put("force_update", Boolean.valueOf(bundleInfo.needForceUpdate()));
+            contentValues.put("forbidden", Boolean.valueOf(bundleInfo.isForbidden()));
+            contentValues.put(PackageTable.MD5, bundleInfo.getMd5());
+            contentValues.put(SocialOperation.GAME_SIGNATURE, bundleInfo.getSignature());
+            contentValues.put("name", bundleInfo.getName());
+            contentValues.put("dependence", bundleInfo.getDescription());
+            contentValues.put("download_url", bundleInfo.getDownloadUrl());
+            contentValues.put("icon_url", bundleInfo.getIconUrl());
+            contentValues.put("dependence", bundleInfo.getDependence());
+            contentValues.put("visible", Boolean.valueOf(bundleInfo.isVisible()));
+            contentValues.put("removalbe", Boolean.valueOf(bundleInfo.isRemovable()));
+            contentValues.put("size", Long.valueOf(bundleInfo.getSize()));
+            contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
+            contentValues.put("abi", Integer.valueOf(bundleInfo.getAbi()));
+            contentValues.put("ext", bundleInfo.getExt());
+            contentValues.put("silence", Integer.valueOf(bundleInfo.getSilence()));
+            contentValues.put("silence_update", Integer.valueOf(bundleInfo.getSilenceUpdate()));
+            contentValues.put("wifionly", Integer.valueOf(bundleInfo.getWifiOnly()));
             return contentValues;
         }
-        contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
-        contentValues.put("version_code", Integer.valueOf(bundleInfo.getVersionCode()));
-        contentValues.put("path", bundleInfo.getApkPath());
-        contentValues.put("min_version", Integer.valueOf(bundleInfo.getMinVersion()));
-        contentValues.put("update_v", Long.valueOf(bundleInfo.getUpdateV()));
-        contentValues.put("type", Integer.valueOf(bundleInfo.getType()));
-        contentValues.put("broken", Boolean.valueOf(bundleInfo.isBroken()));
-        contentValues.put("force_update", Boolean.valueOf(bundleInfo.needForceUpdate()));
-        contentValues.put("forbidden", Boolean.valueOf(bundleInfo.isForbidden()));
-        contentValues.put(PackageTable.MD5, bundleInfo.getMd5());
-        contentValues.put(SocialOperation.GAME_SIGNATURE, bundleInfo.getSignature());
-        contentValues.put("name", bundleInfo.getName());
-        contentValues.put("dependence", bundleInfo.getDescription());
-        contentValues.put("download_url", bundleInfo.getDownloadUrl());
-        contentValues.put("icon_url", bundleInfo.getIconUrl());
-        contentValues.put("dependence", bundleInfo.getDependence());
-        contentValues.put("visible", Boolean.valueOf(bundleInfo.isVisible()));
-        contentValues.put("removalbe", Boolean.valueOf(bundleInfo.isRemovable()));
-        contentValues.put("size", Long.valueOf(bundleInfo.getSize()));
-        contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
-        contentValues.put("abi", Integer.valueOf(bundleInfo.getAbi()));
-        contentValues.put("ext", bundleInfo.getExt());
-        contentValues.put("silence", Integer.valueOf(bundleInfo.getSilence()));
-        contentValues.put("silence_update", Integer.valueOf(bundleInfo.getSilenceUpdate()));
-        contentValues.put("wifionly", Integer.valueOf(bundleInfo.getWifiOnly()));
-        return contentValues;
+        return (ContentValues) invokeL.objValue;
     }
 
     public static void updateBundleInfoConfig(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
-        if (bundleInfo == null || bundleInfo2 == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, bundleInfo, bundleInfo2) == null) || bundleInfo == null || bundleInfo2 == null) {
             return;
         }
         bundleInfo.setUpdateV(bundleInfo2.getUpdateV());
@@ -271,271 +314,420 @@ public class BundleInfo implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getAbi() {
-        return this.abi;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.abi : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getApkPath() {
-        return this.apkPath;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.apkPath : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getDependence() {
-        return this.dependence;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dependence : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getDescription() {
-        return this.description;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.description : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getDownloadUrl() {
-        return this.downloadUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.downloadUrl : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getExt() {
-        return this.ext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.ext : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getIconUrl() {
-        return this.iconUrl;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.iconUrl : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getMd5() {
-        return this.md5;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.md5 : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getMinVersion() {
-        return this.minVersion;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.minVersion : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getName() {
-        return this.name;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getPackageName() {
-        return this.packageName;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.packageName : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getSignature() {
-        return this.signature;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.signature : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getSilence() {
-        return this.silence;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.silence : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getSilenceUpdate() {
-        return this.silenceUpdate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.silenceUpdate : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public long getSize() {
-        return this.size;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.size : invokeV.longValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getType() {
-        return this.type;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.type : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public long getUpdateV() {
-        return this.updateV;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.updateV : invokeV.longValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getVersionCode() {
-        return this.versionCode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.versionCode : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getWifiOnly() {
-        return this.wifiOnly;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.wifiOnly : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isBroken() {
-        return this.broken;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.broken : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isForbidden() {
-        return this.forbidden;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.forbidden : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isNeedRemove() {
-        return this.needRemove;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.needRemove : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isRemovable() {
-        return this.removable;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.removable : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isVisible() {
-        return this.visible;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.visible : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean needForceUpdate() {
-        return this.forceUpdate;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.forceUpdate : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setAbi(int i2) {
-        this.abi = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
+            this.abi = i2;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setApkPath(String str) {
-        this.apkPath = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.apkPath = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setBroken(boolean z) {
-        this.broken = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            this.broken = z;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDependence(String str) {
-        this.dependence = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.dependence = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDescription(String str) {
-        this.description = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.description = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDownloadUrl(String str) {
-        this.downloadUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.downloadUrl = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setExt(String str) {
-        this.ext = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            this.ext = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setForbidden(boolean z) {
-        this.forbidden = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.forbidden = z;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setForceUpdate(boolean z) {
-        this.forceUpdate = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            this.forceUpdate = z;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setIconUrl(String str) {
-        this.iconUrl = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+            this.iconUrl = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setMd5(String str) {
-        this.md5 = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.md5 = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setMinVersion(int i2) {
-        this.minVersion = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            this.minVersion = i2;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setName(String str) {
-        this.name = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+            this.name = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setNeedRemove(boolean z) {
-        this.needRemove = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+            this.needRemove = z;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setPackageName(String str) {
-        this.packageName = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+            this.packageName = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setRemovable(boolean z) {
-        this.removable = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+            this.removable = z;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSignature(String str) {
-        this.signature = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+            this.signature = str;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSilence(int i2) {
-        this.silence = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+            this.silence = i2;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSilenceUpdate(int i2) {
-        this.silenceUpdate = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
+            this.silenceUpdate = i2;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSize(long j) {
-        this.size = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
+            this.size = j;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setType(int i2) {
-        this.type = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+            this.type = i2;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setUpdateV(long j) {
-        this.updateV = j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.updateV = j;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setVersionCode(int i2) {
-        this.versionCode = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+            this.versionCode = i2;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setVisible(boolean z) {
-        this.visible = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            this.visible = z;
+        }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setWifiOnly(int i2) {
-        this.wifiOnly = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+            this.wifiOnly = i2;
+        }
     }
 
     public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
-        HashMap hashMap = new HashMap();
-        if (list == null) {
-            return null;
-        }
-        for (BundleInfo bundleInfo : list) {
-            BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
-            if (bundleInfoGroup == null) {
-                bundleInfoGroup = new BundleInfoGroup(j);
-                hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j)) == null) {
+            HashMap hashMap = new HashMap();
+            if (list == null) {
+                return null;
             }
-            bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
+            for (BundleInfo bundleInfo : list) {
+                BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
+                if (bundleInfoGroup == null) {
+                    bundleInfoGroup = new BundleInfoGroup(j);
+                    hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
+                }
+                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
+            }
+            return hashMap;
         }
-        return hashMap;
+        return (Map) invokeLJ.objValue;
     }
 
     public BundleInfo(IBundleInfo iBundleInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iBundleInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.broken = false;
+        this.visible = true;
+        this.removable = false;
+        this.needRemove = false;
+        this.abi = -1;
         setPackageName(iBundleInfo.getPackageName());
         setVersionCode(iBundleInfo.getVersionCode());
         setApkPath(iBundleInfo.getApkPath());
@@ -560,66 +752,76 @@ public class BundleInfo implements IBundleInfo {
     }
 
     public static BundleInfo toBundleInfo(ContentValues contentValues) {
-        BundleInfo bundleInfo = new BundleInfo();
-        bundleInfo.setPackageName(contentValues.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME));
-        bundleInfo.setVersionCode(contentValues.getAsInteger("version_code").intValue());
-        bundleInfo.setApkPath(contentValues.getAsString("path"));
-        bundleInfo.setUpdateV(contentValues.getAsLong("update_v").longValue());
-        bundleInfo.setMinVersion(contentValues.getAsInteger("min_version").intValue());
-        bundleInfo.setType(contentValues.getAsInteger("type").intValue());
-        bundleInfo.setBroken(contentValues.getAsBoolean("broken").booleanValue());
-        bundleInfo.setForceUpdate(contentValues.getAsBoolean("force_update").booleanValue());
-        bundleInfo.setForbidden(contentValues.getAsBoolean("forbidden").booleanValue());
-        bundleInfo.setMd5(contentValues.getAsString(PackageTable.MD5));
-        bundleInfo.setSignature(contentValues.getAsString(SocialOperation.GAME_SIGNATURE));
-        bundleInfo.setName(contentValues.getAsString("name"));
-        bundleInfo.setDescription(contentValues.getAsString("description"));
-        bundleInfo.setDownloadUrl(contentValues.getAsString("download_url"));
-        bundleInfo.setIconUrl(contentValues.getAsString("icon_url"));
-        bundleInfo.setDependence(contentValues.getAsString("dependence"));
-        bundleInfo.setVisible(contentValues.getAsBoolean("visible").booleanValue());
-        bundleInfo.setRemovable(contentValues.getAsBoolean("removalbe").booleanValue());
-        bundleInfo.setSize(contentValues.getAsLong("size").longValue());
-        bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
-        bundleInfo.setAbi(contentValues.getAsInteger("abi").intValue());
-        bundleInfo.setExt(contentValues.getAsString("ext"));
-        bundleInfo.setSilence(contentValues.getAsInteger("silence").intValue());
-        bundleInfo.setSilenceUpdate(contentValues.getAsInteger("silence_update").intValue());
-        bundleInfo.setWifiOnly(contentValues.getAsInteger("wifionly").intValue());
-        return bundleInfo;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, contentValues)) == null) {
+            BundleInfo bundleInfo = new BundleInfo();
+            bundleInfo.setPackageName(contentValues.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME));
+            bundleInfo.setVersionCode(contentValues.getAsInteger("version_code").intValue());
+            bundleInfo.setApkPath(contentValues.getAsString("path"));
+            bundleInfo.setUpdateV(contentValues.getAsLong("update_v").longValue());
+            bundleInfo.setMinVersion(contentValues.getAsInteger("min_version").intValue());
+            bundleInfo.setType(contentValues.getAsInteger("type").intValue());
+            bundleInfo.setBroken(contentValues.getAsBoolean("broken").booleanValue());
+            bundleInfo.setForceUpdate(contentValues.getAsBoolean("force_update").booleanValue());
+            bundleInfo.setForbidden(contentValues.getAsBoolean("forbidden").booleanValue());
+            bundleInfo.setMd5(contentValues.getAsString(PackageTable.MD5));
+            bundleInfo.setSignature(contentValues.getAsString(SocialOperation.GAME_SIGNATURE));
+            bundleInfo.setName(contentValues.getAsString("name"));
+            bundleInfo.setDescription(contentValues.getAsString("description"));
+            bundleInfo.setDownloadUrl(contentValues.getAsString("download_url"));
+            bundleInfo.setIconUrl(contentValues.getAsString("icon_url"));
+            bundleInfo.setDependence(contentValues.getAsString("dependence"));
+            bundleInfo.setVisible(contentValues.getAsBoolean("visible").booleanValue());
+            bundleInfo.setRemovable(contentValues.getAsBoolean("removalbe").booleanValue());
+            bundleInfo.setSize(contentValues.getAsLong("size").longValue());
+            bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
+            bundleInfo.setAbi(contentValues.getAsInteger("abi").intValue());
+            bundleInfo.setExt(contentValues.getAsString("ext"));
+            bundleInfo.setSilence(contentValues.getAsInteger("silence").intValue());
+            bundleInfo.setSilenceUpdate(contentValues.getAsInteger("silence_update").intValue());
+            bundleInfo.setWifiOnly(contentValues.getAsInteger("wifionly").intValue());
+            return bundleInfo;
+        }
+        return (BundleInfo) invokeL.objValue;
     }
 
     public static ContentValues toContentValues(IBundleInfo iBundleInfo) {
-        ContentValues contentValues = new ContentValues();
-        String packageName = iBundleInfo.getPackageName();
-        if (TextUtils.isEmpty(packageName)) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, iBundleInfo)) == null) {
+            ContentValues contentValues = new ContentValues();
+            String packageName = iBundleInfo.getPackageName();
+            if (TextUtils.isEmpty(packageName)) {
+                return contentValues;
+            }
+            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
+            contentValues.put("version_code", Integer.valueOf(iBundleInfo.getVersionCode()));
+            contentValues.put("path", iBundleInfo.getApkPath());
+            contentValues.put("min_version", Integer.valueOf(iBundleInfo.getMinVersion()));
+            contentValues.put("update_v", Long.valueOf(iBundleInfo.getUpdateV()));
+            contentValues.put("type", Integer.valueOf(iBundleInfo.getType()));
+            contentValues.put("broken", Boolean.valueOf(iBundleInfo.isBroken()));
+            contentValues.put("force_update", Boolean.valueOf(iBundleInfo.needForceUpdate()));
+            contentValues.put("forbidden", Boolean.valueOf(iBundleInfo.isForbidden()));
+            contentValues.put(PackageTable.MD5, iBundleInfo.getMd5());
+            contentValues.put(SocialOperation.GAME_SIGNATURE, iBundleInfo.getSignature());
+            contentValues.put("name", iBundleInfo.getName());
+            contentValues.put("dependence", iBundleInfo.getDescription());
+            contentValues.put("download_url", iBundleInfo.getDownloadUrl());
+            contentValues.put("icon_url", iBundleInfo.getIconUrl());
+            contentValues.put("dependence", iBundleInfo.getDependence());
+            contentValues.put("visible", Boolean.valueOf(iBundleInfo.isVisible()));
+            contentValues.put("removalbe", Boolean.valueOf(iBundleInfo.isRemovable()));
+            contentValues.put("size", Long.valueOf(iBundleInfo.getSize()));
+            contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));
+            contentValues.put("abi", Integer.valueOf(iBundleInfo.getAbi()));
+            contentValues.put("ext", iBundleInfo.getExt());
+            contentValues.put("silence", Integer.valueOf(iBundleInfo.getSilence()));
+            contentValues.put("silence_update", Integer.valueOf(iBundleInfo.getSilenceUpdate()));
+            contentValues.put("wifionly", Integer.valueOf(iBundleInfo.getWifiOnly()));
             return contentValues;
         }
-        contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
-        contentValues.put("version_code", Integer.valueOf(iBundleInfo.getVersionCode()));
-        contentValues.put("path", iBundleInfo.getApkPath());
-        contentValues.put("min_version", Integer.valueOf(iBundleInfo.getMinVersion()));
-        contentValues.put("update_v", Long.valueOf(iBundleInfo.getUpdateV()));
-        contentValues.put("type", Integer.valueOf(iBundleInfo.getType()));
-        contentValues.put("broken", Boolean.valueOf(iBundleInfo.isBroken()));
-        contentValues.put("force_update", Boolean.valueOf(iBundleInfo.needForceUpdate()));
-        contentValues.put("forbidden", Boolean.valueOf(iBundleInfo.isForbidden()));
-        contentValues.put(PackageTable.MD5, iBundleInfo.getMd5());
-        contentValues.put(SocialOperation.GAME_SIGNATURE, iBundleInfo.getSignature());
-        contentValues.put("name", iBundleInfo.getName());
-        contentValues.put("dependence", iBundleInfo.getDescription());
-        contentValues.put("download_url", iBundleInfo.getDownloadUrl());
-        contentValues.put("icon_url", iBundleInfo.getIconUrl());
-        contentValues.put("dependence", iBundleInfo.getDependence());
-        contentValues.put("visible", Boolean.valueOf(iBundleInfo.isVisible()));
-        contentValues.put("removalbe", Boolean.valueOf(iBundleInfo.isRemovable()));
-        contentValues.put("size", Long.valueOf(iBundleInfo.getSize()));
-        contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));
-        contentValues.put("abi", Integer.valueOf(iBundleInfo.getAbi()));
-        contentValues.put("ext", iBundleInfo.getExt());
-        contentValues.put("silence", Integer.valueOf(iBundleInfo.getSilence()));
-        contentValues.put("silence_update", Integer.valueOf(iBundleInfo.getSilenceUpdate()));
-        contentValues.put("wifionly", Integer.valueOf(iBundleInfo.getWifiOnly()));
-        return contentValues;
+        return (ContentValues) invokeL.objValue;
     }
 }

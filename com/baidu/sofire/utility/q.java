@@ -2,7 +2,16 @@ package com.baidu.sofire.utility;
 
 import android.accounts.NetworkErrorException;
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,108 +26,194 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class q {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f10436b = new byte[1024];
+    public static final byte[] f10508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OkHttpClient f10437c;
+    public static OkHttpClient f10509c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10438a;
+    public Context f10510a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1443542084, "Lcom/baidu/sofire/utility/q;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1443542084, "Lcom/baidu/sofire/utility/q;");
+                return;
+            }
+        }
+        f10508b = new byte[1024];
+    }
 
     public q(Context context) {
-        this.f10438a = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f10510a = context;
     }
 
     private OkHttpClient a() {
-        if (f10437c == null) {
-            synchronized (q.class) {
-                if (f10437c == null) {
-                    OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                    builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                    builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
-                    builder.addInterceptor(new Interceptor() { // from class: com.baidu.sofire.utility.q.1
-                        @Override // okhttp3.Interceptor
-                        public final Response intercept(Interceptor.Chain chain) throws IOException {
-                            System.currentTimeMillis();
-                            Response proceed = chain.proceed(chain.request());
-                            System.currentTimeMillis();
-                            return proceed;
-                        }
-                    });
-                    f10437c = builder.build();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            if (f10509c == null) {
+                synchronized (q.class) {
+                    if (f10509c == null) {
+                        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                        builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+                        builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
+                        builder.addInterceptor(new Interceptor(this) { // from class: com.baidu.sofire.utility.q.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ q f10511a;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f10511a = this;
+                            }
+
+                            @Override // okhttp3.Interceptor
+                            public final Response intercept(Interceptor.Chain chain) throws IOException {
+                                InterceptResult invokeL;
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, chain)) == null) {
+                                    System.currentTimeMillis();
+                                    Response proceed = chain.proceed(chain.request());
+                                    System.currentTimeMillis();
+                                    return proceed;
+                                }
+                                return (Response) invokeL.objValue;
+                            }
+                        });
+                        f10509c = builder.build();
+                    }
                 }
             }
+            return f10509c;
         }
-        return f10437c;
+        return (OkHttpClient) invokeV.objValue;
     }
 
     private Request b(String str, byte[] bArr) {
-        try {
-            MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-            String str2 = c.g(this.f10438a)[0];
-            Request.Builder url = new Request.Builder().url(str);
-            if (bArr != null) {
-                url.post(RequestBody.create(parse, bArr));
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bArr)) == null) {
+            try {
+                MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
+                String str2 = c.g(this.f10510a)[0];
+                Request.Builder url = new Request.Builder().url(str);
+                if (bArr != null) {
+                    url.post(RequestBody.create(parse, bArr));
+                }
+                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f10510a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f10510a))).build();
+            } catch (Throwable unused) {
+                c.a();
+                return null;
             }
-            Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f10438a) + "/3.5.8.6").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-            return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f10438a))).build();
-        } catch (Throwable unused) {
-            c.a();
-            return null;
         }
+        return (Request) invokeLL.objValue;
     }
 
     public final String a(String str, byte[] bArr) {
-        try {
-            if (s.m(this.f10438a)) {
-                Response execute = a().newCall(b(str, bArr)).execute();
-                int code = execute.code();
-                if (code == 200) {
-                    return execute.body().string();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            try {
+                if (s.m(this.f10510a)) {
+                    Response execute = a().newCall(b(str, bArr)).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        return execute.body().string();
+                    }
+                    throw new NetworkErrorException(String.valueOf(code));
                 }
-                throw new NetworkErrorException(String.valueOf(code));
+                throw new NetworkErrorException("Not allow background connect.");
+            } catch (Throwable unused) {
+                c.a();
+                return "";
             }
-            throw new NetworkErrorException("Not allow background connect.");
-        } catch (Throwable unused) {
-            c.a();
-            return "";
         }
+        return (String) invokeLL.objValue;
     }
 
     public final boolean a(String str, File file) {
-        try {
-            if (s.m(this.f10438a)) {
-                Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
-                int code = execute.code();
-                if (code == 200) {
-                    InputStream byteStream = execute.body().byteStream();
-                    boolean a2 = a(byteStream, file);
-                    byteStream.close();
-                    return a2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
+            try {
+                if (s.m(this.f10510a)) {
+                    Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        InputStream byteStream = execute.body().byteStream();
+                        boolean a2 = a(byteStream, file);
+                        byteStream.close();
+                        return a2;
+                    }
+                    throw new NetworkErrorException(String.valueOf(code));
                 }
-                throw new NetworkErrorException(String.valueOf(code));
+                throw new NetworkErrorException("Not allow background connect.");
+            } catch (Throwable unused) {
+                c.a();
+                return false;
             }
-            throw new NetworkErrorException("Not allow background connect.");
-        } catch (Throwable unused) {
-            c.a();
-            return false;
         }
+        return invokeLL.booleanValue;
     }
 
     public static boolean a(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65540, null, inputStream, file)) != null) {
+            return invokeLL.booleanValue;
+        }
         if (inputStream == null) {
             return false;
         }
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             while (true) {
-                int read = inputStream.read(f10436b);
+                int read = inputStream.read(f10508b);
                 if (read != -1) {
-                    bufferedOutputStream.write(f10436b, 0, read);
+                    bufferedOutputStream.write(f10508b, 0, read);
                     bufferedOutputStream.flush();
                 } else {
                     bufferedOutputStream.flush();
@@ -133,6 +228,8 @@ public class q {
     }
 
     public static boolean a(Context context) {
-        return context.getPackageName().contains("com.baidu.searchbox");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getPackageName().contains("com.baidu.searchbox") : invokeL.booleanValue;
     }
 }

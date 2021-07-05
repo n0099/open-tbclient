@@ -1,73 +1,151 @@
 package com.google.common.base;
 
-import d.g.c.a.g;
-import d.g.c.a.n;
-import d.g.c.a.r;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.a.g;
+import d.f.d.a.n;
+import d.f.d.a.r;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class Optional<T> implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Iterable<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f30985e;
+        public final /* synthetic */ Iterable f32897e;
 
         /* renamed from: com.google.common.base.Optional$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0339a extends AbstractIterator<T> {
+        /* loaded from: classes7.dex */
+        public class C0379a extends AbstractIterator<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<? extends Optional<? extends T>> f30986g;
+            public final Iterator<? extends Optional<? extends T>> f32898g;
 
-            /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
-            public C0339a() {
-                Iterator it = a.this.f30985e.iterator();
+            /* renamed from: h  reason: collision with root package name */
+            public final /* synthetic */ a f32899h;
+
+            /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
+            public C0379a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f32899h = aVar;
+                Iterator it = this.f32899h.f32897e.iterator();
                 n.p(it);
-                this.f30986g = (Iterator<T>) it;
+                this.f32898g = (Iterator<T>) it;
             }
 
             @Override // com.google.common.base.AbstractIterator
             public T a() {
-                while (this.f30986g.hasNext()) {
-                    Optional<? extends T> next = this.f30986g.next();
-                    if (next.isPresent()) {
-                        return next.get();
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    while (this.f32898g.hasNext()) {
+                        Optional<? extends T> next = this.f32898g.next();
+                        if (next.isPresent()) {
+                            return next.get();
+                        }
                     }
+                    return b();
                 }
-                return b();
+                return (T) invokeV.objValue;
             }
         }
 
         public a(Iterable iterable) {
-            this.f30985e = iterable;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iterable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32897e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return new C0339a();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0379a(this) : (Iterator) invokeV.objValue;
+        }
+    }
+
+    public Optional() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static <T> Optional<T> absent() {
-        return Absent.withType();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Absent.withType() : (Optional) invokeV.objValue;
     }
 
     public static <T> Optional<T> fromNullable(T t) {
-        return t == null ? absent() : new Present(t);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? t == null ? absent() : new Present(t) : (Optional) invokeL.objValue;
     }
 
     public static <T> Optional<T> of(T t) {
-        n.p(t);
-        return new Present(t);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
+            n.p(t);
+            return new Present(t);
+        }
+        return (Optional) invokeL.objValue;
     }
 
     public static <T> Iterable<T> presentInstances(Iterable<? extends Optional<? extends T>> iterable) {
-        n.p(iterable);
-        return new a(iterable);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iterable)) == null) {
+            n.p(iterable);
+            return new a(iterable);
+        }
+        return (Iterable) invokeL.objValue;
     }
 
     public abstract Set<T> asSet();

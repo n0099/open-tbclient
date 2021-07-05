@@ -1,7 +1,7 @@
 package com.baidu.spswitch.emotion.resource;
 
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface IResourceProvider {
     String getEmotionConfigContent();
 

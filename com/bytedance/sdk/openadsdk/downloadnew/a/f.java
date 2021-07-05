@@ -1,23 +1,34 @@
 package com.bytedance.sdk.openadsdk.downloadnew.a;
 
 import android.text.TextUtils;
-import com.bytedance.sdk.openadsdk.core.d.l;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.bytedance.sdk.openadsdk.core.e.m;
 /* loaded from: classes6.dex */
 public class f {
-    public static String a(l lVar) {
-        if (lVar == null) {
-            return "";
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static String a(m mVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mVar)) == null) {
+            if (mVar == null) {
+                return "";
+            }
+            com.bytedance.sdk.openadsdk.core.e.b al = mVar.al();
+            if (al != null && !TextUtils.isEmpty(al.c())) {
+                return al.c();
+            }
+            if (!TextUtils.isEmpty(mVar.W())) {
+                return mVar.W();
+            }
+            if (TextUtils.isEmpty(mVar.ai())) {
+                return !TextUtils.isEmpty(mVar.aC()) ? mVar.aC() : "";
+            }
+            return mVar.ai();
         }
-        com.bytedance.sdk.openadsdk.core.d.b an = lVar.an();
-        if (an != null && !TextUtils.isEmpty(an.c())) {
-            return an.c();
-        }
-        if (!TextUtils.isEmpty(lVar.Y())) {
-            return lVar.Y();
-        }
-        if (TextUtils.isEmpty(lVar.ak())) {
-            return !TextUtils.isEmpty(lVar.aF()) ? lVar.aF() : "";
-        }
-        return lVar.ak();
+        return (String) invokeL.objValue;
     }
 }

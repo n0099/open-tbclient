@@ -3,32 +3,52 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class eb implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f41296a;
+    public final /* synthetic */ Context f43039a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ea f313a;
+    public final /* synthetic */ ea f316a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f314a;
+    public final /* synthetic */ String f317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f41297b;
+    public final /* synthetic */ String f43040b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f41298c;
+    public final /* synthetic */ String f43041c;
 
     public eb(ea eaVar, String str, Context context, String str2, String str3) {
-        this.f313a = eaVar;
-        this.f314a = str;
-        this.f41296a = context;
-        this.f41297b = str2;
-        this.f41298c = str3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eaVar, str, context, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f316a = eaVar;
+        this.f317a = str;
+        this.f43039a = context;
+        this.f43040b = str2;
+        this.f43041c = str3;
     }
 
     @Override // java.lang.Runnable
@@ -42,71 +62,74 @@ public class eb implements Runnable {
         ea eaVar;
         ec ecVar;
         Context context3;
-        if (TextUtils.isEmpty(this.f314a)) {
-            context = this.f41296a;
-            str = StringUtil.NULL_STRING;
-            str2 = "A receive a incorrect message with empty info";
-        } else {
-            try {
-                dw.a(this.f41296a, this.f314a, 1001, "get message");
-                JSONObject jSONObject = new JSONObject(this.f314a);
-                String optString = jSONObject.optString("action");
-                String optString2 = jSONObject.optString("awakened_app_packagename");
-                String optString3 = jSONObject.optString("awake_app_packagename");
-                String optString4 = jSONObject.optString("awake_app");
-                String optString5 = jSONObject.optString("awake_type");
-                int optInt = jSONObject.optInt("awake_foreground", 0);
-                if (this.f41297b.equals(optString3) && this.f41298c.equals(optString4)) {
-                    if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString2)) {
-                        this.f313a.b(optString3);
-                        this.f313a.a(optString4);
-                        dz dzVar = new dz();
-                        dzVar.b(optString);
-                        dzVar.a(optString2);
-                        dzVar.a(optInt);
-                        dzVar.d(this.f314a);
-                        if ("service".equals(optString5)) {
-                            if (TextUtils.isEmpty(optString)) {
-                                dzVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
-                                eaVar = this.f313a;
-                                ecVar = ec.SERVICE_COMPONENT;
-                                context3 = this.f41296a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (TextUtils.isEmpty(this.f317a)) {
+                context = this.f43039a;
+                str = StringUtil.NULL_STRING;
+                str2 = "A receive a incorrect message with empty info";
+            } else {
+                try {
+                    dw.a(this.f43039a, this.f317a, 1001, "get message");
+                    JSONObject jSONObject = new JSONObject(this.f317a);
+                    String optString = jSONObject.optString("action");
+                    String optString2 = jSONObject.optString("awakened_app_packagename");
+                    String optString3 = jSONObject.optString("awake_app_packagename");
+                    String optString4 = jSONObject.optString("awake_app");
+                    String optString5 = jSONObject.optString("awake_type");
+                    int optInt = jSONObject.optInt("awake_foreground", 0);
+                    if (this.f43040b.equals(optString3) && this.f43041c.equals(optString4)) {
+                        if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString2)) {
+                            this.f316a.b(optString3);
+                            this.f316a.a(optString4);
+                            dz dzVar = new dz();
+                            dzVar.b(optString);
+                            dzVar.a(optString2);
+                            dzVar.a(optInt);
+                            dzVar.d(this.f317a);
+                            if ("service".equals(optString5)) {
+                                if (TextUtils.isEmpty(optString)) {
+                                    dzVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
+                                    eaVar = this.f316a;
+                                    ecVar = ec.f43044c;
+                                    context3 = this.f43039a;
+                                } else {
+                                    eaVar = this.f316a;
+                                    ecVar = ec.f43043b;
+                                    context3 = this.f43039a;
+                                }
+                            } else if (ec.f43042a.f319a.equals(optString5)) {
+                                eaVar = this.f316a;
+                                ecVar = ec.f43042a;
+                                context3 = this.f43039a;
+                            } else if (ec.f43045d.f319a.equals(optString5)) {
+                                eaVar = this.f316a;
+                                ecVar = ec.f43045d;
+                                context3 = this.f43039a;
                             } else {
-                                eaVar = this.f313a;
-                                ecVar = ec.SERVICE_ACTION;
-                                context3 = this.f41296a;
+                                context2 = this.f43039a;
+                                str3 = this.f317a;
+                                str4 = "A receive a incorrect message with unknown type " + optString5;
                             }
-                        } else if (ec.ACTIVITY.f316a.equals(optString5)) {
-                            eaVar = this.f313a;
-                            ecVar = ec.ACTIVITY;
-                            context3 = this.f41296a;
-                        } else if (ec.PROVIDER.f316a.equals(optString5)) {
-                            eaVar = this.f313a;
-                            ecVar = ec.PROVIDER;
-                            context3 = this.f41296a;
-                        } else {
-                            context2 = this.f41296a;
-                            str3 = this.f314a;
-                            str4 = "A receive a incorrect message with unknown type " + optString5;
+                            eaVar.a(ecVar, context3, dzVar);
+                            return;
                         }
-                        eaVar.a(ecVar, context3, dzVar);
+                        context2 = this.f43039a;
+                        str3 = this.f317a;
+                        str4 = "A receive a incorrect message with empty type";
+                        dw.a(context2, str3, 1008, str4);
                         return;
                     }
-                    context2 = this.f41296a;
-                    str3 = this.f314a;
-                    str4 = "A receive a incorrect message with empty type";
-                    dw.a(context2, str3, 1008, str4);
+                    dw.a(this.f43039a, this.f317a, 1008, "A receive a incorrect message with incorrect package info" + optString3);
                     return;
+                } catch (JSONException e2) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    context = this.f43039a;
+                    str = this.f317a;
+                    str2 = "A meet a exception when receive the message";
                 }
-                dw.a(this.f41296a, this.f314a, 1008, "A receive a incorrect message with incorrect package info" + optString3);
-                return;
-            } catch (JSONException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
-                context = this.f41296a;
-                str = this.f314a;
-                str2 = "A meet a exception when receive the message";
             }
+            dw.a(context, str, 1008, str2);
         }
-        dw.a(context, str, 1008, str2);
     }
 }

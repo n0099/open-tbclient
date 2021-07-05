@@ -1,5 +1,11 @@
 package com.tencent.open.a;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Iterator;
@@ -7,38 +13,63 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class g implements Iterable<String> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentLinkedQueue<String> f40157a;
+    public ConcurrentLinkedQueue<String> f41900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f40158b;
+    public AtomicInteger f41901b;
 
     public g() {
-        this.f40157a = null;
-        this.f40158b = null;
-        this.f40157a = new ConcurrentLinkedQueue<>();
-        this.f40158b = new AtomicInteger(0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f41900a = null;
+        this.f41901b = null;
+        this.f41900a = new ConcurrentLinkedQueue<>();
+        this.f41901b = new AtomicInteger(0);
     }
 
     public int a(String str) {
-        int length = str.length();
-        this.f40157a.add(str);
-        return this.f40158b.addAndGet(length);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int length = str.length();
+            this.f41900a.add(str);
+            return this.f41901b.addAndGet(length);
+        }
+        return invokeL.intValue;
     }
 
     public void b() {
-        this.f40157a.clear();
-        this.f40158b.set(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f41900a.clear();
+            this.f41901b.set(0);
+        }
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f40157a.iterator();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41900a.iterator() : (Iterator) invokeV.objValue;
     }
 
     public void a(Writer writer, char[] cArr) throws IOException {
-        if (writer == null || cArr == null || cArr.length == 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, writer, cArr) == null) || writer == null || cArr == null || cArr.length == 0) {
             return;
         }
         int length = cArr.length;
@@ -73,6 +104,8 @@ public class g implements Iterable<String> {
     }
 
     public int a() {
-        return this.f40158b.get();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41901b.get() : invokeV.intValue;
     }
 }

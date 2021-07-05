@@ -3,35 +3,60 @@ package com.baidu.tieba.advert.sdk.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.o0.t.a.f.b;
-import d.a.o0.t.a.j.a;
+import d.a.s0.t.a.f.b;
+import d.a.s0.t.a.j.a;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public AdInfo adInfo;
     public int errno;
     public String mResultMessage;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SplashHttpResponse(int i2) {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.errno = -1;
     }
 
     private void dealVideoAd() {
-        if (FileHelper.checkSD()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && FileHelper.checkSD()) {
             b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f64621d;
+                adInfo.videoLocalPath = b2.f65483d;
                 a.g(adInfo);
             } else if (j.z() && j.H()) {
-                d.a.o0.t.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
+                d.a.s0.t.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                     a.g(this.adInfo);
-                    d.a.o0.t.a.i.a aVar = new d.a.o0.t.a.i.a();
+                    d.a.s0.t.a.i.a aVar = new d.a.s0.t.a.i.a();
                     aVar.c(this.adInfo);
                     aVar.setKey(this.adInfo.adVideoUrl);
                     aVar.execute(new Void[0]);
@@ -42,22 +67,28 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    private d.a.o0.t.a.i.a searchTask(String str) {
+    private d.a.s0.t.a.i.a searchTask(String str) {
+        InterceptResult invokeL;
         BdAsyncTask<?, ?, ?> searchTask;
-        if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.a.o0.t.a.i.a)) {
-            return null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.a.s0.t.a.i.a)) {
+                return null;
+            }
+            try {
+                return (d.a.s0.t.a.i.a) searchTask;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            }
         }
-        try {
-            return (d.a.o0.t.a.i.a) searchTask;
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            return null;
-        }
+        return (d.a.s0.t.a.i.a) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) || jSONObject == null) {
             return;
         }
         super.decodeLogicInBackGround(i2, jSONObject);
@@ -80,10 +111,14 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
     }
 
     public int getErrno() {
-        return this.errno;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errno : invokeV.intValue;
     }
 
     public String getResultMsg() {
-        return this.mResultMessage;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mResultMessage : (String) invokeV.objValue;
     }
 }

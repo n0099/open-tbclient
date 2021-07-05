@@ -1,96 +1,221 @@
 package d.f.b.a;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import com.android.internal.http.multipart.Part;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-/* loaded from: classes6.dex */
-public class f {
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.audio.AudioProcessor;
+import java.util.ArrayList;
+/* loaded from: classes10.dex */
+public class f implements u {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f69983a = new Object();
+    public final Context f73202a;
+    @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f69984b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+    public final d.f.b.a.z.a<d.f.b.a.z.c> f73203b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f69985c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    public final int f73204c;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        @Override // java.lang.Runnable
-        public void run() {
-            long currentTimeMillis = System.currentTimeMillis();
-            File[] g2 = c.g();
-            if (g2 == null || g2.length <= 0) {
+    /* renamed from: d  reason: collision with root package name */
+    public final long f73205d;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public f(Context context, @Nullable d.f.b.a.z.a<d.f.b.a.z.c> aVar) {
+        this(context, aVar, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (d.f.b.a.z.a) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            synchronized (f.f69983a) {
-                for (File file : g2) {
-                    if (currentTimeMillis - file.lastModified() > 172800000) {
-                        file.delete();
-                    }
-                }
-            }
         }
     }
 
-    public static void b() {
-        e.b().post(new a());
-    }
-
-    public static String c(String str) {
-        String d2;
-        synchronized (f69983a) {
-            d2 = d("looper", str);
+    @Override // d.f.b.a.u
+    public r[] a(Handler handler, d.f.b.a.j0.e eVar, d.f.b.a.x.d dVar, d.f.b.a.e0.j jVar, d.f.b.a.c0.d dVar2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, handler, eVar, dVar, jVar, dVar2)) == null) {
+            ArrayList<r> arrayList = new ArrayList<>();
+            g(this.f73202a, this.f73203b, this.f73205d, handler, eVar, this.f73204c, arrayList);
+            c(this.f73202a, this.f73203b, b(), handler, dVar, this.f73204c, arrayList);
+            f(this.f73202a, jVar, handler.getLooper(), this.f73204c, arrayList);
+            d(this.f73202a, dVar2, handler.getLooper(), this.f73204c, arrayList);
+            e(this.f73202a, handler, this.f73204c, arrayList);
+            return (r[]) arrayList.toArray(new r[arrayList.size()]);
         }
-        return d2;
+        return (r[]) invokeLLLLL.objValue;
     }
 
-    public static String d(String str, String str2) {
-        long currentTimeMillis;
-        BufferedWriter bufferedWriter;
-        String str3 = "";
-        BufferedWriter bufferedWriter2 = null;
+    public AudioProcessor[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AudioProcessor[0] : (AudioProcessor[]) invokeV.objValue;
+    }
+
+    public void c(Context context, @Nullable d.f.b.a.z.a<d.f.b.a.z.c> aVar, AudioProcessor[] audioProcessorArr, Handler handler, d.f.b.a.x.d dVar, int i2, ArrayList<r> arrayList) {
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, aVar, audioProcessorArr, handler, dVar, Integer.valueOf(i2), arrayList}) != null) {
+            return;
+        }
+        arrayList.add(new d.f.b.a.x.g(d.f.b.a.b0.b.f72611a, aVar, true, handler, dVar, d.f.b.a.x.c.a(context), audioProcessorArr));
+        if (i2 == 0) {
+            return;
+        }
+        int size = arrayList.size();
+        if (i2 == 2) {
+            size--;
+        }
         try {
-            File c2 = c.c();
-            currentTimeMillis = System.currentTimeMillis();
-            str3 = c2.getAbsolutePath() + "/" + str + "-" + f69984b.format(Long.valueOf(currentTimeMillis)) + ".log";
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            bufferedWriter.write(Part.CRLF);
-            bufferedWriter.write("**********************");
-            bufferedWriter.write(Part.CRLF);
-            bufferedWriter.write(f69985c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
-            bufferedWriter.write(Part.CRLF);
-            bufferedWriter.write(Part.CRLF);
-            bufferedWriter.write(str2);
-            bufferedWriter.write(Part.CRLF);
-            bufferedWriter.flush();
-            bufferedWriter.close();
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedWriter2 = bufferedWriter;
             try {
-                Log.e("LogWriter", "save: ", th);
-                return str3;
-            } finally {
-                if (bufferedWriter2 != null) {
+                i3 = size + 1;
+                try {
+                    arrayList.add(size, (r) Class.forName("com.google.android.exoplayer2.ext.opus.LibopusAudioRenderer").getConstructor(Handler.class, d.f.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+                    Log.i("DefaultRenderersFactory", "Loaded LibopusAudioRenderer.");
+                } catch (ClassNotFoundException unused) {
+                    size = i3;
+                    i3 = size;
                     try {
-                        bufferedWriter2.close();
-                    } catch (Exception e2) {
-                        Log.e("LogWriter", "save: ", e2);
+                        i4 = i3 + 1;
+                        try {
+                            arrayList.add(i3, (r) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, d.f.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+                            Log.i("DefaultRenderersFactory", "Loaded LibflacAudioRenderer.");
+                        } catch (ClassNotFoundException unused2) {
+                            i3 = i4;
+                            i4 = i3;
+                            arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, d.f.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+                            Log.i("DefaultRenderersFactory", "Loaded FfmpegAudioRenderer.");
+                        }
+                    } catch (ClassNotFoundException unused3) {
                     }
+                    arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, d.f.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+                    Log.i("DefaultRenderersFactory", "Loaded FfmpegAudioRenderer.");
                 }
+            } catch (Exception e2) {
+                throw new RuntimeException(e2);
+            }
+        } catch (ClassNotFoundException unused4) {
+        }
+        try {
+            i4 = i3 + 1;
+            arrayList.add(i3, (r) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, d.f.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+            Log.i("DefaultRenderersFactory", "Loaded LibflacAudioRenderer.");
+            try {
+                arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, d.f.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+                Log.i("DefaultRenderersFactory", "Loaded FfmpegAudioRenderer.");
+            } catch (ClassNotFoundException unused5) {
+            } catch (Exception e3) {
+                throw new RuntimeException(e3);
+            }
+        } catch (Exception e4) {
+            throw new RuntimeException(e4);
+        }
+    }
+
+    public void d(Context context, d.f.b.a.c0.d dVar, Looper looper, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, dVar, looper, Integer.valueOf(i2), arrayList}) == null) {
+            arrayList.add(new d.f.b.a.c0.e(dVar, looper));
+        }
+    }
+
+    public void e(Context context, Handler handler, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048580, this, context, handler, i2, arrayList) == null) {
+        }
+    }
+
+    public void f(Context context, d.f.b.a.e0.j jVar, Looper looper, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, jVar, looper, Integer.valueOf(i2), arrayList}) == null) {
+            arrayList.add(new d.f.b.a.e0.k(jVar, looper));
+        }
+    }
+
+    public void g(Context context, @Nullable d.f.b.a.z.a<d.f.b.a.z.c> aVar, long j, Handler handler, d.f.b.a.j0.e eVar, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{context, aVar, Long.valueOf(j), handler, eVar, Integer.valueOf(i2), arrayList}) != null) {
+            return;
+        }
+        arrayList.add(new d.f.b.a.j0.c(context, d.f.b.a.b0.b.f72611a, j, aVar, false, handler, eVar, 50));
+        if (i2 == 0) {
+            return;
+        }
+        int size = arrayList.size();
+        if (i2 == 2) {
+            size--;
+        }
+        try {
+            arrayList.add(size, (r) Class.forName("com.google.android.exoplayer2.ext.vp9.LibvpxVideoRenderer").getConstructor(Boolean.TYPE, Long.TYPE, Handler.class, d.f.b.a.j0.e.class, Integer.TYPE).newInstance(Boolean.TRUE, Long.valueOf(j), handler, eVar, 50));
+            Log.i("DefaultRenderersFactory", "Loaded LibvpxVideoRenderer.");
+        } catch (ClassNotFoundException unused) {
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public f(Context context, @Nullable d.f.b.a.z.a<d.f.b.a.z.c> aVar, int i2) {
+        this(context, aVar, i2, 5000L);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {context, aVar, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (d.f.b.a.z.a) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return str3;
+    }
+
+    public f(Context context, @Nullable d.f.b.a.z.a<d.f.b.a.z.c> aVar, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar, Integer.valueOf(i2), Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f73202a = context;
+        this.f73203b = aVar;
+        this.f73204c = i2;
+        this.f73205d = j;
     }
 }

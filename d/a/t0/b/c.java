@@ -1,19 +1,88 @@
 package d.a.t0.b;
 
-import java.nio.charset.Charset;
-import org.apache.commons.base.CharEncoding;
-/* loaded from: classes5.dex */
-public class c {
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Locale;
+/* loaded from: classes9.dex */
+public final class c {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f68466a;
+    public static final Object f70495a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f70496b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        Charset.forName("ISO-8859-1");
-        Charset.forName("US-ASCII");
-        Charset.forName("UTF-16");
-        Charset.forName(CharEncoding.UTF_16BE);
-        Charset.forName(CharEncoding.UTF_16LE);
-        f68466a = Charset.forName("UTF-8");
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-657257069, "Ld/a/t0/b/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-657257069, "Ld/a/t0/b/c;");
+                return;
+            }
+        }
+        f70495a = new Object();
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append('/');
+            sb.append(b(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
+            }
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
+            }
+            sb.append("; TurboNet/");
+            sb.append("53.0.2785.116");
+            sb.append(')');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (f70495a) {
+                if (f70496b == 0) {
+                    try {
+                        f70496b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException unused) {
+                        throw new IllegalStateException("Cannot determine package version");
+                    }
+                }
+                i2 = f70496b;
+            }
+            return i2;
+        }
+        return invokeL.intValue;
     }
 }

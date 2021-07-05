@@ -3,65 +3,90 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.n0.r.q.a2;
-import d.a.o0.r0.c1;
+import d.a.r0.r.q.b2;
+import d.a.s0.u0.b1;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
     public ArrayList<n> mAltList;
     public ArrayList<n> mThreadList;
-    public c1 pageInfo;
+    public b1 pageInfo;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i2) {
         super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode != 200 || error < 0 || jSONObject == null) {
-            return;
-        }
-        this.errCode = jSONObject.optInt("error_code");
-        this.errMsg = jSONObject.optString("errmsg");
-        this.alaLiveCount = jSONObject.optInt("ala_live_count");
-        JSONObject optJSONObject = jSONObject.optJSONObject("page");
-        c1 c1Var = new c1();
-        this.pageInfo = c1Var;
-        c1Var.f62225g = optJSONObject.optInt("has_more") == 1;
-        this.pageInfo.f63687c = optJSONObject.optInt(Config.PACKAGE_NAME);
-        if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
-            FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-            this.pageInfo.f63685a = frsPageAlaTabRequestMessage.getForumName();
-            this.pageInfo.f63686b = frsPageAlaTabRequestMessage.getForumId();
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
-        if (optJSONArray.length() > 0) {
-            this.mThreadList = new ArrayList<>();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                a2 a2Var = new a2();
-                a2Var.F3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                a2Var.U2(jSONObject2);
-                this.mThreadList.add(a2Var);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+            int statusCode = getStatusCode();
+            int error = getError();
+            if (statusCode != 200 || error < 0 || jSONObject == null) {
+                return;
             }
-        }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
-        if (optJSONArray2.length() > 0) {
-            this.mAltList = new ArrayList<>();
-            for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
-                JSONObject jSONObject3 = optJSONArray2.getJSONObject(i4);
-                a2 a2Var2 = new a2();
-                a2Var2.F3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                a2Var2.U2(jSONObject3);
-                this.mAltList.add(a2Var2);
+            this.errCode = jSONObject.optInt("error_code");
+            this.errMsg = jSONObject.optString("errmsg");
+            this.alaLiveCount = jSONObject.optInt("ala_live_count");
+            JSONObject optJSONObject = jSONObject.optJSONObject("page");
+            b1 b1Var = new b1();
+            this.pageInfo = b1Var;
+            b1Var.f65790g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.f67232c = optJSONObject.optInt(Config.PACKAGE_NAME);
+            if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
+                FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
+                this.pageInfo.f67230a = frsPageAlaTabRequestMessage.getForumName();
+                this.pageInfo.f67231b = frsPageAlaTabRequestMessage.getForumId();
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+            if (optJSONArray.length() > 0) {
+                this.mThreadList = new ArrayList<>();
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
+                    b2 b2Var = new b2();
+                    b2Var.s3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    b2Var.H2(jSONObject2);
+                    this.mThreadList.add(b2Var);
+                }
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
+            if (optJSONArray2.length() > 0) {
+                this.mAltList = new ArrayList<>();
+                for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                    JSONObject jSONObject3 = optJSONArray2.getJSONObject(i4);
+                    b2 b2Var2 = new b2();
+                    b2Var2.s3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    b2Var2.H2(jSONObject3);
+                    this.mAltList.add(b2Var2);
+                }
             }
         }
     }

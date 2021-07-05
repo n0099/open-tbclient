@@ -5,19 +5,25 @@ import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import d.a.n0.r.q.o;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.q.p;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AlaLiveUserInfoData extends o implements Serializable {
+public class AlaLiveUserInfoData extends p implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
     public static final int ALA_AUTHENT_STATUS_NOW = 1;
     public static final int ALA_AUTHENT_STATUS_PASS = 2;
     public static final int LIVE_STATUS_ON_LIVING = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public long alaId;
     public String appId;
     public String bd_portrait;
@@ -37,7 +43,7 @@ public class AlaLiveUserInfoData extends o implements Serializable {
     public int isBlock;
     public int isBluediamondMember;
     public int isLogin;
-    public boolean isNewGiftPriceStrategy = false;
+    public boolean isNewGiftPriceStrategy;
     public int isOfficial;
     public double lat;
     public int levelExp;
@@ -62,9 +68,26 @@ public class AlaLiveUserInfoData extends o implements Serializable {
     public int verifyType;
     public int verifyVideoStatus;
 
-    @Override // d.a.n0.r.q.o
+    public AlaLiveUserInfoData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isNewGiftPriceStrategy = false;
+    }
+
+    @Override // d.a.r0.r.q.p
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.userId = jSONObject.optLong("user_id");

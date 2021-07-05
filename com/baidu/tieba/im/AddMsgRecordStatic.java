@@ -10,61 +10,119 @@ import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.tieba.im.message.ResponseClearTaskIdMessage;
 import com.baidu.tieba.im.model.AddMsgRecordHttpProtoResponse;
 import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class AddMsgRecordStatic {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends d.a.c.c.g.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, int i3) {
             super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:17:0x0029  */
+        /* JADX WARN: Removed duplicated region for block: B:19:0x002d  */
         @Override // d.a.c.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
-            boolean z2 = responsedMessage instanceof AddMsgRecordHttpProtoResponse;
-            if (z2 || (responsedMessage instanceof AddMsgRecordSocketResponse)) {
-                if (z2) {
-                    AddMsgRecordHttpProtoResponse addMsgRecordHttpProtoResponse = (AddMsgRecordHttpProtoResponse) responsedMessage;
-                    if (addMsgRecordHttpProtoResponse.getData() != null && addMsgRecordHttpProtoResponse.getData().status.intValue() == 1) {
-                        z = true;
-                        if (responsedMessage instanceof AddMsgRecordSocketResponse) {
-                            AddMsgRecordSocketResponse addMsgRecordSocketResponse = (AddMsgRecordSocketResponse) responsedMessage;
-                            if (addMsgRecordSocketResponse.getData() != null) {
-                                z = addMsgRecordSocketResponse.getData().status.intValue() == 1;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                boolean z2 = responsedMessage instanceof AddMsgRecordHttpProtoResponse;
+                if (z2 || (responsedMessage instanceof AddMsgRecordSocketResponse)) {
+                    if (z2) {
+                        AddMsgRecordHttpProtoResponse addMsgRecordHttpProtoResponse = (AddMsgRecordHttpProtoResponse) responsedMessage;
+                        if (addMsgRecordHttpProtoResponse.getData() != null && addMsgRecordHttpProtoResponse.getData().status.intValue() == 1) {
+                            z = true;
+                            if (responsedMessage instanceof AddMsgRecordSocketResponse) {
+                                AddMsgRecordSocketResponse addMsgRecordSocketResponse = (AddMsgRecordSocketResponse) responsedMessage;
+                                if (addMsgRecordSocketResponse.getData() != null) {
+                                    z = addMsgRecordSocketResponse.getData().status.intValue() == 1;
+                                }
                             }
-                        }
-                        BdLog.e("success " + z);
-                        if (responsedMessage.getOrginalMessage() == null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestAddMsgRecordMessage) && ((RequestAddMsgRecordMessage) responsedMessage.getOrginalMessage().getExtra()).isList()) {
-                            BdLog.e("isList");
-                            if (z) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new ResponseClearTaskIdMessage());
+                            BdLog.e("success " + z);
+                            if (responsedMessage.getOrginalMessage() == null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestAddMsgRecordMessage) && ((RequestAddMsgRecordMessage) responsedMessage.getOrginalMessage().getExtra()).isList()) {
+                                BdLog.e("isList");
+                                if (z) {
+                                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseClearTaskIdMessage());
+                                    return;
+                                }
                                 return;
                             }
                             return;
                         }
-                        return;
                     }
-                }
-                z = false;
-                if (responsedMessage instanceof AddMsgRecordSocketResponse) {
-                }
-                BdLog.e("success " + z);
-                if (responsedMessage.getOrginalMessage() == null) {
+                    z = false;
+                    if (responsedMessage instanceof AddMsgRecordSocketResponse) {
+                    }
+                    BdLog.e("success " + z);
+                    if (responsedMessage.getOrginalMessage() == null) {
+                    }
                 }
             }
         }
     }
 
     static {
-        d.a.o0.e3.d0.a.f(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, d.a.o0.e3.d0.a.a(TbConfig.ADD_MSG_RECORD, 309265));
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1857205375, "Lcom/baidu/tieba/im/AddMsgRecordStatic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1857205375, "Lcom/baidu/tieba/im/AddMsgRecordStatic;");
+                return;
+            }
+        }
+        d.a.s0.h3.d0.a.f(309265, AddMsgRecordSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, d.a.s0.h3.d0.a.a(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265));
+    }
+
+    public AddMsgRecordStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 }

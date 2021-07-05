@@ -1,31 +1,68 @@
 package com.xiaomi.push;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ix;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class iu {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final jb f41739a;
+    public final jb f43482a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final jk f797a;
+    public final jk f800a;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public iu() {
         this(new ix.a());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((jd) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public iu(jd jdVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jdVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         jk jkVar = new jk();
-        this.f797a = jkVar;
-        this.f41739a = jdVar.a(jkVar);
+        this.f800a = jkVar;
+        this.f43482a = jdVar.a(jkVar);
     }
 
     public void a(iq iqVar, byte[] bArr) {
-        try {
-            this.f797a.a(bArr);
-            iqVar.a(this.f41739a);
-        } finally {
-            this.f41739a.k();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, iqVar, bArr) == null) {
+            try {
+                this.f800a.a(bArr);
+                iqVar.a(this.f43482a);
+            } finally {
+                this.f43482a.k();
+            }
         }
     }
 }

@@ -1,32 +1,108 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
-public enum hm {
-    INT(1),
-    LONG(2),
-    STRING(3),
-    BOOLEAN(4);
-    
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes8.dex */
+public final class hm {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final hm f43277a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f494a;
+    public static final /* synthetic */ hm[] f496a;
 
-    hm(int i2) {
-        this.f494a = i2;
+    /* renamed from: b  reason: collision with root package name */
+    public static final hm f43278b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final hm f43279c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final hm f43280d;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final int f497a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56372773, "Lcom/xiaomi/push/hm;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-56372773, "Lcom/xiaomi/push/hm;");
+                return;
+            }
+        }
+        f43277a = new hm("INT", 0, 1);
+        f43278b = new hm("LONG", 1, 2);
+        f43279c = new hm("STRING", 2, 3);
+        hm hmVar = new hm("BOOLEAN", 3, 4);
+        f43280d = hmVar;
+        f496a = new hm[]{f43277a, f43278b, f43279c, hmVar};
+    }
+
+    public hm(String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f497a = i3;
     }
 
     public static hm a(int i2) {
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    if (i2 != 4) {
-                        return null;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            return null;
+                        }
+                        return f43280d;
                     }
-                    return BOOLEAN;
+                    return f43279c;
                 }
-                return STRING;
+                return f43278b;
             }
-            return LONG;
+            return f43277a;
         }
-        return INT;
+        return (hm) invokeI.objValue;
+    }
+
+    public static hm valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (hm) Enum.valueOf(hm.class, str) : (hm) invokeL.objValue;
+    }
+
+    public static hm[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (hm[]) f496a.clone() : (hm[]) invokeV.objValue;
     }
 }

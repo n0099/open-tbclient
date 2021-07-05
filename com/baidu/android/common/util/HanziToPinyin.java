@@ -3,11 +3,20 @@ package com.baidu.android.common.util;
 import android.util.Log;
 import android.util.SparseArray;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import kotlin.jvm.internal.CharCompanionObject;
 /* loaded from: classes.dex */
 public class HanziToPinyin {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String FIRST_PINYIN_UNIHAN = "吖";
     public static final char FIRST_UNIHAN = 11905;
@@ -26,17 +35,20 @@ public class HanziToPinyin {
     public static final int VALUE_OF_UPPERCASE_A = 65;
     public static final int VALUE_OF_UPPERCASE_Z = 90;
     public static HanziToPinyin sInstance;
+    public transient /* synthetic */ FieldHolder $fh;
     public short[] PINYIN_TABLE;
     public final boolean mHasChinaCollator;
 
     /* loaded from: classes.dex */
     public static class Token {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int DIGIT = 3;
         public static final int LATIN = 1;
         public static final int PINYIN = 2;
         public static final String SEPARATOR = " ";
         public static final int SYMBOL = 4;
         public static final int UNKNOWN = 5;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean isPolyphonic;
         public String[] polyphonicPinyins;
         public String source;
@@ -44,9 +56,34 @@ public class HanziToPinyin {
         public int type;
 
         public Token() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public Token(int i2, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), str, str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
             this.type = i2;
             this.source = str;
             this.target = str2;
@@ -54,6 +91,18 @@ public class HanziToPinyin {
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1509916822, "Lcom/baidu/android/common/util/HanziToPinyin;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1509916822, "Lcom/baidu/android/common/util/HanziToPinyin;");
+                return;
+            }
+        }
         SparseArray<char[]> sparseArray = new SparseArray<>();
         POLYPHONE = sparseArray;
         sparseArray.put(38463, new char[]{21834, 39069});
@@ -234,12 +283,26 @@ public class HanziToPinyin {
         PINYINS = new String[]{"A", "Ai", "An", "Ang", "Ao", "Ba", "Bai", "Ban", "Bang", "Bao", "Bei", "Ben", "Beng", "Bi", "Bian", "Biao", "Bie", "Bin", "Bing", "Bo", "Bu", "Ca", "Cai", "Can", "Cang", "Cao", "Ce", "Cen", "Ceng", "Cha", "Chai", "Chan", "Chang", "Chao", "Che", "Chen", "Cheng", "Chi", "Chong", "Chou", "Chu", "Chuai", "Chuan", "Chuang", "Chui", "Chun", "Chuo", "Ci", "Cong", "Cou", "Cu", "Cuan", "Cui", "Cun", "Cuo", "Da", "Dai", "Dan", "Dang", "Dao", "De", "Den", "Deng", "Di", "Dia", "Dian", "Diao", "Die", "Ding", "Diu", "Dong", "Dou", "Du", "Duan", "Dui", "Dun", "Duo", "E", "Ei", "En", "Eng", "Er", "Fa", "Fan", "Fang", "Fei", "Fen", "Feng", "Fo", "Fou", "Fu", "Ga", "Gai", "Gan", "Gang", "Gao", "Ge", "Gei", "Gen", "Geng", "Gong", "Gou", "Gu", "Gua", "Guai", "Guan", "Guang", "Gui", "Gun", "Guo", "Ha", "Hai", "Han", "Hang", "Hao", "He", "Hei", "Hen", "Heng", "Hong", "Hou", "Hu", "Hua", "Huai", "Huan", "Huang", "Hui", "Hun", "Huo", "Ji", "Jia", "Jian", "Jiang", "Jiao", "Jie", "Jin", "Jing", "Jiong", "Jiu", "Ju", "Juan", "Jue", "Jun", "Ka", "Kai", "Kan", "Kang", "Kao", "Ke", "Kei", "Ken", "Keng", "Kong", "Kou", "Ku", "Kua", "Kuai", "Kuan", "Kuang", "Kui", "Kun", "Kuo", "La", "Lai", "Lan", "Lang", "Lao", "Le", "Lei", "Leng", "Li", "Lia", "Lian", "Liang", "Liao", "Lie", "Lin", "Ling", "Liu", "Lo", "Long", "Lou", "Lu", "Luan", "Lue", "Lun", "Luo", "Lv", "Ma", "Mai", "Man", "Mang", "Mao", "Me", "Mei", "Men", "Meng", "Mi", "Mian", "Miao", "Mie", "Min", "Ming", "Miu", "Mo", "Mou", "Mu", "Na", "Nai", "Nan", "Nang", "Nao", "Ne", "Nei", "Nen", "Neng", "Ni", "Nian", "Niang", "Niao", "Nie", "Nin", "Ning", "Niu", "Nong", "Nou", "Nu", "Nuan", "Nue", "Nuo", "Nv", "O", "Ou", "Pa", "Pai", "Pan", "Pang", "Pao", "Pei", "Pen", "Peng", "Pi", "Pian", "Piao", "Pie", "Pin", "Ping", "Po", "Pou", "Pu", "Qi", "Qia", "Qian", "Qiang", "Qiao", "Qie", "Qin", "Qing", "Qiong", "Qiu", "Qu", "Quan", "Que", "Qun", "Ran", "Rang", "Rao", "Re", "Ren", "Reng", "Ri", "Rong", "Rou", "Ru", "Rua", "Ruan", "Rui", "Run", "Ruo", "Sa", "Sai", "San", "Sang", "Sao", "Se", "Sen", "Seng", "Sha", "Shai", "Shan", "Shang", "Shao", "She", "Shei", "Shen", "Sheng", "Shi", "Shou", "Shu", "Shua", "Shuai", "Shuan", "Shuang", "Shui", "Shun", "Shuo", "Si", "Song", "Sou", "Su", "Suan", "Sui", "Sun", "Suo", "Ta", "Tai", "Tan", "Tang", "Tao", "Te", "Tei", "Teng", "Ti", "Tian", "Tiao", "Tie", "Ting", "Tong", "Tou", "Tu", "Tuan", "Tui", "Tun", "Tuo", "Wa", "Wai", "Wan", "Wang", "Wei", "Wen", "Weng", "Wo", "Wu", "Xi", "Xia", "Xian", "Xiang", "Xiao", "Xie", "Xin", "Xing", "Xiong", "Xiu", "Xu", "Xuan", "Xue", "Xun", "Ya", "Yan", "Yang", "Yao", "Ye", "Yi", "Yin", "Ying", "Yo", "Yong", "You", "Yu", "Yuan", "Yue", "Yun", "Za", "Zai", "Zan", "Zang", "Zao", "Ze", "Zei", "Zen", "Zeng", "Zha", "Zhai", "Zhan", "Zhang", "Zhao", "Zhe", "Zhen", "Zheng", "Zhi", "Zhong", "Zhou", "Zhu", "Zhua", "Zhuai", "Zhuan", "Zhuang", "Zhui", "Zhun", "Zhuo", "Zi", "Zong", "Zou", "Zu", "Zuan", "Zui", "Zun", "Zuo"};
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0028 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v2, types: [short] */
-    /* JADX WARN: Type inference failed for: r3v3, types: [int] */
-    /* JADX WARN: Type inference failed for: r3v4, types: [int] */
+    /* JADX WARN: Type inference failed for: r3v4, types: [short] */
+    /* JADX WARN: Type inference failed for: r3v5, types: [int] */
+    /* JADX WARN: Type inference failed for: r3v6, types: [int] */
     public HanziToPinyin(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         short[] sArr = new short[65535];
         this.PINYIN_TABLE = sArr;
         this.mHasChinaCollator = z;
@@ -250,169 +313,206 @@ public class HanziToPinyin {
             if (s >= sArr2.length) {
                 break;
             }
-            int i2 = s + 1;
-            short s2 = i2 == sArr2.length ? (short) 21021 : sArr2[i2];
+            int i4 = s + 1;
+            short s2 = i4 == sArr2.length ? (short) 21021 : sArr2[i4];
             for (short s3 = sArr2[s]; s3 < s2; s3++) {
                 this.PINYIN_TABLE[HANZI.charAt(s3) & CharCompanionObject.MAX_VALUE] = s;
             }
-            s = (short) i2;
+            s = (short) i4;
         }
         int size = POLYPHONE.size();
-        for (int i3 = 0; i3 < size; i3++) {
+        for (int i5 = 0; i5 < size; i5++) {
             short[] sArr3 = this.PINYIN_TABLE;
-            int keyAt = ((char) POLYPHONE.keyAt(i3)) & CharCompanionObject.MAX_VALUE;
+            int keyAt = ((char) POLYPHONE.keyAt(i5)) & CharCompanionObject.MAX_VALUE;
             sArr3[keyAt] = (short) (sArr3[keyAt] | POLYPHONE_FLAG);
         }
     }
 
     private void addToken(StringBuilder sb, ArrayList<Token> arrayList, int i2) {
-        String sb2 = sb.toString();
-        arrayList.add(new Token(i2, sb2, sb2));
-        sb.setLength(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, this, sb, arrayList, i2) == null) {
+            String sb2 = sb.toString();
+            arrayList.add(new Token(i2, sb2, sb2));
+            sb.setLength(0);
+        }
     }
 
     private boolean buildPolyphonicToken(Token token, char c2) {
-        char[] cArr = POLYPHONE.get(c2);
-        if (cArr == null) {
-            return false;
-        }
-        int length = cArr.length;
-        String[] strArr = new String[length];
-        for (int i2 = length - 1; i2 >= 0; i2--) {
-            if (POLYPHONE.indexOfKey(cArr[i2]) > 0) {
-                Log.e("Pinyin", c2 + " links to a polyphone: " + cArr[i2] + "!!");
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{token, Character.valueOf(c2)})) == null) {
+            char[] cArr = POLYPHONE.get(c2);
+            if (cArr == null) {
+                return false;
             }
-            strArr[i2] = getToken(cArr[i2], true).target;
+            int length = cArr.length;
+            String[] strArr = new String[length];
+            for (int i2 = length - 1; i2 >= 0; i2--) {
+                if (POLYPHONE.indexOfKey(cArr[i2]) > 0) {
+                    Log.e("Pinyin", c2 + " links to a polyphone: " + cArr[i2] + "!!");
+                }
+                strArr[i2] = getToken(cArr[i2], true).target;
+            }
+            token.type = 2;
+            token.target = strArr[0];
+            token.isPolyphonic = true;
+            token.polyphonicPinyins = strArr;
+            return true;
         }
-        token.type = 2;
-        token.target = strArr[0];
-        token.isPolyphonic = true;
-        token.polyphonicPinyins = strArr;
-        return true;
+        return invokeCommon.booleanValue;
     }
 
     public static String buildUnihansIndex() {
-        String str = "";
-        for (int i2 = 0; i2 < UNIHANS.length; i2++) {
-            str = str + HANZI.indexOf(UNIHANS[i2]);
-            if (i2 != UNIHANS.length - 1) {
-                str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            String str = "";
+            for (int i2 = 0; i2 < UNIHANS.length; i2++) {
+                str = str + HANZI.indexOf(UNIHANS[i2]);
+                if (i2 != UNIHANS.length - 1) {
+                    str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR;
+                }
             }
+            return str;
         }
-        return str;
+        return (String) invokeV.objValue;
     }
 
     public static HanziToPinyin getInstance() {
-        synchronized (HanziToPinyin.class) {
-            if (sInstance != null) {
-                return sInstance;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            synchronized (HanziToPinyin.class) {
+                if (sInstance != null) {
+                    return sInstance;
+                }
+                HanziToPinyin hanziToPinyin = new HanziToPinyin(true);
+                sInstance = hanziToPinyin;
+                return hanziToPinyin;
             }
-            HanziToPinyin hanziToPinyin = new HanziToPinyin(true);
-            sInstance = hanziToPinyin;
-            return hanziToPinyin;
         }
+        return (HanziToPinyin) invokeV.objValue;
     }
 
     private Token getToken(char c2, boolean z) {
-        Token token = new Token();
-        String ch = Character.toString(c2);
-        token.source = ch;
-        if (c2 < 256) {
-            token.type = 1;
-            token.target = ch;
-            return token;
-        } else if (c2 < 11905) {
-            token.type = 5;
-            token.target = ch;
-            return token;
-        } else {
-            short s = this.PINYIN_TABLE[65535 & c2];
-            boolean z2 = (s & POLYPHONE_FLAG) > 0;
-            short s2 = (short) (s & (-16385));
-            if (z2 && !z && buildPolyphonicToken(token, c2)) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Character.valueOf(c2), Boolean.valueOf(z)})) == null) {
+            Token token = new Token();
+            String ch = Character.toString(c2);
+            token.source = ch;
+            if (c2 < 256) {
+                token.type = 1;
+                token.target = ch;
                 return token;
-            }
-            if (s2 < 0) {
+            } else if (c2 < 11905) {
                 token.type = 5;
                 token.target = ch;
                 return token;
+            } else {
+                short s = this.PINYIN_TABLE[65535 & c2];
+                boolean z2 = (s & POLYPHONE_FLAG) > 0;
+                short s2 = (short) (s & (-16385));
+                if (z2 && !z && buildPolyphonicToken(token, c2)) {
+                    return token;
+                }
+                if (s2 < 0) {
+                    token.type = 5;
+                    token.target = ch;
+                    return token;
+                }
+                token.type = 2;
+                token.target = PINYINS[s2];
+                return token;
             }
-            token.type = 2;
-            token.target = PINYINS[s2];
-            return token;
         }
+        return (Token) invokeCommon.objValue;
     }
 
     public static boolean isDefined(int i2) {
-        return HANZI.indexOf(i2) >= 0;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? HANZI.indexOf(i2) >= 0 : invokeI.booleanValue;
     }
 
     public static boolean isDigit(int i2) {
-        return i2 >= 48 && i2 <= 57;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) ? i2 >= 48 && i2 <= 57 : invokeI.booleanValue;
     }
 
     public static boolean isEnglishLetter(int i2) {
-        if (i2 < 97 || i2 > 122) {
-            return i2 >= 65 && i2 <= 90;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
+            if (i2 < 97 || i2 > 122) {
+                return i2 >= 65 && i2 <= 90;
+            }
+            return true;
         }
-        return true;
+        return invokeI.booleanValue;
     }
 
     public ArrayList<Token> get(String str) {
-        ArrayList<Token> arrayList = new ArrayList<>();
-        if (this.mHasChinaCollator && str != null && str.length() != 0) {
-            int length = str.length();
-            StringBuilder sb = new StringBuilder();
-            int i2 = 1;
-            for (int i3 = 0; i3 < length; i3++) {
-                char charAt = str.charAt(i3);
-                if (charAt < 256) {
-                    int i4 = 3;
-                    if (isEnglishLetter(charAt)) {
-                        if (i2 != 1 && sb.length() > 0) {
-                            addToken(sb, arrayList, i2);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ArrayList<Token> arrayList = new ArrayList<>();
+            if (this.mHasChinaCollator && str != null && str.length() != 0) {
+                int length = str.length();
+                StringBuilder sb = new StringBuilder();
+                int i2 = 1;
+                for (int i3 = 0; i3 < length; i3++) {
+                    char charAt = str.charAt(i3);
+                    if (charAt < 256) {
+                        int i4 = 3;
+                        if (isEnglishLetter(charAt)) {
+                            if (i2 != 1 && sb.length() > 0) {
+                                addToken(sb, arrayList, i2);
+                            }
+                            i4 = 1;
+                        } else if (isDigit(charAt)) {
+                            if (i2 != 3 && sb.length() > 0) {
+                                addToken(sb, arrayList, i2);
+                            }
+                        } else {
+                            if (i2 != 4 && sb.length() > 0) {
+                                addToken(sb, arrayList, i2);
+                            }
+                            i4 = 4;
                         }
-                        i4 = 1;
-                    } else if (isDigit(charAt)) {
-                        if (i2 != 3 && sb.length() > 0) {
-                            addToken(sb, arrayList, i2);
-                        }
-                    } else {
-                        if (i2 != 4 && sb.length() > 0) {
-                            addToken(sb, arrayList, i2);
-                        }
-                        i4 = 4;
-                    }
-                    sb.append(charAt);
-                    i2 = i4;
-                } else if (charAt < 11905) {
-                    if (i2 != 5 && sb.length() > 0) {
-                        addToken(sb, arrayList, i2);
-                    }
-                    sb.append(charAt);
-                    i2 = 5;
-                } else {
-                    Token token = getToken(charAt, false);
-                    int i5 = token.type;
-                    if (i5 == 2) {
-                        if (sb.length() > 0) {
-                            addToken(sb, arrayList, i2);
-                        }
-                        arrayList.add(token);
-                        i2 = 2;
-                    } else {
-                        if (i2 != i5 && sb.length() > 0) {
-                            addToken(sb, arrayList, i2);
-                        }
-                        i2 = token.type;
                         sb.append(charAt);
+                        i2 = i4;
+                    } else if (charAt < 11905) {
+                        if (i2 != 5 && sb.length() > 0) {
+                            addToken(sb, arrayList, i2);
+                        }
+                        sb.append(charAt);
+                        i2 = 5;
+                    } else {
+                        Token token = getToken(charAt, false);
+                        int i5 = token.type;
+                        if (i5 == 2) {
+                            if (sb.length() > 0) {
+                                addToken(sb, arrayList, i2);
+                            }
+                            arrayList.add(token);
+                            i2 = 2;
+                        } else {
+                            if (i2 != i5 && sb.length() > 0) {
+                                addToken(sb, arrayList, i2);
+                            }
+                            i2 = token.type;
+                            sb.append(charAt);
+                        }
                     }
                 }
+                if (sb.length() > 0) {
+                    addToken(sb, arrayList, i2);
+                }
             }
-            if (sb.length() > 0) {
-                addToken(sb, arrayList, i2);
-            }
+            return arrayList;
         }
-        return arrayList;
+        return (ArrayList) invokeL.objValue;
     }
 }

@@ -14,11 +14,20 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import android.view.KeyEvent;
 import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @RequiresApi(21)
 /* loaded from: classes.dex */
 public class MediaControllerCompatApi21 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface Callback {
@@ -41,261 +50,457 @@ public class MediaControllerCompatApi21 {
 
     /* loaded from: classes.dex */
     public static class CallbackProxy<T extends Callback> extends MediaController.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final T mCallback;
 
         public CallbackProxy(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mCallback = t;
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onAudioInfoChanged(MediaController.PlaybackInfo playbackInfo) {
-            this.mCallback.onAudioInfoChanged(playbackInfo.getPlaybackType(), PlaybackInfo.getLegacyAudioStream(playbackInfo), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, playbackInfo) == null) {
+                this.mCallback.onAudioInfoChanged(playbackInfo.getPlaybackType(), PlaybackInfo.getLegacyAudioStream(playbackInfo), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
+            }
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onExtrasChanged(Bundle bundle) {
-            MediaSessionCompat.ensureClassLoader(bundle);
-            this.mCallback.onExtrasChanged(bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                MediaSessionCompat.ensureClassLoader(bundle);
+                this.mCallback.onExtrasChanged(bundle);
+            }
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onMetadataChanged(MediaMetadata mediaMetadata) {
-            this.mCallback.onMetadataChanged(mediaMetadata);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaMetadata) == null) {
+                this.mCallback.onMetadataChanged(mediaMetadata);
+            }
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onPlaybackStateChanged(PlaybackState playbackState) {
-            this.mCallback.onPlaybackStateChanged(playbackState);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, playbackState) == null) {
+                this.mCallback.onPlaybackStateChanged(playbackState);
+            }
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onQueueChanged(List<MediaSession.QueueItem> list) {
-            this.mCallback.onQueueChanged(list);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+                this.mCallback.onQueueChanged(list);
+            }
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onQueueTitleChanged(CharSequence charSequence) {
-            this.mCallback.onQueueTitleChanged(charSequence);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
+                this.mCallback.onQueueTitleChanged(charSequence);
+            }
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onSessionDestroyed() {
-            this.mCallback.onSessionDestroyed();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.mCallback.onSessionDestroyed();
+            }
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onSessionEvent(String str, Bundle bundle) {
-            MediaSessionCompat.ensureClassLoader(bundle);
-            this.mCallback.onSessionEvent(str, bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, bundle) == null) {
+                MediaSessionCompat.ensureClassLoader(bundle);
+                this.mCallback.onSessionEvent(str, bundle);
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public static class PlaybackInfo {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final int FLAG_SCO = 4;
         public static final int STREAM_BLUETOOTH_SCO = 6;
         public static final int STREAM_SYSTEM_ENFORCED = 7;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public PlaybackInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public static AudioAttributes getAudioAttributes(Object obj) {
-            return ((MediaController.PlaybackInfo) obj).getAudioAttributes();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getAudioAttributes() : (AudioAttributes) invokeL.objValue;
         }
 
         public static int getCurrentVolume(Object obj) {
-            return ((MediaController.PlaybackInfo) obj).getCurrentVolume();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getCurrentVolume() : invokeL.intValue;
         }
 
         public static int getLegacyAudioStream(Object obj) {
-            return toLegacyStreamType(getAudioAttributes(obj));
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? toLegacyStreamType(getAudioAttributes(obj)) : invokeL.intValue;
         }
 
         public static int getMaxVolume(Object obj) {
-            return ((MediaController.PlaybackInfo) obj).getMaxVolume();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getMaxVolume() : invokeL.intValue;
         }
 
         public static int getPlaybackType(Object obj) {
-            return ((MediaController.PlaybackInfo) obj).getPlaybackType();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getPlaybackType() : invokeL.intValue;
         }
 
         public static int getVolumeControl(Object obj) {
-            return ((MediaController.PlaybackInfo) obj).getVolumeControl();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getVolumeControl() : invokeL.intValue;
         }
 
         public static int toLegacyStreamType(AudioAttributes audioAttributes) {
-            if ((audioAttributes.getFlags() & 1) == 1) {
-                return 7;
-            }
-            if ((audioAttributes.getFlags() & 4) == 4) {
-                return 6;
-            }
-            int usage = audioAttributes.getUsage();
-            if (usage != 13) {
-                switch (usage) {
-                    case 2:
-                        return 0;
-                    case 3:
-                        return 8;
-                    case 4:
-                        return 4;
-                    case 5:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                        return 5;
-                    case 6:
-                        return 2;
-                    default:
-                        return 3;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, audioAttributes)) == null) {
+                if ((audioAttributes.getFlags() & 1) == 1) {
+                    return 7;
                 }
+                if ((audioAttributes.getFlags() & 4) == 4) {
+                    return 6;
+                }
+                int usage = audioAttributes.getUsage();
+                if (usage != 13) {
+                    switch (usage) {
+                        case 2:
+                            return 0;
+                        case 3:
+                            return 8;
+                        case 4:
+                            return 4;
+                        case 5:
+                        case 7:
+                        case 8:
+                        case 9:
+                        case 10:
+                            return 5;
+                        case 6:
+                            return 2;
+                        default:
+                            return 3;
+                    }
+                }
+                return 1;
             }
-            return 1;
+            return invokeL.intValue;
         }
     }
 
     /* loaded from: classes.dex */
     public static class TransportControls {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public TransportControls() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public static void fastForward(Object obj) {
-            ((MediaController.TransportControls) obj).fastForward();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65537, null, obj) == null) {
+                ((MediaController.TransportControls) obj).fastForward();
+            }
         }
 
         public static void pause(Object obj) {
-            ((MediaController.TransportControls) obj).pause();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
+                ((MediaController.TransportControls) obj).pause();
+            }
         }
 
         public static void play(Object obj) {
-            ((MediaController.TransportControls) obj).play();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65539, null, obj) == null) {
+                ((MediaController.TransportControls) obj).play();
+            }
         }
 
         public static void playFromMediaId(Object obj, String str, Bundle bundle) {
-            ((MediaController.TransportControls) obj).playFromMediaId(str, bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65540, null, obj, str, bundle) == null) {
+                ((MediaController.TransportControls) obj).playFromMediaId(str, bundle);
+            }
         }
 
         public static void playFromSearch(Object obj, String str, Bundle bundle) {
-            ((MediaController.TransportControls) obj).playFromSearch(str, bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, str, bundle) == null) {
+                ((MediaController.TransportControls) obj).playFromSearch(str, bundle);
+            }
         }
 
         public static void rewind(Object obj) {
-            ((MediaController.TransportControls) obj).rewind();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj) == null) {
+                ((MediaController.TransportControls) obj).rewind();
+            }
         }
 
         public static void seekTo(Object obj, long j) {
-            ((MediaController.TransportControls) obj).seekTo(j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(65543, null, obj, j) == null) {
+                ((MediaController.TransportControls) obj).seekTo(j);
+            }
         }
 
         public static void sendCustomAction(Object obj, String str, Bundle bundle) {
-            ((MediaController.TransportControls) obj).sendCustomAction(str, bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65544, null, obj, str, bundle) == null) {
+                ((MediaController.TransportControls) obj).sendCustomAction(str, bundle);
+            }
         }
 
         public static void setRating(Object obj, Object obj2) {
-            ((MediaController.TransportControls) obj).setRating((Rating) obj2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65545, null, obj, obj2) == null) {
+                ((MediaController.TransportControls) obj).setRating((Rating) obj2);
+            }
         }
 
         public static void skipToNext(Object obj) {
-            ((MediaController.TransportControls) obj).skipToNext();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65546, null, obj) == null) {
+                ((MediaController.TransportControls) obj).skipToNext();
+            }
         }
 
         public static void skipToPrevious(Object obj) {
-            ((MediaController.TransportControls) obj).skipToPrevious();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65547, null, obj) == null) {
+                ((MediaController.TransportControls) obj).skipToPrevious();
+            }
         }
 
         public static void skipToQueueItem(Object obj, long j) {
-            ((MediaController.TransportControls) obj).skipToQueueItem(j);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(65548, null, obj, j) == null) {
+                ((MediaController.TransportControls) obj).skipToQueueItem(j);
+            }
         }
 
         public static void stop(Object obj) {
-            ((MediaController.TransportControls) obj).stop();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65549, null, obj) == null) {
+                ((MediaController.TransportControls) obj).stop();
+            }
+        }
+    }
+
+    public MediaControllerCompatApi21() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     public static void adjustVolume(Object obj, int i2, int i3) {
-        ((MediaController) obj).adjustVolume(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65537, null, obj, i2, i3) == null) {
+            ((MediaController) obj).adjustVolume(i2, i3);
+        }
     }
 
     public static Object createCallback(Callback callback) {
-        return new CallbackProxy(callback);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callback)) == null) ? new CallbackProxy(callback) : invokeL.objValue;
     }
 
     public static boolean dispatchMediaButtonEvent(Object obj, KeyEvent keyEvent) {
-        return ((MediaController) obj).dispatchMediaButtonEvent(keyEvent);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, keyEvent)) == null) ? ((MediaController) obj).dispatchMediaButtonEvent(keyEvent) : invokeLL.booleanValue;
     }
 
     public static Object fromToken(Context context, Object obj) {
-        return new MediaController(context, (MediaSession.Token) obj);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, obj)) == null) ? new MediaController(context, (MediaSession.Token) obj) : invokeLL.objValue;
     }
 
     public static Bundle getExtras(Object obj) {
-        return ((MediaController) obj).getExtras();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ((MediaController) obj).getExtras() : (Bundle) invokeL.objValue;
     }
 
     public static long getFlags(Object obj) {
-        return ((MediaController) obj).getFlags();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaController) obj).getFlags() : invokeL.longValue;
     }
 
     public static Object getMediaController(Activity activity) {
-        return activity.getMediaController();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, activity)) == null) ? activity.getMediaController() : invokeL.objValue;
     }
 
     public static Object getMetadata(Object obj) {
-        return ((MediaController) obj).getMetadata();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? ((MediaController) obj).getMetadata() : invokeL.objValue;
     }
 
     public static String getPackageName(Object obj) {
-        return ((MediaController) obj).getPackageName();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((MediaController) obj).getPackageName() : (String) invokeL.objValue;
     }
 
     public static Object getPlaybackInfo(Object obj) {
-        return ((MediaController) obj).getPlaybackInfo();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? ((MediaController) obj).getPlaybackInfo() : invokeL.objValue;
     }
 
     public static Object getPlaybackState(Object obj) {
-        return ((MediaController) obj).getPlaybackState();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, obj)) == null) ? ((MediaController) obj).getPlaybackState() : invokeL.objValue;
     }
 
     public static List<Object> getQueue(Object obj) {
-        List<MediaSession.QueueItem> queue = ((MediaController) obj).getQueue();
-        if (queue == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, obj)) == null) {
+            List<MediaSession.QueueItem> queue = ((MediaController) obj).getQueue();
+            if (queue == null) {
+                return null;
+            }
+            return new ArrayList(queue);
         }
-        return new ArrayList(queue);
+        return (List) invokeL.objValue;
     }
 
     public static CharSequence getQueueTitle(Object obj) {
-        return ((MediaController) obj).getQueueTitle();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, obj)) == null) ? ((MediaController) obj).getQueueTitle() : (CharSequence) invokeL.objValue;
     }
 
     public static int getRatingType(Object obj) {
-        return ((MediaController) obj).getRatingType();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, obj)) == null) ? ((MediaController) obj).getRatingType() : invokeL.intValue;
     }
 
     public static PendingIntent getSessionActivity(Object obj) {
-        return ((MediaController) obj).getSessionActivity();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) ? ((MediaController) obj).getSessionActivity() : (PendingIntent) invokeL.objValue;
     }
 
     public static Object getSessionToken(Object obj) {
-        return ((MediaController) obj).getSessionToken();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, obj)) == null) ? ((MediaController) obj).getSessionToken() : invokeL.objValue;
     }
 
     public static Object getTransportControls(Object obj) {
-        return ((MediaController) obj).getTransportControls();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, obj)) == null) ? ((MediaController) obj).getTransportControls() : invokeL.objValue;
     }
 
     public static void registerCallback(Object obj, Object obj2, Handler handler) {
-        ((MediaController) obj).registerCallback((MediaController.Callback) obj2, handler);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65554, null, obj, obj2, handler) == null) {
+            ((MediaController) obj).registerCallback((MediaController.Callback) obj2, handler);
+        }
     }
 
     public static void sendCommand(Object obj, String str, Bundle bundle, ResultReceiver resultReceiver) {
-        ((MediaController) obj).sendCommand(str, bundle, resultReceiver);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65555, null, obj, str, bundle, resultReceiver) == null) {
+            ((MediaController) obj).sendCommand(str, bundle, resultReceiver);
+        }
     }
 
     public static void setMediaController(Activity activity, Object obj) {
-        activity.setMediaController((MediaController) obj);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65556, null, activity, obj) == null) {
+            activity.setMediaController((MediaController) obj);
+        }
     }
 
     public static void setVolumeTo(Object obj, int i2, int i3) {
-        ((MediaController) obj).setVolumeTo(i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65557, null, obj, i2, i3) == null) {
+            ((MediaController) obj).setVolumeTo(i2, i3);
+        }
     }
 
     public static void unregisterCallback(Object obj, Object obj2) {
-        ((MediaController) obj).unregisterCallback((MediaController.Callback) obj2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, null, obj, obj2) == null) {
+            ((MediaController) obj).unregisterCallback((MediaController.Callback) obj2);
+        }
     }
 }

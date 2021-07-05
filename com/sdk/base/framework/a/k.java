@@ -1,5 +1,14 @@
 package com.sdk.base.framework.a;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
@@ -9,125 +18,203 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes7.dex */
 public class k<T> implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39407a = "com.sdk.base.framework.a.k";
+    public static final String f41163a = "com.sdk.base.framework.a.k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f39408b = Boolean.valueOf(com.sdk.base.framework.c.f.f39439b);
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f39410d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TreeMap<String, Object> f39411e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ArrayList<File> f39412f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, Object> f39413g;
-
-    /* renamed from: i  reason: collision with root package name */
-    public com.sdk.base.framework.b.b<T> f39415i;
+    public static final Boolean f41164b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39409c = j.f39398a.toString();
+    public String f41165c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f41166d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TreeMap<String, Object> f41167e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ArrayList<File> f41168f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public HashMap<String, Object> f41169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39414h = 0;
+    public int f41170h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public com.sdk.base.framework.b.b<T> f41171i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1040379298, "Lcom/sdk/base/framework/a/k;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1040379298, "Lcom/sdk/base/framework/a/k;");
+                return;
+            }
+        }
+        f41164b = Boolean.valueOf(com.sdk.base.framework.c.f.f41195b);
+    }
+
+    public k() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f41165c = j.f41154a.toString();
+        this.f41170h = 0;
+    }
 
     public static String b(TreeMap<String, Object> treeMap) {
+        InterceptResult invokeL;
         StringBuilder sb;
-        if (treeMap != null) {
-            try {
-                sb = new StringBuilder();
-                for (Map.Entry<String, Object> entry : treeMap.entrySet()) {
-                    String key = entry.getKey();
-                    Object value = entry.getValue();
-                    if (value != null && com.sdk.base.framework.a.a.c.b(key).booleanValue()) {
-                        String encode = URLEncoder.encode(value.toString(), "UTF-8");
-                        boolean z = com.sdk.base.framework.c.f.f39442e;
-                        sb.append(key);
-                        sb.append("=");
-                        sb.append(encode);
-                        sb.append("&");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
+            if (treeMap != null) {
+                try {
+                    sb = new StringBuilder();
+                    for (Map.Entry<String, Object> entry : treeMap.entrySet()) {
+                        String key = entry.getKey();
+                        Object value = entry.getValue();
+                        if (value != null && com.sdk.base.framework.a.a.c.b(key).booleanValue()) {
+                            String encode = URLEncoder.encode(value.toString(), "UTF-8");
+                            boolean z = com.sdk.base.framework.c.f.f41198e;
+                            sb.append(key);
+                            sb.append("=");
+                            sb.append(encode);
+                            sb.append("&");
+                        }
                     }
+                    sb.deleteCharAt(sb.length() - 1);
+                } catch (Exception e2) {
+                    com.sdk.base.framework.a.a.c.b(f41163a, e2.getMessage(), f41164b);
+                    throw new Exception("http请求参数出错");
                 }
-                sb.deleteCharAt(sb.length() - 1);
-            } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f39407a, e2.getMessage(), f39408b);
-                throw new Exception("http请求参数出错");
+            } else {
+                sb = null;
             }
-        } else {
-            sb = null;
+            if (sb == null) {
+                return null;
+            }
+            return sb.toString();
         }
-        if (sb == null) {
-            return null;
-        }
-        return sb.toString();
+        return (String) invokeL.objValue;
     }
 
     public final String a() {
-        return this.f39409c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41165c : (String) invokeV.objValue;
     }
 
     public final void a(int i2) {
-        this.f39414h = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f41170h = i2;
+        }
     }
 
     public final void a(com.sdk.base.framework.b.b<T> bVar) {
-        this.f39415i = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f41171i = bVar;
+        }
     }
 
     public final void a(String str) {
-        if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
-            this.f39409c = str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
+            this.f41165c = str;
         }
     }
 
     public final void a(ArrayList<File> arrayList) {
-        this.f39412f = arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.f41168f = arrayList;
+        }
     }
 
     public final void a(HashMap<String, Object> hashMap) {
-        this.f39413g = hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
+            this.f41169g = hashMap;
+        }
     }
 
     public final void a(TreeMap<String, Object> treeMap) {
-        this.f39411e = treeMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, treeMap) == null) {
+            this.f41167e = treeMap;
+        }
     }
 
     public final ArrayList<File> b() {
-        return this.f39412f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41168f : (ArrayList) invokeV.objValue;
     }
 
     public final void b(String str) {
-        this.f39410d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f41166d = str;
+        }
     }
 
     public final boolean c() {
-        ArrayList<File> arrayList = this.f39412f;
-        return (arrayList == null || arrayList.size() == 0) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ArrayList<File> arrayList = this.f41168f;
+            return (arrayList == null || arrayList.size() == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     public final String d() {
-        return this.f39410d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41166d : (String) invokeV.objValue;
     }
 
     public final TreeMap<String, Object> e() {
-        return this.f39411e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41167e : (TreeMap) invokeV.objValue;
     }
 
     public final int f() {
-        return this.f39414h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f41170h : invokeV.intValue;
     }
 
     public final com.sdk.base.framework.b.b<T> g() {
-        return this.f39415i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f41171i : (com.sdk.base.framework.b.b) invokeV.objValue;
     }
 
     public final HashMap<String, Object> h() {
-        return this.f39413g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f41169g : (HashMap) invokeV.objValue;
     }
 }

@@ -32,35 +32,35 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f38266b;
+    public static a f40029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f38267c = new Object();
+    public static final Object f40030c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f38269d;
+    public byte[] f40032d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f38270e;
+    public byte[] f40033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f38271f;
+    public byte[] f40034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f38272g;
+    public byte[] f40035g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f38273h;
+    public byte[] f40036h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PublicKey f38274i;
+    public PublicKey f40037i;
     public SharedPreferences j;
     public SharedPreferences k;
     public Context m;
     public long l = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38268a = "88&*5a9*4&a122ek";
+    public String f40031a = "88&*5a9*4&a122ek";
 
     public a(Context context) {
         this.m = context;
@@ -69,12 +69,12 @@ public class a {
         Integer.parseInt(this.j.getString("keyTimeout", "0"));
         this.j.getLong("createDate", 0L);
         e();
-        byte[] bArr = this.f38269d;
+        byte[] bArr = this.f40032d;
         if (bArr != null && (bArr == null || bArr.length != 0)) {
-            byte[] bArr2 = this.f38270e;
+            byte[] bArr2 = this.f40033e;
             if (bArr2 == null || (bArr2 != null && bArr2.length == 0)) {
                 PublicKey b2 = b(this.m);
-                this.f38274i = b2;
+                this.f40037i = b2;
                 if (b2 != null) {
                     h();
                     return;
@@ -84,7 +84,7 @@ public class a {
             return;
         }
         PublicKey b3 = b(this.m);
-        this.f38274i = b3;
+        this.f40037i = b3;
         if (b3 != null) {
             f();
             return;
@@ -93,7 +93,7 @@ public class a {
         try {
             d();
             PublicKey b4 = b(this.m);
-            this.f38274i = b4;
+            this.f40037i = b4;
             if (b4 != null) {
                 f();
             }
@@ -103,7 +103,7 @@ public class a {
     }
 
     public static a a() {
-        a aVar = f38266b;
+        a aVar = f40029b;
         if (aVar != null) {
             return aVar;
         }
@@ -143,10 +143,10 @@ public class a {
     }
 
     public static void a(Context context) {
-        if (f38266b == null) {
-            synchronized (f38267c) {
-                if (f38266b == null) {
-                    f38266b = new a(context);
+        if (f40029b == null) {
+            synchronized (f40030c) {
+                if (f40029b == null) {
+                    f40029b = new a(context);
                 }
             }
         }
@@ -170,11 +170,11 @@ public class a {
     }
 
     private void b(String str) {
-        d.j.a.a.a.a("HttpKeyMgr", str);
+        d.h.a.a.a.a("HttpKeyMgr", str);
     }
 
     private void c(String str) {
-        d.j.a.a.a.b("HttpKeyMgr", str);
+        d.h.a.a.a.b("HttpKeyMgr", str);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, IF, INVOKE, IF, NOP, INVOKE, INVOKE, IF, NOP] complete} */
@@ -231,14 +231,14 @@ public class a {
         String string = this.j.getString("sKey64", "");
         b("saved sKey64: " + string);
         if (!TextUtils.isEmpty(string)) {
-            this.f38273h = string.getBytes();
+            this.f40036h = string.getBytes();
         }
         String string2 = this.j.getString("aKey64", "");
         b("saved aKey64: " + string2);
         if (!TextUtils.isEmpty(string2)) {
             byte[] bytes = string2.getBytes();
-            this.f38272g = bytes;
-            this.f38270e = Base64.decode(bytes, 2);
+            this.f40035g = bytes;
+            this.f40033e = Base64.decode(bytes, 2);
         }
         String string3 = this.j.getString("rKey64", "");
         b("saved rKey64: " + string3);
@@ -246,9 +246,9 @@ public class a {
             return;
         }
         byte[] bytes2 = string3.getBytes();
-        this.f38271f = bytes2;
-        this.f38269d = Base64.decode(bytes2, 2);
-        b("saved rKey: " + new String(this.f38269d));
+        this.f40034f = bytes2;
+        this.f40032d = Base64.decode(bytes2, 2);
+        b("saved rKey: " + new String(this.f40032d));
     }
 
     private void f() {
@@ -261,11 +261,11 @@ public class a {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
             keyGenerator.init(128);
             byte[] encoded = keyGenerator.generateKey().getEncoded();
-            this.f38269d = encoded;
-            this.f38271f = Base64.encode(encoded, 2);
-            b("***** rKey64: " + new String(this.f38271f));
+            this.f40032d = encoded;
+            this.f40034f = Base64.encode(encoded, 2);
+            b("***** rKey64: " + new String(this.f40034f));
             SharedPreferences.Editor edit = this.j.edit();
-            edit.putString("rKey64", new String(this.f38271f));
+            edit.putString("rKey64", new String(this.f40034f));
             edit.apply();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -275,13 +275,13 @@ public class a {
     private void h() {
         try {
             Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
-            cipher.init(1, this.f38274i);
-            byte[] doFinal = cipher.doFinal(this.f38269d);
-            this.f38270e = doFinal;
-            this.f38272g = Base64.encode(doFinal, 2);
-            b("***** aKey64: " + new String(this.f38272g));
+            cipher.init(1, this.f40037i);
+            byte[] doFinal = cipher.doFinal(this.f40032d);
+            this.f40033e = doFinal;
+            this.f40035g = Base64.encode(doFinal, 2);
+            b("***** aKey64: " + new String(this.f40035g));
             SharedPreferences.Editor edit = this.j.edit();
-            edit.putString("aKey64", new String(this.f38272g));
+            edit.putString("aKey64", new String(this.f40035g));
             edit.apply();
         } catch (InvalidKeyException e2) {
             e2.printStackTrace();
@@ -297,15 +297,15 @@ public class a {
     }
 
     public void a(String str) {
-        this.f38273h = str.getBytes();
+        this.f40036h = str.getBytes();
         SharedPreferences.Editor edit = this.j.edit();
-        edit.putString("sKey64", new String(this.f38273h));
+        edit.putString("sKey64", new String(this.f40036h));
         edit.apply();
     }
 
     public byte[] a(byte[] bArr) {
         String str;
-        byte[] bArr2 = this.f38269d;
+        byte[] bArr2 = this.f40032d;
         if (bArr2 == null || (bArr2 != null && bArr2.length == 0)) {
             str = "rKey null!";
         } else if (bArr != null && (bArr == null || bArr.length != 0)) {
@@ -313,7 +313,7 @@ public class a {
             b("<<<<<<<<<< encrypt input <<<<<<<<<<");
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec(this.f38269d, "AES"), new IvParameterSpec(this.f38269d));
+                cipher.init(1, new SecretKeySpec(this.f40032d, "AES"), new IvParameterSpec(this.f40032d));
                 byte[] doFinal = cipher.doFinal(bArr);
                 b(">>>>>>>>>> encrypt output >>>>>>>>>>\n" + new String(Base64.encode(doFinal, 2)));
                 b("<<<<<<<<<< encrypt output <<<<<<<<<<");
@@ -345,10 +345,10 @@ public class a {
     }
 
     public byte[] b() {
-        return this.f38272g;
+        return this.f40035g;
     }
 
     public byte[] c() {
-        return this.f38273h;
+        return this.f40036h;
     }
 }

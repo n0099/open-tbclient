@@ -4,6 +4,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.security.keystore.KeyGenParameterSpec;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.statistics.api.StatisticManager;
@@ -22,28 +30,59 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 @TargetApi(23)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f25448b = "wallet_fp_ks_alias";
+    public static String f25991b = "wallet_fp_ks_alias";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f25449c = null;
+    public static a f25992c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f25450d = "a";
+    public static final String f25993d = "a";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public KeyStore f25451a;
+    public KeyStore f25994a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f25452e;
+    public Context f25995e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1724727962, "Lcom/baidu/wallet/paysdk/fingerprint/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1724727962, "Lcom/baidu/wallet/paysdk/fingerprint/a;");
+        }
+    }
 
     public a(Context context) throws KeyStoreException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         try {
-            this.f25452e = context.getApplicationContext();
-            this.f25451a = KeyStore.getInstance("AndroidKeyStore");
+            this.f25995e = context.getApplicationContext();
+            this.f25994a = KeyStore.getInstance("AndroidKeyStore");
         } catch (KeyStoreException e2) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_FP_KEYSTORE_FAILED);
             e2.printStackTrace();
@@ -52,74 +91,92 @@ public class a {
     }
 
     public static a a(Context context) throws KeyStoreException {
-        if (f25449c == null) {
-            synchronized (a.class) {
-                if (f25449c == null) {
-                    f25449c = new a(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (f25992c == null) {
+                synchronized (a.class) {
+                    if (f25992c == null) {
+                        f25992c = new a(context);
+                    }
                 }
             }
+            return f25992c;
         }
-        return f25449c;
+        return (a) invokeL.objValue;
     }
 
     public boolean a() {
-        return true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void a(String str) {
-        try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
-            this.f25451a.load(null);
-            keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("CBC").setUserAuthenticationRequired(true).setEncryptionPaddings("PKCS7Padding").setRandomizedEncryptionRequired(false).build());
-            keyGenerator.generateKey();
-            LogUtil.d(f25450d, "GenerateKey Success");
-        } catch (IOException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException e2) {
-            throw new RuntimeException(e2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            try {
+                KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
+                this.f25994a.load(null);
+                keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("CBC").setUserAuthenticationRequired(true).setEncryptionPaddings("PKCS7Padding").setRandomizedEncryptionRequired(false).build());
+                keyGenerator.generateKey();
+                LogUtil.d(f25993d, "GenerateKey Success");
+            } catch (IOException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException e2) {
+                throw new RuntimeException(e2);
+            }
         }
     }
 
     public FingerprintManager.CryptoObject a(int i2, byte[] bArr) throws InvalidKeyException {
-        try {
-            this.f25451a.load(null);
-            SecretKey secretKey = (SecretKey) this.f25451a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f25452e), null);
-            if (secretKey == null) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bArr)) == null) {
+            try {
+                this.f25994a.load(null);
+                SecretKey secretKey = (SecretKey) this.f25994a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f25995e), null);
+                if (secretKey == null) {
+                    return null;
+                }
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+                if (i2 == 1) {
+                    cipher.init(i2, secretKey, cipher.getParameters());
+                } else {
+                    cipher.init(i2, secretKey, new IvParameterSpec(bArr));
+                }
+                return new FingerprintManager.CryptoObject(cipher);
+            } catch (IOException e2) {
+                e = e2;
+                e.printStackTrace();
+                return null;
+            } catch (InvalidAlgorithmParameterException e3) {
+                e3.printStackTrace();
+                return null;
+            } catch (InvalidKeyException e4) {
+                throw e4;
+            } catch (KeyStoreException e5) {
+                e = e5;
+                e.printStackTrace();
+                return null;
+            } catch (NoSuchAlgorithmException e6) {
+                e = e6;
+                e.printStackTrace();
+                return null;
+            } catch (UnrecoverableKeyException e7) {
+                e = e7;
+                e.printStackTrace();
+                return null;
+            } catch (CertificateException e8) {
+                e = e8;
+                e.printStackTrace();
+                return null;
+            } catch (NoSuchPaddingException e9) {
+                e9.printStackTrace();
                 return null;
             }
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
-            if (i2 == 1) {
-                cipher.init(i2, secretKey, cipher.getParameters());
-            } else {
-                cipher.init(i2, secretKey, new IvParameterSpec(bArr));
-            }
-            return new FingerprintManager.CryptoObject(cipher);
-        } catch (IOException e2) {
-            e = e2;
-            e.printStackTrace();
-            return null;
-        } catch (InvalidAlgorithmParameterException e3) {
-            e3.printStackTrace();
-            return null;
-        } catch (InvalidKeyException e4) {
-            throw e4;
-        } catch (KeyStoreException e5) {
-            e = e5;
-            e.printStackTrace();
-            return null;
-        } catch (NoSuchAlgorithmException e6) {
-            e = e6;
-            e.printStackTrace();
-            return null;
-        } catch (UnrecoverableKeyException e7) {
-            e = e7;
-            e.printStackTrace();
-            return null;
-        } catch (CertificateException e8) {
-            e = e8;
-            e.printStackTrace();
-            return null;
-        } catch (NoSuchPaddingException e9) {
-            e9.printStackTrace();
-            return null;
         }
+        return (FingerprintManager.CryptoObject) invokeIL.objValue;
     }
 }

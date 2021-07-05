@@ -11,30 +11,37 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class ShareSdkView extends LinearLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22031e;
+    public int f22546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f22032f;
+    public View f22547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22033g;
+    public TextView f22548g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f22034h;
+    public View f22549h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f22035i;
+    public HeadImageView f22550i;
     public TextView j;
     public TextView k;
     public TbImageView l;
@@ -53,58 +60,115 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     /* loaded from: classes5.dex */
     public class a implements TextWatcher {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ShareSdkView f22551e;
+
+        public a(ShareSdkView shareSdkView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shareSdkView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22551e = shareSdkView;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            if (editable.length() > ShareSdkView.this.r * 2) {
-                if (ShareSdkView.this.s != 0) {
-                    ShareSdkView.this.s = 0;
-                    ShareSdkView shareSdkView = ShareSdkView.this;
-                    shareSdkView.t = shareSdkView.v;
-                    ShareSdkView.this.m.setPadding(ShareSdkView.this.w, ShareSdkView.this.s, ShareSdkView.this.w, ShareSdkView.this.t);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+                if (editable.length() > this.f22551e.r * 2) {
+                    if (this.f22551e.s != 0) {
+                        this.f22551e.s = 0;
+                        ShareSdkView shareSdkView = this.f22551e;
+                        shareSdkView.t = shareSdkView.v;
+                        this.f22551e.m.setPadding(this.f22551e.w, this.f22551e.s, this.f22551e.w, this.f22551e.t);
+                    }
+                } else if (editable.length() > this.f22551e.r) {
+                    if (this.f22551e.s != this.f22551e.v) {
+                        ShareSdkView shareSdkView2 = this.f22551e;
+                        shareSdkView2.s = shareSdkView2.v;
+                        ShareSdkView shareSdkView3 = this.f22551e;
+                        shareSdkView3.t = shareSdkView3.v;
+                        this.f22551e.m.setPadding(this.f22551e.w, this.f22551e.s, this.f22551e.w, this.f22551e.t);
+                    }
+                } else if (this.f22551e.s != this.f22551e.u) {
+                    ShareSdkView shareSdkView4 = this.f22551e;
+                    shareSdkView4.s = shareSdkView4.u;
+                    ShareSdkView shareSdkView5 = this.f22551e;
+                    shareSdkView5.t = shareSdkView5.u;
+                    this.f22551e.m.setPadding(this.f22551e.w, this.f22551e.s, this.f22551e.w, this.f22551e.t);
                 }
-            } else if (editable.length() > ShareSdkView.this.r) {
-                if (ShareSdkView.this.s != ShareSdkView.this.v) {
-                    ShareSdkView shareSdkView2 = ShareSdkView.this;
-                    shareSdkView2.s = shareSdkView2.v;
-                    ShareSdkView shareSdkView3 = ShareSdkView.this;
-                    shareSdkView3.t = shareSdkView3.v;
-                    ShareSdkView.this.m.setPadding(ShareSdkView.this.w, ShareSdkView.this.s, ShareSdkView.this.w, ShareSdkView.this.t);
-                }
-            } else if (ShareSdkView.this.s != ShareSdkView.this.u) {
-                ShareSdkView shareSdkView4 = ShareSdkView.this;
-                shareSdkView4.s = shareSdkView4.u;
-                ShareSdkView shareSdkView5 = ShareSdkView.this;
-                shareSdkView5.t = shareSdkView5.u;
-                ShareSdkView.this.m.setPadding(ShareSdkView.this.w, ShareSdkView.this.s, ShareSdkView.this.w, ShareSdkView.this.t);
             }
         }
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            }
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            }
         }
     }
 
     /* loaded from: classes5.dex */
     public class b implements TbImageView.f {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ShareSdkView f22552a;
+
+        public b(ShareSdkView shareSdkView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shareSdkView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22552a = shareSdkView;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
-            ViewGroup.LayoutParams layoutParams = ShareSdkView.this.l.getLayoutParams();
-            layoutParams.height = ((l.k(ShareSdkView.this.getContext()) - l.g(ShareSdkView.this.getContext(), R.dimen.tbds408)) * 9) / 16;
-            ShareSdkView.this.l.setLayoutParams(layoutParams);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+                ViewGroup.LayoutParams layoutParams = this.f22552a.l.getLayoutParams();
+                layoutParams.height = ((l.k(this.f22552a.getContext()) - l.g(this.f22552a.getContext(), R.dimen.tbds408)) * 9) / 16;
+                this.f22552a.l.setLayoutParams(layoutParams);
+            }
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
     }
 
@@ -113,64 +177,84 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         void a(String str);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareSdkView(Context context) {
         super(context);
-        this.f22031e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f22546e = 3;
         k(context);
     }
 
     public final void k(Context context) {
-        setOrientation(1);
-        setGravity(16);
-        LayoutInflater.from(context).inflate(R.layout.share_sdk_view, (ViewGroup) this, true);
-        this.f22032f = findViewById(R.id.share_sdk_content_root);
-        this.f22033g = (TextView) findViewById(R.id.share_sdk_forum);
-        this.f22034h = findViewById(R.id.share_sdk_content_container);
-        this.f22035i = (HeadImageView) findViewById(R.id.share_sdk_appicon);
-        this.j = (TextView) findViewById(R.id.share_sdk_appname);
-        this.k = (TextView) findViewById(R.id.share_sdk_content);
-        this.l = (TbImageView) findViewById(R.id.share_sdk_img);
-        this.m = (EditText) findViewById(R.id.share_sdk_edit);
-        this.n = findViewById(R.id.share_sdk_content_line);
-        this.o = (TextView) findViewById(R.id.share_sdk_cancel);
-        this.p = findViewById(R.id.share_sdk_action_line);
-        this.q = (TextView) findViewById(R.id.share_sdk_share);
-        setOnClickListener(this);
-        this.o.setOnClickListener(this);
-        this.q.setOnClickListener(this);
-        this.f22035i.setIsRound(true);
-        this.f22035i.setIsPreDrawBorder(true);
-        this.f22035i.setDrawBorder(true);
-        this.f22035i.setBorderWidth(l.g(context, R.dimen.tbds1));
-        this.f22035i.setDefaultResource(R.color.CAM_X0205);
-        this.f22035i.setRadius(l.g(context, R.dimen.ds70));
-        this.l.setDefaultBgResource(R.drawable.pic_share_default_applets);
-        this.r = (l.k(getContext()) - l.g(getContext(), R.dimen.tbds516)) / l.g(getContext(), R.dimen.tbds45);
-        this.u = l.g(getContext(), R.dimen.tbds27);
-        this.v = l.g(getContext(), R.dimen.tbds11);
-        this.w = l.g(getContext(), R.dimen.tbds36);
-        int i2 = this.u;
-        this.s = i2;
-        this.t = i2;
-        this.m.addTextChangedListener(new a());
-        l();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setOrientation(1);
+            setGravity(16);
+            LayoutInflater.from(context).inflate(R.layout.share_sdk_view, (ViewGroup) this, true);
+            this.f22547f = findViewById(R.id.share_sdk_content_root);
+            this.f22548g = (TextView) findViewById(R.id.share_sdk_forum);
+            this.f22549h = findViewById(R.id.share_sdk_content_container);
+            this.f22550i = (HeadImageView) findViewById(R.id.share_sdk_appicon);
+            this.j = (TextView) findViewById(R.id.share_sdk_appname);
+            this.k = (TextView) findViewById(R.id.share_sdk_content);
+            this.l = (TbImageView) findViewById(R.id.share_sdk_img);
+            this.m = (EditText) findViewById(R.id.share_sdk_edit);
+            this.n = findViewById(R.id.share_sdk_content_line);
+            this.o = (TextView) findViewById(R.id.share_sdk_cancel);
+            this.p = findViewById(R.id.share_sdk_action_line);
+            this.q = (TextView) findViewById(R.id.share_sdk_share);
+            setOnClickListener(this);
+            this.o.setOnClickListener(this);
+            this.q.setOnClickListener(this);
+            this.f22550i.setIsRound(true);
+            this.f22550i.setIsPreDrawBorder(true);
+            this.f22550i.setDrawBorder(true);
+            this.f22550i.setBorderWidth(l.g(context, R.dimen.tbds1));
+            this.f22550i.setDefaultResource(R.color.CAM_X0205);
+            this.f22550i.setRadius(l.g(context, R.dimen.ds70));
+            this.l.setDefaultBgResource(R.drawable.pic_share_default_applets);
+            this.r = (l.k(getContext()) - l.g(getContext(), R.dimen.tbds516)) / l.g(getContext(), R.dimen.tbds45);
+            this.u = l.g(getContext(), R.dimen.tbds27);
+            this.v = l.g(getContext(), R.dimen.tbds11);
+            this.w = l.g(getContext(), R.dimen.tbds36);
+            int i2 = this.u;
+            this.s = i2;
+            this.t = i2;
+            this.m.addTextChangedListener(new a(this));
+            l();
+        }
     }
 
     public void l() {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f22031e) {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f22546e) {
             return;
         }
-        this.f22031e = skinType;
+        this.f22546e = skinType;
         SkinManager.setBackgroundColor(this, R.color.black_alpha30);
-        SkinManager.setBackgroundResource(this.f22032f, R.drawable.share_sdk_bg);
-        SkinManager.setViewTextColor(this.f22033g, R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(this.f22034h, R.color.CAM_X0205);
-        this.f22035i.setBorderColor(SkinManager.getColor(R.color.CAM_X0111));
-        this.f22035i.setIsNight(this.f22031e == 1);
+        SkinManager.setBackgroundResource(this.f22547f, R.drawable.share_sdk_bg);
+        SkinManager.setViewTextColor(this.f22548g, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f22549h, R.color.CAM_X0205);
+        this.f22550i.setBorderColor(SkinManager.getColor(R.color.CAM_X0111));
+        this.f22550i.setIsNight(this.f22546e == 1);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0106);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
-        this.l.setIsNight(this.f22031e == 1);
+        this.l.setIsNight(this.f22546e == 1);
         this.m.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
         this.m.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         SkinManager.setBackgroundResource(this.m, R.drawable.share_sdk_input_shape_bg);
@@ -182,58 +266,104 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.o) {
-            if (getParent() != null) {
-                ((ViewGroup) getParent()).removeView(this);
-            }
-        } else if (view == this.q && ViewHelper.checkUpIsLogin(getContext())) {
-            String obj = this.m.getText().toString();
-            c cVar = this.x;
-            if (cVar != null) {
-                cVar.a(obj);
-            }
-            if (getParent() != null) {
-                ((ViewGroup) getParent()).removeView(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            if (view == this.o) {
+                if (getParent() != null) {
+                    ((ViewGroup) getParent()).removeView(this);
+                }
+            } else if (view == this.q && ViewHelper.checkUpIsLogin(getContext())) {
+                String obj = this.m.getText().toString();
+                c cVar = this.x;
+                if (cVar != null) {
+                    cVar.a(obj);
+                }
+                if (getParent() != null) {
+                    ((ViewGroup) getParent()).removeView(this);
+                }
             }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        this.x = null;
-        super.onDetachedFromWindow();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.x = null;
+            super.onDetachedFromWindow();
+        }
     }
 
-    public void setData(d.a.o0.w3.p.c cVar) {
-        if (cVar == null && getParent() != null) {
-            ((ViewGroup) getParent()).removeView(this);
-            return;
+    public void setData(d.a.s0.a4.p.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            if (cVar == null && getParent() != null) {
+                ((ViewGroup) getParent()).removeView(this);
+                return;
+            }
+            this.f22548g.setText(String.format(getResources().getString(R.string.share_sdk_forum), cVar.f57538f));
+            this.f22550i.M(cVar.f57536d, 10, false);
+            this.j.setText(cVar.f57535c);
+            if (StringUtils.isNull(cVar.f57540h)) {
+                this.k.setVisibility(8);
+            } else {
+                this.k.setText(cVar.f57540h);
+            }
+            this.l.setEvent(new b(this));
+            this.l.M(cVar.f57541i, 42, false);
         }
-        this.f22033g.setText(String.format(getResources().getString(R.string.share_sdk_forum), cVar.f66739f));
-        this.f22035i.U(cVar.f66737d, 10, false);
-        this.j.setText(cVar.f66736c);
-        if (StringUtils.isNull(cVar.f66741h)) {
-            this.k.setVisibility(8);
-        } else {
-            this.k.setText(cVar.f66741h);
-        }
-        this.l.setEvent(new b());
-        this.l.U(cVar.f66742i, 42, false);
     }
 
     public void setOnShareListener(c cVar) {
-        this.x = cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.x = cVar;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareSdkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22031e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f22546e = 3;
         k(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareSdkView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f22031e = 3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f22546e = 3;
         k(context);
     }
 }

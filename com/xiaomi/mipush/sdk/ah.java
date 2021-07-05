@@ -2,6 +2,10 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.bj;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hu;
@@ -19,101 +23,125 @@ import com.xiaomi.push.io;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ah {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar) {
-        return a(context, t, hfVar, !hfVar.equals(hf.Registration), context.getPackageName(), b.m97a(context).m98a());
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hfVar)) == null) ? a(context, t, hfVar, !hfVar.equals(hf.f43236a), context.getPackageName(), b.m111a(context).m112a()) : (ib) invokeLLL.objValue;
     }
 
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar, boolean z, String str, String str2) {
-        return a(context, t, hfVar, z, str, str2, true);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, t, hfVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hfVar, z, str, str2, true) : (ib) invokeCommon.objValue;
     }
 
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar, boolean z, String str, String str2, boolean z2) {
+        InterceptResult invokeCommon;
         String str3;
-        byte[] a2 = ip.a(t);
-        if (a2 != null) {
-            ib ibVar = new ib();
-            if (z) {
-                String d2 = b.m97a(context).d();
-                if (TextUtils.isEmpty(d2)) {
-                    str3 = "regSecret is empty, return null";
-                } else {
-                    try {
-                        a2 = com.xiaomi.push.h.b(bj.m166a(d2), a2);
-                    } catch (Exception unused) {
-                        com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, t, hfVar, Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)})) == null) {
+            byte[] a2 = ip.a(t);
+            if (a2 != null) {
+                ib ibVar = new ib();
+                if (z) {
+                    String d2 = b.m111a(context).d();
+                    if (TextUtils.isEmpty(d2)) {
+                        str3 = "regSecret is empty, return null";
+                    } else {
+                        try {
+                            a2 = com.xiaomi.push.h.b(bj.m180a(d2), a2);
+                        } catch (Exception unused) {
+                            com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
+                        }
                     }
                 }
+                hu huVar = new hu();
+                huVar.f557a = 5L;
+                huVar.f558a = "fakeid";
+                ibVar.a(huVar);
+                ibVar.a(ByteBuffer.wrap(a2));
+                ibVar.a(hfVar);
+                ibVar.b(z2);
+                ibVar.b(str);
+                ibVar.a(z);
+                ibVar.a(str2);
+                return ibVar;
             }
-            hu huVar = new hu();
-            huVar.f554a = 5L;
-            huVar.f555a = "fakeid";
-            ibVar.a(huVar);
-            ibVar.a(ByteBuffer.wrap(a2));
-            ibVar.a(hfVar);
-            ibVar.b(z2);
-            ibVar.b(str);
-            ibVar.a(z);
-            ibVar.a(str2);
-            return ibVar;
+            str3 = "invoke convertThriftObjectToBytes method, return null.";
+            com.xiaomi.channel.commonutils.logger.b.m70a(str3);
+            return null;
         }
-        str3 = "invoke convertThriftObjectToBytes method, return null.";
-        com.xiaomi.channel.commonutils.logger.b.m56a(str3);
-        return null;
+        return (ib) invokeCommon.objValue;
     }
 
     public static iq a(Context context, ib ibVar) {
-        byte[] m442a;
-        if (ibVar.m444b()) {
-            try {
-                m442a = com.xiaomi.push.h.a(bj.m166a(b.m97a(context).d()), ibVar.m442a());
-            } catch (Exception e2) {
-                throw new t("the aes decrypt failed.", e2);
+        InterceptResult invokeLL;
+        byte[] m456a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, ibVar)) == null) {
+            if (ibVar.m458b()) {
+                try {
+                    m456a = com.xiaomi.push.h.a(bj.m180a(b.m111a(context).d()), ibVar.m456a());
+                } catch (Exception e2) {
+                    throw new t("the aes decrypt failed.", e2);
+                }
+            } else {
+                m456a = ibVar.m456a();
             }
-        } else {
-            m442a = ibVar.m442a();
+            iq a2 = a(ibVar.a(), ibVar.f639b);
+            if (a2 != null) {
+                ip.a(a2, m456a);
+            }
+            return a2;
         }
-        iq a2 = a(ibVar.a(), ibVar.f636b);
-        if (a2 != null) {
-            ip.a(a2, m442a);
-        }
-        return a2;
+        return (iq) invokeLL.objValue;
     }
 
     public static iq a(hf hfVar, boolean z) {
-        switch (ai.f41015a[hfVar.ordinal()]) {
-            case 1:
-                return new ig();
-            case 2:
-                return new im();
-            case 3:
-                return new ik();
-            case 4:
-                return new io();
-            case 5:
-                return new ii();
-            case 6:
-                return new hv();
-            case 7:
-                return new ia();
-            case 8:
-                return new ih();
-            case 9:
-                if (z) {
-                    return new ie();
-                }
-                hw hwVar = new hw();
-                hwVar.a(true);
-                return hwVar;
-            case 10:
-                return new ia();
-            default:
-                return null;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, hfVar, z)) == null) {
+            switch (ai.f42758a[hfVar.ordinal()]) {
+                case 1:
+                    return new ig();
+                case 2:
+                    return new im();
+                case 3:
+                    return new ik();
+                case 4:
+                    return new io();
+                case 5:
+                    return new ii();
+                case 6:
+                    return new hv();
+                case 7:
+                    return new ia();
+                case 8:
+                    return new ih();
+                case 9:
+                    if (z) {
+                        return new ie();
+                    }
+                    hw hwVar = new hw();
+                    hwVar.a(true);
+                    return hwVar;
+                case 10:
+                    return new ia();
+                default:
+                    return null;
+            }
         }
+        return (iq) invokeLZ.objValue;
     }
 
     public static <T extends iq<T, ?>> ib b(Context context, T t, hf hfVar, boolean z, String str, String str2) {
-        return a(context, t, hfVar, z, str, str2, false);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, t, hfVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hfVar, z, str, str2, false) : (ib) invokeCommon.objValue;
     }
 }

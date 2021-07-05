@@ -21,8 +21,14 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.SdkConfig;
 import java.io.BufferedReader;
@@ -43,506 +49,676 @@ import java.util.Locale;
 import java.util.Random;
 /* loaded from: classes7.dex */
 public class ah {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37561a = "";
+    public static String f39324a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37562b = "";
+    public static String f39325b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37563c = "";
+    public static String f39326c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f37564d = "";
+    public static String f39327d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f37565e = "";
+    public static String f39328e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f37566f = null;
+    public static String f39329f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f37567g = false;
+    public static boolean f39330g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f37568h = false;
+    public static boolean f39331h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f37569i = false;
+    public static boolean f39332i = false;
     public static boolean j = false;
     public static int k = 0;
     public static long l = 0;
     public static boolean m = true;
     public static boolean n = true;
-    public static final List<String> o = Arrays.asList("a5f5faddde9e9f02", "8e17f7422b35fbea", "b88c3c236923d9d9", "cb36bf76cca443d0", "5d4e49ed381836c5", "cffa38e9136f93e9", "62bd2daa59ea0173", "b7aad49a2d5bc5d9", "f2138912c5e5dd5c", "330a1e81a2bf9f31", "59c0f432ccbef844", "521376155e535f39", "aa5ec6ce14abd680", "5522a09bb500d82f", "6dfe4a96800edfb4", "ecc9a2dded8cdf72", "399f868043955b11", "34dc327c00dbff94", "d1b4e3862c309f8b", "68bdbf71f863ccac", "01558dd995085a35", "351174200a06da52", "fa0988506c76ff4b", "8eb8ef823312c61a", "a72e81be65c4638b", "416d15a015c8f324", "474086ea2d737519", "befdddf908c8d749", "780ee58a6f57aab6", "cfe86fa07cae3601", "704ff4d1534f0ff4", "9298b9e9bbd7cdea", "7b634c42f236c6e8", "11eacf22b9ceab7d", "2941a4f39eec5864", "87d134dc5ba45550", "fdd2313bb1750eb9", "6560ef232d8424bb", "5d876286e1064482", "f66fefb916f4962d", "7baf82d0ac49f596", "57748921d8d88ed4", "120cd57f1a50b8f5", "e164f9610ddd9fc8", "6256f0e8da6389de", "bcb22df712476416", "714fa9aff63f7adb", "cb8252e4da7cf610", "e18f649aa80e140c", "966790a9db5ea8d8", "e1769e681af901dd", "d23f2574a60964a4", "d717e6298d3c9cb2", "f5ea5e8ba730864e", "a8a0a223d1a42232", "6675a4f231f5c8db", "3edb7c2103e5c75a", "8ce6a9a216b326c4", "af606153eb3be0a7", "7ae255c3d760c920", "e50e94c40048c5fd", "55009bca30f9dc4c", "c37566487909214a", "891b74f7e534d14a", "726e190aae663525", "df473127d30fb669", "bfbcc646d92dfd48", "a4a1954c44751936", "da4a44a3d7c4d8be", "5ff5bca4a775dd30", "14917461e1917c53", "14ce20d0a80955fa", "a56a63de4d3f3d39", "f780246adc7bd556", "3495a541aea0da72", "f7f205ce47fed2a5", "f52db3f434279c3a", "dca17088c97dee5e", "dd53a8b3a2a4ccc0", "52e07629290d45e4", "cda522b0f8f50d9a", "b85a1c8bcd51d82c", "e344a00cd3f5e93a", "fa59d8a66d7bdd88", "68fb1f1393a216e8", "4c30ab1fb10af181", "b1376e0578099143", "88752f72d8d305fd", "fddf20078d27bf3c", "dab2120bffa2be8c", "c7c8dde481793471", "e4b1bdbcabfc284d");
+    public static final List<String> o;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734235, "Lcom/kwad/sdk/utils/ah;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(408734235, "Lcom/kwad/sdk/utils/ah;");
+                return;
+            }
+        }
+        o = Arrays.asList("a5f5faddde9e9f02", "8e17f7422b35fbea", "b88c3c236923d9d9", "cb36bf76cca443d0", "5d4e49ed381836c5", "cffa38e9136f93e9", "62bd2daa59ea0173", "b7aad49a2d5bc5d9", "f2138912c5e5dd5c", "330a1e81a2bf9f31", "59c0f432ccbef844", "521376155e535f39", "aa5ec6ce14abd680", "5522a09bb500d82f", "6dfe4a96800edfb4", "ecc9a2dded8cdf72", "399f868043955b11", "34dc327c00dbff94", "d1b4e3862c309f8b", "68bdbf71f863ccac", "01558dd995085a35", "351174200a06da52", "fa0988506c76ff4b", "8eb8ef823312c61a", "a72e81be65c4638b", "416d15a015c8f324", "474086ea2d737519", "befdddf908c8d749", "780ee58a6f57aab6", "cfe86fa07cae3601", "704ff4d1534f0ff4", "9298b9e9bbd7cdea", "7b634c42f236c6e8", "11eacf22b9ceab7d", "2941a4f39eec5864", "87d134dc5ba45550", "fdd2313bb1750eb9", "6560ef232d8424bb", "5d876286e1064482", "f66fefb916f4962d", "7baf82d0ac49f596", "57748921d8d88ed4", "120cd57f1a50b8f5", "e164f9610ddd9fc8", "6256f0e8da6389de", "bcb22df712476416", "714fa9aff63f7adb", "cb8252e4da7cf610", "e18f649aa80e140c", "966790a9db5ea8d8", "e1769e681af901dd", "d23f2574a60964a4", "d717e6298d3c9cb2", "f5ea5e8ba730864e", "a8a0a223d1a42232", "6675a4f231f5c8db", "3edb7c2103e5c75a", "8ce6a9a216b326c4", "af606153eb3be0a7", "7ae255c3d760c920", "e50e94c40048c5fd", "55009bca30f9dc4c", "c37566487909214a", "891b74f7e534d14a", "726e190aae663525", "df473127d30fb669", "bfbcc646d92dfd48", "a4a1954c44751936", "da4a44a3d7c4d8be", "5ff5bca4a775dd30", "14917461e1917c53", "14ce20d0a80955fa", "a56a63de4d3f3d39", "f780246adc7bd556", "3495a541aea0da72", "f7f205ce47fed2a5", "f52db3f434279c3a", "dca17088c97dee5e", "dd53a8b3a2a4ccc0", "52e07629290d45e4", "cda522b0f8f50d9a", "b85a1c8bcd51d82c", "e344a00cd3f5e93a", "fa59d8a66d7bdd88", "68fb1f1393a216e8", "4c30ab1fb10af181", "b1376e0578099143", "88752f72d8d305fd", "fddf20078d27bf3c", "dab2120bffa2be8c", "c7c8dde481793471", "e4b1bdbcabfc284d");
+    }
 
     public static int a(Context context) {
-        try {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return ((BatteryManager) context.getApplicationContext().getSystemService("batterymanager")).getIntProperty(4);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    return ((BatteryManager) context.getApplicationContext().getSystemService("batterymanager")).getIntProperty(4);
+                }
+                return 0;
+            } catch (Exception unused) {
+                return 0;
             }
-            return 0;
-        } catch (Exception unused) {
-            return 0;
         }
+        return invokeL.intValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str) {
-        if (str != null) {
-            return context.checkPermission(str, Process.myPid(), Process.myUid());
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
+            }
+            throw new IllegalArgumentException("permission is null");
         }
-        throw new IllegalArgumentException("permission is null");
+        return invokeLL.intValue;
     }
 
     public static long a() {
-        try {
-            return a(Environment.getDataDirectory());
-        } catch (Exception unused) {
-            return 0L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                return a(Environment.getDataDirectory());
+            } catch (Exception unused) {
+                return 0L;
+            }
         }
+        return invokeV.longValue;
     }
 
     public static long a(File file) {
-        if (file == null) {
-            return 0L;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, file)) == null) {
+            if (file == null) {
+                return 0L;
+            }
+            try {
+                StatFs statFs = new StatFs(file.getPath());
+                return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getBlockCount() : statFs.getBlockSizeLong() * statFs.getBlockCountLong();
+            } catch (Exception unused) {
+                return 0L;
+            }
         }
-        try {
-            StatFs statFs = new StatFs(file.getPath());
-            return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getBlockCount() : statFs.getBlockSizeLong() * statFs.getBlockCountLong();
-        } catch (Exception unused) {
-            return 0L;
-        }
+        return invokeL.longValue;
     }
 
     public static String a(String str, int i2, char c2) {
-        StringBuilder sb = new StringBuilder();
-        while (sb.length() + str.length() < i2) {
-            sb.append(c2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+            StringBuilder sb = new StringBuilder();
+            while (sb.length() + str.length() < i2) {
+                sb.append(c2);
+            }
+            sb.append(str);
+            return sb.toString();
         }
-        sb.append(str);
-        return sb.toString();
+        return (String) invokeCommon.objValue;
     }
 
     public static void a(SdkConfig sdkConfig) {
-        m = sdkConfig.canReadMacAddress();
-        n = sdkConfig.canReadICCID();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sdkConfig) == null) {
+            m = sdkConfig.canReadMacAddress();
+            n = sdkConfig.canReadICCID();
+        }
     }
 
     public static boolean a(String str) {
-        return o.contains(str.toLowerCase(Locale.US));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? o.contains(str.toLowerCase(Locale.US)) : invokeL.booleanValue;
     }
 
     public static long b() {
-        try {
-            return b(Environment.getDataDirectory());
-        } catch (Exception unused) {
-            return 0L;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            try {
+                return b(Environment.getDataDirectory());
+            } catch (Exception unused) {
+                return 0L;
+            }
         }
+        return invokeV.longValue;
     }
 
     public static long b(Context context) {
-        long j2 = l;
-        if (j2 > 0) {
-            return j2;
-        }
-        if (context == null) {
-            return 0L;
-        }
-        try {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            long j3 = memoryInfo.totalMem;
-            if (j3 <= 0) {
-                j3 = n();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            long j2 = l;
+            if (j2 > 0) {
+                return j2;
             }
-            l = j3;
-            return j3;
-        } catch (Exception unused) {
-            return 0L;
+            if (context == null) {
+                return 0L;
+            }
+            try {
+                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+                ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+                long j3 = memoryInfo.totalMem;
+                if (j3 <= 0) {
+                    j3 = n();
+                }
+                l = j3;
+                return j3;
+            } catch (Exception unused) {
+                return 0L;
+            }
         }
+        return invokeL.longValue;
     }
 
     public static long b(File file) {
-        try {
-            StatFs statFs = new StatFs(file.getPath());
-            return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getAvailableBlocks() : statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong();
-        } catch (Exception unused) {
-            return 0L;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, file)) == null) {
+            try {
+                StatFs statFs = new StatFs(file.getPath());
+                return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getAvailableBlocks() : statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong();
+            } catch (Exception unused) {
+                return 0L;
+            }
         }
+        return invokeL.longValue;
     }
 
     public static void b(String str) {
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null) {
+        Context context;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
             return;
         }
         context.getSharedPreferences("ksadsdk_pref", 0).edit().putString(IAdRequestParam.ANDROID_ID, str).apply();
     }
 
     public static int c() {
-        int i2 = k;
-        if (i2 > 0) {
-            return i2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            int i2 = k;
+            if (i2 > 0) {
+                return i2;
+            }
+            int availableProcessors = Runtime.getRuntime().availableProcessors();
+            k = availableProcessors;
+            return availableProcessors;
         }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        k = availableProcessors;
-        return availableProcessors;
+        return invokeV.intValue;
     }
 
     public static long c(Context context) {
-        if (context == null) {
-            return 0L;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            if (context == null) {
+                return 0L;
+            }
+            try {
+                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+                ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
+                return memoryInfo.availMem;
+            } catch (Exception unused) {
+                return 0L;
+            }
         }
-        try {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo.availMem;
-        } catch (Exception unused) {
-            return 0L;
-        }
+        return invokeL.longValue;
     }
 
     public static String d() {
-        Locale locale = Build.VERSION.SDK_INT >= 24 ? LocaleList.getDefault().get(0) : Locale.getDefault();
-        if (locale == null) {
-            locale = Locale.CHINESE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            Locale locale = Build.VERSION.SDK_INT >= 24 ? LocaleList.getDefault().get(0) : Locale.getDefault();
+            if (locale == null) {
+                locale = Locale.CHINESE;
+            }
+            return String.valueOf(locale);
         }
-        return String.valueOf(locale);
+        return (String) invokeV.objValue;
     }
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String d(@Nullable Context context) {
-        if (f37567g) {
-            return "";
-        }
-        if (!TextUtils.isEmpty(f37562b) || context == null) {
-            return f37562b;
-        }
-        try {
-            r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
-            if (r1) {
-                f37562b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            if (f39330g) {
+                return "";
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            f37562b = null;
+            if (!TextUtils.isEmpty(f39325b) || context == null) {
+                return f39325b;
+            }
+            try {
+                r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
+                if (r1) {
+                    f39325b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                }
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                f39325b = null;
+            }
+            if (r1 && f39326c == null) {
+                f39330g = true;
+            }
+            return f39325b;
         }
-        if (r1 && f37563c == null) {
-            f37567g = true;
-        }
-        return f37562b;
+        return (String) invokeL.objValue;
     }
 
     public static String e() {
-        return Build.MODEL;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? Build.MODEL : (String) invokeV.objValue;
     }
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String e(Context context) {
+        InterceptResult invokeL;
         String str;
-        if (f37568h) {
-            return "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            if (f39331h) {
+                return "";
+            }
+            if (!TextUtils.isEmpty(f39326c) || context == null) {
+                return f39326c;
+            }
+            try {
+                r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
+                str = r2 ? ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId() : "";
+            } catch (Exception unused) {
+                str = null;
+            }
+            if (r2 && str == null) {
+                f39331h = true;
+            }
+            String str2 = TextUtils.isEmpty(str) ? "" : str;
+            f39326c = str2;
+            return str2;
         }
-        if (!TextUtils.isEmpty(f37563c) || context == null) {
-            return f37563c;
-        }
-        try {
-            r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
-            str = r2 ? ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId() : "";
-        } catch (Exception unused) {
-            str = null;
-        }
-        if (r2 && str == null) {
-            f37568h = true;
-        }
-        String str2 = TextUtils.isEmpty(str) ? "" : str;
-        f37563c = str2;
-        return str2;
+        return (String) invokeL.objValue;
     }
 
     public static String f() {
-        return Build.BRAND;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? Build.BRAND : (String) invokeV.objValue;
     }
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String f(Context context) {
+        InterceptResult invokeL;
         String str;
         String str2;
-        str = "";
-        if (f37569i) {
-            return "";
-        }
-        if (TextUtils.isEmpty(f37564d)) {
-            if (context != null && n) {
-                try {
-                    r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
-                    str2 = r2 ? ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber() : "";
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    str2 = null;
-                }
-                if (r2 && str2 == null) {
-                    f37569i = true;
-                }
-                str = TextUtils.isEmpty(str2) ? "" : str2;
-                f37564d = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
+            str = "";
+            if (f39332i) {
+                return "";
             }
-            return str;
+            if (TextUtils.isEmpty(f39327d)) {
+                if (context != null && n) {
+                    try {
+                        r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
+                        str2 = r2 ? ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber() : "";
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                        str2 = null;
+                    }
+                    if (r2 && str2 == null) {
+                        f39332i = true;
+                    }
+                    str = TextUtils.isEmpty(str2) ? "" : str2;
+                    f39327d = str;
+                }
+                return str;
+            }
+            return f39327d;
         }
-        return f37564d;
+        return (String) invokeL.objValue;
     }
 
     public static int g(Context context) {
-        try {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.widthPixels;
-        } catch (Exception unused) {
-            return 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+            try {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                return displayMetrics.widthPixels;
+            } catch (Exception unused) {
+                return 0;
+            }
         }
+        return invokeL.intValue;
     }
 
     public static String g() {
-        return Build.MANUFACTURER;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? Build.MANUFACTURER : (String) invokeV.objValue;
     }
 
     public static int h() {
-        return n(KsAdSDKImpl.get().getContext()) ? 4 : 3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? n(KsAdSDKImpl.get().getContext()) ? 4 : 3 : invokeV.intValue;
     }
 
     public static int h(Context context) {
-        try {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.heightPixels;
-        } catch (Exception unused) {
-            return 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
+            try {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                return displayMetrics.heightPixels;
+            } catch (Exception unused) {
+                return 0;
+            }
         }
+        return invokeL.intValue;
     }
 
     public static String i() {
-        return Build.VERSION.RELEASE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? Build.VERSION.RELEASE : (String) invokeV.objValue;
     }
 
     @SuppressLint({"HardwareIds"})
     public static String i(Context context) {
-        if (j) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
+            if (j) {
+                return "";
+            }
+            if (!TextUtils.isEmpty(f39328e) || context == null) {
+                return f39328e;
+            }
+            try {
+                f39328e = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            } catch (Exception unused) {
+            }
+            if (TextUtils.isEmpty(f39328e)) {
+                j = true;
+            }
+            return f39328e;
         }
-        if (!TextUtils.isEmpty(f37565e) || context == null) {
-            return f37565e;
-        }
-        try {
-            f37565e = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-        } catch (Exception unused) {
-        }
-        if (TextUtils.isEmpty(f37565e)) {
-            j = true;
-        }
-        return f37565e;
+        return (String) invokeL.objValue;
     }
 
     public static int j() {
-        return Build.VERSION.SDK_INT;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
     }
 
     public static int j(Context context) {
-        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-        if (audioManager != null) {
-            return audioManager.getStreamVolume(3);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            if (audioManager != null) {
+                return audioManager.getStreamVolume(3);
+            }
+            return 0;
         }
-        return 0;
+        return invokeL.intValue;
     }
 
     public static String k() {
-        return Locale.getDefault().getLanguage();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? Locale.getDefault().getLanguage() : (String) invokeV.objValue;
     }
 
     public static String k(@Nullable Context context) {
-        if (context == null || !m) {
-            return "";
-        }
-        if (TextUtils.isEmpty(f37561a)) {
-            try {
-                WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
-                if (connectionInfo != null) {
-                    f37561a = connectionInfo.getMacAddress();
-                }
-                if (TextUtils.isEmpty(f37561a) || f37561a.equals(Config.DEF_MAC_ID)) {
-                    Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        NetworkInterface networkInterface = (NetworkInterface) it.next();
-                        if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
-                            byte[] hardwareAddress = networkInterface.getHardwareAddress();
-                            if (hardwareAddress != null && hardwareAddress.length != 0) {
-                                StringBuilder sb = new StringBuilder();
-                                int length = hardwareAddress.length;
-                                for (int i2 = 0; i2 < length; i2++) {
-                                    sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
+            if (context == null || !m) {
+                return "";
+            }
+            if (TextUtils.isEmpty(f39324a)) {
+                try {
+                    WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
+                    if (connectionInfo != null) {
+                        f39324a = connectionInfo.getMacAddress();
+                    }
+                    if (TextUtils.isEmpty(f39324a) || f39324a.equals(Config.DEF_MAC_ID)) {
+                        Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            }
+                            NetworkInterface networkInterface = (NetworkInterface) it.next();
+                            if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
+                                byte[] hardwareAddress = networkInterface.getHardwareAddress();
+                                if (hardwareAddress != null && hardwareAddress.length != 0) {
+                                    StringBuilder sb = new StringBuilder();
+                                    int length = hardwareAddress.length;
+                                    for (int i2 = 0; i2 < length; i2++) {
+                                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
+                                    }
+                                    if (sb.length() > 0) {
+                                        sb.deleteCharAt(sb.length() - 1);
+                                    }
+                                    f39324a = sb.toString();
                                 }
-                                if (sb.length() > 0) {
-                                    sb.deleteCharAt(sb.length() - 1);
-                                }
-                                f37561a = sb.toString();
                             }
                         }
                     }
+                    if (TextUtils.isEmpty(f39324a) || f39324a.equals(Config.DEF_MAC_ID)) {
+                        f39324a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                    }
+                    if (!TextUtils.isEmpty(f39324a)) {
+                        f39324a = f39324a.toUpperCase(Locale.US);
+                    }
+                } catch (Exception unused) {
                 }
-                if (TextUtils.isEmpty(f37561a) || f37561a.equals(Config.DEF_MAC_ID)) {
-                    f37561a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
-                }
-                if (!TextUtils.isEmpty(f37561a)) {
-                    f37561a = f37561a.toUpperCase(Locale.US);
-                }
-            } catch (Exception unused) {
             }
+            return f39324a;
         }
-        return f37561a;
+        return (String) invokeL.objValue;
     }
 
     public static String l() {
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (inetAddresses.hasMoreElements()) {
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    if ((nextElement instanceof Inet4Address) && !nextElement.isLoopbackAddress()) {
-                        return nextElement.getHostAddress();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                while (networkInterfaces.hasMoreElements()) {
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if ((nextElement instanceof Inet4Address) && !nextElement.isLoopbackAddress()) {
+                            return nextElement.getHostAddress();
+                        }
                     }
                 }
+                return "";
+            } catch (Throwable unused) {
+                return "";
             }
-            return "";
-        } catch (Throwable unused) {
-            return "";
         }
+        return (String) invokeV.objValue;
     }
 
     public static String l(Context context) {
-        try {
-            PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 64);
-            return packageInfo != null ? packageInfo.versionName : "";
-        } catch (Exception unused) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 64);
+                return packageInfo != null ? packageInfo.versionName : "";
+            } catch (Exception unused) {
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static String m() {
-        try {
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+            try {
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
+            }
+            if (TextUtils.isEmpty(f39329f)) {
+                String p = p();
+                if (!TextUtils.isEmpty(p)) {
+                    String str = "ANDROID_" + p;
+                    f39329f = str;
+                    return str;
+                }
+                String i2 = i(KsAdSDKImpl.get().getContext());
+                if (!TextUtils.isEmpty(i2) && !a(i2)) {
+                    String str2 = "ANDROID_" + i2;
+                    f39329f = str2;
+                    return str2;
+                }
+                String o2 = o();
+                if (!TextUtils.isEmpty(o2)) {
+                    f39329f = "ANDROID_" + o2;
+                    b(o2);
+                    return f39329f;
+                }
+                return "ANDROID_";
+            }
+            return f39329f;
         }
-        if (TextUtils.isEmpty(f37566f)) {
-            String p = p();
-            if (!TextUtils.isEmpty(p)) {
-                String str = "ANDROID_" + p;
-                f37566f = str;
-                return str;
-            }
-            String i2 = i(KsAdSDKImpl.get().getContext());
-            if (!TextUtils.isEmpty(i2) && !a(i2)) {
-                String str2 = "ANDROID_" + i2;
-                f37566f = str2;
-                return str2;
-            }
-            String o2 = o();
-            if (!TextUtils.isEmpty(o2)) {
-                f37566f = "ANDROID_" + o2;
-                b(o2);
-                return f37566f;
-            }
-            return "ANDROID_";
-        }
-        return f37566f;
+        return (String) invokeV.objValue;
     }
 
     public static String m(Context context) {
-        if (context == null) {
-            return "";
-        }
-        int myPid = Process.myPid();
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-        if (runningAppProcesses == null) {
-            return "";
-        }
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-            if (runningAppProcessInfo.pid == myPid) {
-                return runningAppProcessInfo.processName;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
+            if (context == null) {
+                return "";
             }
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return "";
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return "";
         }
-        return "";
+        return (String) invokeL.objValue;
     }
 
     public static long n() {
+        InterceptResult invokeV;
         BufferedReader bufferedReader;
         Throwable th;
         String readLine;
-        BufferedReader bufferedReader2 = null;
-        try {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
+            BufferedReader bufferedReader2 = null;
             try {
-                bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-            } catch (IOException unused) {
-                return 0L;
-            }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            bufferedReader = null;
-            th = th2;
-        }
-        do {
-            try {
-                readLine = bufferedReader.readLine();
-            } catch (Exception unused3) {
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != null) {
-                    bufferedReader2.close();
+                try {
+                    bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+                } catch (IOException unused) {
                     return 0L;
                 }
-                return 0L;
-            } catch (Throwable th3) {
-                th = th3;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused4) {
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                bufferedReader = null;
+                th = th2;
+            }
+            do {
+                try {
+                    readLine = bufferedReader.readLine();
+                } catch (Exception unused3) {
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
+                        bufferedReader2.close();
+                        return 0L;
                     }
+                    return 0L;
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
-            }
-            if (readLine == null) {
+                if (readLine == null) {
+                    bufferedReader.close();
+                    return 0L;
+                }
+            } while (!readLine.contains("MemTotal"));
+            long longValue = Long.valueOf(readLine.split("\\s+")[1]).longValue() << 10;
+            try {
                 bufferedReader.close();
-                return 0L;
+            } catch (IOException unused5) {
             }
-        } while (!readLine.contains("MemTotal"));
-        long longValue = Long.valueOf(readLine.split("\\s+")[1]).longValue() << 10;
-        try {
-            bufferedReader.close();
-        } catch (IOException unused5) {
+            return longValue;
         }
-        return longValue;
+        return invokeV.longValue;
     }
 
     public static boolean n(Context context) {
-        return (context == null || context.getResources() == null || context.getResources().getConfiguration() == null || (context.getResources().getConfiguration().screenLayout & 15) < 3) ? false : true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) ? (context == null || context.getResources() == null || context.getResources().getConfiguration() == null || (context.getResources().getConfiguration().screenLayout & 15) < 3) ? false : true : invokeL.booleanValue;
     }
 
     public static String o() {
-        try {
-            return a(Long.toHexString(new Random(System.currentTimeMillis()).nextLong()), 16, '0');
-        } catch (Throwable unused) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+            try {
+                return a(Long.toHexString(new Random(System.currentTimeMillis()).nextLong()), 16, '0');
+            } catch (Throwable unused) {
+                return null;
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public static String p() {
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null) {
-            return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null) {
+                return null;
+            }
+            return context.getSharedPreferences("ksadsdk_pref", 0).getString(IAdRequestParam.ANDROID_ID, null);
         }
-        return context.getSharedPreferences("ksadsdk_pref", 0).getString(IAdRequestParam.ANDROID_ID, null);
+        return (String) invokeV.objValue;
     }
 }

@@ -1,9 +1,17 @@
 package com.baidu.wallet.lightapp.base;
 
 import com.baidu.apollon.NoProguard;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LightappConstants implements NoProguard {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESS_WALLET_SERVICE_PARAM_EXTRA = "serviceExtra";
     public static final String ACCESS_WALLET_SERVICE_PARAM_SERVICE = "serviceId";
     public static final int CALL_CAMERA_PARAM_CALL_ID_DETECT = 2;
@@ -29,6 +37,37 @@ public class LightappConstants implements NoProguard {
     public static final String LIGHT_APP_NATIVE_INVOKER_METHOD_NAME = "method_name";
     public static final String LIGHT_APP_NATIVE_INVOKER_MODULE_NAME = "module_name";
     public static final String METHOD_INVOKE_BD_WALLET_NATIVE = "invokeBdWalletNative";
-    public static final String[] NATIVE_METHOD_LIST = {"selectPhonefromAdressBook", LightappBusinessClient.METHOD_GET_USER_AGENT, "getDeviceInfo", LightappJsNativeClient.METHOD_CLOSE_WINDOW, LightappJsNativeClient.METHOD_GET_CURRENT_POSITION, LightappJsNativeClient.METHOD_CALL_SHARE};
+    public static final String[] NATIVE_METHOD_LIST;
     public static final String ROUTER_INVOKE_FAIL = "router_invoke_fail";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1305325657, "Lcom/baidu/wallet/lightapp/base/LightappConstants;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1305325657, "Lcom/baidu/wallet/lightapp/base/LightappConstants;");
+                return;
+            }
+        }
+        NATIVE_METHOD_LIST = new String[]{"selectPhonefromAdressBook", LightappBusinessClient.METHOD_GET_USER_AGENT, "getDeviceInfo", LightappJsNativeClient.METHOD_CLOSE_WINDOW, LightappJsNativeClient.METHOD_GET_CURRENT_POSITION, LightappJsNativeClient.METHOD_CALL_SHARE};
+    }
+
+    public LightappConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

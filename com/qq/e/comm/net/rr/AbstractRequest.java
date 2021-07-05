@@ -1,6 +1,13 @@
 package com.qq.e.comm.net.rr;
 
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.util.StringUtil;
 import java.io.UnsupportedEncodingException;
@@ -10,44 +17,84 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public abstract class AbstractRequest implements Request {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f41027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39272b;
+    public int f41028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39273c;
+    public int f41029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39274d;
+    public int f41030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39275e;
+    public String f41031e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Map<String, String> f41032f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Map<String, String> f41033g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Map<String, String> f41034h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Map<String, String> f41035i;
     public Request.Method j;
     public byte[] k;
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f39271a = true;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f39276f = new HashMap();
-
-    /* renamed from: g  reason: collision with root package name */
-    public Map<String, String> f39277g = new HashMap();
-
-    /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f39278h = Collections.unmodifiableMap(this.f39276f);
-
-    /* renamed from: i  reason: collision with root package name */
-    public Map<String, String> f39279i = Collections.unmodifiableMap(this.f39277g);
-
     public AbstractRequest(String str, Request.Method method, byte[] bArr) {
-        this.f39275e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, method, bArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f41027a = true;
+        this.f41032f = new HashMap();
+        this.f41033g = new HashMap();
+        this.f41034h = Collections.unmodifiableMap(this.f41032f);
+        this.f41035i = Collections.unmodifiableMap(this.f41033g);
+        this.f41031e = str;
         this.j = method;
         this.k = bArr == null ? null : (byte[]) bArr.clone();
     }
 
     public AbstractRequest(String str, Map<String, String> map, Request.Method method) {
-        this.f39275e = str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, map, method};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f41027a = true;
+        this.f41032f = new HashMap();
+        this.f41033g = new HashMap();
+        this.f41034h = Collections.unmodifiableMap(this.f41032f);
+        this.f41035i = Collections.unmodifiableMap(this.f41033g);
+        this.f41031e = str;
         this.j = method;
         if (Request.Method.POST == method) {
             StringBuilder sb = new StringBuilder();
@@ -74,89 +121,128 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public void addHeader(String str, String str2) {
-        if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        this.f39276f.put(str, str2);
+        this.f41032f.put(str, str2);
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void addQuery(String str, String str2) {
-        this.f39277g.put(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            this.f41033g.put(str, str2);
+        }
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getConnectionTimeOut() {
-        return this.f39273c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41029c : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Map<String, String> getHeaders() {
-        return this.f39278h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41034h : (Map) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Request.Method getMethod() {
-        return this.j;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : (Request.Method) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public byte[] getPostData() throws Exception {
-        return this.k;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : (byte[]) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getPriority() {
-        return this.f39272b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41028b : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Map<String, String> getQuerys() {
-        return this.f39279i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41035i : (Map) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getSocketTimeOut() {
-        return this.f39274d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41030d : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public String getUrl() {
-        return this.f39275e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41031e : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public String getUrlWithParas() {
-        if (getQuerys().isEmpty()) {
-            return getUrl();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (getQuerys().isEmpty()) {
+                return getUrl();
+            }
+            Uri.Builder buildUpon = Uri.parse(getUrl()).buildUpon();
+            for (Map.Entry<String, String> entry : getQuerys().entrySet()) {
+                buildUpon.appendQueryParameter(entry.getKey(), entry.getValue());
+            }
+            return buildUpon.build().toString();
         }
-        Uri.Builder buildUpon = Uri.parse(getUrl()).buildUpon();
-        for (Map.Entry<String, String> entry : getQuerys().entrySet()) {
-            buildUpon.appendQueryParameter(entry.getKey(), entry.getValue());
-        }
-        return buildUpon.build().toString();
+        return (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public boolean isAutoClose() {
-        return this.f39271a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41027a : invokeV.booleanValue;
     }
 
     public void setAutoClose(boolean z) {
-        this.f39271a = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.f41027a = z;
+        }
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void setConnectionTimeOut(int i2) {
-        this.f39273c = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.f41029c = i2;
+        }
     }
 
     public void setPriority(int i2) {
-        this.f39272b = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.f41028b = i2;
+        }
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void setSocketTimeOut(int i2) {
-        this.f39274d = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.f41030d = i2;
+        }
     }
 }

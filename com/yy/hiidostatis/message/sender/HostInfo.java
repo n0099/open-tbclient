@@ -1,5 +1,11 @@
 package com.yy.hiidostatis.message.sender;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.HostManager;
@@ -14,69 +20,112 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import okhttp3.Call;
 import okhttp3.Dns;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HostInfo implements HostManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_DNS_MIN_ERR_COUNT = 30;
     public static final long CHANGE_DNS_MIN_INTERVAL = 5000;
     public static final String TEST_HOST = "datatest.bigda.com";
-    public volatile boolean useIp = false;
-    public AtomicInteger errorCount = new AtomicInteger(0);
-    public AtomicLong preChangeTime = new AtomicLong();
-    public volatile String testServer = TEST_HOST;
-    public volatile List<InetAddress> ips = trans(HiidoSDK.getHiidoIps());
+    public transient /* synthetic */ FieldHolder $fh;
+    public AtomicInteger errorCount;
+    public volatile List<InetAddress> ips;
+    public AtomicLong preChangeTime;
+    public volatile String testServer;
+    public volatile boolean useIp;
+
+    public HostInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.useIp = false;
+        this.errorCount = new AtomicInteger(0);
+        this.preChangeTime = new AtomicLong();
+        this.testServer = TEST_HOST;
+        this.ips = trans(HiidoSDK.getHiidoIps());
+    }
 
     private boolean isDebug() {
-        return HiidoSDK.isDebugMode;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? HiidoSDK.isDebugMode : invokeV.booleanValue;
     }
 
     private List<InetAddress> trans(String[] strArr) {
-        ArrayList arrayList = new ArrayList(strArr.length);
-        for (String str : strArr) {
-            try {
-                arrayList.add(InetAddress.getByName(str));
-            } catch (UnknownHostException e2) {
-                e2.printStackTrace();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
+            ArrayList arrayList = new ArrayList(strArr.length);
+            for (String str : strArr) {
+                try {
+                    arrayList.add(InetAddress.getByName(str));
+                } catch (UnknownHostException e2) {
+                    e2.printStackTrace();
+                }
             }
+            Collections.shuffle(arrayList);
+            return arrayList;
         }
-        Collections.shuffle(arrayList);
-        return arrayList;
+        return (List) invokeL.objValue;
     }
 
     @Override // com.yy.hiidostatis.message.HostManager
     public String getHost(Message message) {
-        return isDebug() ? this.testServer : HiidoSDK.getHiidoHost();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? isDebug() ? this.testServer : HiidoSDK.getHiidoHost() : (String) invokeL.objValue;
     }
 
     @Override // com.yy.hiidostatis.message.HostManager
     public List<InetAddress> lookup(String str) throws UnknownHostException {
-        if (this.useIp && !isDebug()) {
-            L.debug(this, "Host:%s", this.ips.get(0));
-            return new ArrayList(this.ips);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.useIp && !isDebug()) {
+                L.debug(this, "Host:%s", this.ips.get(0));
+                return new ArrayList(this.ips);
+            }
+            L.debug(this, "Host:%s", str);
+            return Dns.SYSTEM.lookup(str);
         }
-        L.debug(this, "Host:%s", str);
-        return Dns.SYSTEM.lookup(str);
+        return (List) invokeL.objValue;
     }
 
     @Override // com.yy.hiidostatis.message.HostManager
     public synchronized void onFailure(Call call, IOException iOException) {
-        if (this.errorCount.incrementAndGet() > 30 && System.currentTimeMillis() - this.preChangeTime.get() > 5000) {
-            if (this.useIp) {
-                if (this.ips.size() == 1) {
-                    this.useIp = false;
-                    this.ips = trans(HiidoSDK.getHiidoIps());
-                } else {
-                    this.ips.remove(0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, call, iOException) == null) {
+            synchronized (this) {
+                if (this.errorCount.incrementAndGet() > 30 && System.currentTimeMillis() - this.preChangeTime.get() > 5000) {
+                    if (this.useIp) {
+                        if (this.ips.size() == 1) {
+                            this.useIp = false;
+                            this.ips = trans(HiidoSDK.getHiidoIps());
+                        } else {
+                            this.ips.remove(0);
+                        }
+                    } else {
+                        this.useIp = true;
+                    }
                 }
-            } else {
-                this.useIp = true;
             }
         }
     }
 
     @Override // com.yy.hiidostatis.message.HostManager
     public void onSuccess(Call call) {
-        if (this.errorCount.decrementAndGet() < 0) {
-            this.errorCount.set(0);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, call) == null) || this.errorCount.decrementAndGet() >= 0) {
+            return;
         }
+        this.errorCount.set(0);
     }
 }

@@ -9,83 +9,156 @@ import android.widget.TextView;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.a.m0.k.f;
-import d.a.m0.k.g;
-import d.a.m0.k.h;
-import d.a.m0.k.i;
-import d.a.m0.k.j;
-/* loaded from: classes3.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.q0.k.f;
+import d.a.q0.k.g;
+import d.a.q0.k.h;
+import d.a.q0.k.i;
+import d.a.q0.k.j;
+/* loaded from: classes4.dex */
 public abstract class BaseMenuView extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f11938e;
+    public Context f12005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f11939f;
+    public View f12006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f11940g;
+    public TextView f12007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f11941h;
+    public View f12008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f11942i;
+    public final int f12009i;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseMenuView(@NonNull Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public void a(int i2) {
-        this.f11939f.getLayoutParams().height = i2 + this.f11942i;
-        this.f11939f.requestLayout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f12006f.getLayoutParams().height = i2 + this.f12009i;
+            this.f12006f.requestLayout();
+        }
     }
 
     public abstract boolean b();
 
     public void c(View view, FrameLayout.LayoutParams layoutParams) {
-        if (view == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, layoutParams) == null) || view == null) {
             return;
         }
         int height = view.getHeight();
         if (height != 0) {
-            this.f11939f.getLayoutParams().height = height + this.f11942i;
+            this.f12006f.getLayoutParams().height = height + this.f12009i;
         }
-        this.f11941h = view;
-        layoutParams.bottomMargin = this.f11942i;
+        this.f12008h = view;
+        layoutParams.bottomMargin = this.f12009i;
         addView(view, layoutParams);
     }
 
     public View getBgView() {
-        return this.f11939f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12006f : (View) invokeV.objValue;
     }
 
     public View getContentView() {
-        return this.f11941h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12008h : (View) invokeV.objValue;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.f11940g.setOnClickListener(onClickListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.f12007g.setOnClickListener(onClickListener);
+        }
     }
 
     public void setMode() {
-        Resources resources = getResources();
-        this.f11939f.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
-        this.f11940g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
-        this.f11940g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
-        this.f11940g.setAlpha(1.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Resources resources = getResources();
+            this.f12006f.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
+            this.f12007g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
+            this.f12007g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
+            this.f12007g.setAlpha(1.0f);
+        }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
         super(context, attributeSet, i2);
-        this.f11938e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f12005e = context;
         View inflate = FrameLayout.inflate(context, j.aiapp_menu_base_view_layout, this);
-        this.f11939f = inflate.findViewById(i.background);
-        this.f11940g = (TextView) inflate.findViewById(i.cancel);
-        this.f11942i = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
+        this.f12006f = inflate.findViewById(i.background);
+        this.f12007g = (TextView) inflate.findViewById(i.cancel);
+        this.f12009i = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
     }
 }

@@ -1,19 +1,41 @@
 package com.baidu.tieba.pluginCenter;
 
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
-import d.a.n0.g0.b.a;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.g0.b.a;
 /* loaded from: classes5.dex */
 public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements a {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOADED_BUT_FORBIDDEN = 1;
     public static final int DOWNLOADED_NOT_FORBIDDEN = 2;
     public static final int DOWNLOADING = 3;
     public static final int DOWNLOAD_NOT = 0;
     public static final int DOWNLOAD_UPDATE = 4;
     public static final long serialVersionUID = 1;
+    public transient /* synthetic */ FieldHolder $fh;
     public int mDownLoadStatus;
     public int mDownloadProgress;
 
     public PluginConfigWrapper(PluginNetConfigInfos.PluginConfig pluginConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pluginConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         if (pluginConfig == null) {
             return;
         }
@@ -28,18 +50,28 @@ public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig imple
     }
 
     public int getDownLoadPercent() {
-        return this.mDownloadProgress;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDownloadProgress : invokeV.intValue;
     }
 
     public int getDownLoadStatus() {
-        return this.mDownLoadStatus;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDownLoadStatus : invokeV.intValue;
     }
 
     public void setDownLoadPercent(int i2) {
-        this.mDownloadProgress = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.mDownloadProgress = i2;
+        }
     }
 
     public void setDownLoadStatus(int i2) {
-        this.mDownLoadStatus = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.mDownLoadStatus = i2;
+        }
     }
 }

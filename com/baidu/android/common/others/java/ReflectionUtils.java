@@ -1,70 +1,111 @@
 package com.baidu.android.common.others.java;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public final class ReflectionUtils {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "ReflectionUtils";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public ReflectionUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static boolean invokeDeclaredMethod(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+        InterceptResult invokeLLLL;
         Class<?> cls;
-        try {
-            if (obj instanceof Class) {
-                cls = (Class) obj;
-            } else {
-                cls = obj.getClass();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, obj, str, clsArr, objArr)) == null) {
+            try {
+                if (obj instanceof Class) {
+                    cls = (Class) obj;
+                } else {
+                    cls = obj.getClass();
+                }
+                Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(obj, objArr);
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
-            Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(obj, objArr);
-            return true;
-        } catch (Exception unused) {
-            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
     public static Object invokeDeclaredMethodForObject(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
         Class<?> cls;
-        try {
-            if (obj instanceof Class) {
-                cls = (Class) obj;
-            } else {
-                cls = obj.getClass();
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, obj, str, clsArr, objArr)) == null) {
+            try {
+                if (obj instanceof Class) {
+                    cls = (Class) obj;
+                } else {
+                    cls = obj.getClass();
+                }
+                Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+                declaredMethod.setAccessible(true);
+                return declaredMethod.invoke(obj, objArr);
+            } catch (Exception unused) {
+                return null;
             }
-            Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-            declaredMethod.setAccessible(true);
-            return declaredMethod.invoke(obj, objArr);
-        } catch (Exception unused) {
-            return null;
         }
+        return invokeLLLL.objValue;
     }
 
     public static boolean invokeHideMethod(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
         Class<?> cls;
-        try {
-            if (obj instanceof Class) {
-                cls = (Class) obj;
-            } else {
-                cls = obj.getClass();
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, obj, str, clsArr, objArr)) == null) {
+            try {
+                if (obj instanceof Class) {
+                    cls = (Class) obj;
+                } else {
+                    cls = obj.getClass();
+                }
+                cls.getMethod(str, clsArr).invoke(obj, objArr);
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
-            cls.getMethod(str, clsArr).invoke(obj, objArr);
-            return true;
-        } catch (Exception unused) {
-            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
     public static Object invokeHideMethodForObject(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
         Class<?> cls;
-        try {
-            if (obj instanceof Class) {
-                cls = (Class) obj;
-            } else {
-                cls = obj.getClass();
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, obj, str, clsArr, objArr)) == null) {
+            try {
+                if (obj instanceof Class) {
+                    cls = (Class) obj;
+                } else {
+                    cls = obj.getClass();
+                }
+                return cls.getMethod(str, clsArr).invoke(obj, objArr);
+            } catch (Exception unused) {
+                return null;
             }
-            return cls.getMethod(str, clsArr).invoke(obj, objArr);
-        } catch (Exception unused) {
-            return null;
         }
+        return invokeLLLL.objValue;
     }
 }

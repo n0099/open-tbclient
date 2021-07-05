@@ -4,8 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.CheckUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.lightapp.base.LightappConstants;
@@ -15,80 +23,148 @@ import com.baidu.wallet.utils.ImageBase64Utils;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24952a = "a";
+    public static final String f25495a = "a";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f24953b;
+    public Activity f25496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LightappBusinessClient f24954c;
+    public LightappBusinessClient f25497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24955d;
+    public String f25498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24956e = -1;
+    public int f25499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24957f;
+    public String f25500f;
 
-    public a(Activity activity, LightappBusinessClient lightappBusinessClient, String str) {
-        this.f24953b = activity;
-        this.f24954c = lightappBusinessClient;
-        this.f24955d = str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(281857908, "Lcom/baidu/wallet/lightapp/business/presenter/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(281857908, "Lcom/baidu/wallet/lightapp/business/presenter/a;");
+        }
     }
 
-    public void a(Intent intent, final JSONObject jSONObject) {
+    public a(Activity activity, LightappBusinessClient lightappBusinessClient, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, lightappBusinessClient, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f25499e = -1;
+        this.f25496b = activity;
+        this.f25497c = lightappBusinessClient;
+        this.f25498d = str;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[RETURN, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, RETURN, INVOKE, INVOKE, INVOKE, IGET, INVOKE, RETURN, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+    public void a(Intent intent, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048576, this, intent, jSONObject) != null) {
+            return;
+        }
         try {
-            JSONObject jSONObject2 = new JSONObject(this.f24955d);
+            JSONObject jSONObject2 = new JSONObject(this.f25498d);
             String optString = jSONObject2.optString("fixedWidth");
             if (!TextUtils.isEmpty(optString)) {
-                this.f24956e = Integer.parseInt(optString);
-                String str = f24952a;
-                LogUtil.d(str, "fixedWidth = " + this.f24956e);
+                this.f25499e = Integer.parseInt(optString);
+                String str = f25495a;
+                LogUtil.d(str, "fixedWidth = " + this.f25499e);
             }
-            this.f24957f = jSONObject2.optString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
+            this.f25500f = jSONObject2.optString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
             Uri data = intent.getData();
             if (data == null) {
                 jSONObject.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
                 jSONObject.put("des", "内部错误");
-                this.f24954c.setAlubmPhotoData(1, jSONObject);
+                this.f25497c.setAlubmPhotoData(1, jSONObject);
                 a("#callNativePhoto Fail", "图片报错");
                 return;
             }
-            ImageBase64Utils.getInstance().getImageBase64(this.f24953b, data, this.f24956e, new ImageBase64Utils.ImageBase64Listener() { // from class: com.baidu.wallet.lightapp.business.presenter.a.1
-                @Override // com.baidu.wallet.utils.ImageBase64Utils.ImageBase64Listener
-                public void onBase64Result(String str2) {
-                    if (TextUtils.isEmpty(str2)) {
-                        try {
-                            jSONObject.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
-                            jSONObject.put("des", "内部错误");
-                            a.this.f24954c.setAlubmPhotoData(1, jSONObject);
-                            a.this.a("#callNativePhoto Fail", "Base64失败");
+            ImageBase64Utils.getInstance().getImageBase64(this.f25496b, data, this.f25499e, new ImageBase64Utils.ImageBase64Listener(this, jSONObject) { // from class: com.baidu.wallet.lightapp.business.presenter.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ JSONObject f25501a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ a f25502b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, jSONObject};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                             return;
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
                         }
                     }
-                    try {
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("image", str2);
-                        jSONObject.put(RouterCallback.KEY_ERROR_CODE, 0);
-                        jSONObject.put("des", "ok");
-                        jSONObject.put("data", jSONObject3);
-                        a.this.f24954c.setAlubmPhotoData(0, jSONObject);
-                    } catch (JSONException e3) {
+                    this.f25502b = this;
+                    this.f25501a = jSONObject;
+                }
+
+                @Override // com.baidu.wallet.utils.ImageBase64Utils.ImageBase64Listener
+                public void onBase64Result(String str2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {
+                        if (TextUtils.isEmpty(str2)) {
+                            try {
+                                this.f25501a.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
+                                this.f25501a.put("des", "内部错误");
+                                this.f25502b.f25497c.setAlubmPhotoData(1, this.f25501a);
+                                this.f25502b.a("#callNativePhoto Fail", "Base64失败");
+                                return;
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
                         try {
-                            jSONObject.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
-                            jSONObject.put("des", "内部错误");
-                            a.this.f24954c.setAlubmPhotoData(1, jSONObject);
-                            a.this.a("#callNativePhoto Fail", e3.getMessage());
-                        } catch (JSONException e4) {
-                            e4.printStackTrace();
+                            JSONObject jSONObject3 = new JSONObject();
+                            jSONObject3.put("image", str2);
+                            this.f25501a.put(RouterCallback.KEY_ERROR_CODE, 0);
+                            this.f25501a.put("des", "ok");
+                            this.f25501a.put("data", jSONObject3);
+                            this.f25502b.f25497c.setAlubmPhotoData(0, this.f25501a);
+                        } catch (JSONException e3) {
+                            try {
+                                this.f25501a.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
+                                this.f25501a.put("des", "内部错误");
+                                this.f25502b.f25497c.setAlubmPhotoData(1, this.f25501a);
+                                this.f25502b.a("#callNativePhoto Fail", e3.getMessage());
+                            } catch (JSONException e4) {
+                                e4.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -98,10 +174,13 @@ public class a {
     }
 
     public void a(String str, String str2) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(CheckUtils.stripUrlParams(this.f24957f));
-        arrayList.add(str2);
-        DXMSdkSAUtils.onEventWithValues(str, arrayList);
-        PayStatisticsUtil.onEventWithValues(str, arrayList);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(CheckUtils.stripUrlParams(this.f25500f));
+            arrayList.add(str2);
+            DXMSdkSAUtils.onEventWithValues(str, arrayList);
+            PayStatisticsUtil.onEventWithValues(str, arrayList);
+        }
     }
 }

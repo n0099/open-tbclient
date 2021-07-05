@@ -1,115 +1,111 @@
 package com.bytedance.sdk.openadsdk.c;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompatJellybean;
-import com.bytedance.sdk.openadsdk.utils.x;
-import java.util.Iterator;
-import java.util.UUID;
+import android.content.pm.ApplicationInfo;
+import android.os.Bundle;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.bytedance.sdk.component.utils.m;
+import com.bytedance.sdk.openadsdk.core.h;
+import com.bytedance.sdk.openadsdk.core.j;
+import com.bytedance.sdk.openadsdk.r.o;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a implements i {
+public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f27411a;
+    public static String f29159a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f27412b;
-
-    public a(String str, JSONObject jSONObject) {
-        this.f27411a = str;
-        this.f27412b = jSONObject;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(97692219, "Lcom/bytedance/sdk/openadsdk/c/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(97692219, "Lcom/bytedance/sdk/openadsdk/c/a;");
+        }
     }
 
-    public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
-        return new a(UUID.randomUUID().toString(), b(context, str, str2, str3, jSONObject));
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "open_news" : (String) invokeV.objValue;
     }
 
-    public static JSONObject b(Context context, String str, String str2, String str3, JSONObject jSONObject) {
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject2.put("event_ts", System.currentTimeMillis());
-            jSONObject2.putOpt("tag", str);
-            jSONObject2.putOpt(NotificationCompatJellybean.KEY_LABEL, str2);
-            jSONObject2.putOpt("category", "app_union");
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? j.a(context) : (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "1371" : (String) invokeV.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
             try {
-                jSONObject2.putOpt("value", Long.valueOf(Long.parseLong(str3)));
-            } catch (NumberFormatException unused) {
-                jSONObject2.putOpt("value", 0L);
+            } catch (Throwable th) {
+                com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getApplicationName:", th);
             }
-            jSONObject2.putOpt("is_ad_event", "1");
-            jSONObject2.putOpt("nt", Integer.valueOf(x.c(context)));
-            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().v());
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    jSONObject2.putOpt(next, jSONObject.opt(next));
+            if (f29159a != null) {
+                return f29159a;
+            }
+            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+            if (applicationInfo == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            Bundle bundle = applicationInfo.metaData;
+            if (bundle != null && bundle.keySet() != null) {
+                for (String str : bundle.keySet()) {
+                    if (str != null && str.toLowerCase().contains("channel")) {
+                        jSONObject.putOpt(str, bundle.getString(str));
+                    }
                 }
             }
-        } catch (Exception unused2) {
+            f29159a = jSONObject.toString();
+            return f29159a;
         }
-        return jSONObject2;
+        return (String) invokeL.objValue;
     }
 
-    public static a a(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
-        return new a(UUID.randomUUID().toString(), b(str, str2, str3, j, j2, jSONObject));
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? "3.6.1.3" : (String) invokeV.objValue;
     }
 
-    public static a a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("localId", null);
-            JSONObject optJSONObject = jSONObject.optJSONObject("event");
-            if (!TextUtils.isEmpty(optString) && optJSONObject != null) {
-                return new a(optString, optJSONObject);
-            }
-        } catch (Throwable unused) {
-        }
-        return null;
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? o.f() : (String) invokeV.objValue;
     }
 
-    public String a() {
-        if (TextUtils.isEmpty(this.f27411a) || this.f27412b == null) {
-            return null;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("localId", this.f27411a);
-            jSONObject.put("event", this.f27412b);
-        } catch (Throwable unused) {
-        }
-        return jSONObject.toString();
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? h.d().j() : (String) invokeV.objValue;
     }
 
-    public static JSONObject b(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject2.put("event_ts", System.currentTimeMillis());
-            jSONObject2.putOpt("tag", str2);
-            jSONObject2.putOpt(NotificationCompatJellybean.KEY_LABEL, str3);
-            jSONObject2.putOpt("category", str);
-            jSONObject2.putOpt("value", Long.valueOf(j));
-            jSONObject2.putOpt("is_ad_event", "1");
-            jSONObject2.putOpt("ext_value", Long.valueOf(j2));
-            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().v());
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    jSONObject2.putOpt(next, jSONObject.opt(next));
-                }
-            }
-        } catch (Exception unused) {
-        }
-        return jSONObject2;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.c.i
-    public String b() {
-        return this.f27411a;
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? m.g(com.bytedance.sdk.openadsdk.core.o.a()) : (String) invokeV.objValue;
     }
 }

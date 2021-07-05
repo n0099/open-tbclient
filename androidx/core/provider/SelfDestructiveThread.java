@@ -6,6 +6,12 @@ import android.os.Message;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -15,33 +21,21 @@ import java.util.concurrent.locks.ReentrantLock;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SelfDestructiveThread {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_DESTRUCTION = 0;
     public static final int MSG_INVOKE_RUNNABLE = 1;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Handler.Callback mCallback;
     public final int mDestructAfterMillisec;
     @GuardedBy("mLock")
+    public int mGeneration;
+    @GuardedBy("mLock")
     public Handler mHandler;
+    public final Object mLock;
     public final int mPriority;
     @GuardedBy("mLock")
     public HandlerThread mThread;
     public final String mThreadName;
-    public final Object mLock = new Object();
-    public Handler.Callback mCallback = new Handler.Callback() { // from class: androidx.core.provider.SelfDestructiveThread.1
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            int i2 = message.what;
-            if (i2 == 0) {
-                SelfDestructiveThread.this.onDestruction();
-                return true;
-            } else if (i2 != 1) {
-                return true;
-            } else {
-                SelfDestructiveThread.this.onInvokeRunnable((Runnable) message.obj);
-                return true;
-            }
-        }
-    };
-    @GuardedBy("mLock")
-    public int mGeneration = 0;
 
     /* loaded from: classes.dex */
     public interface ReplyCallback<T> {
@@ -49,122 +43,299 @@ public class SelfDestructiveThread {
     }
 
     public SelfDestructiveThread(String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mLock = new Object();
+        this.mCallback = new Handler.Callback(this) { // from class: androidx.core.provider.SelfDestructiveThread.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SelfDestructiveThread this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i6 = newInitContext2.flag;
+                    if ((i6 & 1) != 0) {
+                        int i7 = i6 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.os.Handler.Callback
+            public boolean handleMessage(Message message) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
+                    int i6 = message.what;
+                    if (i6 == 0) {
+                        this.this$0.onDestruction();
+                        return true;
+                    } else if (i6 != 1) {
+                        return true;
+                    } else {
+                        this.this$0.onInvokeRunnable((Runnable) message.obj);
+                        return true;
+                    }
+                }
+                return invokeL.booleanValue;
+            }
+        };
         this.mThreadName = str;
         this.mPriority = i2;
         this.mDestructAfterMillisec = i3;
+        this.mGeneration = 0;
     }
 
     private void post(Runnable runnable) {
-        synchronized (this.mLock) {
-            if (this.mThread == null) {
-                HandlerThread handlerThread = new HandlerThread(this.mThreadName, this.mPriority);
-                this.mThread = handlerThread;
-                handlerThread.start();
-                this.mHandler = new Handler(this.mThread.getLooper(), this.mCallback);
-                this.mGeneration++;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, runnable) == null) {
+            synchronized (this.mLock) {
+                if (this.mThread == null) {
+                    HandlerThread handlerThread = new HandlerThread(this.mThreadName, this.mPriority);
+                    this.mThread = handlerThread;
+                    handlerThread.start();
+                    this.mHandler = new Handler(this.mThread.getLooper(), this.mCallback);
+                    this.mGeneration++;
+                }
+                this.mHandler.removeMessages(0);
+                this.mHandler.sendMessage(this.mHandler.obtainMessage(1, runnable));
             }
-            this.mHandler.removeMessages(0);
-            this.mHandler.sendMessage(this.mHandler.obtainMessage(1, runnable));
         }
     }
 
     @VisibleForTesting
     public int getGeneration() {
+        InterceptResult invokeV;
         int i2;
-        synchronized (this.mLock) {
-            i2 = this.mGeneration;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.mLock) {
+                i2 = this.mGeneration;
+            }
+            return i2;
         }
-        return i2;
+        return invokeV.intValue;
     }
 
     @VisibleForTesting
     public boolean isRunning() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (this.mLock) {
-            z = this.mThread != null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.mLock) {
+                z = this.mThread != null;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     public void onDestruction() {
-        synchronized (this.mLock) {
-            if (this.mHandler.hasMessages(1)) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this.mLock) {
+                if (this.mHandler.hasMessages(1)) {
+                    return;
+                }
+                this.mThread.quit();
+                this.mThread = null;
+                this.mHandler = null;
             }
-            this.mThread.quit();
-            this.mThread = null;
-            this.mHandler = null;
         }
     }
 
     public void onInvokeRunnable(Runnable runnable) {
-        runnable.run();
-        synchronized (this.mLock) {
-            this.mHandler.removeMessages(0);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), this.mDestructAfterMillisec);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
+            runnable.run();
+            synchronized (this.mLock) {
+                this.mHandler.removeMessages(0);
+                this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), this.mDestructAfterMillisec);
+            }
         }
     }
 
-    public <T> void postAndReply(final Callable<T> callable, final ReplyCallback<T> replyCallback) {
-        final Handler handler = new Handler();
-        post(new Runnable() { // from class: androidx.core.provider.SelfDestructiveThread.2
-            @Override // java.lang.Runnable
-            public void run() {
-                final Object obj;
-                try {
-                    obj = callable.call();
-                } catch (Exception unused) {
-                    obj = null;
-                }
-                handler.post(new Runnable() { // from class: androidx.core.provider.SelfDestructiveThread.2.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        replyCallback.onReply(obj);
+    public <T> void postAndReply(Callable<T> callable, ReplyCallback<T> replyCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, callable, replyCallback) == null) {
+            post(new Runnable(this, callable, new Handler(), replyCallback) { // from class: androidx.core.provider.SelfDestructiveThread.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SelfDestructiveThread this$0;
+                public final /* synthetic */ Callable val$callable;
+                public final /* synthetic */ Handler val$callingHandler;
+                public final /* synthetic */ ReplyCallback val$reply;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, callable, r8, replyCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                });
-            }
-        });
+                    this.this$0 = this;
+                    this.val$callable = callable;
+                    this.val$callingHandler = r8;
+                    this.val$reply = replyCallback;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Object obj;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            obj = this.val$callable.call();
+                        } catch (Exception unused) {
+                            obj = null;
+                        }
+                        this.val$callingHandler.post(new Runnable(this, obj) { // from class: androidx.core.provider.SelfDestructiveThread.2.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass2 this$1;
+                            public final /* synthetic */ Object val$result;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, obj};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                                this.val$result = obj;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    this.this$1.val$reply.onReply(this.val$result);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
     }
 
-    public <T> T postAndWait(final Callable<T> callable, int i2) throws InterruptedException {
-        final ReentrantLock reentrantLock = new ReentrantLock();
-        final Condition newCondition = reentrantLock.newCondition();
-        final AtomicReference atomicReference = new AtomicReference();
-        final AtomicBoolean atomicBoolean = new AtomicBoolean(true);
-        post(new Runnable() { // from class: androidx.core.provider.SelfDestructiveThread.3
-            @Override // java.lang.Runnable
-            public void run() {
-                try {
-                    atomicReference.set(callable.call());
-                } catch (Exception unused) {
+    public <T> T postAndWait(Callable<T> callable, int i2) throws InterruptedException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, callable, i2)) == null) {
+            ReentrantLock reentrantLock = new ReentrantLock();
+            Condition newCondition = reentrantLock.newCondition();
+            AtomicReference atomicReference = new AtomicReference();
+            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
+            post(new Runnable(this, atomicReference, callable, reentrantLock, atomicBoolean, newCondition) { // from class: androidx.core.provider.SelfDestructiveThread.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SelfDestructiveThread this$0;
+                public final /* synthetic */ Callable val$callable;
+                public final /* synthetic */ Condition val$cond;
+                public final /* synthetic */ AtomicReference val$holder;
+                public final /* synthetic */ ReentrantLock val$lock;
+                public final /* synthetic */ AtomicBoolean val$running;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, atomicReference, callable, reentrantLock, atomicBoolean, newCondition};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$holder = atomicReference;
+                    this.val$callable = callable;
+                    this.val$lock = reentrantLock;
+                    this.val$running = atomicBoolean;
+                    this.val$cond = newCondition;
                 }
-                reentrantLock.lock();
-                try {
-                    atomicBoolean.set(false);
-                    newCondition.signal();
-                } finally {
-                    reentrantLock.unlock();
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.val$holder.set(this.val$callable.call());
+                        } catch (Exception unused) {
+                        }
+                        this.val$lock.lock();
+                        try {
+                            this.val$running.set(false);
+                            this.val$cond.signal();
+                        } finally {
+                            this.val$lock.unlock();
+                        }
+                    }
                 }
-            }
-        });
-        reentrantLock.lock();
-        try {
-            if (!atomicBoolean.get()) {
-                return (T) atomicReference.get();
-            }
-            long nanos = TimeUnit.MILLISECONDS.toNanos(i2);
-            do {
-                try {
-                    nanos = newCondition.awaitNanos(nanos);
-                } catch (InterruptedException unused) {
-                }
+            });
+            reentrantLock.lock();
+            try {
                 if (!atomicBoolean.get()) {
                     return (T) atomicReference.get();
                 }
-            } while (nanos > 0);
-            throw new InterruptedException("timeout");
-        } finally {
-            reentrantLock.unlock();
+                long nanos = TimeUnit.MILLISECONDS.toNanos(i2);
+                do {
+                    try {
+                        nanos = newCondition.awaitNanos(nanos);
+                    } catch (InterruptedException unused) {
+                    }
+                    if (!atomicBoolean.get()) {
+                        return (T) atomicReference.get();
+                    }
+                } while (nanos > 0);
+                throw new InterruptedException("timeout");
+            } finally {
+                reentrantLock.unlock();
+            }
         }
+        return (T) invokeLI.objValue;
     }
 }

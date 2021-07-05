@@ -1,27 +1,55 @@
 package org.webrtc;
-/* loaded from: classes8.dex */
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes10.dex */
 public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final double BITRATE_ADJUSTMENT_MAX_SCALE = 4.0d;
     public static final double BITRATE_ADJUSTMENT_SEC = 3.0d;
     public static final int BITRATE_ADJUSTMENT_STEPS = 20;
     public static final double BITS_PER_BYTE = 8.0d;
+    public transient /* synthetic */ FieldHolder $fh;
     public int bitrateAdjustmentScaleExp;
     public double deviationBytes;
     public double timeSinceLastAdjustmentMs;
 
+    public DynamicBitrateAdjuster() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     private double getBitrateAdjustmentScale() {
-        return Math.pow(4.0d, this.bitrateAdjustmentScaleExp / 20.0d);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? Math.pow(4.0d, this.bitrateAdjustmentScaleExp / 20.0d) : invokeV.doubleValue;
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
     public int getAdjustedBitrateBps() {
-        return (int) (this.targetBitrateBps * getBitrateAdjustmentScale());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (int) (this.targetBitrateBps * getBitrateAdjustmentScale()) : invokeV.intValue;
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
     public void reportEncodedFrame(int i2) {
-        int i3 = this.targetFps;
-        if (i3 == 0) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (i3 = this.targetFps) == 0) {
             return;
         }
         int i4 = this.targetBitrateBps;
@@ -56,10 +84,13 @@ public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
     public void setTargets(int i2, int i3) {
-        int i4 = this.targetBitrateBps;
-        if (i4 > 0 && i2 < i4) {
-            this.deviationBytes = (this.deviationBytes * i2) / i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            int i4 = this.targetBitrateBps;
+            if (i4 > 0 && i2 < i4) {
+                this.deviationBytes = (this.deviationBytes * i2) / i4;
+            }
+            super.setTargets(i2, i3);
         }
-        super.setTargets(i2, i3);
     }
 }

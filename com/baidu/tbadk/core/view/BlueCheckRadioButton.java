@@ -9,89 +9,169 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class BlueCheckRadioButton extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12327e;
+    public Context f12380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12328f;
+    public TextView f12381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RadioButton f12329g;
+    public RadioButton f12382g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BlueCheckRadioButton f12383e;
+
+        public a(BlueCheckRadioButton blueCheckRadioButton) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {blueCheckRadioButton};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12383e = blueCheckRadioButton;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (BlueCheckRadioButton.this.f12329g != null) {
-                BlueCheckRadioButton.this.f12329g.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
-                BlueCheckRadioButton.this.f12329g.toggle();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12383e.f12382g == null) {
+                return;
             }
+            this.f12383e.f12382g.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
+            this.f12383e.f12382g.toggle();
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlueCheckRadioButton(Context context) {
         super(context);
-        this.f12327e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12380e = context;
         b();
     }
 
     public final void b() {
-        LayoutInflater.from(this.f12327e).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.f12328f = (TextView) findViewById(R.id.custom_check_radio_button_tv);
-        this.f12329g = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
-        c();
-        setOnClickListener(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(this.f12380e).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
+            this.f12381f = (TextView) findViewById(R.id.custom_check_radio_button_tv);
+            this.f12382g = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
+            c();
+            setOnClickListener(new a(this));
+        }
     }
 
     public void c() {
-        TextView textView = this.f12328f;
-        if (textView != null) {
-            SkinManager.setViewTextColor(textView, "CAM_X0302");
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f12381f) == null) {
+            return;
         }
+        SkinManager.setViewTextColor(textView, "CAM_X0302");
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.f12329g.getTag();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12382g.getTag() : invokeV.objValue;
     }
 
     public void setChecked(boolean z) {
-        this.f12329g.setChecked(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f12382g.setChecked(z);
+        }
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        RadioButton radioButton = this.f12329g;
-        if (radioButton != null) {
-            radioButton.setOnCheckedChangeListener(onCheckedChangeListener);
+        RadioButton radioButton;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onCheckedChangeListener) == null) || (radioButton = this.f12382g) == null) {
+            return;
         }
+        radioButton.setOnCheckedChangeListener(onCheckedChangeListener);
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        RadioButton radioButton = this.f12329g;
-        if (radioButton != null) {
-            radioButton.setTag(obj);
+        RadioButton radioButton;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, obj) == null) || (radioButton = this.f12382g) == null) {
+            return;
         }
+        radioButton.setTag(obj);
     }
 
     public void setText(String str) {
-        TextView textView = this.f12328f;
-        if (textView != null) {
-            textView.setText(str);
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (textView = this.f12381f) == null) {
+            return;
         }
+        textView.setText(str);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlueCheckRadioButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12327e = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f12380e = context;
         b();
     }
 }

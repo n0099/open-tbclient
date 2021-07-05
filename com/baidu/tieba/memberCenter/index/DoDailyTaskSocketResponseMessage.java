@@ -1,6 +1,11 @@
 package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.DoDailyTask.ButtonItem;
@@ -9,8 +14,10 @@ import tbclient.DoDailyTask.DialogItem;
 import tbclient.DoDailyTask.DoDailyTaskResIdl;
 import tbclient.DoDailyTask.RetDataList;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DoDailyTaskSocketResponseMessage extends SocketResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public List<ButtonItem> buttonItems;
     public String content;
     public int isFinished;
@@ -19,8 +26,22 @@ public class DoDailyTaskSocketResponseMessage extends SocketResponsedMessage {
     public String title;
     public long userId;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DoDailyTaskSocketResponseMessage() {
         super(309405);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.needDialog = 0;
         this.isFinished = 0;
         this.title = "";
@@ -30,8 +51,9 @@ public class DoDailyTaskSocketResponseMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
-        DoDailyTaskResIdl doDailyTaskResIdl = (DoDailyTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, DoDailyTaskResIdl.class);
-        if (doDailyTaskResIdl == null) {
+        DoDailyTaskResIdl doDailyTaskResIdl;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (doDailyTaskResIdl = (DoDailyTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, DoDailyTaskResIdl.class)) == null) {
             return;
         }
         Error error = doDailyTaskResIdl.error;

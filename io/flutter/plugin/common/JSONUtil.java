@@ -1,5 +1,10 @@
 package io.flutter.plugin.common;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,70 +13,97 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class JSONUtil {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public JSONUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static Object unwrap(Object obj) {
-        if (JSONObject.NULL.equals(obj) || obj == null) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+            if (JSONObject.NULL.equals(obj) || obj == null) {
+                return null;
+            }
+            if ((obj instanceof Boolean) || (obj instanceof Byte) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof Float) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Short) || (obj instanceof String)) {
+                return obj;
+            }
+            if (obj instanceof JSONArray) {
+                ArrayList arrayList = new ArrayList();
+                JSONArray jSONArray = (JSONArray) obj;
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    arrayList.add(unwrap(jSONArray.get(i2)));
+                }
+                return arrayList;
+            }
+            if (obj instanceof JSONObject) {
+                HashMap hashMap = new HashMap();
+                JSONObject jSONObject = (JSONObject) obj;
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, unwrap(jSONObject.get(next)));
+                }
+                return hashMap;
+            }
             return null;
         }
-        if ((obj instanceof Boolean) || (obj instanceof Byte) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof Float) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Short) || (obj instanceof String)) {
-            return obj;
-        }
-        if (obj instanceof JSONArray) {
-            ArrayList arrayList = new ArrayList();
-            JSONArray jSONArray = (JSONArray) obj;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                arrayList.add(unwrap(jSONArray.get(i2)));
-            }
-            return arrayList;
-        }
-        if (obj instanceof JSONObject) {
-            HashMap hashMap = new HashMap();
-            JSONObject jSONObject = (JSONObject) obj;
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                hashMap.put(next, unwrap(jSONObject.get(next)));
-            }
-            return hashMap;
-        }
-        return null;
+        return invokeL.objValue;
     }
 
     public static Object wrap(Object obj) {
-        if (obj == null) {
-            return JSONObject.NULL;
-        }
-        if ((obj instanceof JSONArray) || (obj instanceof JSONObject) || obj.equals(JSONObject.NULL)) {
-            return obj;
-        }
-        if (obj instanceof Collection) {
-            JSONArray jSONArray = new JSONArray();
-            for (Object obj2 : (Collection) obj) {
-                jSONArray.put(wrap(obj2));
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+            if (obj == null) {
+                return JSONObject.NULL;
             }
-            return jSONArray;
-        } else if (obj.getClass().isArray()) {
-            JSONArray jSONArray2 = new JSONArray();
-            int length = Array.getLength(obj);
-            for (int i2 = 0; i2 < length; i2++) {
-                jSONArray2.put(wrap(Array.get(obj, i2)));
+            if ((obj instanceof JSONArray) || (obj instanceof JSONObject) || obj.equals(JSONObject.NULL)) {
+                return obj;
             }
-            return jSONArray2;
-        } else if (obj instanceof Map) {
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry entry : ((Map) obj).entrySet()) {
-                jSONObject.put((String) entry.getKey(), wrap(entry.getValue()));
-            }
-            return jSONObject;
-        } else {
-            if (!(obj instanceof Boolean) && !(obj instanceof Byte) && !(obj instanceof Character) && !(obj instanceof Double) && !(obj instanceof Float) && !(obj instanceof Integer) && !(obj instanceof Long) && !(obj instanceof Short) && !(obj instanceof String)) {
-                if (obj.getClass().getPackage().getName().startsWith("java.")) {
-                    return obj.toString();
+            if (obj instanceof Collection) {
+                JSONArray jSONArray = new JSONArray();
+                for (Object obj2 : (Collection) obj) {
+                    jSONArray.put(wrap(obj2));
                 }
-                return null;
+                return jSONArray;
+            } else if (obj.getClass().isArray()) {
+                JSONArray jSONArray2 = new JSONArray();
+                int length = Array.getLength(obj);
+                for (int i2 = 0; i2 < length; i2++) {
+                    jSONArray2.put(wrap(Array.get(obj, i2)));
+                }
+                return jSONArray2;
+            } else if (obj instanceof Map) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry entry : ((Map) obj).entrySet()) {
+                    jSONObject.put((String) entry.getKey(), wrap(entry.getValue()));
+                }
+                return jSONObject;
+            } else {
+                if (!(obj instanceof Boolean) && !(obj instanceof Byte) && !(obj instanceof Character) && !(obj instanceof Double) && !(obj instanceof Float) && !(obj instanceof Integer) && !(obj instanceof Long) && !(obj instanceof Short) && !(obj instanceof String)) {
+                    if (obj.getClass().getPackage().getName().startsWith("java.")) {
+                        return obj.toString();
+                    }
+                    return null;
+                }
+                return obj;
             }
-            return obj;
         }
+        return invokeL.objValue;
     }
 }

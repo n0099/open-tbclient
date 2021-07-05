@@ -2,52 +2,84 @@ package com.vivo.push;
 
 import android.content.Context;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public abstract class v implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40534a;
+    public Context f42277a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40535b;
+    public int f42278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public y f40536c;
+    public y f42279c;
 
     public v(y yVar) {
-        this.f40535b = -1;
-        this.f40536c = yVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42278b = -1;
+        this.f42279c = yVar;
         int b2 = yVar.b();
-        this.f40535b = b2;
+        this.f42278b = b2;
         if (b2 >= 0) {
-            this.f40534a = p.a().h();
+            this.f42277a = p.a().h();
             return;
         }
         throw new IllegalArgumentException("PushTask need a > 0 task id.");
     }
 
     public final int a() {
-        return this.f40535b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42278b : invokeV.intValue;
     }
 
     public abstract void a(y yVar);
 
     @Override // java.lang.Runnable
     public final void run() {
-        Context context = this.f40534a;
-        if (context != null && !(this.f40536c instanceof com.vivo.push.b.p)) {
-            com.vivo.push.util.p.a(context, "[执行指令]" + this.f40536c);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Context context = this.f42277a;
+            if (context != null && !(this.f42279c instanceof com.vivo.push.b.p)) {
+                com.vivo.push.util.p.a(context, "[执行指令]" + this.f42279c);
+            }
+            a(this.f42279c);
         }
-        a(this.f40536c);
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(StringUtil.ARRAY_START);
-        y yVar = this.f40536c;
-        sb.append(yVar == null ? "[null]" : yVar.toString());
-        sb.append("}");
-        return sb.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getSimpleName());
+            sb.append(StringUtil.ARRAY_START);
+            y yVar = this.f42279c;
+            sb.append(yVar == null ? "[null]" : yVar.toString());
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

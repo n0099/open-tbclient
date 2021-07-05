@@ -1,119 +1,203 @@
 package okio;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class Pipe {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Buffer buffer;
     public final long maxBufferSize;
+    public final Sink sink;
     public boolean sinkClosed;
+    public final Source source;
     public boolean sourceClosed;
-    public final Buffer buffer = new Buffer();
-    public final Sink sink = new PipeSink();
-    public final Source source = new PipeSource();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public final class PipeSink implements Sink {
-        public final Timeout timeout = new Timeout();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Pipe this$0;
+        public final Timeout timeout;
 
-        public PipeSink() {
+        public PipeSink(Pipe pipe) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pipe};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = pipe;
+            this.timeout = new Timeout();
         }
 
         @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            synchronized (Pipe.this.buffer) {
-                if (Pipe.this.sinkClosed) {
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.this$0.buffer) {
+                    if (this.this$0.sinkClosed) {
+                        return;
+                    }
+                    if (this.this$0.sourceClosed && this.this$0.buffer.size() > 0) {
+                        throw new IOException("source is closed");
+                    }
+                    this.this$0.sinkClosed = true;
+                    this.this$0.buffer.notifyAll();
                 }
-                if (Pipe.this.sourceClosed && Pipe.this.buffer.size() > 0) {
-                    throw new IOException("source is closed");
-                }
-                Pipe.this.sinkClosed = true;
-                Pipe.this.buffer.notifyAll();
             }
         }
 
         @Override // okio.Sink, java.io.Flushable
         public void flush() throws IOException {
-            synchronized (Pipe.this.buffer) {
-                if (!Pipe.this.sinkClosed) {
-                    if (Pipe.this.sourceClosed && Pipe.this.buffer.size() > 0) {
-                        throw new IOException("source is closed");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                synchronized (this.this$0.buffer) {
+                    if (!this.this$0.sinkClosed) {
+                        if (this.this$0.sourceClosed && this.this$0.buffer.size() > 0) {
+                            throw new IOException("source is closed");
+                        }
+                    } else {
+                        throw new IllegalStateException("closed");
                     }
-                } else {
-                    throw new IllegalStateException("closed");
                 }
             }
         }
 
         @Override // okio.Sink
         public Timeout timeout() {
-            return this.timeout;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
-            synchronized (Pipe.this.buffer) {
-                if (Pipe.this.sinkClosed) {
-                    throw new IllegalStateException("closed");
-                }
-                while (j > 0) {
-                    if (!Pipe.this.sourceClosed) {
-                        long size = Pipe.this.maxBufferSize - Pipe.this.buffer.size();
-                        if (size == 0) {
-                            this.timeout.waitUntilNotified(Pipe.this.buffer);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
+                synchronized (this.this$0.buffer) {
+                    if (this.this$0.sinkClosed) {
+                        throw new IllegalStateException("closed");
+                    }
+                    while (j > 0) {
+                        if (!this.this$0.sourceClosed) {
+                            long size = this.this$0.maxBufferSize - this.this$0.buffer.size();
+                            if (size == 0) {
+                                this.timeout.waitUntilNotified(this.this$0.buffer);
+                            } else {
+                                long min = Math.min(size, j);
+                                this.this$0.buffer.write(buffer, min);
+                                j -= min;
+                                this.this$0.buffer.notifyAll();
+                            }
                         } else {
-                            long min = Math.min(size, j);
-                            Pipe.this.buffer.write(buffer, min);
-                            j -= min;
-                            Pipe.this.buffer.notifyAll();
+                            throw new IOException("source is closed");
                         }
-                    } else {
-                        throw new IOException("source is closed");
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public final class PipeSource implements Source {
-        public final Timeout timeout = new Timeout();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Pipe this$0;
+        public final Timeout timeout;
 
-        public PipeSource() {
+        public PipeSource(Pipe pipe) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pipe};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = pipe;
+            this.timeout = new Timeout();
         }
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            synchronized (Pipe.this.buffer) {
-                Pipe.this.sourceClosed = true;
-                Pipe.this.buffer.notifyAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.this$0.buffer) {
+                    this.this$0.sourceClosed = true;
+                    this.this$0.buffer.notifyAll();
+                }
             }
         }
 
         @Override // okio.Source
         public long read(Buffer buffer, long j) throws IOException {
-            synchronized (Pipe.this.buffer) {
-                if (!Pipe.this.sourceClosed) {
-                    while (Pipe.this.buffer.size() == 0) {
-                        if (Pipe.this.sinkClosed) {
-                            return -1L;
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                synchronized (this.this$0.buffer) {
+                    if (!this.this$0.sourceClosed) {
+                        while (this.this$0.buffer.size() == 0) {
+                            if (this.this$0.sinkClosed) {
+                                return -1L;
+                            }
+                            this.timeout.waitUntilNotified(this.this$0.buffer);
                         }
-                        this.timeout.waitUntilNotified(Pipe.this.buffer);
+                        long read = this.this$0.buffer.read(buffer, j);
+                        this.this$0.buffer.notifyAll();
+                        return read;
                     }
-                    long read = Pipe.this.buffer.read(buffer, j);
-                    Pipe.this.buffer.notifyAll();
-                    return read;
+                    throw new IllegalStateException("closed");
                 }
-                throw new IllegalStateException("closed");
             }
+            return invokeLJ.longValue;
         }
 
         @Override // okio.Source
         public Timeout timeout() {
-            return this.timeout;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
         }
     }
 
     public Pipe(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.buffer = new Buffer();
+        this.sink = new PipeSink(this);
+        this.source = new PipeSource(this);
         if (j >= 1) {
             this.maxBufferSize = j;
             return;
@@ -122,10 +206,14 @@ public final class Pipe {
     }
 
     public Sink sink() {
-        return this.sink;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sink : (Sink) invokeV.objValue;
     }
 
     public Source source() {
-        return this.source;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (Source) invokeV.objValue;
     }
 }

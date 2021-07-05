@@ -1,114 +1,152 @@
 package com.sdk.base.framework.a.c;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
 public final class m implements Iterator<E> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a<E> f39370a;
+    public a<E> f41126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<E> f39371b;
+    public a<E> f41127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public E f39372c;
+    public E f41128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public /* synthetic */ l f39373d;
+    public /* synthetic */ l f41129d;
 
-    /* JADX WARN: Type inference failed for: r0v3, types: [E, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [E, java.lang.Object] */
     public m(l lVar) {
-        this.f39373d = lVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f41129d = lVar;
         lVar.a();
         try {
-            a aVar = lVar.f39362a.f39333a;
-            this.f39370a = aVar;
+            a aVar = lVar.f41118a.f41089a;
+            this.f41126a = aVar;
             if (aVar != null) {
-                this.f39372c = aVar.b();
+                this.f41128c = aVar.b();
             }
         } finally {
             lVar.b();
         }
     }
 
-    /* JADX DEBUG: Type inference failed for r2v4. Raw type applied. Possible types: com.sdk.base.framework.a.c.a<E> */
-    /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
-        r2 = r2;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0004 */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.sdk.base.framework.a.c.a<T>, com.sdk.base.framework.a.c.a<E>, com.sdk.base.framework.a.c.a */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: com.sdk.base.framework.a.c.a, com.sdk.base.framework.a.c.a<E> */
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: com.sdk.base.framework.a.c.a<E>, com.sdk.base.framework.a.c.a */
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: com.sdk.base.framework.a.c.a<T>, com.sdk.base.framework.a.c.a<E> */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r5v0, types: [com.sdk.base.framework.a.c.a<E>, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r5v1, types: [com.sdk.base.framework.a.c.a] */
     private a<E> a(a<E> aVar) {
         a aVar2;
-        a aVar3;
-        while (true) {
-            aVar3 = aVar2.f39333a;
-            if (aVar3 == aVar2) {
-                return this.f39373d.f39362a.f39333a;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) {
+            while (true) {
+                aVar2 = aVar.f41089a;
+                if (aVar2 == aVar) {
+                    return this.f41129d.f41118a.f41089a;
+                }
+                if (aVar2 == null || aVar2.b() != null) {
+                    break;
+                }
+                aVar = aVar2;
             }
-            if (aVar3 == null || aVar3.b() != null) {
-                break;
-            }
-            aVar2 = aVar3;
+            return aVar2;
         }
-        return aVar3;
+        return (a) invokeL.objValue;
     }
 
     @Override // java.util.Iterator
     public final boolean hasNext() {
-        return this.f39370a != null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41126a != null : invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: E */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: E */
     /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: E */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [E, java.lang.Object] */
     @Override // java.util.Iterator
     public final E next() {
-        this.f39373d.a();
-        try {
-            if (this.f39370a != null) {
-                E e2 = this.f39372c;
-                this.f39371b = this.f39370a;
-                a<E> a2 = a(this.f39370a);
-                this.f39370a = a2;
-                this.f39372c = a2 == 0 ? 0 : a2.b();
-                return e2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.f41129d.a();
+            try {
+                if (this.f41126a != null) {
+                    E e2 = this.f41128c;
+                    this.f41127b = this.f41126a;
+                    a<E> a2 = a(this.f41126a);
+                    this.f41126a = a2;
+                    this.f41128c = a2 == 0 ? 0 : a2.b();
+                    return e2;
+                }
+                throw new NoSuchElementException();
+            } finally {
+                this.f41129d.b();
             }
-            throw new NoSuchElementException();
-        } finally {
-            this.f39373d.b();
         }
+        return invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x001b, code lost:
-        r4.f39373d.a(r1, r2);
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x001f, code lost:
+        r4.f41129d.a(r1, r2);
      */
     @Override // java.util.Iterator
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void remove() {
-        if (this.f39371b == null) {
-            throw new IllegalStateException();
-        }
-        this.f39373d.a();
-        try {
-            a aVar = this.f39371b;
-            this.f39371b = null;
-            a aVar2 = this.f39373d.f39362a;
-            while (true) {
-                a aVar3 = aVar2;
-                aVar2 = aVar2.f39333a;
-                if (aVar2 == null) {
-                    break;
-                } else if (aVar2 == aVar) {
-                    break;
-                }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.f41127b == null) {
+                throw new IllegalStateException();
             }
-        } finally {
-            this.f39373d.b();
+            this.f41129d.a();
+            try {
+                a aVar = this.f41127b;
+                this.f41127b = null;
+                a aVar2 = this.f41129d.f41118a;
+                while (true) {
+                    a aVar3 = aVar2;
+                    aVar2 = aVar2.f41089a;
+                    if (aVar2 == null) {
+                        break;
+                    } else if (aVar2 == aVar) {
+                        break;
+                    }
+                }
+            } finally {
+                this.f41129d.b();
+            }
         }
     }
 }

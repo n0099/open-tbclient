@@ -5,6 +5,15 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.IOException;
@@ -13,45 +22,86 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class WeiboAppManager {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_INT_FILE_NAME = "weibo_for_sdk.json";
     public static final String TAG = "com.sina.weibo.sdk.WeiboAppManager";
     public static final String WEIBO_4G_PACKAGENAME = "com.sina.weibog3";
     public static final String WEIBO_IDENTITY_ACTION = "com.sina.weibo.action.sdkidentity";
     public static final String WEIBO_PACKAGENAME = "com.sina.weibo";
     public static WeiboAppManager sInstance;
+    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public WbAppInfo wbAppInfo;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1387467887, "Lcom/sina/weibo/sdk/WeiboAppManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1387467887, "Lcom/sina/weibo/sdk/WeiboAppManager;");
+        }
+    }
+
     public WeiboAppManager(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mContext = context.getApplicationContext();
     }
 
     public static synchronized WeiboAppManager getInstance(Context context) {
+        InterceptResult invokeL;
         WeiboAppManager weiboAppManager;
-        synchronized (WeiboAppManager.class) {
-            if (sInstance == null) {
-                sInstance = new WeiboAppManager(context);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (WeiboAppManager.class) {
+                if (sInstance == null) {
+                    sInstance = new WeiboAppManager(context);
+                }
+                weiboAppManager = sInstance;
             }
-            weiboAppManager = sInstance;
+            return weiboAppManager;
         }
-        return weiboAppManager;
+        return (WeiboAppManager) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0077, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x007b, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x007b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x007f, code lost:
         r8 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x007c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0080, code lost:
         r8.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static WbAppInfo parseWbInfoByAsset(Context context, String str) {
+        InterceptResult invokeLL;
         InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, context, str)) != null) {
+            return (WbAppInfo) invokeLL.objValue;
+        }
         InputStream inputStream2 = null;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -126,41 +176,62 @@ public class WeiboAppManager {
     }
 
     public static WbAppInfo queryWbInfoByAsset(Context context) {
-        Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
-        intent.addCategory("android.intent.category.DEFAULT");
-        List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
-        WbAppInfo wbAppInfo = null;
-        if (queryIntentServices != null && !queryIntentServices.isEmpty()) {
-            for (ResolveInfo resolveInfo : queryIntentServices) {
-                ServiceInfo serviceInfo = resolveInfo.serviceInfo;
-                if (serviceInfo != null && serviceInfo.applicationInfo != null && !TextUtils.isEmpty(serviceInfo.packageName)) {
-                    String str = resolveInfo.serviceInfo.packageName;
-                    WbAppInfo parseWbInfoByAsset = parseWbInfoByAsset(context, str);
-                    if (parseWbInfoByAsset != null) {
-                        wbAppInfo = parseWbInfoByAsset;
-                    }
-                    if ("com.sina.weibo".equals(str) || WEIBO_4G_PACKAGENAME.equals(str)) {
-                        break;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
+            intent.addCategory("android.intent.category.DEFAULT");
+            List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
+            WbAppInfo wbAppInfo = null;
+            if (queryIntentServices != null && !queryIntentServices.isEmpty()) {
+                for (ResolveInfo resolveInfo : queryIntentServices) {
+                    ServiceInfo serviceInfo = resolveInfo.serviceInfo;
+                    if (serviceInfo != null && serviceInfo.applicationInfo != null && !TextUtils.isEmpty(serviceInfo.packageName)) {
+                        String str = resolveInfo.serviceInfo.packageName;
+                        WbAppInfo parseWbInfoByAsset = parseWbInfoByAsset(context, str);
+                        if (parseWbInfoByAsset != null) {
+                            wbAppInfo = parseWbInfoByAsset;
+                        }
+                        if ("com.sina.weibo".equals(str) || WEIBO_4G_PACKAGENAME.equals(str)) {
+                            break;
+                        }
                     }
                 }
             }
+            return wbAppInfo;
         }
-        return wbAppInfo;
+        return (WbAppInfo) invokeL.objValue;
     }
 
     public static WbAppInfo queryWbInfoInternal(Context context) {
-        return queryWbInfoByAsset(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? queryWbInfoByAsset(context) : (WbAppInfo) invokeL.objValue;
     }
 
     public synchronized WbAppInfo getWbAppInfo() {
-        return queryWbInfoInternal(this.mContext);
+        InterceptResult invokeV;
+        WbAppInfo queryWbInfoInternal;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                queryWbInfoInternal = queryWbInfoInternal(this.mContext);
+            }
+            return queryWbInfoInternal;
+        }
+        return (WbAppInfo) invokeV.objValue;
     }
 
     @Deprecated
     public boolean hasWbInstall() {
-        Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
-        intent.addCategory("android.intent.category.DEFAULT");
-        List<ResolveInfo> queryIntentServices = this.mContext.getPackageManager().queryIntentServices(intent, 0);
-        return (queryIntentServices == null || queryIntentServices.isEmpty()) ? false : true;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
+            intent.addCategory("android.intent.category.DEFAULT");
+            List<ResolveInfo> queryIntentServices = this.mContext.getPackageManager().queryIntentServices(intent, 0);
+            return (queryIntentServices == null || queryIntentServices.isEmpty()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 }

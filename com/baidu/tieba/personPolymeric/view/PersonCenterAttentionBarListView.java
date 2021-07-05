@@ -8,37 +8,66 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.viewpager.widget.PagerAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import d.a.o0.j2.e.c;
-import d.a.o0.j2.e.f;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.m2.e.c;
+import d.a.s0.m2.e.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PersonCenterAttentionBarListView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20055e;
+    public Context f20204e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f20056f;
+    public c f20205f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20057g;
+    public TextView f20206g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListViewPager f20058h;
+    public ListViewPager f20207h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f20059i;
+    public View f20208i;
     public View j;
     public d.a.c.e.k.b<PersonCommonForumItemView> k;
 
     /* loaded from: classes5.dex */
     public class a implements d.a.c.e.k.c<PersonCommonForumItemView> {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonCenterAttentionBarListView f20209a;
+
+        public a(PersonCenterAttentionBarListView personCenterAttentionBarListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personCenterAttentionBarListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20209a = personCenterAttentionBarListView;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -60,38 +89,68 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         }
 
         public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
-            return personCommonForumItemView;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.k.c
         /* renamed from: f */
         public void b(PersonCommonForumItemView personCommonForumItemView) {
-            if (personCommonForumItemView != null) {
-                personCommonForumItemView.removeAllViews();
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) || personCommonForumItemView == null) {
+                return;
             }
+            personCommonForumItemView.removeAllViews();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public PersonCommonForumItemView d() {
-            return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.f20055e);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.f20209a.f20204e) : (PersonCommonForumItemView) invokeV.objValue;
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
-            return personCommonForumItemView;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public class b extends PagerAdapter {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PersonCenterAttentionBarListView f20210a;
+
+        public b(PersonCenterAttentionBarListView personCenterAttentionBarListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {personCenterAttentionBarListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f20210a = personCenterAttentionBarListView;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
-            if (obj instanceof PersonCommonForumCardView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) && (obj instanceof PersonCommonForumCardView)) {
                 PersonCommonForumCardView personCommonForumCardView = (PersonCommonForumCardView) obj;
                 personCommonForumCardView.k();
                 viewGroup.removeView(personCommonForumCardView);
@@ -100,85 +159,157 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            if (PersonCenterAttentionBarListView.this.f20056f == null || ListUtils.isEmpty(PersonCenterAttentionBarListView.this.f20056f.f60208e)) {
-                return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.f20210a.f20205f == null || ListUtils.isEmpty(this.f20210a.f20205f.f63475e)) {
+                    return 0;
+                }
+                return this.f20210a.f20205f.f63475e.size() % 4 == 0 ? this.f20210a.f20205f.f63475e.size() / 4 : (this.f20210a.f20205f.f63475e.size() / 4) + 1;
             }
-            return PersonCenterAttentionBarListView.this.f20056f.f60208e.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.f20056f.f60208e.size() / 4 : (PersonCenterAttentionBarListView.this.f20056f.f60208e.size() / 4) + 1;
+            return invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i2) {
-            List<f> e2 = PersonCenterAttentionBarListView.this.e(i2);
-            if (ListUtils.isEmpty(e2)) {
-                return null;
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
+                List<f> e2 = this.f20210a.e(i2);
+                if (ListUtils.isEmpty(e2)) {
+                    return null;
+                }
+                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.f20210a.f20204e);
+                personCommonForumCardView.setForumItemViewBdObjectPool(this.f20210a.k);
+                personCommonForumCardView.setData(e2);
+                personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                personCommonForumCardView.setHorizontalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds48));
+                viewGroup.addView(personCommonForumCardView);
+                return personCommonForumCardView;
             }
-            PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.f20055e);
-            personCommonForumCardView.setForumItemViewBdObjectPool(PersonCenterAttentionBarListView.this.k);
-            personCommonForumCardView.setData(e2);
-            personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
-            personCommonForumCardView.setHorizontalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds48));
-            viewGroup.addView(personCommonForumCardView);
-            return personCommonForumCardView;
+            return invokeLI.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
         }
 
         public /* synthetic */ b(PersonCenterAttentionBarListView personCenterAttentionBarListView, a aVar) {
-            this();
+            this(personCenterAttentionBarListView);
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterAttentionBarListView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         new b(this, null);
-        this.k = new d.a.c.e.k.b<>(new a(), 12, 0);
+        this.k = new d.a.c.e.k.b<>(new a(this), 12, 0);
         f(context);
     }
 
     public final List<f> e(int i2) {
-        c cVar = this.f20056f;
-        if (cVar == null || ListUtils.isEmpty(cVar.f60208e)) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        int i3 = i2 * 4;
-        for (int i4 = i3; i4 < i3 + 4; i4++) {
-            f fVar = (f) ListUtils.getItem(this.f20056f.f60208e, i4);
-            if (fVar != null) {
-                arrayList.add(fVar);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            c cVar = this.f20205f;
+            if (cVar == null || ListUtils.isEmpty(cVar.f63475e)) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList();
+            int i3 = i2 * 4;
+            for (int i4 = i3; i4 < i3 + 4; i4++) {
+                f fVar = (f) ListUtils.getItem(this.f20205f.f63475e, i4);
+                if (fVar != null) {
+                    arrayList.add(fVar);
+                }
+            }
+            return arrayList;
         }
-        return arrayList;
+        return (List) invokeI.objValue;
     }
 
     public final void f(Context context) {
-        this.f20055e = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.person_info_common_forum_layout, this);
-        this.f20059i = inflate;
-        this.f20057g = (TextView) inflate.findViewById(R.id.common_forum_title);
-        this.f20058h = (ListViewPager) this.f20059i.findViewById(R.id.common_forum_viewpager);
-        this.j = this.f20059i.findViewById(R.id.divider_line);
-        this.f20058h.setOffscreenPageLimit(1);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.f20204e = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.person_info_common_forum_layout, this);
+            this.f20208i = inflate;
+            this.f20206g = (TextView) inflate.findViewById(R.id.common_forum_title);
+            this.f20207h = (ListViewPager) this.f20208i.findViewById(R.id.common_forum_viewpager);
+            this.j = this.f20208i.findViewById(R.id.divider_line);
+            this.f20207h.setOffscreenPageLimit(1);
+        }
     }
 
     public int getLayout() {
-        return R.layout.person_info_common_forum_layout;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.person_info_common_forum_layout : invokeV.intValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterAttentionBarListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         new b(this, null);
-        this.k = new d.a.c.e.k.b<>(new a(), 12, 0);
+        this.k = new d.a.c.e.k.b<>(new a(this), 12, 0);
         f(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterAttentionBarListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         new b(this, null);
-        this.k = new d.a.c.e.k.b<>(new a(), 12, 0);
+        this.k = new d.a.c.e.k.b<>(new a(this), 12, 0);
         f(context);
     }
 }

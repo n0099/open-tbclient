@@ -14,10 +14,20 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DELAY_MS = 100;
     public static final int LOOP_DEFAULT = 3;
     public static final int LOOP_FINITE = 1;
@@ -30,8 +40,11 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public static final int STATE_SCHEDULED = 1;
     public static final int STATE_WAITING_TO_SWAP = 3;
     public static final String TAG = "FrameSequenceDrawable";
+    public static a sAllocatingBitmapProvider;
     public static HandlerThread sDecodingThread;
     public static Handler sDecodingThreadHandler;
+    public static final Object sLock;
+    public transient /* synthetic */ FieldHolder $fh;
     public Bitmap mBackBitmap;
     public BitmapShader mBackBitmapShader;
     public final a mBitmapProvider;
@@ -55,21 +68,6 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public final Rect mSrcRect;
     public int mState;
     public RectF mTempRectF;
-    public static final Object sLock = new Object();
-    public static a sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
-        @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
-        public Bitmap a(int i2, int i3) {
-            return Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-        }
-
-        @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
-        public void a(Bitmap bitmap) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return;
-            }
-            bitmap.recycle();
-        }
-    };
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -83,74 +81,209 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-497017067, "Lcom/kwad/sdk/glide/framesequence/FrameSequenceDrawable;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-497017067, "Lcom/kwad/sdk/glide/framesequence/FrameSequenceDrawable;");
+                return;
+            }
+        }
+        sLock = new Object();
+        sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
+            public Bitmap a(int i2, int i3) {
+                InterceptResult invokeII;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i2, i3)) == null) ? Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888) : (Bitmap) invokeII.objValue;
+            }
+
+            @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
+            public void a(Bitmap bitmap) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
+                    return;
+                }
+                bitmap.recycle();
+            }
+        };
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrameSequenceDrawable(FrameSequence frameSequence) {
         this(frameSequence, sAllocatingBitmapProvider);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frameSequence};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FrameSequence) objArr2[0], (a) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     public FrameSequenceDrawable(FrameSequence frameSequence, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frameSequence, aVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mLock = new Object();
         this.mDestroyed = false;
         this.mLoopBehavior = 3;
         this.mLoopCount = 1;
         this.mTempRectF = new RectF();
-        this.mDecodeRunnable = new Runnable() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.2
+        this.mDecodeRunnable = new Runnable(this) { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ FrameSequenceDrawable f37712a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f37712a = this;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
                 boolean z;
                 Bitmap bitmap;
-                synchronized (FrameSequenceDrawable.this.mLock) {
-                    if (FrameSequenceDrawable.this.mDestroyed) {
-                        return;
-                    }
-                    int i2 = FrameSequenceDrawable.this.mNextFrameToDecode;
-                    if (i2 < 0) {
-                        return;
-                    }
-                    Bitmap bitmap2 = FrameSequenceDrawable.this.mBackBitmap;
-                    FrameSequenceDrawable.this.mState = 2;
-                    long j = 0;
-                    boolean z2 = true;
-                    try {
-                        j = FrameSequenceDrawable.this.mFrameSequenceState.getFrame(i2, bitmap2, i2 - 2);
-                        z = false;
-                    } catch (Exception e2) {
-                        Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e2);
-                        z = true;
-                    }
-                    if (j < 20) {
-                        j = 100;
-                    }
-                    synchronized (FrameSequenceDrawable.this.mLock) {
-                        bitmap = null;
-                        if (FrameSequenceDrawable.this.mDestroyed) {
-                            Bitmap bitmap3 = FrameSequenceDrawable.this.mBackBitmap;
-                            FrameSequenceDrawable.this.mBackBitmap = null;
-                            bitmap = bitmap3;
-                        } else if (FrameSequenceDrawable.this.mNextFrameToDecode >= 0 && FrameSequenceDrawable.this.mState == 2) {
-                            FrameSequenceDrawable.this.mNextSwap = z ? Long.MAX_VALUE : j + FrameSequenceDrawable.this.mLastSwap;
-                            FrameSequenceDrawable.this.mState = 3;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    synchronized (this.f37712a.mLock) {
+                        if (this.f37712a.mDestroyed) {
+                            return;
                         }
-                        z2 = false;
-                    }
-                    if (z2) {
-                        FrameSequenceDrawable frameSequenceDrawable = FrameSequenceDrawable.this;
-                        frameSequenceDrawable.scheduleSelf(frameSequenceDrawable, frameSequenceDrawable.mNextSwap);
-                    }
-                    if (bitmap != null) {
-                        FrameSequenceDrawable.this.mBitmapProvider.a(bitmap);
+                        int i4 = this.f37712a.mNextFrameToDecode;
+                        if (i4 < 0) {
+                            return;
+                        }
+                        Bitmap bitmap2 = this.f37712a.mBackBitmap;
+                        this.f37712a.mState = 2;
+                        long j = 0;
+                        boolean z2 = true;
+                        try {
+                            j = this.f37712a.mFrameSequenceState.getFrame(i4, bitmap2, i4 - 2);
+                            z = false;
+                        } catch (Exception e2) {
+                            Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e2);
+                            z = true;
+                        }
+                        if (j < 20) {
+                            j = 100;
+                        }
+                        synchronized (this.f37712a.mLock) {
+                            bitmap = null;
+                            if (this.f37712a.mDestroyed) {
+                                Bitmap bitmap3 = this.f37712a.mBackBitmap;
+                                this.f37712a.mBackBitmap = null;
+                                bitmap = bitmap3;
+                            } else if (this.f37712a.mNextFrameToDecode >= 0 && this.f37712a.mState == 2) {
+                                this.f37712a.mNextSwap = z ? Long.MAX_VALUE : j + this.f37712a.mLastSwap;
+                                this.f37712a.mState = 3;
+                            }
+                            z2 = false;
+                        }
+                        if (z2) {
+                            FrameSequenceDrawable frameSequenceDrawable = this.f37712a;
+                            frameSequenceDrawable.scheduleSelf(frameSequenceDrawable, frameSequenceDrawable.mNextSwap);
+                        }
+                        if (bitmap != null) {
+                            this.f37712a.mBitmapProvider.a(bitmap);
+                        }
                     }
                 }
             }
         };
-        this.mFinishedCallbackRunnable = new Runnable() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.3
+        this.mFinishedCallbackRunnable = new Runnable(this) { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ FrameSequenceDrawable f37713a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f37713a = this;
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (FrameSequenceDrawable.this.mLock) {
-                    FrameSequenceDrawable.this.mNextFrameToDecode = -1;
-                    FrameSequenceDrawable.this.mState = 0;
-                }
-                if (FrameSequenceDrawable.this.mOnFinishedListener != null) {
-                    FrameSequenceDrawable.this.mOnFinishedListener.a(FrameSequenceDrawable.this);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    synchronized (this.f37713a.mLock) {
+                        this.f37713a.mNextFrameToDecode = -1;
+                        this.f37713a.mState = 0;
+                    }
+                    if (this.f37713a.mOnFinishedListener != null) {
+                        this.f37713a.mOnFinishedListener.a(this.f37713a);
+                    }
                 }
             }
         };
@@ -180,218 +313,295 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         initializeDecodingThread();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrameSequenceDrawable(InputStream inputStream) {
         this(FrameSequence.decodeStream(inputStream));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((FrameSequence) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
     }
 
     public static Bitmap acquireAndValidateBitmap(a aVar, int i2, int i3) {
-        Bitmap a2 = aVar.a(i2, i3);
-        if (a2.getWidth() < i2 || a2.getHeight() < i3 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
-            throw new IllegalArgumentException("Invalid bitmap provided");
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65554, null, aVar, i2, i3)) == null) {
+            Bitmap a2 = aVar.a(i2, i3);
+            if (a2.getWidth() < i2 || a2.getHeight() < i3 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
+                throw new IllegalArgumentException("Invalid bitmap provided");
+            }
+            return a2;
         }
-        return a2;
+        return (Bitmap) invokeLII.objValue;
     }
 
     private void checkDestroyedLocked() {
-        if (this.mDestroyed) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && this.mDestroyed) {
             throw new IllegalStateException("Cannot perform operation on recycled drawable");
         }
     }
 
     public static void initializeDecodingThread() {
-        synchronized (sLock) {
-            if (sDecodingThread != null) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            synchronized (sLock) {
+                if (sDecodingThread != null) {
+                    return;
+                }
+                HandlerThread handlerThread = new HandlerThread("FrameSequence decoding thread", 10);
+                sDecodingThread = handlerThread;
+                handlerThread.start();
+                sDecodingThreadHandler = new Handler(sDecodingThread.getLooper());
             }
-            HandlerThread handlerThread = new HandlerThread("FrameSequence decoding thread", 10);
-            sDecodingThread = handlerThread;
-            handlerThread.start();
-            sDecodingThreadHandler = new Handler(sDecodingThread.getLooper());
         }
     }
 
     private void scheduleDecodeLocked() {
-        this.mState = 1;
-        this.mNextFrameToDecode = (this.mNextFrameToDecode + 1) % this.mFrameSequence.getFrameCount();
-        sDecodingThreadHandler.post(this.mDecodeRunnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            this.mState = 1;
+            this.mNextFrameToDecode = (this.mNextFrameToDecode + 1) % this.mFrameSequence.getFrameCount();
+            sDecodingThreadHandler.post(this.mDecodeRunnable);
+        }
     }
 
     public void destroy() {
-        if (this.mBitmapProvider == null) {
-            throw new IllegalStateException("BitmapProvider must be non-null");
-        }
-        synchronized (this.mLock) {
-            if (this.mDestroyed) {
-                return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.mBitmapProvider == null) {
+                throw new IllegalStateException("BitmapProvider must be non-null");
             }
-            Bitmap bitmap = this.mFrontBitmap;
-            Bitmap bitmap2 = null;
-            this.mFrontBitmap = null;
-            if (this.mState != 2) {
-                Bitmap bitmap3 = this.mBackBitmap;
-                this.mBackBitmap = null;
-                bitmap2 = bitmap3;
+            synchronized (this.mLock) {
+                if (this.mDestroyed) {
+                    return;
+                }
+                Bitmap bitmap = this.mFrontBitmap;
+                Bitmap bitmap2 = null;
+                this.mFrontBitmap = null;
+                if (this.mState != 2) {
+                    Bitmap bitmap3 = this.mBackBitmap;
+                    this.mBackBitmap = null;
+                    bitmap2 = bitmap3;
+                }
+                this.mDestroyed = true;
+                this.mBitmapProvider.a(bitmap);
+                if (bitmap2 != null) {
+                    this.mBitmapProvider.a(bitmap2);
+                }
+                this.mFrameSequenceState.destroy();
+                this.mFrameSequence.destroy();
             }
-            this.mDestroyed = true;
-            this.mBitmapProvider.a(bitmap);
-            if (bitmap2 != null) {
-                this.mBitmapProvider.a(bitmap2);
-            }
-            this.mFrameSequenceState.destroy();
-            this.mFrameSequence.destroy();
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        synchronized (this.mLock) {
-            if (isDestroyed()) {
-                return;
-            }
-            if (this.mState == 3 && this.mNextSwap - SystemClock.uptimeMillis() <= 0) {
-                this.mState = 4;
-            }
-            if (isRunning() && this.mState == 4) {
-                Bitmap bitmap = this.mBackBitmap;
-                this.mBackBitmap = this.mFrontBitmap;
-                this.mFrontBitmap = bitmap;
-                BitmapShader bitmapShader = this.mBackBitmapShader;
-                this.mBackBitmapShader = this.mFrontBitmapShader;
-                this.mFrontBitmapShader = bitmapShader;
-                this.mLastSwap = SystemClock.uptimeMillis();
-                boolean z = true;
-                if (this.mNextFrameToDecode == this.mFrameSequence.getFrameCount() - 1) {
-                    int i2 = this.mCurrentLoop + 1;
-                    this.mCurrentLoop = i2;
-                    if ((this.mLoopBehavior == 1 && i2 == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
-                        z = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            synchronized (this.mLock) {
+                if (isDestroyed()) {
+                    return;
+                }
+                if (this.mState == 3 && this.mNextSwap - SystemClock.uptimeMillis() <= 0) {
+                    this.mState = 4;
+                }
+                if (isRunning() && this.mState == 4) {
+                    Bitmap bitmap = this.mBackBitmap;
+                    this.mBackBitmap = this.mFrontBitmap;
+                    this.mFrontBitmap = bitmap;
+                    BitmapShader bitmapShader = this.mBackBitmapShader;
+                    this.mBackBitmapShader = this.mFrontBitmapShader;
+                    this.mFrontBitmapShader = bitmapShader;
+                    this.mLastSwap = SystemClock.uptimeMillis();
+                    boolean z = true;
+                    if (this.mNextFrameToDecode == this.mFrameSequence.getFrameCount() - 1) {
+                        int i2 = this.mCurrentLoop + 1;
+                        this.mCurrentLoop = i2;
+                        if ((this.mLoopBehavior == 1 && i2 == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
+                            z = false;
+                        }
+                    }
+                    if (z) {
+                        scheduleDecodeLocked();
+                    } else {
+                        scheduleSelf(this.mFinishedCallbackRunnable, 0L);
                     }
                 }
-                if (z) {
-                    scheduleDecodeLocked();
-                } else {
-                    scheduleSelf(this.mFinishedCallbackRunnable, 0L);
+                if (!this.mCircleMaskEnabled) {
+                    this.mPaint.setShader(null);
+                    canvas.drawBitmap(this.mFrontBitmap, this.mSrcRect, getBounds(), this.mPaint);
+                    return;
                 }
+                Rect bounds = getBounds();
+                int intrinsicWidth = getIntrinsicWidth();
+                float f2 = intrinsicWidth;
+                float width = (bounds.width() * 1.0f) / f2;
+                float intrinsicHeight = getIntrinsicHeight();
+                float height = (bounds.height() * 1.0f) / intrinsicHeight;
+                canvas.save();
+                canvas.translate(bounds.left, bounds.top);
+                canvas.scale(width, height);
+                float min = Math.min(bounds.width(), bounds.height());
+                float f3 = min / width;
+                float f4 = min / height;
+                this.mTempRectF.set((f2 - f3) / 2.0f, (intrinsicHeight - f4) / 2.0f, (f2 + f3) / 2.0f, (intrinsicHeight + f4) / 2.0f);
+                this.mPaint.setShader(this.mFrontBitmapShader);
+                canvas.drawOval(this.mTempRectF, this.mPaint);
+                canvas.restore();
             }
-            if (!this.mCircleMaskEnabled) {
-                this.mPaint.setShader(null);
-                canvas.drawBitmap(this.mFrontBitmap, this.mSrcRect, getBounds(), this.mPaint);
-                return;
-            }
-            Rect bounds = getBounds();
-            int intrinsicWidth = getIntrinsicWidth();
-            float f2 = intrinsicWidth;
-            float width = (bounds.width() * 1.0f) / f2;
-            float intrinsicHeight = getIntrinsicHeight();
-            float height = (bounds.height() * 1.0f) / intrinsicHeight;
-            canvas.save();
-            canvas.translate(bounds.left, bounds.top);
-            canvas.scale(width, height);
-            float min = Math.min(bounds.width(), bounds.height());
-            float f3 = min / width;
-            float f4 = min / height;
-            this.mTempRectF.set((f2 - f3) / 2.0f, (intrinsicHeight - f4) / 2.0f, (f2 + f3) / 2.0f, (intrinsicHeight + f4) / 2.0f);
-            this.mPaint.setShader(this.mFrontBitmapShader);
-            canvas.drawOval(this.mTempRectF, this.mPaint);
-            canvas.restore();
         }
     }
 
     public final boolean getCircleMaskEnabled() {
-        return this.mCircleMaskEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCircleMaskEnabled : invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.mFrameSequence.getHeight();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFrameSequence.getHeight() : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.mFrameSequence.getWidth();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFrameSequence.getWidth() : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.mFrameSequence.isOpaque() ? -1 : -2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFrameSequence.isOpaque() ? -1 : -2 : invokeV.intValue;
     }
 
     public int getSize() {
-        return this.mFrameSequence.getWidth() * this.mFrameSequence.getHeight() * 4;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mFrameSequence.getWidth() * this.mFrameSequence.getHeight() * 4 : invokeV.intValue;
     }
 
     public boolean isDestroyed() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (this.mLock) {
-            z = this.mDestroyed;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this.mLock) {
+                z = this.mDestroyed;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
+        InterceptResult invokeV;
         boolean z;
-        synchronized (this.mLock) {
-            z = this.mNextFrameToDecode > -1 && !this.mDestroyed;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this.mLock) {
+                z = this.mNextFrameToDecode > -1 && !this.mDestroyed;
+            }
+            return z;
         }
-        return z;
+        return invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        synchronized (this.mLock) {
-            if (this.mNextFrameToDecode < 0 || this.mState != 3) {
-                z = false;
-            } else {
-                this.mState = 4;
-                z = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this.mLock) {
+                if (this.mNextFrameToDecode < 0 || this.mState != 3) {
+                    z = false;
+                } else {
+                    this.mState = 4;
+                    z = true;
+                }
             }
-        }
-        if (z) {
-            invalidateSelf();
+            if (z) {
+                invalidateSelf();
+            }
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i2) {
-        this.mPaint.setAlpha(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.mPaint.setAlpha(i2);
+        }
     }
 
     public final void setCircleMaskEnabled(boolean z) {
-        if (this.mCircleMaskEnabled != z) {
-            this.mCircleMaskEnabled = z;
-            this.mPaint.setAntiAlias(z);
-            invalidateSelf();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || this.mCircleMaskEnabled == z) {
+            return;
         }
+        this.mCircleMaskEnabled = z;
+        this.mPaint.setAntiAlias(z);
+        invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.mPaint.setColorFilter(colorFilter);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
+            this.mPaint.setColorFilter(colorFilter);
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
-        this.mPaint.setFilterBitmap(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.mPaint.setFilterBitmap(z);
+        }
     }
 
     public void setLoopCount(int i2) {
-        this.mLoopCount = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.mLoopCount = i2;
+        }
     }
 
     public void setOnFinishedListener(b bVar) {
-        this.mOnFinishedListener = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
+            this.mOnFinishedListener = bVar;
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        return super.setVisible(z, z2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? super.setVisible(z, z2) : invokeCommon.booleanValue;
     }
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        if (isRunning() || isDestroyed()) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || isRunning() || isDestroyed()) {
             return;
         }
         synchronized (this.mLock) {
@@ -405,17 +615,21 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
 
     @Override // android.graphics.drawable.Animatable
     public void stop() {
-        if (isRunning()) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && isRunning()) {
             unscheduleSelf(this);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void unscheduleSelf(Runnable runnable) {
-        synchronized (this.mLock) {
-            this.mNextFrameToDecode = -1;
-            this.mState = 0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, runnable) == null) {
+            synchronized (this.mLock) {
+                this.mNextFrameToDecode = -1;
+                this.mState = 0;
+            }
+            super.unscheduleSelf(runnable);
         }
-        super.unscheduleSelf(runnable);
     }
 }

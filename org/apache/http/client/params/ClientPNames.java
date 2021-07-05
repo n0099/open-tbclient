@@ -1,6 +1,6 @@
 package org.apache.http.client.params;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface ClientPNames {
     public static final String ALLOW_CIRCULAR_REDIRECTS = "http.protocol.allow-circular-redirects";
     public static final String CONNECTION_MANAGER_FACTORY = "http.connection-manager.factory-object";

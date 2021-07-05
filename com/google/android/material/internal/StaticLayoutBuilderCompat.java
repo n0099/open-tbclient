@@ -12,10 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class StaticLayoutBuilderCompat {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TEXT_DIRS_CLASS = "android.text.TextDirectionHeuristics";
     public static final String TEXT_DIR_CLASS = "android.text.TextDirectionHeuristic";
     public static final String TEXT_DIR_CLASS_LTR = "LTR";
@@ -25,35 +32,76 @@ public final class StaticLayoutBuilderCompat {
     public static boolean initialized;
     @Nullable
     public static Object textDirection;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Layout.Alignment alignment;
+    @Nullable
+    public TextUtils.TruncateAt ellipsize;
     public int end;
+    public boolean includePad;
     public boolean isRtl;
+    public int maxLines;
     public final TextPaint paint;
     public CharSequence source;
+    public int start;
     public final int width;
-    public int start = 0;
-    public Layout.Alignment alignment = Layout.Alignment.ALIGN_NORMAL;
-    public int maxLines = Integer.MAX_VALUE;
-    public boolean includePad = true;
-    @Nullable
-    public TextUtils.TruncateAt ellipsize = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class StaticLayoutBuilderCompatException extends Exception {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StaticLayoutBuilderCompatException(Throwable th) {
             super("Error thrown initializing StaticLayout " + th.getMessage(), th);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {th};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Throwable) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 
     public StaticLayoutBuilderCompat(CharSequence charSequence, TextPaint textPaint, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {charSequence, textPaint, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.source = charSequence;
         this.paint = textPaint;
         this.width = i2;
+        this.start = 0;
         this.end = charSequence.length();
+        this.alignment = Layout.Alignment.ALIGN_NORMAL;
+        this.maxLines = Integer.MAX_VALUE;
+        this.includePad = true;
+        this.ellipsize = null;
     }
 
     private void createConstructorWithReflection() throws StaticLayoutBuilderCompatException {
         Class<?> cls;
-        if (initialized) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || initialized) {
             return;
         }
         try {
@@ -80,80 +128,122 @@ public final class StaticLayoutBuilderCompat {
 
     @NonNull
     public static StaticLayoutBuilderCompat obtain(@NonNull CharSequence charSequence, @NonNull TextPaint textPaint, @IntRange(from = 0) int i2) {
-        return new StaticLayoutBuilderCompat(charSequence, textPaint, i2);
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, charSequence, textPaint, i2)) == null) ? new StaticLayoutBuilderCompat(charSequence, textPaint, i2) : (StaticLayoutBuilderCompat) invokeLLI.objValue;
     }
 
     public StaticLayout build() throws StaticLayoutBuilderCompatException {
-        if (this.source == null) {
-            this.source = "";
-        }
-        int max = Math.max(0, this.width);
-        CharSequence charSequence = this.source;
-        if (this.maxLines == 1) {
-            charSequence = TextUtils.ellipsize(charSequence, this.paint, max, this.ellipsize);
-        }
-        this.end = Math.min(charSequence.length(), this.end);
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (this.isRtl) {
-                this.alignment = Layout.Alignment.ALIGN_OPPOSITE;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.source == null) {
+                this.source = "";
             }
-            StaticLayout.Builder obtain = StaticLayout.Builder.obtain(charSequence, this.start, this.end, this.paint, max);
-            obtain.setAlignment(this.alignment);
-            obtain.setIncludePad(this.includePad);
-            obtain.setTextDirection(this.isRtl ? TextDirectionHeuristics.RTL : TextDirectionHeuristics.LTR);
-            TextUtils.TruncateAt truncateAt = this.ellipsize;
-            if (truncateAt != null) {
-                obtain.setEllipsize(truncateAt);
+            int max = Math.max(0, this.width);
+            CharSequence charSequence = this.source;
+            if (this.maxLines == 1) {
+                charSequence = TextUtils.ellipsize(charSequence, this.paint, max, this.ellipsize);
             }
-            obtain.setMaxLines(this.maxLines);
-            return obtain.build();
+            this.end = Math.min(charSequence.length(), this.end);
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (this.isRtl) {
+                    this.alignment = Layout.Alignment.ALIGN_OPPOSITE;
+                }
+                StaticLayout.Builder obtain = StaticLayout.Builder.obtain(charSequence, this.start, this.end, this.paint, max);
+                obtain.setAlignment(this.alignment);
+                obtain.setIncludePad(this.includePad);
+                obtain.setTextDirection(this.isRtl ? TextDirectionHeuristics.RTL : TextDirectionHeuristics.LTR);
+                TextUtils.TruncateAt truncateAt = this.ellipsize;
+                if (truncateAt != null) {
+                    obtain.setEllipsize(truncateAt);
+                }
+                obtain.setMaxLines(this.maxLines);
+                return obtain.build();
+            }
+            createConstructorWithReflection();
+            try {
+                return (StaticLayout) ((Constructor) Preconditions.checkNotNull(constructor)).newInstance(charSequence, Integer.valueOf(this.start), Integer.valueOf(this.end), this.paint, Integer.valueOf(max), this.alignment, Preconditions.checkNotNull(textDirection), Float.valueOf(1.0f), Float.valueOf(0.0f), Boolean.valueOf(this.includePad), null, Integer.valueOf(max), Integer.valueOf(this.maxLines));
+            } catch (Exception e2) {
+                throw new StaticLayoutBuilderCompatException(e2);
+            }
         }
-        createConstructorWithReflection();
-        try {
-            return (StaticLayout) ((Constructor) Preconditions.checkNotNull(constructor)).newInstance(charSequence, Integer.valueOf(this.start), Integer.valueOf(this.end), this.paint, Integer.valueOf(max), this.alignment, Preconditions.checkNotNull(textDirection), Float.valueOf(1.0f), Float.valueOf(0.0f), Boolean.valueOf(this.includePad), null, Integer.valueOf(max), Integer.valueOf(this.maxLines));
-        } catch (Exception e2) {
-            throw new StaticLayoutBuilderCompatException(e2);
-        }
+        return (StaticLayout) invokeV.objValue;
     }
 
     @NonNull
     public StaticLayoutBuilderCompat setAlignment(@NonNull Layout.Alignment alignment) {
-        this.alignment = alignment;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alignment)) == null) {
+            this.alignment = alignment;
+            return this;
+        }
+        return (StaticLayoutBuilderCompat) invokeL.objValue;
     }
 
     @NonNull
     public StaticLayoutBuilderCompat setEllipsize(@Nullable TextUtils.TruncateAt truncateAt) {
-        this.ellipsize = truncateAt;
-        return this;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, truncateAt)) == null) {
+            this.ellipsize = truncateAt;
+            return this;
+        }
+        return (StaticLayoutBuilderCompat) invokeL.objValue;
     }
 
     @NonNull
     public StaticLayoutBuilderCompat setEnd(@IntRange(from = 0) int i2) {
-        this.end = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            this.end = i2;
+            return this;
+        }
+        return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 
     @NonNull
     public StaticLayoutBuilderCompat setIncludePad(boolean z) {
-        this.includePad = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            this.includePad = z;
+            return this;
+        }
+        return (StaticLayoutBuilderCompat) invokeZ.objValue;
     }
 
     public StaticLayoutBuilderCompat setIsRtl(boolean z) {
-        this.isRtl = z;
-        return this;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            this.isRtl = z;
+            return this;
+        }
+        return (StaticLayoutBuilderCompat) invokeZ.objValue;
     }
 
     @NonNull
     public StaticLayoutBuilderCompat setMaxLines(@IntRange(from = 0) int i2) {
-        this.maxLines = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            this.maxLines = i2;
+            return this;
+        }
+        return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 
     @NonNull
     public StaticLayoutBuilderCompat setStart(@IntRange(from = 0) int i2) {
-        this.start = i2;
-        return this;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+            this.start = i2;
+            return this;
+        }
+        return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 }

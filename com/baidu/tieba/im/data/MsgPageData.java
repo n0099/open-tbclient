@@ -1,38 +1,79 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MsgPageData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7666708726763728750L;
-    public boolean isNewAdd = false;
-    public int newAddNum = 0;
-    public List<ChatMessage> mChatMessages = new ArrayList();
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean isNewAdd;
+    public List<ChatMessage> mChatMessages;
+    public int newAddNum;
+
+    public MsgPageData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isNewAdd = false;
+        this.newAddNum = 0;
+        this.mChatMessages = new ArrayList();
+    }
 
     public List<ChatMessage> getChatMessages() {
-        return this.mChatMessages;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mChatMessages : (List) invokeV.objValue;
     }
 
     public boolean getIsNewAdd() {
-        return this.isNewAdd;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isNewAdd : invokeV.booleanValue;
     }
 
     public int getNewAddNum() {
-        return this.newAddNum;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.newAddNum : invokeV.intValue;
     }
 
     public void setChatMessages(List<ChatMessage> list) {
-        this.mChatMessages = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.mChatMessages = list;
+        }
     }
 
     public void setIsNewAdd(boolean z) {
-        this.isNewAdd = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.isNewAdd = z;
+        }
     }
 
     public void setNewAddNum(int i2) {
-        this.newAddNum = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.newAddNum = i2;
+        }
     }
 }

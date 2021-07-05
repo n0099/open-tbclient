@@ -4,70 +4,134 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.NoProguard;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IDetectionListener f23279a;
+    public IDetectionListener f23822a;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: com.baidu.wallet.bankdetection.BankcardDetectionController$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
     public interface IDetectionListener extends NoProguard {
         void onFail(int i2, String str);
 
         void onResult(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
+        public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankcardDetectionController f23280a = new BankcardDetectionController();
+        public static BankcardDetectionController f23823a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2137959831, "Lcom/baidu/wallet/bankdetection/BankcardDetectionController$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2137959831, "Lcom/baidu/wallet/bankdetection/BankcardDetectionController$a;");
+                    return;
+                }
+            }
+            f23823a = new BankcardDetectionController(null);
+        }
+    }
+
+    public /* synthetic */ BankcardDetectionController(AnonymousClass1 anonymousClass1) {
+        this();
     }
 
     public static BankcardDetectionController getInstance() {
-        return a.f23280a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f23823a : (BankcardDetectionController) invokeV.objValue;
     }
 
     public void clearCardDetectionCallback() {
-        this.f23279a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f23822a = null;
+        }
     }
 
     public void gotoDetctionCard(Context context, IDetectionListener iDetectionListener) {
-        PayStatisticsUtil.onEvent(StatServiceEvent.STAT_PHOTOREAD);
-        if (iDetectionListener == null) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iDetectionListener) == null) {
+            PayStatisticsUtil.onEvent(StatServiceEvent.STAT_PHOTOREAD);
+            if (iDetectionListener == null) {
+                return;
+            }
+            this.f23822a = iDetectionListener;
+            Intent intent = new Intent(context, BankCardDetectionActivity.class);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            }
+            context.startActivity(intent);
         }
-        this.f23279a = iDetectionListener;
-        Intent intent = new Intent(context, BankCardDetectionActivity.class);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        }
-        context.startActivity(intent);
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
-        if (this.f23279a != null) {
-            this.f23279a.onResult(obj == null ? "" : (String) obj);
-            this.f23279a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, observable, obj) == null) {
+            if (this.f23822a != null) {
+                this.f23822a.onResult(obj == null ? "" : (String) obj);
+                this.f23822a = null;
+            }
+            this.f23822a = null;
         }
-        this.f23279a = null;
     }
 
     public void updateFail(int i2, String str) {
-        IDetectionListener iDetectionListener = this.f23279a;
-        if (iDetectionListener != null) {
-            iDetectionListener.onFail(i2, str);
-            this.f23279a = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+            IDetectionListener iDetectionListener = this.f23822a;
+            if (iDetectionListener != null) {
+                iDetectionListener.onFail(i2, str);
+                this.f23822a = null;
+            }
+            this.f23822a = null;
         }
-        this.f23279a = null;
     }
 
     public BankcardDetectionController() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

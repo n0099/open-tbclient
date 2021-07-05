@@ -1,9 +1,14 @@
 package androidx.media;
 
 import androidx.annotation.RestrictTo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class MediaBrowserProtocol {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int CLIENT_MSG_ADD_SUBSCRIPTION = 3;
     public static final int CLIENT_MSG_CONNECT = 1;
     public static final int CLIENT_MSG_DISCONNECT = 2;
@@ -40,4 +45,19 @@ public class MediaBrowserProtocol {
     public static final int SERVICE_VERSION_1 = 1;
     public static final int SERVICE_VERSION_2 = 2;
     public static final int SERVICE_VERSION_CURRENT = 2;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public MediaBrowserProtocol() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

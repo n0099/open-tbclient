@@ -12,13 +12,35 @@ import com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugi
 import com.baidu.tieba.flutter.plugin.progressHUD.ProgressHUDPlugin;
 import com.baidu.tieba.flutter.plugin.tiebaShare.TiebaSharePlugin;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.android.TiebaUtilityPlugin;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoostPlugin;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FlutterPluginInit {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public FlutterPluginInit() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static void init(@NonNull FlutterEngine flutterEngine) {
-        if (flutterEngine == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, flutterEngine) == null) || flutterEngine == null) {
             return;
         }
         flutterEngine.getPlugins().add(new NetworkInfoPlugin());

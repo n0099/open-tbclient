@@ -3,14 +3,35 @@ package com.baidu.android.util.io;
 import android.database.Cursor;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public final class Closeables {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Closeables";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public Closeables() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static void close(@Nullable Closeable closeable, boolean z) throws IOException {
-        if (closeable == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65537, null, closeable, z) == null) || closeable == null) {
             return;
         }
         try {
@@ -25,25 +46,29 @@ public final class Closeables {
     }
 
     public static void closeSafely(@Nullable Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
     public static void closeSafely(Cursor cursor) {
-        if (cursor != null) {
-            try {
-                if (cursor.isClosed()) {
-                    return;
-                }
-                cursor.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, cursor) == null) || cursor == null) {
+            return;
+        }
+        try {
+            if (cursor.isClosed()) {
+                return;
             }
+            cursor.close();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

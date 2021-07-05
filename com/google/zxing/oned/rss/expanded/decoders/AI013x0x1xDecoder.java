@@ -1,24 +1,49 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class AI013x0x1xDecoder extends AI01weightDecoder {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int DATE_SIZE = 16;
     public static final int HEADER_SIZE = 8;
     public static final int WEIGHT_SIZE = 20;
+    public transient /* synthetic */ FieldHolder $fh;
     public final String dateCode;
     public final String firstAIdigits;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AI013x0x1xDecoder(BitArray bitArray, String str, String str2) {
         super(bitArray);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitArray, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((BitArray) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.dateCode = str2;
         this.firstAIdigits = str;
     }
 
     private void encodeCompressedDate(StringBuilder sb, int i2) {
-        int extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i2, 16);
-        if (extractNumericValueFromBitArray == 38400) {
+        int extractNumericValueFromBitArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65537, this, sb, i2) == null) || (extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i2, 16)) == 38400) {
             return;
         }
         sb.append('(');
@@ -44,26 +69,36 @@ public final class AI013x0x1xDecoder extends AI01weightDecoder {
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
     public void addWeightCode(StringBuilder sb, int i2) {
-        sb.append('(');
-        sb.append(this.firstAIdigits);
-        sb.append(i2 / 100000);
-        sb.append(')');
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sb, i2) == null) {
+            sb.append('(');
+            sb.append(this.firstAIdigits);
+            sb.append(i2 / 100000);
+            sb.append(')');
+        }
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
     public int checkWeight(int i2) {
-        return i2 % 100000;
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 % 100000 : invokeI.intValue;
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder
     public String parseInformation() throws NotFoundException {
-        if (getInformation().getSize() == 84) {
-            StringBuilder sb = new StringBuilder();
-            encodeCompressedGtin(sb, 8);
-            encodeCompressedWeight(sb, 48, 20);
-            encodeCompressedDate(sb, 68);
-            return sb.toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getInformation().getSize() == 84) {
+                StringBuilder sb = new StringBuilder();
+                encodeCompressedGtin(sb, 8);
+                encodeCompressedWeight(sb, 48, 20);
+                encodeCompressedDate(sb, 68);
+                return sb.toString();
+            }
+            throw NotFoundException.getNotFoundInstance();
         }
-        throw NotFoundException.getNotFoundInstance();
+        return (String) invokeV.objValue;
     }
 }

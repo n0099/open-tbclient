@@ -30,10 +30,18 @@ import com.baidu.android.util.devices.IDevices;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.permission.PermissionManager;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.service.AsInstallService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -55,21 +63,34 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class PhoneUtils {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Pattern f4080a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Pattern f4081b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Pattern f4082c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Pattern f4083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f4086e = "PhoneUtils";
+    public static final String f4084e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f4087f = "_pay.preferences";
+    public static final String f4085f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f4088g = "cuid_1";
+    public static final String f4086g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4089h = "cuid_2";
+    public static final String f4087h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f4090i = "wime";
+    public static final String f4088i = "wime";
     public static final String j = "identity_code";
     public static final String k = "phone_number";
     public static final String l = "card_no";
@@ -77,26 +98,16 @@ public final class PhoneUtils {
     public static final String n = "cvv2";
     public static final String o = "imei";
     public static CPUInfo p = null;
+    public static ArrayList<String> q = null;
     public static final String r = "nettype";
     public static final String s = "wloc";
     public static String t;
     public static String u;
-    public static ArrayList<String> q = new ArrayList<>();
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f4082a = Pattern.compile("((\\d|[A-F]){32}).*");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f4083b = Pattern.compile("((\\d|[a-f]){32}).*");
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f4084c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f4085d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class CPUInfo {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";
         public static final String FEATURE_VFP = "vfp";
@@ -106,27 +117,83 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f4091a = "processor";
+        public static final String f4089a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f4092b = "features";
-        public String processor = "";
-        public String features = "";
+        public static final String f4090b = "features";
+        public transient /* synthetic */ FieldHolder $fh;
+        public String features;
+        public String processor;
+
+        public CPUInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.processor = "";
+            this.features = "";
+        }
 
         public String getCpuPath() {
-            return this.processor.startsWith("armv7") ? "armeabi-v7a" : this.processor.startsWith("armv") ? "armeabi" : this.processor.equals("intel") ? "x86" : this.processor.equals(IDevices.ABI_MIPS) ? IDevices.ABI_MIPS : "";
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.processor.startsWith("armv7") ? "armeabi-v7a" : this.processor.startsWith("armv") ? "armeabi" : this.processor.equals("intel") ? "x86" : this.processor.equals(IDevices.ABI_MIPS) ? IDevices.ABI_MIPS : "" : (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
     public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // java.io.FileFilter
         public boolean accept(File file) {
-            return Pattern.matches("cpu[0-9]", file.getName());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1786099620, "Lcom/baidu/apollon/utils/PhoneUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1786099620, "Lcom/baidu/apollon/utils/PhoneUtils;");
+                return;
+            }
+        }
+        q = new ArrayList<>();
+        f4080a = Pattern.compile("((\\d|[A-F]){32}).*");
+        f4081b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f4082c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f4083d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -134,114 +201,176 @@ public final class PhoneUtils {
         q.add("phone_number");
     }
 
+    public PhoneUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static String a(byte b2) {
+        InterceptResult invokeB;
         String str;
-        return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) {
+            return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
+        }
+        return (String) invokeB.objValue;
     }
 
     public static void checkPermission(Context context, String str) {
-        if (hasPermission(context, str)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65540, null, context, str) == null) || hasPermission(context, str)) {
             return;
         }
         sdkError("You need the " + str + " permission. Open AndroidManifest.xml and just before the final </manifest> tag add:  <uses-permission android:name=\"" + str + "\" />");
     }
 
     public static String encrypt(String str, String str2) {
-        LogUtil.d(str + "加密=" + str2);
-        if (q.contains(str)) {
-            if (TextUtils.isEmpty(str2)) {
-                return "";
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+            LogUtil.d(str + "加密=" + str2);
+            if (q.contains(str)) {
+                if (TextUtils.isEmpty(str2)) {
+                    return "";
+                }
+                String encryptProxy = SafePay.getInstance().encryptProxy(str2);
+                LogUtil.d(str + "加密=" + encryptProxy);
+                return encryptProxy;
             }
-            String encryptProxy = SafePay.getInstance().encryptProxy(str2);
-            LogUtil.d(str + "加密=" + encryptProxy);
-            return encryptProxy;
+            return str2;
         }
-        return str2;
+        return (String) invokeLL.objValue;
     }
 
     public static int getAppVersionCode(Context context) {
-        if (context == null) {
-            return 0;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            if (context == null) {
+                return 0;
+            }
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Throwable unused) {
+                LogUtil.w("PhoneUtils", "get app version code exception");
+                return 1;
+            }
         }
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-        } catch (Throwable unused) {
-            LogUtil.w("PhoneUtils", "get app version code exception");
-            return 1;
-        }
+        return invokeL.intValue;
     }
 
     public static String getAppVersionName(Context context) {
-        if (context == null) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (context == null) {
+                return "";
+            }
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Throwable unused) {
+                LogUtil.w("PhoneUtils", "get app version name exception");
+                return "";
+            }
         }
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (Throwable unused) {
-            LogUtil.w("PhoneUtils", "get app version name exception");
-            return "";
-        }
+        return (String) invokeL.objValue;
     }
 
     public static ApplicationInfo getApplicationInfo(Context context) {
-        if (context == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                return context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
+            } catch (Throwable unused) {
+                return null;
+            }
         }
-        try {
-            return context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
-        } catch (Throwable unused) {
-            return null;
-        }
+        return (ApplicationInfo) invokeL.objValue;
     }
 
     public static String getApplicationName(Context context) {
-        if (context == null) {
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (context == null) {
+                return "";
+            }
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                return (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 0));
+            } catch (Throwable unused) {
+                return "";
+            }
         }
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            return (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 0));
-        } catch (Throwable unused) {
-            return "";
-        }
+        return (String) invokeL.objValue;
     }
 
     public static String getAvailMemory(Context context) {
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
-        return Formatter.formatFileSize(context, memoryInfo.availMem) + "_" + memoryInfo.lowMemory + "_" + Formatter.formatFileSize(context, memoryInfo.threshold);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return Formatter.formatFileSize(context, memoryInfo.availMem) + "_" + memoryInfo.lowMemory + "_" + Formatter.formatFileSize(context, memoryInfo.threshold);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getCUID(Context context) {
-        return a(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? a(context) : (String) invokeL.objValue;
     }
 
     public static String getCUID2(Context context) {
+        InterceptResult invokeL;
         Matcher matcher;
         Matcher matcher2;
         String str;
-        String cuid = DeviceId.getCUID(context);
-        String str2 = null;
-        if (cuid == null) {
-            return null;
-        }
-        if (f4084c.matcher(cuid).matches()) {
-            str2 = matcher.group(1) + matcher.group(3);
-        }
-        if (str2 == null) {
-            if (f4085d.matcher(cuid).matches()) {
-                str = matcher2.group(1) + matcher2.group(3);
-            } else {
-                str = "";
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            String cuid = DeviceId.getCUID(context);
+            String str2 = null;
+            if (cuid == null) {
+                return null;
             }
-            return str;
+            if (f4082c.matcher(cuid).matches()) {
+                str2 = matcher.group(1) + matcher.group(3);
+            }
+            if (str2 == null) {
+                if (f4083d.matcher(cuid).matches()) {
+                    str = matcher2.group(1) + matcher2.group(3);
+                } else {
+                    str = "";
+                }
+                return str;
+            }
+            return str2;
         }
-        return str2;
+        return (String) invokeL.objValue;
     }
 
     public static String getCellLocation(Context context) {
+        InterceptResult invokeL;
         String format;
         CellLocation cellLocation;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, context)) != null) {
+            return (String) invokeL.objValue;
+        }
         if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, "android.permission.READ_PHONE_STATE")) {
             return "";
         }
@@ -263,62 +392,82 @@ public final class PhoneUtils {
     }
 
     public static String getGPSLocation(Context context) {
-        try {
-            if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
-                LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
-                return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            try {
+                if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                    Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
+                    LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
+                    return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
+                }
+                return "";
+            } catch (Exception e2) {
+                LogUtil.d("PhoneUtils", "exception is " + e2);
+                return "";
             }
-            return "";
-        } catch (Exception e2) {
-            LogUtil.d("PhoneUtils", "exception is " + e2);
-            return "";
         }
+        return (String) invokeL.objValue;
     }
 
     public static String getIpInfo() {
-        String str = null;
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (true) {
-                    if (inetAddresses.hasMoreElements()) {
-                        InetAddress nextElement = inetAddresses.nextElement();
-                        if (!nextElement.isLoopbackAddress()) {
-                            byte[] address = nextElement.getAddress();
-                            if (address.length == 4) {
-                                int i2 = ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8) | (address[0] & 255);
-                                str = (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
-                                break;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            String str = null;
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                while (networkInterfaces.hasMoreElements()) {
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (true) {
+                        if (inetAddresses.hasMoreElements()) {
+                            InetAddress nextElement = inetAddresses.nextElement();
+                            if (!nextElement.isLoopbackAddress()) {
+                                byte[] address = nextElement.getAddress();
+                                if (address.length == 4) {
+                                    int i2 = ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8) | (address[0] & 255);
+                                    str = (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
+                                    break;
+                                }
                             }
                         }
                     }
                 }
+            } catch (Exception e2) {
+                if (ApollonConstants.DEBUG) {
+                    Log.d("PhoneUtils", "getIpInfo fail!" + e2.toString());
+                }
             }
-        } catch (Exception e2) {
-            if (ApollonConstants.DEBUG) {
-                Log.d("PhoneUtils", "getIpInfo fail!" + e2.toString());
-            }
+            return TextUtils.isEmpty(str) ? "" : str;
         }
-        return TextUtils.isEmpty(str) ? "" : str;
+        return (String) invokeV.objValue;
     }
 
     public static String getLinkedWay(Context context) {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                String typeName = activeNetworkInfo.getTypeName();
-                return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            try {
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+                if (activeNetworkInfo != null) {
+                    String typeName = activeNetworkInfo.getTypeName();
+                    return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
+                }
+                return "";
+            } catch (Exception unused) {
+                return "";
             }
-            return "";
-        } catch (Exception unused) {
-            return "";
         }
+        return (String) invokeL.objValue;
     }
 
     public static String getLocalMacAddress() {
+        InterceptResult invokeV;
         InputStreamReader inputStreamReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65553, null)) != null) {
+            return (String) invokeV.objValue;
+        }
         StringBuffer stringBuffer = new StringBuffer();
         InputStreamReader inputStreamReader2 = null;
         try {
@@ -374,248 +523,311 @@ public final class PhoneUtils {
     }
 
     public static String getMetaData(Context context, String str) {
-        try {
-            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-            if (applicationInfo != null) {
-                Bundle bundle = applicationInfo.metaData;
-                Object obj = bundle != null ? bundle.get(str) : null;
-                if (obj == null) {
-                    LogUtil.d("StatSDK", "null,can't find information for key:" + str);
-                    return "";
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, str)) == null) {
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null) {
+                    Bundle bundle = applicationInfo.metaData;
+                    Object obj = bundle != null ? bundle.get(str) : null;
+                    if (obj == null) {
+                        LogUtil.d("StatSDK", "null,can't find information for key:" + str);
+                        return "";
+                    }
+                    String obj2 = obj.toString();
+                    if (obj2.trim().equals("")) {
+                        LogUtil.w("PhoneUtils", "APP Key值为空||The value of APP Key is empty.");
+                    }
+                    return obj2;
                 }
-                String obj2 = obj.toString();
-                if (obj2.trim().equals("")) {
-                    LogUtil.w("PhoneUtils", "APP Key值为空||The value of APP Key is empty.");
-                }
-                return obj2;
+                return "";
+            } catch (PackageManager.NameNotFoundException e2) {
+                Log.e("PhoneUtils", "exception is " + e2);
+                return "";
             }
-            return "";
-        } catch (PackageManager.NameNotFoundException e2) {
-            Log.e("PhoneUtils", "exception is " + e2);
-            return "";
         }
+        return (String) invokeLL.objValue;
     }
 
     public static int getNumCores() {
-        try {
-            File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new a());
-            LogUtil.d("PhoneUtils", "CPU Count: " + listFiles.length);
-            return listFiles.length;
-        } catch (Exception e2) {
-            LogUtil.d("PhoneUtils", "CPU Count: Failed.");
-            e2.printStackTrace();
-            return 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            try {
+                File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new a());
+                LogUtil.d("PhoneUtils", "CPU Count: " + listFiles.length);
+                return listFiles.length;
+            } catch (Exception e2) {
+                LogUtil.d("PhoneUtils", "CPU Count: Failed.");
+                e2.printStackTrace();
+                return 1;
+            }
         }
+        return invokeV.intValue;
     }
 
     @SuppressLint({"NewApi"})
     public static String getPhisicalMac(Context context) {
-        StringBuffer stringBuffer = new StringBuffer();
-        byte[] bArr = null;
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                NetworkInterface nextElement = networkInterfaces.nextElement();
-                Enumeration<InetAddress> inetAddresses = nextElement.getInetAddresses();
-                while (true) {
-                    if (inetAddresses.hasMoreElements()) {
-                        InetAddress nextElement2 = inetAddresses.nextElement();
-                        if (!nextElement2.isAnyLocalAddress() && (nextElement2 instanceof Inet4Address) && !nextElement2.isLoopbackAddress()) {
-                            if (nextElement2.isSiteLocalAddress()) {
-                                bArr = nextElement.getHardwareAddress();
-                            } else if (!nextElement2.isLinkLocalAddress()) {
-                                bArr = nextElement.getHardwareAddress();
-                                break;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            byte[] bArr = null;
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                while (networkInterfaces.hasMoreElements()) {
+                    NetworkInterface nextElement = networkInterfaces.nextElement();
+                    Enumeration<InetAddress> inetAddresses = nextElement.getInetAddresses();
+                    while (true) {
+                        if (inetAddresses.hasMoreElements()) {
+                            InetAddress nextElement2 = inetAddresses.nextElement();
+                            if (!nextElement2.isAnyLocalAddress() && (nextElement2 instanceof Inet4Address) && !nextElement2.isLoopbackAddress()) {
+                                if (nextElement2.isSiteLocalAddress()) {
+                                    bArr = nextElement.getHardwareAddress();
+                                } else if (!nextElement2.isLinkLocalAddress()) {
+                                    bArr = nextElement.getHardwareAddress();
+                                    break;
+                                }
                             }
                         }
                     }
                 }
+            } catch (SocketException e2) {
+                e2.printStackTrace();
             }
-        } catch (SocketException e2) {
-            e2.printStackTrace();
-        }
-        if (bArr != null) {
-            for (byte b2 : bArr) {
-                stringBuffer.append(a(b2));
+            if (bArr != null) {
+                for (byte b2 : bArr) {
+                    stringBuffer.append(a(b2));
+                }
+                return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
             }
-            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
+            String wifiMacAddress = getWifiMacAddress(context);
+            return wifiMacAddress != null ? wifiMacAddress.replaceAll(":", "") : wifiMacAddress;
         }
-        String wifiMacAddress = getWifiMacAddress(context);
-        return wifiMacAddress != null ? wifiMacAddress.replaceAll(":", "") : wifiMacAddress;
+        return (String) invokeL.objValue;
     }
 
     public static CPUInfo getSystemCPUInfo() {
-        CPUInfo cPUInfo = p;
-        if (cPUInfo != null) {
-            return cPUInfo;
-        }
-        CPUInfo cPUInfo2 = new CPUInfo();
-        try {
-            FileReader fileReader = new FileReader("/proc/cpuinfo");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
-                if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", 9) != -1) {
-                    if (cPUInfo2.processor.length() > 0) {
-                        cPUInfo2.processor += "__";
-                    }
-                    cPUInfo2.processor += lowerCase.split(":")[1].trim();
-                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", 8) != -1) {
-                    if (cPUInfo2.features.length() > 0) {
-                        cPUInfo2.features += "__";
-                    }
-                    cPUInfo2.features += lowerCase.split(":")[1].trim();
-                }
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            CPUInfo cPUInfo = p;
+            if (cPUInfo != null) {
+                return cPUInfo;
             }
-            bufferedReader.close();
-            fileReader.close();
-        } catch (FileNotFoundException e2) {
-            e2.printStackTrace();
-        } catch (IOException e3) {
-            e3.printStackTrace();
+            CPUInfo cPUInfo2 = new CPUInfo();
+            try {
+                FileReader fileReader = new FileReader("/proc/cpuinfo");
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                    String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
+                    if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", 9) != -1) {
+                        if (cPUInfo2.processor.length() > 0) {
+                            cPUInfo2.processor += "__";
+                        }
+                        cPUInfo2.processor += lowerCase.split(":")[1].trim();
+                    } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", 8) != -1) {
+                        if (cPUInfo2.features.length() > 0) {
+                            cPUInfo2.features += "__";
+                        }
+                        cPUInfo2.features += lowerCase.split(":")[1].trim();
+                    }
+                }
+                bufferedReader.close();
+                fileReader.close();
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+            } catch (IOException e3) {
+                e3.printStackTrace();
+            }
+            p = cPUInfo2;
+            return cPUInfo2;
         }
-        p = cPUInfo2;
-        return cPUInfo2;
+        return (CPUInfo) invokeV.objValue;
     }
 
     public static long getTotalInternalMemorySize() {
-        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-        return statFs.getBlockCount() * statFs.getBlockSize();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+            return statFs.getBlockCount() * statFs.getBlockSize();
+        }
+        return invokeV.longValue;
     }
 
     public static String getTotalMemory(Context context) {
-        long j2 = 0;
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-            String readLine = bufferedReader.readLine();
-            String[] split = readLine.split("\\s+");
-            for (String str : split) {
-                Log.i(readLine, str + TrackUI.SEPERATOR);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
+            long j2 = 0;
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+                String readLine = bufferedReader.readLine();
+                String[] split = readLine.split("\\s+");
+                for (String str : split) {
+                    Log.i(readLine, str + TrackUI.SEPERATOR);
+                }
+                j2 = Long.valueOf(split[1]).longValue() * 1024;
+                bufferedReader.close();
+            } catch (IOException unused) {
             }
-            j2 = Long.valueOf(split[1]).longValue() * 1024;
-            bufferedReader.close();
-        } catch (IOException unused) {
+            return Formatter.formatFileSize(context, j2);
         }
-        return Formatter.formatFileSize(context, j2);
+        return (String) invokeL.objValue;
     }
 
     public static String getWCPParams(Context context) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("wime", "");
-            jSONObject.put("cuid_1", encrypt("phone_number", getCUID(context)));
-            jSONObject.put("cuid_2", encrypt("phone_number", getCUID2(context)));
-            jSONObject.put("nettype", NetworkUtils.getNetworkType(context));
-            jSONObject.put("wloc", encrypt("phone_number", getGPSLocation(context)));
-            return new String(Base64Utils.encode(jSONObject.toString().getBytes()));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return "";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("wime", "");
+                jSONObject.put("cuid_1", encrypt("phone_number", getCUID(context)));
+                jSONObject.put("cuid_2", encrypt("phone_number", getCUID2(context)));
+                jSONObject.put("nettype", NetworkUtils.getNetworkType(context));
+                jSONObject.put("wloc", encrypt("phone_number", getGPSLocation(context)));
+                return new String(Base64Utils.encode(jSONObject.toString().getBytes()));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     public static String getWifiLocation(Context context) {
-        String str = "";
-        try {
-            if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
-                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-                if (wifiManager.isWifiEnabled()) {
-                    int i2 = Integer.MAX_VALUE;
-                    int i3 = -1;
-                    for (int i4 = 0; i4 < wifiManager.getScanResults().size(); i4++) {
-                        ScanResult scanResult = wifiManager.getScanResults().get(i4);
-                        int abs = Math.abs(scanResult.level);
-                        LogUtil.d("PhoneUtils", String.format("%s %s_%s", scanResult.SSID, scanResult.BSSID, Integer.valueOf(abs)));
-                        if (i2 > abs) {
-                            i3 = i4;
-                            i2 = abs;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
+            String str = "";
+            try {
+                if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
+                    WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                    if (wifiManager.isWifiEnabled()) {
+                        int i2 = Integer.MAX_VALUE;
+                        int i3 = -1;
+                        for (int i4 = 0; i4 < wifiManager.getScanResults().size(); i4++) {
+                            ScanResult scanResult = wifiManager.getScanResults().get(i4);
+                            int abs = Math.abs(scanResult.level);
+                            LogUtil.d("PhoneUtils", String.format("%s %s_%s", scanResult.SSID, scanResult.BSSID, Integer.valueOf(abs)));
+                            if (i2 > abs) {
+                                i3 = i4;
+                                i2 = abs;
+                            }
                         }
+                        if (i3 >= 0) {
+                            ScanResult scanResult2 = wifiManager.getScanResults().get(i3);
+                            str = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
+                        }
+                        WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+                        Log.d("PhoneUtils", String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
                     }
-                    if (i3 >= 0) {
-                        ScanResult scanResult2 = wifiManager.getScanResults().get(i3);
-                        str = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
-                    }
-                    WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                    Log.d("PhoneUtils", String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
                 }
+            } catch (Exception e2) {
+                Log.d("PhoneUtils", "getWifiLocation " + e2);
             }
-        } catch (Exception e2) {
-            Log.d("PhoneUtils", "getWifiLocation " + e2);
+            return str;
         }
-        return str;
+        return (String) invokeL.objValue;
     }
 
     public static String getWifiMacAddress(Context context) {
-        try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            if (wifiManager != null) {
-                WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                LogUtil.d("PhoneUtils", String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
-                return connectionInfo.getMacAddress();
-            }
-            return "";
-        } catch (Exception e2) {
-            if (ApollonConstants.DEBUG) {
-                Log.d("PhoneUtils", e2.toString());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
+            try {
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                if (wifiManager != null) {
+                    WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+                    LogUtil.d("PhoneUtils", String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
+                    return connectionInfo.getMacAddress();
+                }
+                return "";
+            } catch (Exception e2) {
+                if (ApollonConstants.DEBUG) {
+                    Log.d("PhoneUtils", e2.toString());
+                    return "";
+                }
                 return "";
             }
-            return "";
         }
+        return (String) invokeL.objValue;
     }
 
     public static boolean hasPermission(Context context, String str) {
-        if (context == null) {
-            return false;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, context, str)) == null) {
+            if (context == null) {
+                return false;
+            }
+            return PermissionManager.checkCallingPermission(context, str);
         }
-        return PermissionManager.checkCallingPermission(context, str);
+        return invokeLL.booleanValue;
     }
 
     public static boolean isIntentAvailable(Context context, Intent intent) {
-        return context.getPackageManager().queryIntentActivities(intent, 1).size() > 0;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, context, intent)) == null) ? context.getPackageManager().queryIntentActivities(intent, 1).size() > 0 : invokeLL.booleanValue;
     }
 
     public static void sdkError(String str) {
-        LogUtil.w("PhoneUtils", str);
-        LogUtil.w("PhoneUtils", "SDK install error:" + str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65565, null, str) == null) {
+            LogUtil.w("PhoneUtils", str);
+            LogUtil.w("PhoneUtils", "SDK install error:" + str);
+        }
     }
 
     @TargetApi(9)
     public static void showInstalledAppOrDetails(Context context, String str) {
-        Intent intent = new Intent();
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 9) {
-            if (!TextUtils.isEmpty(str)) {
-                intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65566, null, context, str) == null) {
+            Intent intent = new Intent();
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 9) {
+                if (!TextUtils.isEmpty(str)) {
+                    intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                    intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
+                } else {
+                    intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
+                }
             } else {
-                intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
+                String str2 = i2 == 8 ? "pkg" : "com.android.settings.ApplicationPkgName";
+                intent.setAction("android.intent.action.VIEW");
+                if (!TextUtils.isEmpty(str)) {
+                    intent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
+                    intent.putExtra(str2, str);
+                } else {
+                    intent.setClassName("com.android.settings", "com.android.settings.ManageApplications");
+                }
             }
-        } else {
-            String str2 = i2 == 8 ? "pkg" : "com.android.settings.ApplicationPkgName";
-            intent.setAction("android.intent.action.VIEW");
-            if (!TextUtils.isEmpty(str)) {
-                intent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
-                intent.putExtra(str2, str);
-            } else {
-                intent.setClassName("com.android.settings", "com.android.settings.ManageApplications");
+            if (isIntentAvailable(context, intent)) {
+                context.startActivity(intent);
             }
-        }
-        if (isIntentAvailable(context, intent)) {
-            context.startActivity(intent);
         }
     }
 
     public static String a(Context context) {
-        String deviceID = DeviceId.getDeviceID(context);
-        if (deviceID == null) {
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String deviceID = DeviceId.getDeviceID(context);
+            if (deviceID == null) {
+                return null;
+            }
+            Matcher matcher = f4080a.matcher(deviceID);
+            String group = matcher.matches() ? matcher.group(1) : null;
+            if (group == null) {
+                Matcher matcher2 = f4081b.matcher(deviceID);
+                return matcher2.matches() ? matcher2.group(1) : "";
+            }
+            return group;
         }
-        Matcher matcher = f4082a.matcher(deviceID);
-        String group = matcher.matches() ? matcher.group(1) : null;
-        if (group == null) {
-            Matcher matcher2 = f4083b.matcher(deviceID);
-            return matcher2.matches() ? matcher2.group(1) : "";
-        }
-        return group;
+        return (String) invokeL.objValue;
     }
 }

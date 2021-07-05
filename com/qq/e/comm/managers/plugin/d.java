@@ -1,50 +1,93 @@
 package com.qq.e.comm.managers.plugin;
 
 import android.content.Context;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.qq.e.comm.util.SystemUtil;
 import java.io.File;
 /* loaded from: classes7.dex */
 public final class d {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39220a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
+    public static String f40976a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39221b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
+    public static String f40977b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(151737198, "Lcom/qq/e/comm/managers/plugin/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(151737198, "Lcom/qq/e/comm/managers/plugin/d;");
+                return;
+            }
+        }
+        f40976a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
+        f40977b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
+    }
 
     public static File a(Context context) {
-        return context.getDir(f39221b, 0);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f40977b, 0) : (File) invokeL.objValue;
     }
 
     public static File b(Context context) {
-        return new File(i(context), "gdt_plugin.jar");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new File(i(context), "gdt_plugin.jar") : (File) invokeL.objValue;
     }
 
     public static File c(Context context) {
-        return new File(i(context), "gdt_plugin.tmp");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? new File(i(context), "gdt_plugin.tmp") : (File) invokeL.objValue;
     }
 
     public static File d(Context context) {
-        return new File(i(context), "gdt_plugin.next");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? new File(i(context), "gdt_plugin.next") : (File) invokeL.objValue;
     }
 
     public static File e(Context context) {
-        return new File(i(context), "gdt_plugin.jar.sig");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? new File(i(context), "gdt_plugin.jar.sig") : (File) invokeL.objValue;
     }
 
     public static File f(Context context) {
-        return new File(i(context), "gdt_plugin.tmp.sig");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? new File(i(context), "gdt_plugin.tmp.sig") : (File) invokeL.objValue;
     }
 
     public static File g(Context context) {
-        return new File(i(context), "gdt_plugin.next.sig");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? new File(i(context), "gdt_plugin.next.sig") : (File) invokeL.objValue;
     }
 
     public static File h(Context context) {
-        return new File(i(context), "update_lc");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? new File(i(context), "update_lc") : (File) invokeL.objValue;
     }
 
     public static File i(Context context) {
-        return context.getDir(f39220a, 0);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? context.getDir(f40976a, 0) : (File) invokeL.objValue;
     }
 }

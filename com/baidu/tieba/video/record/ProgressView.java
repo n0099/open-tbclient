@@ -8,26 +8,38 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.info.XDeviceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
+import org.apache.http.client.methods.HttpDelete;
 /* loaded from: classes5.dex */
 public class ProgressView extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21479e;
+    public a f21608e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21480f;
+    public int f21609f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f21481g;
+    public Paint f21610g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f21482h;
+    public Paint f21611h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f21483i;
+    public Paint f21612i;
     public Paint j;
     public Paint k;
     public float l;
@@ -45,31 +57,91 @@ public class ProgressView extends View {
     public long x;
     public long y;
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
-    public enum State {
-        START(1),
-        PAUSE(2),
-        ROLLBACK(3),
-        DELETE(4);
-        
+    public static final class State {
+        public static final /* synthetic */ State[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final State DELETE;
+        public static final State PAUSE;
+        public static final State ROLLBACK;
+        public static final State START;
+        public transient /* synthetic */ FieldHolder $fh;
         public int mIntValue;
 
-        State(int i2) {
-            this.mIntValue = i2;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1802369376, "Lcom/baidu/tieba/video/record/ProgressView$State;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1802369376, "Lcom/baidu/tieba/video/record/ProgressView$State;");
+                    return;
+                }
+            }
+            START = new State("START", 0, 1);
+            PAUSE = new State(XDeviceInfo.ABILITY_PAUSE, 1, 2);
+            ROLLBACK = new State("ROLLBACK", 2, 3);
+            State state = new State(HttpDelete.METHOD_NAME, 3, 4);
+            DELETE = state;
+            $VALUES = new State[]{START, PAUSE, ROLLBACK, state};
+        }
+
+        public State(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mIntValue = i3;
         }
 
         public static State mapIntToValue(int i2) {
+            InterceptResult invokeI;
             State[] values;
-            for (State state : values()) {
-                if (i2 == state.getIntValue()) {
-                    return state;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+                for (State state : values()) {
+                    if (i2 == state.getIntValue()) {
+                        return state;
+                    }
                 }
+                return PAUSE;
             }
-            return PAUSE;
+            return (State) invokeI.objValue;
+        }
+
+        public static State valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+        }
+
+        public static State[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
         }
 
         public int getIntValue() {
-            return this.mIntValue;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIntValue : invokeV.intValue;
         }
     }
 
@@ -78,8 +150,24 @@ public class ProgressView extends View {
         void a(int i2);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProgressView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.n = new LinkedList<>();
         this.o = 0.0f;
         this.p = State.PAUSE;
@@ -95,185 +183,235 @@ public class ProgressView extends View {
     }
 
     public final void a(Context context) {
-        this.f21481g = new Paint();
-        this.f21482h = new Paint();
-        this.f21483i = new Paint();
-        this.k = new Paint();
-        this.j = new Paint();
-        setBackgroundColor(Color.parseColor("#FFFFFF"));
-        this.f21481g.setStyle(Paint.Style.FILL);
-        this.f21481g.setColor(Color.parseColor("#33aaff"));
-        this.f21482h.setStyle(Paint.Style.FILL);
-        this.f21482h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
-        this.f21483i.setStyle(Paint.Style.FILL);
-        this.f21483i.setColor(Color.parseColor("#FFFFFF"));
-        this.k.setStyle(Paint.Style.FILL);
-        this.k.setColor(Color.parseColor("#e53917"));
-        this.j.setStyle(Paint.Style.FILL);
-        this.j.setColor(Color.parseColor("#33aaff"));
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        float f2 = displayMetrics.widthPixels / 15000.0f;
-        this.o = f2;
-        this.t = f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.f21610g = new Paint();
+            this.f21611h = new Paint();
+            this.f21612i = new Paint();
+            this.k = new Paint();
+            this.j = new Paint();
+            setBackgroundColor(Color.parseColor("#FFFFFF"));
+            this.f21610g.setStyle(Paint.Style.FILL);
+            this.f21610g.setColor(Color.parseColor("#33aaff"));
+            this.f21611h.setStyle(Paint.Style.FILL);
+            this.f21611h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
+            this.f21612i.setStyle(Paint.Style.FILL);
+            this.f21612i.setColor(Color.parseColor("#FFFFFF"));
+            this.k.setStyle(Paint.Style.FILL);
+            this.k.setColor(Color.parseColor("#e53917"));
+            this.j.setStyle(Paint.Style.FILL);
+            this.j.setColor(Color.parseColor("#33aaff"));
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            float f2 = displayMetrics.widthPixels / 15000.0f;
+            this.o = f2;
+            this.t = f2;
+        }
     }
 
     public boolean b() {
-        return this.n.isEmpty();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n.isEmpty() : invokeV.booleanValue;
     }
 
     public void c(int i2) {
-        this.n.add(Integer.valueOf(i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.n.add(Integer.valueOf(i2));
+        }
     }
 
     public void d() {
-        this.n.clear();
-        this.p = State.PAUSE;
-        this.n.clear();
-        this.r = 0.0f;
-        this.u = 0L;
-        this.w = 0L;
-        this.x = 0L;
-        this.f21480f = 0;
-        this.v = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.n.clear();
+            this.p = State.PAUSE;
+            this.n.clear();
+            this.r = 0.0f;
+            this.u = 0L;
+            this.w = 0L;
+            this.x = 0L;
+            this.f21609f = 0;
+            this.v = 0L;
+        }
     }
 
     public State getCurrentState() {
-        return this.p;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.p : (State) invokeV.objValue;
     }
 
     public int getLastProgress() {
-        LinkedList<Integer> linkedList = this.n;
-        if (linkedList == null || linkedList.isEmpty()) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            LinkedList<Integer> linkedList = this.n;
+            if (linkedList == null || linkedList.isEmpty()) {
+                return 0;
+            }
+            return this.n.getLast().intValue();
         }
-        return this.n.getLast().intValue();
+        return invokeV.intValue;
     }
 
     public LinkedList<Integer> getTimeList() {
-        return this.n;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.n : (LinkedList) invokeV.objValue;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         int i2;
-        super.onDraw(canvas);
-        if (this.u == 0) {
-            this.u = System.currentTimeMillis();
-        }
-        if (this.y == 0) {
-            this.y = getHeight();
-        }
-        long j = this.y;
-        this.l = (float) j;
-        this.m = (float) ((j * 1) / 3);
-        long currentTimeMillis = System.currentTimeMillis();
-        this.r = 0.0f;
-        if (!this.n.isEmpty()) {
-            Iterator<Integer> it = this.n.iterator();
-            long j2 = 0;
-            while (it.hasNext()) {
-                this.w = j2;
-                long intValue = it.next().intValue();
-                this.x = intValue;
-                float f2 = this.r;
-                float f3 = (((float) (intValue - j2)) * this.o) + f2;
-                this.r = f3;
-                float f4 = f3 - this.m;
-                if (f4 < 1.0f) {
-                    f4 = 1.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.u == 0) {
+                this.u = System.currentTimeMillis();
+            }
+            if (this.y == 0) {
+                this.y = getHeight();
+            }
+            long j = this.y;
+            this.l = (float) j;
+            this.m = (float) ((j * 1) / 3);
+            long currentTimeMillis = System.currentTimeMillis();
+            this.r = 0.0f;
+            if (!this.n.isEmpty()) {
+                Iterator<Integer> it = this.n.iterator();
+                long j2 = 0;
+                while (it.hasNext()) {
+                    this.w = j2;
+                    long intValue = it.next().intValue();
+                    this.x = intValue;
+                    float f2 = this.r;
+                    float f3 = (((float) (intValue - j2)) * this.o) + f2;
+                    this.r = f3;
+                    float f4 = f3 - this.m;
+                    if (f4 < 1.0f) {
+                        f4 = 1.0f;
+                    }
+                    float f5 = f4;
+                    canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f21610g);
+                    canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f21612i);
+                    j2 = intValue;
                 }
-                float f5 = f4;
-                canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f21481g);
-                canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f21483i);
-                j2 = intValue;
-            }
-            if (this.n.getLast().intValue() <= 3000.0f) {
-                float f6 = this.o;
-                canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f21482h);
-            }
-        } else {
-            float f7 = this.o;
-            canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f21482h);
-        }
-        if (this.p == State.ROLLBACK) {
-            float f8 = this.r;
-            canvas.drawRect(f8 - (((float) (this.x - this.w)) * this.o), 0.0f, f8, (float) this.y, this.k);
-        }
-        if (this.p == State.START) {
-            float f9 = this.s + (this.t * ((float) (currentTimeMillis - this.u)));
-            this.s = f9;
-            float f10 = this.r + f9;
-            if (f10 <= getMeasuredWidth()) {
-                float f11 = this.r;
-                canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f21481g);
+                if (this.n.getLast().intValue() <= 3000.0f) {
+                    float f6 = this.o;
+                    canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f21611h);
+                }
             } else {
-                canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f21481g);
+                float f7 = this.o;
+                canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f21611h);
             }
-            float f12 = f10 - 5.0f;
-            long j3 = this.y;
-            canvas.drawRect(f12, 0.0f, f12 + ((float) j3), (float) (j3 - 1), this.j);
-            if (this.f21479e != null) {
-                int measuredWidth = (int) ((f10 / getMeasuredWidth()) * 100.0f);
-                i2 = measuredWidth <= 100 ? measuredWidth : 100;
-                if (i2 != this.f21480f) {
-                    this.f21480f = i2;
-                    this.f21479e.a(i2);
+            if (this.p == State.ROLLBACK) {
+                float f8 = this.r;
+                canvas.drawRect(f8 - (((float) (this.x - this.w)) * this.o), 0.0f, f8, (float) this.y, this.k);
+            }
+            if (this.p == State.START) {
+                float f9 = this.s + (this.t * ((float) (currentTimeMillis - this.u)));
+                this.s = f9;
+                float f10 = this.r + f9;
+                if (f10 <= getMeasuredWidth()) {
+                    float f11 = this.r;
+                    canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f21610g);
+                } else {
+                    canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f21610g);
+                }
+                float f12 = f10 - 5.0f;
+                long j3 = this.y;
+                canvas.drawRect(f12, 0.0f, f12 + ((float) j3), (float) (j3 - 1), this.j);
+                if (this.f21608e != null) {
+                    int measuredWidth = (int) ((f10 / getMeasuredWidth()) * 100.0f);
+                    i2 = measuredWidth <= 100 ? measuredWidth : 100;
+                    if (i2 != this.f21609f) {
+                        this.f21609f = i2;
+                        this.f21608e.a(i2);
+                    }
+                }
+            } else {
+                if (this.f21608e != null) {
+                    int measuredWidth2 = (int) ((this.r / getMeasuredWidth()) * 100.0f);
+                    i2 = measuredWidth2 <= 100 ? measuredWidth2 : 100;
+                    if (i2 != this.f21609f) {
+                        this.f21609f = i2;
+                        this.f21608e.a(i2);
+                    }
+                }
+                long j4 = this.v;
+                if (j4 == 0 || currentTimeMillis - j4 >= 800) {
+                    this.q = !this.q;
+                    this.v = System.currentTimeMillis();
+                }
+                if (this.q) {
+                    float f13 = this.r;
+                    long j5 = this.y;
+                    canvas.drawRect(f13 - 5.0f, 0.0f, (f13 - 5.0f) + ((float) j5), (float) (j5 - 1), this.j);
                 }
             }
-        } else {
-            if (this.f21479e != null) {
-                int measuredWidth2 = (int) ((this.r / getMeasuredWidth()) * 100.0f);
-                i2 = measuredWidth2 <= 100 ? measuredWidth2 : 100;
-                if (i2 != this.f21480f) {
-                    this.f21480f = i2;
-                    this.f21479e.a(i2);
-                }
-            }
-            long j4 = this.v;
-            if (j4 == 0 || currentTimeMillis - j4 >= 800) {
-                this.q = !this.q;
-                this.v = System.currentTimeMillis();
-            }
-            if (this.q) {
-                float f13 = this.r;
-                long j5 = this.y;
-                canvas.drawRect(f13 - 5.0f, 0.0f, (f13 - 5.0f) + ((float) j5), (float) (j5 - 1), this.j);
-            }
+            this.u = System.currentTimeMillis();
+            invalidate();
         }
-        this.u = System.currentTimeMillis();
-        invalidate();
     }
 
     public void setCurrentState(State state) {
         LinkedList<Integer> linkedList;
-        this.p = state;
-        if (state != State.START) {
-            this.s = this.t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state) == null) {
+            this.p = state;
+            if (state != State.START) {
+                this.s = this.t;
+            }
+            if (state != State.DELETE || (linkedList = this.n) == null || linkedList.isEmpty()) {
+                return;
+            }
+            this.n.removeLast();
         }
-        if (state != State.DELETE || (linkedList = this.n) == null || linkedList.isEmpty()) {
-            return;
-        }
-        this.n.removeLast();
     }
 
     public void setListener(a aVar) {
-        this.f21479e = aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
+            this.f21608e = aVar;
+        }
     }
 
     public void setPaintHeight(int i2) {
-        this.y = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.y = i2;
+        }
     }
 
     public void setTimeList(LinkedList<Integer> linkedList) {
-        if (linkedList == null || linkedList.size() <= 0) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, linkedList) == null) || linkedList == null || linkedList.size() <= 0) {
             return;
         }
         this.n = linkedList;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.n = new LinkedList<>();
         this.o = 0.0f;
         this.p = State.PAUSE;
@@ -288,8 +426,25 @@ public class ProgressView extends View {
         a(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProgressView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.n = new LinkedList<>();
         this.o = 0.0f;
         this.p = State.PAUSE;

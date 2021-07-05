@@ -4,11 +4,21 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebKitVersionBlink;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -18,232 +28,352 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
-import d.a.h.b.c.b;
+import d.a.i.b.c.b;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BdZeusUpdate {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdZeusUpdate f4332e;
+    public static BdZeusUpdate f4362e;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4333a;
+    public String f4363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4334b;
+    public String f4364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4335c;
+    public String f4365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4336d;
+    public boolean f4366d;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public ByteArrayOutputStream mOutputStream;
+        public final /* synthetic */ BdZeusUpdate this$0;
 
-        public BdZesuUpdateTask(Context context, String str) {
+        public BdZesuUpdateTask(BdZeusUpdate bdZeusUpdate, Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdZeusUpdate, context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = bdZeusUpdate;
             setUrl(BdZeusUpdate.b(str, context));
             setMethod(BdNet.HttpMethod.METHOD_GET);
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadComplete(BdNet bdNet) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bdNet) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
-            this.mOutputStream.reset();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i2) == null) {
+                this.mOutputStream.reset();
+            }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
-            if (this.mOutputStream == null) {
-                this.mOutputStream = new ByteArrayOutputStream();
-            }
-            if (i2 > 0) {
-                this.mOutputStream.write(bArr, 0, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i2) == null) {
+                if (this.mOutputStream == null) {
+                    this.mOutputStream = new ByteArrayOutputStream();
+                }
+                if (i2 > 0) {
+                    this.mOutputStream.write(bArr, 0, i2);
+                }
             }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveHeaders(BdNet bdNet, BdNetTask bdNetTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, bdNet, bdNetTask) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
-            return false;
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i2)) == null) {
+                return false;
+            }
+            return invokeLLI.booleanValue;
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i2) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i2) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            ByteArrayOutputStream byteArrayOutputStream = this.mOutputStream;
-            if (byteArrayOutputStream != null) {
-                try {
-                    String byteArrayOutputStream2 = byteArrayOutputStream.toString("utf-8");
-                    Log.d(EngineManager.LOG_TAG, "received data = ".concat(String.valueOf(byteArrayOutputStream2)));
-                    if (byteArrayOutputStream2.length() > 0) {
-                        JSONObject jSONObject = new JSONObject(byteArrayOutputStream2);
-                        if (jSONObject.has("data")) {
-                            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                            if (jSONObject2.has("version")) {
-                                BdZeusUpdate.this.f4334b = jSONObject2.getString("version");
-                            }
-                            if (jSONObject2.has("link")) {
-                                BdZeusUpdate.this.f4333a = jSONObject2.getString("link");
-                            }
-                            if (jSONObject2.has(PackageTable.MD5)) {
-                                BdZeusUpdate.this.f4335c = jSONObject2.getString(PackageTable.MD5);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048583, this, bdNet, bdNetTask) == null) {
+                ByteArrayOutputStream byteArrayOutputStream = this.mOutputStream;
+                if (byteArrayOutputStream != null) {
+                    try {
+                        String byteArrayOutputStream2 = byteArrayOutputStream.toString("utf-8");
+                        Log.d(EngineManager.LOG_TAG, "received data = ".concat(String.valueOf(byteArrayOutputStream2)));
+                        if (byteArrayOutputStream2.length() > 0) {
+                            JSONObject jSONObject = new JSONObject(byteArrayOutputStream2);
+                            if (jSONObject.has("data")) {
+                                JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                                if (jSONObject2.has("version")) {
+                                    this.this$0.f4364b = jSONObject2.getString("version");
+                                }
+                                if (jSONObject2.has("link")) {
+                                    this.this$0.f4363a = jSONObject2.getString("link");
+                                }
+                                if (jSONObject2.has(PackageTable.MD5)) {
+                                    this.this$0.f4365c = jSONObject2.getString(PackageTable.MD5);
+                                }
                             }
                         }
+                    } catch (Exception unused) {
                     }
-                } catch (Exception unused) {
                 }
+                Log.i(EngineManager.LOG_TAG, "check received data");
+                release();
+                this.this$0.g();
             }
-            Log.i(EngineManager.LOG_TAG, "check received data");
-            release();
-            BdZeusUpdate.this.g();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskStart(BdNet bdNet, BdNetTask bdNetTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet, bdNetTask) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetUploadComplete(BdNet bdNet, BdNetTask bdNetTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048585, this, bdNet, bdNetTask) == null) {
+            }
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i2, i3) == null) {
+            }
         }
 
         public void release() {
-            ByteArrayOutputStream byteArrayOutputStream = this.mOutputStream;
-            if (byteArrayOutputStream != null) {
-                try {
-                    byteArrayOutputStream.reset();
-                    this.mOutputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                ByteArrayOutputStream byteArrayOutputStream = this.mOutputStream;
+                if (byteArrayOutputStream != null) {
+                    try {
+                        byteArrayOutputStream.reset();
+                        this.mOutputStream.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
                 }
+                this.mOutputStream = null;
             }
-            this.mOutputStream = null;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f4337e;
+        public final /* synthetic */ Context f4367e;
 
-        public a(Context context) {
-            this.f4337e = context;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ BdZeusUpdate f4368f;
+
+        public a(BdZeusUpdate bdZeusUpdate, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdZeusUpdate, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4368f = bdZeusUpdate;
+            this.f4367e = context;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            if (this.f4337e != null) {
-                Log.i(EngineManager.LOG_TAG, "start check zeus update async");
-                BdZeusUpdate bdZeusUpdate = BdZeusUpdate.this;
-                Context context = this.f4337e;
-                if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f4336d && b.d(context)) {
-                    BdZesuUpdateTask bdZesuUpdateTask = new BdZesuUpdateTask(context, "https://mbrowser.baidu.com/api/update/kernel?version=");
-                    BdNet bdNet = new BdNet(context);
-                    bdNet.setEventListener(bdZesuUpdateTask);
-                    bdNet.start(bdZesuUpdateTask, false);
-                    bdZeusUpdate.f4336d = true;
-                }
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4367e == null) {
+                return;
+            }
+            Log.i(EngineManager.LOG_TAG, "start check zeus update async");
+            BdZeusUpdate bdZeusUpdate = this.f4368f;
+            Context context = this.f4367e;
+            if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f4366d && b.d(context)) {
+                BdZesuUpdateTask bdZesuUpdateTask = new BdZesuUpdateTask(bdZeusUpdate, context, "https://mbrowser.baidu.com/api/update/kernel?version=");
+                BdNet bdNet = new BdNet(context);
+                bdNet.setEventListener(bdZesuUpdateTask);
+                bdNet.start(bdZesuUpdateTask, false);
+                bdZeusUpdate.f4366d = true;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-630792824, "Lcom/baidu/browser/sailor/webkit/update/BdZeusUpdate;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-630792824, "Lcom/baidu/browser/sailor/webkit/update/BdZeusUpdate;");
+        }
+    }
+
+    public BdZeusUpdate() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     public static BdZeusUpdate a() {
-        if (f4332e == null) {
-            synchronized (BdZeusUpdate.class) {
-                if (f4332e == null) {
-                    f4332e = new BdZeusUpdate();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f4362e == null) {
+                synchronized (BdZeusUpdate.class) {
+                    if (f4362e == null) {
+                        f4362e = new BdZeusUpdate();
+                    }
                 }
             }
+            return f4362e;
         }
-        return f4332e;
+        return (BdZeusUpdate) invokeV.objValue;
     }
 
     public static String b(String str, Context context) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return str;
-        }
-        StringBuilder sb = new StringBuilder(str);
-        String zeusVersionByUpdate = WebKitVersionBlink.getZeusVersionByUpdate();
-        String sdkVersionName = WebKitFactory.getSdkVersionName();
-        Log.w("sdk in=".concat(String.valueOf(zeusVersionByUpdate)));
-        Log.w("sdk out=".concat(String.valueOf(sdkVersionName)));
-        sb.append(zeusVersionByUpdate);
-        sb.append("&");
-        if (!TextUtils.isEmpty(sdkVersionName)) {
-            d(sb, "sdk", sdkVersionName);
-        }
-        String cuid = BdSailorPlatform.getInstance().getCuid();
-        String f2 = !TextUtils.isEmpty(cuid) ? b.f(cuid) : "";
-        if (!TextUtils.isEmpty(f2)) {
-            d(sb, "cuid", f2);
-        }
-        String str2 = Build.MODEL;
-        String str3 = Build.VERSION.RELEASE;
-        int i2 = Build.VERSION.SDK_INT;
-        String str4 = Build.MANUFACTURER;
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(str2.replace("_", "-"));
-        stringBuffer.append("_");
-        stringBuffer.append(str3);
-        stringBuffer.append("_");
-        stringBuffer.append(i2);
-        stringBuffer.append("_");
-        stringBuffer.append(str4.replace("_", "-"));
-        String f3 = b.f(stringBuffer.toString().replace(" ", "-"));
-        if (!TextUtils.isEmpty(f3)) {
-            d(sb, BdZeusUtil.URL_KEY_MACHINE, f3);
-        }
-        String packageName = context.getPackageName();
-        if (!TextUtils.isEmpty(packageName)) {
-            d(sb, "app", packageName);
-        }
-        PackageInfo h2 = h(context);
-        if (h2 != null) {
-            String str5 = h2.versionName;
-            if (!TextUtils.isEmpty(str5)) {
-                d(sb, "appversion", str5);
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) {
+            if (TextUtils.isEmpty(str) || context == null) {
+                return str;
             }
-        }
-        String f4 = f(context);
-        if (!TextUtils.isEmpty(f4)) {
-            sb.append("from");
-            sb.append("=");
-            sb.append(f4);
-        }
-        if (!BdZeusUtil.isWebkitLoaded()) {
+            StringBuilder sb = new StringBuilder(str);
+            String zeusVersionByUpdate = WebKitVersionBlink.getZeusVersionByUpdate();
+            String sdkVersionName = WebKitFactory.getSdkVersionName();
+            Log.w("sdk in=".concat(String.valueOf(zeusVersionByUpdate)));
+            Log.w("sdk out=".concat(String.valueOf(sdkVersionName)));
+            sb.append(zeusVersionByUpdate);
             sb.append("&");
-            sb.append("nozeus");
-            sb.append("=");
-            sb.append("1");
+            if (!TextUtils.isEmpty(sdkVersionName)) {
+                d(sb, "sdk", sdkVersionName);
+            }
+            String cuid = BdSailorPlatform.getInstance().getCuid();
+            String f2 = !TextUtils.isEmpty(cuid) ? b.f(cuid) : "";
+            if (!TextUtils.isEmpty(f2)) {
+                d(sb, "cuid", f2);
+            }
+            String str2 = Build.MODEL;
+            String str3 = Build.VERSION.RELEASE;
+            int i2 = Build.VERSION.SDK_INT;
+            String str4 = Build.MANUFACTURER;
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(str2.replace("_", "-"));
+            stringBuffer.append("_");
+            stringBuffer.append(str3);
+            stringBuffer.append("_");
+            stringBuffer.append(i2);
+            stringBuffer.append("_");
+            stringBuffer.append(str4.replace("_", "-"));
+            String f3 = b.f(stringBuffer.toString().replace(" ", "-"));
+            if (!TextUtils.isEmpty(f3)) {
+                d(sb, BdZeusUtil.URL_KEY_MACHINE, f3);
+            }
+            String packageName = context.getPackageName();
+            if (!TextUtils.isEmpty(packageName)) {
+                d(sb, "app", packageName);
+            }
+            PackageInfo h2 = h(context);
+            if (h2 != null) {
+                String str5 = h2.versionName;
+                if (!TextUtils.isEmpty(str5)) {
+                    d(sb, "appversion", str5);
+                }
+            }
+            String f4 = f(context);
+            if (!TextUtils.isEmpty(f4)) {
+                sb.append("from");
+                sb.append("=");
+                sb.append(f4);
+            }
+            if (!BdZeusUtil.isWebkitLoaded()) {
+                sb.append("&");
+                sb.append("nozeus");
+                sb.append("=");
+                sb.append("1");
+            }
+            Log.i(EngineManager.LOG_TAG, "startCheck url = " + sb.toString());
+            return sb.toString();
         }
-        Log.i(EngineManager.LOG_TAG, "startCheck url = " + sb.toString());
-        return sb.toString();
+        return (String) invokeLL.objValue;
     }
 
     public static void d(StringBuilder sb, String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65540, null, sb, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         sb.append(str);
@@ -253,151 +383,171 @@ public class BdZeusUpdate {
     }
 
     public static boolean e(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            long[] jArr = new long[8];
-            for (int i2 = 0; i2 < 8; i2++) {
-                jArr[i2] = 0;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                long[] jArr = new long[8];
+                for (int i2 = 0; i2 < 8; i2++) {
+                    jArr[i2] = 0;
+                }
+                try {
+                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                    jArr[0] = Long.parseLong(split[0]);
+                    jArr[1] = Long.parseLong(split[1]);
+                    jArr[2] = Long.parseLong(split[2]);
+                    jArr[3] = Long.parseLong(split[3]);
+                    jArr[4] = Long.parseLong(split2[0]);
+                    jArr[5] = Long.parseLong(split2[1]);
+                    jArr[6] = Long.parseLong(split2[2]);
+                    jArr[7] = Long.parseLong(split2[3]);
+                } catch (Throwable unused) {
+                }
+                if (jArr[0] == jArr[4] && jArr[1] <= jArr[5] && jArr[2] == jArr[6] && jArr[3] < jArr[7]) {
+                    return true;
+                }
             }
-            try {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
-                jArr[0] = Long.parseLong(split[0]);
-                jArr[1] = Long.parseLong(split[1]);
-                jArr[2] = Long.parseLong(split[2]);
-                jArr[3] = Long.parseLong(split[3]);
-                jArr[4] = Long.parseLong(split2[0]);
-                jArr[5] = Long.parseLong(split2[1]);
-                jArr[6] = Long.parseLong(split2[2]);
-                jArr[7] = Long.parseLong(split2[3]);
-            } catch (Throwable unused) {
-            }
-            if (jArr[0] == jArr[4] && jArr[1] <= jArr[5] && jArr[2] == jArr[6] && jArr[3] < jArr[7]) {
-                return true;
-            }
+            return false;
         }
-        return false;
+        return invokeLL.booleanValue;
     }
 
     public static String f(Context context) {
+        InterceptResult invokeL;
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
         InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) != null) {
+            return (String) invokeL.objValue;
+        }
         ByteArrayOutputStream byteArrayOutputStream2 = null;
         try {
             inputStream = context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()));
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
-            } catch (Exception unused) {
-            } catch (Throwable th2) {
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    }
+                    String trim = new String(byteArrayOutputStream.toByteArray()).trim();
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (Exception unused) {
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception unused2) {
+                        }
+                    }
+                    return trim;
+                } catch (Exception unused3) {
+                    byteArrayOutputStream2 = byteArrayOutputStream;
+                    if (byteArrayOutputStream2 != null) {
+                        try {
+                            byteArrayOutputStream2.close();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                            return BdZeusUtil.DEFAULT_TNNUMBER;
+                        } catch (Exception unused5) {
+                            return BdZeusUtil.DEFAULT_TNNUMBER;
+                        }
+                    }
+                    return BdZeusUtil.DEFAULT_TNNUMBER;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (byteArrayOutputStream != null) {
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (Exception unused6) {
+                        }
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception unused7) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused8) {
+            } catch (Throwable th3) {
                 byteArrayOutputStream = null;
-                th = th2;
+                th = th3;
             }
-        } catch (Exception unused2) {
+        } catch (Exception unused9) {
             inputStream = null;
-        } catch (Throwable th3) {
-            byteArrayOutputStream = null;
-            th = th3;
-            inputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read == -1) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr, 0, read);
-            }
-            String trim = new String(byteArrayOutputStream.toByteArray()).trim();
-            try {
-                byteArrayOutputStream.close();
-            } catch (Exception unused3) {
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception unused4) {
-                }
-            }
-            return trim;
-        } catch (Exception unused5) {
-            byteArrayOutputStream2 = byteArrayOutputStream;
-            if (byteArrayOutputStream2 != null) {
-                try {
-                    byteArrayOutputStream2.close();
-                } catch (Exception unused6) {
-                }
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                    return BdZeusUtil.DEFAULT_TNNUMBER;
-                } catch (Exception unused7) {
-                    return BdZeusUtil.DEFAULT_TNNUMBER;
-                }
-            }
-            return BdZeusUtil.DEFAULT_TNNUMBER;
         } catch (Throwable th4) {
+            byteArrayOutputStream = null;
             th = th4;
-            if (byteArrayOutputStream != null) {
-                try {
-                    byteArrayOutputStream.close();
-                } catch (Exception unused8) {
-                }
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception unused9) {
-                }
-            }
-            throw th;
+            inputStream = null;
         }
     }
 
     public static PackageInfo h(Context context) {
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
+        return (PackageInfo) invokeL.objValue;
     }
 
     public final void c(Context context) {
-        ZeusThreadPoolUtil.executeIgnoreZeus(new a(context));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            ZeusThreadPoolUtil.executeIgnoreZeus(new a(this, context));
+        }
     }
 
     public final void g() {
-        if (BdSailor.getInstance().getAppContext() != null) {
-            String zeusVersionName = WebKitFactory.getZeusVersionName();
-            boolean z = false;
-            if (WebKitFactory.getCurEngine() == 1) {
-                if (e(zeusVersionName, this.f4334b)) {
-                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4333a, this.f4335c);
-                    return;
-                }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || BdSailor.getInstance().getAppContext() == null) {
+            return;
+        }
+        String zeusVersionName = WebKitFactory.getZeusVersionName();
+        boolean z = false;
+        if (WebKitFactory.getCurEngine() == 1) {
+            if (e(zeusVersionName, this.f4364b)) {
+                BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4363a, this.f4365c);
                 return;
             }
-            String packageName = BdSailor.getInstance().getAppContext().getPackageName();
-            if (packageName != null && packageName.equalsIgnoreCase(BdSailorPlatform.LITE_PACKAGE_NAME)) {
-                z = true;
-            }
-            if (z) {
-                try {
-                    float a2 = d.a.h.a.k.a.a() / 1024.0f;
-                    String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb");
-                    if (a2 < (TextUtils.isEmpty(GetCloudSettingsValue) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
-                        return;
-                    }
-                    BdSailorPlatform.getStatic().c("MemMbSize", String.valueOf(a2));
-                } catch (Exception unused) {
-                }
-            }
-            BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
-            BdSailorPlatform.getStatic().a();
-            Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4333a, this.f4335c);
+            return;
         }
+        String packageName = BdSailor.getInstance().getAppContext().getPackageName();
+        if (packageName != null && packageName.equalsIgnoreCase(BdSailorPlatform.LITE_PACKAGE_NAME)) {
+            z = true;
+        }
+        if (z) {
+            try {
+                float a2 = d.a.i.a.k.a.a() / 1024.0f;
+                String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb");
+                if (a2 < (TextUtils.isEmpty(GetCloudSettingsValue) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
+                    return;
+                }
+                BdSailorPlatform.getStatic().c("MemMbSize", String.valueOf(a2));
+            } catch (Exception unused) {
+            }
+        }
+        BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
+        BdSailorPlatform.getStatic().a();
+        Log.i(EngineManager.LOG_TAG, "start download zeus");
+        BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4363a, this.f4365c);
     }
 }

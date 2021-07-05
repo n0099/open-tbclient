@@ -5,54 +5,92 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public final class e extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f22963a;
+    public boolean f23479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f22964b;
+    public ImageView f23480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f22965c;
+    public TextView f23481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f22966d;
+    public Context f23482d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
         super(context);
-        this.f22963a = false;
-        this.f22966d = context;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23479a = false;
+        this.f23482d = context;
         setOrientation(0);
         setGravity(16);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f22964b = new ImageView(context);
-        this.f22965c = new TextView(context);
-        this.f22964b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
-        addView(this.f22964b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
+        this.f23480b = new ImageView(context);
+        this.f23481c = new TextView(context);
+        this.f23480b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
+        addView(this.f23480b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(com.baidu.ufosdk.f.i.a(context, 10.0f), 0, 0, 0);
-        addView(this.f22965c, layoutParams);
+        addView(this.f23481c, layoutParams);
     }
 
     public final void a() {
-        this.f22965c.setTextColor(-13421773);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f23481c.setTextColor(-13421773);
+        }
     }
 
     public final void a(float f2) {
-        this.f22965c.setTextSize(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+            this.f23481c.setTextSize(f2);
+        }
     }
 
     public final void a(String str) {
-        this.f22965c.setText(str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f23481c.setText(str);
+        }
     }
 
     public final void a(boolean z) {
-        this.f22964b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f22966d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f22966d, "ufo_checkbox_default.png")));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f23480b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23482d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23482d, "ufo_checkbox_default.png")));
+        }
     }
 
     public final String b() {
-        return this.f22965c.getText().toString();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23481c.getText().toString() : (String) invokeV.objValue;
     }
 }

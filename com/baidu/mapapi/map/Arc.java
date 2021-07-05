@@ -1,94 +1,155 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Arc extends Overlay {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f6818f = "Arc";
+    public static final String f6848f = "Arc";
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6819a;
+    public int f6849a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6820b;
+    public int f6850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f6821c;
+    public LatLng f6851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f6822d;
+    public LatLng f6852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f6823e;
+    public LatLng f6853e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-310720513, "Lcom/baidu/mapapi/map/Arc;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-310720513, "Lcom/baidu/mapapi/map/Arc;");
+        }
+    }
 
     public Arc() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.arc;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f7709f;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
-        super.a(bundle);
-        ArrayList arrayList = new ArrayList();
-        arrayList.clear();
-        arrayList.add(this.f6821c);
-        arrayList.add(this.f6822d);
-        arrayList.add(this.f6823e);
-        GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
-        bundle.putDouble("location_x", ll2mc.getLongitudeE6());
-        bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("width", this.f6820b);
-        Overlay.a(arrayList, bundle);
-        Overlay.a(this.f6819a, bundle);
-        return bundle;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            super.a(bundle);
+            ArrayList arrayList = new ArrayList();
+            arrayList.clear();
+            arrayList.add(this.f6851c);
+            arrayList.add(this.f6852d);
+            arrayList.add(this.f6853e);
+            GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
+            bundle.putDouble("location_x", ll2mc.getLongitudeE6());
+            bundle.putDouble("location_y", ll2mc.getLatitudeE6());
+            bundle.putInt("width", this.f6850b);
+            Overlay.a(arrayList, bundle);
+            Overlay.a(this.f6849a, bundle);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
     }
 
     public int getColor() {
-        return this.f6819a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6849a : invokeV.intValue;
     }
 
     public LatLng getEndPoint() {
-        return this.f6823e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6853e : (LatLng) invokeV.objValue;
     }
 
     public LatLng getMiddlePoint() {
-        return this.f6822d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6852d : (LatLng) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
-        return this.f6821c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6851c : (LatLng) invokeV.objValue;
     }
 
     public int getWidth() {
-        return this.f6820b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6850b : invokeV.intValue;
     }
 
     public void setColor(int i2) {
-        this.f6819a = i2;
-        this.listener.b(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.f6849a = i2;
+            this.listener.b(this);
+        }
     }
 
     public void setPoints(LatLng latLng, LatLng latLng2, LatLng latLng3) {
-        if (latLng == null || latLng2 == null || latLng3 == null) {
-            throw new IllegalArgumentException("BDMapSDKException:start and middle and end points can not be null");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, latLng, latLng2, latLng3) == null) {
+            if (latLng == null || latLng2 == null || latLng3 == null) {
+                throw new IllegalArgumentException("BDMapSDKException:start and middle and end points can not be null");
+            }
+            if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
+                throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
+            }
+            this.f6851c = latLng;
+            this.f6852d = latLng2;
+            this.f6853e = latLng3;
+            this.listener.b(this);
         }
-        if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
-            throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
-        }
-        this.f6821c = latLng;
-        this.f6822d = latLng2;
-        this.f6823e = latLng3;
-        this.listener.b(this);
     }
 
     public void setWidth(int i2) {
-        if (i2 > 0) {
-            this.f6820b = i2;
-            this.listener.b(this);
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 <= 0) {
+            return;
         }
+        this.f6850b = i2;
+        this.listener.b(this);
     }
 }

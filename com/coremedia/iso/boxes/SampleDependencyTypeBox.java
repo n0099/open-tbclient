@@ -1,130 +1,236 @@
 package com.coremedia.iso.boxes;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
-import g.a.a.a;
-import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes6.dex */
 public class SampleDependencyTypeBox extends AbstractFullBox {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sdtp";
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1965a ajc$tjp_2 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
+    public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
+    public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
     /* loaded from: classes6.dex */
     public static class Entry {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int value;
 
         public Entry(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.value = i2;
         }
 
         public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                return obj != null && Entry.class == obj.getClass() && this.value == ((Entry) obj).value;
             }
-            return obj != null && Entry.class == obj.getClass() && this.value == ((Entry) obj).value;
+            return invokeL.booleanValue;
         }
 
         public int getReserved() {
-            return (this.value >> 6) & 3;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.value >> 6) & 3 : invokeV.intValue;
         }
 
         public int getSampleDependsOn() {
-            return (this.value >> 4) & 3;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.value >> 4) & 3 : invokeV.intValue;
         }
 
         public int getSampleHasRedundancy() {
-            return this.value & 3;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.value & 3 : invokeV.intValue;
         }
 
         public int getSampleIsDependentOn() {
-            return (this.value >> 2) & 3;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.value >> 2) & 3 : invokeV.intValue;
         }
 
         public int hashCode() {
-            return this.value;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.value : invokeV.intValue;
         }
 
         public void setReserved(int i2) {
-            this.value = ((i2 & 3) << 6) | (this.value & 63);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+                this.value = ((i2 & 3) << 6) | (this.value & 63);
+            }
         }
 
         public void setSampleDependsOn(int i2) {
-            this.value = ((i2 & 3) << 4) | (this.value & 207);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+                this.value = ((i2 & 3) << 4) | (this.value & 207);
+            }
         }
 
         public void setSampleHasRedundancy(int i2) {
-            this.value = (i2 & 3) | (this.value & GDiffPatcher.COPY_INT_UBYTE);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+                this.value = (i2 & 3) | (this.value & GDiffPatcher.COPY_INT_UBYTE);
+            }
         }
 
         public void setSampleIsDependentOn(int i2) {
-            this.value = ((i2 & 3) << 2) | (this.value & LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+                this.value = ((i2 & 3) << 2) | (this.value & LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK);
+            }
         }
 
         public String toString() {
-            return "Entry{reserved=" + getReserved() + ", sampleDependsOn=" + getSampleDependsOn() + ", sampleIsDependentOn=" + getSampleIsDependentOn() + ", sampleHasRedundancy=" + getSampleHasRedundancy() + '}';
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return "Entry{reserved=" + getReserved() + ", sampleDependsOn=" + getSampleDependsOn() + ", sampleIsDependentOn=" + getSampleIsDependentOn() + ", sampleHasRedundancy=" + getSampleHasRedundancy() + '}';
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(39084835, "Lcom/coremedia/iso/boxes/SampleDependencyTypeBox;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(39084835, "Lcom/coremedia/iso/boxes/SampleDependencyTypeBox;");
+                return;
+            }
+        }
         ajc$preClinit();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SampleDependencyTypeBox() {
         super(TYPE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.entries = new ArrayList();
     }
 
     public static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("SampleDependencyTypeBox.java", SampleDependencyTypeBox.class);
-        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getEntries", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", "java.util.List"), 139);
-        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setEntries", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "java.util.List", "entries", "", "void"), 143);
-        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "toString", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", "java.lang.String"), Opcodes.LCMP);
+        Factory factory = new Factory("SampleDependencyTypeBox.java", SampleDependencyTypeBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntries", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", "java.util.List"), 139);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEntries", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "java.util.List", "entries", "", "void"), 143);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", "java.lang.String"), Opcodes.LCMP);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        parseVersionAndFlags(byteBuffer);
-        while (byteBuffer.remaining() > 0) {
-            this.entries.add(new Entry(IsoTypeReader.readUInt8(byteBuffer)));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            while (byteBuffer.remaining() > 0) {
+                this.entries.add(new Entry(IsoTypeReader.readUInt8(byteBuffer)));
+            }
         }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        writeVersionAndFlags(byteBuffer);
-        for (Entry entry : this.entries) {
-            IsoTypeWriter.writeUInt8(byteBuffer, entry.value);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            for (Entry entry : this.entries) {
+                IsoTypeWriter.writeUInt8(byteBuffer, entry.value);
+            }
         }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        return this.entries.size() + 4;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.entries.size() + 4 : invokeV.longValue;
     }
 
     public List<Entry> getEntries() {
-        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
-        return this.entries;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
     }
 
     public void setEntries(List<Entry> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, list));
-        this.entries = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));
+            this.entries = list;
+        }
     }
 
     public String toString() {
-        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
-        return "SampleDependencyTypeBox{entries=" + this.entries + '}';
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return "SampleDependencyTypeBox{entries=" + this.entries + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

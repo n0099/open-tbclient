@@ -11,7 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -19,31 +21,38 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
-import d.a.n0.r.k;
-import d.a.n0.r.q.a2;
-import d.a.o0.k2.m;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.r0.r.k;
+import d.a.r0.r.q.b2;
+import d.a.s0.n2.m;
 import tbclient.VideoInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsBaseVideoView extends LinearLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f13291e;
+    public FrameLayout f13376e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13292f;
+    public TextView f13377f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f13293g;
+    public TbImageView f13378g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f13294h;
+    public ImageView f13379h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbCyberVideoView f13295i;
+    public TbCyberVideoView f13380i;
     public TextView j;
     public View k;
     public m l;
-    public a2 m;
+    public b2 m;
     public View n;
     public TextView o;
     public int p;
@@ -57,245 +66,454 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     public Runnable x;
     public TbCyberVideoView.g y;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnAttachStateChangeListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FrsBaseVideoView f13381e;
+
+        public a(FrsBaseVideoView frsBaseVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsBaseVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13381e = frsBaseVideoView;
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
-            FrameLayout frameLayout = FrsBaseVideoView.this.f13291e;
-            if (frameLayout != null) {
-                frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(FrsBaseVideoView.this.v);
+            FrameLayout frameLayout;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (frameLayout = this.f13381e.f13376e) == null) {
+                return;
             }
+            frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(this.f13381e.v);
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewDetachedFromWindow(View view) {
-            FrameLayout frameLayout = FrsBaseVideoView.this.f13291e;
-            if (frameLayout != null) {
-                frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(FrsBaseVideoView.this.v);
+            FrameLayout frameLayout;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (frameLayout = this.f13381e.f13376e) == null) {
+                return;
             }
+            frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this.f13381e.v);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements TbImageView.f {
-        public b() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FrsBaseVideoView f13382a;
+
+        public b(FrsBaseVideoView frsBaseVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsBaseVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13382a = frsBaseVideoView;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
-            if (!z || FrsBaseVideoView.this.f13293g == null) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.f13382a.f13378g != null) {
+                this.f13382a.f13378g.setDefaultBgResource(0);
             }
-            FrsBaseVideoView.this.f13293g.setDefaultBgResource(0);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements CyberPlayerManager.OnErrorListener {
-        public c() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FrsBaseVideoView f13383e;
+
+        public c(FrsBaseVideoView frsBaseVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsBaseVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13383e = frsBaseVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i2, int i3, Object obj) {
-            FrsBaseVideoView.this.l(true, 4);
-            return true;
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
+                this.f13383e.l(true, 4);
+                return true;
+            }
+            return invokeIIL.booleanValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements ViewTreeObserver.OnGlobalLayoutListener {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FrsBaseVideoView f13384e;
+
+        public d(FrsBaseVideoView frsBaseVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsBaseVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13384e = frsBaseVideoView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            FrameLayout frameLayout = FrsBaseVideoView.this.f13291e;
-            if (frameLayout == null || frameLayout.getLayoutParams() == null || FrsBaseVideoView.this.f13291e.getVisibility() == 8) {
+            FrameLayout frameLayout;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frameLayout = this.f13384e.f13376e) == null || frameLayout.getLayoutParams() == null || this.f13384e.f13376e.getVisibility() == 8) {
                 return;
             }
-            FrsBaseVideoView.this.f13291e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-            ViewGroup.LayoutParams layoutParams = FrsBaseVideoView.this.f13291e.getLayoutParams();
-            if (FrsBaseVideoView.this.f13291e.getWidth() <= 0) {
+            this.f13384e.f13376e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ViewGroup.LayoutParams layoutParams = this.f13384e.f13376e.getLayoutParams();
+            if (this.f13384e.f13376e.getWidth() <= 0) {
                 return;
             }
-            layoutParams.height = (int) (FrsBaseVideoView.this.f13291e.getWidth() * 0.5625d);
-            FrsBaseVideoView.this.f13291e.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (this.f13384e.f13376e.getWidth() * 0.5625d);
+            this.f13384e.f13376e.setLayoutParams(layoutParams);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Runnable {
-        public e() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FrsBaseVideoView f13385e;
+
+        public e(FrsBaseVideoView frsBaseVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsBaseVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13385e = frsBaseVideoView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (FrsBaseVideoView.this.f13295i == null || FrsBaseVideoView.this.f13295i.isPlaying()) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13385e.f13380i == null || this.f13385e.f13380i.isPlaying()) {
                 return;
             }
-            FrsBaseVideoView.this.l(true, 1);
+            this.f13385e.l(true, 1);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
-        public f() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FrsBaseVideoView f13386e;
+
+        public f(FrsBaseVideoView frsBaseVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsBaseVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13386e = frsBaseVideoView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            FrsBaseVideoView.this.l(true, 4);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f13386e.l(true, 4);
+            }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements TbCyberVideoView.g {
-        public g() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ FrsBaseVideoView f13387e;
+
+        public g(FrsBaseVideoView frsBaseVideoView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsBaseVideoView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13387e = frsBaseVideoView;
         }
 
         @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.g
         public void onSurfaceDestroyed() {
-            FrsBaseVideoView.this.stopPlay();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f13387e.stopPlay();
+            }
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrsBaseVideoView(Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     public final void e(VideoInfo videoInfo) {
-        j();
-        if (this.f13293g == null || this.f13291e == null || this.f13295i == null) {
-            return;
-        }
-        if (k.c().g() && this.m != null && videoInfo != null) {
-            this.f13291e.setVisibility(0);
-            this.f13293g.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f13293g.U(videoInfo.thumbnail_url, 10, false);
-            stopPlay();
-            String str = videoInfo.video_url;
-            this.r = str;
-            if (StringUtils.isNull(str)) {
-                l(true, 4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, videoInfo) == null) {
+            j();
+            if (this.f13378g == null || this.f13376e == null || this.f13380i == null) {
+                return;
             }
-            this.f13292f.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
-            this.o.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
-            return;
+            if (k.c().g() && this.m != null && videoInfo != null) {
+                this.f13376e.setVisibility(0);
+                this.f13378g.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                this.f13378g.M(videoInfo.thumbnail_url, 10, false);
+                stopPlay();
+                String str = videoInfo.video_url;
+                this.r = str;
+                if (StringUtils.isNull(str)) {
+                    l(true, 4);
+                }
+                this.f13377f.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
+                this.o.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
+                return;
+            }
+            this.f13376e.setVisibility(8);
         }
-        this.f13291e.setVisibility(8);
     }
 
     public final void f() {
-        LayoutInflater.from(getContext()).inflate(R.layout.base_video_view, this);
-        setOrientation(1);
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame_video);
-        this.f13291e = frameLayout;
-        frameLayout.setOnClickListener(this);
-        this.f13291e.addOnAttachStateChangeListener(new a());
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.image_video);
-        this.f13293g = tbImageView;
-        tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.f13293g.setEvent(this.t);
-        this.f13293g.setGifIconSupport(false);
-        this.l = new m((ViewGroup) findViewById(R.id.auto_video_loading_container));
-        this.f13294h = (ImageView) findViewById(R.id.image_video_play);
-        TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(getContext());
-        this.f13295i = tbCyberVideoView;
-        tbCyberVideoView.setStageType("2003");
-        k();
-        this.f13295i.setOnErrorListener(this.u);
-        this.f13295i.setOnSurfaceDestroyedListener(this.y);
-        this.n = findViewById(R.id.auto_video_black_mask);
-        this.j = (TextView) findViewById(R.id.auto_video_error_tips);
-        this.k = findViewById(R.id.auto_video_error_background);
-        this.f13292f = (TextView) findViewById(R.id.text_video_duration);
-        this.o = (TextView) findViewById(R.id.text_video_play_count);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.base_video_view, this);
+            setOrientation(1);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame_video);
+            this.f13376e = frameLayout;
+            frameLayout.setOnClickListener(this);
+            this.f13376e.addOnAttachStateChangeListener(new a(this));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.image_video);
+            this.f13378g = tbImageView;
+            tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.f13378g.setEvent(this.t);
+            this.f13378g.setGifIconSupport(false);
+            this.l = new m((ViewGroup) findViewById(R.id.auto_video_loading_container));
+            this.f13379h = (ImageView) findViewById(R.id.image_video_play);
+            TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(getContext());
+            this.f13380i = tbCyberVideoView;
+            tbCyberVideoView.setStageType("2003");
+            k();
+            this.f13380i.setOnErrorListener(this.u);
+            this.f13380i.setOnSurfaceDestroyedListener(this.y);
+            this.n = findViewById(R.id.auto_video_black_mask);
+            this.j = (TextView) findViewById(R.id.auto_video_error_tips);
+            this.k = findViewById(R.id.auto_video_error_background);
+            this.f13377f = (TextView) findViewById(R.id.text_video_duration);
+            this.o = (TextView) findViewById(R.id.text_video_play_count);
+        }
     }
 
-    public void g(a2 a2Var, VideoInfo videoInfo) {
-        if (a2Var == null) {
+    public void g(b2 b2Var, VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, b2Var, videoInfo) == null) || b2Var == null) {
             return;
         }
-        this.m = a2Var;
+        this.m = b2Var;
         i(videoInfo);
     }
 
     public int getCurrentPosition() {
-        TbCyberVideoView tbCyberVideoView = this.f13295i;
-        if (tbCyberVideoView == null) {
-            return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TbCyberVideoView tbCyberVideoView = this.f13380i;
+            if (tbCyberVideoView == null) {
+                return 0;
+            }
+            return tbCyberVideoView.getCurrentPosition();
         }
-        return tbCyberVideoView.getCurrentPosition();
+        return invokeV.intValue;
     }
 
     public String getPlayUrl() {
-        return this.r;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.r : (String) invokeV.objValue;
     }
 
     public View getVideoContainer() {
-        return this.f13291e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13376e : (View) invokeV.objValue;
     }
 
     public void h(int i2) {
-        if (this.p != i2) {
-            SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
-            SkinManager.setImageResource(this.f13294h, R.drawable.btn_icon_play_video_n);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f13292f, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.o, R.color.CAM_X0101);
-            SkinManager.setBackgroundColor(this.k, R.color.common_color_10014);
-            if (this.j != null) {
-                this.j.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.icon_toast_game_error), (Drawable) null, (Drawable) null);
-            }
-            this.p = i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.p == i2) {
+            return;
         }
+        SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
+        SkinManager.setImageResource(this.f13379h, R.drawable.btn_icon_play_video_n);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f13377f, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.o, R.color.CAM_X0101);
+        SkinManager.setBackgroundColor(this.k, R.color.common_color_10014);
+        if (this.j != null) {
+            this.j.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.icon_toast_game_error), (Drawable) null, (Drawable) null);
+        }
+        this.p = i2;
     }
 
     public final void i(VideoInfo videoInfo) {
-        a2 a2Var = this.m;
-        if (a2Var != null && a2Var.T() != null) {
-            setVisibility(0);
-            e(videoInfo);
-            h(TbadkCoreApplication.getInst().getSkinType());
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, videoInfo) == null) {
+            b2 b2Var = this.m;
+            if (b2Var != null && b2Var.H() != null) {
+                setVisibility(0);
+                e(videoInfo);
+                h(TbadkCoreApplication.getInst().getSkinType());
+                return;
+            }
+            setVisibility(8);
         }
-        setVisibility(8);
     }
 
     public final void j() {
-        d.a.c.e.m.e.a().removeCallbacks(this.w);
-        d.a.c.e.m.e.a().removeCallbacks(this.x);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            d.a.c.e.m.e.a().removeCallbacks(this.w);
+            d.a.c.e.m.e.a().removeCallbacks(this.x);
+        }
     }
 
     public final void k() {
-        TbCyberVideoView tbCyberVideoView = this.f13295i;
-        if (tbCyberVideoView == null || tbCyberVideoView.getParent() != null) {
-            return;
+        TbCyberVideoView tbCyberVideoView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tbCyberVideoView = this.f13380i) != null && tbCyberVideoView.getParent() == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            layoutParams.gravity = 17;
+            this.f13376e.addView(this.f13380i.getView(), 0);
+            this.f13380i.getView().setLayoutParams(layoutParams);
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        layoutParams.gravity = 17;
-        this.f13291e.addView(this.f13295i.getView(), 0);
-        this.f13295i.getView().setLayoutParams(layoutParams);
     }
 
     public final void l(boolean z, int i2) {
-        if (this.f13294h == null || this.f13293g == null || this.n == null || this.l == null || this.k == null || this.j == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f13379h == null || this.f13378g == null || this.n == null || this.l == null || this.k == null || this.j == null) {
             return;
         }
         if (z || this.q != i2) {
             this.q = i2;
             d.a.c.e.m.e.a().removeCallbacks(this.x);
             d.a.c.e.m.e.a().removeCallbacks(this.w);
-            this.f13294h.setVisibility(0);
-            this.f13293g.clearAnimation();
-            this.f13293g.setVisibility(0);
+            this.f13379h.setVisibility(0);
+            this.f13378g.clearAnimation();
+            this.f13378g.setVisibility(0);
             this.n.setVisibility(0);
             this.l.b();
             this.k.setVisibility(8);
@@ -305,35 +523,60 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        View.OnClickListener onClickListener = this.s;
-        if (onClickListener != null) {
-            onClickListener.onClick(view);
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, view) == null) || (onClickListener = this.s) == null) {
+            return;
         }
+        onClickListener.onClick(view);
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.s = onClickListener;
-    }
-
-    public void stopPlay() {
-        j();
-        l(true, 1);
-        TbCyberVideoView tbCyberVideoView = this.f13295i;
-        if (tbCyberVideoView != null) {
-            tbCyberVideoView.stopPlayback();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
+            this.s = onClickListener;
         }
     }
 
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            j();
+            l(true, 1);
+            TbCyberVideoView tbCyberVideoView = this.f13380i;
+            if (tbCyberVideoView != null) {
+                tbCyberVideoView.stopPlayback();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsBaseVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.p = 3;
         this.q = 1;
-        this.t = new b();
-        this.u = new c();
-        this.v = new d();
-        this.w = new e();
-        this.x = new f();
-        this.y = new g();
+        this.t = new b(this);
+        this.u = new c(this);
+        this.v = new d(this);
+        this.w = new e(this);
+        this.x = new f(this);
+        this.y = new g(this);
         f();
     }
 }

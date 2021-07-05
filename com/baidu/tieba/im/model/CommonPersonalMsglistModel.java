@@ -4,23 +4,69 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.o0.f1.w.c;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.s0.i1.w.c;
+/* loaded from: classes5.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mCustomListener;
     public UserData mUser;
 
     public CommonPersonalMsglistModel() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.mUser = null;
-        this.mCustomListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.model.CommonPersonalMsglistModel.1
+        this.mCustomListener = new CustomMessageListener(this, 0) { // from class: com.baidu.tieba.im.model.CommonPersonalMsglistModel.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CommonPersonalMsglistModel this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage == null) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
                 }
                 if (customResponsedMessage.getCmd() == 2016012) {
@@ -29,16 +75,16 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     }
                     SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) customResponsedMessage.getData();
                     if (socketResponsedMessage.getCmd() == 205001 && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-                        CommonPersonalMsglistModel.this.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
+                        this.this$0.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
                     }
                 } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                    UserData userData = CommonPersonalMsglistModel.this.mUser;
+                    UserData userData = this.this$0.mUser;
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
-                        CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
+                        this.this$0.sendMsgFail(chatMessage);
                     }
                 }
             }
@@ -46,41 +92,97 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(2016012, this.mCustomListener);
-        MessageManager.getInstance().registerListener(2001215, this.mCustomListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            MessageManager.getInstance().registerListener(2016012, this.mCustomListener);
+            MessageManager.getInstance().registerListener(2001215, this.mCustomListener);
+        }
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.mCustomListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.mCustomListener);
+        }
     }
 
     public UserData getUser() {
-        return this.mUser;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUser : (UserData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void onDestroy() {
-        super.onDestroy();
-        unRegisterListener();
-    }
-
-    public void setUser(UserData userData) {
-        this.mUser = userData;
-        if (userData != null) {
-            this.mId = userData.getUserIdLong();
-        } else {
-            this.mId = 0L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDestroy();
+            unRegisterListener();
         }
     }
 
+    public void setUser(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, userData) == null) {
+            this.mUser = userData;
+            if (userData != null) {
+                this.mId = userData.getUserIdLong();
+            } else {
+                this.mId = 0L;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CommonPersonalMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msglistActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((MsglistActivity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mUser = null;
-        this.mCustomListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.model.CommonPersonalMsglistModel.1
+        this.mCustomListener = new CustomMessageListener(this, 0) { // from class: com.baidu.tieba.im.model.CommonPersonalMsglistModel.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CommonPersonalMsglistModel this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr;
+                    Object[] objArr2 = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage == null) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
                 }
                 if (customResponsedMessage.getCmd() == 2016012) {
@@ -89,16 +191,16 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     }
                     SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) customResponsedMessage.getData();
                     if (socketResponsedMessage.getCmd() == 205001 && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-                        CommonPersonalMsglistModel.this.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
+                        this.this$0.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
                     }
                 } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                    UserData userData = CommonPersonalMsglistModel.this.mUser;
+                    UserData userData = this.this$0.mUser;
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
-                        CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
+                        this.this$0.sendMsgFail(chatMessage);
                     }
                 }
             }

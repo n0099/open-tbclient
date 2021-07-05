@@ -7,58 +7,116 @@ import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusRequestMessage;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.c.g.a;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_CLOSE_ONSCROLL_STOP_DELAY_MILLIS = 2000;
-    public a mLiveStatusMsgListener = new a(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
-        @Override // d.a.c.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == AlaAutoRefreshFragment.this.getUniqueId()) {
-                List<Long> list = null;
-                if (responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
-                    list = ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds();
-                } else if (responsedMessage instanceof AlaMGetLiveStatusSocketResponseMessage) {
-                    list = ((AlaMGetLiveStatusSocketResponseMessage) responsedMessage).getClosedIds();
-                }
-                if (list == null || list.isEmpty()) {
-                    return;
-                }
-                AlaAutoRefreshFragment.this.processCloseLives(list);
+    public transient /* synthetic */ FieldHolder $fh;
+    public a mLiveStatusMsgListener;
+    public ISquareRefreshHandler mSquareRefreshHandler;
+
+    public AlaAutoRefreshFragment() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    };
-    public ISquareRefreshHandler mSquareRefreshHandler;
+        this.mLiveStatusMsgListener = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ AlaAutoRefreshFragment this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r9), Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        Object[] objArr2 = newInitContext2.callArgs;
+                        super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // d.a.c.c.g.a
+            public void onMessage(ResponsedMessage<?> responsedMessage) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == this.this$0.getUniqueId()) {
+                    List<Long> list = null;
+                    if (responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
+                        list = ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds();
+                    } else if (responsedMessage instanceof AlaMGetLiveStatusSocketResponseMessage) {
+                        list = ((AlaMGetLiveStatusSocketResponseMessage) responsedMessage).getClosedIds();
+                    }
+                    if (list == null || list.isEmpty()) {
+                        return;
+                    }
+                    this.this$0.processCloseLives(list);
+                }
+            }
+        };
+    }
 
     public abstract List<Long> getCurrentLiveIds();
 
     public void markHasReaded() {
-        ISquareRefreshHandler iSquareRefreshHandler = this.mSquareRefreshHandler;
-        if (iSquareRefreshHandler != null) {
-            iSquareRefreshHandler.markHasReaded();
+        ISquareRefreshHandler iSquareRefreshHandler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iSquareRefreshHandler = this.mSquareRefreshHandler) == null) {
+            return;
         }
+        iSquareRefreshHandler.markHasReaded();
     }
 
     public void markLoadedData(int i2) {
-        ISquareRefreshHandler iSquareRefreshHandler = this.mSquareRefreshHandler;
-        if (iSquareRefreshHandler != null) {
-            iSquareRefreshHandler.markDataLoaded(i2);
+        ISquareRefreshHandler iSquareRefreshHandler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (iSquareRefreshHandler = this.mSquareRefreshHandler) == null) {
+            return;
         }
+        iSquareRefreshHandler.markDataLoaded(i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        registerListener(this.mLiveStatusMsgListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            registerListener(this.mLiveStatusMsgListener);
+        }
     }
 
     public abstract void processCloseLives(List<Long> list);
 
     public void refreshCurrentPage() {
-        List<Long> currentLiveIds = getCurrentLiveIds();
-        if (currentLiveIds == null || currentLiveIds.isEmpty()) {
+        List<Long> currentLiveIds;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (currentLiveIds = getCurrentLiveIds()) == null || currentLiveIds.isEmpty()) {
             return;
         }
         AlaMGetLiveStatusRequestMessage alaMGetLiveStatusRequestMessage = new AlaMGetLiveStatusRequestMessage();
@@ -68,6 +126,9 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
     }
 
     public void setSquareRefreshHandler(ISquareRefreshHandler iSquareRefreshHandler) {
-        this.mSquareRefreshHandler = iSquareRefreshHandler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iSquareRefreshHandler) == null) {
+            this.mSquareRefreshHandler = iSquareRefreshHandler;
+        }
     }
 }

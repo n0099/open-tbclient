@@ -2,233 +2,412 @@ package com.baidu.mapapi.synchronization.histroytrace;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HistoryTraceData implements Parcelable {
-    public static final Parcelable.Creator<HistoryTraceData> CREATOR = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<HistoryTraceData> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7422a;
+    public int f7452a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f7423b;
+    public double f7453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f7424c;
+    public double f7454c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7425d;
+    public int f7455d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f7426e;
+    public LatLng f7456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LatLng f7427f;
+    public LatLng f7457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SyncCoordinateConverter.CoordType f7428g = SyncCoordinateConverter.CoordType.BD09LL;
+    public SyncCoordinateConverter.CoordType f7458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<HistoryTracePoint> f7429h;
+    public List<HistoryTracePoint> f7459h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7430i;
+    public int f7460i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HistoryTracePoint implements Parcelable {
-        public static final Parcelable.Creator<HistoryTracePoint> CREATOR = new b();
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator<HistoryTracePoint> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LatLng f7431a;
+        public LatLng f7461a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f7432b;
+        public long f7462b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7433c;
+        public String f7463c;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-281869389, "Lcom/baidu/mapapi/synchronization/histroytrace/HistoryTraceData$HistoryTracePoint;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-281869389, "Lcom/baidu/mapapi/synchronization/histroytrace/HistoryTraceData$HistoryTracePoint;");
+                    return;
+                }
+            }
+            CREATOR = new b();
+        }
 
         public HistoryTracePoint() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
 
         public HistoryTracePoint(Parcel parcel) {
-            this.f7431a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f7432b = parcel.readLong();
-            this.f7433c = parcel.readString();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.f7461a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7462b = parcel.readLong();
+            this.f7463c = parcel.readString();
         }
 
         @Override // android.os.Parcelable
         public int describeContents() {
-            return 0;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         public String getCreateTime() {
-            return this.f7433c;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7463c : (String) invokeV.objValue;
         }
 
         public long getLocationTime() {
-            return this.f7432b;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7462b : invokeV.longValue;
         }
 
         public LatLng getPoint() {
-            return this.f7431a;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7461a : (LatLng) invokeV.objValue;
         }
 
         public void setCreateTime(String str) {
-            this.f7433c = str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.f7463c = str;
+            }
         }
 
         public void setLocationTime(long j) {
-            this.f7432b = j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.f7462b = j;
+            }
         }
 
         public void setPoint(LatLng latLng) {
-            this.f7431a = latLng;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, latLng) == null) {
+                this.f7461a = latLng;
+            }
         }
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
-            parcel.writeParcelable(this.f7431a, i2);
-            parcel.writeLong(this.f7432b);
-            parcel.writeString(this.f7433c);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
+                parcel.writeParcelable(this.f7461a, i2);
+                parcel.writeLong(this.f7462b);
+                parcel.writeString(this.f7463c);
+            }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1744800178, "Lcom/baidu/mapapi/synchronization/histroytrace/HistoryTraceData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1744800178, "Lcom/baidu/mapapi/synchronization/histroytrace/HistoryTraceData;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
+
     public HistoryTraceData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f7458g = SyncCoordinateConverter.CoordType.BD09LL;
     }
 
     public HistoryTraceData(Parcel parcel) {
-        this.f7422a = parcel.readInt();
-        this.f7423b = parcel.readDouble();
-        this.f7424c = parcel.readDouble();
-        this.f7425d = parcel.readInt();
-        this.f7426e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7427f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7429h = parcel.createTypedArrayList(HistoryTracePoint.CREATOR);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f7458g = SyncCoordinateConverter.CoordType.BD09LL;
+        this.f7452a = parcel.readInt();
+        this.f7453b = parcel.readDouble();
+        this.f7454c = parcel.readDouble();
+        this.f7455d = parcel.readInt();
+        this.f7456e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f7457f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f7459h = parcel.createTypedArrayList(HistoryTracePoint.CREATOR);
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public SyncCoordinateConverter.CoordType getCoordType() {
-        return this.f7428g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7458g : (SyncCoordinateConverter.CoordType) invokeV.objValue;
     }
 
     public int getCurrentOrderState() {
-        return this.f7425d;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7455d : invokeV.intValue;
     }
 
     public int getCurrentPageIndex() {
-        return this.f7430i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7460i : invokeV.intValue;
     }
 
     public double getDistance() {
-        return this.f7423b;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7453b : invokeV.doubleValue;
     }
 
     public LatLng getOrderEndPosition() {
-        return this.f7427f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7457f : (LatLng) invokeV.objValue;
     }
 
     public LatLng getOrderStartPosition() {
-        return this.f7426e;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7456e : (LatLng) invokeV.objValue;
     }
 
     public List<HistoryTracePoint> getPointsList() {
-        return this.f7429h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7459h : (List) invokeV.objValue;
     }
 
     public double getTollDiatance() {
-        return this.f7424c;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7454c : invokeV.doubleValue;
     }
 
     public int getTotalPoints() {
-        return this.f7422a;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7452a : invokeV.intValue;
     }
 
     public void setCoordType(SyncCoordinateConverter.CoordType coordType) {
-        this.f7428g = coordType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, coordType) == null) {
+            this.f7458g = coordType;
+        }
     }
 
     public void setCurrentOrderState(int i2) {
-        this.f7425d = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f7455d = i2;
+        }
     }
 
     public void setCurrentPageIndex(int i2) {
-        this.f7430i = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f7460i = i2;
+        }
     }
 
     public void setDistance(double d2) {
-        this.f7423b = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f7453b = d2;
+        }
     }
 
     public void setOrderEndPosition(LatLng latLng) {
-        this.f7427f = latLng;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, latLng) == null) {
+            this.f7457f = latLng;
+        }
     }
 
     public void setOrderStartPosition(LatLng latLng) {
-        this.f7426e = latLng;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, latLng) == null) {
+            this.f7456e = latLng;
+        }
     }
 
     public void setPointsList(List<HistoryTracePoint> list) {
-        this.f7429h = list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
+            this.f7459h = list;
+        }
     }
 
     public void setTollDiatance(double d2) {
-        this.f7424c = d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Double.valueOf(d2)}) == null) {
+            this.f7454c = d2;
+        }
     }
 
     public void setTotalPoints(int i2) {
-        this.f7422a = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.f7452a = i2;
+        }
     }
 
     public String toString() {
-        StringBuffer stringBuffer = new StringBuffer("HistoryTraceData: \n");
-        stringBuffer.append("TotalPoints = ");
-        stringBuffer.append(this.f7422a);
-        stringBuffer.append("; Distance = ");
-        stringBuffer.append(this.f7423b);
-        stringBuffer.append("; TollDistance = ");
-        stringBuffer.append(this.f7424c);
-        stringBuffer.append("; CurrentOrderState = ");
-        stringBuffer.append(this.f7425d);
-        stringBuffer.append("; OrderStartPosition = ");
-        stringBuffer.append(this.f7426e);
-        stringBuffer.append("; OrderEndPosition = ");
-        stringBuffer.append(this.f7427f);
-        List<HistoryTracePoint> list = this.f7429h;
-        if (list != null && !list.isEmpty()) {
-            stringBuffer.append("\n#History Trace Points Info BEGIN# \n");
-            for (int i2 = 0; i2 < this.f7429h.size(); i2++) {
-                HistoryTracePoint historyTracePoint = this.f7429h.get(i2);
-                if (historyTracePoint != null) {
-                    stringBuffer.append("The ");
-                    stringBuffer.append(i2);
-                    stringBuffer.append(" Point Info: ");
-                    stringBuffer.append("Point = ");
-                    stringBuffer.append(historyTracePoint.getPoint().toString());
-                    stringBuffer.append("; LocationTime = ");
-                    stringBuffer.append(historyTracePoint.getLocationTime());
-                    stringBuffer.append("; CreateTime = ");
-                    stringBuffer.append(historyTracePoint.getCreateTime());
-                    stringBuffer.append("\n");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            StringBuffer stringBuffer = new StringBuffer("HistoryTraceData: \n");
+            stringBuffer.append("TotalPoints = ");
+            stringBuffer.append(this.f7452a);
+            stringBuffer.append("; Distance = ");
+            stringBuffer.append(this.f7453b);
+            stringBuffer.append("; TollDistance = ");
+            stringBuffer.append(this.f7454c);
+            stringBuffer.append("; CurrentOrderState = ");
+            stringBuffer.append(this.f7455d);
+            stringBuffer.append("; OrderStartPosition = ");
+            stringBuffer.append(this.f7456e);
+            stringBuffer.append("; OrderEndPosition = ");
+            stringBuffer.append(this.f7457f);
+            List<HistoryTracePoint> list = this.f7459h;
+            if (list != null && !list.isEmpty()) {
+                stringBuffer.append("\n#History Trace Points Info BEGIN# \n");
+                for (int i2 = 0; i2 < this.f7459h.size(); i2++) {
+                    HistoryTracePoint historyTracePoint = this.f7459h.get(i2);
+                    if (historyTracePoint != null) {
+                        stringBuffer.append("The ");
+                        stringBuffer.append(i2);
+                        stringBuffer.append(" Point Info: ");
+                        stringBuffer.append("Point = ");
+                        stringBuffer.append(historyTracePoint.getPoint().toString());
+                        stringBuffer.append("; LocationTime = ");
+                        stringBuffer.append(historyTracePoint.getLocationTime());
+                        stringBuffer.append("; CreateTime = ");
+                        stringBuffer.append(historyTracePoint.getCreateTime());
+                        stringBuffer.append("\n");
+                    }
                 }
             }
+            return stringBuffer.toString();
         }
-        return stringBuffer.toString();
+        return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f7422a);
-        parcel.writeDouble(this.f7423b);
-        parcel.writeDouble(this.f7424c);
-        parcel.writeInt(this.f7425d);
-        parcel.writeParcelable(this.f7426e, i2);
-        parcel.writeParcelable(this.f7427f, i2);
-        parcel.writeTypedList(this.f7429h);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048596, this, parcel, i2) == null) {
+            parcel.writeInt(this.f7452a);
+            parcel.writeDouble(this.f7453b);
+            parcel.writeDouble(this.f7454c);
+            parcel.writeInt(this.f7455d);
+            parcel.writeParcelable(this.f7456e, i2);
+            parcel.writeParcelable(this.f7457f, i2);
+            parcel.writeTypedList(this.f7459h);
+        }
     }
 }

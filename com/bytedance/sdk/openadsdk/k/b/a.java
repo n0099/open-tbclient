@@ -1,27 +1,54 @@
 package com.bytedance.sdk.openadsdk.k.b;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.e.a.b;
+import com.bytedance.sdk.component.e.c;
+import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.openadsdk.core.o;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a {
+public class a implements c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final String f29534a;
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public final String f29535b;
+    @Override // com.bytedance.sdk.component.e.c
+    public void a(com.bytedance.sdk.component.e.a.c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || !o.h().v() || cVar == null || cVar.a() == null) {
+            return;
+        }
+        JSONObject a2 = cVar.a();
+        com.bytedance.sdk.openadsdk.k.a.a().a("tt_pangle_thread_pool", a2);
+        j.b("ReportThreadLogServiceI", "execReportSdkThreadLog: ", a2);
+        j.c("ReportThreadLogServiceI", "execReportThreadPoolLog: " + a2);
+    }
 
-    /* renamed from: c  reason: collision with root package name */
-    public final int f29536c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final int f29537d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final String f29538e;
-
-    public a(String str, String str2, int i2, int i3, String str3) {
-        this.f29534a = str;
-        this.f29535b = str2;
-        this.f29536c = i2;
-        this.f29537d = i3;
-        this.f29538e = str3;
+    @Override // com.bytedance.sdk.component.e.c
+    public void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || !o.h().v() || bVar == null || bVar.a() == null) {
+            return;
+        }
+        JSONObject a2 = bVar.a();
+        com.bytedance.sdk.openadsdk.k.a.a().a("tt_pangle_sdk_thread_state", a2);
+        j.b("ReportThreadLogServiceI", "execReportSdkThreadLog: ", a2);
     }
 }

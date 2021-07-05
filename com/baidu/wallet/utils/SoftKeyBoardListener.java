@@ -4,14 +4,20 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SoftKeyBoardListener implements NoProguard {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener;
     public View rootView;
     public int rootViewVisibleHeight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnSoftKeyBoardChangeListener {
         void keyBoardHide(int i2);
 
@@ -19,30 +25,71 @@ public class SoftKeyBoardListener implements NoProguard {
     }
 
     public SoftKeyBoardListener(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         View decorView = activity.getWindow().getDecorView();
         this.rootView = decorView;
-        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.wallet.utils.SoftKeyBoardListener.1
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.baidu.wallet.utils.SoftKeyBoardListener.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ SoftKeyBoardListener f27257a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f27257a = this;
+            }
+
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                Rect rect = new Rect();
-                SoftKeyBoardListener.this.rootView.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                SoftKeyBoardListener softKeyBoardListener = SoftKeyBoardListener.this;
-                int i2 = softKeyBoardListener.rootViewVisibleHeight;
-                if (i2 == 0) {
-                    softKeyBoardListener.rootViewVisibleHeight = height;
-                } else if (i2 == height) {
-                } else {
-                    if (i2 - height > 200) {
-                        if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
-                            SoftKeyBoardListener.this.onSoftKeyBoardChangeListener.keyBoardShow(SoftKeyBoardListener.this.rootViewVisibleHeight - height);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    Rect rect = new Rect();
+                    this.f27257a.rootView.getWindowVisibleDisplayFrame(rect);
+                    int height = rect.height();
+                    SoftKeyBoardListener softKeyBoardListener = this.f27257a;
+                    int i4 = softKeyBoardListener.rootViewVisibleHeight;
+                    if (i4 == 0) {
+                        softKeyBoardListener.rootViewVisibleHeight = height;
+                    } else if (i4 == height) {
+                    } else {
+                        if (i4 - height > 200) {
+                            if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
+                                this.f27257a.onSoftKeyBoardChangeListener.keyBoardShow(this.f27257a.rootViewVisibleHeight - height);
+                            }
+                            this.f27257a.rootViewVisibleHeight = height;
+                        } else if (height - i4 > 200) {
+                            if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
+                                this.f27257a.onSoftKeyBoardChangeListener.keyBoardHide(height - this.f27257a.rootViewVisibleHeight);
+                            }
+                            this.f27257a.rootViewVisibleHeight = height;
                         }
-                        SoftKeyBoardListener.this.rootViewVisibleHeight = height;
-                    } else if (height - i2 > 200) {
-                        if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
-                            SoftKeyBoardListener.this.onSoftKeyBoardChangeListener.keyBoardHide(height - SoftKeyBoardListener.this.rootViewVisibleHeight);
-                        }
-                        SoftKeyBoardListener.this.rootViewVisibleHeight = height;
                     }
                 }
             }
@@ -50,10 +97,16 @@ public class SoftKeyBoardListener implements NoProguard {
     }
 
     public static void setListener(Activity activity, OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
-        new SoftKeyBoardListener(activity).setOnSoftKeyBoardChangeListener(onSoftKeyBoardChangeListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, onSoftKeyBoardChangeListener) == null) {
+            new SoftKeyBoardListener(activity).setOnSoftKeyBoardChangeListener(onSoftKeyBoardChangeListener);
+        }
     }
 
     private void setOnSoftKeyBoardChangeListener(OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
-        this.onSoftKeyBoardChangeListener = onSoftKeyBoardChangeListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, onSoftKeyBoardChangeListener) == null) {
+            this.onSoftKeyBoardChangeListener = onSoftKeyBoardChangeListener;
+        }
     }
 }

@@ -3,6 +3,16 @@ package com.facebook.imagepipeline.core;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
@@ -43,7 +53,9 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class ImagePipelineConfig {
-    public static DefaultImageRequestConfig sDefaultImageRequestConfig = new DefaultImageRequestConfig();
+    public static /* synthetic */ Interceptable $ic;
+    public static DefaultImageRequestConfig sDefaultImageRequestConfig;
+    public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap.Config mBitmapConfig;
     public final Supplier<MemoryCacheParams> mBitmapMemoryCacheParamsSupplier;
     public final CountingMemoryCache.CacheTrimStrategy mBitmapMemoryCacheTrimStrategy;
@@ -81,6 +93,8 @@ public class ImagePipelineConfig {
 
     /* loaded from: classes6.dex */
     public static class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public Bitmap.Config mBitmapConfig;
         public Supplier<MemoryCacheParams> mBitmapMemoryCacheParamsSupplier;
         public CountingMemoryCache.CacheTrimStrategy mBitmapMemoryCacheTrimStrategy;
@@ -114,167 +128,328 @@ public class ImagePipelineConfig {
         public DiskCacheConfig mSmallImageDiskCacheConfig;
 
         public ImagePipelineConfig build() {
-            return new ImagePipelineConfig(this);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ImagePipelineConfig(this) : (ImagePipelineConfig) invokeV.objValue;
         }
 
         public ImagePipelineExperiments.Builder experiment() {
-            return this.mExperimentsBuilder;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExperimentsBuilder : (ImagePipelineExperiments.Builder) invokeV.objValue;
         }
 
         @Nullable
         public Integer getImageTranscoderType() {
-            return this.mImageTranscoderType;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImageTranscoderType : (Integer) invokeV.objValue;
         }
 
         @Nullable
         public Integer getMemoryChunkType() {
-            return this.mMemoryChunkType;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMemoryChunkType : (Integer) invokeV.objValue;
         }
 
         public boolean isDiskCacheEnabled() {
-            return this.mDiskCacheEnabled;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDiskCacheEnabled : invokeV.booleanValue;
         }
 
         public boolean isDownsampleEnabled() {
-            return this.mDownsampleEnabled;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDownsampleEnabled : invokeV.booleanValue;
         }
 
         public Builder setBitmapMemoryCacheParamsSupplier(Supplier<MemoryCacheParams> supplier) {
-            this.mBitmapMemoryCacheParamsSupplier = (Supplier) Preconditions.checkNotNull(supplier);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, supplier)) == null) {
+                this.mBitmapMemoryCacheParamsSupplier = (Supplier) Preconditions.checkNotNull(supplier);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setBitmapMemoryCacheTrimStrategy(CountingMemoryCache.CacheTrimStrategy cacheTrimStrategy) {
-            this.mBitmapMemoryCacheTrimStrategy = cacheTrimStrategy;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cacheTrimStrategy)) == null) {
+                this.mBitmapMemoryCacheTrimStrategy = cacheTrimStrategy;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setBitmapsConfig(Bitmap.Config config) {
-            this.mBitmapConfig = config;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, config)) == null) {
+                this.mBitmapConfig = config;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setCacheKeyFactory(CacheKeyFactory cacheKeyFactory) {
-            this.mCacheKeyFactory = cacheKeyFactory;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cacheKeyFactory)) == null) {
+                this.mCacheKeyFactory = cacheKeyFactory;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setCloseableReferenceLeakTracker(CloseableReferenceLeakTracker closeableReferenceLeakTracker) {
-            this.mCloseableReferenceLeakTracker = closeableReferenceLeakTracker;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, closeableReferenceLeakTracker)) == null) {
+                this.mCloseableReferenceLeakTracker = closeableReferenceLeakTracker;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setDiskCacheEnabled(boolean z) {
-            this.mDiskCacheEnabled = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
+                this.mDiskCacheEnabled = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder setDownsampleEnabled(boolean z) {
-            this.mDownsampleEnabled = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+                this.mDownsampleEnabled = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder setEncodedMemoryCacheParamsSupplier(Supplier<MemoryCacheParams> supplier) {
-            this.mEncodedMemoryCacheParamsSupplier = (Supplier) Preconditions.checkNotNull(supplier);
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, supplier)) == null) {
+                this.mEncodedMemoryCacheParamsSupplier = (Supplier) Preconditions.checkNotNull(supplier);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setExecutorSupplier(ExecutorSupplier executorSupplier) {
-            this.mExecutorSupplier = executorSupplier;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, executorSupplier)) == null) {
+                this.mExecutorSupplier = executorSupplier;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setFileCacheFactory(FileCacheFactory fileCacheFactory) {
-            this.mFileCacheFactory = fileCacheFactory;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, fileCacheFactory)) == null) {
+                this.mFileCacheFactory = fileCacheFactory;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setHttpConnectionTimeout(int i2) {
-            this.mHttpConnectionTimeout = i2;
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+                this.mHttpConnectionTimeout = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder setImageCacheStatsTracker(ImageCacheStatsTracker imageCacheStatsTracker) {
-            this.mImageCacheStatsTracker = imageCacheStatsTracker;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, imageCacheStatsTracker)) == null) {
+                this.mImageCacheStatsTracker = imageCacheStatsTracker;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setImageDecoder(ImageDecoder imageDecoder) {
-            this.mImageDecoder = imageDecoder;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, imageDecoder)) == null) {
+                this.mImageDecoder = imageDecoder;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setImageDecoderConfig(ImageDecoderConfig imageDecoderConfig) {
-            this.mImageDecoderConfig = imageDecoderConfig;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, imageDecoderConfig)) == null) {
+                this.mImageDecoderConfig = imageDecoderConfig;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setImageTranscoderFactory(ImageTranscoderFactory imageTranscoderFactory) {
-            this.mImageTranscoderFactory = imageTranscoderFactory;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, imageTranscoderFactory)) == null) {
+                this.mImageTranscoderFactory = imageTranscoderFactory;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setImageTranscoderType(int i2) {
-            this.mImageTranscoderType = Integer.valueOf(i2);
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+                this.mImageTranscoderType = Integer.valueOf(i2);
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder setIsPrefetchEnabledSupplier(Supplier<Boolean> supplier) {
-            this.mIsPrefetchEnabledSupplier = supplier;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, supplier)) == null) {
+                this.mIsPrefetchEnabledSupplier = supplier;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setMainDiskCacheConfig(DiskCacheConfig diskCacheConfig) {
-            this.mMainDiskCacheConfig = diskCacheConfig;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, diskCacheConfig)) == null) {
+                this.mMainDiskCacheConfig = diskCacheConfig;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setMemoryChunkType(int i2) {
-            this.mMemoryChunkType = Integer.valueOf(i2);
-            return this;
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
+                this.mMemoryChunkType = Integer.valueOf(i2);
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
 
         public Builder setMemoryTrimmableRegistry(MemoryTrimmableRegistry memoryTrimmableRegistry) {
-            this.mMemoryTrimmableRegistry = memoryTrimmableRegistry;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, memoryTrimmableRegistry)) == null) {
+                this.mMemoryTrimmableRegistry = memoryTrimmableRegistry;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setNetworkFetcher(NetworkFetcher networkFetcher) {
-            this.mNetworkFetcher = networkFetcher;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, networkFetcher)) == null) {
+                this.mNetworkFetcher = networkFetcher;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setPlatformBitmapFactory(PlatformBitmapFactory platformBitmapFactory) {
-            this.mPlatformBitmapFactory = platformBitmapFactory;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, platformBitmapFactory)) == null) {
+                this.mPlatformBitmapFactory = platformBitmapFactory;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setPoolFactory(PoolFactory poolFactory) {
-            this.mPoolFactory = poolFactory;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, poolFactory)) == null) {
+                this.mPoolFactory = poolFactory;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setProgressiveJpegConfig(ProgressiveJpegConfig progressiveJpegConfig) {
-            this.mProgressiveJpegConfig = progressiveJpegConfig;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, progressiveJpegConfig)) == null) {
+                this.mProgressiveJpegConfig = progressiveJpegConfig;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setRequestListeners(Set<RequestListener> set) {
-            this.mRequestListeners = set;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, set)) == null) {
+                this.mRequestListeners = set;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setResizeAndRotateEnabledForNetwork(boolean z) {
-            this.mResizeAndRotateEnabledForNetwork = z;
-            return this;
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
+                this.mResizeAndRotateEnabledForNetwork = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder setSmallImageDiskCacheConfig(DiskCacheConfig diskCacheConfig) {
-            this.mSmallImageDiskCacheConfig = diskCacheConfig;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, diskCacheConfig)) == null) {
+                this.mSmallImageDiskCacheConfig = diskCacheConfig;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mDownsampleEnabled = false;
             this.mImageTranscoderType = null;
             this.mMemoryChunkType = null;
@@ -289,173 +464,279 @@ public class ImagePipelineConfig {
 
     /* loaded from: classes6.dex */
     public static class DefaultImageRequestConfig {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public boolean mProgressiveRenderingEnabled;
 
         public boolean isProgressiveRenderingEnabled() {
-            return this.mProgressiveRenderingEnabled;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mProgressiveRenderingEnabled : invokeV.booleanValue;
         }
 
         public void setProgressiveRenderingEnabled(boolean z) {
-            this.mProgressiveRenderingEnabled = z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.mProgressiveRenderingEnabled = z;
+            }
         }
 
         public DefaultImageRequestConfig() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mProgressiveRenderingEnabled = false;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1400742443, "Lcom/facebook/imagepipeline/core/ImagePipelineConfig;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1400742443, "Lcom/facebook/imagepipeline/core/ImagePipelineConfig;");
+                return;
+            }
+        }
+        sDefaultImageRequestConfig = new DefaultImageRequestConfig();
+    }
+
     public static DefaultImageRequestConfig getDefaultImageRequestConfig() {
-        return sDefaultImageRequestConfig;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sDefaultImageRequestConfig : (DefaultImageRequestConfig) invokeV.objValue;
     }
 
     public static DiskCacheConfig getDefaultMainDiskCacheConfig(Context context) {
-        try {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("DiskCacheConfig.getDefaultMainDiskCacheConfig");
-            }
-            return DiskCacheConfig.newBuilder(context).build();
-        } finally {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            try {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.beginSection("DiskCacheConfig.getDefaultMainDiskCacheConfig");
+                }
+                return DiskCacheConfig.newBuilder(context).build();
+            } finally {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.endSection();
+                }
             }
         }
+        return (DiskCacheConfig) invokeL.objValue;
     }
 
     public static Builder newBuilder(Context context) {
-        return new Builder(context);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? new Builder(context) : (Builder) invokeL.objValue;
     }
 
     @VisibleForTesting
     public static void resetDefaultRequestConfig() {
-        sDefaultImageRequestConfig = new DefaultImageRequestConfig();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            sDefaultImageRequestConfig = new DefaultImageRequestConfig();
+        }
     }
 
     public static void setWebpBitmapFactory(WebpBitmapFactory webpBitmapFactory, ImagePipelineExperiments imagePipelineExperiments, BitmapCreator bitmapCreator) {
-        WebpSupportStatus.sWebpBitmapFactory = webpBitmapFactory;
-        WebpBitmapFactory.WebpErrorLogger webpErrorLogger = imagePipelineExperiments.getWebpErrorLogger();
-        if (webpErrorLogger != null) {
-            webpBitmapFactory.setWebpErrorLogger(webpErrorLogger);
-        }
-        if (bitmapCreator != null) {
-            webpBitmapFactory.setBitmapCreator(bitmapCreator);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, webpBitmapFactory, imagePipelineExperiments, bitmapCreator) == null) {
+            WebpSupportStatus.sWebpBitmapFactory = webpBitmapFactory;
+            WebpBitmapFactory.WebpErrorLogger webpErrorLogger = imagePipelineExperiments.getWebpErrorLogger();
+            if (webpErrorLogger != null) {
+                webpBitmapFactory.setWebpErrorLogger(webpErrorLogger);
+            }
+            if (bitmapCreator != null) {
+                webpBitmapFactory.setBitmapCreator(bitmapCreator);
+            }
         }
     }
 
     public Bitmap.Config getBitmapConfig() {
-        return this.mBitmapConfig;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBitmapConfig : (Bitmap.Config) invokeV.objValue;
     }
 
     public Supplier<MemoryCacheParams> getBitmapMemoryCacheParamsSupplier() {
-        return this.mBitmapMemoryCacheParamsSupplier;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBitmapMemoryCacheParamsSupplier : (Supplier) invokeV.objValue;
     }
 
     public CountingMemoryCache.CacheTrimStrategy getBitmapMemoryCacheTrimStrategy() {
-        return this.mBitmapMemoryCacheTrimStrategy;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBitmapMemoryCacheTrimStrategy : (CountingMemoryCache.CacheTrimStrategy) invokeV.objValue;
     }
 
     public CacheKeyFactory getCacheKeyFactory() {
-        return this.mCacheKeyFactory;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCacheKeyFactory : (CacheKeyFactory) invokeV.objValue;
     }
 
     public CloseableReferenceLeakTracker getCloseableReferenceLeakTracker() {
-        return this.mCloseableReferenceLeakTracker;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCloseableReferenceLeakTracker : (CloseableReferenceLeakTracker) invokeV.objValue;
     }
 
     public Context getContext() {
-        return this.mContext;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     public Supplier<MemoryCacheParams> getEncodedMemoryCacheParamsSupplier() {
-        return this.mEncodedMemoryCacheParamsSupplier;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mEncodedMemoryCacheParamsSupplier : (Supplier) invokeV.objValue;
     }
 
     public ExecutorSupplier getExecutorSupplier() {
-        return this.mExecutorSupplier;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mExecutorSupplier : (ExecutorSupplier) invokeV.objValue;
     }
 
     public ImagePipelineExperiments getExperiments() {
-        return this.mImagePipelineExperiments;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mImagePipelineExperiments : (ImagePipelineExperiments) invokeV.objValue;
     }
 
     public FileCacheFactory getFileCacheFactory() {
-        return this.mFileCacheFactory;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mFileCacheFactory : (FileCacheFactory) invokeV.objValue;
     }
 
     public ImageCacheStatsTracker getImageCacheStatsTracker() {
-        return this.mImageCacheStatsTracker;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mImageCacheStatsTracker : (ImageCacheStatsTracker) invokeV.objValue;
     }
 
     @Nullable
     public ImageDecoder getImageDecoder() {
-        return this.mImageDecoder;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mImageDecoder : (ImageDecoder) invokeV.objValue;
     }
 
     @Nullable
     public ImageDecoderConfig getImageDecoderConfig() {
-        return this.mImageDecoderConfig;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mImageDecoderConfig : (ImageDecoderConfig) invokeV.objValue;
     }
 
     @Nullable
     public ImageTranscoderFactory getImageTranscoderFactory() {
-        return this.mImageTranscoderFactory;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mImageTranscoderFactory : (ImageTranscoderFactory) invokeV.objValue;
     }
 
     @Nullable
     public Integer getImageTranscoderType() {
-        return this.mImageTranscoderType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mImageTranscoderType : (Integer) invokeV.objValue;
     }
 
     public Supplier<Boolean> getIsPrefetchEnabledSupplier() {
-        return this.mIsPrefetchEnabledSupplier;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mIsPrefetchEnabledSupplier : (Supplier) invokeV.objValue;
     }
 
     public DiskCacheConfig getMainDiskCacheConfig() {
-        return this.mMainDiskCacheConfig;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mMainDiskCacheConfig : (DiskCacheConfig) invokeV.objValue;
     }
 
     public int getMemoryChunkType() {
-        return this.mMemoryChunkType;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mMemoryChunkType : invokeV.intValue;
     }
 
     public MemoryTrimmableRegistry getMemoryTrimmableRegistry() {
-        return this.mMemoryTrimmableRegistry;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mMemoryTrimmableRegistry : (MemoryTrimmableRegistry) invokeV.objValue;
     }
 
     public NetworkFetcher getNetworkFetcher() {
-        return this.mNetworkFetcher;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mNetworkFetcher : (NetworkFetcher) invokeV.objValue;
     }
 
     @Nullable
     public PlatformBitmapFactory getPlatformBitmapFactory() {
-        return this.mPlatformBitmapFactory;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mPlatformBitmapFactory : (PlatformBitmapFactory) invokeV.objValue;
     }
 
     public PoolFactory getPoolFactory() {
-        return this.mPoolFactory;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mPoolFactory : (PoolFactory) invokeV.objValue;
     }
 
     public ProgressiveJpegConfig getProgressiveJpegConfig() {
-        return this.mProgressiveJpegConfig;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mProgressiveJpegConfig : (ProgressiveJpegConfig) invokeV.objValue;
     }
 
     public Set<RequestListener> getRequestListeners() {
-        return Collections.unmodifiableSet(this.mRequestListeners);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? Collections.unmodifiableSet(this.mRequestListeners) : (Set) invokeV.objValue;
     }
 
     public DiskCacheConfig getSmallImageDiskCacheConfig() {
-        return this.mSmallImageDiskCacheConfig;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mSmallImageDiskCacheConfig : (DiskCacheConfig) invokeV.objValue;
     }
 
     public boolean isDiskCacheEnabled() {
-        return this.mDiskCacheEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mDiskCacheEnabled : invokeV.booleanValue;
     }
 
     public boolean isDownsampleEnabled() {
-        return this.mDownsampleEnabled;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mDownsampleEnabled : invokeV.booleanValue;
     }
 
     public boolean isResizeAndRotateEnabledForNetwork() {
-        return this.mResizeAndRotateEnabledForNetwork;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mResizeAndRotateEnabledForNetwork : invokeV.booleanValue;
     }
 
     public ImagePipelineConfig(Builder builder) {
@@ -464,6 +745,20 @@ public class ImagePipelineConfig {
         MemoryTrimmableRegistry memoryTrimmableRegistry;
         PoolFactory poolFactory;
         WebpBitmapFactory loadWebpBitmapFactoryIfExists;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         if (FrescoSystrace.isTracing()) {
             FrescoSystrace.beginSection("ImagePipelineConfig()");
         }
@@ -490,12 +785,36 @@ public class ImagePipelineConfig {
         this.mImageDecoder = builder.mImageDecoder;
         this.mImageTranscoderFactory = getImageTranscoderFactory(builder);
         this.mImageTranscoderType = builder.mImageTranscoderType;
-        this.mIsPrefetchEnabledSupplier = builder.mIsPrefetchEnabledSupplier == null ? new Supplier<Boolean>() { // from class: com.facebook.imagepipeline.core.ImagePipelineConfig.1
+        this.mIsPrefetchEnabledSupplier = builder.mIsPrefetchEnabledSupplier == null ? new Supplier<Boolean>(this) { // from class: com.facebook.imagepipeline.core.ImagePipelineConfig.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImagePipelineConfig this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.facebook.common.internal.Supplier
             public Boolean get() {
-                return Boolean.TRUE;
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.TRUE : (Boolean) invokeV.objValue;
             }
         } : builder.mIsPrefetchEnabledSupplier;
         this.mMainDiskCacheConfig = builder.mMainDiskCacheConfig == null ? getDefaultMainDiskCacheConfig(builder.mContext) : builder.mMainDiskCacheConfig;
@@ -542,19 +861,29 @@ public class ImagePipelineConfig {
 
     @Nullable
     public static ImageTranscoderFactory getImageTranscoderFactory(Builder builder) {
-        if (builder.mImageTranscoderFactory == null || builder.mImageTranscoderType == null) {
-            if (builder.mImageTranscoderFactory != null) {
-                return builder.mImageTranscoderFactory;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, builder)) == null) {
+            if (builder.mImageTranscoderFactory == null || builder.mImageTranscoderType == null) {
+                if (builder.mImageTranscoderFactory != null) {
+                    return builder.mImageTranscoderFactory;
+                }
+                return null;
             }
-            return null;
+            throw new IllegalStateException("You can't define a custom ImageTranscoderFactory and provide an ImageTranscoderType");
         }
-        throw new IllegalStateException("You can't define a custom ImageTranscoderFactory and provide an ImageTranscoderType");
+        return (ImageTranscoderFactory) invokeL.objValue;
     }
 
     public static int getMemoryChunkType(Builder builder, ImagePipelineExperiments imagePipelineExperiments) {
-        if (builder.mMemoryChunkType != null) {
-            return builder.mMemoryChunkType.intValue();
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, builder, imagePipelineExperiments)) == null) {
+            if (builder.mMemoryChunkType != null) {
+                return builder.mMemoryChunkType.intValue();
+            }
+            return imagePipelineExperiments.isNativeCodeDisabled() ? 1 : 0;
         }
-        return imagePipelineExperiments.isNativeCodeDisabled() ? 1 : 0;
+        return invokeLL.intValue;
     }
 }

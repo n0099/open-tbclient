@@ -2,34 +2,57 @@ package com.baidu.platform.core.a;
 
 import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.platform.base.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public a(DistrictSearchOption districtSearchOption) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {districtSearchOption};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         a(districtSearchOption);
     }
 
     private void a(DistrictSearchOption districtSearchOption) {
         com.baidu.platform.util.a aVar;
         String str;
-        if (districtSearchOption == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, districtSearchOption) == null) || districtSearchOption == null) {
             return;
         }
-        this.f9317a.a("qt", "con");
-        this.f9317a.a("rp_format", "json");
-        this.f9317a.a("rp_filter", "mobile");
-        this.f9317a.a("area_res", "true");
-        this.f9317a.a("addr_identify", "1");
-        this.f9317a.a("ie", "utf-8");
-        this.f9317a.a(Config.PACKAGE_NAME, "0");
-        this.f9317a.a("rn", "10");
-        this.f9317a.a("c", districtSearchOption.mCityName);
+        this.f9391a.a("qt", "con");
+        this.f9391a.a("rp_format", "json");
+        this.f9391a.a("rp_filter", "mobile");
+        this.f9391a.a("area_res", "true");
+        this.f9391a.a("addr_identify", "1");
+        this.f9391a.a("ie", "utf-8");
+        this.f9391a.a(Config.PACKAGE_NAME, "0");
+        this.f9391a.a("rn", "10");
+        this.f9391a.a("c", districtSearchOption.mCityName);
         String str2 = districtSearchOption.mDistrictName;
         if (str2 == null || str2.equals("")) {
-            aVar = this.f9317a;
+            aVar = this.f9391a;
             str = districtSearchOption.mCityName;
         } else {
-            aVar = this.f9317a;
+            aVar = this.f9391a;
             str = districtSearchOption.mDistrictName;
         }
         aVar.a(ActVideoSetting.WIFI_DISPLAY, str);
@@ -37,6 +60,8 @@ public class a extends com.baidu.platform.base.e {
 
     @Override // com.baidu.platform.base.e
     public String a(com.baidu.platform.domain.c cVar) {
-        return cVar.n();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.n() : (String) invokeL.objValue;
     }
 }

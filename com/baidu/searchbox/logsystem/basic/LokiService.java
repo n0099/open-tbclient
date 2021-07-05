@@ -6,20 +6,29 @@ import android.os.IBinder;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.logsys.LogBaseObject;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
 import com.baidu.searchbox.logsystem.logsys.LogObject;
 import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.util.LLog;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LokiService extends Service {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SYSTEM_SERVICE = ":loki";
     public static final String TAG = "LokiService";
     public static LogSystemProcessor mProcessor;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Constant {
+        public static /* synthetic */ Interceptable $ic = null;
         public static final String LOG_BASIC_DATA = "logbasicdata";
         public static final String LOG_BASIC_DATA_FILE = "logbasicdatafile";
         public static final String LOG_CRASH_TAG = "crash_TAG";
@@ -28,48 +37,96 @@ public class LokiService extends Service {
         public static final String LOG_PROCESS_NAME = "processname";
         public static final String LOG_TYPE = "logtype";
         public static final int MAX_LENGTH_OF_STRING_TO_DIRECT_TRANS_WITH_BINDER = 25600;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Constant() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public LokiService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (LLog.sDebug) {
-            Log.d(TAG, "LokiService.onBind(), pid = " + Process.myPid());
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            if (LLog.sDebug) {
+                Log.d(TAG, "LokiService.onBind(), pid = " + Process.myPid());
+                return null;
+            }
             return null;
         }
-        return null;
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        super.onCreate();
-        if (LLog.sDebug) {
-            Log.d(TAG, "LokiService.onCreate(), pid = " + Process.myPid());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            if (LLog.sDebug) {
+                Log.d(TAG, "LokiService.onCreate(), pid = " + Process.myPid());
+            }
         }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        super.onDestroy();
-        if (LLog.sDebug) {
-            Log.d(TAG, "LokiService.onDestroy(), pid = " + Process.myPid());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            if (LLog.sDebug) {
+                Log.d(TAG, "LokiService.onDestroy(), pid = " + Process.myPid());
+            }
+            Process.killProcess(Process.myPid());
         }
-        Process.killProcess(Process.myPid());
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005a A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x005b  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x005e A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x005f  */
     @Override // android.app.Service
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int onStartCommand(Intent intent, int i2, int i3) {
+        InterceptResult invokeLII;
         File file;
         LogType logType;
         File file2;
         LogBaseObject logObject;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) != null) {
+            return invokeLII.intValue;
+        }
         if (LLog.sDebug) {
             Log.d(TAG, "LokiService.onStartCommand(), pid = " + Process.myPid());
         }

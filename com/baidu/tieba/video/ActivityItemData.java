@@ -2,11 +2,21 @@ package com.baidu.tieba.video;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class ActivityItemData implements Serializable, Parcelable {
-    public static final Parcelable.Creator<ActivityItemData> CREATOR = new a();
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<ActivityItemData> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
     public String activity_describe;
     public String activity_id;
     public String activity_name;
@@ -19,43 +29,113 @@ public class ActivityItemData implements Serializable, Parcelable {
 
     /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<ActivityItemData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public ActivityItemData createFromParcel(Parcel parcel) {
-            return new ActivityItemData(parcel);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ActivityItemData(parcel) : (ActivityItemData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
         public ActivityItemData[] newArray(int i2) {
-            return new ActivityItemData[i2];
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new ActivityItemData[i2] : (ActivityItemData[]) invokeI.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1290456595, "Lcom/baidu/tieba/video/ActivityItemData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1290456595, "Lcom/baidu/tieba/video/ActivityItemData;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
+
     public ActivityItemData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return 0;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.activity_id);
-        parcel.writeString(this.activity_name);
-        parcel.writeString(this.activity_describe);
-        parcel.writeString(this.banner_pic);
-        parcel.writeString(this.play_count);
-        parcel.writeString(this.topic_id);
-        parcel.writeString(this.video_num);
-        parcel.writeString(this.link_url);
-        parcel.writeTypedList(this.user_list);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+            parcel.writeString(this.activity_id);
+            parcel.writeString(this.activity_name);
+            parcel.writeString(this.activity_describe);
+            parcel.writeString(this.banner_pic);
+            parcel.writeString(this.play_count);
+            parcel.writeString(this.topic_id);
+            parcel.writeString(this.video_num);
+            parcel.writeString(this.link_url);
+            parcel.writeTypedList(this.user_list);
+        }
     }
 
     public ActivityItemData(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.activity_id = parcel.readString();
         this.activity_name = parcel.readString();
         this.activity_describe = parcel.readString();

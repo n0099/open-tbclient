@@ -2,25 +2,41 @@ package d.d.a.a.b;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes10.dex */
 public final class l {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static DisplayMetrics f69908a;
+    public static DisplayMetrics f72031a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(Context context) {
-        c(context);
-        return f69908a.heightPixels;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            c(context);
+            return f72031a.heightPixels;
+        }
+        return invokeL.intValue;
     }
 
     public static int b(Context context) {
-        c(context);
-        return f69908a.widthPixels;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            c(context);
+            return f72031a.widthPixels;
+        }
+        return invokeL.intValue;
     }
 
     public static void c(Context context) {
-        if (f69908a == null) {
-            f69908a = context.getResources().getDisplayMetrics();
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f72031a == null) {
+            f72031a = context.getResources().getDisplayMetrics();
         }
     }
 }

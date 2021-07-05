@@ -5,15 +5,38 @@ import android.graphics.PorterDuff;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BlendModeUtils {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: androidx.core.graphics.BlendModeUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$androidx$core$graphics$BlendModeCompat;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1306522461, "Landroidx/core/graphics/BlendModeUtils$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1306522461, "Landroidx/core/graphics/BlendModeUtils$1;");
+                    return;
+                }
+            }
             int[] iArr = new int[BlendModeCompat.values().length];
             $SwitchMap$androidx$core$graphics$BlendModeCompat = iArr;
             try {
@@ -135,117 +158,141 @@ public class BlendModeUtils {
         }
     }
 
-    @Nullable
-    @RequiresApi(29)
-    public static BlendMode obtainBlendModeFromCompat(@NonNull BlendModeCompat blendModeCompat) {
-        switch (AnonymousClass1.$SwitchMap$androidx$core$graphics$BlendModeCompat[blendModeCompat.ordinal()]) {
-            case 1:
-                return BlendMode.CLEAR;
-            case 2:
-                return BlendMode.SRC;
-            case 3:
-                return BlendMode.DST;
-            case 4:
-                return BlendMode.SRC_OVER;
-            case 5:
-                return BlendMode.DST_OVER;
-            case 6:
-                return BlendMode.SRC_IN;
-            case 7:
-                return BlendMode.DST_IN;
-            case 8:
-                return BlendMode.SRC_OUT;
-            case 9:
-                return BlendMode.DST_OUT;
-            case 10:
-                return BlendMode.SRC_ATOP;
-            case 11:
-                return BlendMode.DST_ATOP;
-            case 12:
-                return BlendMode.XOR;
-            case 13:
-                return BlendMode.PLUS;
-            case 14:
-                return BlendMode.MODULATE;
-            case 15:
-                return BlendMode.SCREEN;
-            case 16:
-                return BlendMode.OVERLAY;
-            case 17:
-                return BlendMode.DARKEN;
-            case 18:
-                return BlendMode.LIGHTEN;
-            case 19:
-                return BlendMode.COLOR_DODGE;
-            case 20:
-                return BlendMode.COLOR_BURN;
-            case 21:
-                return BlendMode.HARD_LIGHT;
-            case 22:
-                return BlendMode.SOFT_LIGHT;
-            case 23:
-                return BlendMode.DIFFERENCE;
-            case 24:
-                return BlendMode.EXCLUSION;
-            case 25:
-                return BlendMode.MULTIPLY;
-            case 26:
-                return BlendMode.HUE;
-            case 27:
-                return BlendMode.SATURATION;
-            case 28:
-                return BlendMode.COLOR;
-            case 29:
-                return BlendMode.LUMINOSITY;
-            default:
-                return null;
+    public BlendModeUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
     @Nullable
-    public static PorterDuff.Mode obtainPorterDuffFromCompat(@Nullable BlendModeCompat blendModeCompat) {
-        if (blendModeCompat != null) {
+    @RequiresApi(29)
+    public static BlendMode obtainBlendModeFromCompat(@NonNull BlendModeCompat blendModeCompat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, blendModeCompat)) == null) {
             switch (AnonymousClass1.$SwitchMap$androidx$core$graphics$BlendModeCompat[blendModeCompat.ordinal()]) {
                 case 1:
-                    return PorterDuff.Mode.CLEAR;
+                    return BlendMode.CLEAR;
                 case 2:
-                    return PorterDuff.Mode.SRC;
+                    return BlendMode.SRC;
                 case 3:
-                    return PorterDuff.Mode.DST;
+                    return BlendMode.DST;
                 case 4:
-                    return PorterDuff.Mode.SRC_OVER;
+                    return BlendMode.SRC_OVER;
                 case 5:
-                    return PorterDuff.Mode.DST_OVER;
+                    return BlendMode.DST_OVER;
                 case 6:
-                    return PorterDuff.Mode.SRC_IN;
+                    return BlendMode.SRC_IN;
                 case 7:
-                    return PorterDuff.Mode.DST_IN;
+                    return BlendMode.DST_IN;
                 case 8:
-                    return PorterDuff.Mode.SRC_OUT;
+                    return BlendMode.SRC_OUT;
                 case 9:
-                    return PorterDuff.Mode.DST_OUT;
+                    return BlendMode.DST_OUT;
                 case 10:
-                    return PorterDuff.Mode.SRC_ATOP;
+                    return BlendMode.SRC_ATOP;
                 case 11:
-                    return PorterDuff.Mode.DST_ATOP;
+                    return BlendMode.DST_ATOP;
                 case 12:
-                    return PorterDuff.Mode.XOR;
+                    return BlendMode.XOR;
                 case 13:
-                    return PorterDuff.Mode.ADD;
+                    return BlendMode.PLUS;
                 case 14:
-                    return PorterDuff.Mode.MULTIPLY;
+                    return BlendMode.MODULATE;
                 case 15:
-                    return PorterDuff.Mode.SCREEN;
+                    return BlendMode.SCREEN;
                 case 16:
-                    return PorterDuff.Mode.OVERLAY;
+                    return BlendMode.OVERLAY;
                 case 17:
-                    return PorterDuff.Mode.DARKEN;
+                    return BlendMode.DARKEN;
                 case 18:
-                    return PorterDuff.Mode.LIGHTEN;
+                    return BlendMode.LIGHTEN;
+                case 19:
+                    return BlendMode.COLOR_DODGE;
+                case 20:
+                    return BlendMode.COLOR_BURN;
+                case 21:
+                    return BlendMode.HARD_LIGHT;
+                case 22:
+                    return BlendMode.SOFT_LIGHT;
+                case 23:
+                    return BlendMode.DIFFERENCE;
+                case 24:
+                    return BlendMode.EXCLUSION;
+                case 25:
+                    return BlendMode.MULTIPLY;
+                case 26:
+                    return BlendMode.HUE;
+                case 27:
+                    return BlendMode.SATURATION;
+                case 28:
+                    return BlendMode.COLOR;
+                case 29:
+                    return BlendMode.LUMINOSITY;
                 default:
                     return null;
             }
         }
-        return null;
+        return (BlendMode) invokeL.objValue;
+    }
+
+    @Nullable
+    public static PorterDuff.Mode obtainPorterDuffFromCompat(@Nullable BlendModeCompat blendModeCompat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, blendModeCompat)) == null) {
+            if (blendModeCompat != null) {
+                switch (AnonymousClass1.$SwitchMap$androidx$core$graphics$BlendModeCompat[blendModeCompat.ordinal()]) {
+                    case 1:
+                        return PorterDuff.Mode.CLEAR;
+                    case 2:
+                        return PorterDuff.Mode.SRC;
+                    case 3:
+                        return PorterDuff.Mode.DST;
+                    case 4:
+                        return PorterDuff.Mode.SRC_OVER;
+                    case 5:
+                        return PorterDuff.Mode.DST_OVER;
+                    case 6:
+                        return PorterDuff.Mode.SRC_IN;
+                    case 7:
+                        return PorterDuff.Mode.DST_IN;
+                    case 8:
+                        return PorterDuff.Mode.SRC_OUT;
+                    case 9:
+                        return PorterDuff.Mode.DST_OUT;
+                    case 10:
+                        return PorterDuff.Mode.SRC_ATOP;
+                    case 11:
+                        return PorterDuff.Mode.DST_ATOP;
+                    case 12:
+                        return PorterDuff.Mode.XOR;
+                    case 13:
+                        return PorterDuff.Mode.ADD;
+                    case 14:
+                        return PorterDuff.Mode.MULTIPLY;
+                    case 15:
+                        return PorterDuff.Mode.SCREEN;
+                    case 16:
+                        return PorterDuff.Mode.OVERLAY;
+                    case 17:
+                        return PorterDuff.Mode.DARKEN;
+                    case 18:
+                        return PorterDuff.Mode.LIGHTEN;
+                    default:
+                        return null;
+                }
+            }
+            return null;
+        }
+        return (PorterDuff.Mode) invokeL.objValue;
     }
 }

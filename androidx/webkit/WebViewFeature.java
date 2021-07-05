@@ -3,12 +3,18 @@ package androidx.webkit;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.webkit.internal.WebViewFeatureInternal;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 /* loaded from: classes.dex */
 public class WebViewFeature {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String CREATE_WEB_MESSAGE_CHANNEL = "CREATE_WEB_MESSAGE_CHANNEL";
     public static final String DISABLED_ACTION_MODE_MENU_ITEMS = "DISABLED_ACTION_MODE_MENU_ITEMS";
     public static final String OFF_SCREEN_PRERASTER = "OFF_SCREEN_PRERASTER";
@@ -38,6 +44,7 @@ public class WebViewFeature {
     public static final String WEB_RESOURCE_ERROR_GET_CODE = "WEB_RESOURCE_ERROR_GET_CODE";
     public static final String WEB_RESOURCE_ERROR_GET_DESCRIPTION = "WEB_RESOURCE_ERROR_GET_DESCRIPTION";
     public static final String WEB_RESOURCE_REQUEST_IS_REDIRECT = "WEB_RESOURCE_REQUEST_IS_REDIRECT";
+    public transient /* synthetic */ FieldHolder $fh;
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
@@ -46,8 +53,27 @@ public class WebViewFeature {
     public @interface WebViewSupportFeature {
     }
 
+    public WebViewFeature() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static boolean isFeatureSupported(@NonNull String str) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(str);
-        return feature.isSupportedByFramework() || feature.isSupportedByWebView();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(str);
+            return feature.isSupportedByFramework() || feature.isSupportedByWebView();
+        }
+        return invokeL.booleanValue;
     }
 }

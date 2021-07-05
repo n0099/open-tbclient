@@ -1,144 +1,266 @@
 package com.google.common.hash;
 
-import d.g.c.a.n;
-import d.g.c.d.f;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.f.d.a.n;
+import d.f.d.d.f;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
-public final class MessageDigestHashFunction extends d.g.c.d.b implements Serializable {
+/* loaded from: classes7.dex */
+public final class MessageDigestHashFunction extends d.f.d.d.b implements Serializable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final int bytes;
     public final MessageDigest prototype;
     public final boolean supportsClone;
     public final String toString;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class SerializedForm implements Serializable {
+        public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
         public final String algorithmName;
         public final int bytes;
         public final String toString;
 
+        public /* synthetic */ SerializedForm(String str, int i2, String str2, a aVar) {
+            this(str, i2, str2);
+        }
+
         private Object readResolve() {
-            return new MessageDigestHashFunction(this.algorithmName, this.bytes, this.toString);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new MessageDigestHashFunction(this.algorithmName, this.bytes, this.toString) : invokeV.objValue;
         }
 
         public SerializedForm(String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.algorithmName = str;
             this.bytes = i2;
             this.toString = str2;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b extends d.g.c.d.a {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b extends d.f.d.d.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final MessageDigest f31535b;
+        public final MessageDigest f33396b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f31536c;
+        public final int f33397c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f31537d;
+        public boolean f33398d;
 
-        @Override // d.g.c.d.f
+        public /* synthetic */ b(MessageDigest messageDigest, int i2, a aVar) {
+            this(messageDigest, i2);
+        }
+
+        @Override // d.f.d.d.f
         public HashCode e() {
-            q();
-            this.f31537d = true;
-            if (this.f31536c == this.f31535b.getDigestLength()) {
-                return HashCode.fromBytesNoCopy(this.f31535b.digest());
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                q();
+                this.f33398d = true;
+                if (this.f33397c == this.f33396b.getDigestLength()) {
+                    return HashCode.fromBytesNoCopy(this.f33396b.digest());
+                }
+                return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f33396b.digest(), this.f33397c));
             }
-            return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f31535b.digest(), this.f31536c));
+            return (HashCode) invokeV.objValue;
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.f.d.d.a
         public void m(byte b2) {
-            q();
-            this.f31535b.update(b2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2) == null) {
+                q();
+                this.f33396b.update(b2);
+            }
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.f.d.d.a
         public void n(ByteBuffer byteBuffer) {
-            q();
-            this.f31535b.update(byteBuffer);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+                q();
+                this.f33396b.update(byteBuffer);
+            }
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.f.d.d.a
         public void p(byte[] bArr, int i2, int i3) {
-            q();
-            this.f31535b.update(bArr, i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
+                q();
+                this.f33396b.update(bArr, i2, i3);
+            }
         }
 
         public final void q() {
-            n.x(!this.f31537d, "Cannot re-use a Hasher after calling hash() on it");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                n.x(!this.f33398d, "Cannot re-use a Hasher after calling hash() on it");
+            }
         }
 
         public b(MessageDigest messageDigest, int i2) {
-            this.f31535b = messageDigest;
-            this.f31536c = i2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {messageDigest, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33396b = messageDigest;
+            this.f33397c = i2;
         }
     }
 
     public MessageDigestHashFunction(String str, String str2) {
-        MessageDigest a2 = a(str);
-        this.prototype = a2;
-        this.bytes = a2.getDigestLength();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        MessageDigest messageDigest = getMessageDigest(str);
+        this.prototype = messageDigest;
+        this.bytes = messageDigest.getDigestLength();
         n.p(str2);
         this.toString = str2;
-        this.supportsClone = b(this.prototype);
+        this.supportsClone = supportsClone(this.prototype);
     }
 
-    public static MessageDigest a(String str) {
-        try {
-            return MessageDigest.getInstance(str);
-        } catch (NoSuchAlgorithmException e2) {
-            throw new AssertionError(e2);
+    public static MessageDigest getMessageDigest(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                return MessageDigest.getInstance(str);
+            } catch (NoSuchAlgorithmException e2) {
+                throw new AssertionError(e2);
+            }
         }
+        return (MessageDigest) invokeL.objValue;
     }
 
-    public static boolean b(MessageDigest messageDigest) {
-        try {
-            messageDigest.clone();
-            return true;
-        } catch (CloneNotSupportedException unused) {
-            return false;
+    public static boolean supportsClone(MessageDigest messageDigest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, messageDigest)) == null) {
+            try {
+                messageDigest.clone();
+                return true;
+            } catch (CloneNotSupportedException unused) {
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
     public int bits() {
-        return this.bytes * 8;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bytes * 8 : invokeV.intValue;
     }
 
-    @Override // d.g.c.d.e
+    @Override // d.f.d.d.e
     public f newHasher() {
-        if (this.supportsClone) {
-            try {
-                return new b((MessageDigest) this.prototype.clone(), this.bytes);
-            } catch (CloneNotSupportedException unused) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.supportsClone) {
+                try {
+                    return new b((MessageDigest) this.prototype.clone(), this.bytes, null);
+                } catch (CloneNotSupportedException unused) {
+                }
             }
+            return new b(getMessageDigest(this.prototype.getAlgorithm()), this.bytes, null);
         }
-        return new b(a(this.prototype.getAlgorithm()), this.bytes);
+        return (f) invokeV.objValue;
     }
 
     public String toString() {
-        return this.toString;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.toString : (String) invokeV.objValue;
     }
 
     public Object writeReplace() {
-        return new SerializedForm(this.prototype.getAlgorithm(), this.bytes, this.toString);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new SerializedForm(this.prototype.getAlgorithm(), this.bytes, this.toString, null) : invokeV.objValue;
     }
 
     public MessageDigestHashFunction(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         n.p(str2);
         this.toString = str2;
-        MessageDigest a2 = a(str);
-        this.prototype = a2;
-        int digestLength = a2.getDigestLength();
+        MessageDigest messageDigest = getMessageDigest(str);
+        this.prototype = messageDigest;
+        int digestLength = messageDigest.getDigestLength();
         n.g(i2 >= 4 && i2 <= digestLength, "bytes (%s) must be >= 4 and < %s", i2, digestLength);
         this.bytes = i2;
-        this.supportsClone = b(this.prototype);
+        this.supportsClone = supportsClone(this.prototype);
     }
 }

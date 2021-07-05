@@ -7,6 +7,16 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Writer;
@@ -20,8 +30,9 @@ import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import org.webrtc.EglBase10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener, View.OnLayoutChangeListener {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final int DEBUG_CHECK_GL_ERROR = 1;
     public static final int DEBUG_LOG_GL_CALLS = 2;
@@ -35,7 +46,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public static final int RENDERMODE_CONTINUOUSLY = 1;
     public static final int RENDERMODE_WHEN_DIRTY = 0;
     public static final String TAG = "GLTextureView";
-    public static final GLThreadManager sGLThreadManager = new GLThreadManager();
+    public static final GLThreadManager sGLThreadManager;
+    public transient /* synthetic */ FieldHolder $fh;
     public int mDebugFlags;
     public boolean mDetached;
     public EGLConfigChooser mEGLConfigChooser;
@@ -48,54 +60,91 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public Renderer mRenderer;
     public final WeakReference<GLTextureView> mThisWeakRef;
 
-    /* loaded from: classes2.dex */
-    public abstract class BaseConfigChooser implements EGLConfigChooser {
-        public int[] mConfigSpec;
+    /* renamed from: com.baidu.searchbox.afx.gl.GLTextureView$1  reason: invalid class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public BaseConfigChooser(int[] iArr) {
+    /* loaded from: classes3.dex */
+    public abstract class BaseConfigChooser implements EGLConfigChooser {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int[] mConfigSpec;
+        public final /* synthetic */ GLTextureView this$0;
+
+        public BaseConfigChooser(GLTextureView gLTextureView, int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gLTextureView, iArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = gLTextureView;
             this.mConfigSpec = filterConfigSpec(iArr);
         }
 
         private int[] filterConfigSpec(int[] iArr) {
-            if (GLTextureView.this.mEGLContextClientVersion != 2) {
-                return iArr;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, iArr)) == null) {
+                if (this.this$0.mEGLContextClientVersion != 2) {
+                    return iArr;
+                }
+                int length = iArr.length;
+                int[] iArr2 = new int[length + 2];
+                int i2 = length - 1;
+                System.arraycopy(iArr, 0, iArr2, 0, i2);
+                iArr2[i2] = 12352;
+                iArr2[length] = 4;
+                iArr2[length + 1] = 12344;
+                return iArr2;
             }
-            int length = iArr.length;
-            int[] iArr2 = new int[length + 2];
-            int i2 = length - 1;
-            System.arraycopy(iArr, 0, iArr2, 0, i2);
-            iArr2[i2] = 12352;
-            iArr2[length] = 4;
-            iArr2[length + 1] = 12344;
-            return iArr2;
+            return (int[]) invokeL.objValue;
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLConfigChooser
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
-            int[] iArr = new int[1];
-            if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, null, 0, iArr)) {
-                int i2 = iArr[0];
-                if (i2 > 0) {
-                    EGLConfig[] eGLConfigArr = new EGLConfig[i2];
-                    if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, eGLConfigArr, i2, iArr)) {
-                        EGLConfig chooseConfig = chooseConfig(egl10, eGLDisplay, eGLConfigArr);
-                        if (chooseConfig != null) {
-                            return chooseConfig;
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, egl10, eGLDisplay)) == null) {
+                int[] iArr = new int[1];
+                if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, null, 0, iArr)) {
+                    int i2 = iArr[0];
+                    if (i2 > 0) {
+                        EGLConfig[] eGLConfigArr = new EGLConfig[i2];
+                        if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, eGLConfigArr, i2, iArr)) {
+                            EGLConfig chooseConfig = chooseConfig(egl10, eGLDisplay, eGLConfigArr);
+                            if (chooseConfig != null) {
+                                return chooseConfig;
+                            }
+                            throw new IllegalArgumentException("No config chosen");
                         }
-                        throw new IllegalArgumentException("No config chosen");
+                        throw new IllegalArgumentException("eglChooseConfig#2 failed");
                     }
-                    throw new IllegalArgumentException("eglChooseConfig#2 failed");
+                    throw new IllegalArgumentException("No configs match configSpec");
                 }
-                throw new IllegalArgumentException("No configs match configSpec");
+                throw new IllegalArgumentException("eglChooseConfig failed");
             }
-            throw new IllegalArgumentException("eglChooseConfig failed");
+            return (EGLConfig) invokeLL.objValue;
         }
 
         public abstract EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ComponentSizeChooser extends BaseConfigChooser {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public int mAlphaSize;
         public int mBlueSize;
         public int mDepthSize;
@@ -103,9 +152,28 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public int mRedSize;
         public int mStencilSize;
         public int[] mValue;
+        public final /* synthetic */ GLTextureView this$0;
 
-        public ComponentSizeChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
-            super(new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, i4, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, i5, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, i6, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, i7, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ComponentSizeChooser(GLTextureView gLTextureView, int i2, int i3, int i4, int i5, int i6, int i7) {
+            super(gLTextureView, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, i4, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, i5, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, i6, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, i7, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gLTextureView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i8 = newInitContext.flag;
+                if ((i8 & 1) != 0) {
+                    int i9 = i8 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((GLTextureView) objArr2[0], (int[]) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = gLTextureView;
             this.mValue = new int[1];
             this.mRedSize = i2;
             this.mGreenSize = i3;
@@ -116,98 +184,105 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i2, int i3) {
-            return egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.mValue) ? this.mValue[0] : i3;
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.mValue) ? this.mValue[0] : i3 : invokeCommon.intValue;
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.BaseConfigChooser
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
-            for (EGLConfig eGLConfig : eGLConfigArr) {
-                int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, 0);
-                int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0);
-                if (findConfigAttrib >= this.mDepthSize && findConfigAttrib2 >= this.mStencilSize) {
-                    int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
-                    int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
-                    int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 0);
-                    int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 0);
-                    if (findConfigAttrib3 == this.mRedSize && findConfigAttrib4 == this.mGreenSize && findConfigAttrib5 == this.mBlueSize && findConfigAttrib6 == this.mAlphaSize) {
-                        return eGLConfig;
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfigArr)) == null) {
+                for (EGLConfig eGLConfig : eGLConfigArr) {
+                    int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, 0);
+                    int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0);
+                    if (findConfigAttrib >= this.mDepthSize && findConfigAttrib2 >= this.mStencilSize) {
+                        int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
+                        int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
+                        int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 0);
+                        int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 0);
+                        if (findConfigAttrib3 == this.mRedSize && findConfigAttrib4 == this.mGreenSize && findConfigAttrib5 == this.mBlueSize && findConfigAttrib6 == this.mAlphaSize) {
+                            return eGLConfig;
+                        }
                     }
                 }
+                return null;
             }
-            return null;
+            return (EGLConfig) invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class DefaultContextFactory implements EGLContextFactory {
-        public int EGL_CONTEXT_CLIENT_VERSION;
-
-        public DefaultContextFactory() {
-            this.EGL_CONTEXT_CLIENT_VERSION = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
-        }
-
-        @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLContextFactory
-        public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, GLTextureView.this.mEGLContextClientVersion, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
-            EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
-            if (GLTextureView.this.mEGLContextClientVersion == 0) {
-                iArr = null;
-            }
-            return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
-        }
-
-        @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLContextFactory
-        public void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
-            if (egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
-                return;
-            }
-            Log.e("DefaultContextFactory", "display:" + eGLDisplay + " context: " + eGLContext);
-            EglHelper.throwEglException("eglDestroyContex", egl10.eglGetError());
-        }
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultWindowSurfaceFactory implements EGLWindowSurfaceFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public DefaultWindowSurfaceFactory() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLWindowSurfaceFactory
         public EGLSurface createWindowSurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj) {
-            try {
-                return egl10.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, null);
-            } catch (IllegalArgumentException e2) {
-                Log.e(GLTextureView.TAG, "eglCreateWindowSurface", e2);
-                return null;
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, egl10, eGLDisplay, eGLConfig, obj)) == null) {
+                try {
+                    return egl10.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, null);
+                } catch (IllegalArgumentException e2) {
+                    Log.e(GLTextureView.TAG, "eglCreateWindowSurface", e2);
+                    return null;
+                }
             }
+            return (EGLSurface) invokeLLLL.objValue;
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLWindowSurfaceFactory
         public void destroySurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface) {
-            egl10.eglDestroySurface(eGLDisplay, eGLSurface);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, egl10, eGLDisplay, eGLSurface) == null) {
+                egl10.eglDestroySurface(eGLDisplay, eGLSurface);
+            }
+        }
+
+        public /* synthetic */ DefaultWindowSurfaceFactory(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EGLConfigChooser {
         EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EGLContextFactory {
         EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EGLWindowSurfaceFactory {
         EGLSurface createWindowSurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
         void destroySurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EglHelper {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public EGL10 mEgl;
         public EGLConfig mEglConfig;
         public EGLContext mEglContext;
@@ -216,16 +291,31 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public WeakReference<GLTextureView> mGLSurfaceViewWeakRef;
 
         public EglHelper(WeakReference<GLTextureView> weakReference) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {weakReference};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.mGLSurfaceViewWeakRef = weakReference;
         }
 
         private void destroySurfaceImp() {
             EGLSurface eGLSurface;
-            EGLSurface eGLSurface2 = this.mEglSurface;
-            if (eGLSurface2 == null || eGLSurface2 == (eGLSurface = EGL10.EGL_NO_SURFACE)) {
+            EGLSurface eGLSurface2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (eGLSurface = this.mEglSurface) == null || eGLSurface == (eGLSurface2 = EGL10.EGL_NO_SURFACE)) {
                 return;
             }
-            this.mEgl.eglMakeCurrent(this.mEglDisplay, eGLSurface, eGLSurface, EGL10.EGL_NO_CONTEXT);
+            this.mEgl.eglMakeCurrent(this.mEglDisplay, eGLSurface2, eGLSurface2, EGL10.EGL_NO_CONTEXT);
             GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
             if (gLTextureView != null) {
                 gLTextureView.mEGLWindowSurfaceFactory.destroySurface(this.mEgl, this.mEglDisplay, this.mEglSurface);
@@ -234,142 +324,199 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public static String formatEglError(String str, int i2) {
-            return str + " failed: " + i2;
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+                return str + " failed: " + i2;
+            }
+            return (String) invokeLI.objValue;
         }
 
         public static void logEglErrorAsWarning(String str, String str2, int i2) {
-            Log.w(str, formatEglError(str2, i2));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(65539, null, str, str2, i2) == null) {
+                Log.w(str, formatEglError(str2, i2));
+            }
         }
 
         private void throwEglException(String str) {
-            throwEglException(str, this.mEgl.eglGetError());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+                throwEglException(str, this.mEgl.eglGetError());
+            }
         }
 
         public GL createGL() {
-            GL gl = this.mEglContext.getGL();
-            GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
-            if (gLTextureView != null) {
-                if (gLTextureView.mGLWrapper != null) {
-                    gl = gLTextureView.mGLWrapper.wrap(gl);
-                }
-                if ((gLTextureView.mDebugFlags & 3) != 0) {
-                    return GLDebugHelper.wrap(gl, (gLTextureView.mDebugFlags & 1) != 0 ? 1 : 0, (gLTextureView.mDebugFlags & 2) != 0 ? new LogWriter() : null);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                GL gl = this.mEglContext.getGL();
+                GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
+                if (gLTextureView != null) {
+                    if (gLTextureView.mGLWrapper != null) {
+                        gl = gLTextureView.mGLWrapper.wrap(gl);
+                    }
+                    if ((gLTextureView.mDebugFlags & 3) != 0) {
+                        return GLDebugHelper.wrap(gl, (gLTextureView.mDebugFlags & 1) != 0 ? 1 : 0, (gLTextureView.mDebugFlags & 2) != 0 ? new LogWriter() : null);
+                    }
+                    return gl;
                 }
                 return gl;
             }
-            return gl;
+            return (GL) invokeV.objValue;
         }
 
         public boolean createSurface() {
-            if (this.mEgl != null) {
-                if (this.mEglDisplay != null) {
-                    if (this.mEglConfig != null) {
-                        destroySurfaceImp();
-                        GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
-                        if (gLTextureView != null) {
-                            this.mEglSurface = gLTextureView.mEGLWindowSurfaceFactory.createWindowSurface(this.mEgl, this.mEglDisplay, this.mEglConfig, gLTextureView.getSurfaceTexture());
-                        } else {
-                            this.mEglSurface = null;
-                        }
-                        EGLSurface eGLSurface = this.mEglSurface;
-                        if (eGLSurface != null && eGLSurface != EGL10.EGL_NO_SURFACE) {
-                            if (this.mEgl.eglMakeCurrent(this.mEglDisplay, eGLSurface, eGLSurface, this.mEglContext)) {
-                                return true;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.mEgl != null) {
+                    if (this.mEglDisplay != null) {
+                        if (this.mEglConfig != null) {
+                            destroySurfaceImp();
+                            GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
+                            if (gLTextureView != null) {
+                                this.mEglSurface = gLTextureView.mEGLWindowSurfaceFactory.createWindowSurface(this.mEgl, this.mEglDisplay, this.mEglConfig, gLTextureView.getSurfaceTexture());
+                            } else {
+                                this.mEglSurface = null;
                             }
-                            logEglErrorAsWarning("EGLHelper", "eglMakeCurrent", this.mEgl.eglGetError());
+                            EGLSurface eGLSurface = this.mEglSurface;
+                            if (eGLSurface != null && eGLSurface != EGL10.EGL_NO_SURFACE) {
+                                if (this.mEgl.eglMakeCurrent(this.mEglDisplay, eGLSurface, eGLSurface, this.mEglContext)) {
+                                    return true;
+                                }
+                                logEglErrorAsWarning("EGLHelper", "eglMakeCurrent", this.mEgl.eglGetError());
+                                return false;
+                            }
+                            if (this.mEgl.eglGetError() == 12299) {
+                                Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
+                            }
                             return false;
                         }
-                        if (this.mEgl.eglGetError() == 12299) {
-                            Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
-                        }
-                        return false;
+                        throw new RuntimeException("mEglConfig not initialized");
                     }
-                    throw new RuntimeException("mEglConfig not initialized");
+                    throw new RuntimeException("eglDisplay not initialized");
                 }
-                throw new RuntimeException("eglDisplay not initialized");
+                throw new RuntimeException("egl not initialized");
             }
-            throw new RuntimeException("egl not initialized");
+            return invokeV.booleanValue;
         }
 
         public void destroySurface() {
-            destroySurfaceImp();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                destroySurfaceImp();
+            }
         }
 
         public void finish() {
-            if (this.mEglContext != null) {
-                GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
-                if (gLTextureView != null) {
-                    gLTextureView.mEGLContextFactory.destroyContext(this.mEgl, this.mEglDisplay, this.mEglContext);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                if (this.mEglContext != null) {
+                    GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
+                    if (gLTextureView != null) {
+                        gLTextureView.mEGLContextFactory.destroyContext(this.mEgl, this.mEglDisplay, this.mEglContext);
+                    }
+                    this.mEglContext = null;
                 }
-                this.mEglContext = null;
-            }
-            EGLDisplay eGLDisplay = this.mEglDisplay;
-            if (eGLDisplay != null) {
-                this.mEgl.eglTerminate(eGLDisplay);
-                this.mEglDisplay = null;
+                EGLDisplay eGLDisplay = this.mEglDisplay;
+                if (eGLDisplay != null) {
+                    this.mEgl.eglTerminate(eGLDisplay);
+                    this.mEglDisplay = null;
+                }
             }
         }
 
         public void start() {
-            EGL10 egl10 = (EGL10) EGLContext.getEGL();
-            this.mEgl = egl10;
-            EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            this.mEglDisplay = eglGetDisplay;
-            if (eglGetDisplay != EGL10.EGL_NO_DISPLAY) {
-                if (this.mEgl.eglInitialize(eglGetDisplay, new int[2])) {
-                    GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
-                    if (gLTextureView != null) {
-                        this.mEglConfig = gLTextureView.mEGLConfigChooser.chooseConfig(this.mEgl, this.mEglDisplay);
-                        this.mEglContext = gLTextureView.mEGLContextFactory.createContext(this.mEgl, this.mEglDisplay, this.mEglConfig);
-                    } else {
-                        this.mEglConfig = null;
-                        this.mEglContext = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                EGL10 egl10 = (EGL10) EGLContext.getEGL();
+                this.mEgl = egl10;
+                EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+                this.mEglDisplay = eglGetDisplay;
+                if (eglGetDisplay != EGL10.EGL_NO_DISPLAY) {
+                    if (this.mEgl.eglInitialize(eglGetDisplay, new int[2])) {
+                        GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
+                        if (gLTextureView != null) {
+                            this.mEglConfig = gLTextureView.mEGLConfigChooser.chooseConfig(this.mEgl, this.mEglDisplay);
+                            this.mEglContext = gLTextureView.mEGLContextFactory.createContext(this.mEgl, this.mEglDisplay, this.mEglConfig);
+                        } else {
+                            this.mEglConfig = null;
+                            this.mEglContext = null;
+                        }
+                        EGLContext eGLContext = this.mEglContext;
+                        if (eGLContext == null || eGLContext == EGL10.EGL_NO_CONTEXT) {
+                            this.mEglContext = null;
+                            throwEglException("createContext");
+                        }
+                        this.mEglSurface = null;
+                        return;
                     }
-                    EGLContext eGLContext = this.mEglContext;
-                    if (eGLContext == null || eGLContext == EGL10.EGL_NO_CONTEXT) {
-                        this.mEglContext = null;
-                        throwEglException("createContext");
-                    }
-                    this.mEglSurface = null;
-                    return;
+                    throw new RuntimeException("eglInitialize failed");
                 }
-                throw new RuntimeException("eglInitialize failed");
+                throw new RuntimeException("eglGetDisplay failed");
             }
-            throw new RuntimeException("eglGetDisplay failed");
         }
 
         public int swap() {
-            return !this.mEgl.eglSwapBuffers(this.mEglDisplay, this.mEglSurface) ? this.mEgl.eglGetError() : CommandMessage.COMMAND_BASE;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? !this.mEgl.eglSwapBuffers(this.mEglDisplay, this.mEglSurface) ? this.mEgl.eglGetError() : CommandMessage.COMMAND_BASE : invokeV.intValue;
         }
 
         public static void throwEglException(String str, int i2) {
-            throw new RuntimeException(formatEglError(str, i2));
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2) == null) {
+                throw new RuntimeException(formatEglError(str, i2));
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GLThread extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public EglHelper mEglHelper;
+        public ArrayList<Runnable> mEventQueue;
         public boolean mExited;
         public WeakReference<GLTextureView> mGLSurfaceViewWeakRef;
         public boolean mHasSurface;
         public boolean mHaveEglContext;
         public boolean mHaveEglSurface;
+        public int mHeight;
         public boolean mPaused;
         public boolean mRenderComplete;
+        public int mRenderMode;
         public boolean mRequestPaused;
+        public boolean mRequestRender;
         public boolean mShouldExit;
         public boolean mShouldReleaseEglContext;
+        public boolean mSizeChanged;
         public boolean mSurfaceIsBad;
         public boolean mWaitingForSurface;
-        public ArrayList<Runnable> mEventQueue = new ArrayList<>();
-        public boolean mSizeChanged = true;
-        public int mWidth = 0;
-        public int mHeight = 0;
-        public boolean mRequestRender = true;
-        public int mRenderMode = 1;
+        public int mWidth;
 
         public GLThread(WeakReference<GLTextureView> weakReference) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {weakReference};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mEventQueue = new ArrayList<>();
+            this.mSizeChanged = true;
+            this.mWidth = 0;
+            this.mHeight = 0;
+            this.mRequestRender = true;
+            this.mRenderMode = 1;
             this.mGLSurfaceViewWeakRef = weakReference;
         }
 
@@ -377,6 +524,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         private void guardedRun() throws InterruptedException {
             boolean z;
             boolean z2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(65538, this) != null) {
+                return;
+            }
             this.mEglHelper = new EglHelper(this.mGLSurfaceViewWeakRef);
             this.mHaveEglContext = false;
             this.mHaveEglSurface = false;
@@ -561,11 +712,14 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         private boolean readyToDraw() {
-            return !this.mPaused && this.mHasSurface && !this.mSurfaceIsBad && this.mWidth > 0 && this.mHeight > 0 && (this.mRequestRender || this.mRenderMode == 1);
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? !this.mPaused && this.mHasSurface && !this.mSurfaceIsBad && this.mWidth > 0 && this.mHeight > 0 && (this.mRequestRender || this.mRenderMode == 1) : invokeV.booleanValue;
         }
 
         private void stopEglContextLocked() {
-            if (this.mHaveEglContext) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.mHaveEglContext) {
                 this.mEglHelper.finish();
                 this.mHaveEglContext = false;
                 GLTextureView.sGLThreadManager.releaseEglContextLocked(this);
@@ -573,169 +727,212 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         private void stopEglSurfaceLocked() {
-            if (this.mHaveEglSurface) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.mHaveEglSurface) {
                 this.mHaveEglSurface = false;
                 this.mEglHelper.destroySurface();
             }
         }
 
         public boolean ableToDraw() {
-            return this.mHaveEglContext && this.mHaveEglSurface && readyToDraw();
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHaveEglContext && this.mHaveEglSurface && readyToDraw() : invokeV.booleanValue;
         }
 
         public int getRenderMode() {
+            InterceptResult invokeV;
             int i2;
-            synchronized (GLTextureView.sGLThreadManager) {
-                i2 = this.mRenderMode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    i2 = this.mRenderMode;
+                }
+                return i2;
             }
-            return i2;
+            return invokeV.intValue;
         }
 
         public void onPause() {
-            synchronized (GLTextureView.sGLThreadManager) {
-                this.mRequestPaused = true;
-                GLTextureView.sGLThreadManager.notifyAll();
-                while (!this.mExited && !this.mPaused) {
-                    try {
-                        GLTextureView.sGLThreadManager.wait();
-                    } catch (InterruptedException unused) {
-                        Thread.currentThread().interrupt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    this.mRequestPaused = true;
+                    GLTextureView.sGLThreadManager.notifyAll();
+                    while (!this.mExited && !this.mPaused) {
+                        try {
+                            GLTextureView.sGLThreadManager.wait();
+                        } catch (InterruptedException unused) {
+                            Thread.currentThread().interrupt();
+                        }
                     }
                 }
             }
         }
 
         public void onResume() {
-            synchronized (GLTextureView.sGLThreadManager) {
-                this.mRequestPaused = false;
-                this.mRequestRender = true;
-                this.mRenderComplete = false;
-                GLTextureView.sGLThreadManager.notifyAll();
-                while (!this.mExited && this.mPaused && !this.mRenderComplete) {
-                    try {
-                        GLTextureView.sGLThreadManager.wait();
-                    } catch (InterruptedException unused) {
-                        Thread.currentThread().interrupt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    this.mRequestPaused = false;
+                    this.mRequestRender = true;
+                    this.mRenderComplete = false;
+                    GLTextureView.sGLThreadManager.notifyAll();
+                    while (!this.mExited && this.mPaused && !this.mRenderComplete) {
+                        try {
+                            GLTextureView.sGLThreadManager.wait();
+                        } catch (InterruptedException unused) {
+                            Thread.currentThread().interrupt();
+                        }
                     }
                 }
             }
         }
 
         public void onWindowResize(int i2, int i3) {
-            synchronized (GLTextureView.sGLThreadManager) {
-                this.mWidth = i2;
-                this.mHeight = i3;
-                this.mSizeChanged = true;
-                this.mRequestRender = true;
-                this.mRenderComplete = false;
-                GLTextureView.sGLThreadManager.notifyAll();
-                while (!this.mExited && !this.mPaused && !this.mRenderComplete && ableToDraw()) {
-                    try {
-                        GLTextureView.sGLThreadManager.wait();
-                    } catch (InterruptedException unused) {
-                        Thread.currentThread().interrupt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    this.mWidth = i2;
+                    this.mHeight = i3;
+                    this.mSizeChanged = true;
+                    this.mRequestRender = true;
+                    this.mRenderComplete = false;
+                    GLTextureView.sGLThreadManager.notifyAll();
+                    while (!this.mExited && !this.mPaused && !this.mRenderComplete && ableToDraw()) {
+                        try {
+                            GLTextureView.sGLThreadManager.wait();
+                        } catch (InterruptedException unused) {
+                            Thread.currentThread().interrupt();
+                        }
                     }
                 }
             }
         }
 
         public void queueEvent(Runnable runnable) {
-            if (runnable != null) {
-                synchronized (GLTextureView.sGLThreadManager) {
-                    this.mEventQueue.add(runnable);
-                    GLTextureView.sGLThreadManager.notifyAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
+                if (runnable != null) {
+                    synchronized (GLTextureView.sGLThreadManager) {
+                        this.mEventQueue.add(runnable);
+                        GLTextureView.sGLThreadManager.notifyAll();
+                    }
+                    return;
                 }
-                return;
+                throw new IllegalArgumentException("r must not be null");
             }
-            throw new IllegalArgumentException("r must not be null");
         }
 
         public void requestExitAndWait() {
-            synchronized (GLTextureView.sGLThreadManager) {
-                this.mShouldExit = true;
-                GLTextureView.sGLThreadManager.notifyAll();
-                while (!this.mExited) {
-                    try {
-                        GLTextureView.sGLThreadManager.wait();
-                    } catch (InterruptedException unused) {
-                        Thread.currentThread().interrupt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    this.mShouldExit = true;
+                    GLTextureView.sGLThreadManager.notifyAll();
+                    while (!this.mExited) {
+                        try {
+                            GLTextureView.sGLThreadManager.wait();
+                        } catch (InterruptedException unused) {
+                            Thread.currentThread().interrupt();
+                        }
                     }
                 }
             }
         }
 
         public void requestReleaseEglContextLocked() {
-            this.mShouldReleaseEglContext = true;
-            GLTextureView.sGLThreadManager.notifyAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.mShouldReleaseEglContext = true;
+                GLTextureView.sGLThreadManager.notifyAll();
+            }
         }
 
         public void requestRender() {
-            synchronized (GLTextureView.sGLThreadManager) {
-                this.mRequestRender = true;
-                GLTextureView.sGLThreadManager.notifyAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    this.mRequestRender = true;
+                    GLTextureView.sGLThreadManager.notifyAll();
+                }
             }
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            setName("GLThread " + getId());
-            try {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                setName("GLThread " + getId());
                 try {
-                    guardedRun();
-                } catch (InterruptedException unused) {
-                } catch (RuntimeException e2) {
-                    e2.printStackTrace();
+                    try {
+                        guardedRun();
+                    } catch (InterruptedException unused) {
+                    } catch (RuntimeException e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    GLTextureView.sGLThreadManager.threadExiting(this);
                 }
-            } finally {
-                GLTextureView.sGLThreadManager.threadExiting(this);
             }
         }
 
         public void setRenderMode(int i2) {
-            if (i2 >= 0 && i2 <= 1) {
-                synchronized (GLTextureView.sGLThreadManager) {
-                    this.mRenderMode = i2;
-                    GLTextureView.sGLThreadManager.notifyAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+                if (i2 >= 0 && i2 <= 1) {
+                    synchronized (GLTextureView.sGLThreadManager) {
+                        this.mRenderMode = i2;
+                        GLTextureView.sGLThreadManager.notifyAll();
+                    }
+                    return;
                 }
-                return;
+                throw new IllegalArgumentException("renderMode");
             }
-            throw new IllegalArgumentException("renderMode");
         }
 
         public void surfaceCreated() {
-            synchronized (GLTextureView.sGLThreadManager) {
-                this.mHasSurface = true;
-                GLTextureView.sGLThreadManager.notifyAll();
-                while (this.mWaitingForSurface && !this.mExited) {
-                    try {
-                        GLTextureView.sGLThreadManager.wait();
-                    } catch (InterruptedException unused) {
-                        Thread.currentThread().interrupt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    this.mHasSurface = true;
+                    GLTextureView.sGLThreadManager.notifyAll();
+                    while (this.mWaitingForSurface && !this.mExited) {
+                        try {
+                            GLTextureView.sGLThreadManager.wait();
+                        } catch (InterruptedException unused) {
+                            Thread.currentThread().interrupt();
+                        }
                     }
                 }
             }
         }
 
         public void surfaceDestroyed() {
-            synchronized (GLTextureView.sGLThreadManager) {
-                this.mHasSurface = false;
-                GLTextureView.sGLThreadManager.notifyAll();
-                while (!this.mWaitingForSurface && !this.mExited) {
-                    try {
-                        GLTextureView.sGLThreadManager.wait();
-                    } catch (InterruptedException unused) {
-                        Thread.currentThread().interrupt();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+                synchronized (GLTextureView.sGLThreadManager) {
+                    this.mHasSurface = false;
+                    GLTextureView.sGLThreadManager.notifyAll();
+                    while (!this.mWaitingForSurface && !this.mExited) {
+                        try {
+                            GLTextureView.sGLThreadManager.wait();
+                        } catch (InterruptedException unused) {
+                            Thread.currentThread().interrupt();
+                        }
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GLThreadManager {
+        public static /* synthetic */ Interceptable $ic = null;
         public static String TAG = "GLThreadManager";
         public static final int kGLES_20 = 131072;
         public static final String kMSM7K_RENDERER_PREFIX = "Q3Dimension MSM7500 ";
+        public transient /* synthetic */ FieldHolder $fh;
         public GLThread mEglOwner;
         public boolean mGLESDriverCheckComplete;
         public int mGLESVersion;
@@ -743,114 +940,210 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public boolean mLimitedGLESContexts;
         public boolean mMultipleGLESContextsAllowed;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(883248506, "Lcom/baidu/searchbox/afx/gl/GLTextureView$GLThreadManager;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(883248506, "Lcom/baidu/searchbox/afx/gl/GLTextureView$GLThreadManager;");
+            }
+        }
+
         public GLThreadManager() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
 
         private void checkGLESVersion() {
-            if (this.mGLESVersionCheckComplete) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.mGLESVersionCheckComplete) {
                 return;
             }
             this.mGLESVersionCheckComplete = true;
         }
 
         public synchronized void checkGLDriver(GL10 gl10) {
-            if (!this.mGLESDriverCheckComplete) {
-                checkGLESVersion();
-                String glGetString = gl10.glGetString(7937);
-                if (this.mGLESVersion < 131072) {
-                    this.mMultipleGLESContextsAllowed = !glGetString.startsWith(kMSM7K_RENDERER_PREFIX);
-                    notifyAll();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, gl10) == null) {
+                synchronized (this) {
+                    if (!this.mGLESDriverCheckComplete) {
+                        checkGLESVersion();
+                        String glGetString = gl10.glGetString(7937);
+                        if (this.mGLESVersion < 131072) {
+                            this.mMultipleGLESContextsAllowed = !glGetString.startsWith(kMSM7K_RENDERER_PREFIX);
+                            notifyAll();
+                        }
+                        this.mLimitedGLESContexts = this.mMultipleGLESContextsAllowed ? false : true;
+                        this.mGLESDriverCheckComplete = true;
+                    }
                 }
-                this.mLimitedGLESContexts = this.mMultipleGLESContextsAllowed ? false : true;
-                this.mGLESDriverCheckComplete = true;
             }
         }
 
         public void releaseEglContextLocked(GLThread gLThread) {
-            if (this.mEglOwner == gLThread) {
-                this.mEglOwner = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gLThread) == null) {
+                if (this.mEglOwner == gLThread) {
+                    this.mEglOwner = null;
+                }
+                notifyAll();
             }
-            notifyAll();
         }
 
         public synchronized boolean shouldReleaseEGLContextWhenPausing() {
-            return this.mLimitedGLESContexts;
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                synchronized (this) {
+                    z = this.mLimitedGLESContexts;
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
         }
 
         public synchronized boolean shouldTerminateEGLWhenPausing() {
-            checkGLESVersion();
-            return !this.mMultipleGLESContextsAllowed;
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                synchronized (this) {
+                    checkGLESVersion();
+                    z = !this.mMultipleGLESContextsAllowed;
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
         }
 
         public synchronized void threadExiting(GLThread gLThread) {
-            gLThread.mExited = true;
-            if (this.mEglOwner == gLThread) {
-                this.mEglOwner = null;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, gLThread) == null) {
+                synchronized (this) {
+                    gLThread.mExited = true;
+                    if (this.mEglOwner == gLThread) {
+                        this.mEglOwner = null;
+                    }
+                    notifyAll();
+                }
             }
-            notifyAll();
         }
 
         public boolean tryAcquireEglContextLocked(GLThread gLThread) {
-            GLThread gLThread2 = this.mEglOwner;
-            if (gLThread2 != gLThread && gLThread2 != null) {
-                checkGLESVersion();
-                if (this.mMultipleGLESContextsAllowed) {
-                    return true;
-                }
-                GLThread gLThread3 = this.mEglOwner;
-                if (gLThread3 != null) {
-                    gLThread3.requestReleaseEglContextLocked();
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gLThread)) == null) {
+                GLThread gLThread2 = this.mEglOwner;
+                if (gLThread2 != gLThread && gLThread2 != null) {
+                    checkGLESVersion();
+                    if (this.mMultipleGLESContextsAllowed) {
+                        return true;
+                    }
+                    GLThread gLThread3 = this.mEglOwner;
+                    if (gLThread3 != null) {
+                        gLThread3.requestReleaseEglContextLocked();
+                        return false;
+                    }
                     return false;
                 }
-                return false;
+                this.mEglOwner = gLThread;
+                notifyAll();
+                return true;
             }
-            this.mEglOwner = gLThread;
-            notifyAll();
-            return true;
+            return invokeL.booleanValue;
+        }
+
+        public /* synthetic */ GLThreadManager(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface GLWrapper {
         GL wrap(GL gl);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LogWriter extends Writer {
-        public StringBuilder mBuilder = new StringBuilder();
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public StringBuilder mBuilder;
+
+        public LogWriter() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mBuilder = new StringBuilder();
+        }
 
         private void flushBuilder() {
-            if (this.mBuilder.length() > 0) {
-                Log.v(GLTextureView.TAG, this.mBuilder.toString());
-                StringBuilder sb = this.mBuilder;
-                sb.delete(0, sb.length());
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mBuilder.length() <= 0) {
+                return;
             }
+            Log.v(GLTextureView.TAG, this.mBuilder.toString());
+            StringBuilder sb = this.mBuilder;
+            sb.delete(0, sb.length());
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            flushBuilder();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                flushBuilder();
+            }
         }
 
         @Override // java.io.Writer, java.io.Flushable
         public void flush() {
-            flushBuilder();
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                flushBuilder();
+            }
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i2, int i3) {
-            for (int i4 = 0; i4 < i3; i4++) {
-                char c2 = cArr[i2 + i4];
-                if (c2 == '\n') {
-                    flushBuilder();
-                } else {
-                    this.mBuilder.append(c2);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i2, i3) == null) {
+                for (int i4 = 0; i4 < i3; i4++) {
+                    char c2 = cArr[i2 + i4];
+                    if (c2 == '\n') {
+                        flushBuilder();
+                    } else {
+                        this.mBuilder.append(c2);
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Renderer {
         void onDrawFrame(GL10 gl10);
 
@@ -859,179 +1152,396 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SimpleEGLConfigChooser extends ComponentSizeChooser {
-        public SimpleEGLConfigChooser(boolean z) {
-            super(8, 8, 8, 0, z ? 16 : 0, 0);
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GLTextureView this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SimpleEGLConfigChooser(GLTextureView gLTextureView, boolean z) {
+            super(gLTextureView, 8, 8, 8, 0, z ? 16 : 0, 0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gLTextureView, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((GLTextureView) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = gLTextureView;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1820387084, "Lcom/baidu/searchbox/afx/gl/GLTextureView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1820387084, "Lcom/baidu/searchbox/afx/gl/GLTextureView;");
+                return;
+            }
+        }
+        sGLThreadManager = new GLThreadManager(null);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GLTextureView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.mThisWeakRef = new WeakReference<>(this);
         init();
     }
 
     private void checkRenderThreadState() {
-        if (this.mGLThread != null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mGLThread != null) {
             throw new IllegalStateException("setRenderer has already been called for this instance.");
         }
     }
 
     private void init() {
-        setSurfaceTextureListener(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            setSurfaceTextureListener(this);
+        }
     }
 
     public void finalize() throws Throwable {
-        try {
-            if (this.mGLThread != null) {
-                this.mGLThread.requestExitAndWait();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                if (this.mGLThread != null) {
+                    this.mGLThread.requestExitAndWait();
+                }
+            } finally {
+                super.finalize();
             }
-        } finally {
-            super.finalize();
         }
     }
 
     public int getDebugFlags() {
-        return this.mDebugFlags;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDebugFlags : invokeV.intValue;
     }
 
     public boolean getPreserveEGLContextOnPause() {
-        return this.mPreserveEGLContextOnPause;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPreserveEGLContextOnPause : invokeV.booleanValue;
     }
 
     public int getRenderMode() {
-        return this.mGLThread.getRenderMode();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mGLThread.getRenderMode() : invokeV.intValue;
     }
 
     @Override // android.view.TextureView, android.view.View
     public void onAttachedToWindow() {
-        super.onAttachedToWindow();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onAttachedToWindow();
+        }
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDetachedFromWindow();
+        }
     }
 
     @Override // android.view.View.OnLayoutChangeListener
     public void onLayoutChange(View view, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-        surfaceChanged(getSurfaceTexture(), 0, i4 - i2, i5 - i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
+            surfaceChanged(getSurfaceTexture(), 0, i4 - i2, i5 - i3);
+        }
     }
 
     public void onPause() {
-        this.mGLThread.onPause();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.mGLThread.onPause();
+        }
     }
 
     public void onResume() {
-        this.mGLThread.onResume();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mGLThread.onResume();
+        }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        surfaceCreated(surfaceTexture);
-        surfaceChanged(surfaceTexture, 0, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i2, i3) == null) {
+            surfaceCreated(surfaceTexture);
+            surfaceChanged(surfaceTexture, 0, i2, i3);
+        }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        surfaceDestroyed(surfaceTexture);
-        return true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, surfaceTexture)) == null) {
+            surfaceDestroyed(surfaceTexture);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
-        surfaceChanged(surfaceTexture, 0, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048587, this, surfaceTexture, i2, i3) == null) {
+            surfaceChanged(surfaceTexture, 0, i2, i3);
+        }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, surfaceTexture) == null) {
+        }
     }
 
     public void queueEvent(Runnable runnable) {
-        this.mGLThread.queueEvent(runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, runnable) == null) {
+            this.mGLThread.queueEvent(runnable);
+        }
     }
 
     public void requestRender() {
-        this.mGLThread.requestRender();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.mGLThread.requestRender();
+        }
     }
 
     public void setDebugFlags(int i2) {
-        this.mDebugFlags = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.mDebugFlags = i2;
+        }
     }
 
     public void setEGLConfigChooser(EGLConfigChooser eGLConfigChooser) {
-        checkRenderThreadState();
-        this.mEGLConfigChooser = eGLConfigChooser;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, eGLConfigChooser) == null) {
+            checkRenderThreadState();
+            this.mEGLConfigChooser = eGLConfigChooser;
+        }
     }
 
     public void setEGLContextClientVersion(int i2) {
-        checkRenderThreadState();
-        this.mEGLContextClientVersion = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            checkRenderThreadState();
+            this.mEGLContextClientVersion = i2;
+        }
     }
 
     public void setEGLContextFactory(EGLContextFactory eGLContextFactory) {
-        checkRenderThreadState();
-        this.mEGLContextFactory = eGLContextFactory;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, eGLContextFactory) == null) {
+            checkRenderThreadState();
+            this.mEGLContextFactory = eGLContextFactory;
+        }
     }
 
     public void setEGLWindowSurfaceFactory(EGLWindowSurfaceFactory eGLWindowSurfaceFactory) {
-        checkRenderThreadState();
-        this.mEGLWindowSurfaceFactory = eGLWindowSurfaceFactory;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, eGLWindowSurfaceFactory) == null) {
+            checkRenderThreadState();
+            this.mEGLWindowSurfaceFactory = eGLWindowSurfaceFactory;
+        }
     }
 
     public void setGLWrapper(GLWrapper gLWrapper) {
-        this.mGLWrapper = gLWrapper;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, gLWrapper) == null) {
+            this.mGLWrapper = gLWrapper;
+        }
     }
 
     public void setPreserveEGLContextOnPause(boolean z) {
-        this.mPreserveEGLContextOnPause = z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.mPreserveEGLContextOnPause = z;
+        }
     }
 
     public void setRenderMode(int i2) {
-        this.mGLThread.setRenderMode(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
+            this.mGLThread.setRenderMode(i2);
+        }
     }
 
     public void setRenderer(Renderer renderer) {
-        checkRenderThreadState();
-        if (this.mEGLConfigChooser == null) {
-            this.mEGLConfigChooser = new SimpleEGLConfigChooser(true);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, renderer) == null) {
+            checkRenderThreadState();
+            if (this.mEGLConfigChooser == null) {
+                this.mEGLConfigChooser = new SimpleEGLConfigChooser(this, true);
+            }
+            if (this.mEGLContextFactory == null) {
+                this.mEGLContextFactory = new DefaultContextFactory(this, null);
+            }
+            if (this.mEGLWindowSurfaceFactory == null) {
+                this.mEGLWindowSurfaceFactory = new DefaultWindowSurfaceFactory(null);
+            }
+            this.mRenderer = renderer;
+            GLThread gLThread = new GLThread(this.mThisWeakRef);
+            this.mGLThread = gLThread;
+            gLThread.start();
         }
-        if (this.mEGLContextFactory == null) {
-            this.mEGLContextFactory = new DefaultContextFactory();
-        }
-        if (this.mEGLWindowSurfaceFactory == null) {
-            this.mEGLWindowSurfaceFactory = new DefaultWindowSurfaceFactory();
-        }
-        this.mRenderer = renderer;
-        GLThread gLThread = new GLThread(this.mThisWeakRef);
-        this.mGLThread = gLThread;
-        gLThread.start();
     }
 
     public void surfaceChanged(SurfaceTexture surfaceTexture, int i2, int i3, int i4) {
-        this.mGLThread.onWindowResize(i3, i4);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048602, this, surfaceTexture, i2, i3, i4) == null) {
+            this.mGLThread.onWindowResize(i3, i4);
+        }
     }
 
     public void surfaceCreated(SurfaceTexture surfaceTexture) {
-        this.mGLThread.surfaceCreated();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, surfaceTexture) == null) {
+            this.mGLThread.surfaceCreated();
+        }
     }
 
     public void surfaceDestroyed(SurfaceTexture surfaceTexture) {
-        this.mGLThread.surfaceDestroyed();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, surfaceTexture) == null) {
+            this.mGLThread.surfaceDestroyed();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class DefaultContextFactory implements EGLContextFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int EGL_CONTEXT_CLIENT_VERSION;
+        public final /* synthetic */ GLTextureView this$0;
+
+        public DefaultContextFactory(GLTextureView gLTextureView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gLTextureView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = gLTextureView;
+            this.EGL_CONTEXT_CLIENT_VERSION = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
+        }
+
+        @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLContextFactory
+        public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfig)) == null) {
+                int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, this.this$0.mEGLContextClientVersion, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
+                EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
+                if (this.this$0.mEGLContextClientVersion == 0) {
+                    iArr = null;
+                }
+                return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
+            }
+            return (EGLContext) invokeLLL.objValue;
+        }
+
+        @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLContextFactory
+        public void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, egl10, eGLDisplay, eGLContext) == null) || egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
+                return;
+            }
+            Log.e("DefaultContextFactory", "display:" + eGLDisplay + " context: " + eGLContext);
+            EglHelper.throwEglException("eglDestroyContex", egl10.eglGetError());
+        }
+
+        public /* synthetic */ DefaultContextFactory(GLTextureView gLTextureView, AnonymousClass1 anonymousClass1) {
+            this(gLTextureView);
+        }
     }
 
     public void setEGLConfigChooser(boolean z) {
-        setEGLConfigChooser(new SimpleEGLConfigChooser(z));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            setEGLConfigChooser(new SimpleEGLConfigChooser(this, z));
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GLTextureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mThisWeakRef = new WeakReference<>(this);
         init();
     }
 
     public void setEGLConfigChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
-        setEGLConfigChooser(new ComponentSizeChooser(i2, i3, i4, i5, i6, i7));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+            setEGLConfigChooser(new ComponentSizeChooser(this, i2, i3, i4, i5, i6, i7));
+        }
     }
 }

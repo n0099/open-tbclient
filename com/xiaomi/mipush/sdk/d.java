@@ -1,9 +1,20 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
 public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     public static String a(Context context) {
-        return context.getPackageName() + ".permission.MIPUSH_RECEIVE";
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return context.getPackageName() + ".permission.MIPUSH_RECEIVE";
+        }
+        return (String) invokeL.objValue;
     }
 }

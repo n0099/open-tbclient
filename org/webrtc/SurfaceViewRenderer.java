@@ -7,12 +7,22 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Callback, VideoSink, RendererCommon.RendererEvents {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceViewRenderer";
+    public transient /* synthetic */ FieldHolder $fh;
     public final SurfaceEglRenderer eglRenderer;
     public boolean enableFixedSize;
     public RendererCommon.RendererEvents rendererEvents;
@@ -23,8 +33,24 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
     public int surfaceWidth;
     public final RendererCommon.VideoLayoutMeasure videoLayoutMeasure;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SurfaceViewRenderer(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.videoLayoutMeasure = new RendererCommon.VideoLayoutMeasure();
         String resourceName = getResourceName();
         this.resourceName = resourceName;
@@ -33,8 +59,25 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         getHolder().addCallback(this.eglRenderer);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SurfaceViewRenderer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.videoLayoutMeasure = new RendererCommon.VideoLayoutMeasure();
         String resourceName = getResourceName();
         this.resourceName = resourceName;
@@ -44,11 +87,16 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
     }
 
     private String getResourceName() {
-        try {
-            return getResources().getResourceEntryName(getId());
-        } catch (Resources.NotFoundException unused) {
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            try {
+                return getResources().getResourceEntryName(getId());
+            } catch (Resources.NotFoundException unused) {
+                return "";
+            }
         }
+        return (String) invokeV.objValue;
     }
 
     public static /* synthetic */ void lambda$onFrameResolutionChanged$0(SurfaceViewRenderer surfaceViewRenderer, int i2, int i3) {
@@ -59,168 +107,248 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
     }
 
     private void logD(String str) {
-        Logging.d(TAG, this.resourceName + ": " + str);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+            Logging.d(TAG, this.resourceName + ": " + str);
+        }
     }
 
     private void postOrRun(Runnable runnable) {
-        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-            runnable.run();
-        } else {
-            post(runnable);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, runnable) == null) {
+            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+                runnable.run();
+            } else {
+                post(runnable);
+            }
         }
     }
 
     private void updateSurfaceSize() {
-        ThreadUtils.checkIsOnMainThread();
-        if (!this.enableFixedSize || this.rotatedFrameWidth == 0 || this.rotatedFrameHeight == 0 || getWidth() == 0 || getHeight() == 0) {
-            this.surfaceHeight = 0;
-            this.surfaceWidth = 0;
-            getHolder().setSizeFromLayout();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            if (!this.enableFixedSize || this.rotatedFrameWidth == 0 || this.rotatedFrameHeight == 0 || getWidth() == 0 || getHeight() == 0) {
+                this.surfaceHeight = 0;
+                this.surfaceWidth = 0;
+                getHolder().setSizeFromLayout();
+                return;
+            }
+            float width = getWidth() / getHeight();
+            int i2 = this.rotatedFrameWidth;
+            int i3 = this.rotatedFrameHeight;
+            if (i2 / i3 > width) {
+                i2 = (int) (i3 * width);
+            } else {
+                i3 = (int) (i2 / width);
+            }
+            int min = Math.min(getWidth(), i2);
+            int min2 = Math.min(getHeight(), i3);
+            logD("updateSurfaceSize. Layout size: " + getWidth() + "x" + getHeight() + ", frame size: " + this.rotatedFrameWidth + "x" + this.rotatedFrameHeight + ", requested surface size: " + min + "x" + min2 + ", old surface size: " + this.surfaceWidth + "x" + this.surfaceHeight);
+            if (min == this.surfaceWidth && min2 == this.surfaceHeight) {
+                return;
+            }
+            this.surfaceWidth = min;
+            this.surfaceHeight = min2;
+            getHolder().setFixedSize(min, min2);
         }
-        float width = getWidth() / getHeight();
-        int i2 = this.rotatedFrameWidth;
-        int i3 = this.rotatedFrameHeight;
-        if (i2 / i3 > width) {
-            i2 = (int) (i3 * width);
-        } else {
-            i3 = (int) (i2 / width);
-        }
-        int min = Math.min(getWidth(), i2);
-        int min2 = Math.min(getHeight(), i3);
-        logD("updateSurfaceSize. Layout size: " + getWidth() + "x" + getHeight() + ", frame size: " + this.rotatedFrameWidth + "x" + this.rotatedFrameHeight + ", requested surface size: " + min + "x" + min2 + ", old surface size: " + this.surfaceWidth + "x" + this.surfaceHeight);
-        if (min == this.surfaceWidth && min2 == this.surfaceHeight) {
-            return;
-        }
-        this.surfaceWidth = min;
-        this.surfaceHeight = min2;
-        getHolder().setFixedSize(min, min2);
     }
 
     public void addFrameListener(EglRenderer.FrameListener frameListener, float f2) {
-        this.eglRenderer.addFrameListener(frameListener, f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048576, this, frameListener, f2) == null) {
+            this.eglRenderer.addFrameListener(frameListener, f2);
+        }
     }
 
     public void addFrameListener(EglRenderer.FrameListener frameListener, float f2, RendererCommon.GlDrawer glDrawer) {
-        this.eglRenderer.addFrameListener(frameListener, f2, glDrawer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{frameListener, Float.valueOf(f2), glDrawer}) == null) {
+            this.eglRenderer.addFrameListener(frameListener, f2, glDrawer);
+        }
     }
 
     public void clearImage() {
-        this.eglRenderer.clearImage();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.eglRenderer.clearImage();
+        }
     }
 
     public void disableFpsReduction() {
-        this.eglRenderer.disableFpsReduction();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.eglRenderer.disableFpsReduction();
+        }
     }
 
     public void init(EglBase.Context context, RendererCommon.RendererEvents rendererEvents) {
-        init(context, rendererEvents, EglBase.CONFIG_PLAIN, new GlRectDrawer());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, rendererEvents) == null) {
+            init(context, rendererEvents, EglBase.CONFIG_PLAIN, new GlRectDrawer());
+        }
     }
 
     public void init(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, int[] iArr, RendererCommon.GlDrawer glDrawer) {
-        ThreadUtils.checkIsOnMainThread();
-        this.rendererEvents = rendererEvents;
-        this.rotatedFrameWidth = 0;
-        this.rotatedFrameHeight = 0;
-        this.eglRenderer.init(context, this, iArr, glDrawer);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, rendererEvents, iArr, glDrawer) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            this.rendererEvents = rendererEvents;
+            this.rotatedFrameWidth = 0;
+            this.rotatedFrameHeight = 0;
+            this.eglRenderer.init(context, this, iArr, glDrawer);
+        }
     }
 
     @Override // org.webrtc.RendererCommon.RendererEvents
     public void onFirstFrameRendered() {
-        RendererCommon.RendererEvents rendererEvents = this.rendererEvents;
-        if (rendererEvents != null) {
-            rendererEvents.onFirstFrameRendered();
+        RendererCommon.RendererEvents rendererEvents;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (rendererEvents = this.rendererEvents) == null) {
+            return;
         }
+        rendererEvents.onFirstFrameRendered();
     }
 
     public void onFrame(VideoFrame videoFrame) {
-        this.eglRenderer.onFrame(videoFrame);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, videoFrame) == null) {
+            this.eglRenderer.onFrame(videoFrame);
+        }
     }
 
     @Override // org.webrtc.RendererCommon.RendererEvents
     public void onFrameResolutionChanged(final int i2, int i3, int i4) {
-        RendererCommon.RendererEvents rendererEvents = this.rendererEvents;
-        if (rendererEvents != null) {
-            rendererEvents.onFrameResolutionChanged(i2, i3, i4);
-        }
-        final int i5 = (i4 == 0 || i4 == 180) ? i2 : i3;
-        if (i4 == 0 || i4 == 180) {
-            i2 = i3;
-        }
-        postOrRun(new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceViewRenderer$NznHhISA8bkJ9U8moGf2KoEdee4
-            @Override // java.lang.Runnable
-            public final void run() {
-                SurfaceViewRenderer.lambda$onFrameResolutionChanged$0(SurfaceViewRenderer.this, i5, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4) == null) {
+            RendererCommon.RendererEvents rendererEvents = this.rendererEvents;
+            if (rendererEvents != null) {
+                rendererEvents.onFrameResolutionChanged(i2, i3, i4);
             }
-        });
+            final int i5 = (i4 == 0 || i4 == 180) ? i2 : i3;
+            if (i4 == 0 || i4 == 180) {
+                i2 = i3;
+            }
+            postOrRun(new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceViewRenderer$NznHhISA8bkJ9U8moGf2KoEdee4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        SurfaceViewRenderer.lambda$onFrameResolutionChanged$0(SurfaceViewRenderer.this, i5, i2);
+                    }
+                }
+            });
+        }
     }
 
     @Override // android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        ThreadUtils.checkIsOnMainThread();
-        this.eglRenderer.setLayoutAspectRatio((i4 - i2) / (i5 - i3));
-        updateSurfaceSize();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            this.eglRenderer.setLayoutAspectRatio((i4 - i2) / (i5 - i3));
+            updateSurfaceSize();
+        }
     }
 
     @Override // android.view.SurfaceView, android.view.View
     public void onMeasure(int i2, int i3) {
-        ThreadUtils.checkIsOnMainThread();
-        Point measure = this.videoLayoutMeasure.measure(i2, i3, this.rotatedFrameWidth, this.rotatedFrameHeight);
-        setMeasuredDimension(measure.x, measure.y);
-        logD("onMeasure(). New size: " + measure.x + "x" + measure.y);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            Point measure = this.videoLayoutMeasure.measure(i2, i3, this.rotatedFrameWidth, this.rotatedFrameHeight);
+            setMeasuredDimension(measure.x, measure.y);
+            logD("onMeasure(). New size: " + measure.x + "x" + measure.y);
+        }
     }
 
     public void pauseVideo() {
-        this.eglRenderer.pauseVideo();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.eglRenderer.pauseVideo();
+        }
     }
 
     public void release() {
-        this.eglRenderer.release();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.eglRenderer.release();
+        }
     }
 
     public void removeFrameListener(EglRenderer.FrameListener frameListener) {
-        this.eglRenderer.removeFrameListener(frameListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, frameListener) == null) {
+            this.eglRenderer.removeFrameListener(frameListener);
+        }
     }
 
     public void setEnableHardwareScaler(boolean z) {
-        ThreadUtils.checkIsOnMainThread();
-        this.enableFixedSize = z;
-        updateSurfaceSize();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            this.enableFixedSize = z;
+            updateSurfaceSize();
+        }
     }
 
     public void setFpsReduction(float f2) {
-        this.eglRenderer.setFpsReduction(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
+            this.eglRenderer.setFpsReduction(f2);
+        }
     }
 
     public void setMirror(boolean z) {
-        this.eglRenderer.setMirror(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.eglRenderer.setMirror(z);
+        }
     }
 
     public void setScalingType(RendererCommon.ScalingType scalingType) {
-        ThreadUtils.checkIsOnMainThread();
-        this.videoLayoutMeasure.setScalingType(scalingType);
-        requestLayout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, scalingType) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            this.videoLayoutMeasure.setScalingType(scalingType);
+            requestLayout();
+        }
     }
 
     public void setScalingType(RendererCommon.ScalingType scalingType, RendererCommon.ScalingType scalingType2) {
-        ThreadUtils.checkIsOnMainThread();
-        this.videoLayoutMeasure.setScalingType(scalingType, scalingType2);
-        requestLayout();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, scalingType, scalingType2) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            this.videoLayoutMeasure.setScalingType(scalingType, scalingType2);
+            requestLayout();
+        }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048595, this, surfaceHolder, i2, i3, i4) == null) {
+        }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        ThreadUtils.checkIsOnMainThread();
-        this.surfaceHeight = 0;
-        this.surfaceWidth = 0;
-        updateSurfaceSize();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, surfaceHolder) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            this.surfaceHeight = 0;
+            this.surfaceWidth = 0;
+            updateSurfaceSize();
+        }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, surfaceHolder) == null) {
+        }
     }
 }

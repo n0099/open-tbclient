@@ -10,7 +10,13 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
@@ -36,9 +42,13 @@ import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.YYPayWebView;
 import tv.athena.revenue.payui.webview.UrlPageType;
 import tv.athena.revenue.payui.widget.SimpleNavigationBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebView.c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String TAG;
     public i.a.a.e.i.a.d immersionBar;
+    public int mAppId;
     public FrameLayout mContainer;
     public int mLocalPageType;
     public d mLoginOutReceiver;
@@ -47,173 +57,350 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public SimpleNavigationBar mSimpleNavigationBar;
     public String mTitle;
     public String mUrl;
+    public int mUserChannel;
     public YYPayWebView mYYPayWebView;
-    public String TAG = "PayCommonWebActivity-";
-    public int mAppId = -1;
-    public int mUserChannel = -1;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements SimpleNavigationBar.c {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PayCommonWebActivity f76691a;
+
+        public a(PayCommonWebActivity payCommonWebActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {payCommonWebActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76691a = payCommonWebActivity;
         }
 
         @Override // tv.athena.revenue.payui.widget.SimpleNavigationBar.c
         public void D() {
-            if (PayCommonWebActivity.this.isWalletPage()) {
-                i.a.a.e.m.a.b(PayCommonWebActivity.this.mAppId, PayCommonWebActivity.this.mUserChannel, UiEventType.walletclickClose);
-                RLog.warn(PayCommonWebActivity.this.TAG, UiEventType.walletclickClose);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f76691a.isWalletPage()) {
+                    i.a.a.e.m.a.b(this.f76691a.mAppId, this.f76691a.mUserChannel, UiEventType.walletclickClose);
+                    RLog.warn(this.f76691a.TAG, UiEventType.walletclickClose);
+                }
+                this.f76691a.finish();
             }
-            PayCommonWebActivity.this.finish();
         }
 
         @Override // tv.athena.revenue.payui.widget.SimpleNavigationBar.c
         public void onRightClick() {
-            if (PayCommonWebActivity.this.mRightUrl != null && !PayCommonWebActivity.this.mRightUrl.isEmpty() && PayCommonWebActivity.this.mRightTitle != null && !PayCommonWebActivity.this.mRightTitle.isEmpty()) {
-                Intent intent = new Intent(PayCommonWebActivity.this, PayCommonWebActivity.class);
-                intent.putExtra(H5PayConstant.EXTRA_URL, PayCommonWebActivity.this.mRightUrl);
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, PayCommonWebActivity.this.mRightTitle);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, PayCommonWebActivity.this.mAppId);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, PayCommonWebActivity.this.mUserChannel);
-                PayCommonWebActivity.this.startActivity(intent);
-            }
-            if (PayCommonWebActivity.this.isWalletPage()) {
-                i.a.a.e.m.a.b(PayCommonWebActivity.this.mAppId, PayCommonWebActivity.this.mUserChannel, UiEventType.walletshowhelp);
-                RLog.warn(PayCommonWebActivity.this.TAG, UiEventType.walletshowhelp);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.f76691a.mRightUrl != null && !this.f76691a.mRightUrl.isEmpty() && this.f76691a.mRightTitle != null && !this.f76691a.mRightTitle.isEmpty()) {
+                    Intent intent = new Intent(this.f76691a, PayCommonWebActivity.class);
+                    intent.putExtra(H5PayConstant.EXTRA_URL, this.f76691a.mRightUrl);
+                    intent.putExtra(H5PayConstant.EXTRA_TITLE, this.f76691a.mRightTitle);
+                    intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.f76691a.mAppId);
+                    intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.f76691a.mUserChannel);
+                    this.f76691a.startActivity(intent);
+                }
+                if (this.f76691a.isWalletPage()) {
+                    i.a.a.e.m.a.b(this.f76691a.mAppId, this.f76691a.mUserChannel, UiEventType.walletshowhelp);
+                    RLog.warn(this.f76691a.TAG, UiEventType.walletshowhelp);
+                }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements IPayCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PayCommonWebActivity f76692a;
+
+        /* loaded from: classes10.dex */
         public class a implements Runnable {
-            public a() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ b f76693e;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f76693e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (PayCommonWebActivity.this.mYYPayWebView == null || PayCommonWebActivity.this.mUrl == null || PayCommonWebActivity.this.mUrl.isEmpty()) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f76693e.f76692a.mYYPayWebView == null || this.f76693e.f76692a.mUrl == null || this.f76693e.f76692a.mUrl.isEmpty()) {
                     return;
                 }
-                PayCommonWebActivity.this.mYYPayWebView.h(PayCommonWebActivity.this.mUrl);
+                this.f76693e.f76692a.mYYPayWebView.h(this.f76693e.f76692a.mUrl);
             }
         }
 
-        public b() {
+        public b(PayCommonWebActivity payCommonWebActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {payCommonWebActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76692a = payCommonWebActivity;
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
-            String str2 = PayCommonWebActivity.this.TAG;
-            RLog.debug(str2, "onFail code:" + i2 + " failReason:" + str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, payCallBackBean) == null) {
+                String str2 = this.f76692a.TAG;
+                RLog.debug(str2, "onFail code:" + i2 + " failReason:" + str);
+            }
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
         public void onPayStart() {
-            RLog.debug(PayCommonWebActivity.this.TAG, "onPayStart");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                RLog.debug(this.f76692a.TAG, "onPayStart");
+            }
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
         public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            RLog.debug(PayCommonWebActivity.this.TAG, "onPayStatus");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
+                RLog.debug(this.f76692a.TAG, "onPayStatus");
+            }
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onSuccess(Object obj, PayCallBackBean payCallBackBean) {
-            RLog.debug(PayCommonWebActivity.this.TAG, "onSuccess");
-            if (!h.f72272a.a(PayCommonWebActivity.this)) {
-                RLog.info(PayCommonWebActivity.this.TAG, "onSuccess activity not valid");
-            } else {
-                PayCommonWebActivity.this.runOnUiThread(new a());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
+                RLog.debug(this.f76692a.TAG, "onSuccess");
+                if (!h.f75864a.a(this.f76692a)) {
+                    RLog.info(this.f76692a.TAG, "onSuccess activity not valid");
+                } else {
+                    this.f76692a.runOnUiThread(new a(this));
+                }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c implements IPayCallback<CurrencyChargeMessage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ PayCommonWebActivity f76694a;
+
+        /* loaded from: classes10.dex */
         public class a implements Runnable {
-            public a() {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ c f76695e;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f76695e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (PayCommonWebActivity.this.mYYPayWebView == null || PayCommonWebActivity.this.mUrl == null || PayCommonWebActivity.this.mUrl.isEmpty()) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f76695e.f76694a.mYYPayWebView == null || this.f76695e.f76694a.mUrl == null || this.f76695e.f76694a.mUrl.isEmpty()) {
                     return;
                 }
-                PayCommonWebActivity.this.mYYPayWebView.h(PayCommonWebActivity.this.mUrl);
+                this.f76695e.f76694a.mYYPayWebView.h(this.f76695e.f76694a.mUrl);
             }
         }
 
-        public c() {
+        public c(PayCommonWebActivity payCommonWebActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {payCommonWebActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f76694a = payCommonWebActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         /* renamed from: a */
         public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
-            RLog.debug(PayCommonWebActivity.this.TAG, "onSuccess");
-            if (!h.f72272a.a(PayCommonWebActivity.this)) {
-                RLog.info(PayCommonWebActivity.this.TAG, "onSuccess activity not valid");
-            } else {
-                PayCommonWebActivity.this.runOnUiThread(new a());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) {
+                RLog.debug(this.f76694a.TAG, "onSuccess");
+                if (!h.f75864a.a(this.f76694a)) {
+                    RLog.info(this.f76694a.TAG, "onSuccess activity not valid");
+                } else {
+                    this.f76694a.runOnUiThread(new a(this));
+                }
             }
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
-            String str2 = PayCommonWebActivity.this.TAG;
-            RLog.debug(str2, "onFail code:" + i2 + " failReason:" + str);
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) {
+                String str2 = this.f76694a.TAG;
+                RLog.debug(str2, "onFail code:" + i2 + " failReason:" + str);
+            }
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
         public void onPayStart() {
-            RLog.debug(PayCommonWebActivity.this.TAG, "onPayStart");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                RLog.debug(this.f76694a.TAG, "onPayStart");
+            }
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
         public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            RLog.debug(PayCommonWebActivity.this.TAG, "onPayStatus");
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
+                RLog.debug(this.f76694a.TAG, "onPayStatus");
+            }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d extends BroadcastReceiver {
-        public d() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PayCommonWebActivity this$0;
+
+        public d(PayCommonWebActivity payCommonWebActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {payCommonWebActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = payCommonWebActivity;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent == null || !"tv.athena.revenue.payui.login_out_action".equals(intent.getAction())) {
-                return;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && "tv.athena.revenue.payui.login_out_action".equals(intent.getAction())) {
+                RLog.info(this.this$0.TAG, "onReceive login out");
+                this.this$0.finish();
             }
-            RLog.info(PayCommonWebActivity.this.TAG, "onReceive login out");
-            PayCommonWebActivity.this.finish();
         }
 
         public /* synthetic */ d(PayCommonWebActivity payCommonWebActivity, a aVar) {
-            this();
+            this(payCommonWebActivity);
         }
     }
 
+    public PayCommonWebActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.TAG = "PayCommonWebActivity-";
+        this.mAppId = -1;
+        this.mUserChannel = -1;
+    }
+
     private boolean isDxmKjPayPage() {
-        return this.mLocalPageType == 2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? this.mLocalPageType == 2 : invokeV.booleanValue;
     }
 
     private boolean isMockTestPage() {
-        return Env.instance().isTestEnv() && this.mLocalPageType == 3;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? Env.instance().isTestEnv() && this.mLocalPageType == 3 : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isWalletPage() {
-        return this.mLocalPageType == 1;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? this.mLocalPageType == 1 : invokeV.booleanValue;
     }
 
     private void loadWebView() {
-        Intent intent = getIntent();
-        if (intent == null) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (intent = getIntent()) == null) {
             return;
         }
         String stringExtra = intent.getStringExtra(H5PayConstant.EXTRA_URL);
@@ -232,91 +419,104 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
 
     private void onBannerClick(NativeOperationParams nativeOperationParams) {
         AbsViewEventHandler absViewEventHandler;
-        YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
-        if (uIKit == null) {
-            RLog.error(this.TAG, "onNativeOperation null yyPayUIKit", new Object[0]);
-        } else if (nativeOperationParams.params == null) {
-            RLog.error(this.TAG, "onNativeOperation error h5 params null", new Object[0]);
-        } else {
-            BannerConfigItem.BannerInfo bannerInfo = new BannerConfigItem.BannerInfo();
-            try {
-                JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                bannerInfo.id = jSONObject.optString("id");
-                bannerInfo.jumpType = jSONObject.optInt("jumpType");
-                bannerInfo.jumpData = jSONObject.optString("jumpData", "");
-                bannerInfo.imageUrl = jSONObject.optString("imageUrl", "");
-                H5PayFlowModel h5PayFlowModel = uIKit.getH5PayFlowModel();
-                if (h5PayFlowModel != null && (absViewEventHandler = h5PayFlowModel.viewEventListener) != null) {
-                    absViewEventHandler.onBannerClick(bannerInfo);
-                } else {
-                    RLog.error(this.TAG, "onNativeOperation error h5PayFlowModel null", new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, this, nativeOperationParams) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
+            if (uIKit == null) {
+                RLog.error(this.TAG, "onNativeOperation null yyPayUIKit", new Object[0]);
+            } else if (nativeOperationParams.params == null) {
+                RLog.error(this.TAG, "onNativeOperation error h5 params null", new Object[0]);
+            } else {
+                BannerConfigItem.BannerInfo bannerInfo = new BannerConfigItem.BannerInfo();
+                try {
+                    JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
+                    bannerInfo.id = jSONObject.optString("id");
+                    bannerInfo.jumpType = jSONObject.optInt("jumpType");
+                    bannerInfo.jumpData = jSONObject.optString("jumpData", "");
+                    bannerInfo.imageUrl = jSONObject.optString("imageUrl", "");
+                    H5PayFlowModel h5PayFlowModel = uIKit.getH5PayFlowModel();
+                    if (h5PayFlowModel != null && (absViewEventHandler = h5PayFlowModel.viewEventListener) != null) {
+                        absViewEventHandler.onBannerClick(bannerInfo);
+                    } else {
+                        RLog.error(this.TAG, "onNativeOperation error h5PayFlowModel null", new Object[0]);
+                    }
+                } catch (Exception e2) {
+                    RLog.error(this.TAG, "get bannerInfo error:", e2.getLocalizedMessage());
                 }
-            } catch (Exception e2) {
-                RLog.error(this.TAG, "get bannerInfo error:", e2.getLocalizedMessage());
             }
         }
     }
 
     private void onOpenPayChannelPage(NativeOperationParams nativeOperationParams) {
-        YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
-        if (uIKit == null) {
-            RLog.error(this.TAG, "onNativeOperation null yyPayUIKit", new Object[0]);
-        } else if (nativeOperationParams.params == null) {
-            RLog.error(this.TAG, "onNativeOperation error h5 params null", new Object[0]);
-        } else {
-            ProductInfo productInfo = new ProductInfo();
-            try {
-                JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                productInfo.cid = jSONObject.optInt(IAdRequestParam.CELL_ID);
-                productInfo.productId = jSONObject.optString("productId", "");
-                productInfo.srcCurrencySymbol = jSONObject.optString("srcCurrencySymbol", "");
-                productInfo.destAmount = jSONObject.optInt("destAmount");
-                productInfo.srcAmount = Double.valueOf(jSONObject.optDouble("srcAmount", 0.0d));
-                IYYPayWayView.b bVar = new IYYPayWayView.b();
-                PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
-                MiddleRevenueConfig middleRevenueConfig = payUIKitConfig != null ? payUIKitConfig.revenueConfig : null;
-                if (middleRevenueConfig != null) {
-                    bVar.f73025b = new i.a.a.e.l.a(productInfo, middleRevenueConfig.getCurrencyType());
-                } else {
-                    bVar.f73025b = new i.a.a.e.l.a(productInfo);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, this, nativeOperationParams) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
+            if (uIKit == null) {
+                RLog.error(this.TAG, "onNativeOperation null yyPayUIKit", new Object[0]);
+            } else if (nativeOperationParams.params == null) {
+                RLog.error(this.TAG, "onNativeOperation error h5 params null", new Object[0]);
+            } else {
+                ProductInfo productInfo = new ProductInfo();
+                try {
+                    JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
+                    productInfo.cid = jSONObject.optInt(IAdRequestParam.CELL_ID);
+                    productInfo.productId = jSONObject.optString("productId", "");
+                    productInfo.srcCurrencySymbol = jSONObject.optString("srcCurrencySymbol", "");
+                    productInfo.destAmount = jSONObject.optInt("destAmount");
+                    productInfo.srcAmount = Double.valueOf(jSONObject.optDouble("srcAmount", 0.0d));
+                    IYYPayWayView.b bVar = new IYYPayWayView.b();
+                    PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
+                    MiddleRevenueConfig middleRevenueConfig = payUIKitConfig != null ? payUIKitConfig.revenueConfig : null;
+                    if (middleRevenueConfig != null) {
+                        bVar.f76701b = new i.a.a.e.l.a(productInfo, middleRevenueConfig.getCurrencyType());
+                    } else {
+                        bVar.f76701b = new i.a.a.e.l.a(productInfo);
+                    }
+                    RLog.info(this.TAG, "startPayChannelDialog: payAmount:%s", bVar.f76701b);
+                    uIKit.startPayChannelDialog(this, bVar, new c(this));
+                } catch (Exception e2) {
+                    RLog.error(this.TAG, "get productInfo error:", e2.getLocalizedMessage());
                 }
-                RLog.info(this.TAG, "startPayChannelDialog: payAmount:%s", bVar.f73025b);
-                uIKit.startPayChannelDialog(this, bVar, new c());
-            } catch (Exception e2) {
-                RLog.error(this.TAG, "get productInfo error:", e2.getLocalizedMessage());
             }
         }
     }
 
     private void onOpenPayPage(NativeOperationParams nativeOperationParams) {
-        YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
-        if (uIKit == null) {
-            RLog.error(this.TAG, "onOpenPayPage onNativeOperation null yyPayUIKit", new Object[0]);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, this, nativeOperationParams) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
+            if (uIKit == null) {
+                RLog.error(this.TAG, "onOpenPayPage onNativeOperation null yyPayUIKit", new Object[0]);
+                return;
+            }
+            uIKit.startPayDialog(this, null, new b(this));
+            i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.walletclickcharge);
+            RLog.warn(this.TAG, UiEventType.walletclickcharge);
         }
-        uIKit.startPayDialog(this, null, new b());
-        i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.walletclickcharge);
-        RLog.warn(this.TAG, UiEventType.walletclickcharge);
     }
 
     private void onOpenUrlPageCustom(NativeOperationParams nativeOperationParams) {
         AbsViewEventHandler absViewEventHandler;
-        YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
-        if (uIKit == null) {
-            RLog.error(this.TAG, "onNativeOperation null yyPayUIKit", new Object[0]);
-            return;
-        }
-        H5PayFlowModel h5PayFlowModel = uIKit.getH5PayFlowModel();
-        if (h5PayFlowModel != null && (absViewEventHandler = h5PayFlowModel.viewEventListener) != null) {
-            absViewEventHandler.onHandleUrl(nativeOperationParams.params);
-        } else {
-            RLog.error(this.TAG, "onNativeOperation error h5PayFlowModel null", new Object[0]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, this, nativeOperationParams) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
+            if (uIKit == null) {
+                RLog.error(this.TAG, "onNativeOperation null yyPayUIKit", new Object[0]);
+                return;
+            }
+            H5PayFlowModel h5PayFlowModel = uIKit.getH5PayFlowModel();
+            if (h5PayFlowModel != null && (absViewEventHandler = h5PayFlowModel.viewEventListener) != null) {
+                absViewEventHandler.onHandleUrl(nativeOperationParams.params);
+            } else {
+                RLog.error(this.TAG, "onNativeOperation error h5PayFlowModel null", new Object[0]);
+            }
         }
     }
 
     private void setAppIdAndChannel() {
-        Intent intent = getIntent();
-        if (intent == null) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65553, this) == null) || (intent = getIntent()) == null) {
             return;
         }
         this.mAppId = intent.getIntExtra(H5PayConstant.EXTRA_APP_ID, -1);
@@ -325,13 +525,17 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     }
 
     private void setTitleAndRight(String str, String str2) {
-        this.mSimpleNavigationBar.setTitle(str);
-        this.mSimpleNavigationBar.setRight(str2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, this, str, str2) == null) {
+            this.mSimpleNavigationBar.setTitle(str);
+            this.mSimpleNavigationBar.setRight(str2);
+        }
     }
 
     private void setTitleInfo() {
-        Intent intent = getIntent();
-        if (intent == null) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || (intent = getIntent()) == null) {
             return;
         }
         this.mTitle = intent.getStringExtra(H5PayConstant.EXTRA_TITLE);
@@ -343,152 +547,176 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
 
     @Override // tv.athena.revenue.payui.view.YYPayWebView.c
     public String getToken() {
-        YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
-        if (uIKit == null) {
-            RLog.error(this.TAG, "getToken() yyPayUIKit null", new Object[0]);
-            return "";
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
+            if (uIKit == null) {
+                RLog.error(this.TAG, "getToken() yyPayUIKit null", new Object[0]);
+                return "";
+            }
+            PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
+            if (payUIKitConfig == null) {
+                RLog.error(this.TAG, "getToken()  payUIKitConfig null", new Object[0]);
+                return "";
+            }
+            MiddleRevenueConfig middleRevenueConfig = payUIKitConfig.revenueConfig;
+            if (middleRevenueConfig == null) {
+                RLog.error(this.TAG, "getToken()  revenueConfig null", new Object[0]);
+                return "";
+            }
+            IToken tokenCallback = middleRevenueConfig.getTokenCallback();
+            if (tokenCallback == null) {
+                RLog.error(this.TAG, "getToken()  iToken null", new Object[0]);
+                return "";
+            }
+            return tokenCallback.onUpdateToken();
         }
-        PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
-        if (payUIKitConfig == null) {
-            RLog.error(this.TAG, "getToken()  payUIKitConfig null", new Object[0]);
-            return "";
-        }
-        MiddleRevenueConfig middleRevenueConfig = payUIKitConfig.revenueConfig;
-        if (middleRevenueConfig == null) {
-            RLog.error(this.TAG, "getToken()  revenueConfig null", new Object[0]);
-            return "";
-        }
-        IToken tokenCallback = middleRevenueConfig.getTokenCallback();
-        if (tokenCallback == null) {
-            RLog.error(this.TAG, "getToken()  iToken null", new Object[0]);
-            return "";
-        }
-        return tokenCallback.onUpdateToken();
+        return (String) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(e.pay_ui_common_web_activity);
-        if (Build.VERSION.SDK_INT >= 19) {
-            i.a.a.e.i.a.d H = i.a.a.e.i.a.d.H(this);
-            H.g(true);
-            H.F();
-            H.z(17170443);
-            H.q(false);
-            H.B(true);
-            H.i();
-            this.immersionBar = H;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(e.pay_ui_common_web_activity);
+            if (Build.VERSION.SDK_INT >= 19) {
+                i.a.a.e.i.a.d H = i.a.a.e.i.a.d.H(this);
+                H.g(true);
+                H.F();
+                H.z(17170443);
+                H.q(false);
+                H.B(true);
+                H.i();
+                this.immersionBar = H;
+            }
+            this.mLoginOutReceiver = new d(this, null);
+            LocalBroadcastManager.getInstance(this).registerReceiver(this.mLoginOutReceiver, new IntentFilter("tv.athena.revenue.payui.login_out_action"));
+            this.mContainer = (FrameLayout) findViewById(i.a.a.e.d.fl_container);
+            SimpleNavigationBar simpleNavigationBar = (SimpleNavigationBar) findViewById(i.a.a.e.d.simple_navigation_bar);
+            this.mSimpleNavigationBar = simpleNavigationBar;
+            simpleNavigationBar.setCallback(new a(this));
+            setTitleInfo();
+            setAppIdAndChannel();
+            loadWebView();
         }
-        this.mLoginOutReceiver = new d(this, null);
-        LocalBroadcastManager.getInstance(this).registerReceiver(this.mLoginOutReceiver, new IntentFilter("tv.athena.revenue.payui.login_out_action"));
-        this.mContainer = (FrameLayout) findViewById(i.a.a.e.d.fl_container);
-        SimpleNavigationBar simpleNavigationBar = (SimpleNavigationBar) findViewById(i.a.a.e.d.simple_navigation_bar);
-        this.mSimpleNavigationBar = simpleNavigationBar;
-        simpleNavigationBar.setCallback(new a());
-        setTitleInfo();
-        setAppIdAndChannel();
-        loadWebView();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
-        super.onDestroy();
-        i.a.a.e.i.a.d dVar = this.immersionBar;
-        if (dVar != null) {
-            dVar.f();
-        }
-        if (this.mLoginOutReceiver != null) {
-            LocalBroadcastManager.getInstance(this).unregisterReceiver(this.mLoginOutReceiver);
-            this.mLoginOutReceiver = null;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            i.a.a.e.i.a.d dVar = this.immersionBar;
+            if (dVar != null) {
+                dVar.f();
+            }
+            if (this.mLoginOutReceiver != null) {
+                LocalBroadcastManager.getInstance(this).unregisterReceiver(this.mLoginOutReceiver);
+                this.mLoginOutReceiver = null;
+            }
         }
     }
 
     @Override // tv.athena.revenue.payui.view.YYPayWebView.c
     public void onNativeOperation(NativeOperationParams nativeOperationParams) {
-        RLog.debug(this.TAG, "onNativeOperation: %s", nativeOperationParams);
-        if (nativeOperationParams == null) {
-            return;
-        }
-        int i2 = nativeOperationParams.opCode;
-        if (i2 == 2) {
-            onOpenPayPage(nativeOperationParams);
-        } else if (i2 == 4) {
-            onOpenPayChannelPage(nativeOperationParams);
-        } else if (i2 == 5) {
-            onBannerClick(nativeOperationParams);
-        } else if (i2 == 6) {
-            onOpenUrlPageCustom(nativeOperationParams);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nativeOperationParams) == null) {
+            RLog.debug(this.TAG, "onNativeOperation: %s", nativeOperationParams);
+            if (nativeOperationParams == null) {
+                return;
+            }
+            int i2 = nativeOperationParams.opCode;
+            if (i2 == 2) {
+                onOpenPayPage(nativeOperationParams);
+            } else if (i2 == 4) {
+                onOpenPayChannelPage(nativeOperationParams);
+            } else if (i2 == 5) {
+                onBannerClick(nativeOperationParams);
+            } else if (i2 == 6) {
+                onOpenUrlPageCustom(nativeOperationParams);
+            }
         }
     }
 
     @Override // tv.athena.revenue.payui.view.YYPayWebView.c
     public void onOpenNewUrl(i.a.a.e.l.e eVar, i.a.a.e.l.d dVar) {
         String str;
-        RLog.info(this.TAG, "onOpenNewUrl: urlParams:%s, topUiParams:%s", eVar, dVar);
-        if (eVar == null || (str = eVar.f72269a) == null || str.isEmpty()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, eVar, dVar) == null) {
+            RLog.info(this.TAG, "onOpenNewUrl: urlParams:%s, topUiParams:%s", eVar, dVar);
+            if (eVar == null || (str = eVar.f75861a) == null || str.isEmpty()) {
+                return;
+            }
+            Intent intent = new Intent(this, PayCommonWebActivity.class);
+            String str2 = dVar.f75858a;
+            if (str2 != null && !str2.isEmpty()) {
+                intent.putExtra(H5PayConstant.EXTRA_TITLE, dVar.f75858a);
+            }
+            String str3 = dVar.f75859b;
+            if (str3 != null && !str3.isEmpty()) {
+                intent.putExtra(H5PayConstant.EXTRA_RIGHT, dVar.f75859b);
+            }
+            intent.putExtra(H5PayConstant.EXTRA_URL, eVar.f75861a);
+            String str4 = dVar.f75860c;
+            if (str4 != null && !str4.isEmpty()) {
+                intent.putExtra(H5PayConstant.EXTRA_RIGHT_URL, dVar.f75860c);
+            }
+            intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.mAppId);
+            intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.mUserChannel);
+            i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.wallet_secondpage_title);
+            RLog.warn(this.TAG, UiEventType.wallet_secondpage_title);
+            if (eVar.f75862b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
+                i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.walletclickdetail);
+                RLog.warn(this.TAG, UiEventType.walletclickClose);
+            }
+            startActivity(intent);
         }
-        Intent intent = new Intent(this, PayCommonWebActivity.class);
-        String str2 = dVar.f72266a;
-        if (str2 != null && !str2.isEmpty()) {
-            intent.putExtra(H5PayConstant.EXTRA_TITLE, dVar.f72266a);
-        }
-        String str3 = dVar.f72267b;
-        if (str3 != null && !str3.isEmpty()) {
-            intent.putExtra(H5PayConstant.EXTRA_RIGHT, dVar.f72267b);
-        }
-        intent.putExtra(H5PayConstant.EXTRA_URL, eVar.f72269a);
-        String str4 = dVar.f72268c;
-        if (str4 != null && !str4.isEmpty()) {
-            intent.putExtra(H5PayConstant.EXTRA_RIGHT_URL, dVar.f72268c);
-        }
-        intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.mAppId);
-        intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.mUserChannel);
-        i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.wallet_secondpage_title);
-        RLog.warn(this.TAG, UiEventType.wallet_secondpage_title);
-        if (eVar.f72270b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
-            i.a.a.e.m.a.b(this.mAppId, this.mUserChannel, UiEventType.walletclickdetail);
-            RLog.warn(this.TAG, UiEventType.walletclickClose);
-        }
-        startActivity(intent);
     }
 
     @Override // android.app.Activity
     public void onStop() {
-        super.onStop();
-        boolean isDxmKjPayPage = isDxmKjPayPage();
-        boolean isMockTestPage = isMockTestPage();
-        String str = this.TAG;
-        RLog.debug(str, "onStop()->isDxmKjPayPage:" + isDxmKjPayPage + ", isMockTestPage:" + isMockTestPage);
-        if (isDxmKjPayPage || isMockTestPage) {
-            H5PayManager.getInstance().verifyPayOrder();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onStop();
+            boolean isDxmKjPayPage = isDxmKjPayPage();
+            boolean isMockTestPage = isMockTestPage();
+            String str = this.TAG;
+            RLog.debug(str, "onStop()->isDxmKjPayPage:" + isDxmKjPayPage + ", isMockTestPage:" + isMockTestPage);
+            if (isDxmKjPayPage || isMockTestPage) {
+                H5PayManager.getInstance().verifyPayOrder();
+            }
         }
     }
 
     @Override // tv.athena.revenue.payui.view.YYPayWebView.c
     public void onUpdateTopUi(i.a.a.e.l.d dVar) {
-        RLog.info(this.TAG, "onUpdateTopUi: %s", dVar);
-        if (dVar != null) {
-            String str = dVar.f72267b;
-            if (str != null && !str.isEmpty()) {
-                this.mRightTitle = dVar.f72267b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+            RLog.info(this.TAG, "onUpdateTopUi: %s", dVar);
+            if (dVar != null) {
+                String str = dVar.f75859b;
+                if (str != null && !str.isEmpty()) {
+                    this.mRightTitle = dVar.f75859b;
+                }
+                String str2 = dVar.f75860c;
+                if (str2 != null && !str2.isEmpty()) {
+                    this.mRightUrl = dVar.f75860c;
+                }
+                String str3 = dVar.f75858a;
+                if (str3 != null && !str3.isEmpty()) {
+                    this.mTitle = dVar.f75858a;
+                }
+                setTitleAndRight(this.mTitle, this.mRightTitle);
             }
-            String str2 = dVar.f72268c;
-            if (str2 != null && !str2.isEmpty()) {
-                this.mRightUrl = dVar.f72268c;
-            }
-            String str3 = dVar.f72266a;
-            if (str3 != null && !str3.isEmpty()) {
-                this.mTitle = dVar.f72266a;
-            }
-            setTitleAndRight(this.mTitle, this.mRightTitle);
         }
     }
 
     @Override // tv.athena.revenue.payui.view.YYPayWebView.c
     public void onUrlLoading(WebView webView, String str) {
-        if (Env.instance().isTestEnv() && this.mLocalPageType == 3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) && Env.instance().isTestEnv() && this.mLocalPageType == 3) {
             RLog.info(this.TAG, "onUrlLoading url:%s", str);
             if (str.startsWith("https://payplf-gate-test.yy.com/tpay/return.do")) {
                 finish();

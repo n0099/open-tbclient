@@ -2,9 +2,15 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
-import d.a.o0.t2.x;
-import d.a.o0.z.e0.n;
+import d.a.s0.a0.e0.n;
+import d.a.s0.w2.w;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,107 +22,165 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.BannerList;
 import tbclient.FeedForumInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BannerListData implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1630193525564805923L;
-    public ArrayList<AdvertAppInfo> advertAppList = new ArrayList<>();
-    public ArrayList<FeedForumData> feedForumList = new ArrayList<>();
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<AdvertAppInfo> advertAppList;
+    public ArrayList<FeedForumData> feedForumList;
     public n recomTopicData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Comparator<AdvertAppInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
         public a(BannerListData bannerListData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bannerListData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(AdvertAppInfo advertAppInfo, AdvertAppInfo advertAppInfo2) {
-            return (advertAppInfo != null ? b.d(advertAppInfo.P3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.P3, 0) : 0);
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
+                return (advertAppInfo != null ? b.d(advertAppInfo.R3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.R3, 0) : 0);
+            }
+            return invokeLL.intValue;
         }
+    }
+
+    public BannerListData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.advertAppList = new ArrayList<>();
+        this.feedForumList = new ArrayList<>();
     }
 
     public ArrayList<AdvertAppInfo> getAllAdvertList() {
-        return this.advertAppList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.advertAppList : (ArrayList) invokeV.objValue;
     }
 
     public List<FeedForumData> getFeedForumList() {
-        return this.feedForumList;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.feedForumList : (List) invokeV.objValue;
     }
 
     public String getLastIds() {
-        ArrayList<AdvertAppInfo> arrayList = this.advertAppList;
-        if (arrayList == null || arrayList.size() <= 0) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        int size = this.advertAppList.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i2).J3)) {
-                sb.append(this.advertAppList.get(i2).J3);
-                if (i2 != size - 1) {
-                    sb.append(",");
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<AdvertAppInfo> arrayList = this.advertAppList;
+            if (arrayList == null || arrayList.size() <= 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            int size = this.advertAppList.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (!TextUtils.isEmpty(this.advertAppList.get(i2).L3)) {
+                    sb.append(this.advertAppList.get(i2).L3);
+                    if (i2 != size - 1) {
+                        sb.append(",");
+                    }
                 }
             }
+            return sb.toString();
         }
-        return sb.toString();
+        return (String) invokeV.objValue;
     }
 
     public n getRecomTopicData() {
-        return this.recomTopicData;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (n) invokeV.objValue;
     }
 
     public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
         }
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AdvertAppInfo> j = x.p().j();
-        if (j != null) {
-            j.clear();
-        }
-        if (bannerList == null) {
-            return;
-        }
-        List<App> list = bannerList.app;
-        if (list != null && list.size() > 0) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2) != null) {
-                    AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                    advertAppInfo.K4(list.get(i2));
-                    this.advertAppList.add(advertAppInfo);
-                    if (j != null) {
-                        j.add(advertAppInfo);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
+            List<AdvertAppInfo> i2 = w.p().i();
+            if (i2 != null) {
+                i2.clear();
+            }
+            if (bannerList == null) {
+                return;
+            }
+            List<App> list = bannerList.app;
+            if (list != null && list.size() > 0) {
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    if (list.get(i3) != null) {
+                        AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+                        advertAppInfo.y4(list.get(i3));
+                        this.advertAppList.add(advertAppInfo);
+                        if (i2 != null) {
+                            i2.add(advertAppInfo);
+                        }
                     }
                 }
             }
-        }
-        x.p().i();
-        Collections.sort(this.advertAppList, new a(this));
-        List<FeedForumInfo> list2 = bannerList.feed_forum;
-        if (list2 != null && list2.size() > 0) {
-            for (int i3 = 0; i3 < list2.size(); i3++) {
-                if (list2.get(i3) != null) {
-                    FeedForumData feedForumData = new FeedForumData();
-                    feedForumData.parseFromFeedForumInfo(list2.get(i3));
-                    this.feedForumList.add(feedForumData);
+            w.p().h();
+            Collections.sort(this.advertAppList, new a(this));
+            List<FeedForumInfo> list2 = bannerList.feed_forum;
+            if (list2 != null && list2.size() > 0) {
+                for (int i4 = 0; i4 < list2.size(); i4++) {
+                    if (list2.get(i4) != null) {
+                        FeedForumData feedForumData = new FeedForumData();
+                        feedForumData.parseFromFeedForumInfo(list2.get(i4));
+                        this.feedForumList.add(feedForumData);
+                    }
                 }
             }
-        }
-        if (bannerList.hot_topic != null) {
-            RecommendTopicData recommendTopicData = new RecommendTopicData();
-            recommendTopicData.d(bannerList.hot_topic);
-            this.recomTopicData = recommendTopicData.a();
+            if (bannerList.hot_topic != null) {
+                RecommendTopicData recommendTopicData = new RecommendTopicData();
+                recommendTopicData.d(bannerList.hot_topic);
+                this.recomTopicData = recommendTopicData.a();
+            }
         }
     }
 
     public void setFeedForumLiked(String str, int i2) {
-        ArrayList<FeedForumData> arrayList = this.feedForumList;
-        if (arrayList == null || str == null) {
+        ArrayList<FeedForumData> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || (arrayList = this.feedForumList) == null || str == null) {
             return;
         }
         Iterator<FeedForumData> it = arrayList.iterator();
@@ -130,7 +194,8 @@ public class BannerListData implements Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {

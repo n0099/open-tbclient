@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -16,110 +17,204 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f14383e;
+    public RelativeLayout f14470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f14384f;
+    public TbImageView f14471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f14385g;
+    public TextView f14472g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f14386h;
+    public TextView f14473h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14387i;
+    public TextView f14474i;
     public View j;
     public View k;
     public String l;
     public int m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
-        public a() {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardFrsGameSpecialTopicItemView f14475e;
+
+        public a(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardFrsGameSpecialTopicItemView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f14475e = cardFrsGameSpecialTopicItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getTag() instanceof String) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 5).param("fid", CardFrsGameSpecialTopicItemView.this.l));
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 5).param("fid", this.f14475e.l));
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f14475e.getContext()), new String[]{(String) view.getTag()}, true);
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardFrsGameSpecialTopicItemView(Context context) {
         super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.m = 3;
         b(context);
     }
 
     public final void b(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.f14383e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.f14384f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.f14385g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.f14386h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.f14387i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-        this.j = findViewById(R.id.divider_line_1);
-        this.k = findViewById(R.id.divider_line_2);
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14383e.getLayoutParams();
-        layoutParams.width = (dimensionPixelSize * 21) / 9;
-        layoutParams.height = dimensionPixelSize;
-        this.f14383e.setLayoutParams(layoutParams);
-        setOrientation(1);
-        setFocusable(true);
-        setClickable(true);
-        setDescendantFocusability(262144);
-        setOnClickListener(new a());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
+            this.f14470e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+            this.f14471f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+            this.f14472g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+            this.f14473h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+            this.f14474i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+            this.j = findViewById(R.id.divider_line_1);
+            this.k = findViewById(R.id.divider_line_2);
+            int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14470e.getLayoutParams();
+            layoutParams.width = (dimensionPixelSize * 21) / 9;
+            layoutParams.height = dimensionPixelSize;
+            this.f14470e.setLayoutParams(layoutParams);
+            setOrientation(1);
+            setFocusable(true);
+            setClickable(true);
+            setDescendantFocusability(262144);
+            setOnClickListener(new a(this));
+        }
     }
 
     public void c(int i2) {
-        if (i2 == this.m) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.m) {
             return;
         }
         this.m = i2;
         SkinManager.setBackgroundResource(this.j, R.color.CAM_X0205);
         SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f14385g, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f14386h, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f14387i, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f14472g, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f14473h, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f14474i, R.color.CAM_X0101, 1);
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.f14386h;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14473h : (TextView) invokeV.objValue;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.f14385g;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14472g : (TextView) invokeV.objValue;
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.f14384f;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14471f : (TbImageView) invokeV.objValue;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.f14387i;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14474i : (TextView) invokeV.objValue;
     }
 
     public void setForumId(String str) {
-        this.l = str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.l = str;
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardFrsGameSpecialTopicItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
         this.m = 3;
         b(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardFrsGameSpecialTopicItemView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.m = 3;
         b(context);
     }

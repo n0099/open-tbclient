@@ -1,102 +1,138 @@
 package com.xiaomi.push;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gv;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class gs implements av.b.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41472a;
+    public int f43215a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fl f447a;
+    public fl f450a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f448a;
+    public XMPushService f451a;
 
     /* renamed from: a  reason: collision with other field name */
-    public av.b f449a;
+    public av.b f452a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f451a = false;
+    public av.c f453a;
 
     /* renamed from: a  reason: collision with other field name */
-    public av.c f450a = av.c.binding;
+    public boolean f454a;
 
     public gs(XMPushService xMPushService, av.b bVar) {
-        this.f448a = xMPushService;
-        this.f449a = bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xMPushService, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f454a = false;
+        this.f451a = xMPushService;
+        this.f453a = av.c.f43603b;
+        this.f452a = bVar;
     }
 
     private void b() {
-        this.f449a.b(this);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.f452a.b(this);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x005e  */
-    /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0062  */
+    /* JADX WARN: Removed duplicated region for block: B:39:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void c() {
         ew ewVar;
-        b();
-        if (!this.f451a || this.f41472a == 11) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(65539, this) != null) {
             return;
         }
-        ex m351a = gx.m349a().m351a();
-        int i2 = gu.f41474a[this.f450a.ordinal()];
+        b();
+        if (!this.f454a || this.f43215a == 11) {
+            return;
+        }
+        ex m365a = gx.m363a().m365a();
+        int i2 = gu.f43217a[this.f453a.ordinal()];
         if (i2 != 1) {
             if (i2 == 3) {
-                ewVar = ew.BIND_SUCCESS;
+                ewVar = ew.H;
             }
-            if (m351a != null) {
-                m351a.b(this.f447a.m307a());
-                m351a.d(this.f449a.f911b);
-                m351a.f345b = 1;
+            if (m365a != null) {
+                m365a.b(this.f450a.m321a());
+                m365a.d(this.f452a.f914b);
+                m365a.f348b = 1;
                 try {
-                    m351a.a((byte) Integer.parseInt(this.f449a.f41851g));
+                    m365a.a((byte) Integer.parseInt(this.f452a.f43594g));
                 } catch (NumberFormatException unused) {
                 }
-                gx.m349a().a(m351a);
+                gx.m363a().a(m365a);
                 return;
             }
             return;
         }
-        int i3 = this.f41472a;
+        int i3 = this.f43215a;
         if (i3 == 17) {
-            ewVar = ew.BIND_TCP_READ_TIMEOUT;
+            ewVar = ew.L;
         } else if (i3 == 21) {
-            ewVar = ew.BIND_TIMEOUT;
+            ewVar = ew.S;
         } else {
             try {
                 gv.a c2 = gv.c(gx.a().a());
-                m351a.f342a = c2.f41475a.a();
-                m351a.c(c2.f452a);
+                m365a.f345a = c2.f43218a.a();
+                m365a.c(c2.f455a);
             } catch (NullPointerException unused2) {
-                m351a = null;
+                m365a = null;
             }
-            if (m351a != null) {
+            if (m365a != null) {
             }
         }
-        m351a.f342a = ewVar.a();
-        if (m351a != null) {
+        m365a.f345a = ewVar.a();
+        if (m365a != null) {
         }
     }
 
     public void a() {
-        this.f449a.a(this);
-        this.f447a = this.f448a.m546a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f452a.a(this);
+            this.f450a = this.f451a.m560a();
+        }
     }
 
     @Override // com.xiaomi.push.service.av.b.a
     public void a(av.c cVar, av.c cVar2, int i2) {
-        if (!this.f451a && cVar == av.c.binding) {
-            this.f450a = cVar2;
-            this.f41472a = i2;
-            this.f451a = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i2) == null) {
+            if (!this.f454a && cVar == av.c.f43603b) {
+                this.f453a = cVar2;
+                this.f43215a = i2;
+                this.f454a = true;
+            }
+            this.f451a.a(new gt(this, 4));
         }
-        this.f448a.a(new gt(this, 4));
     }
 }

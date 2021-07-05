@@ -1,11 +1,31 @@
 package com.kwad.sdk.api;
-/* loaded from: classes6.dex */
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
 public class a {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f32388a;
+    public static final int f34151a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        f32388a = b.f32390b.booleanValue() ? 1 : 2;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(52258474, "Lcom/kwad/sdk/api/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(52258474, "Lcom/kwad/sdk/api/a;");
+                return;
+            }
+        }
+        f34151a = b.f34153b.booleanValue() ? 1 : 2;
     }
 }

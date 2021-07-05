@@ -6,6 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.tube.detail.b.d;
 import com.kwad.sdk.contentalliance.tube.detail.b.e;
@@ -15,121 +22,178 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.mvp.Presenter;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.contentalliance.tube.detail.a.b> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SceneImpl f33933e;
+    public SceneImpl f35696e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TubeDetailParam f33934f;
+    public TubeDetailParam f35697f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.tube.detail.a.b f33935g;
+    public com.kwad.sdk.contentalliance.tube.detail.a.b f35698g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f33936h;
+    public com.kwad.sdk.core.i.a f35699h;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     public static c a(TubeDetailParam tubeDetailParam) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("KEY_TUBE_DETAIL_PARAM", tubeDetailParam);
-        c cVar = new c();
-        cVar.setArguments(bundle);
-        return cVar;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tubeDetailParam)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("KEY_TUBE_DETAIL_PARAM", tubeDetailParam);
+            c cVar = new c();
+            cVar.setArguments(bundle);
+            return cVar;
+        }
+        return (c) invokeL.objValue;
     }
 
     private void a(LayoutInflater layoutInflater) {
-        ((ViewGroup) this.f32531c.findViewById(R.id.ksad_tube_fragment_loading)).addView(layoutInflater.inflate(R.layout.ksad_tube_fragment_loading_layout, (ViewGroup) null, false));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, layoutInflater) == null) {
+            ((ViewGroup) this.f34294c.findViewById(R.id.ksad_tube_fragment_loading)).addView(layoutInflater.inflate(R.layout.ksad_tube_fragment_loading_layout, (ViewGroup) null, false));
+        }
     }
 
     private boolean g() {
-        Bundle arguments = getArguments();
-        if (arguments == null) {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            Bundle arguments = getArguments();
+            if (arguments == null) {
+                return false;
+            }
+            Serializable serializable = arguments.getSerializable("KEY_TUBE_DETAIL_PARAM");
+            if (serializable instanceof TubeDetailParam) {
+                TubeDetailParam tubeDetailParam = (TubeDetailParam) serializable;
+                this.f35697f = tubeDetailParam;
+                this.f35696e = new SceneImpl(tubeDetailParam.mEntryScene);
+                URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 6);
+                uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f35697f.getTubeId());
+                this.f35696e.setUrlPackage(uRLPackage);
+                return true;
+            }
             return false;
         }
-        Serializable serializable = arguments.getSerializable("KEY_TUBE_DETAIL_PARAM");
-        if (serializable instanceof TubeDetailParam) {
-            TubeDetailParam tubeDetailParam = (TubeDetailParam) serializable;
-            this.f33934f = tubeDetailParam;
-            this.f33933e = new SceneImpl(tubeDetailParam.mEntryScene);
-            URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 6);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33934f.getTubeId());
-            this.f33933e.setUrlPackage(uRLPackage);
-            return true;
-        }
-        return false;
+        return invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.contentalliance.b
     public int b() {
-        return R.layout.ksad_tube_fragment_detail;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ksad_tube_fragment_detail : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.contentalliance.b
     public Presenter d() {
-        Presenter presenter = new Presenter();
-        presenter.a((Presenter) new d());
-        presenter.a((Presenter) new e());
-        presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.detail.b.b());
-        presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.detail.b.c());
-        presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.detail.b.a());
-        presenter.a((Presenter) new g());
-        presenter.a((Presenter) new f());
-        return presenter;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Presenter presenter = new Presenter();
+            presenter.a((Presenter) new d());
+            presenter.a((Presenter) new e());
+            presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.detail.b.b());
+            presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.detail.b.c());
+            presenter.a((Presenter) new com.kwad.sdk.contentalliance.tube.detail.b.a());
+            presenter.a((Presenter) new g());
+            presenter.a((Presenter) new f());
+            return presenter;
+        }
+        return (Presenter) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.contentalliance.tube.a.c
     public int e() {
-        return R.id.ksad_tube_recycler_view;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.ksad_tube_recycler_view : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.contentalliance.b
     /* renamed from: f */
     public com.kwad.sdk.contentalliance.tube.detail.a.b c() {
-        com.kwad.sdk.contentalliance.tube.detail.a.b bVar = new com.kwad.sdk.contentalliance.tube.detail.a.b();
-        bVar.f33867a = this;
-        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f32531c, 70);
-        this.f33936h = aVar;
-        aVar.a();
-        bVar.f33869c = this.f33936h;
-        bVar.f33868b = this.f33934f;
-        bVar.f33872f = this.f33933e;
-        return bVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            com.kwad.sdk.contentalliance.tube.detail.a.b bVar = new com.kwad.sdk.contentalliance.tube.detail.a.b();
+            bVar.f35630a = this;
+            com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f34294c, 70);
+            this.f35699h = aVar;
+            aVar.a();
+            bVar.f35632c = this.f35699h;
+            bVar.f35631b = this.f35697f;
+            bVar.f35635f = this.f35696e;
+            return bVar;
+        }
+        return (com.kwad.sdk.contentalliance.tube.detail.a.b) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        super.onCreateView(layoutInflater, viewGroup, bundle);
-        a(layoutInflater);
-        return this.f32531c;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            super.onCreateView(layoutInflater, viewGroup, bundle);
+            a(layoutInflater);
+            return this.f34294c;
+        }
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
-        super.onDestroyView();
-        com.kwad.sdk.contentalliance.tube.detail.a.b bVar = this.f33935g;
-        if (bVar != null) {
-            bVar.a();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroyView();
+            com.kwad.sdk.contentalliance.tube.detail.a.b bVar = this.f35698g;
+            if (bVar != null) {
+                bVar.a();
+            }
         }
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onPause() {
-        super.onPause();
-        com.kwad.sdk.core.i.a aVar = this.f33936h;
-        if (aVar != null) {
-            aVar.d();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPause();
+            com.kwad.sdk.core.i.a aVar = this.f35699h;
+            if (aVar != null) {
+                aVar.d();
+            }
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.tube.a.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
-        if (!g() && getActivity() != null) {
-            getActivity().finish();
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, bundle) == null) {
+            if (!g() && getActivity() != null) {
+                getActivity().finish();
+                return;
+            }
+            super.onViewCreated(view, bundle);
+            this.f35698g = c();
         }
-        super.onViewCreated(view, bundle);
-        this.f33935g = c();
     }
 }

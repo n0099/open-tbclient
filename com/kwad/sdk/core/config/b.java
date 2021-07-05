@@ -4,63 +4,103 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.core.config.item.a> f34154a = new ConcurrentHashMap();
+    public static Map<String, com.kwad.sdk.core.config.item.a> f35917a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1066607823, "Lcom/kwad/sdk/core/config/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1066607823, "Lcom/kwad/sdk/core/config/b;");
+                return;
+            }
+        }
+        f35917a = new ConcurrentHashMap();
+    }
 
     public static void a(SharedPreferences.Editor editor) {
-        if (editor != null) {
-            for (String str : f34154a.keySet()) {
-                f34154a.get(str).a(editor);
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, editor) == null) || editor == null) {
+            return;
+        }
+        for (String str : f35917a.keySet()) {
+            f35917a.get(str).a(editor);
         }
     }
 
     public static void a(SharedPreferences sharedPreferences) {
-        if (sharedPreferences != null) {
-            for (String str : f34154a.keySet()) {
-                f34154a.get(str).a(sharedPreferences);
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, sharedPreferences) == null) || sharedPreferences == null) {
+            return;
+        }
+        for (String str : f35917a.keySet()) {
+            f35917a.get(str).a(sharedPreferences);
         }
     }
 
     public static <T> void a(@NonNull com.kwad.sdk.core.config.item.a<T> aVar) {
-        f34154a.put(aVar.a(), aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
+            f35917a.put(aVar.a(), aVar);
+        }
     }
 
     public static void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        for (String str : f34154a.keySet()) {
-            f34154a.get(str).a(jSONObject);
+        for (String str : f35917a.keySet()) {
+            f35917a.get(str).a(jSONObject);
         }
     }
 
     @WorkerThread
     public static synchronized boolean a(Context context) {
-        synchronized (b.class) {
-            if (context != null) {
-                SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_config", 0).edit();
-                a(edit);
-                return edit.commit();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            synchronized (b.class) {
+                if (context != null) {
+                    SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_config", 0).edit();
+                    a(edit);
+                    return edit.commit();
+                }
+                return false;
             }
-            return false;
         }
+        return invokeL.booleanValue;
     }
 
     @WorkerThread
     public static synchronized void b(Context context) {
-        synchronized (b.class) {
-            if (context != null) {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
-                if (sharedPreferences != null) {
-                    a(sharedPreferences);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+            synchronized (b.class) {
+                if (context != null) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
+                    if (sharedPreferences != null) {
+                        a(sharedPreferences);
+                    }
                 }
             }
         }

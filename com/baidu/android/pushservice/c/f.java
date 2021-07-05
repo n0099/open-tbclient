@@ -1,22 +1,43 @@
 package com.baidu.android.pushservice.c;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3007a;
+    public String f3005a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3008b;
+    public String f3006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3009c;
+    public String f3007c;
 
     public f(String str, String str2, String str3) {
-        this.f3007a = "";
-        this.f3008b = "";
-        this.f3009c = "";
-        this.f3007a = str;
-        this.f3008b = str2;
-        this.f3009c = str3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3005a = "";
+        this.f3006b = "";
+        this.f3007c = "";
+        this.f3005a = str;
+        this.f3006b = str2;
+        this.f3007c = str3;
     }
 }

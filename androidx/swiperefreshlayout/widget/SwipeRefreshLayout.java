@@ -22,14 +22,25 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.ListViewCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_ANIMATION_DURATION = 300;
     public static final int ANIMATE_TO_START_DURATION = 200;
     public static final int ANIMATE_TO_TRIGGER_DURATION = 200;
@@ -45,10 +56,13 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     public static final float DRAG_RATE = 0.5f;
     public static final int INVALID_POINTER = -1;
     public static final int LARGE = 0;
+    public static final int[] LAYOUT_ATTRS;
+    public static final String LOG_TAG;
     public static final int MAX_ALPHA = 255;
     public static final float MAX_PROGRESS_ANGLE = 0.8f;
     public static final int SCALE_DOWN_DURATION = 150;
     public static final int STARTING_PROGRESS_ALPHA = 76;
+    public transient /* synthetic */ FieldHolder $fh;
     public int mActivePointerId;
     public Animation mAlphaMaxAnimation;
     public Animation mAlphaStartAnimation;
@@ -89,8 +103,6 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     public float mTotalUnconsumed;
     public int mTouchSlop;
     public boolean mUsingCustomStart;
-    public static final String LOG_TAG = SwipeRefreshLayout.class.getSimpleName();
-    public static final int[] LAYOUT_ATTRS = {16842766};
 
     /* loaded from: classes.dex */
     public interface OnChildScrollUpCallback {
@@ -102,50 +114,94 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         void onRefresh();
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(796425167, "Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(796425167, "Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;");
+                return;
+            }
+        }
+        LOG_TAG = SwipeRefreshLayout.class.getSimpleName();
+        LAYOUT_ATTRS = new int[]{16842766};
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwipeRefreshLayout(@NonNull Context context) {
         this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 
     private void animateOffsetToCorrectPosition(int i2, Animation.AnimationListener animationListener) {
-        this.mFrom = i2;
-        this.mAnimateToCorrectPosition.reset();
-        this.mAnimateToCorrectPosition.setDuration(200L);
-        this.mAnimateToCorrectPosition.setInterpolator(this.mDecelerateInterpolator);
-        if (animationListener != null) {
-            this.mCircleView.setAnimationListener(animationListener);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, this, i2, animationListener) == null) {
+            this.mFrom = i2;
+            this.mAnimateToCorrectPosition.reset();
+            this.mAnimateToCorrectPosition.setDuration(200L);
+            this.mAnimateToCorrectPosition.setInterpolator(this.mDecelerateInterpolator);
+            if (animationListener != null) {
+                this.mCircleView.setAnimationListener(animationListener);
+            }
+            this.mCircleView.clearAnimation();
+            this.mCircleView.startAnimation(this.mAnimateToCorrectPosition);
         }
-        this.mCircleView.clearAnimation();
-        this.mCircleView.startAnimation(this.mAnimateToCorrectPosition);
     }
 
     private void animateOffsetToStartPosition(int i2, Animation.AnimationListener animationListener) {
-        if (this.mScale) {
-            startScaleDownReturnToStartAnimation(i2, animationListener);
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65540, this, i2, animationListener) == null) {
+            if (this.mScale) {
+                startScaleDownReturnToStartAnimation(i2, animationListener);
+                return;
+            }
+            this.mFrom = i2;
+            this.mAnimateToStartPosition.reset();
+            this.mAnimateToStartPosition.setDuration(200L);
+            this.mAnimateToStartPosition.setInterpolator(this.mDecelerateInterpolator);
+            if (animationListener != null) {
+                this.mCircleView.setAnimationListener(animationListener);
+            }
+            this.mCircleView.clearAnimation();
+            this.mCircleView.startAnimation(this.mAnimateToStartPosition);
         }
-        this.mFrom = i2;
-        this.mAnimateToStartPosition.reset();
-        this.mAnimateToStartPosition.setDuration(200L);
-        this.mAnimateToStartPosition.setInterpolator(this.mDecelerateInterpolator);
-        if (animationListener != null) {
-            this.mCircleView.setAnimationListener(animationListener);
-        }
-        this.mCircleView.clearAnimation();
-        this.mCircleView.startAnimation(this.mAnimateToStartPosition);
     }
 
     private void createProgressView() {
-        this.mCircleView = new CircleImageView(getContext(), CIRCLE_BG_LIGHT);
-        CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(getContext());
-        this.mProgress = circularProgressDrawable;
-        circularProgressDrawable.setStyle(1);
-        this.mCircleView.setImageDrawable(this.mProgress);
-        this.mCircleView.setVisibility(8);
-        addView(this.mCircleView);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            this.mCircleView = new CircleImageView(getContext(), CIRCLE_BG_LIGHT);
+            CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(getContext());
+            this.mProgress = circularProgressDrawable;
+            circularProgressDrawable.setStyle(1);
+            this.mCircleView.setImageDrawable(this.mProgress);
+            this.mCircleView.setVisibility(8);
+            addView(this.mCircleView);
+        }
     }
 
     private void ensureTarget() {
-        if (this.mTarget == null) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.mTarget == null) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (!childAt.equals(this.mCircleView)) {
@@ -157,680 +213,1087 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     private void finishSpinner(float f2) {
-        if (f2 > this.mTotalDragDistance) {
-            setRefreshing(true, true);
-            return;
-        }
-        this.mRefreshing = false;
-        this.mProgress.setStartEndTrim(0.0f, 0.0f);
-        animateOffsetToStartPosition(this.mCurrentTargetOffsetTop, this.mScale ? null : new Animation.AnimationListener() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.5
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                SwipeRefreshLayout swipeRefreshLayout = SwipeRefreshLayout.this;
-                if (swipeRefreshLayout.mScale) {
-                    return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65543, this, f2) == null) {
+            if (f2 > this.mTotalDragDistance) {
+                setRefreshing(true, true);
+                return;
+            }
+            this.mRefreshing = false;
+            this.mProgress.setStartEndTrim(0.0f, 0.0f);
+            animateOffsetToStartPosition(this.mCurrentTargetOffsetTop, this.mScale ? null : new Animation.AnimationListener(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SwipeRefreshLayout this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
                 }
-                swipeRefreshLayout.startScaleDownAnimation(null);
-            }
 
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
+                        SwipeRefreshLayout swipeRefreshLayout = this.this$0;
+                        if (swipeRefreshLayout.mScale) {
+                            return;
+                        }
+                        swipeRefreshLayout.startScaleDownAnimation(null);
+                    }
+                }
 
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-            }
-        });
-        this.mProgress.setArrowEnabled(false);
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                    }
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                    }
+                }
+            });
+            this.mProgress.setArrowEnabled(false);
+        }
     }
 
     private boolean isAnimationRunning(Animation animation) {
-        return (animation == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, this, animation)) == null) ? (animation == null || !animation.hasStarted() || animation.hasEnded()) ? false : true : invokeL.booleanValue;
     }
 
     private void moveSpinner(float f2) {
-        this.mProgress.setArrowEnabled(true);
-        float min = Math.min(1.0f, Math.abs(f2 / this.mTotalDragDistance));
-        float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
-        float abs = Math.abs(f2) - this.mTotalDragDistance;
-        int i2 = this.mCustomSlingshotDistance;
-        if (i2 <= 0) {
-            i2 = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
-        }
-        float f3 = i2;
-        double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
-        float pow = ((float) (max2 - Math.pow(max2, 2.0d))) * 2.0f;
-        int i3 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
-        if (this.mCircleView.getVisibility() != 0) {
-            this.mCircleView.setVisibility(0);
-        }
-        if (!this.mScale) {
-            this.mCircleView.setScaleX(1.0f);
-            this.mCircleView.setScaleY(1.0f);
-        }
-        if (this.mScale) {
-            setAnimationProgress(Math.min(1.0f, f2 / this.mTotalDragDistance));
-        }
-        if (f2 < this.mTotalDragDistance) {
-            if (this.mProgress.getAlpha() > 76 && !isAnimationRunning(this.mAlphaStartAnimation)) {
-                startProgressAlphaStartAnimation();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65545, this, f2) == null) {
+            this.mProgress.setArrowEnabled(true);
+            float min = Math.min(1.0f, Math.abs(f2 / this.mTotalDragDistance));
+            float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
+            float abs = Math.abs(f2) - this.mTotalDragDistance;
+            int i2 = this.mCustomSlingshotDistance;
+            if (i2 <= 0) {
+                i2 = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
             }
-        } else if (this.mProgress.getAlpha() < 255 && !isAnimationRunning(this.mAlphaMaxAnimation)) {
-            startProgressAlphaMaxAnimation();
+            float f3 = i2;
+            double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
+            float pow = ((float) (max2 - Math.pow(max2, 2.0d))) * 2.0f;
+            int i3 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
+            if (this.mCircleView.getVisibility() != 0) {
+                this.mCircleView.setVisibility(0);
+            }
+            if (!this.mScale) {
+                this.mCircleView.setScaleX(1.0f);
+                this.mCircleView.setScaleY(1.0f);
+            }
+            if (this.mScale) {
+                setAnimationProgress(Math.min(1.0f, f2 / this.mTotalDragDistance));
+            }
+            if (f2 < this.mTotalDragDistance) {
+                if (this.mProgress.getAlpha() > 76 && !isAnimationRunning(this.mAlphaStartAnimation)) {
+                    startProgressAlphaStartAnimation();
+                }
+            } else if (this.mProgress.getAlpha() < 255 && !isAnimationRunning(this.mAlphaMaxAnimation)) {
+                startProgressAlphaMaxAnimation();
+            }
+            this.mProgress.setStartEndTrim(0.0f, Math.min(0.8f, max * 0.8f));
+            this.mProgress.setArrowScale(Math.min(1.0f, max));
+            this.mProgress.setProgressRotation((((max * 0.4f) - 0.25f) + (pow * 2.0f)) * 0.5f);
+            setTargetOffsetTopAndBottom(i3 - this.mCurrentTargetOffsetTop);
         }
-        this.mProgress.setStartEndTrim(0.0f, Math.min(0.8f, max * 0.8f));
-        this.mProgress.setArrowScale(Math.min(1.0f, max));
-        this.mProgress.setProgressRotation((((max * 0.4f) - 0.25f) + (pow * 2.0f)) * 0.5f);
-        setTargetOffsetTopAndBottom(i3 - this.mCurrentTargetOffsetTop);
     }
 
     private void onSecondaryPointerUp(MotionEvent motionEvent) {
-        int actionIndex = motionEvent.getActionIndex();
-        if (motionEvent.getPointerId(actionIndex) == this.mActivePointerId) {
-            this.mActivePointerId = motionEvent.getPointerId(actionIndex == 0 ? 1 : 0);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, motionEvent) == null) {
+            int actionIndex = motionEvent.getActionIndex();
+            if (motionEvent.getPointerId(actionIndex) == this.mActivePointerId) {
+                this.mActivePointerId = motionEvent.getPointerId(actionIndex == 0 ? 1 : 0);
+            }
         }
     }
 
     private void setColorViewAlpha(int i2) {
-        this.mCircleView.getBackground().setAlpha(i2);
-        this.mProgress.setAlpha(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65547, this, i2) == null) {
+            this.mCircleView.getBackground().setAlpha(i2);
+            this.mProgress.setAlpha(i2);
+        }
     }
 
-    private Animation startAlphaAnimation(final int i2, final int i3) {
-        Animation animation = new Animation() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.4
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
-                CircularProgressDrawable circularProgressDrawable = SwipeRefreshLayout.this.mProgress;
-                int i4 = i2;
-                circularProgressDrawable.setAlpha((int) (i4 + ((i3 - i4) * f2)));
-            }
-        };
-        animation.setDuration(300L);
-        this.mCircleView.setAnimationListener(null);
-        this.mCircleView.clearAnimation();
-        this.mCircleView.startAnimation(animation);
-        return animation;
+    private Animation startAlphaAnimation(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65549, this, i2, i3)) == null) {
+            Animation animation = new Animation(this, i2, i3) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SwipeRefreshLayout this$0;
+                public final /* synthetic */ int val$endingAlpha;
+                public final /* synthetic */ int val$startingAlpha;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$startingAlpha = i2;
+                    this.val$endingAlpha = i3;
+                }
+
+                @Override // android.view.animation.Animation
+                public void applyTransformation(float f2, Transformation transformation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                        CircularProgressDrawable circularProgressDrawable = this.this$0.mProgress;
+                        int i4 = this.val$startingAlpha;
+                        circularProgressDrawable.setAlpha((int) (i4 + ((this.val$endingAlpha - i4) * f2)));
+                    }
+                }
+            };
+            animation.setDuration(300L);
+            this.mCircleView.setAnimationListener(null);
+            this.mCircleView.clearAnimation();
+            this.mCircleView.startAnimation(animation);
+            return animation;
+        }
+        return (Animation) invokeII.objValue;
     }
 
     private void startDragging(float f2) {
-        float f3 = this.mInitialDownY;
-        int i2 = this.mTouchSlop;
-        if (f2 - f3 <= i2 || this.mIsBeingDragged) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65550, this, f2) == null) {
+            float f3 = this.mInitialDownY;
+            int i2 = this.mTouchSlop;
+            if (f2 - f3 <= i2 || this.mIsBeingDragged) {
+                return;
+            }
+            this.mInitialMotionY = f3 + i2;
+            this.mIsBeingDragged = true;
+            this.mProgress.setAlpha(76);
         }
-        this.mInitialMotionY = f3 + i2;
-        this.mIsBeingDragged = true;
-        this.mProgress.setAlpha(76);
     }
 
     private void startProgressAlphaMaxAnimation() {
-        this.mAlphaMaxAnimation = startAlphaAnimation(this.mProgress.getAlpha(), 255);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            this.mAlphaMaxAnimation = startAlphaAnimation(this.mProgress.getAlpha(), 255);
+        }
     }
 
     private void startProgressAlphaStartAnimation() {
-        this.mAlphaStartAnimation = startAlphaAnimation(this.mProgress.getAlpha(), 76);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+            this.mAlphaStartAnimation = startAlphaAnimation(this.mProgress.getAlpha(), 76);
+        }
     }
 
     private void startScaleDownReturnToStartAnimation(int i2, Animation.AnimationListener animationListener) {
-        this.mFrom = i2;
-        this.mStartingScale = this.mCircleView.getScaleX();
-        Animation animation = new Animation() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.8
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
-                SwipeRefreshLayout swipeRefreshLayout = SwipeRefreshLayout.this;
-                float f3 = swipeRefreshLayout.mStartingScale;
-                swipeRefreshLayout.setAnimationProgress(f3 + ((-f3) * f2));
-                SwipeRefreshLayout.this.moveToStart(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65553, this, i2, animationListener) == null) {
+            this.mFrom = i2;
+            this.mStartingScale = this.mCircleView.getScaleX();
+            Animation animation = new Animation(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SwipeRefreshLayout this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.animation.Animation
+                public void applyTransformation(float f2, Transformation transformation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                        SwipeRefreshLayout swipeRefreshLayout = this.this$0;
+                        float f3 = swipeRefreshLayout.mStartingScale;
+                        swipeRefreshLayout.setAnimationProgress(f3 + ((-f3) * f2));
+                        this.this$0.moveToStart(f2);
+                    }
+                }
+            };
+            this.mScaleDownToStartAnimation = animation;
+            animation.setDuration(150L);
+            if (animationListener != null) {
+                this.mCircleView.setAnimationListener(animationListener);
             }
-        };
-        this.mScaleDownToStartAnimation = animation;
-        animation.setDuration(150L);
-        if (animationListener != null) {
-            this.mCircleView.setAnimationListener(animationListener);
+            this.mCircleView.clearAnimation();
+            this.mCircleView.startAnimation(this.mScaleDownToStartAnimation);
         }
-        this.mCircleView.clearAnimation();
-        this.mCircleView.startAnimation(this.mScaleDownToStartAnimation);
     }
 
     private void startScaleUpAnimation(Animation.AnimationListener animationListener) {
-        this.mCircleView.setVisibility(0);
-        this.mProgress.setAlpha(255);
-        Animation animation = new Animation() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.2
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
-                SwipeRefreshLayout.this.setAnimationProgress(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, this, animationListener) == null) {
+            this.mCircleView.setVisibility(0);
+            this.mProgress.setAlpha(255);
+            Animation animation = new Animation(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SwipeRefreshLayout this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.animation.Animation
+                public void applyTransformation(float f2, Transformation transformation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                        this.this$0.setAnimationProgress(f2);
+                    }
+                }
+            };
+            this.mScaleAnimation = animation;
+            animation.setDuration(this.mMediumAnimationDuration);
+            if (animationListener != null) {
+                this.mCircleView.setAnimationListener(animationListener);
             }
-        };
-        this.mScaleAnimation = animation;
-        animation.setDuration(this.mMediumAnimationDuration);
-        if (animationListener != null) {
-            this.mCircleView.setAnimationListener(animationListener);
+            this.mCircleView.clearAnimation();
+            this.mCircleView.startAnimation(this.mScaleAnimation);
         }
-        this.mCircleView.clearAnimation();
-        this.mCircleView.startAnimation(this.mScaleAnimation);
     }
 
     public boolean canChildScrollUp() {
-        OnChildScrollUpCallback onChildScrollUpCallback = this.mChildScrollUpCallback;
-        if (onChildScrollUpCallback != null) {
-            return onChildScrollUpCallback.canChildScrollUp(this, this.mTarget);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            OnChildScrollUpCallback onChildScrollUpCallback = this.mChildScrollUpCallback;
+            if (onChildScrollUpCallback != null) {
+                return onChildScrollUpCallback.canChildScrollUp(this, this.mTarget);
+            }
+            View view = this.mTarget;
+            if (view instanceof ListView) {
+                return ListViewCompat.canScrollList((ListView) view, -1);
+            }
+            return view.canScrollVertically(-1);
         }
-        View view = this.mTarget;
-        if (view instanceof ListView) {
-            return ListViewCompat.canScrollList((ListView) view, -1);
-        }
-        return view.canScrollVertically(-1);
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
-        return this.mNestedScrollingChildHelper.dispatchNestedFling(f2, f3, z);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
-        return this.mNestedScrollingChildHelper.dispatchNestedPreFling(f2, f3);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
-        return this.mNestedScrollingChildHelper.dispatchNestedPreScroll(i2, i3, iArr, iArr2);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
-        return this.mNestedScrollingChildHelper.dispatchNestedScroll(i2, i3, i4, i5, iArr);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup
     public int getChildDrawingOrder(int i2, int i3) {
-        int i4 = this.mCircleViewIndex;
-        return i4 < 0 ? i3 : i3 == i2 + (-1) ? i4 : i3 >= i4 ? i3 + 1 : i3;
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
+            int i4 = this.mCircleViewIndex;
+            return i4 < 0 ? i3 : i3 == i2 + (-1) ? i4 : i3 >= i4 ? i3 + 1 : i3;
+        }
+        return invokeII.intValue;
     }
 
     @Override // android.view.ViewGroup, androidx.core.view.NestedScrollingParent
     public int getNestedScrollAxes() {
-        return this.mNestedScrollingParentHelper.getNestedScrollAxes();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mNestedScrollingParentHelper.getNestedScrollAxes() : invokeV.intValue;
     }
 
     public int getProgressCircleDiameter() {
-        return this.mCircleDiameter;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCircleDiameter : invokeV.intValue;
     }
 
     public int getProgressViewEndOffset() {
-        return this.mSpinnerOffsetEnd;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSpinnerOffsetEnd : invokeV.intValue;
     }
 
     public int getProgressViewStartOffset() {
-        return this.mOriginalOffsetTop;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mOriginalOffsetTop : invokeV.intValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
-        return this.mNestedScrollingChildHelper.hasNestedScrollingParent();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mNestedScrollingChildHelper.hasNestedScrollingParent() : invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
-        return this.mNestedScrollingChildHelper.isNestedScrollingEnabled();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mNestedScrollingChildHelper.isNestedScrollingEnabled() : invokeV.booleanValue;
     }
 
     public boolean isRefreshing() {
-        return this.mRefreshing;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRefreshing : invokeV.booleanValue;
     }
 
     public void moveToStart(float f2) {
-        int i2 = this.mFrom;
-        setTargetOffsetTopAndBottom((i2 + ((int) ((this.mOriginalOffsetTop - i2) * f2))) - this.mCircleView.getTop());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
+            int i2 = this.mFrom;
+            setTargetOffsetTopAndBottom((i2 + ((int) ((this.mOriginalOffsetTop - i2) * f2))) - this.mCircleView.getTop());
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        reset();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.onDetachedFromWindow();
+            reset();
+        }
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        ensureTarget();
-        int actionMasked = motionEvent.getActionMasked();
-        if (this.mReturningToStart && actionMasked == 0) {
-            this.mReturningToStart = false;
-        }
-        if (!isEnabled() || this.mReturningToStart || canChildScrollUp() || this.mRefreshing || this.mNestedScrollInProgress) {
-            return false;
-        }
-        if (actionMasked != 0) {
-            if (actionMasked != 1) {
-                if (actionMasked == 2) {
-                    int i2 = this.mActivePointerId;
-                    if (i2 == -1) {
-                        Log.e(LOG_TAG, "Got ACTION_MOVE event but don't have an active pointer id.");
-                        return false;
-                    }
-                    int findPointerIndex = motionEvent.findPointerIndex(i2);
-                    if (findPointerIndex < 0) {
-                        return false;
-                    }
-                    startDragging(motionEvent.getY(findPointerIndex));
-                } else if (actionMasked != 3) {
-                    if (actionMasked == 6) {
-                        onSecondaryPointerUp(motionEvent);
-                    }
-                }
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) {
+            ensureTarget();
+            int actionMasked = motionEvent.getActionMasked();
+            if (this.mReturningToStart && actionMasked == 0) {
+                this.mReturningToStart = false;
             }
-            this.mIsBeingDragged = false;
-            this.mActivePointerId = -1;
-        } else {
-            setTargetOffsetTopAndBottom(this.mOriginalOffsetTop - this.mCircleView.getTop());
-            int pointerId = motionEvent.getPointerId(0);
-            this.mActivePointerId = pointerId;
-            this.mIsBeingDragged = false;
-            int findPointerIndex2 = motionEvent.findPointerIndex(pointerId);
-            if (findPointerIndex2 < 0) {
+            if (!isEnabled() || this.mReturningToStart || canChildScrollUp() || this.mRefreshing || this.mNestedScrollInProgress) {
                 return false;
             }
-            this.mInitialDownY = motionEvent.getY(findPointerIndex2);
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked == 2) {
+                        int i2 = this.mActivePointerId;
+                        if (i2 == -1) {
+                            Log.e(LOG_TAG, "Got ACTION_MOVE event but don't have an active pointer id.");
+                            return false;
+                        }
+                        int findPointerIndex = motionEvent.findPointerIndex(i2);
+                        if (findPointerIndex < 0) {
+                            return false;
+                        }
+                        startDragging(motionEvent.getY(findPointerIndex));
+                    } else if (actionMasked != 3) {
+                        if (actionMasked == 6) {
+                            onSecondaryPointerUp(motionEvent);
+                        }
+                    }
+                }
+                this.mIsBeingDragged = false;
+                this.mActivePointerId = -1;
+            } else {
+                setTargetOffsetTopAndBottom(this.mOriginalOffsetTop - this.mCircleView.getTop());
+                int pointerId = motionEvent.getPointerId(0);
+                this.mActivePointerId = pointerId;
+                this.mIsBeingDragged = false;
+                int findPointerIndex2 = motionEvent.findPointerIndex(pointerId);
+                if (findPointerIndex2 < 0) {
+                    return false;
+                }
+                this.mInitialDownY = motionEvent.getY(findPointerIndex2);
+            }
+            return this.mIsBeingDragged;
         }
-        return this.mIsBeingDragged;
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        int measuredWidth = getMeasuredWidth();
-        int measuredHeight = getMeasuredHeight();
-        if (getChildCount() == 0) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            int measuredWidth = getMeasuredWidth();
+            int measuredHeight = getMeasuredHeight();
+            if (getChildCount() == 0) {
+                return;
+            }
+            if (this.mTarget == null) {
+                ensureTarget();
+            }
+            View view = this.mTarget;
+            if (view == null) {
+                return;
+            }
+            int paddingLeft = getPaddingLeft();
+            int paddingTop = getPaddingTop();
+            view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
+            int measuredWidth2 = this.mCircleView.getMeasuredWidth();
+            int measuredHeight2 = this.mCircleView.getMeasuredHeight();
+            int i6 = measuredWidth / 2;
+            int i7 = measuredWidth2 / 2;
+            int i8 = this.mCurrentTargetOffsetTop;
+            this.mCircleView.layout(i6 - i7, i8, i6 + i7, measuredHeight2 + i8);
         }
-        if (this.mTarget == null) {
-            ensureTarget();
-        }
-        View view = this.mTarget;
-        if (view == null) {
-            return;
-        }
-        int paddingLeft = getPaddingLeft();
-        int paddingTop = getPaddingTop();
-        view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
-        int measuredWidth2 = this.mCircleView.getMeasuredWidth();
-        int measuredHeight2 = this.mCircleView.getMeasuredHeight();
-        int i6 = measuredWidth / 2;
-        int i7 = measuredWidth2 / 2;
-        int i8 = this.mCurrentTargetOffsetTop;
-        this.mCircleView.layout(i6 - i7, i8, i6 + i7, measuredHeight2 + i8);
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, i3);
-        if (this.mTarget == null) {
-            ensureTarget();
-        }
-        View view = this.mTarget;
-        if (view == null) {
-            return;
-        }
-        view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
-        this.mCircleView.measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
-        this.mCircleViewIndex = -1;
-        for (int i4 = 0; i4 < getChildCount(); i4++) {
-            if (getChildAt(i4) == this.mCircleView) {
-                this.mCircleViewIndex = i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            if (this.mTarget == null) {
+                ensureTarget();
+            }
+            View view = this.mTarget;
+            if (view == null) {
                 return;
+            }
+            view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
+            this.mCircleView.measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
+            this.mCircleViewIndex = -1;
+            for (int i4 = 0; i4 < getChildCount(); i4++) {
+                if (getChildAt(i4) == this.mCircleView) {
+                    this.mCircleViewIndex = i4;
+                    return;
+                }
             }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedFling(View view, float f2, float f3, boolean z) {
-        return dispatchNestedFling(f2, f3, z);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedPreFling(View view, float f2, float f3) {
-        return dispatchNestedPreFling(f2, f3);
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onNestedPreScroll(View view, int i2, int i3, int[] iArr) {
-        if (i3 > 0) {
-            float f2 = this.mTotalUnconsumed;
-            if (f2 > 0.0f) {
-                float f3 = i3;
-                if (f3 > f2) {
-                    iArr[1] = i3 - ((int) f2);
-                    this.mTotalUnconsumed = 0.0f;
-                } else {
-                    this.mTotalUnconsumed = f2 - f3;
-                    iArr[1] = i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
+            if (i3 > 0) {
+                float f2 = this.mTotalUnconsumed;
+                if (f2 > 0.0f) {
+                    float f3 = i3;
+                    if (f3 > f2) {
+                        iArr[1] = i3 - ((int) f2);
+                        this.mTotalUnconsumed = 0.0f;
+                    } else {
+                        this.mTotalUnconsumed = f2 - f3;
+                        iArr[1] = i3;
+                    }
+                    moveSpinner(this.mTotalUnconsumed);
                 }
-                moveSpinner(this.mTotalUnconsumed);
             }
-        }
-        if (this.mUsingCustomStart && i3 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
-            this.mCircleView.setVisibility(8);
-        }
-        int[] iArr2 = this.mParentScrollConsumed;
-        if (dispatchNestedPreScroll(i2 - iArr[0], i3 - iArr[1], iArr2, null)) {
-            iArr[0] = iArr[0] + iArr2[0];
-            iArr[1] = iArr[1] + iArr2[1];
+            if (this.mUsingCustomStart && i3 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
+                this.mCircleView.setVisibility(8);
+            }
+            int[] iArr2 = this.mParentScrollConsumed;
+            if (dispatchNestedPreScroll(i2 - iArr[0], i3 - iArr[1], iArr2, null)) {
+                iArr[0] = iArr[0] + iArr2[0];
+                iArr[1] = iArr[1] + iArr2[1];
+            }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
-        dispatchNestedScroll(i2, i3, i4, i5, this.mParentOffsetInWindow);
-        int i6 = i5 + this.mParentOffsetInWindow[1];
-        if (i6 >= 0 || canChildScrollUp()) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            dispatchNestedScroll(i2, i3, i4, i5, this.mParentOffsetInWindow);
+            int i6 = i5 + this.mParentOffsetInWindow[1];
+            if (i6 >= 0 || canChildScrollUp()) {
+                return;
+            }
+            float abs = this.mTotalUnconsumed + Math.abs(i6);
+            this.mTotalUnconsumed = abs;
+            moveSpinner(abs);
         }
-        float abs = this.mTotalUnconsumed + Math.abs(i6);
-        this.mTotalUnconsumed = abs;
-        moveSpinner(abs);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onNestedScrollAccepted(View view, View view2, int i2) {
-        this.mNestedScrollingParentHelper.onNestedScrollAccepted(view, view2, i2);
-        startNestedScroll(i2 & 2);
-        this.mTotalUnconsumed = 0.0f;
-        this.mNestedScrollInProgress = true;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048598, this, view, view2, i2) == null) {
+            this.mNestedScrollingParentHelper.onNestedScrollAccepted(view, view2, i2);
+            startNestedScroll(i2 & 2);
+            this.mTotalUnconsumed = 0.0f;
+            this.mNestedScrollInProgress = true;
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onStartNestedScroll(View view, View view2, int i2) {
-        return (!isEnabled() || this.mReturningToStart || this.mRefreshing || (i2 & 2) == 0) ? false : true;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048599, this, view, view2, i2)) == null) ? (!isEnabled() || this.mReturningToStart || this.mRefreshing || (i2 & 2) == 0) ? false : true : invokeLLI.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onStopNestedScroll(View view) {
-        this.mNestedScrollingParentHelper.onStopNestedScroll(view);
-        this.mNestedScrollInProgress = false;
-        float f2 = this.mTotalUnconsumed;
-        if (f2 > 0.0f) {
-            finishSpinner(f2);
-            this.mTotalUnconsumed = 0.0f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, view) == null) {
+            this.mNestedScrollingParentHelper.onStopNestedScroll(view);
+            this.mNestedScrollInProgress = false;
+            float f2 = this.mTotalUnconsumed;
+            if (f2 > 0.0f) {
+                finishSpinner(f2);
+                this.mTotalUnconsumed = 0.0f;
+            }
+            stopNestedScroll();
         }
-        stopNestedScroll();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        int actionMasked = motionEvent.getActionMasked();
-        if (this.mReturningToStart && actionMasked == 0) {
-            this.mReturningToStart = false;
-        }
-        if (!isEnabled() || this.mReturningToStart || canChildScrollUp() || this.mRefreshing || this.mNestedScrollInProgress) {
-            return false;
-        }
-        if (actionMasked == 0) {
-            this.mActivePointerId = motionEvent.getPointerId(0);
-            this.mIsBeingDragged = false;
-        } else if (actionMasked == 1) {
-            int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
-            if (findPointerIndex < 0) {
-                Log.e(LOG_TAG, "Got ACTION_UP event but don't have an active pointer id.");
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (this.mReturningToStart && actionMasked == 0) {
+                this.mReturningToStart = false;
+            }
+            if (!isEnabled() || this.mReturningToStart || canChildScrollUp() || this.mRefreshing || this.mNestedScrollInProgress) {
                 return false;
             }
-            if (this.mIsBeingDragged) {
+            if (actionMasked == 0) {
+                this.mActivePointerId = motionEvent.getPointerId(0);
                 this.mIsBeingDragged = false;
-                finishSpinner((motionEvent.getY(findPointerIndex) - this.mInitialMotionY) * 0.5f);
-            }
-            this.mActivePointerId = -1;
-            return false;
-        } else if (actionMasked == 2) {
-            int findPointerIndex2 = motionEvent.findPointerIndex(this.mActivePointerId);
-            if (findPointerIndex2 < 0) {
-                Log.e(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
+            } else if (actionMasked == 1) {
+                int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
+                if (findPointerIndex < 0) {
+                    Log.e(LOG_TAG, "Got ACTION_UP event but don't have an active pointer id.");
+                    return false;
+                }
+                if (this.mIsBeingDragged) {
+                    this.mIsBeingDragged = false;
+                    finishSpinner((motionEvent.getY(findPointerIndex) - this.mInitialMotionY) * 0.5f);
+                }
+                this.mActivePointerId = -1;
                 return false;
-            }
-            float y = motionEvent.getY(findPointerIndex2);
-            startDragging(y);
-            if (this.mIsBeingDragged) {
-                float f2 = (y - this.mInitialMotionY) * 0.5f;
-                if (f2 <= 0.0f) {
+            } else if (actionMasked == 2) {
+                int findPointerIndex2 = motionEvent.findPointerIndex(this.mActivePointerId);
+                if (findPointerIndex2 < 0) {
+                    Log.e(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
-                moveSpinner(f2);
-            }
-        } else if (actionMasked == 3) {
-            return false;
-        } else {
-            if (actionMasked == 5) {
-                int actionIndex = motionEvent.getActionIndex();
-                if (actionIndex < 0) {
-                    Log.e(LOG_TAG, "Got ACTION_POINTER_DOWN event but have an invalid action index.");
-                    return false;
+                float y = motionEvent.getY(findPointerIndex2);
+                startDragging(y);
+                if (this.mIsBeingDragged) {
+                    float f2 = (y - this.mInitialMotionY) * 0.5f;
+                    if (f2 <= 0.0f) {
+                        return false;
+                    }
+                    moveSpinner(f2);
                 }
-                this.mActivePointerId = motionEvent.getPointerId(actionIndex);
-            } else if (actionMasked == 6) {
-                onSecondaryPointerUp(motionEvent);
+            } else if (actionMasked == 3) {
+                return false;
+            } else {
+                if (actionMasked == 5) {
+                    int actionIndex = motionEvent.getActionIndex();
+                    if (actionIndex < 0) {
+                        Log.e(LOG_TAG, "Got ACTION_POINTER_DOWN event but have an invalid action index.");
+                        return false;
+                    }
+                    this.mActivePointerId = motionEvent.getPointerId(actionIndex);
+                } else if (actionMasked == 6) {
+                    onSecondaryPointerUp(motionEvent);
+                }
             }
+            return true;
         }
-        return true;
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        if (Build.VERSION.SDK_INT >= 21 || !(this.mTarget instanceof AbsListView)) {
-            View view = this.mTarget;
-            if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
-                super.requestDisallowInterceptTouchEvent(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+            if (Build.VERSION.SDK_INT >= 21 || !(this.mTarget instanceof AbsListView)) {
+                View view = this.mTarget;
+                if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
+                    super.requestDisallowInterceptTouchEvent(z);
+                }
             }
         }
     }
 
     public void reset() {
-        this.mCircleView.clearAnimation();
-        this.mProgress.stop();
-        this.mCircleView.setVisibility(8);
-        setColorViewAlpha(255);
-        if (this.mScale) {
-            setAnimationProgress(0.0f);
-        } else {
-            setTargetOffsetTopAndBottom(this.mOriginalOffsetTop - this.mCurrentTargetOffsetTop);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            this.mCircleView.clearAnimation();
+            this.mProgress.stop();
+            this.mCircleView.setVisibility(8);
+            setColorViewAlpha(255);
+            if (this.mScale) {
+                setAnimationProgress(0.0f);
+            } else {
+                setTargetOffsetTopAndBottom(this.mOriginalOffsetTop - this.mCurrentTargetOffsetTop);
+            }
+            this.mCurrentTargetOffsetTop = this.mCircleView.getTop();
         }
-        this.mCurrentTargetOffsetTop = this.mCircleView.getTop();
     }
 
     public void setAnimationProgress(float f2) {
-        this.mCircleView.setScaleX(f2);
-        this.mCircleView.setScaleY(f2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
+            this.mCircleView.setScaleX(f2);
+            this.mCircleView.setScaleY(f2);
+        }
     }
 
     @Deprecated
     public void setColorScheme(@ColorRes int... iArr) {
-        setColorSchemeResources(iArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, iArr) == null) {
+            setColorSchemeResources(iArr);
+        }
     }
 
     public void setColorSchemeColors(@ColorInt int... iArr) {
-        ensureTarget();
-        this.mProgress.setColorSchemeColors(iArr);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, iArr) == null) {
+            ensureTarget();
+            this.mProgress.setColorSchemeColors(iArr);
+        }
     }
 
     public void setColorSchemeResources(@ColorRes int... iArr) {
-        Context context = getContext();
-        int[] iArr2 = new int[iArr.length];
-        for (int i2 = 0; i2 < iArr.length; i2++) {
-            iArr2[i2] = ContextCompat.getColor(context, iArr[i2]);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, iArr) == null) {
+            Context context = getContext();
+            int[] iArr2 = new int[iArr.length];
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                iArr2[i2] = ContextCompat.getColor(context, iArr[i2]);
+            }
+            setColorSchemeColors(iArr2);
         }
-        setColorSchemeColors(iArr2);
     }
 
     public void setDistanceToTriggerSync(int i2) {
-        this.mTotalDragDistance = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+            this.mTotalDragDistance = i2;
+        }
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
-        super.setEnabled(z);
-        if (z) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            super.setEnabled(z);
+            if (z) {
+                return;
+            }
+            reset();
         }
-        reset();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
-        this.mNestedScrollingChildHelper.setNestedScrollingEnabled(z);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+            this.mNestedScrollingChildHelper.setNestedScrollingEnabled(z);
+        }
     }
 
     public void setOnChildScrollUpCallback(@Nullable OnChildScrollUpCallback onChildScrollUpCallback) {
-        this.mChildScrollUpCallback = onChildScrollUpCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, onChildScrollUpCallback) == null) {
+            this.mChildScrollUpCallback = onChildScrollUpCallback;
+        }
     }
 
     public void setOnRefreshListener(@Nullable OnRefreshListener onRefreshListener) {
-        this.mListener = onRefreshListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, onRefreshListener) == null) {
+            this.mListener = onRefreshListener;
+        }
     }
 
     @Deprecated
     public void setProgressBackgroundColor(int i2) {
-        setProgressBackgroundColorSchemeResource(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
+            setProgressBackgroundColorSchemeResource(i2);
+        }
     }
 
     public void setProgressBackgroundColorSchemeColor(@ColorInt int i2) {
-        this.mCircleView.setBackgroundColor(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            this.mCircleView.setBackgroundColor(i2);
+        }
     }
 
     public void setProgressBackgroundColorSchemeResource(@ColorRes int i2) {
-        setProgressBackgroundColorSchemeColor(ContextCompat.getColor(getContext(), i2));
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            setProgressBackgroundColorSchemeColor(ContextCompat.getColor(getContext(), i2));
+        }
     }
 
     public void setProgressViewEndTarget(boolean z, int i2) {
-        this.mSpinnerOffsetEnd = i2;
-        this.mScale = z;
-        this.mCircleView.invalidate();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            this.mSpinnerOffsetEnd = i2;
+            this.mScale = z;
+            this.mCircleView.invalidate();
+        }
     }
 
     public void setProgressViewOffset(boolean z, int i2, int i3) {
-        this.mScale = z;
-        this.mOriginalOffsetTop = i2;
-        this.mSpinnerOffsetEnd = i3;
-        this.mUsingCustomStart = true;
-        reset();
-        this.mRefreshing = false;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mScale = z;
+            this.mOriginalOffsetTop = i2;
+            this.mSpinnerOffsetEnd = i3;
+            this.mUsingCustomStart = true;
+            reset();
+            this.mRefreshing = false;
+        }
     }
 
     public void setRefreshing(boolean z) {
         int i2;
-        if (z && this.mRefreshing != z) {
-            this.mRefreshing = z;
-            if (!this.mUsingCustomStart) {
-                i2 = this.mSpinnerOffsetEnd + this.mOriginalOffsetTop;
-            } else {
-                i2 = this.mSpinnerOffsetEnd;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+            if (z && this.mRefreshing != z) {
+                this.mRefreshing = z;
+                if (!this.mUsingCustomStart) {
+                    i2 = this.mSpinnerOffsetEnd + this.mOriginalOffsetTop;
+                } else {
+                    i2 = this.mSpinnerOffsetEnd;
+                }
+                setTargetOffsetTopAndBottom(i2 - this.mCurrentTargetOffsetTop);
+                this.mNotify = false;
+                startScaleUpAnimation(this.mRefreshListener);
+                return;
             }
-            setTargetOffsetTopAndBottom(i2 - this.mCurrentTargetOffsetTop);
-            this.mNotify = false;
-            startScaleUpAnimation(this.mRefreshListener);
-            return;
+            setRefreshing(z, false);
         }
-        setRefreshing(z, false);
     }
 
     public void setSize(int i2) {
-        if (i2 == 0 || i2 == 1) {
-            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            if (i2 == 0) {
-                this.mCircleDiameter = (int) (displayMetrics.density * 56.0f);
-            } else {
-                this.mCircleDiameter = (int) (displayMetrics.density * 40.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
+            if (i2 == 0 || i2 == 1) {
+                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                if (i2 == 0) {
+                    this.mCircleDiameter = (int) (displayMetrics.density * 56.0f);
+                } else {
+                    this.mCircleDiameter = (int) (displayMetrics.density * 40.0f);
+                }
+                this.mCircleView.setImageDrawable(null);
+                this.mProgress.setStyle(i2);
+                this.mCircleView.setImageDrawable(this.mProgress);
             }
-            this.mCircleView.setImageDrawable(null);
-            this.mProgress.setStyle(i2);
-            this.mCircleView.setImageDrawable(this.mProgress);
         }
     }
 
     public void setSlingshotDistance(@Px int i2) {
-        this.mCustomSlingshotDistance = i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+            this.mCustomSlingshotDistance = i2;
+        }
     }
 
     public void setTargetOffsetTopAndBottom(int i2) {
-        this.mCircleView.bringToFront();
-        ViewCompat.offsetTopAndBottom(this.mCircleView, i2);
-        this.mCurrentTargetOffsetTop = this.mCircleView.getTop();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+            this.mCircleView.bringToFront();
+            ViewCompat.offsetTopAndBottom(this.mCircleView, i2);
+            this.mCurrentTargetOffsetTop = this.mCircleView.getTop();
+        }
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean startNestedScroll(int i2) {
-        return this.mNestedScrollingChildHelper.startNestedScroll(i2);
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i2)) == null) ? this.mNestedScrollingChildHelper.startNestedScroll(i2) : invokeI.booleanValue;
     }
 
     public void startScaleDownAnimation(Animation.AnimationListener animationListener) {
-        Animation animation = new Animation() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.3
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
-                SwipeRefreshLayout.this.setAnimationProgress(1.0f - f2);
-            }
-        };
-        this.mScaleDownAnimation = animation;
-        animation.setDuration(150L);
-        this.mCircleView.setAnimationListener(animationListener);
-        this.mCircleView.clearAnimation();
-        this.mCircleView.startAnimation(this.mScaleDownAnimation);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, animationListener) == null) {
+            Animation animation = new Animation(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SwipeRefreshLayout this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.animation.Animation
+                public void applyTransformation(float f2, Transformation transformation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                        this.this$0.setAnimationProgress(1.0f - f2);
+                    }
+                }
+            };
+            this.mScaleDownAnimation = animation;
+            animation.setDuration(150L);
+            this.mCircleView.setAnimationListener(animationListener);
+            this.mCircleView.clearAnimation();
+            this.mCircleView.startAnimation(this.mScaleDownAnimation);
+        }
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
-        this.mNestedScrollingChildHelper.stopNestedScroll();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            this.mNestedScrollingChildHelper.stopNestedScroll();
+        }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwipeRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
         this.mRefreshing = false;
         this.mTotalDragDistance = -1.0f;
         this.mParentScrollConsumed = new int[2];
         this.mParentOffsetInWindow = new int[2];
         this.mActivePointerId = -1;
         this.mCircleViewIndex = -1;
-        this.mRefreshListener = new Animation.AnimationListener() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.1
+        this.mRefreshListener = new Animation.AnimationListener(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SwipeRefreshLayout this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 OnRefreshListener onRefreshListener;
-                SwipeRefreshLayout swipeRefreshLayout = SwipeRefreshLayout.this;
-                if (swipeRefreshLayout.mRefreshing) {
-                    swipeRefreshLayout.mProgress.setAlpha(255);
-                    SwipeRefreshLayout.this.mProgress.start();
-                    SwipeRefreshLayout swipeRefreshLayout2 = SwipeRefreshLayout.this;
-                    if (swipeRefreshLayout2.mNotify && (onRefreshListener = swipeRefreshLayout2.mListener) != null) {
-                        onRefreshListener.onRefresh();
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
+                    SwipeRefreshLayout swipeRefreshLayout = this.this$0;
+                    if (swipeRefreshLayout.mRefreshing) {
+                        swipeRefreshLayout.mProgress.setAlpha(255);
+                        this.this$0.mProgress.start();
+                        SwipeRefreshLayout swipeRefreshLayout2 = this.this$0;
+                        if (swipeRefreshLayout2.mNotify && (onRefreshListener = swipeRefreshLayout2.mListener) != null) {
+                            onRefreshListener.onRefresh();
+                        }
+                        SwipeRefreshLayout swipeRefreshLayout3 = this.this$0;
+                        swipeRefreshLayout3.mCurrentTargetOffsetTop = swipeRefreshLayout3.mCircleView.getTop();
+                        return;
                     }
-                    SwipeRefreshLayout swipeRefreshLayout3 = SwipeRefreshLayout.this;
-                    swipeRefreshLayout3.mCurrentTargetOffsetTop = swipeRefreshLayout3.mCircleView.getTop();
-                    return;
+                    swipeRefreshLayout.reset();
                 }
-                swipeRefreshLayout.reset();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                }
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-            }
-        };
-        this.mAnimateToCorrectPosition = new Animation() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.6
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
-                int i2;
-                SwipeRefreshLayout swipeRefreshLayout = SwipeRefreshLayout.this;
-                if (!swipeRefreshLayout.mUsingCustomStart) {
-                    i2 = swipeRefreshLayout.mSpinnerOffsetEnd - Math.abs(swipeRefreshLayout.mOriginalOffsetTop);
-                } else {
-                    i2 = swipeRefreshLayout.mSpinnerOffsetEnd;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
                 }
-                SwipeRefreshLayout swipeRefreshLayout2 = SwipeRefreshLayout.this;
-                int i3 = swipeRefreshLayout2.mFrom;
-                SwipeRefreshLayout.this.setTargetOffsetTopAndBottom((i3 + ((int) ((i2 - i3) * f2))) - swipeRefreshLayout2.mCircleView.getTop());
-                SwipeRefreshLayout.this.mProgress.setArrowScale(1.0f - f2);
             }
         };
-        this.mAnimateToStartPosition = new Animation() { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.7
+        this.mAnimateToCorrectPosition = new Animation(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SwipeRefreshLayout this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
             @Override // android.view.animation.Animation
             public void applyTransformation(float f2, Transformation transformation) {
-                SwipeRefreshLayout.this.moveToStart(f2);
+                int i4;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                    SwipeRefreshLayout swipeRefreshLayout = this.this$0;
+                    if (!swipeRefreshLayout.mUsingCustomStart) {
+                        i4 = swipeRefreshLayout.mSpinnerOffsetEnd - Math.abs(swipeRefreshLayout.mOriginalOffsetTop);
+                    } else {
+                        i4 = swipeRefreshLayout.mSpinnerOffsetEnd;
+                    }
+                    SwipeRefreshLayout swipeRefreshLayout2 = this.this$0;
+                    int i5 = swipeRefreshLayout2.mFrom;
+                    this.this$0.setTargetOffsetTopAndBottom((i5 + ((int) ((i4 - i5) * f2))) - swipeRefreshLayout2.mCircleView.getTop());
+                    this.this$0.mProgress.setArrowScale(1.0f - f2);
+                }
+            }
+        };
+        this.mAnimateToStartPosition = new Animation(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.7
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SwipeRefreshLayout this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.view.animation.Animation
+            public void applyTransformation(float f2, Transformation transformation) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                    this.this$0.moveToStart(f2);
+                }
             }
         };
         this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
@@ -841,15 +1304,15 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         this.mCircleDiameter = (int) (displayMetrics.density * 40.0f);
         createProgressView();
         setChildrenDrawingOrderEnabled(true);
-        int i2 = (int) (displayMetrics.density * 64.0f);
-        this.mSpinnerOffsetEnd = i2;
-        this.mTotalDragDistance = i2;
+        int i4 = (int) (displayMetrics.density * 64.0f);
+        this.mSpinnerOffsetEnd = i4;
+        this.mTotalDragDistance = i4;
         this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
         this.mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
-        int i3 = -this.mCircleDiameter;
-        this.mCurrentTargetOffsetTop = i3;
-        this.mOriginalOffsetTop = i3;
+        int i5 = -this.mCircleDiameter;
+        this.mCurrentTargetOffsetTop = i5;
+        this.mOriginalOffsetTop = i5;
         moveToStart(1.0f);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, LAYOUT_ATTRS);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));
@@ -857,15 +1320,17 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     private void setRefreshing(boolean z, boolean z2) {
-        if (this.mRefreshing != z) {
-            this.mNotify = z2;
-            ensureTarget();
-            this.mRefreshing = z;
-            if (z) {
-                animateOffsetToCorrectPosition(this.mCurrentTargetOffsetTop, this.mRefreshListener);
-            } else {
-                startScaleDownAnimation(this.mRefreshListener);
-            }
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.mRefreshing == z) {
+            return;
+        }
+        this.mNotify = z2;
+        ensureTarget();
+        this.mRefreshing = z;
+        if (z) {
+            animateOffsetToCorrectPosition(this.mCurrentTargetOffsetTop, this.mRefreshListener);
+        } else {
+            startScaleDownAnimation(this.mRefreshListener);
         }
     }
 }

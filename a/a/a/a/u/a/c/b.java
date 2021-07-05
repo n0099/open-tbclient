@@ -5,6 +5,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.qq.e.ads.nativ.express2.NativeExpressAD2;
@@ -15,96 +21,153 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends a.a.a.a.c<NativeExpressADData2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<NativeExpressADData2, String> n;
 
     /* loaded from: classes.dex */
     public class a implements NativeExpressAD2.AdLoadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f1174a;
+        public final /* synthetic */ FunAdSlot f1177a;
 
-        public a(FunAdSlot funAdSlot) {
-            this.f1174a = funAdSlot;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ b f1178b;
+
+        public a(b bVar, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1178b = bVar;
+            this.f1177a = funAdSlot;
         }
 
         @Override // com.qq.e.ads.nativ.express2.NativeExpressAD2.AdLoadListener
         public void onLoadSuccess(List<NativeExpressADData2> list) {
-            a.a.a.a.y.d.a();
-            if (list != null && !list.isEmpty()) {
-                b.this.f1014h.b();
-                NativeExpressADData2 nativeExpressADData2 = list.get(0);
-                b bVar = b.this;
-                String sid = this.f1174a.getSid();
-                if (bVar != null) {
-                    nativeExpressADData2.setAdEventListener(new c(bVar, nativeExpressADData2, sid));
-                    nativeExpressADData2.setMediaListener(new d(bVar));
-                    nativeExpressADData2.render();
-                    b.this.l.b(nativeExpressADData2, this.f1174a.getSid());
-                    return;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                a.a.a.a.y.d.a();
+                if (list != null && !list.isEmpty()) {
+                    this.f1178b.f1017h.b();
+                    NativeExpressADData2 nativeExpressADData2 = list.get(0);
+                    b bVar = this.f1178b;
+                    String sid = this.f1177a.getSid();
+                    if (bVar != null) {
+                        nativeExpressADData2.setAdEventListener(new c(bVar, nativeExpressADData2, sid));
+                        nativeExpressADData2.setMediaListener(new d(bVar));
+                        nativeExpressADData2.render();
+                        this.f1178b.l.b(nativeExpressADData2, this.f1177a.getSid());
+                        return;
+                    }
+                    throw null;
                 }
-                throw null;
+                this.f1178b.f1017h.a("NoFill");
+                this.f1178b.b(0, "NoFill");
             }
-            b.this.f1014h.a("NoFill");
-            b.this.b(0, "NoFill");
         }
 
         @Override // com.qq.e.ads.AbstractAD.BasicADListener
         public void onNoAD(AdError adError) {
-            a.a.a.a.y.d.b("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-            b.this.f1014h.a(Integer.valueOf(adError.getErrorCode()));
-            b.this.b(adError.getErrorCode(), adError.getErrorMsg());
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
+                a.a.a.a.y.d.b("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.f1178b.f1017h.a(Integer.valueOf(adError.getErrorCode()));
+                this.f1178b.b(adError.getErrorCode(), adError.getErrorMsg());
+            }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(e.a aVar) {
         super(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((e.a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
         this.n = new HashMap<>();
     }
 
     @Override // a.a.a.a.c
     public a.a.a.a.x.a a(e.a aVar) {
-        return new a.a.a.a.x.f(aVar);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? new a.a.a.a.x.f(aVar) : (a.a.a.a.x.a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
     @Override // a.a.a.a.c
     public boolean a(Activity activity, ViewGroup viewGroup, String str, NativeExpressADData2 nativeExpressADData2) {
-        NativeExpressADData2 nativeExpressADData22 = nativeExpressADData2;
-        this.f1014h.g();
-        this.n.put(nativeExpressADData22, str);
-        View adView = nativeExpressADData22.getAdView();
-        if (adView.getParent() != null) {
-            ((ViewGroup) adView.getParent()).removeView(adView);
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, nativeExpressADData2)) == null) {
+            NativeExpressADData2 nativeExpressADData22 = nativeExpressADData2;
+            this.f1017h.g();
+            this.n.put(nativeExpressADData22, str);
+            View adView = nativeExpressADData22.getAdView();
+            if (adView.getParent() != null) {
+                ((ViewGroup) adView.getParent()).removeView(adView);
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(adView);
+            return true;
         }
-        viewGroup.removeAllViews();
-        viewGroup.addView(adView);
-        return true;
+        return invokeLLLL.booleanValue;
     }
 
     @Override // a.a.a.a.c
     public void b(Context context, FunAdSlot funAdSlot) {
-        int expressWidth = funAdSlot.getExpressWidth();
-        int expressHeight = funAdSlot.getExpressHeight();
-        if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-            throw new RuntimeException("Invalid expressWidth and expressHeight.");
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            NativeExpressAD2 nativeExpressAD2 = new NativeExpressAD2(context.getApplicationContext(), this.f1018i.f1345c, new a(this, funAdSlot));
+            this.f1017h.a(funAdSlot, this.f1018i);
+            nativeExpressAD2.setAdSize(expressWidth, expressHeight);
+            VideoOption2.Builder builder = new VideoOption2.Builder();
+            builder.setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? VideoOption2.AutoPlayPolicy.ALWAYS : VideoOption2.AutoPlayPolicy.WIFI).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setMaxVideoDuration(0).setMinVideoDuration(0);
+            nativeExpressAD2.setVideoOption2(builder.build());
+            nativeExpressAD2.loadAd(1);
+            g();
         }
-        NativeExpressAD2 nativeExpressAD2 = new NativeExpressAD2(context.getApplicationContext(), this.f1015i.f1342c, new a(funAdSlot));
-        this.f1014h.a(funAdSlot, this.f1015i);
-        nativeExpressAD2.setAdSize(expressWidth, expressHeight);
-        VideoOption2.Builder builder = new VideoOption2.Builder();
-        builder.setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? VideoOption2.AutoPlayPolicy.ALWAYS : VideoOption2.AutoPlayPolicy.WIFI).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setMaxVideoDuration(0).setMinVideoDuration(0);
-        nativeExpressAD2.setVideoOption2(builder.build());
-        nativeExpressAD2.loadAd(1);
-        g();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // a.a.a.a.c
     public void b(NativeExpressADData2 nativeExpressADData2) {
-        NativeExpressADData2 nativeExpressADData22 = nativeExpressADData2;
-        this.n.remove(nativeExpressADData22);
-        if (nativeExpressADData22 != null) {
-            nativeExpressADData22.destroy();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADData2) == null) {
+            NativeExpressADData2 nativeExpressADData22 = nativeExpressADData2;
+            this.n.remove(nativeExpressADData22);
+            if (nativeExpressADData22 != null) {
+                nativeExpressADData22.destroy();
+            }
         }
     }
 }

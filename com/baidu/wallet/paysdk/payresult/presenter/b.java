@@ -5,10 +5,10 @@ import com.baidu.wallet.paysdk.datamodel.Compliance;
 import com.baidu.wallet.paysdk.ui.widget.FeedbackDialog;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         boolean a();
 
@@ -34,8 +34,8 @@ public interface b {
     }
 
     /* renamed from: com.baidu.wallet.paysdk.payresult.presenter.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0260b {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0285b {
         void finishPage();
 
         void initActionBar(String str);

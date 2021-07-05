@@ -1,202 +1,368 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableList;
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.j0;
-import d.g.c.c.m;
-import d.g.c.c.n0;
+import d.f.d.a.n;
+import d.f.d.c.m;
+import d.f.d.c.o1;
+import d.f.d.c.u0;
+import d.f.d.c.y0;
 import java.io.Serializable;
 import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class ImmutableCollection<E> extends AbstractCollection<E> implements Serializable {
-    public static final Object[] EMPTY_ARRAY = new Object[0];
+    public static /* synthetic */ Interceptable $ic;
+    public static final Object[] EMPTY_ARRAY;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a<E> extends b<E> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f31201a;
+        public Object[] f33090a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31202b;
+        public int f33091b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f31203c;
+        public boolean f33092c;
 
         public a(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             m.b(i2, "initialCapacity");
-            this.f31201a = new Object[i2];
-            this.f31202b = 0;
+            this.f33090a = new Object[i2];
+            this.f33091b = 0;
         }
 
         @Override // com.google.common.collect.ImmutableCollection.b
         public b<E> b(E... eArr) {
-            j0.b(eArr);
-            g(this.f31202b + eArr.length);
-            System.arraycopy(eArr, 0, this.f31201a, this.f31202b, eArr.length);
-            this.f31202b += eArr.length;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eArr)) == null) {
+                u0.b(eArr);
+                g(this.f33091b + eArr.length);
+                System.arraycopy(eArr, 0, this.f33090a, this.f33091b, eArr.length);
+                this.f33091b += eArr.length;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
 
         public a<E> f(E e2) {
-            n.p(e2);
-            g(this.f31202b + 1);
-            Object[] objArr = this.f31201a;
-            int i2 = this.f31202b;
-            this.f31202b = i2 + 1;
-            objArr[i2] = e2;
-            return this;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
+                n.p(e2);
+                g(this.f33091b + 1);
+                Object[] objArr = this.f33090a;
+                int i2 = this.f33091b;
+                this.f33091b = i2 + 1;
+                objArr[i2] = e2;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public final void g(int i2) {
-            Object[] objArr = this.f31201a;
-            if (objArr.length < i2) {
-                this.f31201a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
-                this.f31203c = false;
-            } else if (this.f31203c) {
-                this.f31201a = (Object[]) objArr.clone();
-                this.f31203c = false;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+                Object[] objArr = this.f33090a;
+                if (objArr.length < i2) {
+                    this.f33090a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
+                    this.f33092c = false;
+                } else if (this.f33092c) {
+                    this.f33090a = (Object[]) objArr.clone();
+                    this.f33092c = false;
+                }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class b<E> {
-        public static int e(int i2, int i3) {
-            if (i3 >= 0) {
-                int i4 = i2 + (i2 >> 1) + 1;
-                if (i4 < i3) {
-                    i4 = Integer.highestOneBit(i3 - 1) << 1;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (i4 < 0) {
-                    return Integer.MAX_VALUE;
-                }
-                return i4;
             }
-            throw new AssertionError("cannot store more than MAX_VALUE elements");
+        }
+
+        public static int e(int i2, int i3) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i2, i3)) == null) {
+                if (i3 >= 0) {
+                    int i4 = i2 + (i2 >> 1) + 1;
+                    if (i4 < i3) {
+                        i4 = Integer.highestOneBit(i3 - 1) << 1;
+                    }
+                    if (i4 < 0) {
+                        return Integer.MAX_VALUE;
+                    }
+                    return i4;
+                }
+                throw new AssertionError("cannot store more than MAX_VALUE elements");
+            }
+            return invokeII.intValue;
         }
 
         public abstract b<E> a(E e2);
 
         public b<E> b(E... eArr) {
-            for (E e2 : eArr) {
-                a(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eArr)) == null) {
+                for (E e2 : eArr) {
+                    a(e2);
+                }
+                return this;
             }
-            return this;
+            return (b) invokeL.objValue;
         }
 
         public b<E> c(Iterable<? extends E> iterable) {
-            for (E e2 : iterable) {
-                a(e2);
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iterable)) == null) {
+                for (E e2 : iterable) {
+                    a(e2);
+                }
+                return this;
             }
-            return this;
+            return (b) invokeL.objValue;
         }
 
         public b<E> d(Iterator<? extends E> it) {
-            while (it.hasNext()) {
-                a(it.next());
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, it)) == null) {
+                while (it.hasNext()) {
+                    a(it.next());
+                }
+                return this;
             }
-            return this;
+            return (b) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1891655736, "Lcom/google/common/collect/ImmutableCollection;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1891655736, "Lcom/google/common/collect/ImmutableCollection;");
+                return;
+            }
+        }
+        EMPTY_ARRAY = new Object[0];
+    }
+
+    public ImmutableCollection() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
     public final boolean add(E e2) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
     public final boolean addAll(Collection<? extends E> collection) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 
     public ImmutableList<E> asList() {
-        return isEmpty() ? ImmutableList.of() : ImmutableList.asImmutableList(toArray());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? isEmpty() ? ImmutableList.of() : ImmutableList.asImmutableList(toArray()) : (ImmutableList) invokeV.objValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
     public final void clear() {
-        throw new UnsupportedOperationException();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public abstract boolean contains(Object obj);
 
     public int copyIntoArray(Object[] objArr, int i2) {
-        c1<E> it = iterator();
-        while (it.hasNext()) {
-            objArr[i2] = it.next();
-            i2++;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, objArr, i2)) == null) {
+            o1<E> it = iterator();
+            while (it.hasNext()) {
+                objArr[i2] = it.next();
+                i2++;
+            }
+            return i2;
         }
-        return i2;
+        return invokeLI.intValue;
     }
 
     public Object[] internalArray() {
-        return null;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (Object[]) invokeV.objValue;
     }
 
     public int internalArrayEnd() {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeV.intValue;
     }
 
     public int internalArrayStart() {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeV.intValue;
     }
 
     public abstract boolean isPartialView();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public abstract c1<E> iterator();
+    public abstract o1<E> iterator();
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
     public final boolean remove(Object obj) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
     public final boolean removeAll(Collection<?> collection) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
     public final boolean retainAll(Collection<?> collection) {
-        throw new UnsupportedOperationException();
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final Object[] toArray() {
-        return toArray(EMPTY_ARRAY);
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? toArray(EMPTY_ARRAY) : (Object[]) invokeV.objValue;
     }
 
     public Object writeReplace() {
-        return new ImmutableList.SerializedForm(toArray());
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new ImmutableList.SerializedForm(toArray()) : invokeV.objValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final <T> T[] toArray(T[] tArr) {
-        n.p(tArr);
-        int size = size();
-        if (tArr.length < size) {
-            Object[] internalArray = internalArray();
-            if (internalArray != null) {
-                return (T[]) n0.a(internalArray, internalArrayStart(), internalArrayEnd(), tArr);
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, tArr)) == null) {
+            n.p(tArr);
+            int size = size();
+            if (tArr.length < size) {
+                Object[] internalArray = internalArray();
+                if (internalArray != null) {
+                    return (T[]) y0.a(internalArray, internalArrayStart(), internalArrayEnd(), tArr);
+                }
+                tArr = (T[]) u0.g(tArr, size);
+            } else if (tArr.length > size) {
+                tArr[size] = null;
             }
-            tArr = (T[]) j0.e(tArr, size);
-        } else if (tArr.length > size) {
-            tArr[size] = null;
+            copyIntoArray(tArr, 0);
+            return tArr;
         }
-        copyIntoArray(tArr, 0);
-        return tArr;
+        return (T[]) ((Object[]) invokeL.objValue);
     }
 }

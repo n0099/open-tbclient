@@ -3,6 +3,12 @@ package com.win.opensdk;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -12,51 +18,74 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes7.dex */
 public class M extends AsyncTask {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public O f40658a;
+    public O f42401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40659b;
+    public final /* synthetic */ String f42402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ boolean f40660c;
+    public final /* synthetic */ boolean f42403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Q f40661d;
+    public final /* synthetic */ Q f42404d;
 
     public M(Q q, String str, boolean z) {
-        this.f40661d = q;
-        this.f40659b = str;
-        this.f40660c = z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q, str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f42404d = q;
+        this.f42402b = str;
+        this.f42403c = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00a6 A[Catch: all -> 0x00cc, TRY_LEAVE, TryCatch #5 {all -> 0x00cc, blocks: (B:41:0x00a0, B:43:0x00a6), top: B:78:0x00a0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00bb A[Catch: Exception -> 0x00b7, TryCatch #2 {Exception -> 0x00b7, blocks: (B:45:0x00b3, B:49:0x00bb, B:51:0x00c3), top: B:73:0x00b3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c3 A[Catch: Exception -> 0x00b7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00b7, blocks: (B:45:0x00b3, B:49:0x00bb, B:51:0x00c3), top: B:73:0x00b3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x00b3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00aa A[Catch: all -> 0x00d0, TRY_LEAVE, TryCatch #0 {all -> 0x00d0, blocks: (B:43:0x00a4, B:45:0x00aa), top: B:75:0x00a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00bf A[Catch: Exception -> 0x00bb, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00c7 A[Catch: Exception -> 0x00bb, TRY_LEAVE, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // android.os.AsyncTask
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Object doInBackground(Object[] objArr) {
+        InterceptResult invokeL;
         HttpURLConnection httpURLConnection;
         InputStream inputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         Bitmap decodeStream;
         ByteArrayOutputStream byteArrayOutputStream2;
-        Void[] voidArr = (Void[]) objArr;
-        int i2 = 1;
-        try {
-            httpURLConnection = (HttpURLConnection) new URL(this.f40659b).openConnection();
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+            Void[] voidArr = (Void[]) objArr;
+            int i2 = 1;
+            try {
+                httpURLConnection = (HttpURLConnection) new URL(this.f42402b).openConnection();
+            } catch (Throwable th) {
+                th = th;
+                httpURLConnection = null;
+            }
             try {
                 try {
-                    if (this.f40660c) {
+                    if (this.f42403c) {
                         httpURLConnection.connect();
                         int contentLength = httpURLConnection.getContentLength();
                         if (contentLength <= 0) {
-                            this.f40658a = new O("Invalid content length. The URL is probably not pointing to a file");
+                            this.f42401a = new O("Invalid content length. The URL is probably not pointing to a file");
                             cancel(true);
                         }
                         inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
@@ -78,11 +107,11 @@ public class M extends AsyncTask {
                             }
                             decodeStream = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
                             byteArrayOutputStream2 = byteArrayOutputStream;
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (Throwable th2) {
+                            th = th2;
                             try {
                                 if (!isCancelled()) {
-                                    this.f40658a = new O(th);
+                                    this.f42401a = new O(th);
                                     cancel(true);
                                 }
                                 if (httpURLConnection != null) {
@@ -101,13 +130,13 @@ public class M extends AsyncTask {
                                     inputStream.close();
                                 }
                                 return null;
-                            } catch (Throwable th2) {
+                            } catch (Throwable th3) {
                                 if (httpURLConnection != null) {
                                     try {
                                         httpURLConnection.disconnect();
                                     } catch (Exception e3) {
                                         e3.printStackTrace();
-                                        throw th2;
+                                        throw th3;
                                     }
                                 }
                                 if (byteArrayOutputStream != null) {
@@ -117,7 +146,7 @@ public class M extends AsyncTask {
                                 if (inputStream != null) {
                                     inputStream.close();
                                 }
-                                throw th2;
+                                throw th3;
                             }
                         }
                     } else {
@@ -140,8 +169,8 @@ public class M extends AsyncTask {
                         inputStream.close();
                     }
                     return decodeStream;
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th4) {
+                    th = th4;
                     byteArrayOutputStream = null;
                     if (!isCancelled()) {
                     }
@@ -153,8 +182,8 @@ public class M extends AsyncTask {
                     }
                     return null;
                 }
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th5) {
+                th = th5;
                 inputStream = null;
                 byteArrayOutputStream = null;
                 if (!isCancelled()) {
@@ -167,75 +196,85 @@ public class M extends AsyncTask {
                 }
                 return null;
             }
-        } catch (Throwable th5) {
-            th = th5;
-            httpURLConnection = null;
         }
+        return invokeL.objValue;
     }
 
     @Override // android.os.AsyncTask
     public void onCancelled() {
-        this.f40661d.f40698b.remove(this.f40659b);
-        ((j) this.f40661d.f40697a).a(this.f40658a);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f42404d.f42441b.remove(this.f42402b);
+            ((j) this.f42404d.f42440a).a(this.f42401a);
+        }
     }
 
     @Override // android.os.AsyncTask
     public void onPostExecute(Object obj) {
         File file;
         File file2;
-        Bitmap bitmap = (Bitmap) obj;
-        if (bitmap == null) {
-            ((j) this.f40661d.f40697a).a(new O("downloaded file could not be decoded as bitmap"));
-        } else {
-            j jVar = (j) this.f40661d.f40697a;
-            PBSplash pBSplash = jVar.f40855b;
-            if (pBSplash.j) {
-                file = pBSplash.l;
-                if (!file.exists()) {
-                    file2 = jVar.f40855b.l;
-                    i iVar = new i(jVar);
-                    Bitmap.CompressFormat compressFormat = jVar.f40854a;
-                    if (file2.isDirectory()) {
-                        new O("the specified path points to a directory, should be a file");
-                    } else if (file2.exists()) {
-                        new O("file already exists, write operation cancelled");
-                    } else {
-                        File parentFile = file2.getParentFile();
-                        if (parentFile.exists() || parentFile.mkdirs()) {
-                            try {
-                                if (file2.createNewFile()) {
-                                    new N(file2, bitmap, compressFormat, iVar).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-                                } else {
-                                    new O("could not create file");
-                                }
-                            } catch (IOException e2) {
-                                new O(e2);
-                            }
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            Bitmap bitmap = (Bitmap) obj;
+            if (bitmap == null) {
+                ((j) this.f42404d.f42440a).a(new O("downloaded file could not be decoded as bitmap"));
+            } else {
+                j jVar = (j) this.f42404d.f42440a;
+                PBSplash pBSplash = jVar.f42598b;
+                if (pBSplash.j) {
+                    file = pBSplash.l;
+                    if (!file.exists()) {
+                        file2 = jVar.f42598b.l;
+                        i iVar = new i(jVar);
+                        Bitmap.CompressFormat compressFormat = jVar.f42597a;
+                        if (file2.isDirectory()) {
+                            new O("the specified path points to a directory, should be a file");
+                        } else if (file2.exists()) {
+                            new O("file already exists, write operation cancelled");
                         } else {
-                            new O("could not create parent directory");
+                            File parentFile = file2.getParentFile();
+                            if (parentFile.exists() || parentFile.mkdirs()) {
+                                try {
+                                    if (file2.createNewFile()) {
+                                        new N(file2, bitmap, compressFormat, iVar).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
+                                    } else {
+                                        new O("could not create file");
+                                    }
+                                } catch (IOException e2) {
+                                    new O(e2);
+                                }
+                            } else {
+                                new O("could not create parent directory");
+                            }
                         }
                     }
-                }
-            } else {
-                PBSplashListener pBSplashListener = pBSplash.f40689e;
-                if (pBSplashListener != null) {
-                    pBSplash.f40687c = bitmap;
-                    pBSplashListener.onLoaded();
-                    jVar.f40855b.f40693i = true;
+                } else {
+                    PBSplashListener pBSplashListener = pBSplash.f42432e;
+                    if (pBSplashListener != null) {
+                        pBSplash.f42430c = bitmap;
+                        pBSplashListener.onLoaded();
+                        jVar.f42598b.f42436i = true;
+                    }
                 }
             }
+            this.f42404d.f42441b.remove(this.f42402b);
+            System.gc();
         }
-        this.f40661d.f40698b.remove(this.f40659b);
-        System.gc();
     }
 
     @Override // android.os.AsyncTask
     public void onPreExecute() {
-        this.f40661d.f40698b.add(this.f40659b);
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f42404d.f42441b.add(this.f42402b);
+        }
     }
 
     @Override // android.os.AsyncTask
     public void onProgressUpdate(Object[] objArr) {
-        ((j) this.f40661d.f40697a).a(((Integer[]) objArr)[0].intValue());
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
+            ((j) this.f42404d.f42440a).a(((Integer[]) objArr)[0].intValue());
+        }
     }
 }

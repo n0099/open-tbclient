@@ -1,16 +1,36 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class q implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23058a;
+    public final /* synthetic */ FeedbackEditActivity f23574a;
 
     public q(FeedbackEditActivity feedbackEditActivity) {
-        this.f23058a = feedbackEditActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedbackEditActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f23574a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,27 +40,30 @@ public final class q implements View.OnClickListener {
         List list2;
         HashMap hashMap;
         List list3;
-        z = this.f23058a.v;
-        if (z) {
-            return;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            z = this.f23574a.v;
+            if (z) {
+                return;
+            }
+            list = this.f23574a.q;
+            if (list.size() < 3) {
+                FeedbackEditActivity feedbackEditActivity = this.f23574a;
+                list2 = feedbackEditActivity.q;
+                list2.size();
+                FeedbackEditActivity.s(feedbackEditActivity);
+                return;
+            }
+            com.baidu.ufosdk.f.c.a("picShotLayout3 --> to browse picture!");
+            hashMap = this.f23574a.r;
+            String str = (String) hashMap.get("2");
+            if (str != null && str.length() != 0) {
+                FeedbackEditActivity.a(this.f23574a, str, 2);
+                return;
+            }
+            FeedbackEditActivity feedbackEditActivity2 = this.f23574a;
+            list3 = feedbackEditActivity2.q;
+            feedbackEditActivity2.a((byte[]) list3.get(2), false, 2);
         }
-        list = this.f23058a.q;
-        if (list.size() < 3) {
-            FeedbackEditActivity feedbackEditActivity = this.f23058a;
-            list2 = feedbackEditActivity.q;
-            list2.size();
-            FeedbackEditActivity.s(feedbackEditActivity);
-            return;
-        }
-        com.baidu.ufosdk.f.c.a("picShotLayout3 --> to browse picture!");
-        hashMap = this.f23058a.r;
-        String str = (String) hashMap.get("2");
-        if (str != null && str.length() != 0) {
-            FeedbackEditActivity.a(this.f23058a, str, 2);
-            return;
-        }
-        FeedbackEditActivity feedbackEditActivity2 = this.f23058a;
-        list3 = feedbackEditActivity2.q;
-        feedbackEditActivity2.a((byte[]) list3.get(2), false, 2);
     }
 }

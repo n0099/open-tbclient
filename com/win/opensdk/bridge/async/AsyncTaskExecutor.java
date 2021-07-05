@@ -2,38 +2,83 @@ package com.win.opensdk.bridge.async;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public class AsyncTaskExecutor {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadPoolExecutor f40791a = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+    public static final ThreadPoolExecutor f42534a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1675886100, "Lcom/win/opensdk/bridge/async/AsyncTaskExecutor;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1675886100, "Lcom/win/opensdk/bridge/async/AsyncTaskExecutor;");
+                return;
+            }
+        }
+        f42534a = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+    }
+
+    public AsyncTaskExecutor() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     public static boolean isMainThread() {
-        return Looper.myLooper() == Looper.getMainLooper();
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Looper.myLooper() == Looper.getMainLooper() : invokeV.booleanValue;
     }
 
     public static void runOnAsyncThread(Runnable runnable) {
-        if (runnable == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, runnable) == null) || runnable == null) {
             return;
         }
-        f40791a.execute(runnable);
+        f42534a.execute(runnable);
     }
 
     public static void runOnMainThread(Runnable runnable) {
-        if (runnable == null) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65540, null, runnable) == null) || runnable == null) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(runnable);
     }
 
     public static void shutDown() {
-        ThreadPoolExecutor threadPoolExecutor = f40791a;
-        if (threadPoolExecutor == null || threadPoolExecutor.isShutdown() || f40791a.isTerminating()) {
+        ThreadPoolExecutor threadPoolExecutor;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || (threadPoolExecutor = f42534a) == null || threadPoolExecutor.isShutdown() || f42534a.isTerminating()) {
             return;
         }
-        f40791a.shutdown();
+        f42534a.shutdown();
     }
 }

@@ -1,68 +1,106 @@
 package com.ta.utdid2.device;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ta.utdid2.a.a.f;
 import java.util.zip.Adler32;
 /* loaded from: classes7.dex */
 public class b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f39939a;
+    public static a f41682a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f39940d = new Object();
+    public static final Object f41683d;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(61108061, "Lcom/ta/utdid2/device/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(61108061, "Lcom/ta/utdid2/device/b;");
+                return;
+            }
+        }
+        f41683d = new Object();
+    }
 
     public static long a(a aVar) {
-        if (aVar != null) {
-            String format = String.format("%s%s%s%s%s", aVar.getUtdid(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.getImei());
-            if (f.isEmpty(format)) {
-                return 0L;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
+            if (aVar != null) {
+                String format = String.format("%s%s%s%s%s", aVar.getUtdid(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.getImei());
+                if (f.isEmpty(format)) {
+                    return 0L;
+                }
+                Adler32 adler32 = new Adler32();
+                adler32.reset();
+                adler32.update(format.getBytes());
+                return adler32.getValue();
             }
-            Adler32 adler32 = new Adler32();
-            adler32.reset();
-            adler32.update(format.getBytes());
-            return adler32.getValue();
+            return 0L;
         }
-        return 0L;
+        return invokeL.longValue;
     }
 
     public static synchronized a b(Context context) {
-        synchronized (b.class) {
-            if (f39939a != null) {
-                return f39939a;
-            } else if (context != null) {
-                a a2 = a(context);
-                f39939a = a2;
-                return a2;
-            } else {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            synchronized (b.class) {
+                if (f41682a != null) {
+                    return f41682a;
+                }
+                if (context != null) {
+                    a a2 = a(context);
+                    f41682a = a2;
+                    return a2;
+                }
                 return null;
             }
         }
+        return (a) invokeL.objValue;
     }
 
     public static a a(Context context) {
-        if (context != null) {
-            synchronized (f39940d) {
-                String value = c.a(context).getValue();
-                if (f.isEmpty(value)) {
-                    return null;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context != null) {
+                synchronized (f41683d) {
+                    String value = c.a(context).getValue();
+                    if (f.isEmpty(value)) {
+                        return null;
+                    }
+                    if (value.endsWith("\n")) {
+                        value = value.substring(0, value.length() - 1);
+                    }
+                    a aVar = new a();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    String imei = com.ta.utdid2.a.a.d.getImei(context);
+                    String imsi = com.ta.utdid2.a.a.d.getImsi(context);
+                    aVar.b(imei);
+                    aVar.setImei(imei);
+                    aVar.b(currentTimeMillis);
+                    aVar.setImsi(imsi);
+                    aVar.c(value);
+                    aVar.a(a(aVar));
+                    return aVar;
                 }
-                if (value.endsWith("\n")) {
-                    value = value.substring(0, value.length() - 1);
-                }
-                a aVar = new a();
-                long currentTimeMillis = System.currentTimeMillis();
-                String imei = com.ta.utdid2.a.a.d.getImei(context);
-                String imsi = com.ta.utdid2.a.a.d.getImsi(context);
-                aVar.b(imei);
-                aVar.setImei(imei);
-                aVar.b(currentTimeMillis);
-                aVar.setImsi(imsi);
-                aVar.c(value);
-                aVar.a(a(aVar));
-                return aVar;
             }
+            return null;
         }
-        return null;
+        return (a) invokeL.objValue;
     }
 }

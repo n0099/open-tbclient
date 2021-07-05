@@ -2,9 +2,17 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class BdSailorConfig implements INoProGuard {
-    public static final BdWebkitManager.a BUILTIN_WEBKIT = BdWebkitManager.a.T7;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final BdWebkitManager.a BUILTIN_WEBKIT;
     public static final String KEY_ADBLOCK_RULES = "adblock_rules";
     public static final String KEY_ANTI_HIJACK_SERVER = "29_5";
     public static final String KEY_ANTI_HIJACK_WHITE_LIST = "29_6";
@@ -77,4 +85,35 @@ public final class BdSailorConfig implements INoProGuard {
     public static final String SAILOR_URL_SAFE_CHECK_CLOUD_SWITCH = "searchbox_urlsafe_switch_pr";
     public static final int SAILOR_URL_SAFE_CHECK_CLOUD_SWITCH_CLOSE = 0;
     public static final int SAILOR_URL_SAFE_CHECK_CLOUD_SWITCH_OPEN = 1;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1812519581, "Lcom/baidu/browser/sailor/BdSailorConfig;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1812519581, "Lcom/baidu/browser/sailor/BdSailorConfig;");
+                return;
+            }
+        }
+        BUILTIN_WEBKIT = BdWebkitManager.a.f4343c;
+    }
+
+    public BdSailorConfig() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }
